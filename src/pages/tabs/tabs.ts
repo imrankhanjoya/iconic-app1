@@ -8,6 +8,7 @@ import { Tab3Root } from '../pages';
 import { Tab4Root } from '../pages';
 import { Tab5Root } from '../pages';
 import { HomePage } from '../../pages/home/home';
+import { NewsPage } from '../../pages/news/news';
 
 @IonicPage()
 @Component({
