@@ -49,4 +49,8 @@ export class HomePage {
 
   }
 
+  gotoAskquestion(){
+    this.navCtrl.push('AskquestionPage');
+  }
+
 }

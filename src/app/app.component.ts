@@ -45,6 +45,8 @@ export class MyApp {
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' },
     { title: 'News', component: 'NewsPage' },
+    { title: 'Askquestion', component: 'AskquestionPage' },
+    { title: 'Questionlist', component: 'QuestionlistPage' },
     { title: 'Home', component: 'HomePage' }
   ]
 
@@ -66,10 +68,12 @@ export class MyApp {
     this.translate.setDefaultLang('hi');
 
     if (this.translate.getBrowserLang() !== undefined) {
-      this.translate.use(this.translate.getBrowserLang());
+      //this.translate.use(this.translate.getBrowserLang());
+      this.translate.use('hi');
     } else {
       this.translate.use('hi'); // Set your language here
     }
+
 
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
