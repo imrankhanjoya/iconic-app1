@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 import { MandiProvider } from '../../providers/mandi/mandi';
 
 /**
@@ -37,8 +36,7 @@ export class HomePage {
   	}
 
   }
-
-
+  
   getMandiData(){
     this.mandi.mandiRates().subscribe((resp) => {
       

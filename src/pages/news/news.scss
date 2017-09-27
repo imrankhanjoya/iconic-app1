@@ -1,3 +1,49 @@
-page-news {
+ .pTitle{
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 4%;
+    padding-bottom: 2%;
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .pContent{
+    padding-left: 4%;
+    font-size: 1.0rem;
+    color: green;
+  }
+  .description{
+    padding: 4%;
 
+  }
+  .pClass{
+    font-size: 1.0rem;
+    color: green;
+  }
+  .contentClass{
+    padding-top: 2px;
+    font-size: 1.2rem;
+  }
+  .sinchai{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  .slidImage{
+    text-align: center;
+    background: url('/assets/img/News/drawable-hdpi/bitmap.png') no-repeat;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 25%;
+    padding-bottom: 25%;
+  }
+  .card{
+    border-radius: 5px;
+    margin-bottom: 10%;
+  }
+  .imagelist{
+    padding: 2%;
+    height: auto;
+    width: auto;
+  
 }
