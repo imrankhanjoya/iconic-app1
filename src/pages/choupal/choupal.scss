@@ -4,14 +4,16 @@ page-choupal {
   padding: 20%;
   }
   .topTitle{
-    font-size: 1rem;
-    margin-right: 10%;
-    color: #4a4a4a;
+   
    background-color: #f8f8f8;
   }
+ .mainp{
+    background-color: rgba(249, 238, 40, 0.67);;
+ }
   .topTitle p{
     padding: 2%;
   }
+
   .time{
     margin-left: 5%;
   color:  #649305;
@@ -45,4 +47,16 @@ page-choupal {
     padding: 20%;
 
   }
+  .cricleimage {
+     height: 13vw;
+    width: 14vw;
+    float:left;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px gray;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+} 
 }
