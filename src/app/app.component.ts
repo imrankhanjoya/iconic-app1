@@ -46,6 +46,7 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' },
     { title: 'News', component: 'NewsPage' },
     { title: 'Askquestion', component: 'AskquestionPage' },
+    { title: 'Weather', component: 'WeatherPage' },
     { title: 'Questionlist', component: 'QuestionlistPage' },
     { title: 'Home', component: 'HomePage' }
   ]

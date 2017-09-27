@@ -53,4 +53,8 @@ export class HomePage {
     this.navCtrl.push('AskquestionPage');
   }
 
+  gotoWeatherPage(){
+    this.navCtrl.push('WeatherPage');
+  }
+
 }
