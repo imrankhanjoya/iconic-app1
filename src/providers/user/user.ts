@@ -28,6 +28,7 @@ import { Api } from '../api/api';
 @Injectable()
 export class User {
   _user: any;
+  _otp: any;
 
   constructor(public http: Http, public api: Api) {
   }
@@ -73,6 +74,34 @@ export class User {
       });
 
     return seq;
+  }
+
+  /**
+   * Send a POST request to our otp endpoint with the data
+   * the user entered on the form.
+   */
+  otp(accountInfo: any) {
+    let seq = this.api.post('signup', accountInfo).share();
+
+    seq
+      .map(res => res.json())
+      .subscribe(res => {
+        // If the API returned a successful response, mark the user as logged in
+        if (res.status == 'success') {
+          this.otpset(res);
+        }
+      }, err => {
+        console.error('ERROR', err);
+      });
+
+    return seq;
+  }
+
+  /**
+   * Record OTP status of user
+   */
+  otpset(res) {
+    this._otp = res;
   }
 
   /**

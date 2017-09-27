@@ -1,0 +1,38 @@
+page-home {
+
+	.toolbarCol{
+    text-align: center;
+    color: white;
+    border: 1px solid;
+    border-color: #0a1200;
+  }
+  .mClass{
+    align-content: center;
+    text-align:center;
+  }
+  .toolbarCol img{
+    padding-left: 15%;
+    padding-right: 15%;
+
+  }
+  .gridView{
+        background-color:  #101c00;
+        color: white;
+       text-align: center;
+      }
+.fabButton{
+  margin-bottom: 32%;
+//  padding-bottom: 32%;
+}
+  .bulb-icon{
+    width: auto;
+    height: auto;
+  }
+
+  .none{
+    display: none;
+  }
+  .slider {
+    display: block;
+  }
+}

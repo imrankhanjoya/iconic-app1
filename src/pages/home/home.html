@@ -1,0 +1,444 @@
+<!-- <ion-header>
+<ion-toolbar color="secondary" >
+<button ion-button menuToggle>
+<ion-icon name="people"></ion-icon>
+</button>
+<ion-buttons end>
+<button ion-button icon-only color="royal" (click)="gotoSearchProduct()">
+<ion-icon name="search"></ion-icon>
+</button>
+</ion-buttons>
+<ion-title>hello Ramesh</ion-title>
+<ion-buttons end>
+<button ion-button icon-only color="royal" (click)="presentPopover($event)">
+<ion-icon name="map" ></ion-icon>
+</button>
+</ion-buttons>
+</ion-toolbar>
+</ion-header> -->
+
+<!--
+  Generated template for the ChatPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header no-border>
+<ion-toolbar color="fulldark">
+<button ion-button menuToggle>
+<ion-icon name="people"></ion-icon>
+</button>
+<ion-buttons end>
+<button ion-button icon-only color="royal" (click)="gotoSearchProduct()">
+<img src="assets/img/agri bolo icon/hdpi/wallet.png">
+</button>
+</ion-buttons>
+<ion-title>hello Ramesh</ion-title>
+<ion-buttons end>
+<button ion-button icon-only color="royal" (click)="presentPopover($event)">
+  <img src="assets/img/agri bolo icon/hdpi/notification.png">
+</button>
+</ion-buttons>
+<ion-buttons end>
+<button ion-button icon-only color="royal" (click)="presentPopover($event)">
+  <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
+</button>
+</ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="main-content">
+  <ion-grid  class="gridView">
+  <ion-row class="gridRow">
+    <ion-col class="toolbarCol">
+      <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
+      मौसम
+    </ion-col>
+    <ion-col class="toolbarCol">
+      <img src="assets/img/agri bolo icon/hdpi/Group 21.png" >
+      मण्डी
+    </ion-col>
+    <ion-col class="toolbarCol">
+      <img src="assets/img/agri bolo icon/hdpi/rishi sevna.png">
+      कृषि सेवाए
+    </ion-col>
+    <ion-col class="toolbarCol">
+      <img (click)="toggleMenu()" src="assets/img/agri bolo icon/hdpi/Group 37.png">
+      कम
+    </ion-col>
+  </ion-row>
+  <ion-row class="gridRow" *ngIf="topMenu" >
+    <ion-col class="toolbarCol">
+      <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
+      प्रबंधित
+    </ion-col>
+    <ion-col class="toolbarCol">
+      <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
+      वीडियो
+    </ion-col>
+    <ion-col class="toolbarCol" (click)="gotoProfile()">
+      <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
+      विशेषज्ञ से पूछें
+    </ion-col>
+    <ion-col class="toolbarCol">
+
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          मौसम
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card (click)="gotoWeather()">
+      <ion-row>
+        <ion-col col-5 class="colCandigare">
+        12 June 2017 09:00 AM
+        <div class="main">
+        <h3> चंडीगढ़ </h3>
+        <p> 16˚c </p>
+        <h3 > भारी बारिश </h3>
+      </div>
+        </ion-col>
+        <ion-col col-7 class="imageCol">
+       <img  src="assets/img/agri bolo icon/hdpi/Group 2.png"/>
+        </ion-col>
+      </ion-row>
+
+    <ion-grid>
+      <ion-row padding-left>
+        <ion-col  class="day-content">
+        <p>सोमवार </p>
+        <img src="assets/img/agri bolo icon/hdpi/Group 9.png" alt="your image" class="icon">
+        <p> 5' </p>
+        <p> 10˚</p>
+        </ion-col>
+        <ion-col  class="day-content">
+        <p>मंगलवार </p>
+        <img src="assets/img/agri bolo icon/hdpi/Group.png" alt="your image" class="icon">
+        <p> 10˚ </p>
+        <p> 60' </p>
+        </ion-col>
+        <ion-col  class="day-content">
+        <p>बुधवार </p>
+        <img src="assets/img/agri bolo icon/hdpi/Group.png" alt="your image" class="icon">
+        <p> 5' </p>
+        <p> 10˚ </p>
+        </ion-col>
+        <ion-col  class="day-content">
+        <p>गुरूवार </p>
+        <img src="assets/img/agri bolo icon/hdpi/Group.png" alt="your image" class="icon">
+        <p> 10˚</p>
+        <p> 60' </p>
+        </ion-col>
+        <ion-col  class="day-content">
+        <p>शुक्रवार </p>
+        <img src="assets/img/agri bolo icon/hdpi/Oval 23 + Group.png" alt="your image" class="icon">
+        <p> 10˚ </p>
+        <p> 60' </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+    <ion-row>
+    <ion-col col-1>
+      <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">  
+    </ion-col>
+    <ion-col col-11>
+    <p class="sources" >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+    
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          मण्डी
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card >
+    <ion-grid>
+  <ion-row>
+    <ion-col col-3>
+      <img src="assets/img/channa/drawable-hdpi/page_1.png"/>
+    </ion-col>
+    <ion-col col-6>
+      <p padding-left class="MandiTitle">मक्का</p>
+      <h1 padding-left>₹480-400</h1>
+      <p padding-left>प्रति क्विंटल</p>
+    </ion-col>
+    <ion-col col-3>
+      20/07/2017
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 class="mandiGrap">
+    <p> ₹ प्रति क्विंटल</p>
+    <p> 500</p>
+    <p> 400</p>
+    <p> 300</p>
+    <p> 200</p>
+    </ion-col>
+    <ion-col col-9>
+      <img src="assets/img/grapImage.png" class="grapImage"/>
+    </ion-col>
+  </ion-row>
+  <div class="july">
+  <ion-row  padding-left class="MandyDay">
+    <ion-col>
+    15 जुलाई
+    </ion-col>
+    <ion-col>
+      15 जुलाई
+    </ion-col>
+    <ion-col>
+      15 जुलाई
+    </ion-col>
+    <ion-col>
+      15 जुलाई
+    </ion-col>
+    <ion-col>
+      15 जुलाई
+    </ion-col>
+    <ion-col>
+      15 जुलाई
+    </ion-col>
+  </ion-row>
+  </div>
+  </ion-grid>
+  <ion-grid>
+  <ion-row padding-top>
+    <ion-col col-2>
+      <img src="assets/img/channa/drawable-hdpi/page_1.png" class="grapImage"/>
+    </ion-col>
+    <ion-col col-3>
+      <p  >चना</p>
+      <h3 >₹480-400</h3>
+      <p >प्रति क्विंटल</p>
+    </ion-col>
+    <ion-col col-2>
+    </ion-col>
+    <ion-col col-2>
+      <img src="assets/img/flowering/drawable-hdpi/mustard_flowering.png" class="grapImage"/>
+    </ion-col>
+    <ion-col col-3>
+      <p >सरसों</p>
+      <h3 >₹480-400</h3>
+      <p >प्रति क्विंटल</p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="colShow" (click)="gotoMandi()">और देखें</p>
+    </ion-col>
+    <ion-col>
+      <p class="colShow" (click)="gotoMandi()">और देखें</p>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+  </ion-card>
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          विशेषज्ञ
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-slides (ionSlideDidChange)="slideChanged()" [slidesPerView]="'auto'">
+    <ion-slide  class="sliShow" (click)="gotoSeed()">
+    <div class="slidImage">
+      <p >खेती किसानी </p>
+      <p >मक्का के भाव में गिरावट के आसार</p>
+      <p class="pDate">27/02/2017,05.20pm</p>
+      <p class="readMore" >और देखें</p>
+  </div>
+  </ion-slide>
+  <ion-slide class="sliShow">
+    <div class="slidImage">
+      <p >खेती किसानी </p>
+      <p >मक्का के भाव में गिरावट के आसार</p>
+      <p class="pDate">27/02/2017,05.20pm</p>
+      <p class="readMore">और देखें</p>
+  </div>
+  </ion-slide>
+  <ion-slide class="sliShow">
+    <div class="slidImage">
+      <p >खेती किसानी </p>
+      <p >मक्का के भाव में गिरावट के आसार</p>
+      <p class="pDate">27/02/2017,05.20pm</p>
+      <p class="readMore">और देखें</p>
+  </div>
+  </ion-slide>
+  </ion-slides>
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          समाचार
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card>
+  <img src="assets/img/farmerBaba/drawable-hdpi/farmers_story_fb_647_042816100340.png" class="kishan"/>
+  <p padding-top padding-left class="panjab">पंजाब में किसानों का कर्ज माफ</p>
+  <p padding-left class="pti">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
+  <ion-grid>
+    <ion-row padding-top>
+      <ion-col col-3>
+        <img src="assets/img/reserveBank/drawable-hdpi/msid_59110701_width_400_resizemode_4_nbt_image.png" />
+      </ion-col>
+      <ion-col col-9 class="aarunJatliy">
+        <h3 >बड़े लोन डिफॉल्टर्स की लिस्ट बनाने में जुटा है आरबीआई: अरुण जेटल</h3>
+        <p >पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-top>
+      <ion-col col-3>
+        <img src="assets/img/reserveBank/drawable-hdpi/msid_59110701_width_400_resizemode_4_nbt_image.png"/>
+      </ion-col>
+      <ion-col col-9 class="aarunJatliy">
+        <h3 >बड़े लोन डिफॉल्टर्स की लिस्ट बनाने में जुटा ह आरबीआई: अरुण जेटल</h3>
+        <p >पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
+      </ion-col>
+
+    </ion-row>
+    <p class="showAll" (click)="gotoNewsPage()">अधिक पढ़ें</p>
+  </ion-grid>
+  </ion-card>
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          बाजार
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-slides (ionSlideDidChange)="gotoslide()" [slidesPerView]="'auto'">
+  <ion-slide class="slideItem" (click)="gotoSarsoDetails()">
+    <ion-card >
+    <img src="assets/img/sarso/drawable-hdpi/mustard_during_pregnancy.png"/>
+    <p class="sarsTitle">सरसों</p>
+    <p class="detailSar"> विनती पर मुल्य</p>
+  </ion-card>
+  </ion-slide>
+  <ion-slide class="slideItem">
+    <ion-card>
+    <img src="assets/img/sarso/drawable-hdpi/mustard_during_pregnancy.png"/>
+    <p class="sarsTitle">सरसों</p>
+    <p class="detailSar"> विनती पर मुल्य</p>
+  </ion-card>
+  </ion-slide><ion-slide class="slideItem">
+    <ion-card>
+    <img src="assets/img/sarso/drawable-hdpi/mustard_during_pregnancy.png"/>
+    <p class="sarsTitle">सरसों</p>
+    <p class="detailSar"> विनती पर मुल्य</p>
+  </ion-card>
+
+  </ion-slide>
+  <ion-slide class="slideItem" >
+    <ion-card  class="cardShow" (click)="gotoCategory()">
+      <h2>Show All</h2>
+  </ion-card>
+
+  </ion-slide>
+  </ion-slides>
+  <ion-card class="dialog">
+  <ion-grid >
+  <ion-row>
+    <ion-col col-3 >
+      <ion-thumbnail item-start class="avatar">
+     <img src="assets/img/watring_can/drawable-hdpi/watering_can.png" >
+     </ion-thumbnail>
+        </ion-col>
+    <ion-col col-9>
+      प्रधानमंत्री फसल बीमा योजना
+      (पी एम एस बी वाई)
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+  <p class="full">Show All</p>
+  </ion-card>
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          वीडियो
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="vedioCard">
+  <p padding>विदेशी निवेश,बड़ा नारा भी और बड़ी चिंता भी </p>
+  <video width="400" controls>
+    <source src="assets/img/The_Chronicles_of_Narnia_Prince.mp4" type="video/mp4">
+  </video>
+  <p class="full" (click)="gotoVedioPage()">Show All</p>
+  </ion-card >
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col class="mClass">
+          कृषि केंद्र
+      </ion-col>
+      <ion-col>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card >
+  <div id="map" style="width:400px;height:400px;background:yellow">
+</div>
+  <p>कृषि केंद्र 10 किमी दूर है..</p>
+  <!-- <button ion-button small class="button" padding-left padding-right>Small</button> -->
+  </ion-card >
+
+
+
+  </div>
+</ion-content>
+
