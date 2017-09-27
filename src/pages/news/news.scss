@@ -1,3 +1,4 @@
+page-news {
  .pTitle{
     padding-left: 4%;
     padding-right: 4%;
@@ -9,7 +10,7 @@
   .pContent{
     padding-left: 4%;
     font-size: 1.0rem;
-    color: green !important;
+    color: green;
   }
   .description{
     padding: 4%;
@@ -17,7 +18,7 @@
   }
   .pClass{
     font-size: 1.0rem;
-    color: green ;
+    color: green;
   }
   .contentClass{
     padding-top: 2px;
@@ -46,4 +47,5 @@
     height: auto;
     width: auto;
   
+}
 }
