@@ -18,8 +18,9 @@
 .toolbar-background, .tabbar{
 	background-color:#0a1200;
 	background: #0a1200 !important;
+	color:#FFFFFF;
 }
 
-.tabbar{
-	color: #weight;
+.tabbar,.tabs-md .tab-button-text{
+	color: #FFFFFF;
 }
