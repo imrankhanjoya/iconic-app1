@@ -15,7 +15,7 @@ import { QuestionsProvider } from '../../providers/questions/questions';
   templateUrl: 'askquestion.html',
 })
 export class AskquestionPage {
-   public  questionaddData = {user_id:'',title:'',description:'',privacy:''};
+   public  questionaddData = {user_id:90,title:'',description:'',privacy:''};
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
   }
