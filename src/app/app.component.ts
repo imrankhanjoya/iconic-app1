@@ -49,7 +49,9 @@ export class MyApp {
     { title: 'Questionlist', component: 'QuestionlistPage' },
     { title: 'Home', component: 'HomePage' },
     { title: 'services', component: 'ServicesPage' },
-    { title: 'servic-detalis', component: 'ServicDetalisPage' }
+    { title: 'servic-detalis', component: 'ServicDetalisPage' },
+    { title: 'mandi', component: 'MandiPage' },
+
 
 
   ]

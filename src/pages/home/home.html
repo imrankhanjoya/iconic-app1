@@ -30,7 +30,7 @@
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
       मौसम
     </ion-col>
-    <ion-col class="toolbarCol">
+    <ion-col class="toolbarCol" (click)="gotoAskquestion()">
       <img src="assets/img/agri bolo icon/hdpi/Group 21.png" >
       मण्डी
     </ion-col>
@@ -44,7 +44,7 @@
     </ion-col>
   </ion-row>
   <ion-row class="gridRow" *ngIf="topMenu" >
-    <ion-col class="toolbarCol">
+    <ion-col class="toolbarCol" (click)="gotomandiPage()">
       <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
       प्रबंधित
     </ion-col>
@@ -52,7 +52,7 @@
       <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
       वीडियो
     </ion-col>
-    <ion-col class="toolbarCol" (click)="gotoAskquestion()">
+    <ion-col class="toolbarCol" >
       <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
       विशेषज्ञ से पूछें
     </ion-col>

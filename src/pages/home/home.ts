@@ -76,5 +76,7 @@ export class HomePage {
   gotoservicesPage(){
     this.navCtrl.push('ServicesPage');
   }
-
+gotomandiPage(){
+    this.navCtrl.push('MandiPage');
+  }
 }
