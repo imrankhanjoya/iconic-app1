@@ -25,11 +25,11 @@
 
 
 <ion-content padding>
-<ion-card class="mainCard">
-    <img src="assets/img/drawable-hdpi/bitmap.png" class="imagelist"/>
-    <p class="pTitle">सिंचाई में दूषित पानी का इस्तेमाल</p>
-    <p class="pContent">India | गुरुवार जुलाई 6, 2017 05:09 AM IST</p>
-    <p class="description">भारत व चार अन्य देश दुनिया में सबसे ज्यादा फसलों की सिंचाई अपशिष्ट पानी से करते हैं. इससे लाखों लोगों के स्वास्थ्य पर गंभीर असर पड़ता है …</p>
+  <ion-card   *ngFor="let data of newsData.data; let i=index " class="mainCard" >
+    <img src={{data.image}} class="imagelist"/>
+    <p class="pTitle">{{data.title}}</p>
+    <p class="pContent">India |{{data.created}} IST</p>
+    <p class="description">{{data.description}}</p>
   </ion-card>
 </ion-content>
 <!-- <ion-card   *ngFor="let data of NewsDataList; let i=index " class="mainCard" >

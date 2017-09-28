@@ -19,7 +19,7 @@ export class HomePage {
 
   public mandiData: { status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public newsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-	public topMenu:any;
+  public topMenu:any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider) {
       this.getMandiData();
       this.getNews();
@@ -54,7 +54,6 @@ export class HomePage {
   getNews(){
     this.news.homeNews().map(res => res.json()).subscribe((res) => {
       
-        
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
@@ -65,6 +64,7 @@ export class HomePage {
       });
 
   }
+  
 
   gotoAskquestion(){
     this.navCtrl.push('AskquestionPage');
@@ -72,6 +72,9 @@ export class HomePage {
 
   gotoWeatherPage(){
     this.navCtrl.push('WeatherPage');
+  }
+  gotoservicesPage(){
+    this.navCtrl.push('ServicesPage');
   }
 
 }

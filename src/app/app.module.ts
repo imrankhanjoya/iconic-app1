@@ -16,6 +16,7 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { NewsProvider } from '../providers/news/news';
 import { MandiProvider } from '../providers/mandi/mandi';
+import { KrishProvider } from '../providers/krish/krish';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -71,7 +72,8 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NewsProvider,
-    MandiProvider
+    MandiProvider,
+    KrishProvider
   ]
 })
 export class AppModule { }

@@ -3,7 +3,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
-
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
@@ -48,7 +47,11 @@ export class MyApp {
     { title: 'Askquestion', component: 'AskquestionPage' },
     { title: 'Weather', component: 'WeatherPage' },
     { title: 'Questionlist', component: 'QuestionlistPage' },
-    { title: 'Home', component: 'HomePage' }
+    { title: 'Home', component: 'HomePage' },
+    { title: 'services', component: 'ServicesPage' },
+    { title: 'servic-detalis', component: 'ServicDetalisPage' }
+
+
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
