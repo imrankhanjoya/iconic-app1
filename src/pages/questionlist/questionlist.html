@@ -14,27 +14,27 @@
 
 
 <ion-content padding>
-<ion-card>
+<ion-card *ngFor="let data of questionsDatalist.data;let i=index ">
       <ion-grid>
   <ion-row class="rowQuestion">
-    <ion-col col-2>
+    <ion-col col-3>
        प्रश्न :
     </ion-col>
-    <ion-col col-10>
-    कृषि में युग्म पैदावार किसे कहते है?
+    <ion-col col-9>
+    <p>{{data.title}}</p>
     </ion-col>
   </ion-row>
   <ion-row class="ans">
-    <ion-col col-2 class="rowQuestion">
+    <ion-col col-3 class="rowQuestion">
       उत्तर :
     </ion-col>
-    <ion-col col-10>
-    कार्तार स्ट्रॉ लापर द्वारा प्रदान की जाने वाली खरापन मशीन के रूप में कार्य करना शामिल है, जहां  काटने!
+    <ion-col col-9>
+    <p  style="margin-top: 9px;">{{data.description}}</p>
     </ion-col>
   </ion-row>
   </ion-grid>
+  </ion-card>
   <div class="block">
 <button ion-button block  >अपना प्रश्न पोस्ट करें</button>
 </div>
-  </ion-card>
 </ion-content>
