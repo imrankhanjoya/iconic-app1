@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
+import { NewsProvider } from '../../providers/news/news';
 
 /**
  * Generated class for the HomePage page.
@@ -17,9 +18,11 @@ import { MandiProvider } from '../../providers/mandi/mandi';
 export class HomePage {
 
   public mandiData: { status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public newsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
 	public topMenu:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider) {
       this.getMandiData();
+      this.getNews();
   		this.topMenu = false;
   }
 
@@ -38,10 +41,24 @@ export class HomePage {
   }
   
   getMandiData(){
-    this.mandi.mandiRates().subscribe((resp) => {
+    this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
       
-        this.mandiData.data = resp;
-        console.log(this.mandiData.data);
+        this.mandiData.data = res;
+        //console.log(this.mandiData.data);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
+  }
+  getNews(){
+    this.news.homeNews().map(res => res.json()).subscribe((res) => {
+      
+        
+        this.newsData.data = res.data;
+        this.newsData.msg = res.msg;
+        this.newsData.status = res.status;
+        console.log(this.newsData.data);
       }, (err) => {
         // Unable to log in
         console.log(err);
