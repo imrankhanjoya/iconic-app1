@@ -17,7 +17,7 @@
    <div class = "list">
    <ion-card class="card">
    <div class = "item">
-    <p class="text">प्रश्न</p>
+    <ion-label>प्रश्न</ion-label> 
     <ion-input [(ngModel)]="questionaddData.title" value=""  name="title" 
     placeholder="कृषि में युग्म पैदावार किसे कहते है?"></ion-input>
    
@@ -25,7 +25,7 @@
 	</ion-card>
 	<ion-card class="card">
    <div class = "item">
-   <p class="text">वितरण</p>
+    <ion-label>वितरण</ion-label> 
     <ion-input [(ngModel)]="questionaddData.description" value="" name="description" 
     placeholder="कृषि में युग्म पैदावार किसे कहते है?"></ion-input>
    
@@ -33,8 +33,8 @@
 	</ion-card>
 	<ion-card class="card">
    <div class = "item">
-    <p class="text">टैग</p>
-    <ion-input [(ngModel)]="questionaddData.privacy" value="" name="privacy" 
+    <ion-label>privacy</ion-label>
+    <ion-input [(ngModel)]="questionaddData.privacy" value="public" name="privacy" 
     placeholder="कृषि में युग्म पैदावार किसे कहते है?"></ion-input>
 	</div>
 	</ion-card>
