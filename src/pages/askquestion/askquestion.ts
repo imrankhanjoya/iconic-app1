@@ -15,17 +15,18 @@ import { QuestionsProvider } from '../../providers/questions/questions';
   templateUrl: 'askquestion.html',
 })
 export class AskquestionPage {
-   public  questionaddData = {user_id:90,title:'',description:'',privacy:''};
+  public  questionaddData = {user_id:90,title:'',description:'',privacy:''};
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
   }
 
   ionViewDidLoad() {
-  //	this.getaskquestions();
+    //this.getaskquestions();
     console.log('ionViewDidLoad AskquestionPage');
   }
    getaskquestions(){
    	// console.log('ionViewDidLoad '+this.questionaddData.title);
+
 
     this.QuestionsProvider.askquestion(this.questionaddData).map(res => res.json()).subscribe((res) => {
       
