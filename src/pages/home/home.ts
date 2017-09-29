@@ -88,9 +88,10 @@ export class HomePage {
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
         this.kendraHome.data = res.data.results[0];
+        console.log(res.data);
         this.geoLoc.lat = res.data.results[0].geometry.location.lat;
         this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-        console.log(this.kendraHome.data.geometry.location);
+        console.log(this.geoLoc);
       }, (err) => {
         // Unable to log in
         console.log(err);

@@ -37,25 +37,29 @@ export class QuestionsProvider {
     return seq;
   }
    askquestion(questionaddData:any) {
-         console.log('ionViewDidLoad ');
+      console.log('questionaddData '+questionaddData);
+      let body = new FormData();
+      body.append('user_id', questionaddData.user_id);
+      body.append('title', questionaddData.title);
+      body.append('privacy', questionaddData.privacy);
+      body.append('message', questionaddData.description);
+      body.append('description', questionaddData.description);
 
-      //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={user_id:90,title:'name',description:'tiis is',privacy:'public'};
-    let seq = this.api.post('v1/question/add', questionaddData).share();
+      var Params = questionaddData;  
+      let seq = this.api.post('v1/question/add', body).share();
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
+      seq.map(res => res.json())
+        .subscribe(res => {
+          // If the API returned a successful response, mark the user as logged in
+          if (res.status == 'success') {
+            console.log(res);
+          } else {
+          }
+        }, err => {
+          console.error('ERROR', err);
+        });
 
-    return seq;
+      return seq;
   }
 
 

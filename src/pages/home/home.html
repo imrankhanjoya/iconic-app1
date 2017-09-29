@@ -275,6 +275,7 @@
   </ion-grid>
   <ion-card >
     <div *ngFor=" let news of newsData.data, let i = $index" >
+      {{i}}
       <img *ngIf="$index==1" src="{{news.image}}" class="kishan"/>
       <p *ngIf="i==1" padding-top padding-left class="panjab">{{newsData.data[0].title}}</p>
       <p *ngIf="i==1" padding-left class="pti">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
