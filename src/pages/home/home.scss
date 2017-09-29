@@ -1,5 +1,6 @@
 page-home {
 
+
 	.toolbarCol{
     text-align: center;
     color: white;
@@ -9,6 +10,31 @@ page-home {
   .mClass{
     align-content: center;
     text-align:center;
+  }
+
+  .news-image{
+    position: relative; 
+   width: 100%;
+  }
+  .news-text{  
+   position: absolute; 
+   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+   top:5%;
+   color: #ffffff; 
+   left:10%; 
+   width:90%;
+  }
+  .news-title{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+  }
+  .news-date{
+    font-size: 12px;
+    color: #ffffff;
+    text-align: left;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
   }
   .toolbarCol img{
     padding-left: 15%;
