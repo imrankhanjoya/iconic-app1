@@ -37,7 +37,10 @@ export class MyApp {
     { title: 'Cards', component: 'CardsPage' },
     { title: 'Content', component: 'ContentPage' },
     { title: 'Login', component: 'LoginPage' },
+    { title: 'verify-number', component: 'VerifyNumberPage' },
+    { title: 'otp-number', component: 'OtpNumberPage' },
     { title: 'Signup', component: 'SignupPage' },
+    { title: 'locations', component: 'LocationsPage' },
     { title: 'Map', component: 'MapPage' },
     { title: 'Master Detail', component: 'ListMasterPage' },
     { title: 'Menu', component: 'MenuPage' },
@@ -51,6 +54,8 @@ export class MyApp {
     { title: 'services', component: 'ServicesPage' },
     { title: 'servic-detalis', component: 'ServicDetalisPage' },
     { title: 'mandi', component: 'MandiPage' },
+    { title: 'choupal', component: 'ChoupalPage' },
+
 
 
 

@@ -23,16 +23,16 @@
 </ion-header>
 
 <ion-content padding>
+
 <ion-list>
     
-<ion-card class="itemnew1">
+<ion-card *ngFor="let data of choupaldata.data;let i=index " class="itemnew1">
   <ion-item>
       <ion-avatar item-start>
         <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
       </ion-avatar>
       <h2>Finn</h2>
-      <h3>I'm a big deal</h3>
-      <p>Listen, I've had a pretty messed up day...</p>
+      <p>{{data.message}}</p>
       <p class="time" >2:30 am</p>
 
     </ion-item>
@@ -43,14 +43,27 @@
           <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
       </ion-avatar>
       <h2>Finn</h2>
-      <h3>I'm a big deal</h3>
       <p>Listen, I've had a pretty messed up day...</p>
       <p class="time" >2:30 am</p>
   
     </ion-item>
 </ion-card>
   </ion-list>
-   
+  <ion-card>
+     <ion-grid padding-top>
+  <ion-row >
+    <ion-col col-2>
+      <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
+    </ion-col>
+    <ion-col col-8>
+  <ion-input  value="" placeholder="संदेश यहां दर्ज कर"></ion-input>
+    </ion-col>
+    <ion-col col-2>
+      <img  (click)="goToUsrRegister()" src="assets/img/agri bolo icon/hdpi/send.png"/>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-card>
 </ion-content>
 <!-- <ion-card>
 <ion-grid >

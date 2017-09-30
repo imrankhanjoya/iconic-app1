@@ -1,13 +1,13 @@
-<ion-content scroll="false">
-  <div class="splash-bg"></div>
-  <div class="splash-info">
-    <div class="splash-logo"></div>
-    <div class="splash-intro">
-      {{ 'WELCOME_INTRO' | translate }}
-    </div>
-  </div>
-  <div padding>
-    <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
-    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button>
+<ion-content >
+  <div padding class="maindiv">
+  <h1 class="Select">Select Language</h1>
+   <ion-card class="main_card"(click)="signup()" >
+    <p class="languege" >हिंदी </p>
+  </ion-card>
+   <ion-card class="main_card1" (click)="signup()">
+   <p class="languege" > English</p>
+  </ion-card>
   </div>
 </ion-content>
+<!-- <button ion-button block (click)="signup()">{{ 'SIGNUP' | translate }}</button>
+    <button ion-button block (click)="login()" class="login">{{ 'LOGIN' | translate }}</button> -->

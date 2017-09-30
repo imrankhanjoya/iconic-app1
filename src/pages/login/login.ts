@@ -52,4 +52,7 @@ export class LoginPage {
     //   toast.present();
     // });
   }
+   login() {
+    this.navCtrl.push('LocationsPage');
+  }
 }
