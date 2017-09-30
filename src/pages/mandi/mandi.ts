@@ -21,7 +21,7 @@ export class MandiPage {
 
 
   ionViewDidLoad() {
-    this.getmandi
+    this.getmandi();
     console.log('ionViewDidLoad MandiPage');
   }
    getmandi(){

@@ -5,7 +5,6 @@ import { MandiPage } from './mandi';
 @NgModule({
   declarations: [
     MandiPage,
-        MandiPage,
 
   ],
   imports: [
