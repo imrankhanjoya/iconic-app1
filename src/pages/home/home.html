@@ -78,11 +78,11 @@
   <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeather()">
       <ion-row>
         <ion-col col-5 class="colCandigare">
-        {{wheaterHome.data[0].DateTime}}
+        {{wheaterHome.data}}
         <div class="main">
         <h3> चंडीगढ़ </h3>
         <p> 16˚c </p>
-        <h3 > {{wheaterHome.data[0].IconPhrase}} </h3>
+        <h3 > {{wheaterHome.data}} </h3>
       </div>
         </ion-col>
         <ion-col col-7 class="imageCol">
