@@ -8,7 +8,7 @@
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons>
-<ion-title>hello Ramesh</ion-title>
+<ion-title>hello {{ 'CARDS_TITLE' | translate }} Ramesh</ion-title>
 <ion-buttons end>
 <button ion-button icon-only color="royal" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -75,14 +75,14 @@
     </ion-row>
   </ion-grid>
 
-  <ion-card (click)="gotoWeather()">
+  <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeather()">
       <ion-row>
         <ion-col col-5 class="colCandigare">
-        12 June 2017 09:00 AM
+        {{wheaterHome.data[0].DateTime}}
         <div class="main">
         <h3> चंडीगढ़ </h3>
         <p> 16˚c </p>
-        <h3 > भारी बारिश </h3>
+        <h3 > {{wheaterHome.data[0].IconPhrase}} </h3>
       </div>
         </ion-col>
         <ion-col col-7 class="imageCol">
@@ -274,18 +274,18 @@
     </ion-row>
   </ion-grid>
   <ion-card >
-    <div *ngFor=" let news of newsData.data, let i = $index" >
-      {{i}}
-      <img *ngIf="$index==1" src="{{news.image}}" class="kishan"/>
-      <p *ngIf="i==1" padding-top padding-left class="panjab">{{newsData.data[0].title}}</p>
-      <p *ngIf="i==1" padding-left class="pti">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
-  </div>
+    
+      <div *ngIf="newsData.status==true">
+      <img  src="{{newsData.data[0].image}}" class="kishan"/>
+      <p padding-top padding-left class="panjab">{{newsData.data[0].title}}</p>
+      <p padding-left class="pti">पीटीआई | अपडेट : {{newsData.data[0].created}}</p>
+    </div>
   <ion-grid >
-    <ion-row padding-top *ngFor=" let news of newsData.data, let i = $index" ng-if="i<0" >
-      <ion-col col-3>
+    <ion-row padding-top *ngFor=" let news of newsData.data, let i = index "  >
+      <ion-col col-3 *ngIf="i > 0 ">
         <img src="{{news.image}}" width="200px" />
       </ion-col>
-      <ion-col col-9 class="aarunJatliy">
+      <ion-col col-9 class="aarunJatliy" *ngIf="i > 0 ">
         <h3 >{{news.title}}</h3>
         <p >पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
       </ion-col>

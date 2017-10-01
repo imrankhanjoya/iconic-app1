@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
+import { WeatherProvider } from '../../providers/weather/weather';
 import { KrishProvider } from '../../providers/krish/krish';
 import { Geolocation } from '@ionic-native/geolocation';
 
@@ -15,17 +16,19 @@ import { Geolocation } from '@ionic-native/geolocation';
 @IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
   public mandiData: { status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public newsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  public kendraData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  public kendraHome: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
+  public kendraData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
   public topMenu:any;
-  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider) {
+  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider,public weather:WeatherProvider) {
       
 
       
@@ -42,6 +45,7 @@ export class HomePage {
       });
     this.getMandiData();
     this.getNews();
+    this.getweather(127900);
 
     console.log('ionViewDidLoad HomePage');
   }
@@ -56,6 +60,20 @@ export class HomePage {
 
   }
   
+  getweather(location:any){
+    this.weather.weatheHourly().map(res => res.json()).subscribe((res) => {
+      
+        this.wheaterHome.data = res.data;
+        this.wheaterHome.msg = res.msg;
+        this.wheaterHome.status = res.status;
+        console.log(res.data);
+        
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+  }
+
   getMandiData(){
     this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
       
@@ -89,8 +107,8 @@ export class HomePage {
         this.kendraData.status = res.status;
         this.kendraHome.data = res.data.results[0];
         console.log(res.data);
-        this.geoLoc.lat = res.data.results[0].geometry.location.lat;
-        this.geoLoc.lng = res.data.results[0].geometry.location.lng;
+        //this.geoLoc.lat = res.data.results[0].geometry.location.lat;
+        //this.geoLoc.lng = res.data.results[0].geometry.location.lng;
         console.log(this.geoLoc);
       }, (err) => {
         // Unable to log in
