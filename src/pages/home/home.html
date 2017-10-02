@@ -87,14 +87,17 @@
           </div>
         </ion-col>
         <ion-col col-7 class="imageCol">
+        <img  src="{{wheaterHome.data.WeatherData[0].WeatherIconsBig}}"/>
+
         </ion-col>
       </ion-row>
      </ion-grid>
     <ion-grid>
+
       <ion-row padding-left >
         <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
           <p>{{data.DateTime | date:'HH a'}} </p>
-          <img src="assets/img/agri bolo icon/hdpi/Group 9.png" alt="your image" class="icon">
+          <img src="{{data.WeatherIconsSmall}}" alt="your image" class="icon">
           <p>{{data.tempratureValue}}</p>
         </ion-col>
       </ion-row>
@@ -125,19 +128,19 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card >
+  <ion-card  (click)="gotomandiDetail()">
     <ion-grid>
   <ion-row>
     <ion-col col-3>
-      <img src="assets/img/channa/drawable-hdpi/page_1.png"/>
+      <img src="http://205.147.100.82/agriboloapiv2/backend/{{mandiData.crop_image}}"/>
     </ion-col>
     <ion-col col-6>
-      <p padding-left class="MandiTitle">मक्का</p>
-      <h1 padding-left>₹480-400</h1>
+      <p padding-left class="MandiTitle">{{mandiData.commodity_name}}</p>
+      <h1 padding-left>₹{{mandiData.max_price}}-{{mandiData.min_price}}</h1>
       <p padding-left>प्रति क्विंटल</p>
     </ion-col>
     <ion-col col-3>
-      20/07/2017
+      <p>{{mandiData.arrival_date}}</p>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -178,32 +181,30 @@
   <ion-grid>
   <ion-row padding-top>
     <ion-col col-2>
-      <img src="assets/img/channa/drawable-hdpi/page_1.png" class="grapImage"/>
+      <img src="http://205.147.100.82/agriboloapiv2/backend/{{mandiData1.crop_image}}" class="grapImage"/>
     </ion-col>
-    <ion-col col-3>
-      <p  >चना</p>
-      <h3 >₹480-400</h3>
+    <ion-col col-4>
+      <p>{{mandiData1.commodity_name}}</p>
+      <h3>₹{{mandiData1.max_price}}-{{mandiData1.min_price}}</h3>
       <p >प्रति क्विंटल</p>
     </ion-col>
+   
     <ion-col col-2>
+      <img src="http://205.147.100.82/agriboloapiv2/backend/{{mandiData2.crop_image}}" class="grapImage"/>
     </ion-col>
-    <ion-col col-2>
-      <img src="assets/img/flowering/drawable-hdpi/mustard_flowering.png" class="grapImage"/>
-    </ion-col>
-    <ion-col col-3>
-      <p >सरसों</p>
-      <h3 >₹480-400</h3>
+    <ion-col col-4>
+      <p >{{mandiData2.commodity_name}}</p>
+      <h3 >₹{{mandiData2.max_price}}-{{mandiData2.min_price}}</h3>
       <p >प्रति क्विंटल</p>
+    </ion-col>
+     <ion-col>
+      <p class="colShow" (click)="gotomandiPage()">और देखें</p>
     </ion-col>
   </ion-row>
+
   <ion-row>
-    <ion-col>
-      <p class="colShow" (click)="gotoMandi()">और देखें</p>
-    </ion-col>
-    <ion-col>
-      <p class="colShow" (click)="gotoMandi()">और देखें</p>
-    </ion-col>
   </ion-row>
+  
   </ion-grid>
   </ion-card>
   <ion-grid>

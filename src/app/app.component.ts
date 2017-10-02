@@ -55,6 +55,8 @@ export class MyApp {
     { title: 'servic-detalis', component: 'ServicDetalisPage' },
     { title: 'mandi', component: 'MandiPage' },
     { title: 'choupal', component: 'ChoupalPage' },
+    { title: 'mandi-details', component: 'MandiDetailsPage' },
+
 
 
 

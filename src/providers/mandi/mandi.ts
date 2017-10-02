@@ -45,6 +45,26 @@ export class MandiProvider {
 
     return seq;
   }
+   usermandi() {
+      //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+    var paramCond ={page:0,state_id:12};
+    let seq = this.api.get('v1/user-detail/mandi', paramCond).share();
+
+    seq
+      .map(res => res.json())
+      .subscribe(res => {
+        // If the API returned a successful response, mark the user as logged in
+        if (res.status == 'success') {
+          console.log(res);
+        } else {
+        }
+      }, err => {
+        console.error('ERROR', err);
+      });
+
+    return seq;
+  }
+
 
 
 

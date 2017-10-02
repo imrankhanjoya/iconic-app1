@@ -28,7 +28,7 @@ export class WeatherProvider {
   weatheHourly() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
   	var paramCond ={lang:'en-us'};
-    let seq = this.api.get('v1/weather/weather-hour', paramCond).share();
+    let seq = this.api.get('v1/weather/weather-hourly', paramCond).share();
 
     seq
       .map(res => res.json())

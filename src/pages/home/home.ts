@@ -20,8 +20,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class HomePage {
 
-  public mandiData: { status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
+  public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public mandiData1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public mandiData2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
   public kendraData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
@@ -76,9 +77,10 @@ export class HomePage {
   
 
   getMandiData(){
-    this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
-      
-        this.mandiData.data = res;
+    this.mandi.usermandi().map(res => res.json()).subscribe((res) => {
+        this.mandiData= res.data[0];
+        this.mandiData1= res.data[1];
+        this.mandiData2= res.data[2];        
         console.log(this.mandiData.data);
       }, (err) => {
         // Unable to log in
@@ -131,6 +133,9 @@ export class HomePage {
   }
   gotomandiPage(){
     this.navCtrl.push('MandiPage');
+  }
+   gotomandiDetail(){
+    this.navCtrl.push('MandiDetailsPage');
   }
   gotoNewsPage(){
     this.navCtrl.push('NewsPage');
