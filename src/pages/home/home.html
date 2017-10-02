@@ -76,51 +76,26 @@
   </ion-grid>
 
   <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeather()">
+    <ion-grid>
       <ion-row>
         <ion-col col-5 class="colCandigare">
-        {{wheaterHome.data}}
-        <div class="main">
-        <h3> चंडीगढ़ </h3>
-        <p> 16˚c </p>
-        <h3 > {{wheaterHome.data}} </h3>
-      </div>
+          {{wheaterHome.data.WeatherData[0].DateTime | date:'dd f yyyy HH:mm a'}}
+          <div class="main">
+            <h3> {{wheaterHome.data.tehsil_name}}, {{wheaterHome.data.state_name}} </h3>
+            <p>{{wheaterHome.data.WeatherData[0].tempratureValue}}</p>
+            <h3 >{{wheaterHome.data.WeatherData[0].IconPhrase}}</h3>
+          </div>
         </ion-col>
         <ion-col col-7 class="imageCol">
-       <img  src="assets/img/agri bolo icon/hdpi/Group 2.png"/>
         </ion-col>
       </ion-row>
-
+     </ion-grid>
     <ion-grid>
-      <ion-row padding-left>
-        <ion-col  class="day-content">
-        <p>सोमवार </p>
-        <img src="assets/img/agri bolo icon/hdpi/Group 9.png" alt="your image" class="icon">
-        <p> 5' </p>
-        <p> 10˚</p>
-        </ion-col>
-        <ion-col  class="day-content">
-        <p>मंगलवार </p>
-        <img src="assets/img/agri bolo icon/hdpi/Group.png" alt="your image" class="icon">
-        <p> 10˚ </p>
-        <p> 60' </p>
-        </ion-col>
-        <ion-col  class="day-content">
-        <p>बुधवार </p>
-        <img src="assets/img/agri bolo icon/hdpi/Group.png" alt="your image" class="icon">
-        <p> 5' </p>
-        <p> 10˚ </p>
-        </ion-col>
-        <ion-col  class="day-content">
-        <p>गुरूवार </p>
-        <img src="assets/img/agri bolo icon/hdpi/Group.png" alt="your image" class="icon">
-        <p> 10˚</p>
-        <p> 60' </p>
-        </ion-col>
-        <ion-col  class="day-content">
-        <p>शुक्रवार </p>
-        <img src="assets/img/agri bolo icon/hdpi/Oval 23 + Group.png" alt="your image" class="icon">
-        <p> 10˚ </p>
-        <p> 60' </p>
+      <ion-row padding-left >
+        <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
+          <p>{{data.DateTime | date:'HH a'}} </p>
+          <img src="assets/img/agri bolo icon/hdpi/Group 9.png" alt="your image" class="icon">
+          <p>{{data.tempratureValue}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>

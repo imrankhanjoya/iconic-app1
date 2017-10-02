@@ -73,18 +73,20 @@ export class HomePage {
         console.log(err);
       });
   }
+  
 
   getMandiData(){
     this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
       
         this.mandiData.data = res;
-        //console.log(this.mandiData.data);
+        console.log(this.mandiData.data);
       }, (err) => {
         // Unable to log in
         console.log(err);
       });
 
   }
+
   getNews(){
     this.news.homeNews().map(res => res.json()).subscribe((res) => {
       
