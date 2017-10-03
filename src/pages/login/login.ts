@@ -55,4 +55,7 @@ export class LoginPage {
    login() {
     this.navCtrl.push('LocationsPage');
   }
+  singUp(){
+  this.navCtrl.push('SignupPage');
+  }
 }

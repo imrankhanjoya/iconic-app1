@@ -14,5 +14,35 @@
 
 
 <ion-content padding>
+<div class="main" padding>
+	<h1 class="text"> बहुत धन्यवाद</h1>
+	<p class="text1" >मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज कर?
+</p>
+</div>
+<div class="greatinput"padding>
 
+ <div class="input">
+ 	<ion-item>
+        <ion-input [(ngModel)]="verifyOtpfirst" name="verifyOtpfirst" value="" type="text" maxlength="1" ></ion-input>
+</ion-item>
+</div>
+<div class="input">
+ 	<ion-item>
+        <ion-input [(ngModel)]="verifyOtpSecond" name="verifyOtpSecond" value="" type="text" maxlength="1"></ion-input>
+</ion-item>
+</div>
+<div class="input">
+ 	<ion-item>
+        <ion-input [(ngModel)]="verifyOtpThired" name="verifyOtpThired" value="" type="text" maxlength="1" ></ion-input>
+</ion-item>
+</div>
+<div class="input">
+ 	<ion-item>
+        <ion-input [(ngModel)]="verifyOtpFourth" name="verifyOtpFourth" value="" type="text" maxlength="1" ></ion-input>
+</ion-item>
+</div>
+</div>
+<div  class="p_button">
+    <button class="p_1" (click)="verifyNumber()" >send otp </button>
+  </div>
 </ion-content>

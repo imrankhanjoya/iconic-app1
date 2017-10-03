@@ -37,6 +37,54 @@ export class User {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
+
+
+   sendOtp(phoneNumber,name){
+   let body = new FormData();
+   body.append('phoneNumber', phoneNumber);
+   body.append('name', name);
+
+
+   let seq = this.api.post('v1/user/varify-phone', body).share();
+
+   seq
+     .map(res => res.json())
+     .subscribe(res => {
+       // If the API returned a successful response, mark the user as logged in
+       if (res.status == 'success') {
+
+       } else {
+       }
+     }, err => {
+       console.error('ERROR', err);
+     });
+
+   return seq;
+   }
+
+   verifyNumber(phoneNumber,otp){
+   let body = new FormData();
+   body.append('phoneNumber', phoneNumber);
+   body.append('otp', otp);
+
+
+   let seq = this.api.post('v1/user/varify-phone', body).share();
+
+   seq
+     .map(res => res.json())
+     .subscribe(res => {
+       // If the API returned a successful response, mark the user as logged in
+       if (res.status == 'success') {
+
+       } else {
+       }
+     }, err => {
+       console.error('ERROR', err);
+     });
+
+   return seq;
+   }
+
   login(accountInfo: any) {
     let seq = this.api.post('login', accountInfo).share();
 
