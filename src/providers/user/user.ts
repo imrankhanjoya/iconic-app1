@@ -66,16 +66,13 @@ export class User {
    let body = new FormData();
    body.append('phoneNumber', phoneNumber);
    body.append('otp', otp);
-
-
    let seq = this.api.post('v1/user/varify-phone', body).share();
-
    seq
      .map(res => res.json())
      .subscribe(res => {
        // If the API returned a successful response, mark the user as logged in
        if (res.status == 'success') {
-
+        
        } else {
        }
      }, err => {
@@ -85,15 +82,18 @@ export class User {
    return seq;
    }
 
-  login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
-
+  login(username,password) {
+  let body = new FormData();
+  body.append('username', username);
+  body.append('password', password);
+    let seq = this.api.post('v1/user/login', body).share();
     seq
       .map(res => res.json())
       .subscribe(res => {
         // If the API returned a successful response, mark the user as logged in
         if (res.status == 'success') {
-          this._loggedIn(res);
+          //this._loggedIn(res);
+          console.log('---hhhhhhhkkkk----');
         } else {
         }
       }, err => {
@@ -107,21 +107,28 @@ export class User {
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
-  signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
+  signup(phoneNumber,password,user_name,lang,user_email) {
+          let body = new FormData();
+          body.append('phoneNumber', phoneNumber);
+          body.append('password', password);
+          body.append('user_name', user_name);
+          body.append('lang', lang);
+          body.append('user_email', user_email);
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          this._loggedIn(res);
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
+          let seq = this.api.post('v1/user/register', body).share();
 
-    return seq;
+          seq
+            .map(res => res.json())
+            .subscribe(res => {
+              // If the API returned a successful response, mark the user as logged in
+              if (res.status == 'success') {
+                this._loggedIn(res);
+              }
+            }, err => {
+              console.error('ERROR', err);
+            });
+
+          return seq;
   }
 
   /**

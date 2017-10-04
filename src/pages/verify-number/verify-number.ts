@@ -25,25 +25,30 @@ export class VerifyNumberPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage) {
   this.phoneNumber=navParams.get('phoneNumber');
 
+
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad VerifyNumberPage');
   }
     gotoResiter(){
-
     this.navCtrl.push('SignupPage');
-
     }
     verifyNumber(){
     this.otp=this.verifyOtpfirst+this.verifyOtpSecond+this.verifyOtpThired+this.verifyOtpFourth;
     console.log('------'+this.otp);
 
-    this.user.verifyNumber(this.phoneNumber,this.otp).subscribe((resp) => {
-    console.log('--success');
+    this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
+    if(resp.status === true){
     this.navCtrl.push('SignupPage');
+    console.log(resp.status);
+    }else{
+    this.navCtrl.push('SignupPage');
+    console.log(resp.status);
+    }
     }, (err) => {
     console.log('--unsuccess');
     //this.navCtrl.push('VerifyNumberPage');
      });
     }
+
 }

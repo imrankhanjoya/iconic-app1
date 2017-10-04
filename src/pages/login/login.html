@@ -8,12 +8,12 @@
 
  <ion-item>
     <ion-label class="inpu" stacked>फ़ोन नंबर</ion-label>
-    <ion-input type="text" value="test@example.com"></ion-input>
+    <ion-input [(ngModel)]="user_name" name="user_name" value="" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label class="inpu" stacked>पासवर्ड</ion-label>
-    <ion-input type="password" value="test"></ion-input>
+    <ion-input [(ngModel)]="password" name="password" value="" type="text"></ion-input>
   </ion-item>
 
 </div>

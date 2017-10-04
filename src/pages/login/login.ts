@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
-
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 import { HomePage } from '../../pages/home/home';
@@ -13,22 +12,15 @@ import { HomePage } from '../../pages/home/home';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  // The account fields for the login form.
-  // If you're using the username field with or without email, make
-  // sure to add it to the type
-  account: { email: string, password: string } = {
-    email: 'test@example.com',
-    password: 'test'
-  };
 
-  // Our translated text strings
+    public username: any;
+    public password: any;
   private loginErrorString: string;
 
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
-
     this.translateService.setDefaultLang('ar');
     this.translateService.use('ar');
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
@@ -36,26 +28,17 @@ export class LoginPage {
     })
   }
 
-  // Attempt to login in through our User service
-  doLogin() {
-    this.navCtrl.push(MainPage);
-    // this.user.login(this.account).subscribe((resp) => {
-    //   this.navCtrl.push(MainPage);
-    // }, (err) => {
-    //   this.navCtrl.push(MainPage);
-    //   // Unable to log in
-    //   let toast = this.toastCtrl.create({
-    //     message: this.loginErrorString,
-    //     duration: 3000,
-    //     position: 'top'
-    //   });
-    //   toast.present();
-    // });
+  doLogin(){
+     this.user.login(this.username,this.password).map(res => res.json()).subscribe((resp) => {
+     if(resp.status === true){
+      this.navCtrl.push(MainPage);
+      console.log(resp.status);
+      }else{
+      console.log(resp.status);
+      }
+     }, (err) => {
+    //  this.navCtrl.push(MainPage);
+    });
   }
-   login() {
-    this.navCtrl.push('LocationsPage');
-  }
-  singUp(){
-  this.navCtrl.push('SignupPage');
-  }
+
 }

@@ -20,22 +20,26 @@ export class OtpNumberPage {
   public name='allanoor';
   public userInfo:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage) {
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OtpNumberPage');
-
   }
 
-  getOtp(){
-  this.user.sendOtp(this.phoneNumber,this.name).subscribe((resp) => {
-  console.log('--success');
+  sendOtp(){
+  this.user.sendOtp(this.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
+  if(resp.status === true){
   this.storage.set('userInfo', resp);
+  console.log(resp.status);
+  this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.phoneNumber});}
+  else{
   this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.phoneNumber});
+  console.log('number unValid');
+  }
   }, (err) => {
   console.log('--unsuccess');
 
    });
   }
+
 }

@@ -2,7 +2,7 @@
 
 
 <ion-content>
-   
+
    <div class="main" padding>
   <h1 class="text"> बहुत अच्छा</h1>
   <p class="text1" >अधिक सेवा के लिया कृपया अपना नाम और पासवर्ड  दर्ज कर?
@@ -11,25 +11,25 @@
 <div>
 
  <ion-item>
-    <ion-label class="inpu" stacked>फ़ोन नंबर</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-label  class="inpu" stacked>फ़ोन नंबर</ion-label>
+    <ion-input [(ngModel)]="phoneNumber" name="phoneNumber" value="" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label class="inpu"  stacked>पासवर्ड</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input [(ngModel)]="password" name="password" value="" type="password"></ion-input>
   </ion-item>
 
 <ion-item>
     <ion-label class="inpu" stacked>पासवर्ड की पुष्टि कीजिये</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input  [(ngModel)]="confirmPassword" name="confirmPassword" value="" type="confirmPassword"></ion-input>
   </ion-item>
 
 </div>
 <div  class="p_button">
-    <button class="p_1" (click)="signup()" >ठीक हे </button>
+    <button class="p_1" (click)="doSignup()" >ठीक हे </button>
   </div>
-  </ion-content> 
+  </ion-content>
 <!-- <ion-list>
 
       <ion-item>
@@ -42,14 +42,14 @@
         <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
       </ion-item>
 
-      
+
       Want to add a Username? Here you go:
 
       <ion-item>
         <ion-label floating>Username</ion-label>
         <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
       </ion-item>
-      
+
 
       <ion-item>
         <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>

@@ -21,6 +21,7 @@ import { KrishProvider } from '../providers/krish/krish';
 import { QuestionsProvider } from '../providers/questions/questions';
 import { WeatherProvider } from '../providers/weather/weather';
 import { ChoupalProvider } from '../providers/choupal/choupal';
+import { CityStateProvider } from '../providers/city-state/city-state';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -81,7 +82,8 @@ export function provideSettings(storage: Storage) {
     KrishProvider,
     QuestionsProvider,
     WeatherProvider,
-    ChoupalProvider
+    ChoupalProvider,
+    CityStateProvider
   ]
 })
 export class AppModule { }
