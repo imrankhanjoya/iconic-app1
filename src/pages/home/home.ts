@@ -5,6 +5,8 @@ import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { KrishProvider } from '../../providers/krish/krish';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ExpertproviderProvider } from '../../providers/expertprovider/expertprovider';
+import { MarketproProvider } from '../../providers/marketpro/marketpro';
 
 /**
  * Generated class for the HomePage page.
@@ -19,17 +21,17 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  public ExpertsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandiData1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandiData2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
   public kendraData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-
+  public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
   public topMenu:any;
-  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider,public weather:WeatherProvider) {
+  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider,public weather:WeatherProvider,public experts:ExpertproviderProvider,public market:MarketproProvider) {
       
 
       
@@ -38,17 +40,18 @@ export class HomePage {
 
   ionViewDidLoad() {
     
-    this.geolocation.getCurrentPosition().then((resp) => {
-       console.log(resp);
-       this.getkrish(resp.coords.latitude,resp.coords.longitude);
-      }).catch((error) => {
-        console.log('Error getting location', error);
-      });
-    this.getMandiData();
-    this.getNews();
-    this.getweather(127900);
-
-    console.log('ionViewDidLoad HomePage');
+      this.geolocation.getCurrentPosition().then((resp) => {
+         console.log(resp);
+         this.getkrish(resp.coords.latitude,resp.coords.longitude);
+        }).catch((error) => {
+          console.log('Error getting location', error);
+        });
+      this.getweather(127900);
+      this.getMandiData();
+      this.getNews();
+      this.getexperts();
+      this.getmarkets();
+      console.log('ionViewDidLoad HomePage');
   }
 
   toggleMenu(){
@@ -103,6 +106,35 @@ export class HomePage {
 
   }
 
+  getexperts(){
+    this.experts.Experts().map(res => res.json()).subscribe((res) => {
+      
+        this.ExpertsDatalist.data = res.data;
+        this.ExpertsDatalist.msg = res.msg;
+        this.ExpertsDatalist.status = res.status;
+        console.log(this.ExpertsDatalist.data);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
+  }
+
+  getmarkets(){
+    this.market.productlist(5).map(res => res.json()).subscribe((res) => {
+      
+        this.productHome.data = res.data;
+        this.productHome.msg = res.msg;
+        this.productHome.status = res.status;
+        console.log('market data start');
+        console.log(this.productHome);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
+  }
+
   getkrish(lat:any,long:any){
     this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
       
@@ -122,7 +154,7 @@ export class HomePage {
   
 
   gotoAskquestion(){
-    this.navCtrl.push('AskquestionPage');
+    this.navCtrl.push('QuestionlistPage');
   }
 
   gotoWeatherPage(){
@@ -140,5 +172,12 @@ export class HomePage {
   gotoNewsPage(){
     this.navCtrl.push('NewsPage');
   }
+  gotoExpertsPage(){
+    this.navCtrl.push('ExpertsPage');
+  }
+  gotoMarketPage(){
+    this.navCtrl.push('MarketPage');
+  }
+
 
 }

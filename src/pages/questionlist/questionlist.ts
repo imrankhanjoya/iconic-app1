@@ -9,14 +9,14 @@ import { QuestionsProvider } from '../../providers/questions/questions';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-questionlist',
-  templateUrl: 'questionlist.html',
-})
-export class QuestionlistPage {
-  public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
+  @IonicPage()
+  @Component({
+    selector: 'page-questionlist',
+    templateUrl: 'questionlist.html',
+  })
+  export class QuestionlistPage {
+    public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+    constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
   }
 
   ionViewDidLoad() {
@@ -36,6 +36,12 @@ export class QuestionlistPage {
       });
 
   }
-  
+  gotoAskquestion(){
+    this.navCtrl.push('AskquestionPage');
+  } 
+  gotoViewquestion(Qid){
+    console.log(Qid);
+    this.navCtrl.push('QuitionviewPage',{QuitionID:Qid});
+  }   
 
 }

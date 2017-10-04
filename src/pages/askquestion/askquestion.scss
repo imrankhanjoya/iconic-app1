@@ -1,35 +1,29 @@
 page-askquestion {
-.pContent{
-  padding-left: 15%;
-  padding-right: 5%;
-  margin-top: 15px;
-  padding-bottom: 2%;
-  padding-top: 2%;
-}
-.title{
-  font-size: 2.9rem;
-  font-weight: bold;
-}
-.card{
-  border-radius: 5px !important;
-  height: 100px;
-}
-.newbuttom{
-	margin-top: 60px;
-	background:green;
-}
-.blocked{
-	background:green !important;
-}
-.secondary1{
-	 border-color: #30d05f !important;
-    color: #ffffff;
-    margin-top: 40px;
-	background:green;
-}
-.text{
-    margin-left: 10px;
-    margin-top:5px;
-
-}
+  .sbmtbtn {
+      margin: auto;
+      text-align: center;
+      width: 95%;
+      background-color: #649305;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      height: 47px !important;
+      font-size: 17px !important;
+  }
+  .quitionimagebtn {
+      margin: auto;
+      text-align: center;
+      background-color: #649305;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      height: 24px !important;
+  }
+  .inputborder{
+      border-bottom: #dedede 1.3px solid;
+      width:95%;
+      margin:auto;
+  }
+  .secondary{
+    color: #649305;
+    margin-bottom: -4%;
+  }
 }

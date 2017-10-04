@@ -1,21 +1,36 @@
 page-questionlist {
-	 .rowQuestion{
+	.rowQuestion{
     font-weight: bold;
-    padding-top: 5%;
   }
   .ans{
-    padding-bottom: 5%;
-    border-color: grey;
-    border-bottom: 1px solid;
+    border-bottom: #dedede 1.3px solid;
+    width: 94%;
+    margin: auto;
+    margin: 7px;
   }
+
   .block button{
-    margin-left: 10%;
+    margin: auto;
     text-align: center;
-    width: 80%;
+    width: 87%;
     background-color: #649305;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 47px !important;
+    font-size: 17px !important;
 
   }
+.answer{
+  color:grey;
+}
+.subtitles{
+  color:#649305;
+}
+.qtitle{
+  margin-top: 0px !important;
+}
+.item-md p {
+  font-size: 1.2rem;
+}
 
 }

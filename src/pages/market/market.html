@@ -1,0 +1,46 @@
+<!--
+  Generated template for the MarketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>market</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<div class="main-content">
+<!-------Product Sectopn------>
+
+ <ion-grid>
+      	<ion-row>
+	      	<ion-col >
+	        	<img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+	      	</ion-col>
+	      	<ion-col class="pClass">
+	          बाजार
+	      	</ion-col>
+	      	<ion-col>
+	        	<img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+	      	</ion-col>
+    	</ion-row>
+  </ion-grid>
+  <ion-slides [slidesPerView]="'auto'">
+    <ion-slide class="slideItem"  *ngFor="let productData of productDatas.data;">
+      	<ion-card>
+        	<img class="produtimage" src="{{productData.feature_image}}"/>
+        	<p class="sarsTitle">{{productData.name}}</p>
+        	<p class="detailSar"> विनती पर मुल्य</p>
+      	</ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <!-------END Product Sectopn------>
+
+</div>
+</ion-content>

@@ -75,30 +75,27 @@
     </ion-row>
   </ion-grid>
 
-  <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeather()">
-    <ion-grid>
-      <ion-row>
-        <ion-col col-5 class="colCandigare">
-          {{wheaterHome.data.WeatherData[0].DateTime | date:'dd f yyyy HH:mm a'}}
+  <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage()">
+    <ion-row>
+      <ion-col col-5 class="colCandigare">
+          {{wheaterHome.data.WeatherData[0].DateTime | date:'dd MMMM yyyy HH:mm a'}}
           <div class="main">
-            <h3> {{wheaterHome.data.tehsil_name}}, {{wheaterHome.data.state_name}} </h3>
-            <p>{{wheaterHome.data.WeatherData[0].tempratureValue}}</p>
-            <h3 >{{wheaterHome.data.WeatherData[0].IconPhrase}}</h3>
+              <h4 class="chandigare">{{wheaterHome.data.tehsil_name}}</h4>
+              <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
+              <h3 class="bhariRain"> भारी बारिश </h3>
           </div>
-        </ion-col>
-        <ion-col col-7 class="imageCol">
-        <img  src="{{wheaterHome.data.WeatherData[0].WeatherIconsBig}}"/>
-
-        </ion-col>
-      </ion-row>
-     </ion-grid>
+      </ion-col>
+      <ion-col col-7 class="imageCol">
+          <img  src="{{wheaterHome.data.WeatherData[0].WeatherIconsBig}}"/>
+      </ion-col>
+    </ion-row>
     <ion-grid>
 
       <ion-row padding-left >
         <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
           <p>{{data.DateTime | date:'HH a'}} </p>
           <img src="{{data.WeatherIconsSmall}}" alt="your image" class="icon">
-          <p>{{data.tempratureValue}}</p>
+          <p>{{data.tempratureValue}}˚{{data.tempratureUnit}}</p>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -132,7 +129,7 @@
     <ion-grid>
   <ion-row>
     <ion-col col-3>
-      <img src="http://205.147.100.82/agriboloapiv2/backend/{{mandiData.crop_image}}"/>
+      <img src="{{mandiData.crop_image}}"/>
     </ion-col>
     <ion-col col-6>
       <p padding-left class="MandiTitle">{{mandiData.commodity_name}}</p>
@@ -181,7 +178,7 @@
   <ion-grid>
   <ion-row padding-top>
     <ion-col col-2>
-      <img src="http://205.147.100.82/agriboloapiv2/backend/{{mandiData1.crop_image}}" class="grapImage"/>
+      <img src="{{mandiData1.crop_image}}" class="grapImage"/>
     </ion-col>
     <ion-col col-4>
       <p>{{mandiData1.commodity_name}}</p>
@@ -190,9 +187,9 @@
     </ion-col>
    
     <ion-col col-2>
-      <img src="http://205.147.100.82/agriboloapiv2/backend/{{mandiData2.crop_image}}" class="grapImage"/>
+      <img src="{{mandiData2.crop_image}}" class="grapImage"/>
     </ion-col>
-    <ion-col col-4>
+    <ion-col col-4 >
       <p >{{mandiData2.commodity_name}}</p>
       <h3 >₹{{mandiData2.max_price}}-{{mandiData2.min_price}}</h3>
       <p >प्रति क्विंटल</p>
@@ -207,8 +204,13 @@
   
   </ion-grid>
   </ion-card>
+
+  <!---*******
+        Experts Section
+                        ******-->
+
   <ion-grid>
-      <ion-row>
+    <ion-row>
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
@@ -270,12 +272,16 @@
     <p class="showAll" (click)="gotoNewsPage()">अधिक पढ़ें</p>
   </ion-grid>
   </ion-card>
-  <ion-grid>
+
+
+<!-------Product Sectopn------>
+
+ <ion-grid>
       <ion-row>
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           बाजार
       </ion-col>
       <ion-col>
@@ -283,35 +289,27 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-slides (ionSlideDidChange)="gotoslide()" [slidesPerView]="'auto'">
-  <ion-slide class="slideItem" (click)="gotoSarsoDetails()">
-    <ion-card >
-    <img src="assets/img/sarso/drawable-hdpi/mustard_during_pregnancy.png"/>
-    <p class="sarsTitle">सरसों</p>
-    <p class="detailSar"> विनती पर मुल्य</p>
-  </ion-card>
-  </ion-slide>
-  <ion-slide class="slideItem">
-    <ion-card>
-    <img src="assets/img/sarso/drawable-hdpi/mustard_during_pregnancy.png"/>
-    <p class="sarsTitle">सरसों</p>
-    <p class="detailSar"> विनती पर मुल्य</p>
-  </ion-card>
-  </ion-slide><ion-slide class="slideItem">
-    <ion-card>
-    <img src="assets/img/sarso/drawable-hdpi/mustard_during_pregnancy.png"/>
-    <p class="sarsTitle">सरसों</p>
-    <p class="detailSar"> विनती पर मुल्य</p>
-  </ion-card>
+  <ion-slides [slidesPerView]="'auto'">
 
-  </ion-slide>
-  <ion-slide class="slideItem" >
-    <ion-card  class="cardShow" (click)="gotoCategory()">
-      <h2>Show All</h2>
-  </ion-card>
+    <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
+      <ion-card>
+        <img class="produtimage" src="{{productData.feature_image}}"/>
+        <p class="sarsTitle">{{productData.name}}</p>
+        <p class="detailSar"> विनती पर मुल्य</p>
+      </ion-card>
+    </ion-slide>
+    <ion-slide class="slideItem"  (click)="gotoMarketPage()">
+      <ion-card  class="cardShow" >
+        <h2>Show All</h2>
+    </ion-card>
+
+
 
   </ion-slide>
   </ion-slides>
+
+  <!-------END Product Sectopn------>
+
   <ion-card class="dialog">
   <ion-grid >
   <ion-row>

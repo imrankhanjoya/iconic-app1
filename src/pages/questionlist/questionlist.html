@@ -7,34 +7,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>questionlist</ion-title>
+    <ion-title>Q & A</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<ion-card *ngFor="let data of questionsDatalist.data;let i=index ">
-      <ion-grid>
-  <ion-row class="rowQuestion">
-    <ion-col col-3>
-       प्रश्न :
-    </ion-col>
-    <ion-col col-9>
-    <p>{{data.title}}</p>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ans">
-    <ion-col col-3 class="rowQuestion">
-      उत्तर :
-    </ion-col>
-    <ion-col col-9>
-    <p  style="margin-top: 9px;">{{data.description}}</p>
-    </ion-col>
-  </ion-row>
-  </ion-grid>
-  </ion-card>
+<ion-card>
+  <ion-list *ngFor="let data of questionsDatalist.data;let i=index ">
+    <ion-item >
+      <h2 class="qtitle"><b>{{data.title}}</b></h2>
+      <p class="subtitles">{{data.display_name}}• {{data.ago}} ago • response {{data.answer_count}}</p>
+      <button  class="subtitles" ion-button clear item-end  (click)="gotoViewquestion(data.id)">View</button>
+    </ion-item>
+    <div class="ans"></div>
+  </ion-list>
   <div class="block">
-<button ion-button block  >अपना प्रश्न पोस्ट करें</button>
-</div>
+    <button ion-button block (click)="gotoAskquestion()">अपना प्रश्न पोस्ट करें</button>
+  </div>
+</ion-card>
 </ion-content>

@@ -15,7 +15,7 @@ import { QuestionsProvider } from '../../providers/questions/questions';
   templateUrl: 'askquestion.html',
 })
 export class AskquestionPage {
-  public  questionaddData = {user_id:90,title:'',description:'',privacy:''};
+  public  questionaddData = {user_id:1,title:'',description:'',privacy:'',Attachments:''};
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
   }
@@ -30,9 +30,10 @@ export class AskquestionPage {
 
     this.QuestionsProvider.askquestion(this.questionaddData).map(res => res.json()).subscribe((res) => {
       
-        this.askquestionsData.data = res.data;
+        /*this.askquestionsData.data = res.data;
         this.askquestionsData.msg = res.msg;
-        this.askquestionsData.status = res.status;
+        this.askquestionsData.status = res.status;*/
+        this.navCtrl.push('QuestionlistPage');
         console.log(this.askquestionsData.data);
       }, (err) => {
         // Unable to log in
@@ -40,6 +41,8 @@ export class AskquestionPage {
       });
 
   }
+
+  
   goToUsrask(){
  	 this.getaskquestions();
   	this.navCtrl.push(AskquestionPage);
