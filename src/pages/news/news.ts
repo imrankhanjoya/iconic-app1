@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NewsProvider } from '../../providers/news/news';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the NewsPage page.
@@ -16,7 +17,7 @@ import { NewsProvider } from '../../providers/news/news';
 })
 export class NewsPage {
   public newsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public NewsProvider: NewsProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public NewsProvider: NewsProvider, private iab: InAppBrowser) {
   }
 
   ionViewDidLoad() {
@@ -34,6 +35,11 @@ export class NewsPage {
         // Unable to log in
         console.log(err);
       });
+
+  }
+    gotoWebView(URL){
+    console.log("baran"+URL); 
+    var ref = this.iab.create(URL, '_blank', 'location=yes');
 
   }
   
