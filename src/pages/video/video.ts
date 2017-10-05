@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { VideoProvider } from '../../providers/video/video';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 
