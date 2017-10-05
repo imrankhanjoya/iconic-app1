@@ -16,7 +16,7 @@ import { WeatherProvider } from '../../providers/weather/weather';
 })
 export class WeatherPage {
 //public weatherfivedayD:any;
-	public wheaterdetail: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+	public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   	public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   	constructor(public navCtrl: NavController, public navParams: NavParams,public weather:WeatherProvider) {
   }
@@ -31,11 +31,11 @@ export class WeatherPage {
  weatherdetail(location:any){
     this.weather.weatherdetail().map(res => res.json()).subscribe((res) => {
       
-        this.wheaterdetail.data = res.data;
-        this.wheaterdetail.msg = res.msg;
-        this.wheaterdetail.status = res.status;
+        this.wheaterdetailall.data = res.data;
+        this.wheaterdetailall.msg = res.msg;
+        this.wheaterdetailall.status = res.status;
         //this.weatherfivedayD=res.data.headline.Text;
-        console.log(res.data);
+        console.log(this.wheaterdetailall);
         
       }, (err) => {
         // Unable to log in
@@ -50,7 +50,7 @@ export class WeatherPage {
         this.weatherfiveday.msg = res.msg;
         this.weatherfiveday.status = res.status;
         console.log(res.data.headline.Text);
-        console.log('this is test by islam');
+        console.log(this.weatherfiveday.data);
         
       }, (err) => {
         // Unable to log in
