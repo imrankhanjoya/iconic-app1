@@ -98,7 +98,7 @@ page-home {
       border-radius: 4%;
       border: solid;
       color: white;
-      background-color: #0cb665;
+      background-color: #649305;
       border-width: 1px;
       }
       .mClass{
@@ -115,6 +115,8 @@ page-home {
       .avatar{
       background: url('assets/img/agri bolo icon/hdpi/Oval.png') no-repeat;
       background-size: cover;
+      background-color: yellow;
+      border-radius: 50%;
       }
 
       .news-image{
@@ -189,6 +191,7 @@ page-home {
       margin-right: 10%;
       border-color: white;
       border-width: 3px;
+      text-align:center
 
       }
       .colShow{
