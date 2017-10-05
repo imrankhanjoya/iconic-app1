@@ -56,6 +56,12 @@ export class MyApp {
     { title: 'mandi', component: 'MandiPage' },
     { title: 'choupal', component: 'ChoupalPage' },
     { title: 'mandi-details', component: 'MandiDetailsPage' },
+    { title: 'krish-center', component: 'KrishCenterPage' },
+    { title: 'video', component: 'VideoPage' },
+    { title: 'video-detail', component: 'VideoDetailPage' },
+
+
+
 
 
 
