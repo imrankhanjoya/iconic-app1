@@ -27,7 +27,7 @@ export class WeatherProvider {
    */
   weatheHourly() {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={lang:'en-us',gaphour:'2'};
+    var paramCond ={lang:'hi_IN',gaphour:'2'};
     let seq = this.api.get('v1/weather/weather-hourly', paramCond).share();
 
     seq
@@ -51,7 +51,7 @@ export class WeatherProvider {
    */
   weatherdetail() {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={lang:'en-us',gaphour:'2'};
+    var paramCond ={lang:'hi_IN',gaphour:'2'};
     let seq = this.api.get('v1/weather/current-conditions', paramCond).share();
 
     seq
@@ -75,7 +75,7 @@ export class WeatherProvider {
    */
   weatherfivedays() {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={lang:'en-us',gaphour:'2'};
+    var paramCond ={lang:'hi_IN',gaphour:'2'};
     let seq = this.api.get('v1/weather/5-days', paramCond).share();
 
     seq

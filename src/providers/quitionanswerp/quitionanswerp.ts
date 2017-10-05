@@ -20,7 +20,7 @@ export class QuitionanswerpProvider {
 	      console.log('answerdata '+answerdata);
 	      let body = new FormData();
 	      body.append('user_id', answerdata.user_id);
-	      body.append('title', answerdata.title);
+	      body.append('title', 'test');
 	      body.append('description', answerdata.description);
 	      body.append('quistion_id', quistion_id);
 

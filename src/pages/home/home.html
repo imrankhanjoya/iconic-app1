@@ -61,6 +61,10 @@
     </ion-col>
   </ion-row>
   </ion-grid>
+
+
+
+<!-----------------Weather section-->
    <ion-grid>
       <ion-row>
       <ion-col >
@@ -82,7 +86,7 @@
           <div class="main">
               <h4 class="chandigare">{{wheaterHome.data.tehsil_name}}</h4>
               <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
-              <h3 class="bhariRain"> भारी बारिश </h3>
+              <h3 class="bhariRain">{{wheaterHome.data.WeatherData[0].IconPhrase}}</h3>
           </div>
       </ion-col>
       <ion-col col-7 class="imageCol">
@@ -102,16 +106,20 @@
 
     <ion-grid>
     <ion-row>
-    <ion-col col-1>
-      <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">  
-    </ion-col>
-    <ion-col col-11>
-    <p class="sources" >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
-    </ion-col>
+      <ion-col col-1>
+        <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">  
+      </ion-col>
+      <ion-col col-11>
+      <p class="sources" >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
+      </ion-col>
     </ion-row>
     </ion-grid>
     
   </ion-card>
+<!----End Weather Section-->
+
+
+
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -282,8 +290,7 @@
   </ion-grid>
   </ion-card>
 
-
-
+<!------Start Product Sectoipn---->
  <ion-grid>
       <ion-row>
       <ion-col >
@@ -305,8 +312,8 @@
         <p class="detailSar"> विनती पर मुल्य</p>
       </ion-card>
     </ion-slide>
-    <ion-slide class="slideItem"  (click)="gotoMarketPage()">
-      <ion-card  class="cardShow" >
+    <ion-slide class="slideItem "  (click)="gotoMarketPage()">
+      <ion-card  class="cardShow productseemore" >
         <h2>Show All</h2>
     </ion-card>
 
