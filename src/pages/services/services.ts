@@ -17,7 +17,6 @@ import { KrishProvider } from '../../providers/krish/krish';
 export class ServicesPage {
 	public krishDataList:any;
   public krishData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-
   constructor(public navCtrl: NavController, public navParams: NavParams,public KrishProvider: KrishProvider) {
   }
 

@@ -14,23 +14,38 @@
 
 
 <ion-content padding>
-<ion-slides class="first">
-<ion-slide>
-<ion-card  *ngFor="let data of mandidata.data;let i=index ">
+
+<div class="maindiv" *ngFor="let data of mandiData.data; let i=index " >
+<ion-slides  >
+  <ion-slide pager *ngFor="let subData of data.market_data; let in=index " >
   <ion-grid>
-    <ion-row>
+      <ion-row>
+      <ion-col col-3 >
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+      <ion-col col-6 class="pClass">
+          {{data.market_name}}  </ion-col>
       <ion-col col-3>
+        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    <ion-card >
+      <ion-grid  >
+          <ion-row>
+          <ion-col col-2>
         <img src="assets/img/channa/drawable-hdpi/page_1.png"/>
       </ion-col>
-      <ion-col col-5>
-        <p padding-left class="MandiTitle">chana</p>
-        <h1 padding-left class="pirce">₹ 4000-5000</h1>
+      <ion-col col-6>
+        <p  class="MandiTitle">{{subData.commodity_name}}</p>
+        <h1 class="pirce">₹ {{subData.min_price}} - {{subData.max_price}}</h1>
         <p padding-left>प्रति क्विंटल</p>
       </ion-col>
       <ion-col col-4>
-        <p class="date">10-08-2017</p>
-      </ion-col></ion-row>
-    <ion-row>
+        <p class="date"> {{subData.arrival_date}}</p>
+      </ion-col>
+        </ion-row>
+         <ion-row>
       <ion-col col-3 class="mandiGrap">
       <p> ₹ प्रति क्विंटल</p>
       <p> 500</p>
@@ -40,8 +55,9 @@
       </ion-col>
       <ion-col col-9>
         <img src="assets/img/Weather/drawable-hdpi/line_28.png" class="grapImage"/>
-      </ion-col> </ion-row>
-    <div class="july">
+      </ion-col> 
+      </ion-row>
+        <div class="july">
       <ion-row  padding-left class="MandyDay">
       <ion-col>
       15 जुलाई
@@ -62,9 +78,9 @@
         15 जुलाई
       </ion-col></ion-row>
     </div>
-</ion-grid>
-</ion-card>
-</ion-slide>
-
+      </ion-grid>
+    </ion-card>
+  </ion-slide>
 </ion-slides>
+</div>
 </ion-content>
