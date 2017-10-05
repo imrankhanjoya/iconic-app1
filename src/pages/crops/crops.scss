@@ -1,0 +1,48 @@
+page-crops {
+.title{
+text-align: center;
+margin-left: 20%;
+margin-right: 20%;
+font-weight: bold;
+padding-top: 8%;
+padding-bottom: 5%;
+}
+.imagc{
+  border-radius: 50%;
+  border: solid grey 1px;
+  text-align: center;
+  background-color: #101c00;
+  padding: 10%;
+}
+.nextC{
+  border-radius: 50%;
+  border: solid grey 1px #dbdbdb;
+  text-align: center;
+  background-color: #dbdbdb;
+  padding: 10%;
+}
+.imagc img{
+  height: auto;
+  width: auto;
+}
+.textCol{
+  text-align: center;
+}
+
+.button{
+  background-color: #649305;
+  width: 75%;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+.checkbox{
+  float: left;
+  width: 20%;
+  height: 80%;
+
+}
+p.titleName{
+  font-size: 1.2rem;
+
+}
+}

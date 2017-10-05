@@ -40,7 +40,7 @@ export class MyApp {
     { title: 'verify-number', component: 'VerifyNumberPage' },
     { title: 'otp-number', component: 'OtpNumberPage' },
     { title: 'Signup', component: 'SignupPage' },
-    { title: 'locations', component: 'LocationsPage' },
+    { title: 'select-location', component: 'SelectLocationPage' },
     { title: 'Map', component: 'MapPage' },
     { title: 'Master Detail', component: 'ListMasterPage' },
     { title: 'Menu', component: 'MenuPage' },
@@ -59,12 +59,7 @@ export class MyApp {
     { title: 'krish-center', component: 'KrishCenterPage' },
     { title: 'video', component: 'VideoPage' },
     { title: 'video-detail', component: 'VideoDetailPage' },
-
-
-
-
-
-
+    { title: 'crops', component: 'CropsPage' },
 
 
   ]
