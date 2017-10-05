@@ -28,11 +28,19 @@
 
  
 <ion-content padding>
-<ion-card class="card-title" *ngFor="let data of krishblogData.data;let i=index ">
-  <div class="col col-100">
-          <img  class="full-image" src="{{data.attachments}}"/>
-          <div class="card-description">{{data.title}}</div>
-  </div>
+<ion-card class="card-title">
+<ion-grid>
+  <ion-row>
+    <ion-col col-7><p class="bhari">कृषि केन्द्र का नाम </p></ion-col>
+    <ion-col col-5> <p class="colShow">कॉल कर</p>
+</ion-col>
+  </ion-row>
+  <ion-row>
+     <ion-col col-7><p class="bhariRain"> भारी बारिश </p></ion-col>
+    <ion-col col-5> <p class="colShow">रास्ता खोज</p></ion-col>
+  </ion-row>
+  <hr>
+</ion-grid>
 </ion-card>
 </ion-content> 
 <!--  <ion-card style="background-image: url(assets/img/agri bolo icon/hdpi/wallet.png);">

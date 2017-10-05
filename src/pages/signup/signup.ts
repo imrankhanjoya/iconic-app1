@@ -40,10 +40,10 @@ export class SignupPage {
     this.user.signup(this.phoneNumber,this.password,this.user_name,this.lang,this.user_email).map(res => res.json()).subscribe((resp) => {
     if(resp.status === true){
     this.storage.set('password',this.password);
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.push('SelectLocationPage');
     console.log(resp.status);
     }else{
-    this.navCtrl.push('LoginPage');
+    this.navCtrl.push('SelectLocationPage');
     console.log(resp.status);
     }
     }, (err) => {

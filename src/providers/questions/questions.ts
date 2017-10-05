@@ -41,7 +41,7 @@ export class QuestionsProvider {
       let body = new FormData();
       body.append('user_id', questionaddData.user_id);
       body.append('title', questionaddData.title);
-      body.append('privacy', questionaddData.privacy);
+      body.append('privacy', 'public');
       body.append('message', questionaddData.description);
       body.append('description', questionaddData.description);
       body.append('Attachments', questionaddData.Attachments);
