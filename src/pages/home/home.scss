@@ -1,317 +1,289 @@
 page-home {
 
 
-  .scroll-content{
-  top:-56px !important;
-  padding-top: 60px !important;
-  }
-  .hide-header{
-  transition : top 0.25s ease;
-  top: -56px;
-  }
-  
-  .slider {
-    overflow-y: hidden;
-    max-height: 500px; /* approximate max height */
-
-    transition-property: all;
-    transition-duration: 2s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  }
-  .slider_closed {
-  max-height: 0;
-  transition-property: all;
-  transition-duration: 2s;
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  }
-
-
-  .show-header{
-  transition : top 0.25s ease;
-  top: 0px;
-  overflow: hidden;
-  }
-
-	.toolbarCol{
-    text-align: center;
-    color: white;
-    border: 1px solid;
-    border-color: #0a1200;
-  }
-  .slidImage{
-    border: solid;
-    color: white;
-    border-radius: 4%;
-    border-width: 1px;
-    width: 100%;
-    background: url('/assets/img/fullMakki/drawable-hdpi/page_1.png') no-repeat;
-    background-size: cover;
-  }
-  .slidImage p{
-    padding-left: 5%;
-    text-align: left;
-    font-weight: 600;
-
-  }
-   .slideItem{
-    width: 50%;
-
-  }
-  .sarsTitle{
-    font-weight: bold;
-    font-size: 1.9rem;
-    text-align: left;
-    padding-left: 4%;
-    padding-top: 5%;
-    color: #000000;
-  }
-  .aarunJatliy p{
-    padding-top: 4%;
-    font-size: 1.3rem;
-  }
-  .aarunJatliy h3{
-    font-weight: bold;
-  }
-   .showAll{
-    margin-top: 5%;
-    padding: 2%;
-    margin-left: 35%;
-    margin-right: 35%;
-    text-align: center;
-    border-radius: 4%;
-    border: solid;
-    color: white;
-    background-color: #649305;
-    border-width: 1px;
-  }
-   .pti{
-    padding-top: 2%;
-    color: grey;
-    font-size: 1 rem;
-    border-bottom: 1px solid;
-    padding-bottom: 5%;
-    width: auto;
-    margin-left: 1%;
-    margin-right: 2%;
-  }
-   .kishan{
-    margin: auto;
-    border: solid;
-    border-color: white;
-    border-radius: 2%;
-    border-width: 1px;
-    width: 95%;
-    height: fit-content;
-  }
-  .panjab{
-    color: black;
-    font-size: 1.9rem;
-  }
-  .detailSar{
-    text-align: left;
-    padding-left: 4%;
-    padding-bottom: 7%;
-    color: #649305;
-  }
-   .cardShow h2{
-    border: solid;
-    border-color: green;
-    border-radius: 2%;
-    border-width: 1px;
-    padding-top: 50%;
-    padding-bottom: 50%;
-  }
-   .full{
-    padding: 1%;
-    margin-left: 35%;
-    margin-right: 35%;
-    text-align: center;
-    border-radius: 4%;
-    border: solid;
-    color: white;
-    background-color: #0cb665;
-    border-width: 1px;
-  }
-  .mClass{
-    align-content: center;
-    text-align:center;
-  }
-   .dialog{
-    color: white;
-    background-color: #0cb665;
-    font-weight: bold;
-    font-size: 2rem;
-    padding: 2%;
-  }
-  .avatar{
-    background: url('assets/img/agri bolo icon/hdpi/Oval.png') no-repeat;
-    background-size: cover;
-  }
-
-  .news-image{
-    position: relative; 
-   width: 100%;
-  }
-  .news-text{  
-   position: absolute; 
-   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-   top:5%;
-   color: #ffffff; 
-   left:10%; 
-   width:90%;
-  }
-  .news-title{
-    font-size: 18px;
-    font-weight: bold;
-    text-align: left;
-  }
-   .pClass{
-    text-align: center;
-    font-size: 2rem;
-}
-  .news-date{
-    font-size: 12px;
-    color: #ffffff;
-    text-align: left;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-
-  }
-  .toolbarCol img{
-    padding-left: 15%;
-    padding-right: 15%;
-
-  }
-  .gridView{
-        background-color:  #101c00;
-        color: white;
-       text-align: center;
+      .toolbarCol{
+      text-align: center;
+      color: white;
+      border: 1px solid;
+      border-color: #0a1200;
       }
-.fabButton{
-  margin-bottom: 32%;
-//  padding-bottom: 32%;
-}
-  .bulb-icon{
-    width: auto;
-    height: auto;
-  }
+      .slidImage{
+      border: solid;
+      color: white;
+      border-radius: 4%;
+      border-width: 1px;
+      width: 100%;
+      background: url('/assets/img/fullMakki/drawable-hdpi/page_1.png') no-repeat;
+      background-size: cover;
+      }
+      .slidImage p{
+      padding-left: 5%;
+      text-align: left;
+      font-weight: 600;
 
-  .none{
-    display: none;
-  }
-  .slider {
-    display: block;
-  }
-   .sliShow{
-    padding: 3%;
-    width: 80%;
-  }
-  
-  .pDate{
-    font-size: 1.5rem;
-  }
-  .readMore{
-    border-radius: 7%;
-    width: 37%;
-    text-align: left;
-    border: solid;
-    color: white;
-    padding: 4px;
-    margin-left: 29%;
-    margin-right: 10%;
-    border-color: white;
-    border-width: 3px;
+      }
+      .slideItem{
+      width: 50%;
 
-  }
-  .colShow{
-  width:30%;
-  padding: 5px;
-  height:30px;
-  border-radius: 5px;
-  margin-left: 30%;
-  color:#ffffff;
-  background-color:#649305;
-  text-align:center;
- }
+      }
+      .sarsTitle{
+      font-weight: bold;
+      font-size: 1.9rem;
+      text-align: left;
+      padding-left: 4%;
+      padding-top: 5%;
+      color: #000000;
+      }
+      .aarunJatliy p{
+      padding-top: 4%;
+      font-size: 1.3rem;
+      }
+      .aarunJatliy h3{
+      font-weight: bold;
+      }
+      .showAll{
+      margin-top: 5%;
+      padding: 2%;
+      margin-left: 35%;
+      margin-right: 35%;
+      text-align: center;
+      border-radius: 4%;
+      border: solid;
+      color: white;
+      background-color: #649305;
+      border-width: 1px;
+      }
+      .pti{
+      padding-top: 2%;
+      color: grey;
+      font-size: 1 rem;
+      border-bottom: 1px solid;
+      padding-bottom: 5%;
+      width: auto;
+      margin-left: 1%;
+      margin-right: 2%;
+      }
+      .kishan{
+      margin: auto;
+      border: solid;
+      border-color: white;
+      border-radius: 2%;
+      border-width: 1px;
+      width: 95%;
+      height: fit-content;
+      }
+      .panjab{
+      color: black;
+      font-size: 1.9rem;
+      }
+      .detailSar{
+      text-align: left;
+      padding-left: 4%;
+      padding-bottom: 7%;
+      color: #649305;
+      }
+      .cardShow h2{
+      border: solid;
+      border-color: green;
+      border-radius: 2%;
+      border-width: 1px;
+      padding-top: 50%;
+      padding-bottom: 50%;
+      }
+      .full{
+      padding: 1%;
+      margin-left: 35%;
+      margin-right: 35%;
+      text-align: center;
+      border-radius: 4%;
+      border: solid;
+      color: white;
+      background-color: #649305;
+      border-width: 1px;
+      }
+      .mClass{
+      align-content: center;
+      text-align:center;
+      }
+      .dialog{
+      color: white;
+      background-color: #0cb665;
+      font-weight: bold;
+      font-size: 2rem;
+      padding: 2%;
+      }
+      .avatar{
+      background: url('assets/img/agri bolo icon/hdpi/Oval.png') no-repeat;
+      background-size: cover;
+      background-color: yellow;
+      border-radius: 50%;
+      }
+
+      .news-image{
+      position: relative;
+      width: 100%;
+      }
+      .news-text{
+      position: absolute;
+      text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+      top:5%;
+      color: #ffffff;
+      left:10%;
+      width:90%;
+      }
+      .news-title{
+      font-size: 18px;
+      font-weight: bold;
+      text-align: left;
+      }
+      .pClass{
+      text-align: center;
+      font-size: 2rem;
+      }
+      .news-date{
+      font-size: 12px;
+      color: #ffffff;
+      text-align: left;
+      text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+      }
+      .toolbarCol img{
+      padding-left: 15%;
+      padding-right: 15%;
+
+      }
+      .gridView{
+      background-color:  #101c00;
+      color: white;
+      text-align: center;
+      }
+      .fabButton{
+      margin-bottom: 32%;
+      //  padding-bottom: 32%;
+      }
+      .bulb-icon{
+      width: auto;
+      height: auto;
+      }
+
+      .none{
+      display: none;
+      }
+      .slider {
+      display: block;
+      }
+      .sliShow{
+      padding: 3%;
+      width: 80%;
+      }
+
+      .pDate{
+      font-size: 1.5rem;
+      }
+      .readMore{
+      border-radius: 7%;
+      width: 37%;
+      text-align: left;
+      border: solid;
+      color: white;
+      padding: 4px;
+      margin-left: 29%;
+      margin-right: 10%;
+      border-color: white;
+      border-width: 3px;
+      text-align:center
+
+      }
+      .colShow{
+      width:30%;
+      padding: 5px;
+      height:30px;
+      border-radius: 5px;
+      margin-left: 30%;
+      color:#ffffff;
+      background-color:#649305;
+      text-align:center;
+      }
 
 
 
- /****Add fby islam solnkey**/
- 
-.colCandigare{
-  padding-top: 3%;
-  font-size: 1.2rem;
-  text-align: center;
-}
-.main{
-padding-left: 5%;
-padding-right: 5%;
+      /****Add fby islam solnkey**/
 
-}
-.chandigare{
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 8%;
-  font-size: 2.2rem;
-  color: #4a4b4c;
-}
-.bhariRain{
-  padding-left: 5%;
-  padding-right: 5%;
-  font-size: 2.2rem;
-  color: #4a4b4c;
-}
-.main p{
-  font-size: 4.8rem;
-  font-weight: bold;
-}
-.mainCard1{
-    display: block !important;
-    width: 100%;
-}
-.imageCol{
-  padding-left: 5%;
-  padding-right: 5%;
-}
-.pClass{
-    text-align: center;
-    font-size: 2rem;
-}
+      .colCandigare{
+      padding-top: 3%;
+      font-size: 1.2rem;
+      text-align: center;
+      }
+      .main{
+      padding-left: 5%;
+      padding-right: 5%;
+
+      }
+      .chandigare{
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top: 8%;
+      font-size: 2.2rem;
+      color: #4a4b4c;
+      }
+      .bhariRain{
+      padding-left: 5%;
+      padding-right: 5%;
+      font-size: 2.2rem;
+      color: #4a4b4c;
+      }
+      .main p{
+      font-size: 4.8rem;
+      font-weight: bold;
+      }
+      .mainCard1{
+      display: block !important;
+      width: 100%;
+      }
+      .imageCol{
+      padding-left: 5%;
+      padding-right: 5%;
+      }
+      .pClass{
+      text-align: center;
+      font-size: 2rem;
+      }
 
 
-/******Product Css*******/
-.slideItem{
-    width: 50%;
+      /******Product Css*******/
+      .slideItem{
+      width: 50%;
 
-}
-.sarsTitle{
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-align: left;
-  padding-left: 4%;
-  padding-top: 5%;
-  color: #000000;
-  text-align: center;
-  height: 84px;
-}
-  .detailSar{
-    text-align: center;
-    padding-left: 4%;
-    padding-bottom: 7%;
-    color: #649305;
-  }
-  .cardShow h2{
-    border: solid;
-    border-color: green;
-    border-radius: 2%;
-    border-width: 1px;
-    padding-top: 50%;
-    padding-bottom: 50%;
-  }
-  .produtimage{
-    max-height: 120px;
-    max-width: 120px;
-    margin: auto;
-  }
+      }
+      .sarsTitle{
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-align: left;
+      padding-left: 4%;
+      padding-top: 5%;
+      color: #000000;
+      text-align: center;
+      height: 84px;
+      }
+      .detailSar{
+      text-align: center;
+      padding-left: 4%;
+      padding-bottom: 7%;
+      color: #649305;
+      }
+      .cardShow h2{
+      border: solid;
+      border-color: green;
+      border-radius: 2%;
+      border-width: 1px;
+      padding-top: 50%;
+      padding-bottom: 50%;
+      }
+      .produtimage{
+      max-height: 120px;
+      max-width: 120px;
+      margin: auto;
+      }
 
 
 }

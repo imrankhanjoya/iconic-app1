@@ -1,8 +1,13 @@
 <ion-header no-border>
-<ion-toolbar color="fulldark">
-<button ion-button menuToggle>
-<ion-icon name="people"></ion-icon>
-</button>
+  <ion-navbar color="#101c00">
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      News
+    </ion-title>
+
 <ion-buttons end>
 <button ion-button icon-only color="royal" (click)="gotoSearchProduct()">
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
@@ -19,13 +24,14 @@
   <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
 </button>
 </ion-buttons>
-</ion-toolbar>
+  </ion-navbar>
+
 </ion-header>
 
 
 
 <ion-content padding>
-<ion-card   *ngFor="let data of newsData.data; let i=index " class="mainCard" >
+<ion-card   *ngFor="let data of newsData.data; let i=index " class="mainCard" (click)="gotoWebView(newsData.data[i].link)">
     <img src={{data.image}} class="imagelist"/>
     <p class="pTitle">{{data.title}}</p>
     <p class="pContent">India |{{data.created}} IST</p>
