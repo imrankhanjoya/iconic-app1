@@ -26,10 +26,11 @@ export class MarketPage {
   }
 
   getmarkets(){
-    this.market.productlist(40).map(res => res.json()).subscribe((res) => {
+    this.market.productlistview().map(res => res.json()).subscribe((res) => {
       
         this.productDatas.data = res.data;
         this.productDatas.msg = res.msg;
+        this.productDatas.status = res.status;
         this.productDatas.status = res.status;
         console.log('market data start');
         console.log(this.productDatas.data);
