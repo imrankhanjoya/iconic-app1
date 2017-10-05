@@ -29,6 +29,7 @@ export class LoginPage {
   }
 
   doLogin(){
+     this.navCtrl.push(MainPage); 
      this.user.login(this.username,this.password).map(res => res.json()).subscribe((resp) => {
      if(resp.status === true){
       this.navCtrl.push(MainPage);
@@ -37,7 +38,7 @@ export class LoginPage {
       console.log(resp.status);
       }
      }, (err) => {
-    //  this.navCtrl.push(MainPage);
+      this.navCtrl.push(MainPage);
     });
   }
 

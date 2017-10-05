@@ -22,7 +22,7 @@ export class TabsPage {
   tab4Root: any = Tab4Root;
   tab5Root: any = Tab5Root;
 
-  tab1Title = "Home";
+  tab1Title = "";
   tab2Title = " ";
   tab3Title = " ";
   tab4Title = " ";
