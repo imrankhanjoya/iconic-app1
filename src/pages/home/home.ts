@@ -8,6 +8,7 @@ import { ExpertsProvider } from '../../providers/experts/experts';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ExpertproviderProvider } from '../../providers/expertprovider/expertprovider';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
  * Generated class for the HomePage page.
@@ -15,6 +16,7 @@ import { MarketproProvider } from '../../providers/marketpro/marketpro';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 
 @IonicPage()
 @Component({
@@ -36,8 +38,8 @@ export class HomePage {
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
   public topMenu:any;
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
-    public mandi:MandiProvider, public news:NewsProvider,
-   public krish:KrishProvider,public weather:WeatherProvider,public experts:ExpertsProvider,public market:MarketproProvider ) {
+    public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider, public weather:WeatherProvider, 
+    public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser) {
 
       
 
@@ -164,6 +166,11 @@ export class HomePage {
     this.navCtrl.push('QuestionlistPage');
   }
 
+  gotoWebView(URL){
+    console.log("baran"+URL); 
+    var ref = this.iab.create(URL, '_blank', 'location=yes');
+
+  }
   gotoWeatherPage(){
     this.navCtrl.push('WeatherPage');
   }

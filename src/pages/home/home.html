@@ -1,4 +1,4 @@
-<ion-header no-border [ngClass]="{'hide-header':showheader,'show-header':hideheader}">
+<ion-header no-border>
 <ion-toolbar color="fulldark">
 <button ion-button menuToggle>
 <ion-icon name="people"></ion-icon>
@@ -129,6 +129,7 @@
     <ion-grid   (click)="gotomandiDetail()">
   <ion-row>
     <ion-col col-3>
+
       <img src="{{mandidata.crop_image}}" class="grapImage"/>
     </ion-col>
     <ion-col col-6>
@@ -259,15 +260,15 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card (click)="gotoNewsPage()" >
+  <ion-card  >
     
-      <div *ngIf="newsData.status==true">
+      <div *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
       <img  src="{{newsData.data[0].image}}" class="kishan"/>
       <p padding-top padding-left class="panjab">{{newsData.data[0].title}}</p>
       <p padding-left class="pti">पीटीआई | अपडेट : {{newsData.data[0].created}}</p>
     </div>
   <ion-grid >
-    <ion-row padding-top *ngFor=" let news of newsData.data, let i = index "  >
+    <ion-row padding-top *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
       <ion-col col-3 *ngIf="i > 0 ">
         <img src="{{news.image}}" width="200px" />
       </ion-col>
