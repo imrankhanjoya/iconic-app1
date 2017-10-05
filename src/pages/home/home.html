@@ -23,7 +23,6 @@
 </ion-header>
 
 <ion-content >
-  <div class="main-content">
   <ion-grid  class="gridView">
   <ion-row class="gridRow">
     <ion-col class="toolbarCol" (click)="gotoWeatherPage()">
@@ -207,9 +206,7 @@
   </ion-grid>
   </ion-card>
 
-  <!---*******
-        Experts Section
-                        ******-->
+  <!---******* Experts Section  ******-->
 
   <ion-grid>
     <ion-row>
@@ -224,29 +221,13 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-   <ion-slides  [slidesPerView]="'auto'" >
-    <ion-slide  class="sliShow" >
-    <div class="slidImage">
-      <p >{{expertdata.title}}</p>
-      <p class="pDate">{{expertdata.date}}</p>
-      <p class="readMore" >और देखें</p>
-  </div>
-  </ion-slide>
-  <ion-slide class="sliShow">
-    <div class="slidImage">
-      <p >{{expertdata1.title}}</p>
-      <p class="pDate">{{expertdata1.date}}</p>
-      <p class="readMore">और देखें</p>
-  </div>
-  </ion-slide>
-  <ion-slide class="sliShow">
-    <div class="slidImage">
-      <p >{{expertdata2.title}}</p>
-      <p class="pDate">{{expertdata2.date}}</p>
-      <p class="readMore">और देखें</p>
-  </div>
-  </ion-slide>
-  </ion-slides>
+        <ion-row>
+        <ion-col >
+        <ion-slides  [slidesPerView]="'auto'" >
+
+        </ion-slides>
+        </ion-col>
+        </ion-row>
   <ion-grid>
       <ion-row>
       <ion-col >
@@ -296,22 +277,26 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
     </ion-row>
-  </ion-grid>
-  <ion-slides [slidesPerView]="'auto'">
-    <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
-      <ion-card>
-        <img class="produtimage" src="{{productData.feature_image}}"/>
-        <p class="sarsTitle">{{productData.name}}</p>
-        <p class="detailSar"> विनती पर मुल्य</p>
-      </ion-card>
-    </ion-slide>
-    <ion-slide class="slideItem"  (click)="gotoMarketPage()">
-      <ion-card  class="cardShow" >
-        <h2>Show All</h2>
-    </ion-card>
+    <ion-row>
+      <ion-row>
+            <ion-slides [slidesPerView]="'auto'">
+                <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
+                    <img class="produtimage" src="{{productData.feature_image}}"/>
+                    <p class="sarsTitle">{{productData.name}}</p>
+                    <p class="detailSar"> विनती पर मुल्य</p>
+                </ion-slide>
+                <ion-slide class="slideItem"  (click)="gotoMarketPage()">
+                    <h2>Show All</h2>
+                </ion-slide>
+            </ion-slides>
+      </ion-row>
+    </ion-row>
 
-  </ion-slide>
-  </ion-slides>
+
+
+  </ion-grid>
+
+  
 
   <!-------END Product Sectopn------>
 
@@ -373,6 +358,6 @@
 
 
 
-  </div>
+
 </ion-content>
 
