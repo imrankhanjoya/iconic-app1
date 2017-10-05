@@ -22,12 +22,15 @@ import { QuestionsProvider } from '../providers/questions/questions';
 import { WeatherProvider } from '../providers/weather/weather';
 import { ChoupalProvider } from '../providers/choupal/choupal';
 import { CityStateProvider } from '../providers/city-state/city-state';
-import { LoginProvider } from '../providers/login/login';
 import { UsermandiProvider } from '../providers/usermandi/usermandi';
 import { ExpertproviderProvider } from '../providers/expertprovider/expertprovider';
 import { QuitionviewpProvider } from '../providers/quitionviewp/quitionviewp';
 import { QuitionanswerpProvider } from '../providers/quitionanswerp/quitionanswerp';
 import { MarketproProvider } from '../providers/marketpro/marketpro';
+import { ServiceProvider } from '../providers/service/service';
+import { KrishCenterProvider } from '../providers/krish-center/krish-center';
+import { VideoProvider } from '../providers/video/video';
+import { ExpertsProvider } from '../providers/experts/experts';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -90,12 +93,15 @@ export function provideSettings(storage: Storage) {
     WeatherProvider,
     ChoupalProvider,
     CityStateProvider,
-    LoginProvider,
     UsermandiProvider,
     ExpertproviderProvider,
     QuitionviewpProvider,
     QuitionanswerpProvider,
-    MarketproProvider
+    MarketproProvider,
+    ServiceProvider,
+    KrishCenterProvider,
+    VideoProvider,
+    ExpertsProvider
   ]
 })
 export class AppModule { }

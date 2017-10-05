@@ -4,6 +4,7 @@ import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { KrishProvider } from '../../providers/krish/krish';
+import { ExpertsProvider } from '../../providers/experts/experts';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ExpertproviderProvider } from '../../providers/expertprovider/expertprovider';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
@@ -21,17 +22,23 @@ import { MarketproProvider } from '../../providers/marketpro/marketpro';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  public ExpertsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public mandiData1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public mandiData2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
+  public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public expertdata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public expertdata2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public mandidata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public mandidata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public mandidata2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  
+  public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
   public kendraData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
   public topMenu:any;
-  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams, public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider,public weather:WeatherProvider,public experts:ExpertproviderProvider,public market:MarketproProvider) {
+  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
+    public mandi:MandiProvider, public news:NewsProvider,
+   public krish:KrishProvider,public weather:WeatherProvider,public experts:ExpertsProvider,public market:MarketproProvider ) {
+
       
 
       
@@ -39,19 +46,19 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    
-      this.geolocation.getCurrentPosition().then((resp) => {
-         console.log(resp);
-         this.getkrish(resp.coords.latitude,resp.coords.longitude);
-        }).catch((error) => {
-          console.log('Error getting location', error);
-        });
-      this.getweather(127900);
-      this.getMandiData();
-      this.getNews();
-      this.getexperts();
-      this.getmarkets();
-      console.log('ionViewDidLoad HomePage');
+
+    this.geolocation.getCurrentPosition().then((resp) => {
+       console.log(resp);
+       this.getkrish(resp.coords.latitude,resp.coords.longitude);
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
+    this.getMandiData();
+    this.getNews();
+    this.getweather(127900);
+    this.get_expert();
+    this.getmarkets();
+    console.log('ionViewDidLoad HomePage');
   }
 
   toggleMenu(){
@@ -63,7 +70,21 @@ export class HomePage {
   	}
 
   }
-  
+   get_expert(){
+    this.experts.Experts_list().map(res => res.json()).subscribe((res) => {
+      
+        this.expertdata = res.data[0];
+        this.expertdata1 = res.data[1];
+        this.expertdata2 = res.data[2];
+        // this.expertdata.msg = res.msg;
+        // this.expertdata.status = res.status;
+        console.log(this.expertdata);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
+  }
   getweather(location:any){
     this.weather.weatheHourly().map(res => res.json()).subscribe((res) => {
       
@@ -81,10 +102,10 @@ export class HomePage {
 
   getMandiData(){
     this.mandi.usermandi().map(res => res.json()).subscribe((res) => {
-        this.mandiData= res.data[0];
-        this.mandiData1= res.data[1];
-        this.mandiData2= res.data[2];        
-        console.log(this.mandiData.data);
+        this.mandidata= res.data[0] ;
+        this.mandidata1= res.data[1];
+        this.mandidata2= res.data[2];        
+        console.log(this.mandidata.data);
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -99,20 +120,6 @@ export class HomePage {
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
         console.log(this.newsData.data);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
-
-  }
-
-  getexperts(){
-    this.experts.Experts().map(res => res.json()).subscribe((res) => {
-      
-        this.ExpertsDatalist.data = res.data;
-        this.ExpertsDatalist.msg = res.msg;
-        this.ExpertsDatalist.status = res.status;
-        console.log(this.ExpertsDatalist.data);
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -164,6 +171,7 @@ export class HomePage {
     this.navCtrl.push('ServicesPage');
   }
   gotomandiPage(){
+  // this.getmandi()
     this.navCtrl.push('MandiPage');
   }
    gotomandiDetail(){
@@ -172,12 +180,11 @@ export class HomePage {
   gotoNewsPage(){
     this.navCtrl.push('NewsPage');
   }
-  gotoExpertsPage(){
-    this.navCtrl.push('ExpertsPage');
-  }
   gotoMarketPage(){
     this.navCtrl.push('MarketPage');
   }
-
+  gotoVedio(){
+  this.navCtrl.push('VideoPage');
+  }
 
 }

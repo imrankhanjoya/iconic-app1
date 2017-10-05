@@ -1,0 +1,42 @@
+page-video {
+.imageSadow{
+  margin-top: -25%;
+margin-left: 55%;
+padding-right: 7%;
+color: white;
+opacity: 0.5;
+ color: white;
+
+ filter: alpha(opacity=50);
+width: 50%;
+}
+.divText p{
+  margin-top: -17%;
+  margin-left: 60%;
+  padding-right: 7%;
+  color: white;
+  width: 50%;
+}
+.head{
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+.http{
+	font-size: 14px!important;
+	padding:5px;
+	font-weight:bold;
+}
+.main{
+  width:100%!important;
+  height: auto;
+}
+.pClass{
+  float: right;
+  color:#5f8b05;
+   margin-right: 9px;
+    margin-top: 20%;
+}
+.hint{
+  padding-top: 3%!important;
+}
+}

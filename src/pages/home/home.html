@@ -48,7 +48,7 @@
       <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
       प्रबंधित
     </ion-col>
-    <ion-col class="toolbarCol">
+    <ion-col class="toolbarCol"(click)="gotoVedio()">
       <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
       वीडियो
     </ion-col>
@@ -61,12 +61,12 @@
     </ion-col>
   </ion-row>
   </ion-grid>
-  <ion-grid>
+   <ion-grid>
       <ion-row>
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           मौसम
       </ion-col>
       <ion-col>
@@ -117,7 +117,7 @@
       <ion-col>
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           मण्डी
       </ion-col>
       <ion-col>
@@ -125,19 +125,20 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card  (click)="gotomandiDetail()">
-    <ion-grid>
+  <ion-card>
+    <ion-grid   (click)="gotomandiDetail()">
   <ion-row>
     <ion-col col-3>
-      <img src="{{mandiData.crop_image}}"/>
+
+      <img src="{{mandidata.crop_image}}" class="grapImage"/>
     </ion-col>
     <ion-col col-6>
-      <p padding-left class="MandiTitle">{{mandiData.commodity_name}}</p>
-      <h1 padding-left>₹{{mandiData.max_price}}-{{mandiData.min_price}}</h1>
+      <p padding-left class="MandiTitle">{{mandidata.commodity_name}}</p>
+      <h1 padding-left>₹{{mandidata.max_price}}-{{mandidata.min_price}}</h1>
       <p padding-left>प्रति क्विंटल</p>
     </ion-col>
     <ion-col col-3>
-      <p>{{mandiData.arrival_date}}</p>
+      <p>{{mandidata.arrival_date}}</p>
     </ion-col>
   </ion-row>
   <ion-row>
@@ -178,20 +179,21 @@
   <ion-grid>
   <ion-row padding-top>
     <ion-col col-2>
-      <img src="{{mandiData1.crop_image}}" class="grapImage"/>
+      <img src="{{mandidata1.crop_image}}" class="grapImage"/>
+
     </ion-col>
     <ion-col col-4>
-      <p>{{mandiData1.commodity_name}}</p>
-      <h3>₹{{mandiData1.max_price}}-{{mandiData1.min_price}}</h3>
+      <p>{{mandidata1.commodity_name}}</p>
+      <h3>₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</h3>
       <p >प्रति क्विंटल</p>
     </ion-col>
    
     <ion-col col-2>
-      <img src="{{mandiData2.crop_image}}" class="grapImage"/>
+      <img src="{{mandidata2.crop_image}}" class="grapImage"/>
     </ion-col>
-    <ion-col col-4 >
-      <p >{{mandiData2.commodity_name}}</p>
-      <h3 >₹{{mandiData2.max_price}}-{{mandiData2.min_price}}</h3>
+    <ion-col col-4>
+      <p >{{mandidata2.commodity_name}}</p>
+      <h3 >₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</h3>
       <p >प्रति क्विंटल</p>
     </ion-col>
      <ion-col>
@@ -214,7 +216,7 @@
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           विशेषज्ञ
       </ion-col>
       <ion-col>
@@ -222,28 +224,35 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  
-
-    <ion-slides  [slidesPerView]="auto"  >
-        <ion-slide *ngFor=" let news of newsData.data, let i = $index"  style=" background:url({{news.image}})" >
-                  <div class="news-image">
-                  <img src="{{news.image}}"/>
-                  <div class="news-text">
-                  <div class="news-title">{{news.title}}</div>
-                  <div class="news-date">567-09-09</div>
-                  <button ion-button class="white-button"  clear>Dark Clear</button>
-                  </div>
-                </div>
-           
-        </ion-slide>
-    </ion-slides>
+   <ion-slides  [slidesPerView]="'auto'" >
+    <ion-slide  class="sliShow" >
+    <div class="slidImage">
+      <p >{{expertdata.title}}</p>
+      <p class="pDate">{{expertdata.date}}</p>
+      <p class="readMore" >और देखें</p>
+  </div>
+  </ion-slide>
+  <ion-slide class="sliShow">
+    <div class="slidImage">
+      <p >{{expertdata1.title}}</p>
+      <p class="pDate">{{expertdata1.date}}</p>
+      <p class="readMore">और देखें</p>
+  </div>
+  </ion-slide>
+  <ion-slide class="sliShow">
+    <div class="slidImage">
+      <p >{{expertdata2.title}}</p>
+      <p class="pDate">{{expertdata2.date}}</p>
+      <p class="readMore">और देखें</p>
+  </div>
+  </ion-slide>
+  </ion-slides>
   <ion-grid>
       <ion-row>
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           समाचार
       </ion-col>
       <ion-col>
@@ -251,7 +260,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card >
+  <ion-card (click)="gotoNewsPage()" >
     
       <div *ngIf="newsData.status==true">
       <img  src="{{newsData.data[0].image}}" class="kishan"/>
@@ -274,7 +283,6 @@
   </ion-card>
 
 
-<!-------Product Sectopn------>
 
  <ion-grid>
       <ion-row>
@@ -290,7 +298,6 @@
     </ion-row>
   </ion-grid>
   <ion-slides [slidesPerView]="'auto'">
-
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
@@ -302,8 +309,6 @@
       <ion-card  class="cardShow" >
         <h2>Show All</h2>
     </ion-card>
-
-
 
   </ion-slide>
   </ion-slides>
@@ -331,7 +336,7 @@
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           वीडियो
       </ion-col>
       <ion-col>
@@ -352,7 +357,7 @@
       <ion-col >
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
-      <ion-col class="mClass">
+      <ion-col class="pClass">
           कृषि केंद्र
       </ion-col>
       <ion-col>
