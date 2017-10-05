@@ -15,6 +15,17 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.toolbarCol{
+  text-align: center;
+  color: white;
+  border: 1px solid;
+  border-color: #0a1200;
+}
+.toolbarCol img{
+  padding-left: 15%;
+  padding-right: 15%;
+
+}
 .toolbar-background, .tabbar{
 	background-color:#0a1200;
 	background: #0a1200 !important;
@@ -28,4 +39,8 @@
 	border:2px solid white;
 	color: white;
 	border-radius: 5px;
+}
+
+.subtabs{
+  font-size: 12px;
 }
