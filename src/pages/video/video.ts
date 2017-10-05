@@ -18,7 +18,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 export class VideoPage {
 
   public videolistData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
  }
 
 
