@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { VideoProvider } from '../../providers/video/video';
 
 
 /**
@@ -18,7 +18,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 export class VideoPage {
 
   public videolistData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider) {
  }
 
 
