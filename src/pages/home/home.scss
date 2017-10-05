@@ -7,9 +7,114 @@ page-home {
     border: 1px solid;
     border-color: #0a1200;
   }
+  .slidImage{
+    border: solid;
+    color: white;
+    border-radius: 4%;
+    border-width: 1px;
+    width: 100%;
+    background: url('/assets/img/fullMakki/drawable-hdpi/page_1.png') no-repeat;
+    background-size: cover;
+  }
+  .slidImage p{
+    padding-left: 5%;
+    text-align: left;
+    font-weight: 600;
+
+  }
+   .slideItem{
+    width: 50%;
+
+  }
+  .sarsTitle{
+    font-weight: bold;
+    font-size: 1.9rem;
+    text-align: left;
+    padding-left: 4%;
+    padding-top: 5%;
+    color: #000000;
+  }
+  .aarunJatliy p{
+    padding-top: 4%;
+    font-size: 1.3rem;
+  }
+  .aarunJatliy h3{
+    font-weight: bold;
+  }
+   .showAll{
+    margin-top: 5%;
+    padding: 2%;
+    margin-left: 35%;
+    margin-right: 35%;
+    text-align: center;
+    border-radius: 4%;
+    border: solid;
+    color: white;
+    background-color: #649305;
+    border-width: 1px;
+  }
+   .pti{
+    padding-top: 2%;
+    color: grey;
+    font-size: 1 rem;
+    border-bottom: 1px solid;
+    padding-bottom: 5%;
+    width: auto;
+    margin-left: 1%;
+    margin-right: 2%;
+  }
+   .kishan{
+    margin: auto;
+    border: solid;
+    border-color: white;
+    border-radius: 2%;
+    border-width: 1px;
+    width: 95%;
+    height: fit-content;
+  }
+  .panjab{
+    color: black;
+    font-size: 1.9rem;
+  }
+  .detailSar{
+    text-align: left;
+    padding-left: 4%;
+    padding-bottom: 7%;
+    color: #649305;
+  }
+   .cardShow h2{
+    border: solid;
+    border-color: green;
+    border-radius: 2%;
+    border-width: 1px;
+    padding-top: 50%;
+    padding-bottom: 50%;
+  }
+   .full{
+    padding: 1%;
+    margin-left: 35%;
+    margin-right: 35%;
+    text-align: center;
+    border-radius: 4%;
+    border: solid;
+    color: white;
+    background-color: #0cb665;
+    border-width: 1px;
+  }
   .mClass{
     align-content: center;
     text-align:center;
+  }
+   .dialog{
+    color: white;
+    background-color: #0cb665;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 2%;
+  }
+  .avatar{
+    background: url('assets/img/agri bolo icon/hdpi/Oval.png') no-repeat;
+    background-size: cover;
   }
 
   .news-image{
@@ -29,6 +134,10 @@ page-home {
     font-weight: bold;
     text-align: left;
   }
+   .pClass{
+    text-align: center;
+    font-size: 2rem;
+}
   .news-date{
     font-size: 12px;
     color: #ffffff;
@@ -60,6 +169,27 @@ page-home {
   }
   .slider {
     display: block;
+  }
+   .sliShow{
+    padding: 3%;
+    width: 80%;
+  }
+  
+  .pDate{
+    font-size: 1.5rem;
+  }
+  .readMore{
+    border-radius: 7%;
+    width: 37%;
+    text-align: left;
+    border: solid;
+    color: white;
+    padding: 4px;
+    margin-left: 29%;
+    margin-right: 10%;
+    border-color: white;
+    border-width: 3px;
+
   }
   .colShow{
   width:30%;
