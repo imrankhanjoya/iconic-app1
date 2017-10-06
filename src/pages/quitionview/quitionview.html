@@ -23,24 +23,25 @@
 	    <p class="agrotitle agrodatetitle">{{questionviewData.data.created_at}}</p>
 	  </ion-item>
 
-	  <img src="{{questionviewData.data.Attachments}}">
-
 	  <ion-card-content>
-	    <h2>{{questionviewData.data.title}}</h2>
-	    <p>{{questionviewData.data.description}}</p>
+	  	<ion-row>
+		  	<ion-col col-12>
+			    <span class="viewtitle">{{questionviewData.data.title}}</span>
+			</ion-col>
+			<ion-col col-12>
+			    <span class="answerdes" >{{questionviewData.data.answer}}</span>
+			</ion-col>
+			<ion-col col-10>
+			    <p class="agrotitle agrodatetitle">{{questionviewData.data.answercreated_at}}</p>
+			</ion-col>
+		</ion-row>
 	  </ion-card-content>
 
 	  <ion-row>
 	    <ion-col>
 	      <button ion-button icon-left clear small>
 	        <ion-icon name="ios-compass"></ion-icon>
-	        <div>{{questionviewData.data.view_coun}} Views</div>
-	      </button>
-	    </ion-col>
-	    <ion-col>
-	      <button ion-button icon-left clear small>
-	        <ion-icon name="text"></ion-icon>
-	        <div>{{questionviewData.data.answer_count}} Answer</div>
+	        <div>{{questionviewData.data.view_count}} Views</div>
 	      </button>
 	    </ion-col>
 	    <ion-col center text-center>
@@ -48,25 +49,6 @@
 	        {{questionviewData.data.ago}} ago
 	      </ion-note>
 	    </ion-col>
-		<ion-col class="card col s12 m12 l12">
-	    	<ion-row>
-				<div class="block">
-			   		 <button ion-button block  (click)="gotoAnswerquestion(questionviewData.data.id)">अपना उत्तर पोस्ट करें</button>
-			  	</div>
-		 	</ion-row>
-		</ion-col>
 	  </ion-row>
-	  <ion-row  *ngFor="let answer of questionviewData.data.QuestionAnswer;let i=index ">
-	  	<ion-item>
-		    <ion-avatar item-start>
-		      <img src="{{answer.user_profile_image}}">
-		    </ion-avatar>
-		    <h2 >{{answer.display_name}}</h2>
-		    <p class="agrotitle agrodatetitle">{{answer.created_at}}</p>
-		</ion-item>
-		<ion-card-content>
-		    <p color:grey>{{answer.description}}</p>
-		</ion-card-content>
-	</ion-row>
 	</ion-card>
 </ion-content>

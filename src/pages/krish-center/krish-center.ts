@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { KrishProvider } from '../../providers/krish/krish';
+
+
 
 /**
  * Generated class for the KrishCenterPage page.
@@ -14,28 +18,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'krish-center.html',
 })
 export class KrishCenterPage {
-	// public krishblogData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+   public kendraData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,public krish:KrishProvider) {
   }
+
 
   ionViewDidLoad() {
+     this.geolocation.getCurrentPosition().then((resp) => {
+       console.log(resp);
+       this.getkrish(resp.coords.latitude,resp.coords.longitude);
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
     console.log('ionViewDidLoad KrishCenterPage');
   }
-  //  getkrish(){
-  //  	// console.log('ionViewDidLoad '+this.questionaddData.title);
 
-  //   this.KrishCenterProvider.krish_centerlist().map(res => res.json()).subscribe((res) => {
+  getkrish(lat:any,long:any){
+    this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
       
-  //       this.krishblogData.data = res.data;
-  //       this.krishblogData.msg = res.msg;
-  //       this.krishblogData.status = res.status;
-  //       console.log(this.krishblogData.data);
-  //     }, (err) => {
-  //       // Unable to log in
-  //       console.log(err);
-  //     });
-
-  // }
-
-
-}
+        this.kendraData.data = res.data;
+        this.kendraData.msg = res.msg;
+        this.kendraData.status = res.status;
+        this.kendraHome.data = res.data.results;
+        console.log(res.data);
+        //this.geoLoc.lat = res.data.results[0].geometry.location.lat;
+        //this.geoLoc.lng = res.data.results[0].geometry.location.lng;
+        console.log(this.geoLoc);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+  }
+  }
