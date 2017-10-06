@@ -66,6 +66,7 @@
 .card-md{
 	margin: 0px 10px 20px 10px;
 	padding: 5px;
+	border-radius: 10px;
 }
 .card-md p{
 	color:#4A4B4C;
@@ -74,6 +75,46 @@
 	font-size: 4.8rem;
 	font-weight: normal;
 }
+
+/*********Weather Card/
+
+/****Add fby islam solnkey**/
+
+.colCandigare{
+	padding-top: 3%;
+	font-size: 1.2rem;
+	text-align: center;
+}
+.main{
+	padding-left: 5%;
+	padding-right: 5%;
+
+}
+/*previously chandigare*/
+.elementTitle{
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 8%;
+	font-size: 2.4rem;
+	color: #4a4b4c;
+}
+.bhariRain{
+	padding-left: 5%;
+	padding-right: 5%;
+	font-size: 2.2rem;
+	color: #4a4b4c;
+}
+
+.mainCard1{
+	display: block !important;
+	width: 100%;
+}
+.imageCol{
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top:5%;
+}
+
 .weatherfoter{
 	color:#000;
 	border-top: 1px solid #D8D8D8;
@@ -83,5 +124,54 @@
 	color: #4A4B4C;
 	background-color:#F3F4F8;
 }
+.sources p{
+	color:#000;
+	font-size:1.5rem;
+}
+.grapImage{
+	border-radius:8px;
+}
 
+/*mandi Cards*/
 
+.MandiTitle{
+	font-size: 2.4rem;
+	color: #4a4b4c;
+	width:70%;
+	float:left;
+	margin-top:-7px;
+}
+.MandiDate{
+	float:right;
+}
+.MandiPrice{
+	font-size: 3.6rem;
+	color: #4a4b4c;
+	float:left;
+}
+.MandiUnit{
+	font-size: 1.5rem;
+	color: #4a4b4c;
+	float:left;
+	width:100%;
+	margin-top:-7px;
+}
+.SmallerMandiTitle{
+	font-size: 1.5rem;
+	color: #4a4b4c;
+	width:70%;
+	float:left;
+}
+.SmallerMandiPrice{
+	font-size: 2rem;
+	color: #4a4b4c;
+	float:left;
+	margin-top:-3px;
+}
+.SmallerMandiUnit{
+	font-size: 1rem;
+	color: #4a4b4c;
+	float:left;
+	width:100%;
+	
+}
