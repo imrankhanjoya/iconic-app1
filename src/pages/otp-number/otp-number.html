@@ -14,7 +14,7 @@
 <div class="textinput" >
  <ion-item>
 	<ion-label class="lable" >+91</ion-label>
-    <ion-input [(ngModel)]="RegisterData.phoneNumber" name="phoneNumber" maxlength="10" class="lable" value="" type="number"  placeholder="your number" ng-required></ion-input>
+    <ion-input [(ngModel)]="RegisterData.phoneNumber" name="phoneNumber" size="10" maxlength="10" class="lable" value="" type="number"  placeholder="your number" ng-required></ion-input>
     </ion-item>
     <div class="error" *ngIf="phoneNumberError==true" >
      Enter valid mobile number

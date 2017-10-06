@@ -134,7 +134,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card (click)="gotomandiDetail()">
+  <ion-card >
     <ion-grid  >
   <ion-row>
     <ion-col col-3 >
@@ -208,7 +208,7 @@
       <div class="SmallerMandiUnit">प्रति क्विंटल</div>
     </ion-col>
      <ion-col>
-      <p class="colShow" (click)="gotomandiPage()">और देखें</p>
+      <p class="colShow" (click)="gotomandiDetail()">और देखें</p>
     </ion-col>
   </ion-row>
 
@@ -236,28 +236,14 @@
     </ion-row>
   </ion-grid>
    <ion-slides  [slidesPerView]="'auto'" >
-    <ion-slide  class="sliShow" >
-    <div class="slidImage">
-      <div>{{expertdata.title}}</div>
-      <div class="pDate">{{expertdata.date}}</div>
-      <div class="readMore" >और देखें</div>
-  </div>
-  </ion-slide>
-  <ion-slide class="sliShow">
-    <div class="slidImage">
-      <p >{{expertdata1.title}}</p>
-      <p class="pDate">{{expertdata1.date}}</p>
-      <p class="readMore">और देखें</p>
-  </div>
-  </ion-slide>
-  <ion-slide class="sliShow">
-    <div class="slidImage">
-      <p >{{expertdata2.title}}</p>
-      <p class="pDate">{{expertdata2.date}}</p>
-      <p class="readMore">और देखें</p>
-  </div>
-  </ion-slide>
-  </ion-slides>
+        <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
+              <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
+                <img src="{{expert.attachments}}" >
+                <div class="card-title">{{expert.title}}</div>
+                <div class="card-subtitle">41 Listings</div>
+              </ion-card>    
+          </ion-slide>
+   </ion-slides>
 
   <ion-grid>
       <ion-row>

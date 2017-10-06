@@ -29,8 +29,6 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 })
 export class HomePage {
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public expertdata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public expertdata2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  
@@ -56,7 +54,7 @@ export class HomePage {
 
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
-       this.storage.set('userLoction',resp.coords);
+       //this.storage.set('userLoction',resp.coords);
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
       }).catch((error) => {
         console.log('Error getting location', error);
@@ -81,11 +79,7 @@ export class HomePage {
    get_expert(){
     this.experts.Experts_list().map(res => res.json()).subscribe((res) => {
       
-        this.expertdata = res.data[0];
-        this.expertdata1 = res.data[1];
-        this.expertdata2 = res.data[2];
-        // this.expertdata.msg = res.msg;
-        // this.expertdata.status = res.status;
+        this.expertdata = res;
         console.log(this.expertdata);
       }, (err) => {
         // Unable to log in
@@ -93,6 +87,9 @@ export class HomePage {
       });
 
   }
+
+
+
   getweather(location:any){
     this.weather.weatheHourly().map(res => res.json()).subscribe((res) => {
       
@@ -183,11 +180,10 @@ export class HomePage {
   gotoservicesPage(){
     this.navCtrl.push('ServicesPage');
   }
-  gotomandiPage(){
-  // this.getmandi()
-    this.navCtrl.push('MandiPage');
+  goToExpertDetial(id){
+    this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
-   gotomandiDetail(){
+  gotomandiDetail(){
     this.navCtrl.push('MandiDetailsPage');
   }
   gotoNewsPage(){

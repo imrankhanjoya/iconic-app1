@@ -18,7 +18,7 @@ export class ExpertsDetailPage {
   public expertid:any;
   public expertdetail:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public experts:ExpertsProvider) {
-  this.expertid=navParams.get('expertid');
+  this.expertid=navParams.get('id');
   }
 
   ionViewDidLoad() {
