@@ -82,7 +82,7 @@
 
 .colCandigare{
 	padding-top: 3%;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	text-align: center;
 }
 .main{
@@ -95,7 +95,7 @@
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-top: 8%;
-	font-size: 2.4rem;
+	font-size: 1.8rem;
 	color: #4a4b4c;
 }
 .bhariRain{
@@ -137,7 +137,7 @@
 .MandiTitle{
 	font-size: 2.4rem;
 	color: #4a4b4c;
-	width:70%;
+	width:60%;
 	float:left;
 	margin-top:-7px;
 }
@@ -145,33 +145,39 @@
 	float:right;
 }
 .MandiPrice{
-	font-size: 3.6rem;
+	font-size: 3.0rem;
 	color: #4a4b4c;
 	float:left;
 }
 .MandiUnit{
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: #4a4b4c;
 	float:left;
 	width:100%;
 	margin-top:-7px;
 }
 .SmallerMandiTitle{
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: #4a4b4c;
 	width:70%;
 	float:left;
 }
 .SmallerMandiPrice{
-	font-size: 2rem;
+	font-size: 1.5rem;
 	color: #4a4b4c;
 	float:left;
 	margin-top:-3px;
 }
 .SmallerMandiUnit{
-	font-size: 1rem;
+	font-size: 0.8rem;
 	color: #4a4b4c;
 	float:left;
-	width:100%;
-	
+	width:100%;	
 }
+.sepRight{
+	color:#000;
+	border-right: 1px solid #D8D8D8;
+	margin-bottom:10px;
+}
+
+
