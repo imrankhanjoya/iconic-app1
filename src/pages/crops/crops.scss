@@ -9,7 +9,7 @@ padding-bottom: 5%;
 }
 .imagc{
   border-radius: 50%;
-  border: solid grey 1px;
+  border: solid grey 1px #dbdbdb;
   text-align: center;
   background-color: #101c00;
   padding: 10%;
@@ -20,6 +20,10 @@ padding-bottom: 5%;
   text-align: center;
   background-color: #dbdbdb;
   padding: 10%;
+}
+.nextC.activated{
+  background-color: #101c00;
+
 }
 .imagc img{
   height: auto;
@@ -38,7 +42,7 @@ padding-bottom: 5%;
 .checkbox{
   float: left;
   width: 20%;
-  height: 80%;
+  height: 85%;
 
 }
 p.titleName{
