@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
+import { MainPage } from '../pages';
 import { Storage } from '@ionic/storage';
 
 
@@ -53,8 +54,7 @@ export class LoginPage {
       loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);
-       this.navCtrl.push('MainPage');
-       
+       this.navCtrl.push(MainPage);
       }else{
         console.log(resp.status);
         alert(resp.msg);
