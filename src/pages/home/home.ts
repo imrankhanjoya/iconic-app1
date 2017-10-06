@@ -9,6 +9,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { ExpertproviderProvider } from '../../providers/expertprovider/expertprovider';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
@@ -37,10 +38,11 @@ export class HomePage {
   public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
   public topMenu:any;
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
-    public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider, public weather:WeatherProvider, 
+    public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private youtube: YoutubeVideoPlayer) {
 
@@ -64,7 +66,9 @@ export class HomePage {
     this.getweather(127900);
     this.get_expert();
     this.getmarkets();
+    this.getannouncement();
     console.log('ionViewDidLoad HomePage');
+    console.log(this.getannouncement);
   }
 
   toggleMenu(){
@@ -76,7 +80,8 @@ export class HomePage {
   	}
 
   }
-   get_expert(){
+  
+  get_expert(){
     this.experts.Experts_list().map(res => res.json()).subscribe((res) => {
       
         this.expertdata = res;
@@ -163,6 +168,20 @@ export class HomePage {
         console.log(err);
       });
   }
+
+  getannouncement(){
+    this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
+      
+        this.announceList.data = res.data;
+        this.announceList.msg = res.msg;
+        this.announceList.status = res.status;
+        console.log('Add for Announcement');
+        console.log(this.announceList.data[0].title);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+  }
   
 
   gotoAskquestion(){
@@ -197,6 +216,9 @@ export class HomePage {
   }
   gotoRentals(){
   this.navCtrl.push('RentalsPage');
+  }
+  gotoAnounsePage(){
+  this.navCtrl.push('AnnouncementPage');
   }
 
 }
