@@ -2,6 +2,7 @@
   "BACK_BUTTON_TEXT": "वापस जाओ",
   "SELECT_LANGUAGE":"भाषा चुनिए",
   "NAME": "الاسم",
+  "News": "الاسم",
   "EMAIL": "البريد الإلكتروني",
   "USERNAME": "اسم المستخدم",
   "PASSWORD": "كلمة السر",
@@ -61,7 +62,8 @@
   "CANCEL_BUTTON": "الغاء",
   "DELETE_BUTTON": "حذف",
 
-  "CARDS_TITLE": "اجتماعي",
+  "CARDS_TITLE": "सामाजिक",
+  "MANDI": "मंडी",
 
   "SEARCH_TITLE": "بحث",
   "SEARCH_PLACEHOLDER": "ابحث في قائمة العناصر، مثل \"Donald Duck\""
