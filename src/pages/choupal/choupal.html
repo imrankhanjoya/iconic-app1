@@ -26,9 +26,9 @@
 
 <ion-list>
  <ion-grid>
-  <ion-row *ngFor="let data of choupaldata.data;let i=index ">
-    <ion-col>
-      <ion-card [ngStyle]="{visibility:data.uid!=userId ? 'visible' : 'hidden'}" class="itemnew1">
+  <ion-row class="chatbox" *ngFor="let data of choupaldata.data;let i=index ">
+    <ion-col [ngStyle]="{visibility:data.uid!=userId ? 'visible' : 'hidden'}">
+      <ion-card class="itemnew1">
         <ion-item>
             <ion-avatar item-start>
               <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
@@ -39,8 +39,8 @@
           </ion-item>
       </ion-card>
     </ion-col>
-    <ion-col>
-      <ion-card [ngStyle]="{visibility:data.uid==userId ? 'visible' : 'hidden'}" class="itemnew">
+    <ion-col [ngStyle]="{visibility:data.uid==userId ? 'visible' : 'hidden'}">
+      <ion-card class="itemnew">
         <ion-item >
           <ion-avatar item-start>
                 <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">

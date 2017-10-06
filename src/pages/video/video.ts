@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VideoProvider } from '../../providers/video/video';
 
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+
 
 /**
  * Generated class for the VideoPage page.
@@ -18,7 +20,8 @@ import { VideoProvider } from '../../providers/video/video';
 export class VideoPage {
 
   public videolistData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider,
+    private youtube: YoutubeVideoPlayer) {
  }
 
 
@@ -43,5 +46,9 @@ export class VideoPage {
   this.navCtrl.push('VideoDetailPage');
   }
 
+  playVideo(videoid:any){
+    console.log('videoid  : '+videoid);
+    this.youtube.openVideo(videoid);
+  }
 
 }

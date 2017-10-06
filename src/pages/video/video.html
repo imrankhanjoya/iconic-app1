@@ -65,23 +65,23 @@
 
 <ion-grid style="padding: 0px;" *ngFor="let data of videolistData.data; let i=index "  >
     <ion-card *ngIf=" i == 0 ">
-        <ion-row>
+        <ion-row (click)="playVideo(data.videoid)">
             <ion-col col-12>
                 <img src="https://img.youtube.com/vi/{{data.videoid}}/0.jpg" class="roundImage" >
             </ion-col>
             <ion-col col-12>
-                <h2 class="http" (click)="gotoVediodetail()">{{data.title}}</h2>
+                <h2 class="http">{{data.title}}</h2>
                 <p  class="pClass">{{data.date}}</p>
             </ion-col>
         </ion-row>
     </ion-card>
   <ion-card *ngIf=" i > 0 " >
-    <ion-row>
+    <ion-row (click)="playVideo(data.videoid)">
         <ion-col col-4>
         <img src="https://img.youtube.com/vi/{{data.videoid}}/0.jpg" class="roundImage" >
         </ion-col>
         <ion-col col-8>
-        <h2 class="http" (click)="gotoVediodetail()">{{data.title}}</h2>
+        <h2 class="http">{{data.title}}</h2>
         <p  class="pClass">{{data.date}}</p>
         </ion-col>
    </ion-row>

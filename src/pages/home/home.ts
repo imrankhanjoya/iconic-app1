@@ -12,6 +12,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 /**
  * Generated class for the HomePage page.
@@ -43,7 +44,7 @@ export class HomePage {
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
-    public storage:Storage) {
+    public storage:Storage,private youtube: YoutubeVideoPlayer) {
 
       console.log(api.userData);
 

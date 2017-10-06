@@ -34,6 +34,9 @@ import { ExpertsProvider } from '../providers/experts/experts';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { RentalsProvider } from '../providers/rentals/rentals';
 
+//plugns..
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function HttpLoaderFactory(http: Http) {
@@ -105,7 +108,8 @@ export function provideSettings(storage: Storage) {
     VideoProvider,
     InAppBrowser,
     ExpertsProvider,
-    RentalsProvider
+    RentalsProvider,
+    YoutubeVideoPlayer
   ]
 })
 export class AppModule { }

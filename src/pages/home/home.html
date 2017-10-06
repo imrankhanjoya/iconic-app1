@@ -358,7 +358,7 @@
 
   <ion-card class="vedioCard">
   <p padding>विदेशी निवेश,बड़ा नारा भी और बड़ी चिंता भी </p>
-  <video width="400" controls>
+  <video (click)="playVideo()" width="400" controls>
     <source src="assets/img/The_Chronicles_of_Narnia_Prince.mp4" type="video/mp4">
   </video>
   <p class="showAll" (click)="gotoVedioPage()">Show All</p>

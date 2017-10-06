@@ -71,6 +71,7 @@ export class ChoupalPage {
     // console.log('ionViewDidLoad '+this.questionaddData.title);
     this.ChoupalProvider.postChoupal(this.userId,this.newMessge,'no Image').map(res => res.json()).subscribe((res) => {
         console.log(this.choupaldata.data);
+        this.choupalget();
         loading.dismiss();
       }, (err) => {
         alert(err)
