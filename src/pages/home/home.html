@@ -84,9 +84,9 @@
       <ion-col col-6 class="colCandigare">
           {{wheaterHome.data.WeatherData[0].DateTime | date:'dd MMMM yyyy HH:mm a'}}
           <div class="main">
-              <h4 class="chandigare">{{wheaterHome.data.tehsil_name}}</h4>
+              <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
               <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
-              <h3 class="bhariRain">{{wheaterHome.data.WeatherData[0].IconPhrase}}</h3>
+              <div class="elementTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
           </div>
       </ion-col>
       <ion-col col-6 class="imageCol">
@@ -109,8 +109,8 @@
       <ion-col col-1>
         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">  
       </ion-col>
-      <ion-col col-11>
-      <p class="sources" >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
+      <ion-col col-11 class="sources">
+      <p  >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -118,6 +118,7 @@
   </ion-card>
 <!----End Weather Section-->
 
+<!----Start Mandi Section-->
 
 
   <ion-grid>
@@ -136,18 +137,20 @@
   <ion-card>
     <ion-grid   (click)="gotomandiDetail()">
   <ion-row>
-    <ion-col col-3>
+    <ion-col col-3 >
 
       <img src="{{mandidata.crop_image}}" class="grapImage"/>
     </ion-col>
-    <ion-col col-6>
-      <p padding-left class="MandiTitle">{{mandidata.commodity_name}}</p>
-      <h1 padding-left>₹{{mandidata.max_price}}-{{mandidata.min_price}}</h1>
-      <p padding-left>प्रति क्विंटल</p>
+    <ion-col col-9>
+      <div>
+        <div class="MandiTitle">{{mandidata.commodity_name}}</div>
+        <div class="MandiDate">{{mandidata.arrival_date}}</div>
+      </div>
+      
+      <div class="MandiPrice">₹{{mandidata.max_price}}-{{mandidata.min_price}}</div>
+      <div class="MandiUnit">प्रति क्विंटल</div>
     </ion-col>
-    <ion-col col-3>
-      <p>{{mandidata.arrival_date}}</p>
-    </ion-col>
+    
   </ion-row>
   <ion-row>
     <ion-col col-3 class="mandiGrap">
@@ -164,45 +167,45 @@
   <div class="july">
   <ion-row  padding-left class="MandyDay">
     <ion-col>
-    15 जुलाई
+    13 जुलाई
+    </ion-col>
+    <ion-col>
+      14 जुलाई
     </ion-col>
     <ion-col>
       15 जुलाई
     </ion-col>
     <ion-col>
-      15 जुलाई
+      16 जुलाई
     </ion-col>
     <ion-col>
-      15 जुलाई
+      17 जुलाई
     </ion-col>
     <ion-col>
-      15 जुलाई
-    </ion-col>
-    <ion-col>
-      15 जुलाई
+      18 जुलाई
     </ion-col>
   </ion-row>
   </div>
   </ion-grid>
   <ion-grid>
-  <ion-row padding-top>
+  <ion-row padding-top class="weatherfoter">
     <ion-col col-2>
       <img src="{{mandidata1.crop_image}}" class="grapImage"/>
 
     </ion-col>
     <ion-col col-4>
-      <p>{{mandidata1.commodity_name}}</p>
-      <h3>₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</h3>
-      <p >प्रति क्विंटल</p>
+      <div class="SmallerMandiTitle">{{mandidata1.commodity_name}}</div>
+      <div class="SmallerMandiPrice">₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</div>
+      <div class="SmallerMandiUnit">प्रति क्विंटल</div>
     </ion-col>
    
     <ion-col col-2>
       <img src="{{mandidata2.crop_image}}" class="grapImage"/>
     </ion-col>
     <ion-col col-4>
-      <p >{{mandidata2.commodity_name}}</p>
-      <h3 >₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</h3>
-      <p >प्रति क्विंटल</p>
+      <div class="SmallerMandiTitle">{{mandidata2.commodity_name}}</div>
+      <div class="SmallerMandiPrice">₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</div>
+      <div class="SmallerMandiUnit">प्रति क्विंटल</div>
     </ion-col>
      <ion-col>
       <p class="colShow" (click)="gotomandiPage()">और देखें</p>
