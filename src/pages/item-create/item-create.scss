@@ -1,35 +1,54 @@
 page-item-create {
-  .profile-image-wrapper {
-    text-align: center;
-    margin: 20px 0;
-
-    .profile-image {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-
-      display: inline-block;
-
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .profile-image-placeholder {
-      display: inline-block;
-
-      background-color: #eee;
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-
-      font-size: 12px;
-
-      ion-icon {
-        font-size: 44px;
-        margin-bottom: -10px;
-        margin-top: 10px;
-      }
-    }
+  .wallet img{
+    height: 100%;
+  padding: 20%;
   }
+
+
+.circle-pic{
+  text-align:  center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+    border-radius: 50%;
+       width: 100px;
+       height: 100px;
+}
+.Name{
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #000000;
+  padding: 5%;
+}
+.col img{
+  height: auto;
+  width: auto;
+  margin: auto;
+}
+.row{
+  padding: 5%;
+  border-bottom: 1px solid;
+
+}
+.colText{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.password{
+  text-align: center;
+  color: #649305;
+  padding-top: 10%;
+}
+.block button{
+  margin-left: 10%;
+  text-align: center;
+  width: 80%;
+  background-color: #649305;
+  margin-top: 10%;
+  margin-bottom: 15%;
+
+}
+
+  
 }

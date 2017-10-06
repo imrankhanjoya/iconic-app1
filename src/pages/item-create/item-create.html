@@ -1,47 +1,61 @@
+->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ 'ITEM_CREATE_TITLE' | translate }}</ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="cancel()">
-        <span color="primary" showWhen="ios">
-          {{ 'CANCEL_BUTTON' | translate }}
-        </span>
-        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-      </button>
+  <ion-navbar color="fulldark">
+    <ion-title start>प्रोफ़ाइल</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only color="royal" (click)="gotoSearchProduct()" class="wallet">
+    <img src="assets/img/agri bolo icon/hdpi/wallet.png">
+    </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button (click)="done()" [disabled]="!isReadyToSave" strong>
-        <span color="primary" showWhen="ios">
-          {{ 'DONE_BUTTON' | translate }}
-        </span>
-        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
-      </button>
+    <button ion-button icon-only color="royal" (click)="presentPopover($event)" class="wallet">
+      <img src="assets/img/agri bolo icon/hdpi/notification.png">
+    </button>
+    </ion-buttons>
+    <ion-buttons end>
+    <button ion-button icon-only color="royal" (click)="presentPopover($event)" class="wallet">
+      <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
+    </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content>
-  <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
-    <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]" (change)="processWebImage($event)" />
-    <div class="profile-image-wrapper" (click)="getPicture()">
-      <div class="profile-image-placeholder" *ngIf="!this.form.controls.profilePic.value">
-        <ion-icon name="add"></ion-icon>
-        <div>
-          {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
-        </div>
-      </div>
-      <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>
-    </div>
-    <ion-list>
-      <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="about"></ion-input>
-      </ion-item>
-    </ion-list>
-  </form>
+<ion-content >
+<ion-card>
+  <img class="circle-pic" src="assets/img/IMG_0560.JPG">
+  <p class="Name"> रमेश शर्मा</p>
+  <ion-grid>
+  <ion-row>
+    <ion-col col-3>
+      <img  src="assets/img/agri bolo icon/hdpi/placeholder (1).png">
+    </ion-col>
+    <ion-col class="colText">
+      71 पिलग्रीम एवेन्यू चेवी चेस, एमडी 20815
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="colImage" col-3>
+      <img  src="assets/img/agri bolo icon/hdpi/phone-call.png">
+    </ion-col>
+    <ion-col class="colText">
+      +91 9945872308
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3>
+      <img  src="assets/img/agri bolo icon/hdpi/plant.png">
+    </ion-col>
+    <ion-col class="colText">
+       सरसों
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<p class="password">पासवर्ड बदलें</p>
+<div class="block">
+<button ion-button block  >प्रोफाइल एडिट करें</button>
+</div>
+
+</ion-card>
 </ion-content>
