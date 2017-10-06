@@ -70,6 +70,7 @@
 }
 .card-md p{
 	color:#4A4B4C;
+	font-size: 1rem;
 }
 .main p{
 	font-size: 4.8rem;
@@ -135,7 +136,7 @@
 /*mandi Cards*/
 
 .MandiTitle{
-	font-size: 2.4rem;
+	font-size: 2.2rem;
 	color: #4a4b4c;
 	width:60%;
 	float:left;
@@ -145,16 +146,18 @@
 	float:right;
 }
 .MandiPrice{
-	font-size: 3.0rem;
+	font-size: 2.1rem;
 	color: #4a4b4c;
 	float:left;
+	width:70%;
+	text-align:left;
 }
 .MandiUnit{
-	font-size: 1.2rem;
+	font-size: 1rem;
 	color: #4a4b4c;
 	float:left;
 	width:100%;
-	margin-top:-7px;
+	margin-top:-2px;
 }
 .SmallerMandiTitle{
 	font-size: 1.2rem;
@@ -166,7 +169,7 @@
 	font-size: 1.5rem;
 	color: #4a4b4c;
 	float:left;
-	margin-top:-3px;
+	margin-top:-5px;
 }
 .SmallerMandiUnit{
 	font-size: 0.8rem;
@@ -180,4 +183,54 @@
 	margin-bottom:10px;
 }
 
+/*News Block CSS*/
 
+.newsSmallBlock{
+	font-size: 1.5rem;
+}	
+.newsLargeImage{
+	margin: auto;
+	border: solid;
+	border-color: white;
+	border-radius: 10px;
+	border-width: 1px;
+	width: 95%;
+	height: fit-content;
+	padding-top:5px;
+}
+.newsLargeTitle{
+	font-size: 1.7rem;
+	color: #4a4b4c;
+	float:left;
+	margin-top:-7px;
+	line-height:100%
+}
+.newsLargePTI{
+	padding-top: 2%;
+	color: grey;
+	font-size: 0.8 rem;
+	border-bottom: 1px solid;
+	padding-bottom: 5%;
+	width: auto;
+	margin-left: 1%;
+	margin-right: 2%;
+}
+.newsSmallPTI{
+	padding-top: 2%;
+	color: grey;
+	font-size: 1rem;
+	border-bottom: 1px solid;
+	padding-bottom: 5%;
+	width: auto;
+	margin-left: 1%;
+	margin-right: 2%;
+}
+.newsSmallImage{
+	margin: auto;
+	border: solid;
+	border-color: white;
+	border-radius: 10px;
+	border-width: 1px;
+	width: 100%;
+	padding-top:5px;
+}

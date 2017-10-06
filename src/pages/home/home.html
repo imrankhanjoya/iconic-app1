@@ -238,9 +238,9 @@
    <ion-slides  [slidesPerView]="'auto'" >
     <ion-slide  class="sliShow" >
     <div class="slidImage">
-      <p >{{expertdata.title}}</p>
-      <p class="pDate">{{expertdata.date}}</p>
-      <p class="readMore" >और देखें</p>
+      <div>{{expertdata.title}}</div>
+      <div class="pDate">{{expertdata.date}}</div>
+      <div class="readMore" >और देखें</div>
   </div>
   </ion-slide>
   <ion-slide class="sliShow">
@@ -258,6 +258,7 @@
   </div>
   </ion-slide>
   </ion-slides>
+
   <ion-grid>
       <ion-row>
       <ion-col class="imageAlign">
@@ -271,21 +272,21 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card  >
-    
-      <div *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
-      <img  src="{{newsData.data[0].image}}" class="kishan"/>
-      <p padding-top padding-left class="panjab">{{newsData.data[0].title}}</p>
-      <p padding-left class="pti">पीटीआई | अपडेट : {{newsData.data[0].created}}</p>
+  
+  <ion-card>
+      <div class="row" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
+      <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
+      <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
+      <div padding-left class="newsLargePTI">पीटीआई | अपडेट : {{newsData.data[0].created}}</div>
     </div>
   <ion-grid >
     <ion-row padding-top *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
       <ion-col col-3 *ngIf="i > 0 ">
-        <img src="{{news.image}}" width="200px" />
+        <img class = "newsSmallImage" src="{{news.image}}" width="200px" />
       </ion-col>
-      <ion-col col-9 class="aarunJatliy" *ngIf="i > 0 ">
-        <h3 >{{news.title}}</h3>
-        <p >पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</p>
+      <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
+        <div >{{news.title}}</div>
+        <div class="newsSmallPTI">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</div>
       </ion-col>
     </ion-row>
     
