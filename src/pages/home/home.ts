@@ -196,7 +196,7 @@ export class HomePage {
     this.navCtrl.push('MarketPage');
   }
   gotoVedio(){
-  this.navCtrl.push('VideoPage');
+  this.navCtrl.push('RentalsPage');
   }
 
 }

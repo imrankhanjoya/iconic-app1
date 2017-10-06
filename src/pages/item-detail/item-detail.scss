@@ -5,6 +5,42 @@ page-item-detail {
     background-size: cover;
     height: 250px;
   }
+  .inpu{
+   color:#5f8b05!important;
+
+}
+.circle-pic{
+  text-align:  center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+    border-radius: 50%;
+       width: 100px;
+       height: 100px;
+}
+.Name{
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #000000;
+  padding: 5%;
+}
+.p_button{
+  width:100% !important;
+  margin:auto;
+  color:#5f8b05;
+margin-top: 10%;
+    margin-bottom: 10%;
+}
+.p_1{
+  width: 75%!important;
+  margin-left:30px;
+    background: #5f8b05;
+    height: 41px;
+    margin-left: 10%;
+    font-size: 15px;
+    color: #ffffff; 
+}
 
   .item-detail {
     width: 100%;

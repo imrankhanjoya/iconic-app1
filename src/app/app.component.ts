@@ -61,6 +61,10 @@ export class MyApp {
     { title: 'video', component: 'VideoPage' },
     { title: 'video-detail', component: 'VideoDetailPage' },
     { title: 'crops', component: 'CropsPage' },
+    { title: 'rentals', component: 'RentalsPage' },
+    { title: 'rental-detail', component: 'RentalDetailPage' },
+
+
 
 
   ]

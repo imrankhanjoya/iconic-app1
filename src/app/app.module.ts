@@ -32,6 +32,7 @@ import { KrishCenterProvider } from '../providers/krish-center/krish-center';
 import { VideoProvider } from '../providers/video/video';
 import { ExpertsProvider } from '../providers/experts/experts';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { RentalsProvider } from '../providers/rentals/rentals';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -103,7 +104,8 @@ export function provideSettings(storage: Storage) {
     KrishCenterProvider,
     VideoProvider,
     InAppBrowser,
-    ExpertsProvider
+    ExpertsProvider,
+    RentalsProvider
   ]
 })
 export class AppModule { }

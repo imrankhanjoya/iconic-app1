@@ -80,4 +80,8 @@ export class ItemCreatePage {
     if (!this.form.valid) { return; }
     this.viewCtrl.dismiss(this.form.value);
   }
+  newpassword(){
+      this.navCtrl.push('ItemDetailPage');
+
+  }
 }

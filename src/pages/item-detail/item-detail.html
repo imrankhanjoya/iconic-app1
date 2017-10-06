@@ -1,18 +1,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title>Change Password</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-  </div>
+  <ion-card>
+  <img class="circle-pic" src="assets/img/IMG_0560.JPG">
+  <p class="Name"> रमेश शर्मा</p>
+ <div>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
+ <ion-item>
+    <ion-label  class="inpu" stacked>पुराना पासवर्ड</ion-label>
+    <ion-input [(ngModel)]="oldpassword" name="password" value="" type="password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label class="inpu"  stacked>पासवर्ड</ion-label>
+    <ion-input [(ngModel)]="password" name="password" value="" type="password"></ion-input>
+  </ion-item>
+
+<ion-item>
+    <ion-label class="inpu" stacked>पासवर्ड की पुष्टि कीजिये</ion-label>
+    <ion-input  [(ngModel)]="confirmPassword" name="confirmPassword" value="" type="password"></ion-input>
+  </ion-item>
+
+</div>
+<div  class="p_button">
+    <button class="p_1"  >ठीक हे </button>
   </div>
+</ion-card>
 </ion-content>
