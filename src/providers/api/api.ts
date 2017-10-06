@@ -17,6 +17,8 @@ export class Api {
     user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
     user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:''};
 
+  public userLoction : {accuracy:string,altitude:string,altitudeAccuracy:string,heading:string,latitude:string,
+    longitude:string}={accuracy:'',altitude:'',altitudeAccuracy:'',heading:'',latitude:'',longitude:''};
 
   constructor(public http: Http,public storage:Storage) {
     storage.get('userData').then((userdata) => {
@@ -24,6 +26,11 @@ export class Api {
         if (userdata) {
           console.log('----userdata get--');
           this.userData=userdata;
+        }
+     });
+    storage.get('userLoction').then((userloction) => {
+        if (userloction) {
+          this.userLoction=userloction;
         }
      });
   }

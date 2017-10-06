@@ -25,19 +25,36 @@
 <ion-content padding>
 
 <ion-list>
-    
-<ion-card *ngFor="let data of choupaldata.data;let i=index " class="itemnew1">
-  <ion-item>
-      <ion-avatar item-start>
-        <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
-      </ion-avatar>
-      <h2>Finn</h2>
-      <p>{{data.message}}</p>
-      <p class="time" >2:30 am</p>
-
-    </ion-item>
-</ion-card>
-<ion-card class="itemnew">
+ <ion-grid>
+  <ion-row *ngFor="let data of choupaldata.data;let i=index ">
+    <ion-col>
+      <ion-card [ngStyle]="{visibility:data.uid!=userId ? 'visible' : 'hidden'}" class="itemnew1">
+        <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
+            </ion-avatar>
+            <h2>Finn</h2>
+            <p>{{data.message}}</p>
+            <p class="time" >2:30 am</p>
+          </ion-item>
+      </ion-card>
+    </ion-col>
+    <ion-col>
+      <ion-card [ngStyle]="{visibility:data.uid==userId ? 'visible' : 'hidden'}" class="itemnew">
+        <ion-item >
+          <ion-avatar item-start>
+                <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
+            </ion-avatar>
+            <h2>Finn</h2>
+            <p>Listen, I've had a pretty messed up day...</p>
+            <p class="time" >2:30 am</p>
+        
+          </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+ </ion-grid>   
+<ion-card  class="itemnew">
   <ion-item >
     <ion-avatar item-start>
           <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
@@ -56,10 +73,10 @@
       <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
     </ion-col>
     <ion-col col-8>
-  <ion-input  value="" placeholder="संदेश यहां दर्ज कर"></ion-input>
+  <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="संदेश यहां दर्ज कर"></ion-input>
     </ion-col>
     <ion-col col-2>
-      <img  (click)="goToUsrRegister()" src="assets/img/agri bolo icon/hdpi/send.png"/>
+      <img  (click)="postCopal()"  src="{{sendIcon}}"/>
     </ion-col>
   </ion-row>
 </ion-grid>
