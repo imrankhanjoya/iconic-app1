@@ -193,6 +193,9 @@ export class HomePage {
     this.navCtrl.push('MarketPage');
   }
   gotoVedio(){
+  this.navCtrl.push('VideoPage');
+  }
+  gotoRentals(){
   this.navCtrl.push('RentalsPage');
   }
 
