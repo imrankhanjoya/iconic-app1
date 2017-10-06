@@ -1,4 +1,10 @@
 page-crops {
+  .lableName{
+    font-size: 12px;
+  }
+.mainCheck{
+  margin: 5%;
+}
 .title{
 text-align: center;
 margin-left: 20%;
@@ -36,13 +42,13 @@ padding-bottom: 5%;
 .button{
   background-color: #649305;
   width: 75%;
-  margin-top: 10%;
+  margin-top: 2%;
   margin-left: 10%;
 }
 .checkbox{
   float: left;
   width: 20%;
-  height: 85%;
+  height: 90%;
 
 }
 p.titleName{

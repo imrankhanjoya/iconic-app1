@@ -19,7 +19,7 @@ export class WelcomePage {
   setLanguage(lang) {
   this.storage.set('userLang',lang);
     console.log('------'+JSON.stringify(lang));
-    this.navCtrl.push('VerifyNumberPage');
+    this.navCtrl.push('OtpNumberPage');
   }
 
   signup() {
