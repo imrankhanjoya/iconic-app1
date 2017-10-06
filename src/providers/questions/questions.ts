@@ -20,7 +20,7 @@ export class QuestionsProvider {
    questionList() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
   	 var paramCond ={};
-    let seq = this.api.get('v1/question/all&limit=10', paramCond).share();
+    let seq = this.api.get('v1/question/q-a&user_id=1', paramCond).share();
 
     seq
       .map(res => res.json())
@@ -42,8 +42,8 @@ export class QuestionsProvider {
       body.append('user_id', questionaddData.user_id);
       body.append('title', questionaddData.title);
       body.append('privacy', 'public');
-      body.append('message', questionaddData.description);
-      body.append('description', questionaddData.description);
+      body.append('message', 'remove description fields');
+      body.append('description', 'remove description fields');
       body.append('Attachments', questionaddData.Attachments);
 
       var Params = questionaddData;  

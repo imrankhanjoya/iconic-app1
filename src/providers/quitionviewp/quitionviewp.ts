@@ -24,8 +24,8 @@ export class QuitionviewpProvider {
   	
   	Quitionviews(id) {
 	  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	 var paramCond ={question:id};
-	    let seq = this.api.get('v1/question/view', paramCond).share();
+	  	 var paramCond ={question:id,user_id:1};
+	    let seq = this.api.get('v1/question/q-a-view', paramCond).share();
 
 	    seq
 	      .map(res => res.json())

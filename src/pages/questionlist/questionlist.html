@@ -16,10 +16,21 @@
 <ion-content padding>
 <ion-card>
   <ion-list *ngFor="let data of questionsDatalist.data;let i=index ">
-    <ion-item >
-      <h2 class="qtitle"><b>{{data.title}}</b></h2>
-      <p class="subtitles">{{data.display_name}}• {{data.ago}} ago • response {{data.answer_count}}</p>
-      <button  class="subtitles" ion-button clear item-end  (click)="gotoViewquestion(data.id)">View</button>
+    <ion-item (click)="gotoViewquestion(data.id)">
+      <ion-row  >
+        <ion-col col-2> <div class="qtitle"><b> प्रश्न : </b></div></ion-col>
+        <ion-col col-10>
+          <h2 class="qtitle"><b>{{data.title}}</b></h2>
+          <p class="subtitles">{{data.display_name}} • {{data.ago}} ago</p>
+        </ion-col>
+      </ion-row>
+      <ion-row data.answer  *ngIf="data.answer">
+        <ion-col col-2> <div class="qtitle"><b> उत्तर : </b></div></ion-col>
+        <ion-col col-10>
+          <h2 class="answer" >{{data.answer}}</h2>
+          <!-- <button  class="subtitles" ion-button clear item-end  (click)="gotoViewquestion(data.id)">View</button> -->
+        </ion-col>
+      </ion-row>
     </ion-item>
     <div class="ans"></div>
   </ion-list>
