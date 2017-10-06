@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 import { HomePage } from '../../pages/home/home';
 import { SignupPage } from '../../pages/signup/signup';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -21,8 +22,8 @@ export class LoginPage {
     private loginErrorString: string;
     RegisterData = {user_name:'', userPassword:''};
 
-  constructor(public navCtrl: NavController,
-    public user: User,
+  constructor(public navCtrl: NavController,public storage:Storage,
+    public user: User,public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
     this.translateService.setDefaultLang('ar');
@@ -47,17 +48,21 @@ export class LoginPage {
         this.UserPassError = false;
     }
     if(sendForm){
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      loading.present();
      this.user.login(this.RegisterData.user_name,this.RegisterData.userPassword).map(res => res.json()).subscribe((resp) => {
-     if(resp.status == '0'){
-       alert(resp.msg);
-       console.log(resp.status);
+      loading.dismiss();
+     if(resp.status==true){
+       this.storage.set('userData',resp.data);
+       this.navCtrl.push(MainPage);
       }else{
-        this.navCtrl.push(MainPage);
         console.log(resp.status);
+        alert(resp.msg);
       }
      }, (err) => {
-
-      //this.navCtrl.push(MainPage);
+      loading.dismiss();
     });
    }
   }

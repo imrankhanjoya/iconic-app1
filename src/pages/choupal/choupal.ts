@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ChoupalProvider } from '../../providers/choupal/choupal';
 
+import { Api } from '../../providers/api/api';
+
 /**
  * Generated class for the ChoupalPage page.
  *
@@ -16,7 +18,9 @@ import { ChoupalProvider } from '../../providers/choupal/choupal';
 })
 export class ChoupalPage {
 	public choupaldata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
+  public api:Api ) {
+    
   }
 
   ionViewDidLoad() {

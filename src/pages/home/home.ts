@@ -10,6 +10,8 @@ import { ExpertproviderProvider } from '../../providers/expertprovider/expertpro
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { Api } from '../../providers/api/api';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -39,9 +41,9 @@ export class HomePage {
   public topMenu:any;
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider, public weather:WeatherProvider, 
-    public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser) {
+    public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api) {
 
-      
+      console.log(api.userData);
 
       
   		this.topMenu = false;
