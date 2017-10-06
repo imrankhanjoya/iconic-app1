@@ -16,11 +16,8 @@ import { Storage } from '@ionic/storage';
 })
 export class VerifyNumberPage {
 
-  public verifyOtpfirst:any;
-  public verifyOtpSecond:any;
-  public verifyOtpThired:any;
-  public verifyOtpFourth:any;
-
+ 
+  RegisterData = {verifyOtpfirst:'',verifyOtpSecond:'',verifyOtpThired:'',verifyOtpFourth:''}
 
   public phoneNumber:any;
   public otp:any;
@@ -38,25 +35,25 @@ export class VerifyNumberPage {
     verifyNumber(){
 
       var sendForm = true;
-      if(this.verifyOtpfirst.length<1){
+      if(this.RegisterData.verifyOtpfirst.length<1){
           alert('Entere OTP');
           sendForm = false;
       }
-      if(this.verifyOtpSecond.length<1){
+      if(this.RegisterData.verifyOtpSecond.length<1){
           alert('Entere OTP');
           sendForm = false;
       }
-      if(this.verifyOtpThired.length<1){
+      if(this.RegisterData.verifyOtpThired.length<1){
           alert('Entere OTP');
           sendForm = false;
       }
-      if(this.verifyOtpFourth.length<1){
+      if(this.RegisterData.verifyOtpFourth.length<1){
           alert('Entere OTP');
           sendForm = false;
       }
 
       if(sendForm){
-          this.otp=this.verifyOtpfirst+this.verifyOtpSecond+this.verifyOtpThired+this.verifyOtpFourth;
+          this.otp=this.RegisterData.verifyOtpfirst+this.RegisterData.verifyOtpSecond+this.RegisterData.verifyOtpThired+this.RegisterData.verifyOtpFourth;
           console.log('------'+this.otp);
           this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
             if(resp.status === true){

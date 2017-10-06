@@ -20,6 +20,8 @@ export class WelcomePage {
   this.storage.set('userLang',lang);
     console.log('------'+JSON.stringify(lang));
     this.navCtrl.push('OtpNumberPage');
+
+    this.navCtrl.push('LoginPage');
   }
 
   signup() {

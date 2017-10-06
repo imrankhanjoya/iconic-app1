@@ -2,6 +2,7 @@ import 'rxjs/add/operator/map';
 
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
@@ -11,9 +12,28 @@ export class Api {
   url: string = 'http://205.147.100.82/agriboloapiv2/api/web/index.php?r=';
   //url: string = 'http://localhost/project/agriboloapiv2/api/web/index.php?r=';
 
-  constructor(public http: Http) {
-  }
+  public userData : {ID:string, display_name:string, sID:string, token:string, user_activation_key:string,
+    user_email:string, user_login:string, user_nicename:string, user_registered:string, user_status:string,
+    user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
+    user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:''};
 
+  public userLoction : {accuracy:string,altitude:string,altitudeAccuracy:string,heading:string,latitude:string,
+    longitude:string}={accuracy:'',altitude:'',altitudeAccuracy:'',heading:'',latitude:'',longitude:''};
+
+  constructor(public http: Http,public storage:Storage) {
+    storage.get('userData').then((userdata) => {
+        console.log('----userData--'+userdata);
+        if (userdata) {
+          console.log('----userdata get--');
+          this.userData=userdata;
+        }
+     });
+    storage.get('userLoction').then((userloction) => {
+        if (userloction) {
+          this.userLoction=userloction;
+        }
+     });
+  }
   get(endpoint: string, params?: any, options?: RequestOptions) {
     if (!options) {
       options = new RequestOptions();

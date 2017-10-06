@@ -10,6 +10,9 @@ import { ExpertproviderProvider } from '../../providers/expertprovider/expertpro
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { Api } from '../../providers/api/api';
+import { Storage } from '@ionic/storage';
+
 /**
  * Generated class for the HomePage page.
  *
@@ -39,9 +42,10 @@ export class HomePage {
   public topMenu:any;
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public krish:KrishProvider, public weather:WeatherProvider, 
-    public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser) {
+    public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
+    public storage:Storage) {
 
-      
+      console.log(api.userData);
 
       
   		this.topMenu = false;
@@ -51,6 +55,7 @@ export class HomePage {
 
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
+       this.storage.set('userLoction',resp.coords);
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
       }).catch((error) => {
         console.log('Error getting location', error);

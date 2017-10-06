@@ -10,12 +10,12 @@
 <ion-content padding>
 <h1 class="title"> कृपया अपनी फसल प्रकार को चुनें</h1>
 <ion-row margin>
-  <ion-col class="imagc" col-5 (click)="addEvent();" [ngStyle]="{'background-color': peon}">
+  <ion-col class="imagc" col-5 (click)="addEvent('Kharif');" [ngStyle]="{'background-color': peon}">
     <img src="assets/img/coffee_beans_2017-10-05/drawable-hdpi/coffee_beans.png"/>
 
   </ion-col>
   <ion-col></ion-col>
-  <ion-col class="nextC " col-5 (click)="addEvent();" [ngStyle]="{'background-color': buttonColor}">
+  <ion-col class="nextC " col-5 (click)="addEvent('Horticulture');" [ngStyle]="{'background-color': buttonColor}">
     <img src="assets/img/xmlid_544_2017-10-05/drawable-hdpi/xmlid_544.png" />
   </ion-col>
 </ion-row>
@@ -28,18 +28,26 @@
       <h2>फल</h2>
     </ion-col>
 </ion-row>
-<ion-row  margin>
-    <ion-col *ngFor="let itme of cropList; let i= index " col-4 class="mainClass">
-      <input type="checkbox" ng-model="itme.name" (ionChange)="updateLocalStorage()" (click)="addValue(itme.name)" class="checkbox" />
-      <p class="titleName" >{{itme.name}}</p>
-
+<ion-row  class="mainCheck">
+    <ion-col *ngFor="let item of cropList" col-4 class="mainClass" >
+      <ion-row >
+        <ion-col *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
+    <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(item.name)" class="checkbox" />
+      <p class="titleName" >{{item.name}}</p>
     </ion-col>
-    <!-- <ion-col *ngFor="let itme of cropList; let i= index " col-4 class="mainClass">
+    <ion-col *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
+      <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(item.name)" class="checkbox" />
+      <p class="titleName" >{{item.name}}</p>
+    </ion-col>
+    </ion-row>
+    </ion-col>
+
+    <!-- <ion-col *ngFor="let itme of cropList; let i= index " col-6 class="mainClass">
     <ion-item >
-    <ion-label >{{itme.name}}</ion-label>
+    <ion-label class="lableName">{{itme.name}}</ion-label>
     <ion-checkbox [(ngModel)]="itme.name"></ion-checkbox>
   </ion-item>
-</ion-col> -->
+ </ion-col> -->
 </ion-row>
 <button ion-button block class="button">ठीक है</button>
 </ion-content>

@@ -17,8 +17,8 @@ export class SignupPage {
   public phoneNumber:any;
   public password:any;
   public confirmPassword:any;
-  public user_name='nouse';
-  public user_email='abcrs@gmail.com';
+  public user_name='mynameisKham';
+  public user_email='abcmrs@gmail.com';
   public lang:any;
   private signupErrorString: string;
   public state:any;

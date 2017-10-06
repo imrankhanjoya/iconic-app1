@@ -71,7 +71,7 @@ export class User {
      .subscribe(res => {
        // If the API returned a successful response, mark the user as logged in
        if (res.status == 'success') {
-        
+
        } else {
        }
      }, err => {
@@ -112,7 +112,7 @@ export class User {
           body.append('password', password);
           body.append('user_name', user_name);
           body.append('lang', lang);
-          body.append('user_email', user_email);
+          body.append('user_email','hello@agri.com');
 
           let seq = this.api.post('v1/user/register', body).share();
 

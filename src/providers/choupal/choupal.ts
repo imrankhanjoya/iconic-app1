@@ -12,15 +12,16 @@ import { Api } from '../api/api';
 */
 @Injectable()
 export class ChoupalProvider {
-
+  public userLatLong:any;
   constructor(public http: Http,public api:Api) {
     console.log('Hello ChoupalProvider Provider');
+    this.userLatLong=api.userLoction;
   }
 
 
   getChoupal() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	 var paramCond ={post_type:'services',lang:'hi_IN'};
+  	 var paramCond ={post_type:'services',lang:'hi_IN',lat:this.userLatLong.latitude,longe:this.userLatLong.longitude};
     let seq = this.api.get('v1/choupal/get', paramCond).share();
 
     seq
@@ -35,6 +36,28 @@ export class ChoupalProvider {
         console.error('ERROR', err);
       });
 
+    return seq;
+  }
+  postChoupal(uid,message,image) {
+    let body = new FormData();
+    body.append('uid', uid);
+    body.append('lat', this.userLatLong.latitude);
+    body.append('longe', this.userLatLong.longitude);
+    body.append('message', message);
+    body.append('image', '');
+    body.append('url', '');
+    let seq = this.api.post('v1/choupal/post', body).share();
+    seq
+      .map(res => res.json())
+      .subscribe(res => {
+        // If the API returned a successful response, mark the user as logged in
+        if (res.status == 'success') {
+          console.log(res);
+        } else {
+        }
+      }, err => {
+        console.error('ERROR', err);
+      });
     return seq;
   }
 
