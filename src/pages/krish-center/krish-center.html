@@ -32,16 +32,16 @@
 <ion-grid>
   <ion-row>
     <ion-col col-7><p class="bhari">{{data.name}} </p></ion-col>
-    <ion-col col-5> <p class="colShow">कॉल कर</p>
+    <ion-col col-5 (click)="makeCall()"> <p class="colShow">कॉल कर</p>
 </ion-col>
   </ion-row>
   <ion-row>
          <ion-col col-1><ion-icon ios="ios-pin" md="md-pin"></ion-icon>             
 </ion-col>
 <ion-col col-6>
-    <p >१४३ जगन्नाथ पुरी झोटवाड़ा 302012 जयपुर (राजस्थान) </p>
+    <p >{{data.formatted_address}}</p>
     </ion-col>
-    <ion-col col-5> <p class="colShow">रास्ता खोज</p></ion-col>
+    <ion-col col-5 (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)"> <p class="colShow">रास्ता खोज</p></ion-col>
   </ion-row>
   <hr>
 </ion-grid>
