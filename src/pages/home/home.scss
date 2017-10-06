@@ -133,7 +133,10 @@ page-home {
       }
       .pClass{
       text-align: center;
-      font-size: 2rem;
+      font-size: 3rem;
+      }
+      .imageAlign{
+            padding-top: 3%;
       }
       .news-date{
       font-size: 12px;
@@ -143,11 +146,7 @@ page-home {
 
       }
 
-      .gridView{
-      background-color:  #101c00;
-      color: white;
-      text-align: center;
-      }
+     
       .fabButton{
       margin-bottom: 32%;
       //  padding-bottom: 32%;
@@ -223,10 +222,7 @@ page-home {
       font-size: 2.2rem;
       color: #4a4b4c;
       }
-      .main p{
-      font-size: 4.8rem;
-      font-weight: bold;
-      }
+
       .mainCard1{
       display: block !important;
       width: 100%;
@@ -234,10 +230,6 @@ page-home {
       .imageCol{
       padding-left: 5%;
       padding-right: 5%;
-      }
-      .pClass{
-      text-align: center;
-      font-size: 2rem;
       }
 
 
@@ -275,6 +267,11 @@ page-home {
       max-width: 120px;
       margin: auto;
       }
+
+      .gridDesign{
+      background-color: #101C00;
+      padding: 0px;
+}
 
 
 }

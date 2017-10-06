@@ -71,7 +71,7 @@ export class User {
      .subscribe(res => {
        // If the API returned a successful response, mark the user as logged in
        if (res.status == 'success') {
-        
+
        } else {
        }
      }, err => {

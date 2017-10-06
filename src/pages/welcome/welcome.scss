@@ -7,7 +7,15 @@ page-welcome {
     height:60px !important;
  } 
  .main_card1{
-    height:60px !important;
+    height:60px !important; 
+
+ }
+
+ .card-md{
+  shadow: none;
+  webkit-box-shadow: none;
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
  }
  .Select{
     text-align: center;

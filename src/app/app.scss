@@ -15,20 +15,31 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+
+
+
 .toolbarCol{
   text-align: center;
   color: white;
-  border: 1px solid;
+  border-right: 1px solid;
+  border-top: 1px solid; 
   border-color: #0a1200;
+  background-color: #101C00;
 }
 .toolbarCol img{
   padding-left: 15%;
   padding-right: 15%;
 
 }
+.menufontcolor{
+	color: #ffffff;
+}
+.toolbar-title-md{
+	color: #ffffff;
+}
 .toolbar-background, .tabbar{
 	background-color:#0a1200;
-	background: #0a1200 !important;
+	background: #101c00 !important;
 	color:#FFFFFF;
 }
 
@@ -44,3 +55,33 @@
 .subtabs{
   font-size: 12px;
 }
+
+.headericon{
+	height: 60%;
+	width: 60%;
+	color: royal;
+	margin-left: 10px;
+}
+
+.card-md{
+	margin: 0px 10px 20px 10px;
+	padding: 5px;
+}
+.card-md p{
+	color:#4A4B4C;
+}
+.main p{
+	font-size: 4.8rem;
+	font-weight: normal;
+}
+.weatherfoter{
+	color:#000;
+	border-top: 1px solid #D8D8D8;
+	padding-top:10px;
+}
+.content-md{
+	color: #4A4B4C;
+	background-color:#F3F4F8;
+}
+
+

@@ -16,10 +16,9 @@ import { Storage } from '@ionic/storage';
 })
 export class VerifyNumberPage {
 
-  public verifyOtpfirst:any;
-  public verifyOtpSecond:any;
-  public verifyOtpThired:any;
-  public verifyOtpFourth:any;
+ 
+  RegisterData = {verifyOtpfirst:'',verifyOtpSecond:'',verifyOtpThired:'',verifyOtpFourth:''}
+
   public phoneNumber:any;
   public otp:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage) {
@@ -34,21 +33,41 @@ export class VerifyNumberPage {
     this.navCtrl.push('SignupPage');
     }
     verifyNumber(){
-    this.otp=this.verifyOtpfirst+this.verifyOtpSecond+this.verifyOtpThired+this.verifyOtpFourth;
-    console.log('------'+this.otp);
 
-    this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
-    if(resp.status === true){
-    this.navCtrl.push('SignupPage');
-    console.log(resp.status);
-    }else{
-    this.navCtrl.push('SignupPage');
-    console.log(resp.status);
-    }
-    }, (err) => {
-    console.log('--unsuccess');
-    //this.navCtrl.push('VerifyNumberPage');
-     });
+      var sendForm = true;
+      if(this.RegisterData.verifyOtpfirst.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+      if(this.RegisterData.verifyOtpSecond.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+      if(this.RegisterData.verifyOtpThired.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+      if(this.RegisterData.verifyOtpFourth.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+
+      if(sendForm){
+          this.otp=this.RegisterData.verifyOtpfirst+this.RegisterData.verifyOtpSecond+this.RegisterData.verifyOtpThired+this.RegisterData.verifyOtpFourth;
+          console.log('------'+this.otp);
+          this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
+            if(resp.status === true){
+              this.navCtrl.push('SignupPage');
+             console.log(resp.status);
+            }else{
+              this.navCtrl.push('SignupPage');
+              console.log(resp.status);
+            }
+          }, (err) => {
+           console.log('--unsuccess');
+           //this.navCtrl.push('VerifyNumberPage');
+         });
+      }    
     }
 
 }
