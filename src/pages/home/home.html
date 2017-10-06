@@ -1,21 +1,21 @@
 <ion-header no-border>
-<ion-toolbar color="fulldark">
-<button ion-button menuToggle>
-<ion-icon name="people"></ion-icon>
+<ion-toolbar color="toolbarCol">
+<button ion-button menuToggle class="menufontcolor">
+<ion-icon name="menu" ></ion-icon>
 </button>
 <ion-buttons end>
-<button ion-button icon-only color="royal" (click)="gotoSearchProduct()">
+<button ion-button icon-only class="headericon" (click)="gotoSearchProduct()">
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons>
 <ion-title>hello {{ 'CARDS_TITLE' | translate }} Ramesh</ion-title>
 <ion-buttons end>
-<button ion-button icon-only color="royal" (click)="presentPopover($event)">
+<button ion-button icon-only class="headericon" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
 </button>
 </ion-buttons>
 <ion-buttons end>
-<button ion-button icon-only color="royal" (click)="presentPopover($event)">
+<button ion-button icon-only class="headericon" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
 </button>
 </ion-buttons>
@@ -24,7 +24,7 @@
 
 <ion-content >
   <div class="main-content">
-  <ion-grid  class="gridView">
+  <ion-grid  class="gridView gridDesign">
   <ion-row class="gridRow">
     <ion-col class="toolbarCol" (click)="gotoWeatherPage()">
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
