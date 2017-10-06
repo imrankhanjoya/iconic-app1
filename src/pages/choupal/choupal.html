@@ -22,12 +22,14 @@
 </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-<ion-list>
- <ion-grid>
+<ion-scroll scrollX="true" scrollY="true" maxZoom="3" zoom="1" style="height:80%">
+
+<ion-list >
+ <ion-grid >
   <ion-row class="chatbox" *ngFor="let data of choupaldata.data;let i=index ">
-    <ion-col [ngStyle]="{visibility:data.uid!=userId ? 'visible' : 'hidden'}">
+    <ion-col class="chatbox" *ngIf="data.uid!=userId">
       <ion-card class="itemnew1">
         <ion-item>
             <ion-avatar item-start>
@@ -35,90 +37,47 @@
             </ion-avatar>
             <h2>Finn</h2>
             <p>{{data.message}}</p>
-            <p class="time" >2:30 am</p>
+            <p class="time" >{{data.created}}</p>
           </ion-item>
       </ion-card>
     </ion-col>
-    <ion-col [ngStyle]="{visibility:data.uid==userId ? 'visible' : 'hidden'}">
+    <ion-col class="chatbox" *ngIf="data.uid==userId">
       <ion-card class="itemnew">
         <ion-item >
-          <ion-avatar item-start>
+            <h2>Finn</h2>
+            <p>{{data.message}}</p>
+            <ion-avatar item-end>
                 <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
             </ion-avatar>
-            <h2>Finn</h2>
-            <p>Listen, I've had a pretty messed up day...</p>
-            <p class="time" >2:30 am</p>
+            
+            <p class="time" >{{data.created}}</p>
         
           </ion-item>
       </ion-card>
     </ion-col>
   </ion-row>
  </ion-grid>   
-<ion-card  class="itemnew">
-  <ion-item >
-    <ion-avatar item-start>
-          <img src="assets/img/agri bolo icon/xxxhdpi/Group 31.png">
-      </ion-avatar>
-      <h2>Finn</h2>
-      <p>Listen, I've had a pretty messed up day...</p>
-      <p class="time" >2:30 am</p>
-  
-    </ion-item>
-</ion-card>
   </ion-list>
-  <ion-card>
-     <ion-grid padding-top>
-  <ion-row >
-    <ion-col col-2>
-      <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
-    </ion-col>
-    <ion-col col-8>
-  <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="संदेश यहां दर्ज कर"></ion-input>
-    </ion-col>
-    <ion-col col-2>
+
+</ion-scroll>
+
+
+    <ion-card>
+   
+    <ion-row >
+      <ion-col col-2>
+        <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
+      </ion-col>
+      <ion-col col-8>
+      <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="संदेश यहां दर्ज कर">
+      </ion-input>
+      </ion-col>
+      <ion-col col-2>
       <img  (click)="postCopal()"  src="{{sendIcon}}"/>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-</ion-card>
+      </ion-col>
+    </ion-row>
+    </ion-card>
+
+
+
 </ion-content>
-<!-- <ion-card>
-<ion-grid >
-  <ion-row class="topTitle">
-    <ion-col col-3>
-    <img class="cricleimage" src="assets/img/agri bolo icon/hdpi/wallet.png">
-    </ion-col>
-    <ion-col col-9>
-       <p >किस वित्तीय वर्ष के संघीय बजट में राष्ट्रीय कृषि बीमा योजना को खरीफ फसल पर भी लागू किया गया? </p>
-    </ion-col>
-    </ion-row>
-    </ion-grid>
-      <p class="time" >2:30 am</p>
-
-  
-  <ion-grid >
-  <ion-row class="mainp">
-    <ion-col col-9>
-       <p >किस वित्तीय वर्ष के संघीय बजट में राष्ट्रीय कृषि बीमा योजना को खरीफ फसल पर भी लागू किया गया? </p>
-    </ion-col>
-    <ion-col col-3>
-          <img class="cricleimage" src="assets/img/agri bolo icon/hdpi/wallet.png">
-    </ion-col>
-    </ion-row>
-    </ion-grid>
-  <p class="timeLeft" >2:30 am</p>
-
-  <ion-grid padding-top>
-  <ion-row >
-    <ion-col col-2>
-      <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
-    </ion-col>
-    <ion-col col-8>
-  <ion-input placeholder="संदेश यहां दर्ज कर"></ion-input>
-    </ion-col>
-    <ion-col col-2>
-      <img src="assets/img/agri bolo icon/hdpi/send.png"/>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-</ion-card> -->
