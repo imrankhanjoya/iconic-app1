@@ -218,11 +218,12 @@
 	padding-top: 2%;
 	color: grey;
 	font-size: 1rem;
-	border-bottom: 1px solid;
-	padding-bottom: 5%;
 	width: auto;
 	margin-left: 1%;
 	margin-right: 2%;
+}
+.newsSmallPTISep{
+	border-bottom: 1px solid;
 }
 .newsSmallImage{
 	margin: auto;
@@ -232,4 +233,18 @@
 	border-width: 1px;
 	width: 100%;
 	padding-top:5px;
+}
+.newsDetailDesc{
+	padding-top: 2%;
+	color: grey;
+	font-size: 1.2rem;
+	width: auto;
+	margin-left: 1%;
+	margin-right: 2%;
+	padding-bottom: 2%
+}
+.ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }

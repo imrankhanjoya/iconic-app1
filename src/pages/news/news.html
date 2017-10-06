@@ -1,6 +1,10 @@
 <ion-header no-border>
   <ion-navbar color="#101c00">
-    <ion-icon name="menu"></ion-icon>
+        <ion-buttons left>
+            <button ion-button icon-only (click)="viewCtrl.dismiss()">
+                <ion-icon name="arrow-back" color="white"></ion-icon>
+            </button>
+        </ion-buttons>
 
     <ion-title>
       News
@@ -11,7 +15,6 @@
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons>
-<ion-title>hello Ramesh</ion-title>
 <ion-buttons end>
 <button ion-button icon-only color="royal" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -27,12 +30,13 @@
 </ion-header>
 
 
-
-<ion-content padding>
-<ion-card   *ngFor="let data of newsData.data; let i=index " class="mainCard" (click)="gotoWebView(newsData.data[i].link)">
-    <img src={{data.image}} class="imagelist"/>
-    <p class="pTitle">{{data.title}}</p>
-    <p class="pContent">India |{{data.created}} IST</p>
-    <p class="description">{{data.description}}</p>
+<ion-content>
+ <ion-card *ngFor="let data of newsData.data; let i=index " class="card card-md" (click)="gotoWebView(newsData.data[i].link)">
+      <div >
+      <img  src="{{data.image}}" class="newsLargeImage"/>
+      <div padding-top padding-left class="newsLargeTitle">{{data.title}}</div>
+      <div padding-left class="newsSmallPTI" >पीटीआई | अपडेट : {{data.created}} </div>
+    </div>
   </ion-card>
+
 </ion-content>
