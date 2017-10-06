@@ -4,6 +4,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 import { HomePage } from '../../pages/home/home';
+import { SignupPage } from '../../pages/signup/signup';
 
 
 @IonicPage()
@@ -13,9 +14,12 @@ import { HomePage } from '../../pages/home/home';
 })
 export class LoginPage {
 
-    public username: any;
-    public password: any;
-  private loginErrorString: string;
+    
+    public userMobilNoError:any;
+    public UserPassError:any;
+    
+    private loginErrorString: string;
+    RegisterData = {user_name:'', userPassword:''};
 
   constructor(public navCtrl: NavController,
     public user: User,
@@ -29,17 +33,35 @@ export class LoginPage {
   }
 
   doLogin(){
-     this.navCtrl.push(MainPage); 
-     this.user.login(this.username,this.password).map(res => res.json()).subscribe((resp) => {
-     if(resp.status === true){
-      this.navCtrl.push(MainPage);
-      console.log(resp.status);
+    var sendForm = true;
+    if(this.RegisterData.user_name.length<10){
+      this.userMobilNoError = true;
+        sendForm = false;
+    }else{
+      this.userMobilNoError = false;
+    }
+    if(this.RegisterData.userPassword.length<3){
+        this.UserPassError = true;
+        sendForm = false;
+    }else{
+        this.UserPassError = false;
+    }
+    if(sendForm){
+     this.user.login(this.RegisterData.user_name,this.RegisterData.userPassword).map(res => res.json()).subscribe((resp) => {
+     if(resp.status == '0'){
+       alert(resp.msg);
+       console.log(resp.status);
       }else{
-      console.log(resp.status);
+        this.navCtrl.push(MainPage);
+        console.log(resp.status);
       }
      }, (err) => {
-      this.navCtrl.push(MainPage);
-    });
-  }
 
+      //this.navCtrl.push(MainPage);
+    });
+   }
+  }
+  singUp(){
+    this.navCtrl.push(SignupPage);
+  }
 }

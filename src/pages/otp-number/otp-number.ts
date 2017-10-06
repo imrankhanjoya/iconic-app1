@@ -17,6 +17,7 @@ import { Storage } from '@ionic/storage';
 })
 export class OtpNumberPage {
   public phoneNumber:any;
+  public phoneNumberError:any;
   public name='allanoor';
   public userInfo:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage,public alertCtrl: AlertController) {
@@ -27,25 +28,30 @@ export class OtpNumberPage {
   }
 
   sendOtp(){
-      this.user.sendOtp(this.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
-          if(resp.status === true){
-            this.storage.set('userInfo', resp);
-            this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.phoneNumber});}
-          else{
-            this.showAlert('Attention!','Error while Sending SMS please try again.');
-          }
-      }, (err) => {
-        this.showAlert('Attention!','Error while Sending SMS please try again.');
-      });
-  }
 
-  showAlert(title,msg) {
-    let alert = this.alertCtrl.create({
-      title: title,
-      subTitle: msg,
-      buttons: ['OK']
-    });
-    alert.present();
+
+    var sendForm = true;
+    if(this.phoneNumber.length<10){
+      this.phoneNumberError = true;
+        sendForm = false;
+    }else{
+      this.phoneNumberError = false;
+    }
+    if(sendForm){
+        this.user.sendOtp(this.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
+        if(resp.status === true){
+          this.storage.set('userInfo', resp);
+          console.log(resp.status);
+          this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.phoneNumber});
+        }else{
+          alert(resp.msg)
+         // this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.phoneNumber});
+          console.log('number unValid');
+        }
+      }, (err) => {
+        console.log('--unsuccess')  
+      });
+    }
   }
 
 }

@@ -20,6 +20,8 @@ export class VerifyNumberPage {
   public verifyOtpSecond:any;
   public verifyOtpThired:any;
   public verifyOtpFourth:any;
+
+
   public phoneNumber:any;
   public otp:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage) {
@@ -34,21 +36,41 @@ export class VerifyNumberPage {
     this.navCtrl.push('SignupPage');
     }
     verifyNumber(){
-    this.otp=this.verifyOtpfirst+this.verifyOtpSecond+this.verifyOtpThired+this.verifyOtpFourth;
-    console.log('------'+this.otp);
 
-    this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
-    if(resp.status === true){
-    this.navCtrl.push('SignupPage');
-    console.log(resp.status);
-    }else{
-    this.navCtrl.push('SignupPage');
-    console.log(resp.status);
-    }
-    }, (err) => {
-    console.log('--unsuccess');
-    //this.navCtrl.push('VerifyNumberPage');
-     });
+      var sendForm = true;
+      if(this.verifyOtpfirst.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+      if(this.verifyOtpSecond.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+      if(this.verifyOtpThired.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+      if(this.verifyOtpFourth.length<1){
+          alert('Entere OTP');
+          sendForm = false;
+      }
+
+      if(sendForm){
+          this.otp=this.verifyOtpfirst+this.verifyOtpSecond+this.verifyOtpThired+this.verifyOtpFourth;
+          console.log('------'+this.otp);
+          this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
+            if(resp.status === true){
+              this.navCtrl.push('SignupPage');
+             console.log(resp.status);
+            }else{
+              this.navCtrl.push('SignupPage');
+              console.log(resp.status);
+            }
+          }, (err) => {
+           console.log('--unsuccess');
+           //this.navCtrl.push('VerifyNumberPage');
+         });
+      }    
     }
 
 }

@@ -8,13 +8,19 @@
 
  <ion-item>
     <ion-label class="inpu" stacked>फ़ोन नंबर</ion-label>
-    <ion-input [(ngModel)]="user_name" name="user_name" value="" type="text"></ion-input>
-  </ion-item>
+    <ion-input [(ngModel)]="RegisterData.user_name" name="user_name" value="" type="number"></ion-input>
+ </ion-item>
+ <div class="error" *ngIf="userMobilNoError==true" >
+    Enter valid mobile number
+ </div>
 
   <ion-item>
     <ion-label class="inpu" stacked>पासवर्ड</ion-label>
-    <ion-input [(ngModel)]="password" name="password" value="" type="text"></ion-input>
+    <ion-input [(ngModel)]="RegisterData.userPassword" name="password" value="" type="password" ng-required></ion-input>
   </ion-item>
+  <div class="error" *ngIf="UserPassError==true" >
+    Password is required
+  </div>
 
 </div>
 <div  class="p_button">

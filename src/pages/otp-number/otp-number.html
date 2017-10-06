@@ -6,26 +6,26 @@
 -->
 
 <ion-content padding>
-    <div class="main" padding>
-        <h1 class="text"> नमस्ते स्वागत हैं</h1>
-
-        <p class="text1">कृपया ओटीपी पिन के लिए अपना मोबाइल नंमबर दर्ज करे
-        </p>
+<div class="main" padding>
+	<h1 class="text"> नमस्ते स्वागत हैं</h1>
+	<p class="text1" >कृपया ओटीपी पिन के लिए अपना मोबाइल नंमबर दर्ज करे
+</p>
+</div>
+<div class="textinput" >
+ <ion-item>
+	<ion-label class="lable" >+91</ion-label>
+    <ion-input [(ngModel)]="phoneNumber" name="phoneNumber" maxlength="10" class="lable" value="" type="number"  placeholder="your number" ></ion-input>
+    </ion-item>
+    <div class="error" *ngIf="phoneNumberError==true" >
+     Enter valid mobile number
     </div>
-    <div class="textinput">
-        <ion-item>
-            <ion-label class="lable">+91</ion-label>
-            <ion-input [(ngModel)]="phoneNumber" name="phoneNumber" maxlength="10" class="lable" value="" type="number"
-                       placeholder="your number"></ion-input>
-        </ion-item>
-    </div>
-    <div class="p_button">
-        <button class="p_1" (click)="sendOtp()" type="submit">send otp</button>
-    </div>
-
-
+  </div>
+    <div  class="p_button" >
+    <button class="p_1" (click)="sendOtp()" type="submit">send otp</button>
+  </div>
 
 </ion-content>
+
 <div class="background">
     <div id="sun">
         <div id="sunbg"></div>
