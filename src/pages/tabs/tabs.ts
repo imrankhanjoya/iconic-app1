@@ -28,8 +28,9 @@ export class TabsPage {
   tab4Title = " ";
   tab5Title = " ";
 
-  constructor(public navCtrl: NavController, public translateService: TranslateService) {
+  constructor(private translate: TranslateService,public navCtrl: NavController, public translateService: TranslateService) {
     
+    this.initTranslate();
     translateService.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market']).subscribe(values => {
       this.tab1Title = values['Home'];
       this.tab2Title = values['Krishi Center'];
@@ -37,5 +38,20 @@ export class TabsPage {
       this.tab4Title = values['Choupal'];
       this.tab5Title = values['Market'];
     });
+  }
+
+  initTranslate() {
+    // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang('hi');
+
+    if (this.translate.getBrowserLang() !== undefined) {
+      //this.translate.use(this.translate.getBrowserLang());
+      this.translate.use('hi');
+    } else {
+      this.translate.use('hi'); // Set your language here
+    }
+
+
+    
   }
 }
