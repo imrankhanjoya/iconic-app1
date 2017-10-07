@@ -7,33 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Question View</ion-title>
+    <ion-title>Experts Section</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 	<ion-card>
-	  <ion-item>
-	    <ion-avatar item-start>
-	      <img src="{{questionviewData.data.user_profile_image}}">
-	    </ion-avatar>
-	    <h2 >{{questionviewData.data.display_name}}</h2>
-	    <p class="agrotitle agrodatetitle">{{questionviewData.data.created_at}}</p>
-	  </ion-item>
-
 	  <ion-card-content>
 	  	<ion-row>
 		  	<ion-col col-12>
 			    <span class="viewtitle">{{questionviewData.data.title}}</span>
 			</ion-col>
 			<ion-col col-12>
+			    <p class="agrotitle agrodatetitle">{{questionviewData.data.display_name}} . {{questionviewData.data.ago}} ago . {{questionviewData.data.view_count}} Views</p>
+			</ion-col>
+			<ion-row questionviewData.data.answer  *ngIf="questionviewData.data.answer">
+			<ion-col col-12>
 			    <span class="answerdes" >{{questionviewData.data.answer}}</span>
 			</ion-col>
-			<ion-col col-10>
+			<ion-col col-12>
 			    <p class="agrotitle agrodatetitle">{{questionviewData.data.answercreated_at}}</p>
 			</ion-col>
+			</ion-row>
 		</ion-row>
 	  </ion-card-content>
 
@@ -44,11 +41,10 @@
 	        <div>{{questionviewData.data.view_count}} Views</div>
 	      </button>
 	    </ion-col>
-	    <ion-col center text-center>
-	      <ion-note>
-	        {{questionviewData.data.ago}} ago
-	      </ion-note>
-	    </ion-col>
+
 	  </ion-row>
 	</ion-card>
+	<div class="block">
+    <button ion-button block (click)="gotoAskquestion()">View All Questions</button>
+  </div>
 </ion-content>

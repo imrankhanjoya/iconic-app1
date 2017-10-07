@@ -42,5 +42,8 @@ export class QuitionviewPage {
     console.log(Qid);
     this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
   }
+  gotoAskquestion(){
+    this.navCtrl.push('QuestionlistPage');
+  }
 
 }
