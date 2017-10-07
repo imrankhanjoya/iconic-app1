@@ -27,7 +27,7 @@ page-video {
     .http{
     font-size: 14px!important;
     padding:5px;
-    font-weight:bold;
+    color:#4a4b4c;
     }
     .main{
     width:100%!important;
@@ -40,6 +40,10 @@ page-video {
     }
     .hint{
     padding-top: 3%!important;
+    }
+    .video-thumbnail {
+      position: relative;
+      display: inline-block;
     }
     ion-toolbar.scrollable-segments {
         ion-segment {
