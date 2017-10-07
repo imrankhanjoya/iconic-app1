@@ -221,4 +221,8 @@ export class HomePage {
   this.navCtrl.push('AnnouncementPage');
   }
 
+  goToBlogPage(){
+   this.navCtrl.push('CardsPage'); 
+  }
+
 }

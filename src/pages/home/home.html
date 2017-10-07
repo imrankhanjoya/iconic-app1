@@ -241,12 +241,20 @@
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
               <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
                 <img src="{{expert.attachments}}" >
-
                 <div class="card-title-box">
                 <div class="card-title">  {{expert.title}}</div>
                 <div class="card-subtitle">{{expert.date}}</div>
 
-                <button ion-button color="light" outline>{{'SEE_MORE'| translate}}</button>
+                <button ion-button color="light" (click)=" goToExpertDetial(expert.id)" outline>{{'SEE_MORE'| translate}}</button>
+                </div>
+              </ion-card>
+
+          </ion-slide>
+           <ion-slide  >
+              <ion-card class="image-card"  (click)=" goToBlogPage()" >
+                <img class="image-card" src="assets/img/view_more.png" >
+                <div class="card-title-box">
+                <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
               </ion-card>
 

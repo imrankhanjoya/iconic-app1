@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { CardsPage } from './cards';
 
+
 @NgModule({
   declarations: [
     CardsPage,
