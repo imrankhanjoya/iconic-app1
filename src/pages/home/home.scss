@@ -208,27 +208,37 @@ page-home {
       padding: 0px;
       }
 
-  .image-card {
-    position: relative;
-    text-align: center;
-  }
+      .image-card {
+      position: relative;
+      text-align: left;
+      }
+      .image-card img{
+            width: 100%;
+      }
 
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight: bold;
-    color: #fff;
-  }
+      .card-title-box {
+            position: absolute;
+            top:20%;
+            left: 5%;
+            width:90%;
+            
+      }
+      .card-title {
+            
+            font-size: 2.0em;
+            width:100%;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px #000000;
+      }
 
-  .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: #fff;
-  }
+      .card-subtitle {
+      font-size: 1.0em;
+      width: 100%;
+      color: #fff;
+      text-shadow: 2px 2px #000000;
+      left: 5%;
+      }
 
 
 
