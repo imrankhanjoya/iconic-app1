@@ -26,6 +26,16 @@
 
 <ion-content>
 
+  <div *ngIf="expertdata.status">
+    <ion-card *ngFor="let data of expertdata.data; let i=index " class="card card-md" (click)="goToExpertDetial(expertdata.data[i].id)">
+      <div>
+      <img  src="{{data.attachments}}" />
+      <div padding-top padding-left class="blogTitile">{{data.title}}</div>
+      <div padding-top padding-left>{{data.excerpt}}</div>
+      <div padding-left class="newsSmallPTI" >{{ 'PTI_AND_UPDATE' | translate }} : {{data.date}} </div>
+      </div>
+  </ion-card>
+  </div>
   <ion-card *ngFor="let item of cardItems">
 
     <ion-item>

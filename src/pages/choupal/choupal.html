@@ -8,7 +8,7 @@
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons>
-<ion-title>hello Ramesh</ion-title>
+<ion-title>{{'CHOPAL' | translate}}</ion-title>
 <ion-buttons end>
 <button ion-button icon-only color="royal" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -29,59 +29,47 @@
 
 
     <ion-list >
-          <div  *ngFor="let data of choupaldata.data;let i=index " style=" border-radius: 5px; margin:10px">
-          
+          <div  *ngFor="let data of choupaldata.data;let i=index " style=" border-radius: 5px; margin:10px;  ">
 
-          <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' " >
-          
-          <ion-avatar item-start *ngIf="data.uid!=userId">
-          <img src="img/avatar-finn.png" >
-          </ion-avatar>  
-          
-          <div  style="min-width:30%; display:inline-block; float: right ">
-          <h3 *ngIf="data.uid!=userId" >Finn</h3>
-          <p>{{data.message}}</p>
-          <p>{{data.created}}</p>
+          <div style="display: inline-block; min-width: 60%" *ngIf="data.uid!=userId">
+            <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' "  >
+
+              <ion-avatar item-start *ngIf="data.uid!=userId">
+              <img src="{{data.user_profile_image}}" >
+              </ion-avatar>
+
+                <h3 *ngIf="data.uid!=userId" >{{data.display_name}}</h3>
+                <p style="white-space:pre-wrap">{{data.message}}</p>
+                <p>{{data.ago}}</p>
+            </ion-item>
           </div>
-          </ion-item>
+          <div style="display: inline-block; min-width: 60%; float: right" *ngIf="data.uid==userId">
+            <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' "  >
+                <h3 *ngIf="data.uid!=userId" >Finn</h3>
+                <p style="white-space:pre-wrap">{{data.message}}</p>
+                <p style="text-align:right">{{data.ago}}</p>
+            </ion-item>
+          </div>
+
+
         </div>
 
-          
+
     </ion-list>
-    <!-- <ion-list  *ngIf="data.uid!=userId">
-        <div  class="chatbox chatbubbleother">
-            <p style="margin:0px" class="username">Finn</p>
-            <p style="margin:0px">{{data.message}}</p>
-            <p class="time" >{{data.created}}</p>
-        </div>
-        <div class="timeother" >{{data.created}}ther</div>
-    </ion-list>
 
-    <ion-list class="chatbubbleuseralign"  *ngIf="data.uid==userId">
-        <div  class="chatbox chatbubbleuser">
-            <p style="margin:0px" class="username">Finn</p>
-            <p style="margin:0px">{{data.message}}</p>
-            <p class="time" >{{data.created}}</p>
-        </div>
-        <div class="timeuser" >{{data.created}}Baran</div>
-    </ion-list> -->
 
-   
-
-   
-  
 
 </ion-scroll>
 
 
     <ion-card>
-   
+
     <ion-row >
       <ion-col col-2>
         <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
       </ion-col>
       <ion-col col-8>
-      <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="संदेश यहां दर्ज कर">
+      <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
       </ion-input>
       </ion-col>
       <ion-col col-2>

@@ -1,4 +1,5 @@
 import 'rxjs/add/operator/map';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams } from '@angular/http';
@@ -17,10 +18,9 @@ export class Api {
     user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
     user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:''};
 
-  public userLoction : {accuracy:string,altitude:string,altitudeAccuracy:string,heading:string,latitude:string,
-    longitude:string}={accuracy:'',altitude:'',altitudeAccuracy:'',heading:'',latitude:'',longitude:''};
+  public userLoction : {longitude:number,latitude:number} = {longitude:0,latitude:0};
 
-  constructor(public http: Http,public storage:Storage) {
+  constructor(private geolocation: Geolocation,public http: Http,public storage:Storage) {
     storage.get('userData').then((userdata) => {
         console.log('----userData--'+userdata);
         if (userdata) {
@@ -28,11 +28,13 @@ export class Api {
           this.userData=userdata;
         }
      });
-    storage.get('userLoction').then((userloction) => {
-        if (userloction) {
-          this.userLoction=userloction;
-        }
-     });
+     this.geolocation.getCurrentPosition().then((resp) => {
+       console.log(resp);
+       this.userLoction.latitude = resp.coords.latitude;
+       this.userLoction.longitude = resp.coords.longitude;
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
   }
   get(endpoint: string, params?: any, options?: RequestOptions) {
     if (!options) {
