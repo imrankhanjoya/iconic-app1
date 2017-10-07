@@ -8,7 +8,7 @@
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons>
-<ion-title>hello Ramesh</ion-title>
+<ion-title>{{'HELLO_RAMESH' | translate}}</ion-title>
 <ion-buttons end>
 <button ion-button icon-only class="headericon" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -28,33 +28,33 @@
   <ion-row class="gridRow">
     <ion-col class="toolbarCol" (click)="gotoWeatherPage()">
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
-      मौसम
+      {{ 'WEATHER' | translate }}
     </ion-col>
     <ion-col class="toolbarCol" (click)="gotomandiPage()">
       <img src="assets/img/agri bolo icon/hdpi/Group 21.png" >
-      मण्डी
+      {{'MANDI' | translate }}
     </ion-col>
     <ion-col class="toolbarCol" (click)="gotoservicesPage()">
       <img src="assets/img/agri bolo icon/hdpi/rishi sevna.png">
-      कृषि सेवाए
+      {{'AGRICULTURAL_SERVICES' | translate }}
     </ion-col>
     <ion-col class="toolbarCol">
       <img (click)="toggleMenu()" src="assets/img/agri bolo icon/hdpi/Group 37.png">
-      कम
+      {{'LESS' | translate }}
     </ion-col>
   </ion-row>
   <ion-row class="gridRow" *ngIf="topMenu" >
     <ion-col class="toolbarCol" (click)="gotoAskquestion()">
       <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
-      प्रबंधित
+        {{'MANAGED' | translate }}
     </ion-col>
     <ion-col class="toolbarCol"(click)="gotoVedio()">
       <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
-      वीडियो
+      {{'VIDEO' | translate }}
     </ion-col>
     <ion-col class="toolbarCol" (click)="gotoAskquestion()">
       <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
-      विशेषज्ञ से पूछें
+      {{'ASK_THE_EXPERT' | translate }}
     </ion-col>
     <ion-col class="toolbarCol">
 
@@ -71,7 +71,7 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png" />
       </ion-col>
       <ion-col class="pClass">
-          मौसम
+          {{ 'WEATHER' | translate }}
       </ion-col>
       <ion-col class="imageAlign">
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
@@ -110,7 +110,7 @@
         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
       <ion-col col-11 class="sources">
-      <p  >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
+      <p  >{{'SUTRA' | translate}}</p>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -144,19 +144,19 @@
     <ion-col col-9>
       <div>
         <div class="MandiTitle">{{mandidata.commodity_name}}</div>
-        
+
       </div>
 
       <div class="MandiPrice">₹{{mandidata.max_price}}-{{mandidata.min_price}}</div>
       <ion-row class="MandiUnit">
-      <div >प्रति क्विंटल | {{mandidata.arrival_date}}</div>
+      <div >{{'PER_QUINTAL' | translate}} | {{mandidata.arrival_date}}</div>
       </ion-row>
     </ion-col>
 
   </ion-row>
   <ion-row>
     <ion-col col-3 class="mandiGrap">
-    <p> ₹ प्रति क्विंटल</p>
+    <p> {{'RS_PER_QUINTAL' | translate }}</p>
     <p> 500</p>
     <p> 400</p>
     <p> 300</p>
@@ -198,7 +198,7 @@
     <ion-col col-4 class="sepRight">
       <div class="SmallerMandiTitle">{{mandidata1.commodity_name}}</div>
       <div class="SmallerMandiPrice">₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</div>
-      <div class="SmallerMandiUnit">प्रति क्विंटल</div>
+      <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
 
     <ion-col col-2>
@@ -207,10 +207,10 @@
     <ion-col col-4>
       <div class="SmallerMandiTitle">{{mandidata2.commodity_name}}</div>
       <div class="SmallerMandiPrice">₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</div>
-      <div class="SmallerMandiUnit">प्रति क्विंटल</div>
+      <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
      <ion-col>
-      <p class="colShow" (click)="gotomandiDetail()">और देखें</p>
+      <p class="colShow" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</p>
     </ion-col>
   </ion-row>
 
@@ -230,7 +230,7 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
       <ion-col class="pClass">
-          विशेषज्ञ
+          {{'SPECIALIST'| translate}}
       </ion-col>
       <ion-col class="imageAlign">
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
@@ -245,10 +245,10 @@
                 <div class="card-title-box">
                 <div class="card-title">  {{expert.title}}</div>
                 <div class="card-subtitle">{{expert.date}}</div>
-                
-                <button ion-button color="light" outline>View more</button>
+
+                <button ion-button color="light" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
-              </ion-card>    
+              </ion-card>
 
           </ion-slide>
    </ion-slides>
@@ -271,7 +271,7 @@
       <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
       <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
       <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
-      <div padding-left class="newsLargePTI">पीटीआई | अपडेट : {{newsData.data[0].created}}</div>
+      <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
     </div>
   <ion-grid >
     <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
@@ -280,11 +280,11 @@
       </ion-col>
       <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
         <div >{{news.title}}</div>
-        <div class="newsSmallPTI">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</div>
+        <div class="newsSmallPTI">{{'PTI_AND_UPDATE' | translate}}  : Jun 12, 2017, 05:44PM IST</div>
       </ion-col>
     </ion-row>
 
-    <p class="showAll" (click)="gotoNewsPage()">अधिक पढ़ें</p>
+    <p class="showAll" (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </p>
   </ion-grid>
   </ion-card>
 
@@ -295,7 +295,7 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
       <ion-col class="pClass">
-          बाजार
+          {{'MARKET'| translate}}
       </ion-col>
       <ion-col class="imageAlign">
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
@@ -307,12 +307,12 @@
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
         <p class="sarsTitle">{{productData.name}}</p>
-        <p class="detailSar"> विनती पर मुल्य</p>
+        <p class="detailSar"> {{'VALUE_ON_REQUEST' | translate}}</p>
       </ion-card>
     </ion-slide>
     <ion-slide class="slideItem "  (click)="gotoMarketPage()">
       <ion-card  class="cardShow productseemore" >
-        <h2>Show All</h2>
+        <h2>{{'SEE_MORE' | translate}}</h2>
     </ion-card>
 
   </ion-slide>
@@ -333,7 +333,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <p class="readMore" (click)="gotoAnounsePage()">Show All</p>
+    <p class="readMore" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</p>
   </ion-card>
   <ion-grid>
       <ion-row>
@@ -341,7 +341,7 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
       <ion-col class="pClass">
-          वीडियो
+          {{'VIDEO' | translate}}
       </ion-col>
       <ion-col class="imageAlign">
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
@@ -352,7 +352,7 @@
   <ion-card class="vedioCard">
   <p padding>Agribolo : Agriculture on the finger tips of Indian farmer</p>
   <img src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
-  <p class="showAll" (click)="gotoVedio()">Show All</p>
+  <p class="showAll" (click)="gotoVedio()">{{'SEE_MORE' | translate}}</p>
   </ion-card >
   <ion-grid>
       <ion-row>
@@ -360,7 +360,7 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
       <ion-col class="pClass">
-          कृषि केंद्र
+        {{'AGRICULTURAL_CENTER' | translate}}
       </ion-col>
       <ion-col class="imageAlign">
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
