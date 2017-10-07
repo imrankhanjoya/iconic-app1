@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RentalsProvider } from '../../providers/rentals/rentals';
 
 /**
  * Generated class for the RentalsPage page.
@@ -14,15 +15,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'rentals.html',
 })
 export class RentalsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  constructor(public navCtrl: NavController, public navParams: NavParams,public rentals:RentalsProvider ) {
   }
 
   ionViewDidLoad() {
+    this.getRental();
     console.log('ionViewDidLoad RentalsPage');
   }
-   RentalsPage(){
-  this.navCtrl.push('RentalDetailPage');
+   getRental(){
+    this.rentals.Rental_list().map(res => res.json()).subscribe((res) => {
+      
+        this.Rental_Listdata = res;
+        this.Rental_Listdata.msg = res.msg;
+        this.Rental_Listdata.status = res.status;
+        console.log(this.Rental_Listdata);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
+  }
+   RentalsPage(id){
+  this.navCtrl.push('RentalDetailPage',{rid:id});
   }
 
 }

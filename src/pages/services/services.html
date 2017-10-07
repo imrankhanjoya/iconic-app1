@@ -28,12 +28,11 @@
 
 
 <ion-content padding>
-  <ion-list *ngFor="let data of krishData.data;let i=index">
-  <ion-card class="card">
-    <div class="slidImage" style="background: url({{data.url}});" >
-      <p class="title">{{data.title}} </p>
-      <p class="readMore" (click)="gotoservices_detailPage()">और देखें</p>
-  </div>
+  <ion-list *ngFor="let data of krishData.data;let i=index ">
+      <ion-card class="image-card" >
+         <img src="{{data.attachments}}" >
+      <div class="title">{{data.title}} </div>
+      <div class="readMore" (click)="gotoRental()">और देखें</div>
 </ion-card>
 </ion-list>
 </ion-content>

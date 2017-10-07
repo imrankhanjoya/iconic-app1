@@ -30,12 +30,9 @@
 
 <ion-content padding>
   <ion-card>
-      <img  src="assets/img/seedPlanterMachine/drawable-hdpi/seed_planter_250_x_250.png"/>
-    <p class="pClass">बीज कार्यक्रम</p>
-    <p class="pContent">धान गेहूँ का फसल चक्र अधिक पोषक तत्व की मॉंग करता है।
-       जिससे भूमि कमजोर हो जाती है। इसलिए गेहूँ की उपज कम हो रही है।
-        अतः गेहूँ की कटाई के बाद तथा धान की रोपाई के पहले खेतों में हरी खाद का प्रयोग तथा औसतन 10 कुन्तल गोबर की खाद का प्रयोग करें।
-        इसके लिए विकास खण्ड पर सम्पर्क करें।</p>
+      <img  src="{{Rental_detaildata.data.attachments}}"/>
+    <p class="pClass">{{Rental_detaildata.data.title}}</p>
+    <p class="pContent"><span innerHtml="{{Rental_detaildata.data.content}}"></span></p>
           <div class="block">
           <button ion-button block>संपर्क करेें</button>
           </div>
