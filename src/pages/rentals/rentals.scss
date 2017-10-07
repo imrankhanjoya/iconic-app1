@@ -1,11 +1,11 @@
 page-rentals {
 .sarsTitle{
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-align: left;
-    padding-left: 4%;
-    padding-top: 5%;
+      font-weight: bold;
     color: #000000;
+    text-align: center;
+    height: 70px;
+   font-size: 1em;
+
   }
   .detailSar{
     text-align: left;
@@ -13,8 +13,28 @@ page-rentals {
     padding-bottom: 7%;
     color: #649305;
   }
+     .produtimage{
+      max-height: 120px;
+      max-width: 120px;
+      margin: auto;
+      }
+
+  .image-card {
+    position: relative !important;
+    text-align: center;
+    height:auto;
+
+  }
+
   .wallet img{
     height: 100%;
   padding: 20%;
   }
+  .item-select {
+  width: 100%; /* Or whatever you'd like the width to be */
+}
+
+.item-select select {
+  left: 0;
+}
 }

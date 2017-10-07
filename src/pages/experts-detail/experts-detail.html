@@ -7,22 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>experts_detail</ion-title>
+    <ion-title>{{'EXPRET_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content>
+  <ion-card *ngIf="expertdetail.status">
     <img class="wallet" src="{{expertdetail.data.attachments}}"/>
     <p class="pClass">{{expertdetail.data.title}}</p>
     <p class="pTitle1">{{expertdetail.data.date}}</p>
     <p class="pContent"><span innerHtml="{{expertdetail.data.content}}"></span></p>
 
-   	
-          <div class="block">
-          <button ion-button block>संपर्क करेें</button>
+          <div class="block" *ngIf="expertdetail.type=='services'">
+          <button ion-button block>{{'EXPRET_CONTECT' | translate}}</button>
           </div>
   </ion-card>
 

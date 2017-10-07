@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
-import { Storage } from '@ionic/storage';
+//import { Storage } from '@ionic/storage';
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -71,8 +71,7 @@ export class MyApp {
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
-    private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen,
-    public storage:Storage) {
+    private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
     this.initTranslate();
      
   }
@@ -88,7 +87,7 @@ export class MyApp {
 
   initTranslate() {
     // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('hi');
 
     if (this.translate.getBrowserLang() !== undefined) {
       //this.translate.use(this.translate.getBrowserLang());

@@ -25,12 +25,19 @@ page-questionlist {
   }
   .subtitles{
     color:#649305;
+    float: left;
   }
   .qtitle{
     margin-top: 0px !important;
+    white-space: normal;
+    font-size: 1.7rem;
+    color: #4a4b4c;
+    float: left;
+    line-height: 100%;
   }
   .subtitles{
     font-size: 1.2rem;
+    margin-top: 5px;
   }
 
 }

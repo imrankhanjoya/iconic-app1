@@ -56,7 +56,7 @@ export class HomePage {
 
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
-       //this.storage.set('userLoction',resp.coords);
+       this.storage.set('userLoction',resp.coords);
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
       }).catch((error) => {
         console.log('Error getting location', error);
@@ -124,7 +124,7 @@ export class HomePage {
   }
 
   getNews(){
-    this.news.homeNews().map(res => res.json()).subscribe((res) => {
+    this.news.homeNews(3).map(res => res.json()).subscribe((res) => {
       
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
@@ -219,6 +219,10 @@ export class HomePage {
   }
   gotoAnounsePage(){
   this.navCtrl.push('AnnouncementPage');
+  }
+
+  goToBlogPage(){
+   this.navCtrl.push('CardsPage'); 
   }
 
 }

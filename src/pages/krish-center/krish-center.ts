@@ -23,9 +23,15 @@ export class KrishCenterPage {
   public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
 
+  public loading:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
     public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
     private callNumber: CallNumber) {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
   }
 
 
@@ -40,10 +46,7 @@ export class KrishCenterPage {
   }
 
   getkrish(lat:any,long:any){
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    loading.present();
+    console.log('Run getkrish API');
     this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
       this.kendraData.data = res.data;
       this.kendraData.msg = res.msg;
@@ -53,10 +56,10 @@ export class KrishCenterPage {
       //this.geoLoc.lat = res.data.results[0].geometry.location.lat;
       //this.geoLoc.lng = res.data.results[0].geometry.location.lng;
       console.log(this.geoLoc);
-      loading.dismiss();
+      this.loading.dismiss();
     }, (err) => {
       // Unable to log in
-      loading.dismiss();
+      this.loading.dismiss();
       console.log(err);
     });
   }

@@ -26,9 +26,9 @@ export class NewsProvider {
    * Get news for home page
    * the user entered on the form.
    */
-  homeNews() {
+  homeNews(limit) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	 var paramCond ={page:0,limit:5,lang:'en_US'};
+  	 var paramCond ={page:0,limit:limit,lang:'en_US'};
     let seq = this.api.get('v1/news/all', paramCond).share();
 
     seq
