@@ -67,14 +67,8 @@
 <!-----------------Weather section-->
    <ion-grid>
       <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png" />
-      </ion-col>
-      <ion-col class="pClass">
-          {{ 'WEATHER' | translate }}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{ 'WEATHER' | translate }}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -115,25 +109,27 @@
     </ion-row>
     </ion-grid>
 
+
   </ion-card>
 <!----End Weather Section-->
 
 <!----Start Mandi Section-->
 
 
+  
+
   <ion-grid>
-    <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-      </ion-col>
-      <ion-col class="pClass">
-          {{ 'MANDI' | translate }}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-row>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{ 'MANDI' | translate }}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+
+
+
+
   <ion-card >
     <ion-grid  >
   <ion-row>
@@ -224,19 +220,15 @@
         Experts Section
                         ******-->
 
+
   <ion-grid>
-    <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-      </ion-col>
-      <ion-col class="pClass">
-          {{'SPECIALIST'| translate}}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-row>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'SPECIALIST'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
+
    <ion-slides  [slidesPerView]="'auto'" >
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
               <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
@@ -261,19 +253,15 @@
           </ion-slide>
    </ion-slides>
 
+  
+
   <ion-grid>
       <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-      </ion-col>
-      <ion-col class="pClass">
-          {{ 'NEWS' | translate }}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'NEWS'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
 
   <ion-card>
       <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
@@ -297,19 +285,17 @@
   </ion-card>
 
 <!------Start Product Sectoipn---->
- <ion-grid>
+ 
+
+  <ion-grid>
       <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-      </ion-col>
-      <ion-col class="pClass">
-          {{'MARKET'| translate}}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'MARKET'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
+
+
   <ion-slides [slidesPerView]="'auto'">
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card>
@@ -343,38 +329,35 @@
     </ion-grid>
     <p class="readMore" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</p>
   </ion-card>
+
+
+ 
   <ion-grid>
       <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-      </ion-col>
-      <ion-col class="pClass">
-          {{'VIDEO' | translate}}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'VIDEO'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid>  
 
   <ion-card class="vedioCard">
   <p padding>Agribolo : Agriculture on the finger tips of Indian farmer</p>
   <img src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
   <p class="showAll" (click)="gotoVedio()">{{'SEE_MORE' | translate}}</p>
   </ion-card >
+
+
+
   <ion-grid>
       <ion-row>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-      </ion-col>
-      <ion-col class="pClass">
-        {{'AGRICULTURAL_CENTER' | translate}}
-      </ion-col>
-      <ion-col class="imageAlign">
-        <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'AGRICULTURAL_CENTER'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> 
+
+
+
   <ion-card >
   <img src="https://maps.googleapis.com/maps/api/staticmap?center={{geoLoc.lat}},{{geoLoc.lng}}&zoom=16&size=400x400&markers=color:green%7Clabel:k%7C{{geoLoc.lat}},{{geoLoc.lng}}&key=AIzaSyDyovCt6Vv3pefuZ0JdQC9caXFg3NNf2R0">
   <p>कृषि केंद्र 10 किमी दूर है..</p>
