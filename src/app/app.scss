@@ -145,8 +145,9 @@
 .MandiTitle{
 	font-size: 2.2rem;
 	color: #4a4b4c;
-	width:60%;
+	width:100%;
 	float:left;
+	text-align: left;
 	margin-top:-7px;
 }
 .MandiDate{
@@ -165,6 +166,7 @@
 	float:left;
 	width:100%;
 	margin-top:-2px;
+	float:left;
 }
 .SmallerMandiTitle{
 	font-size: 1.2rem;

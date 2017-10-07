@@ -144,11 +144,13 @@
     <ion-col col-9>
       <div>
         <div class="MandiTitle">{{mandidata.commodity_name}}</div>
-        <div class="MandiDate">{{mandidata.arrival_date}}</div>
+        
       </div>
 
       <div class="MandiPrice">₹{{mandidata.max_price}}-{{mandidata.min_price}}</div>
-      <div class="MandiUnit">प्रति क्विंटल</div>
+      <ion-row class="MandiUnit">
+      <div >प्रति क्विंटल | {{mandidata.arrival_date}}</div>
+      </ion-row>
     </ion-col>
 
   </ion-row>
