@@ -1,0 +1,31 @@
+page-announcement {
+
+    .dialog{
+      color: white;
+      background-color: #0cb665;
+      font-weight: bold;
+      font-size: 2rem;
+      padding: 2%;
+    }
+    .avatar{
+      background: url('assets/img/agri bolo icon/hdpi/Oval.png') no-repeat;
+      background-size: cover;
+      background-color: yellow;
+      border-radius: 50%;
+    }
+
+    .readMore{
+      border-radius: 7%;
+      width: 37%;
+      text-align: left;
+      border: solid;
+      color: white;
+      padding: 4px;
+      margin-left: 29%;
+      margin-right: 10%;
+      border-color: white;
+      border-width: 3px;
+      text-align:center
+
+    }
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,NgModule } from '@angular/core';
 import { IonicPage, NavController, NavParams , LoadingController} from 'ionic-angular';
 import { ChoupalProvider } from '../../providers/choupal/choupal';
 
@@ -26,6 +26,8 @@ export class ChoupalPage {
   public api:Api, public loadingCtrl: LoadingController ) {
     this.userId=api.userData.ID;
     console.log(this.userId);
+    //this.navCtrl.setRoot(ChoupalPage)
+
   }
 
   ionViewDidLoad() {

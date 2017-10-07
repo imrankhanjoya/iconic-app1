@@ -26,8 +26,7 @@ export class ServicesPage {
   }
    getkrish(){
     this.KrishProvider.krishList().map(res => res.json()).subscribe((res) => {
-      	this.krishData=res.data.posts;
-        this.krishData.data = res.data.posts;
+      	this.krishData.data = res.data;
         this.krishData.msg = res.msg;
         this.krishData.status = res.status;
         console.log(this.krishData.data);
