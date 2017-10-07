@@ -107,14 +107,14 @@
     <ion-grid>
     <ion-row class="weatherfoter">
       <ion-col col-1>
-        <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">  
+        <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
       <ion-col col-11 class="sources">
       <p  >सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें</p>
       </ion-col>
     </ion-row>
     </ion-grid>
-    
+
   </ion-card>
 <!----End Weather Section-->
 
@@ -146,11 +146,11 @@
         <div class="MandiTitle">{{mandidata.commodity_name}}</div>
         <div class="MandiDate">{{mandidata.arrival_date}}</div>
       </div>
-      
+
       <div class="MandiPrice">₹{{mandidata.max_price}}-{{mandidata.min_price}}</div>
       <div class="MandiUnit">प्रति क्विंटल</div>
     </ion-col>
-    
+
   </ion-row>
   <ion-row>
     <ion-col col-3 class="mandiGrap">
@@ -198,7 +198,7 @@
       <div class="SmallerMandiPrice">₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</div>
       <div class="SmallerMandiUnit">प्रति क्विंटल</div>
     </ion-col>
-   
+
     <ion-col col-2>
       <img src="{{mandidata2.crop_image}}" class="grapImage"/>
     </ion-col>
@@ -214,7 +214,7 @@
 
   <ion-row>
   </ion-row>
-  
+
   </ion-grid>
   </ion-card>
 
@@ -239,9 +239,15 @@
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
               <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
                 <img src="{{expert.attachments}}" >
-                <div class="card-title">{{expert.title}}</div>
-                <div class="card-subtitle">41 Listings</div>
+
+                <div class="card-title-box">
+                <div class="card-title">  {{expert.title}}</div>
+                <div class="card-subtitle">{{expert.date}}</div>
+                
+                <button ion-button color="light" outline>View more</button>
+                </div>
               </ion-card>    
+
           </ion-slide>
    </ion-slides>
 
@@ -251,14 +257,14 @@
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
       <ion-col class="pClass">
-          समाचार
+          {{ 'NEWS' | translate }}
       </ion-col>
       <ion-col class="imageAlign">
         <img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
   <ion-card>
       <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
       <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
@@ -275,7 +281,7 @@
         <div class="newsSmallPTI">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</div>
       </ion-col>
     </ion-row>
-    
+
     <p class="showAll" (click)="gotoNewsPage()">अधिक पढ़ें</p>
   </ion-grid>
   </ion-card>
@@ -369,4 +375,3 @@
 
   </div>
 </ion-content>
-

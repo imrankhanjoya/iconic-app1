@@ -30,7 +30,7 @@ export class VideoPage {
   	this.getvideo();
     console.log('ionViewDidLoad VideoPage');
   }
-   getvideo(){
+  getvideo(){
     this.VideoProvider.video_list().map(res => res.json()).subscribe((res) => {
       	this.videolistData=res;
         // this.videolistDatamsg = res.msg;
@@ -42,7 +42,19 @@ export class VideoPage {
       });
 
   }
-   gotoVediodetail(){
+  videoByCat(cat_slug){
+    this.VideoProvider.videoByCat(cat_slug).map(res => res.json()).subscribe((res) => {
+        this.videolistData=res;
+        // this.videolistDatamsg = res.msg;
+        // this.videolistDatastatus = res.status;
+        console.log(this.videolistData);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
+  }
+  gotoVediodetail(){
   this.navCtrl.push('VideoDetailPage');
   }
 
@@ -50,5 +62,7 @@ export class VideoPage {
     console.log('videoid  : '+videoid);
     this.youtube.openVideo(videoid);
   }
+
+
 
 }
