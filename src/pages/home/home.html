@@ -75,12 +75,12 @@
 
   <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage()">
     <ion-row>
-      <ion-col col-6 class="colCandigare subHeadingFont">
+      <ion-col col-6 class="colCandigare">
           {{wheaterHome.data.WeatherData[0].DateTime | date:'dd MMMM yyyy HH:mm a'}}
           <div class="main">
-              <div class="elementTitle smallTitle">{{wheaterHome.data.tehsil_name}}</div>
+              <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
               <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
-              <div class="elementTitle smallTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
+              <div class="elementTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
           </div>
       </ion-col>
       <ion-col col-6 class="imageCol">
@@ -206,8 +206,7 @@
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
      <ion-col>
-
-    <button ion-button class="showAll" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</button>
+      <p class="colShow" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</p>
     </ion-col>
   </ion-row>
 
@@ -245,7 +244,7 @@
 
           </ion-slide>
           <ion-slide  >
-              <ion-card  (click)=" goToBlogPage()" >
+              <ion-card  >
                 <div class="see-title-box">
                 <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
@@ -305,7 +304,7 @@
         <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
-    <ion-slide class="slideItem "  (click)="gotoMarketPage()">
+    <ion-slide class="slideItem ">
       <ion-card>
           <div class="see-title-box">
           <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
@@ -344,7 +343,7 @@
   </ion-grid>  
 
   <ion-card class="vedioCard">
-  <p padding>Agribolo : Agriculture on the finger tips of Indian farmer</p>
+  <div padding class="displayOneFont">Agribolo : Agriculture on the finger tips of Indian farmer</div>
   <img src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
   <p class="showAll" (click)="gotoVedio()">{{'SEE_MORE' | translate}}</p>
   </ion-card >
