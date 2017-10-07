@@ -260,19 +260,19 @@
   </ion-grid>
   
   <ion-card>
-      <div class="row" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
+      <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
       <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
       <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
       <div padding-left class="newsLargePTI">पीटीआई | अपडेट : {{newsData.data[0].created}}</div>
     </div>
   <ion-grid >
-    <ion-row padding-top *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
+    <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
       <ion-col col-3 *ngIf="i > 0 ">
         <img class = "newsSmallImage" src="{{news.image}}" width="200px" />
       </ion-col>
       <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
         <div >{{news.title}}</div>
-        <div class="newsSmallPTI newsSmallPTISep">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</div>
+        <div class="newsSmallPTI">पीटीआई | अपडेट : Jun 12, 2017, 05:44PM IST</div>
       </ion-col>
     </ion-row>
     

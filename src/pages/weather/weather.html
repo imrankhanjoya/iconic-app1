@@ -12,25 +12,37 @@
 </ion-header>
 
 
-<ion-content padding-left padding-right class="content">
+<ion-content class="content">
   <ion-slides pager class="mainCard1" parallax="true" >
 
 
     <ion-slide  class="ionslides" *ngFor="let wheaterdetail of wheaterdetailall.data;"  >
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
+        
+
+
+
+
+
+
+
+
         <ion-row>
           <ion-col col-6 class="colCandigare">
           {{wheaterdetail.WeatherData.DateTime | date:'dd MMMM yyyy HH:mm a'}}
           <div class="main">
-          <h4 class="chandigare"> {{wheaterdetail.tehsil_name}}</h4>
-          <p>{{wheaterdetail.WeatherData.Temperature.Value}}˚{{wheaterdetail.WeatherData.Temperature.Unit}} </p>
-          <h3 class="bhariRain"> भारी बारिश </h3>
+          <div class="elementTitle"> {{wheaterdetail.tehsil_name}}</div>
+          <p class="weathertitle">{{wheaterdetail.WeatherData.Temperature.Value}}˚{{wheaterdetail.WeatherData.Temperature.Unit}} </p>
+          <div class="elementTitle"> भारी बारिश </div>
         </div>
           </ion-col>
           <ion-col col-6 class="imageCol">
          <img class="weatherimage" src="{{wheaterdetail.WeatherData.WeatherIconsBig}}"/>
           </ion-col>
         </ion-row>
+
+
+
             <ion-row class="rectagle">
             <ion-col col-1>
             <img  src="assets/img/agri bolo icon/hdpi/down.png" class="recImage" />

@@ -7,21 +7,50 @@ page-choupal {
    
    background-color: #f8f8f8;
   }
-  .itemnew{
-   width: 82%;
-    margin-left: 15%;
-  }
-  .itemnew1{
-   width: 82%;
-  }
-  .time{
+  
+  .timeuser{
     float: right;
-  font-size: 1rem;
+    font-size: 1rem;
+    color:#649305;
+    margin-right:15px;
+  }
+  .timeother{
+    float: left;
+    font-size: 1rem;
+    color:#649305;
+    margin-left:15px;
+  }
+  .chatbubbleother{
+    height:auto;
+    border-radius: 10px;
+    background-color: #EEF5E0;
+    margin-left:5px;
+    padding: 5px 10px 5px 10px;
+  }
+  .chatbubbleuser{
+    height:auto;
+    border-radius: 10px;
+    background-color: #EEF5E0;
+    text-align:right;
+    margin-left:5px;
+    padding: 5px 10px 5px 10px;
+    float: right;
+  }
+  .chatbubbleuseralign{
+    text-align: right;
+    float: right;
   }
   .chatbox{
     height:auto;
+    margin-bottom: 4px;
+    width: 90%;
   }
   .show-tabbar {
-display: none;
-}
+    display: none;
+  }
+  .username{
+    color:#4A4B4C;
+    font-size: 1rem;
+  }
+
 }
