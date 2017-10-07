@@ -211,14 +211,39 @@ page-home {
       .image-card {
       position: relative;
       text-align: left;
+      height: 220px;
+      overflow: hidden;
       }
       .image-card img{
             width: 100%;
       }
+      .image-card button{
+            border: 2px solid;
+            display: block;
+            margin:auto;
+      }
+      .see-title-box{
+            height: 220px;
+            text-align: center;
+            padding-top:20% 
+      }
+      .see-title-box button{
+            display: block;
+            color:#649305;
+            margin: auto;
+            font-weight: bolder;
+            border: 4px #649305 solid;
+            border-radius: 5px;
+      }
+      .image-card .button-outline-md-light{
+            font-weight: bolder;
+            text-shadow: 1px 1px #000000;
+
+      }
 
       .card-title-box {
             position: absolute;
-            top:20%;
+            top:10%;
             left: 5%;
             width:90%;
             

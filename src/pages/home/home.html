@@ -230,6 +230,7 @@
   </ion-grid>  
 
    <ion-slides  [slidesPerView]="'auto'" >
+        
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
               <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
                 <img src="{{expert.attachments}}" >
@@ -242,15 +243,14 @@
               </ion-card>
 
           </ion-slide>
-           <ion-slide  >
-              <ion-card class="image-card"  (click)=" goToBlogPage()" >
-                <img class="image-card" src="assets/img/view_more.png" >
-                <div class="card-title-box">
+          <ion-slide  >
+              <ion-card  (click)=" goToBlogPage()" >
+                <div class="see-title-box">
                 <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
               </ion-card>
-
           </ion-slide>
+           
    </ion-slides>
 
   
@@ -305,9 +305,9 @@
       </ion-card>
     </ion-slide>
     <ion-slide class="slideItem "  (click)="gotoMarketPage()">
-      <ion-card  class="cardShow productseemore" >
-        <h2>{{'SEE_MORE' | translate}}</h2>
-    </ion-card>
+          <div class="see-title-box">
+          <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
+          </div>
 
   </ion-slide>
   </ion-slides>

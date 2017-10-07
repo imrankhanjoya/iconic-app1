@@ -27,13 +27,17 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list *ngFor="let data of krishData.data;let i=index">
-  <ion-card class="card">
-    <div class="slidImage" style="background: url({{data.url}});" >
-      <p class="title">{{data.title}} </p>
-      <p class="readMore" (click)="gotoservices_detailPage()">और देखें</p>
-  </div>
-</ion-card>
+<ion-content>
+  <ion-list *ngFor="let data of krishData.data;let i=index ">
+  
+    <ion-card class="image-card"  (click)=" goToExpertDetial(data.id)" >
+    <img src="{{data.attachments}}" >
+    <div class="card-title-box">
+    <div class="card-title">  {{data.title}}</div>
+    <button ion-button color="light" (click)=" goToExpertDetial(data.id)" outline>{{'SEE_MORE'| translate}}</button>
+    </div>
+    </ion-card>
+
+
 </ion-list>
 </ion-content>
