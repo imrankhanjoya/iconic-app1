@@ -53,7 +53,7 @@ export class CropsPage {
 
   addValue(e) {
   this.skipDataList.push({key: e});
-  //this.storage.set('Kharif',this.selectItem);
+  this.storage.set('Kharif',this.skipDataList);
   console.log('--------'+this.skipDataList);
 
  }
