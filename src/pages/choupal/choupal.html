@@ -8,7 +8,7 @@
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons>
-<ion-title>hello Ramesh</ion-title>
+<ion-title>{{'CHOPAL' | translate}}</ion-title>
 <ion-buttons end>
 <button ion-button icon-only color="royal" (click)="presentPopover($event)">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -30,14 +30,14 @@
 
     <ion-list >
           <div  *ngFor="let data of choupaldata.data;let i=index " style=" border-radius: 5px; margin:10px;  ">
-          
+
           <div style="display: inline-block; min-width: 60%" *ngIf="data.uid!=userId">
             <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' "  >
-            
+
               <ion-avatar item-start *ngIf="data.uid!=userId">
               <img src="{{data.user_profile_image}}" >
-              </ion-avatar>  
-              
+              </ion-avatar>
+
                 <h3 *ngIf="data.uid!=userId" >{{data.display_name}}</h3>
                 <p>{{data.message}}</p>
                 <p>{{data.created}}</p>
@@ -54,22 +54,22 @@
 
         </div>
 
-          
+
     </ion-list>
-   
-  
+
+
 
 </ion-scroll>
 
 
     <ion-card>
-   
+
     <ion-row >
       <ion-col col-2>
         <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
       </ion-col>
       <ion-col col-8>
-      <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="संदेश यहां दर्ज कर">
+      <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
       </ion-input>
       </ion-col>
       <ion-col col-2>
