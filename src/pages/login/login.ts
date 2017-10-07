@@ -13,10 +13,10 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage {
 
-    
+
     public userMobilNoError:any;
     public UserPassError:any;
-    
+
     private loginErrorString: string;
     RegisterData = {user_name:'9783555770', userPassword:'agribolo'};
 

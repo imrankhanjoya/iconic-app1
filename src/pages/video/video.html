@@ -14,7 +14,7 @@
                 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
             </button>
         </ion-buttons>
-        <ion-title>hello Ramesh</ion-title>
+        <ion-title>hello {{'SEARCH_TITLE'|translate}}</ion-title>
         <ion-buttons end>
             <button ion-button icon-only color="royal" (click)="presentPopover($event)">
                 <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -30,23 +30,23 @@
 
     <ion-toolbar color="fulldark" class="subtabs">
         <ion-buttons end>
-          <button color="light" ion-button (click)="openModal()">
-              पिटीशन खारिज
+          <button color="light" ion-button (click)="videoByCat('favourite')">
+              favourite
           </button>
         </ion-buttons>
          <ion-buttons   end>
-          <button ion-button color="light" full (click)="openModal()">
-              आई थी- हनीप्री
+          <button ion-button color="light" full (click)="videoByCat('fertilizers')">
+              Fertilizers
           </button>
         </ion-buttons>
          <ion-buttons  end>
-          <button ion-button color="light" (click)="openModal()">
-              ढाई घंटे हुई पूछताछ
+          <button ion-button color="light" (click)="videoByCat('seeds')">
+              Seeds
           </button>
         </ion-buttons>
          <ion-buttons color="white" end>
-          <button ion-button color="light" (click)="openModal()">
-              मुझें याद
+          <button ion-button color="light" (click)="videoByCat('pesticide')">
+              pesticide
           </button>
         </ion-buttons>
     </ion-toolbar>
