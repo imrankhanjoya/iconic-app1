@@ -104,7 +104,7 @@
         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
       <ion-col col-11 class="sources">
-      <p class="Headline colorBlack" >{{'SUTRA' | translate}}</p>
+      <div class="Headline colorBlack" >{{'SUTRA' | translate}}</div>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -301,8 +301,8 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
-        <p class="sarsTitle Headline">{{productData.name}}</p>
-        <p class="detailSar"> {{'VALUE_ON_REQUEST' | translate}}</p>
+        <div class="sarsTitle colorGrey titeFont">{{productData.name}}</div>
+        <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
     <ion-slide class="slideItem "  (click)="gotoMarketPage()">
