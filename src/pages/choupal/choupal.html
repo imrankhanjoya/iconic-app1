@@ -39,15 +39,15 @@
               </ion-avatar>
 
                 <h3 *ngIf="data.uid!=userId" >{{data.display_name}}</h3>
-                <p>{{data.message}}</p>
-                <p>{{data.created}}</p>
+                <p style="white-space:pre-wrap">{{data.message}}</p>
+                <p>{{data.ago}}</p>
             </ion-item>
           </div>
           <div style="display: inline-block; min-width: 60%; float: right" *ngIf="data.uid==userId">
             <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' "  >
                 <h3 *ngIf="data.uid!=userId" >Finn</h3>
-                <p>{{data.message}}</p>
-                <p>{{data.created}}</p>
+                <p style="white-space:pre-wrap">{{data.message}}</p>
+                <p style="text-align:right">{{data.ago}}</p>
             </ion-item>
           </div>
 
