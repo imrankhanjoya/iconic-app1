@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Mandi</ion-title>
+    <ion-title>{{'MANDI' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -41,20 +41,20 @@
     <ion-col col-9>
       <div>
         <div class="MandiTitle">{{subData.commodity_name}}</div>
-        
+
       </div>
 
       <div class="MandiPrice">₹ {{subData.min_price}} - {{subData.max_price}}</div>
       <ion-row class="MandiUnit">
-        <div >प्रति क्विंटल | {{subData.arrival_date}}</div>
-       
+        <div >{{'PER_QUINTAL' | translate}} | {{subData.arrival_date}}</div>
+
       </ion-row>
     </ion-col>
 
   </ion-row>
          <ion-row>
       <ion-col col-3 class="mandiGrap">
-      <p> ₹ प्रति क्विंटल</p>
+      <p> {{'RS_PER_QUINTAL' | translate}}</p>
       <p> 500</p>
       <p> 400</p>
       <p> 300</p>
@@ -62,7 +62,7 @@
       </ion-col>
       <ion-col col-9>
         <img src="assets/img/Weather/drawable-hdpi/line_28.png" class="grapImage"/>
-      </ion-col> 
+      </ion-col>
       </ion-row>
         <div class="july">
       <ion-row  padding-left class="MandyDay">
