@@ -1,8 +1,8 @@
 <ion-header no-border>
   <ion-navbar color="#101c00">
-      
+
     <ion-title>
-      News
+      {{ 'NEWS' | translate }}
     </ion-title>
 
 <ion-buttons end>
@@ -30,7 +30,7 @@
       <div >
       <img  src="{{data.image}}" class="newsLargeImage"/>
       <div padding-top padding-left class="newsLargeTitle">{{data.title}}</div>
-      <div padding-left class="newsSmallPTI" >पीटीआई | अपडेट : {{data.created}} </div>
+      <div padding-left class="newsSmallPTI" >{{ 'PTI_AND_UPDATE' | translate }} : {{data.created}} </div>
     </div>
   </ion-card>
 

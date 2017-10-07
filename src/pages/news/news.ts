@@ -20,13 +20,14 @@ export class NewsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public NewsProvider: NewsProvider, private iab: InAppBrowser) {
   }
 
+
   ionViewDidLoad() {
   	this.getNews();
     console.log('ionViewDidLoad NewsPage');
   }
    getNews(){
     this.NewsProvider.homeNews().map(res => res.json()).subscribe((res) => {
-      
+
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
@@ -38,10 +39,10 @@ export class NewsPage {
 
   }
     gotoWebView(URL){
-    console.log("baran"+URL); 
+    console.log("baran"+URL);
     var ref = this.iab.create(URL, '_blank', 'location=yes');
 
   }
-  
+
 
 }
