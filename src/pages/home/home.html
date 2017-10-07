@@ -75,12 +75,12 @@
 
   <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage()">
     <ion-row>
-      <ion-col col-6 class="colCandigare">
+      <ion-col col-6 class="colCandigare subHeadingFont">
           {{wheaterHome.data.WeatherData[0].DateTime | date:'dd MMMM yyyy HH:mm a'}}
           <div class="main">
-              <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
+              <div class="elementTitle smallTitle">{{wheaterHome.data.tehsil_name}}</div>
               <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
-              <div class="elementTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
+              <div class="elementTitle smallTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
           </div>
       </ion-col>
       <ion-col col-6 class="imageCol">
@@ -104,7 +104,7 @@
         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
       <ion-col col-11 class="sources">
-      <p  >{{'SUTRA' | translate}}</p>
+      <p class="Headline colorBlack" >{{'SUTRA' | translate}}</p>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -206,7 +206,8 @@
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
      <ion-col>
-      <p class="colShow" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</p>
+
+    <button ion-button class="showAll" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</button>
     </ion-col>
   </ion-row>
 
@@ -300,7 +301,7 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
-        <p class="sarsTitle">{{productData.name}}</p>
+        <p class="sarsTitle Headline">{{productData.name}}</p>
         <p class="detailSar"> {{'VALUE_ON_REQUEST' | translate}}</p>
       </ion-card>
     </ion-slide>

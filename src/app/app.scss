@@ -16,7 +16,58 @@
 // automatically applied to the <body> element in the app.
 
 
+.subtabs{
+ 	font-size: 12px;
+}
+.displayThreeFont{
+	font-size: 4rem;
+	//equivalent to 64px
+}
+.displayOneFont{
+	font-size: 2.12rem;
+	//equivalent to 34px
+}
+.titleFont{
+	font-size: 1.25rem;
+	//equivalent to 20px
+}
+.smallTitle{
+	font-size:1.81rem;
+	//equivalent to 29px
+}
+.Headline{
+	font-size:1.5rem;
+	//equivalent to 24px
+}
+.subHeadingFont{
+	font-size: 1rem;
+	//equivalent to 16px
+}
+.captionFont{
+	font-size: 0.81rem;
+	//equivalent to 13px
+}
 
+.colorWhite{
+	color: white;
+}
+.colorGrey{
+	color:#4A4B4C;
+}
+.colorBlack{
+	color:#000;
+}
+.colorMagenta{
+	color: #5f8b05;
+}
+.baseColor{
+	color: royal;
+}
+
+.titleFontSize{
+	font-size: 1.8rem;
+	color: #4a4b4c;
+}
 
 .toolbarCol{
   text-align: center;
@@ -32,6 +83,7 @@
 
 }
 .menufontcolor{
+	color: white;
 	color: #ffffff;
 }
 .toolbar-title-md{
@@ -52,9 +104,7 @@
 	border-radius: 5px;
 }
 
-.subtabs{
-  font-size: 12px;
-}
+
 
 .headericon{
 	height: 60%;
@@ -86,7 +136,6 @@
 
 .colCandigare{
 	padding-top: 3%;
-	font-size: 1rem;
 	text-align: center;
 }
 .main{
@@ -95,21 +144,11 @@
 
 }
 /*previously chandigare*/
-.titleFontSize{
-	font-size: 1.8rem;
-	color: #4a4b4c;
-}
+
 .elementTitle{
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-top: 8%;
-	font-size: 1.8rem;
-	color: #4a4b4c;
-}
-.bhariRain{
-	padding-left: 5%;
-	padding-right: 5%;
-	font-size: 2.2rem;
 	color: #4a4b4c;
 }
 
@@ -136,10 +175,6 @@
 	color: #4A4B4C;
 	background-color:#F3F4F8;
 }
-.sources p{
-	color:#000;
-	font-size:1.5rem;
-}
 .grapImage{
 	border-radius:8px;
 }
@@ -147,7 +182,7 @@
 /*mandi Cards*/
 
 .MandiTitle{
-	font-size: 2.2rem;
+	font-size: 2.1rem;
 	color: #4a4b4c;
 	width:100%;
 	float:left;
@@ -211,7 +246,7 @@
 	padding-top:5px;
 }
 .newsLargeTitle{
-	font-size: 1.7rem;
+	font-size: 1.8rem;
 	color: #4a4b4c;
 	float:left;
 	margin-top:-7px;
