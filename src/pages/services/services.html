@@ -34,7 +34,8 @@
     <img src="{{data.attachments}}" >
     <div class="card-title-box">
     <div class="card-title">  {{data.title}}</div>
-    <button ion-button color="light" (click)=" goToExpertDetial(data.id)" outline>{{'SEE_MORE'| translate}}</button>
+    <button ion-button color="light" (click)="gotoRental()" outline>{{'SEE_MORE'| translate}}</button>
+    <button ion-button color="light" (click)="goToExpertDetial(data.id)" outline>{{'SEE_MORE'| translate}}</button>
     </div>
     </ion-card>
 

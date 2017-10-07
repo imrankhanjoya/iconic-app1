@@ -9,6 +9,9 @@ page-services {
   color: black;
   font-size: 2.9rem;
   font-weight: bold;
+   position: absolute;
+    top: 36%;
+    width: 100%;
 
 }
 .pContent{
@@ -19,14 +22,21 @@ page-services {
   padding-top: 2%;
 
 }
+.image-card {
+    position: relative;
+    text-align: center;
+  }
 .readMore{
   color: black;
   border-color: white;
   border: 2px solid;
   border-radius: 4px;
   margin-left: 32%;
-  margin-right: 32%;
   padding: 2%;
+   font-size: 1.0em;
+    position: absolute;
+    top: 57%;
+    width: 36%;
 }.card{
   border-radius: 5px;
 }

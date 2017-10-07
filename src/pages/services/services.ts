@@ -36,6 +36,11 @@ export class ServicesPage {
       });
 
   }
+   gotoRental(){
+    this.navCtrl.push('RentalsPage');
+  }
+
+
    gotoservices_detailPage(){
     this.navCtrl.push('ServicDetalisPage');
   }

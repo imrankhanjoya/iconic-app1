@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>experts_detail</ion-title>
+    <ion-title>{{'EXPRET_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,9 +20,8 @@
     <p class="pTitle1">{{expertdetail.data.date}}</p>
     <p class="pContent"><span innerHtml="{{expertdetail.data.content}}"></span></p>
 
-   	
           <div class="block" *ngIf="expertdetail.type=='services'">
-          <button ion-button block>संपर्क करेें</button>
+          <button ion-button block>{{'EXPRET_CONTECT' | translate}}</button>
           </div>
   </ion-card>
 
