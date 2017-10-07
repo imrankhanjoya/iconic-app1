@@ -1,7 +1,6 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { Camera } from '@ionic-native/camera';
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -38,6 +37,7 @@ import { AnnouncementproProvider } from '../providers/announcementpro/announceme
 //plugns..
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { CallNumber } from '@ionic-native/call-number';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -85,7 +85,6 @@ export function provideSettings(storage: Storage) {
     Api,
     Items,
     User,
-    Camera,
     GoogleMaps,
     Geolocation,
     SplashScreen,
@@ -113,7 +112,8 @@ export function provideSettings(storage: Storage) {
     RentalsProvider,
     YoutubeVideoPlayer,
     AnnouncementproProvider,
-    CallNumber
+    CallNumber,
+    Camera
   ]
 })
 export class AppModule { }
