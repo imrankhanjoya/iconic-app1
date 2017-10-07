@@ -6,7 +6,7 @@
 -->
 <ion-header>
  <ion-navbar color="fulldark">
-    <ion-title start>krish-center</ion-title>
+    <ion-title start>{{'AGRICULTURAL_CENTER' | translate}}</ion-title>
     <ion-buttons end>
     <button ion-button icon-only color="royal" (click)="gotoSearchProduct()" class="wallet">
     <img src="assets/img/agri bolo icon/hdpi/wallet.png">
@@ -26,30 +26,30 @@
   </ion-navbar>
 </ion-header>
 
- 
+
 <ion-content padding>
 <ion-card class="card-title" *ngFor="let data of kendraHome.data;let i=index ">
 <ion-grid>
   <ion-row>
     <ion-col col-7><p class="bhari">{{data.name}} </p></ion-col>
-    <ion-col col-5 (click)="makeCall()"> <p class="colShow">कॉल कर</p>
+    <ion-col col-5 (click)="makeCall()"> <p class="colShow">{{'BY_CALLING' | translate}}</p>
 </ion-col>
   </ion-row>
   <ion-row>
-         <ion-col col-1><ion-icon ios="ios-pin" md="md-pin"></ion-icon>             
+         <ion-col col-1><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
 </ion-col>
 <ion-col col-6>
     <p >{{data.formatted_address}}</p>
     </ion-col>
-    <ion-col col-5 (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)"> <p class="colShow">रास्ता खोज</p></ion-col>
+    <ion-col col-5 (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)"> <p class="colShow">{{'SEARCH_THE_WAY'| translate}}</p></ion-col>
   </ion-row>
   <hr>
 </ion-grid>
 </ion-card>
-</ion-content> 
+</ion-content>
 <!--  <ion-card style="background-image: url(assets/img/agri bolo icon/hdpi/wallet.png);">
    <div class="card-title" >
 	<p class="opcity">how to agribolo<p>
    </div>
-	  
+
  </ion-card> -->
