@@ -124,7 +124,7 @@ export class HomePage {
   }
 
   getNews(){
-    this.news.homeNews().map(res => res.json()).subscribe((res) => {
+    this.news.homeNews(3).map(res => res.json()).subscribe((res) => {
       
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
