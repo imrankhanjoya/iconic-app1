@@ -22,18 +22,13 @@
 
 
 
-
-
-
-
-
         <ion-row>
           <ion-col col-6 class="colCandigare">
-          {{wheaterdetail.WeatherData.DateTime | date:'dd MMMM yyyy HH:mm a'}}
+          {{wheaterdetail.WeatherData.DateTime | date:'dd MMMM yyyy hh a'}}
           <div class="main">
           <div class="elementTitle"> {{wheaterdetail.tehsil_name}}</div>
           <p class="weathertitle">{{wheaterdetail.WeatherData.Temperature.Value}}˚{{wheaterdetail.WeatherData.Temperature.Unit}} </p>
-          <div class="elementTitle"> भारी बारिश </div>
+          
         </div>
           </ion-col>
           <ion-col col-6 class="imageCol">
@@ -43,23 +38,10 @@
 
 
 
-            <ion-row class="rectagle">
-            <ion-col col-1>
-            <img  src="assets/img/agri bolo icon/hdpi/down.png" class="recImage" />
-            </ion-col>
-            <ion-col col-2  >
-            <p class="recP">20˚</p>
-            </ion-col>
-            <ion-col col-1 class="ColImage">
-            <img  src="assets/img/agri bolo icon/hdpi/up.png" class="recImage"/>
-            </ion-col>
-            <ion-col col-2 >
-            <p class="recP">30˚</p>
-            </ion-col>
-            <ion-col>
-            <p class="Pfeels">Feels like : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</p>
-            </ion-col>
-          </ion-row>
+            
+
+            <div class="titleFont alignLeft">Feels like : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
+          
           <div class="grapImage">
             <p>पूर्वानुमान</p>
             <img src="assets/img/Weather/drawable-hdpi/line_28.png"/>

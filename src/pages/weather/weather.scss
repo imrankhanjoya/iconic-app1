@@ -34,7 +34,7 @@ page-weather {
     color: #4a4b4c;
   }
   .main p{
-    font-size: 4.8rem;
+    font-size: 4rem;
     font-weight: bold;
   }
   .mainCard1{
@@ -66,12 +66,10 @@ page-weather {
   .Pfeels{
     padding-top: 3%;
   }
-  .grapImage{
-    margin-left: 5%;
-    padding-bottom: 1%;
-  }
   .grapImage p{
-    padding-top: 2%;
+    margin-left: 5%;
+    padding-bottom: 3%;
+    padding-top: 3%;
     font-size: 1.9rem;
   }
   .july{
@@ -154,5 +152,10 @@ page-weather {
   .weatherimage{
       margin: auto;
       width: 200px;
+  }
+  .alignLeft{
+    text-align: center;
+    width: 50%;
+    float: left;
   }
 }
