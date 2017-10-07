@@ -14,60 +14,68 @@ import { MainPage } from '../pages';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  public phoneNumber:any;
-  public password:any;
-  public confirmPassword:any;
-  public user_name='mynameisKham';
-  public user_email='abcmrs@gmail.com';
-  public lang:any;
-  private signupErrorString: string;
-  public state:any;
+
+
+  public passErrorMsg:any;
+  public passError : any;
+  public passConpError : any;
+  public UserNameError : any;
+  RegisterData = {phoneNumber:'',userName:'',password:'',confirmPassword:''};
 
   constructor(public navCtrl: NavController,
     public user: User,
     public toastCtrl: ToastController,
-    public translateService: TranslateService,public storage:Storage,public cityStateProvider:CityStateProvider) {
+    public translateService: TranslateService,public storage:Storage,
+    public cityStateProvider:CityStateProvider) {
 
-  this. storage.get('userLang').then((val) => {
-  this.lang=val;
-    this.getState();
-});
-    this.translateService.get('SIGNUP_ERROR').subscribe((value) => {
-      this.signupErrorString = value;
-    })
+    
   }
   doSignup() {
-    this.user.signup(this.phoneNumber,this.password,this.user_name,this.lang,this.user_email).map(res => res.json()).subscribe((resp) => {
-    if(resp.status === true){
-    this.storage.set('password',this.password);
-    this.navCtrl.push('SelectLocationPage');
-    console.log(resp.status);
+    var sendForm = true;
+    if(this.RegisterData.userName.length<5){
+      this.UserNameError = true;
+        sendForm = false;
     }else{
-    this.navCtrl.push('SelectLocationPage');
-    console.log(resp.status);
+      this.UserNameError = false;
     }
-    }, (err) => {
-    //  this.navCtrl.push('LoginPage');
 
-    });
+    if(this.RegisterData.password.length<6){
+        this.passError = true;
+        this.passErrorMsg='Password week';
+        sendForm = false;
+    }else{
+      this.passError = false;
+    }
+
+    if(this.RegisterData.password!=this.RegisterData.confirmPassword){
+        this.passConpError = true;
+        this.passErrorMsg='Password Not Match';
+        sendForm = false;
+    }else{
+      this.passConpError = false;
+    }
+
+    if(sendForm){
+      console.log('passsss')
+      this.storage.set('userName',this.RegisterData.userName);
+      this.storage.set('userPassword',this.RegisterData.confirmPassword);
+      this.navCtrl.push('SelectLocationPage');
+
+    }
+    // this.user.signup(this.phoneNumber,this.password,this.user_name,this.lang,this.user_email).map(res => res.json()).subscribe((resp) => {
+    //   if(resp.status === true){
+    //     this.storage.set('password',this.password);
+    //     this.navCtrl.push('SelectLocationPage');
+    //     console.log(resp.status);
+    //   }else{
+    //    this.navCtrl.push('SelectLocationPage');
+    //     console.log(resp.status);
+    //  }
+    //  }, (err) => {
+    // //  this.navCtrl.push('LoginPage');
+    // });
+
   }
-  getState() {
-    this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
-    this.state=resp;
-    console.log(this.state.data[1].state_name);
-
-    }, (err) => {
-  console.log('my name is khan')
-    });
-  }
-
-  getCity() {
-    this.cityStateProvider.getCity().subscribe((resp) => {
-      //this.navCtrl.push('LoginPage');
-    }, (err) => {
-    //  this.navCtrl.push('LoginPage');
-
-    });
-  }
+  
 
 }

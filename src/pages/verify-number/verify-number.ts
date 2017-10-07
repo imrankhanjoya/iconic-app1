@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 /**
@@ -21,7 +21,8 @@ export class VerifyNumberPage {
 
   public phoneNumber:any;
   public otp:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,
+    public storage:Storage,public loadingCtrl: LoadingController) {
   this.phoneNumber=navParams.get('phoneNumber');
 
 
@@ -53,19 +54,28 @@ export class VerifyNumberPage {
       }
 
       if(sendForm){
+          let loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+          });
+          loading.present();
           this.otp=this.RegisterData.verifyOtpfirst+this.RegisterData.verifyOtpSecond+this.RegisterData.verifyOtpThired+this.RegisterData.verifyOtpFourth;
           console.log('------'+this.otp);
           this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
             if(resp.status === true){
-              this.navCtrl.push('SignupPage');
+             this.storage.set('userPhone', this.phoneNumber);
+             this.storage.set('userOTP', this.otp);
              console.log(resp.status);
+             this.navCtrl.push('SignupPage');
+             loading.dismiss();
             }else{
+              alert(resp.msg)
               this.navCtrl.push('SignupPage');
-              console.log(resp.status);
+              console.log(resp.msg);
+              loading.dismiss();
             }
           }, (err) => {
+            loading.dismiss();
            console.log('--unsuccess');
-           //this.navCtrl.push('VerifyNumberPage');
          });
       }    
     }

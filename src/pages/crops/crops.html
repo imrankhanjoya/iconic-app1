@@ -29,14 +29,14 @@
     </ion-col>
 </ion-row>
 <ion-row  class="mainCheck">
-    <ion-col *ngFor="let item of cropList" col-4 class="mainClass" >
+    <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
       <ion-row >
         <ion-col *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
-    <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(item.name)" class="checkbox" />
+    <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
       <p class="titleName" >{{item.name}}</p>
     </ion-col>
     <ion-col *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
-      <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(item.name)" class="checkbox" />
+      <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
       <p class="titleName" >{{item.name}}</p>
     </ion-col>
     </ion-row>
@@ -49,5 +49,5 @@
   </ion-item>
  </ion-col> -->
 </ion-row>
-<button ion-button block class="button">ठीक है</button>
+<button (click)="selected()" ion-button block class="button">ठीक है</button>
 </ion-content>

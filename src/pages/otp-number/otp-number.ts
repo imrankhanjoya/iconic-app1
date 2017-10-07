@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
@@ -23,7 +23,8 @@ export class OtpNumberPage {
 
   RegisterData = {phoneNumber:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage,
+    public alertCtrl: AlertController,public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -41,17 +42,22 @@ export class OtpNumberPage {
       this.phoneNumberError = false;
     }
     if(sendForm){
+        let loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+          });
+          loading.present();
         this.user.sendOtp(this.RegisterData.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
         if(resp.status === true){
-          this.storage.set('userInfo', resp);
           console.log(resp.status);
           this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.RegisterData.phoneNumber});
+          loading.dismiss();
         }else{
           alert(resp.msg)
-         // this.navCtrl.push('VerifyNumberPage',{phoneNumber:this.phoneNumber});
           console.log('number unValid');
+          loading.dismiss();
         }
       }, (err) => {
+        loading.dismiss();
         console.log('--unsuccess')  
       });
     }

@@ -38,6 +38,8 @@ import { AnnouncementproProvider } from '../providers/announcementpro/announceme
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { CallNumber } from '@ionic-native/call-number';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -113,7 +115,8 @@ export function provideSettings(storage: Storage) {
     YoutubeVideoPlayer,
     AnnouncementproProvider,
     CallNumber,
-    Camera
+    Camera,
+    NativeGeocoder
   ]
 })
 export class AppModule { }

@@ -9,26 +9,29 @@
 </p>
 </div>
 <div>
+  
 
- <ion-item>
-    <ion-label  class="inpu" stacked>User Phone</ion-label>
-    <ion-input [(ngModel)]="phoneNumber" name="phoneNumber" value="" type="text"></ion-input>
-  </ion-item>
   <ion-item>
-    <ion-label  class="inpu" stacked>User NAme</ion-label>
-    <ion-input [(ngModel)]="user_name" name="user_name" value="" type="text"></ion-input>
+    <ion-label  class="inpu" stacked>User Name</ion-label>
+    <ion-input [(ngModel)]="RegisterData.userName" name="userName" value="" type="text" ng-required></ion-input>
   </ion-item>
-
+   <div class="error" *ngIf="UserNameError==true" >
+      Name is required
+   </div>
   <ion-item>
     <ion-label class="inpu"  stacked>पासवर्ड</ion-label>
-    <ion-input [(ngModel)]="password" name="password" value="" type="password"></ion-input>
+    <ion-input [(ngModel)]="RegisterData.password" name="password" value="" type="password" ng-required></ion-input>
   </ion-item>
-
+    <div class="error" *ngIf="passError==true" >
+      {{passErrorMsg}}
+   </div>
 <ion-item>
     <ion-label class="inpu" stacked>पासवर्ड की पुष्टि कीजिये</ion-label>
-    <ion-input  [(ngModel)]="confirmPassword" name="confirmPassword" value="" type="confirmPassword"></ion-input>
+    <ion-input  [(ngModel)]="RegisterData.confirmPassword" name="confirmPassword" value="password" type="confirmPassword" ng-required></ion-input>
   </ion-item>
-
+  <div class="error" *ngIf="passConpError==true" >
+      {{passErrorMsg}}
+   </div>
 </div>
 <div  class="p_button">
     <button class="p_1" (click)="doSignup()" >ठीक हे </button>
