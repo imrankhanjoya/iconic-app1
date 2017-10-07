@@ -30,4 +30,11 @@ page-rentals {
     height: 100%;
   padding: 20%;
   }
+  .item-select {
+  width: 100%; /* Or whatever you'd like the width to be */
+}
+
+.item-select select {
+  left: 0;
+}
 }

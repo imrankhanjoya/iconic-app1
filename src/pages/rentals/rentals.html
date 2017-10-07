@@ -30,9 +30,18 @@
 
 
 <ion-content padding>
- <ion-grid >
+  <ion-item >
+      <ion-label>categery</ion-label>
+      <ion-select [(ngModel)]="notifications" interface="action-sheet">
+        <ion-option value="enable">Enable</ion-option>
+        <ion-option value="mute">Mute</ion-option>
+        <ion-option value="mute_week">Mute for a week</ion-option>
+        <ion-option value="mute_year" >Mute for a year</ion-option>
+      </ion-select>
+    </ion-item>
+   <ion-grid >
   <ion-row>
-    <ion-col col-6 *ngFor=" let data of Rental_Listdata.data, let i = index "  >
+    <ion-col  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
       <ion-card  class="image-card" (click)="RentalsPage(data.id)">
      <img class="produtimage" src="{{data.attachments}}"/>
       <p class="sarsTitle">{{data.title}}</p>
