@@ -14,11 +14,12 @@
 
   "MAP_TITLE": "Map",
 
-  "TUTORIAL_SKIP_BUTTON": "Skip",
+  "TUTORIAL_SKIP_BUTTON": "छोड़ें",
+  "SELECT_LANGUAGE": "भाषा चुनिए",
   "TUTORIAL_CONTINUE_BUTTON": "Continue",
 
   "TUTORIAL_SLIDE1_TITLE": "आयनिक सुपर स्टार्टर में आपका स्वागत है",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "<b> आयनिक सुपर स्टार्टर </ b> एक पूर्वनिर्मित पृष्ठों और सर्वोत्तम प्रथाओं के साथ पूरी तरह से चित्रित Ionic स्टार्टर है।",
 
   "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
   "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
@@ -65,5 +66,6 @@
   "NEWS": "सामाजिक",
 
   "SEARCH_TITLE": "खोज",
+  "NEWS": "छोड़ें",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\""
 }
