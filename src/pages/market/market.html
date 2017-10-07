@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 <div class="main-content">
 <!-------Product Sectopn------>
 <ion-row   *ngFor="let productcatData of productDatas.data;">
@@ -34,8 +34,8 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productcatData.product_data;">
       	<ion-card>
         	<img class="produtimage" src="{{productData.feature_image}}"/>
-        	<p class="sarsTitle">{{productData.name}}</p>
-        	<p class="detailSar"> विनती पर मुल्य</p>
+        	<div class="sarsTitle colorGrey smallTitle">{{productData.name}}</div>
+        	<div class="detailSar colorGreen smallTitle"> विनती पर मुल्य</div>
       	</ion-card>
     </ion-slide>
   </ion-slides>
