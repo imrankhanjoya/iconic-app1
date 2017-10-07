@@ -1,71 +1,69 @@
 {
   "BACK_BUTTON_TEXT": "वापस जाओ",
-
+  "SELECT_LANGUAGE":"भाषा चुनिए",
   "NAME": "नाम",
-  "EMAIL": "ईमेल",
-  "USERNAME": "उपयोगकर्ता नाम",
+  "News": "समाचार",
+  "EMAIL": "ई-मेल",
+  "USERNAME": "उपयोगकर्ता का नाम",
   "PASSWORD": "पासवर्ड",
-  "LOGIN": "Sign in",
-  "SIGNUP": "Sign up",
+  "LOGIN": "साइन इन करें",
+  "SIGNUP": "खाता बनाएं",
 
-  "TAB1_TITLE": "Items",
-  "TAB2_TITLE": "Search",
-  "TAB3_TITLE": "Settings",
+  "TAB1_TITLE": "तत्वों",
+  "TAB2_TITLE": "खोज",
+  "TAB3_TITLE": "सेटिंग",
 
-  "MAP_TITLE": "Map",
+  "MAP_TITLE": "नक्शा",
 
   "TUTORIAL_SKIP_BUTTON": "छोड़ें",
-  "SELECT_LANGUAGE": "भाषा चुनिए",
-  "TUTORIAL_CONTINUE_BUTTON": "Continue",
+  "TUTORIAL_CONTINUE_BUTTON": "जारी रखें",
 
   "TUTORIAL_SLIDE1_TITLE": "आयनिक सुपर स्टार्टर में आपका स्वागत है",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "<b> आयनिक सुपर स्टार्टर </ b> एक पूर्वनिर्मित पृष्ठों और सर्वोत्तम प्रथाओं के साथ पूरी तरह से चित्रित Ionic स्टार्टर है।",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "<B> आयनिक सुपर स्टार्टर </ b> एक पूर्वनिर्मित पृष्ठों और सर्वोत्तम प्रथाओं के साथ पूरी तरह से चित्रित Ionic स्टार्टर है।",
 
-  "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+  "TUTORIAL_SLIDE2_TITLE": "सुपर स्टार्टर का उपयोग कैसे करें",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "विभिन्न पृष्ठ प्रकारों को इकट्ठा करें जिन्हें आप चाहते हैं और जिन लोगों को आप नहीं चाहते उन्हें निकालें। हमने कई सामान्य मोबाइल ऐप पेज लेआउट प्रदान किए हैं, जैसे कि लॉगिन और साइनअप पृष्ठ, टैब और इस ट्यूटोरियल पृष्ठ.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Getting Started",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
+  "TUTORIAL_SLIDE3_TITLE": "शुरू करना",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "मदद चाहिए? एक पूर्ण ट्यूटोरियल के लिए सुपर स्टार्टर README देखें",
 
-  "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
+  "TUTORIAL_SLIDE4_TITLE": "खेलने के लिए तैयार?",
 
-  "WELCOME_INTRO": "The starting point for your next great Ionic app",
+  "WELCOME_INTRO": "अपने अगले महान आयनिक ऐप के लिए शुरुआती बिंदु",
 
-  "SETTINGS_TITLE": "Settings",
-  "SETTINGS_OPTION1": "Option 1",
-  "SETTINGS_OPTION2": "Option 2",
-  "SETTINGS_OPTION3": "Option 3",
-  "SETTINGS_OPTION4": "Option 4",
+  "SETTINGS_TITLE": "सेटिंग्स",
+  "SETTINGS_OPTION1": "विकल्प 1",
+  "SETTINGS_OPTION2": "विकल्प 2",
+  "SETTINGS_OPTION3": "विकल्प 3",
+  "SETTINGS_OPTION4": "विकल्प 4",
 
-  "SETTINGS_PROFILE_BUTTON": "Edit Profile",
+  "SETTINGS_PROFILE_BUTTON": "प्रोफाइल एडिट करें",
+  "WELCOME_TITLE": "स्वागत हे",
 
-  "SETTINGS_PAGE_PROFILE": "Edit Profile",
+  "LOGIN_TITLE": "साइन इन करें",
+  "LOGIN_ERROR": "साइन इन करने में असमर्थ। कृपया अपनी खाता जानकारी जांचें और पुनः प्रयास करें।",
+  "SIGNUP_TITLE": "साइन अप करें",
+  "SIGNUP_ERROR": "खाता बनाने में असमर्थ कृपया अपनी खाता जानकारी की जांच करें और फिर से प्रयास करें।",
 
-  "WELCOME_TITLE": "Welcome",
+  "LIST_MASTER_TITLE": "वस्तु",
 
-  "LOGIN_TITLE": "Sign in",
-  "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
-  "LOGIN_BUTTON": "Sign in",
-  "SIGNUP_TITLE": "Sign up",
-  "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
-  "SIGNUP_BUTTON": "Sign up",
+  "ITEM_CREATE_TITLE": "नई वस्तु",
+  "ITEM_CREATE_CHOOSE_IMAGE": "छवि जोड़ें",
 
-  "LIST_MASTER_TITLE": "Items",
+  "ITEM_NAME_PLACEHOLDER": "नाम",
+  "ITEM_ABOUT_PLACEHOLDER": "के बारे में",
 
-  "ITEM_CREATE_TITLE": "New Item",
-  "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
-
-  "ITEM_NAME_PLACEHOLDER": "Name",
-  "ITEM_ABOUT_PLACEHOLDER": "About",
-
-  "DONE_BUTTON": "Done",
-  "CANCEL_BUTTON": "Cancel",
-  "DELETE_BUTTON": "Delete",
+  "DONE_BUTTON": "किया हुआ",
+  "CANCEL_BUTTON": "रद्द करना",
+  "DELETE_BUTTON": "हटाना",
 
   "CARDS_TITLE": "सामाजिक",
-  "NEWS": "सामाजिक",
-
+  "NEWS":"समाचार",
+  "WEATHER":"मौसम",
+  "AGRICULTURAL_SERVICES":"कृषि सेवाए",
+  "LESS":"कम",
+  "MANAGED":"प्रबंधित",
+  "VIDEO":"वीडियो",
   "SEARCH_TITLE": "खोज",
-  "NEWS": "छोड़ें",
-  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\""
+  "SEARCH_PLACEHOLDER": "आइटम की सूची खोजें, उदा। \"डोनाल्ड डक\""
 }
