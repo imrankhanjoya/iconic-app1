@@ -73,6 +73,8 @@
   "LOGIN_PASSWORD_REQUIRED": "पासवर्ड की आवश्यकता है",
   "LOGIN_NEW_USER_SING_UP": "क्या आप नई उपभोक्ता हो? साइन अप करें",
 
+  "PAGES_TUTORIAL": "ट्यूटोरियल",
+
    "SELECT_LOCTION": "स्थान चुने",
    "SELECT_LOCTION_PLEASE": "कृपया अपने स्थान का चयन करें क्योंकि हम आपकी कृषि के लिए मदद कर रहे हैं",
    "SELECT_LOCTION_SELECT": "चुनते हैें",
