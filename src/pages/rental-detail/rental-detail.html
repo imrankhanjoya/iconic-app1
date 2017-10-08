@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="fulldark">
-    <ion-title>rental_detail</ion-title>
+    <ion-title>{{'RENTAL_DETAIL_TITLE' | translate}}</ion-title>
     <ion-buttons end>
     <button ion-button icon-only color="royal" (click)="gotoSearchProduct()" class="wallet">
     <img src="assets/img/agri bolo icon/hdpi/wallet.png">
@@ -34,7 +34,7 @@
     <p class="pClass">{{Rental_detaildata.data.title}}</p>
     <p class="pContent"><span innerHtml="{{Rental_detaildata.data.content}}"></span></p>
           <div class="block">
-          <button ion-button block>संपर्क करेें</button>
+          <button ion-button block>{{'EXPRET_CONTECT' | translate}}</button>
           </div>
   </ion-card>
 </ion-content>
