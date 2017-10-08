@@ -1,7 +1,14 @@
 page-home {
 
 
-
+      .dialogYellow{
+            font-weight: bold;
+            font-size: 2rem;
+            padding: 2%;
+      }
+      .fontNormal{
+            font-weight: normal;
+      }
       .slidImage{
       border: solid;
       color: white;
@@ -156,7 +163,7 @@ page-home {
 
       /******Product Css*******/
       .slideItem{
-      width: 70%;
+      width: 60%;
 
       }
 
@@ -164,7 +171,6 @@ page-home {
       text-align: left;
       padding-left: 4%;
       padding-top: 5%;
-      text-align: left;
       height: 84px;
       }
       .detailSar{

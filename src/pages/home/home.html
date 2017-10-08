@@ -62,6 +62,34 @@
   </ion-row>
   </ion-grid>
 
+  <!-------Welcome Promoe------>
+
+  <ion-card class="dialogYellow backgroundColorYellow" *ngIf="announceList.status==true">
+    <ion-grid >
+      <ion-row>
+        <ion-col col-3 >
+          <ion-thumbnail item-start >
+         <img src="assets/img/promo_icon.png" >
+         </ion-thumbnail>
+            </ion-col>
+        <ion-col  col-9>
+        <ion-row >
+        <div class="smallTitle colorBlack">
+          Welcome Ramesh
+        </div>
+        </ion-row>
+        <ion-row>
+          <div class="Headline colorBlack fontNormal">
+            {{announceList.data[0].title}}
+          </div>
+        </ion-row>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-card>
+
 
 
 <!-----------------Weather section-->
@@ -301,7 +329,7 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
-        <div class="sarsTitle colorGrey smallTitle">{{productData.name}}</div>
+        <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
         <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
@@ -325,12 +353,12 @@
          <img src="assets/img/watring_can/drawable-hdpi/watering_can.png" >
          </ion-thumbnail>
             </ion-col>
-        <ion-col col-9>
+        <ion-col class="smallTitle" col-9>
           {{announceList.data[0].title}}
         </ion-col>
       </ion-row>
     </ion-grid>
-    <p class="readMore" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</p>
+    <div class="readMore titleFont" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</div>
   </ion-card>
 
 
