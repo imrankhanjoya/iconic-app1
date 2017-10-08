@@ -74,7 +74,7 @@
             </ion-col>
         <ion-col  col-9>
         <ion-row >
-        <div class="smallTitle colorBlack">
+        <div class="smallTitle">
           Welcome Ramesh
         </div>
         </ion-row>
@@ -103,12 +103,12 @@
 
   <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage()">
     <ion-row>
-      <ion-col col-6 class="colCandigare">
+      <ion-col col-6 class="colCandigare subHeadingFont">
           {{wheaterHome.data.WeatherData[0].DateTime | date:'dd MMMM yyyy HH:mm a'}}
           <div class="main">
-              <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
+              <div class="elementTitle smallTitle">{{wheaterHome.data.tehsil_name}}</div>
               <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
-              <div class="elementTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
+              <div class="elementTitle smallTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
           </div>
       </ion-col>
       <ion-col col-6 class="imageCol">
@@ -234,7 +234,8 @@
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
      <ion-col>
-      <p class="colShow" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</p>
+
+    <button ion-button class="showAll" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</button>
     </ion-col>
   </ion-row>
 
@@ -263,8 +264,8 @@
               <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
                 <img src="{{expert.attachments}}" >
                 <div class="card-title-box">
-                <div class="card-title">  {{expert.title}}</div>
-                <div class="card-subtitle">{{expert.date}}</div>
+                <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
+                <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
 
                 <button ion-button color="light" (click)=" goToExpertDetial(expert.id)" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
@@ -272,7 +273,7 @@
 
           </ion-slide>
           <ion-slide  >
-              <ion-card  >
+              <ion-card  (click)=" goToBlogPage()" >
                 <div class="see-title-box">
                 <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
@@ -332,7 +333,7 @@
         <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
-    <ion-slide class="slideItem ">
+    <ion-slide class="slideItem "  (click)="gotoMarketPage()">
       <ion-card>
           <div class="see-title-box">
           <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
@@ -371,7 +372,7 @@
   </ion-grid>  
 
   <ion-card class="vedioCard">
-  <div padding class="displayOneFont">Agribolo : Agriculture on the finger tips of Indian farmer</div>
+  <p padding>Agribolo : Agriculture on the finger tips of Indian farmer</p>
   <img src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
   <p class="showAll" (click)="gotoVedio()">{{'SEE_MORE' | translate}}</p>
   </ion-card >
