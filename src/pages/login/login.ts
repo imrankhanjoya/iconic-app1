@@ -24,8 +24,6 @@ export class LoginPage {
     public user: User,public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
-    this.translateService.setDefaultLang('ar');
-    this.translateService.use('ar');
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     })
