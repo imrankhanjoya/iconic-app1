@@ -83,6 +83,7 @@
     }
 
   onStateSelect(stateid) {
+    console.log('------'+stateid);
     //this.loading.present();
     this.storage.set('userStateId',stateid);
     this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {

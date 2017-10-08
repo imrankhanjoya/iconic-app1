@@ -4,13 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
-  <ion-navbar>
-    <ion-title>{{'VERIFY_TITLE' | translate}}</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 
 <ion-content padding>
@@ -23,22 +17,22 @@
 
  <div class="input">
  	<ion-item>
-        <ion-input [(ngModel)]="RegisterData.verifyOtpfirst" name="verifyOtpfirst" value="" type="text" maxlength="1" ></ion-input>
+        <ion-input [(ngModel)]="RegisterData.verifyOtpfirst" name="verifyOtpfirst" value="" type="text" maxlength="1" (keyup)="next(verifyOtpSecond)" ></ion-input>
 </ion-item>
 </div>
 <div class="input">
  	<ion-item>
-        <ion-input [(ngModel)]="RegisterData.verifyOtpSecond" name="verifyOtpSecond" value="" id="PasswordInput"  type="text" maxlength="1"></ion-input>
+        <ion-input [(ngModel)]="RegisterData.verifyOtpSecond" name="verifyOtpSecond" #verifyOtpSecond (keyup)="next(verifyOtpThired)" value="" id="PasswordInput"  type="text" maxlength="1"></ion-input>
 </ion-item>
 </div>
 <div class="input">
  	<ion-item>
-        <ion-input [(ngModel)]="RegisterData.verifyOtpThired" name="verifyOtpThired" value="" type="text" maxlength="1" ></ion-input>
+        <ion-input [(ngModel)]="RegisterData.verifyOtpThired" name="verifyOtpThired" (keyup)="next(verifyOtpFourth)" value="" #verifyOtpThired type="text" maxlength="1" ></ion-input>
 </ion-item>
 </div>
 <div class="input">
  	<ion-item>
-        <ion-input [(ngModel)]="RegisterData.verifyOtpFourth" name="verifyOtpFourth" value="" type="text" maxlength="1" ></ion-input>
+        <ion-input [(ngModel)]="RegisterData.verifyOtpFourth" name="verifyOtpFourth" #verifyOtpFourth value="" type="text" maxlength="1" ></ion-input>
 </ion-item>
 </div>
 </div>

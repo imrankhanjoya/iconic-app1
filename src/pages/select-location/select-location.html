@@ -22,17 +22,21 @@
       {{ item }}
     </ion-item>
   </ion-list> -->
-  <label>{{'SELECT_LOCTION_STATE' | translate}}:</label>
-  <select (change)="onStateSelect($event.target.value)">
-    <option value="0">--{{'SELECT_LOCTION_SELECT' | translate}}--</option>
+ 
+
+  <ion-item class="fullWidth">
+  <select class="selectBox"  (change)="onStateSelect($event.target.value)">
+    <option value="0">{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
     <option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</option>
   </select>
+  </ion-item>
 
-  <label>{{'SELECT_LOCTION_DISTRICT' | translate}}:</label>
-  <select (change)="onDistrictSelect($event.target.value)">
-    <option value="0">--{{'SELECT_LOCTION_SELECT' | translate}}--</option>
+  <ion-item class="fullWidth">
+  <select class="selectBox"  (change)="onDistrictSelect($event.target.value)">
+    <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
     <option *ngFor="let district of districtList" value={{district.id}}>{{district.city_name}}</option>
   </select>
+  </ion-item>
 
    <p class="span1">{{'SELECT_LOCTION_OR' | translate}}</p>
   <ion-row class="div_button" (click)="getCourrnt()">
@@ -45,3 +49,23 @@
 </ion-row>
 
 </ion-content>
+<div class="background">
+    <div id="sun">
+        <div id="sunbg"></div>
+    </div>
+    <i class="fa fa-cloud" id="cloud1"></i>
+    <i class="fa fa-cloud" id="cloud2"></i>
+
+    <img id="radio" src="assets/img/radio_control.png" />
+
+    <div id="village">
+        &nbsp;
+    </div>
+    <div id="tractor">
+        <img src="assets/img/fan.png" class="fa-spin" id="fan"/>
+        <img src="assets/img/shape.png" id="tower"/>
+
+    </div>
+    <div id="grass">
+    </div>
+</div>

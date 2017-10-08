@@ -1,9 +1,7 @@
 
-
-
 <ion-content>
 
-   <div class="main" padding>
+   <div class="main">
   <h1 class="text"> {{'SING_UP_VERY_GOOD' | translate}}</h1>
   <p class="text1" >{{'SING_UP_PASSWORD' | translate}}
 </p>
@@ -12,21 +10,21 @@
 
 
   <ion-item>
-    <ion-label  class="inpu" stacked>{{'SING_UP_USER_NAME'| translate}}</ion-label>
+    <ion-label   floating>{{'SING_UP_USER_NAME'| translate}}</ion-label>
     <ion-input [(ngModel)]="RegisterData.userName" name="userName" value="" type="text" ng-required></ion-input>
   </ion-item>
    <div class="error" *ngIf="UserNameError==true" >
       {{'SING_UP_NAME_REQUIRED' | translate}}
    </div>
   <ion-item>
-    <ion-label class="inpu"  stacked>{{'SING_UP_TYPE_PASSWORD'| translate}}</ion-label>
+    <ion-label  floating>{{'SING_UP_TYPE_PASSWORD'| translate}}</ion-label>
     <ion-input [(ngModel)]="RegisterData.password" name="password" value="" type="password" ng-required></ion-input>
   </ion-item>
     <div class="error" *ngIf="passError==true" >
       {{passErrorMsg}}
    </div>
 <ion-item>
-    <ion-label class="inpu" stacked>{{'SING_UP_CONF_PASSWORD' | translate}}</ion-label>
+    <ion-label floating>{{'SING_UP_CONF_PASSWORD' | translate}}</ion-label>
     <ion-input  [(ngModel)]="RegisterData.confirmPassword" name="confirmPassword" value="password" type="confirmPassword" ng-required></ion-input>
   </ion-item>
   <div class="error" *ngIf="passConpError==true" >

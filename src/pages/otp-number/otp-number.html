@@ -6,15 +6,14 @@
 -->
 
 <ion-content padding>
-<div class="main" padding>
+<div class="main" >
 	<h1 class="text"> {{'OTP_NUMBER_HELLO' | translate}}</h1>
 	<p class="text1" >{{'OTP_NUMBER_TYPE_OTP' | translate}}
 </p>
 </div>
 <div class="textinput" >
  <ion-item>
-	<ion-label class="lable" >+91</ion-label>
-    <ion-input [(ngModel)]="RegisterData.phoneNumber" name="phoneNumber" size="10" maxlength="10" class="lable" value="" type="number"  placeholder="{{'OTP_NUMBER_TYPE_NUMBER' | translate}}" ng-required></ion-input>
+    <ion-input [(ngModel)]="RegisterData.phoneNumber" name="phoneNumber" size="10" maxlength="10" class="lable" value="" type="number" ng-required></ion-input>
     </ion-item>
     <div class="error" *ngIf="phoneNumberError==true" >
      {{'OTP_NUMBER_VALID_NUMBER'|translate}}

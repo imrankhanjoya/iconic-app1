@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the MarketPage page.
@@ -16,9 +17,15 @@ import { MarketproProvider } from '../../providers/marketpro/marketpro';
 })
 export class MarketPage {
   public limit:'100';
+  public loading :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public market:MarketproProvider) {
+  constructor(public loadingCtrl: LoadingController, navCtrl: NavController, public navParams: NavParams,public market:MarketproProvider) {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
   }
+
 
   ionViewDidLoad() {
       this.getmarkets();
@@ -34,8 +41,10 @@ export class MarketPage {
         this.productDatas.status = res.status;
         console.log('market data start');
         console.log(this.productDatas.data);
+        this.loading.dismiss();
       }, (err) => {
         // Unable to log in
+        this.loading.dismiss();
         console.log(err);
       });
 

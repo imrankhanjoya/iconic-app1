@@ -79,5 +79,8 @@ export class VerifyNumberPage {
          });
       }    
     }
+    next(el) {
+    el.setFocus();
+  }
 
 }

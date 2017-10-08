@@ -38,6 +38,8 @@ export class CropsPage {
    public userLat:any;
    public userLong:any;
    public loading:any;
+   public kharifImage='cropselected.png';
+   public hortiImage='fruitunselected.png';
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
       public cityStateProvider:CityStateProvider,public storage:Storage,
@@ -90,10 +92,15 @@ export class CropsPage {
       this.tump=false;
       this.buttonColor = '#101c00';
       this.peon='#dbdbdb';
+      this.kharifImage = 'cropunselected.png';
+      this.hortiImage='fruitselected.png';
     }else if(this.shoPage=='Kharif'){
       this.tump=true;
       this.buttonColor = '#dbdbdb';
       this.peon='#101c00';
+      this.kharifImage = 'cropselected.png';
+      this.hortiImage='fruitunselected.png';
+
     }
   }
   selected(){

@@ -1,7 +1,23 @@
 page-select-location {
   .main {
-  	margin-top: 20%;
+  	margin-top: 15%;
   }
+
+
+
+.selectBox{
+  width: 100%;
+  border: 0px;
+  
+  height: 35px;
+  background: transparent;
+  border-radius: 0px;
+  
+}
+
+
+
+
   .text{
   	text-align:center;
   	 font-size: 28px;
@@ -43,12 +59,14 @@ page-select-location {
     text-align: center;
     width: 15%;
     font-size: x-large;
+    visibility: hidden;
 }
 
 
 .div_button{
     margin-top: 20%;
     height: 8%;
+    visibility: hidden;
 }
 .bakc{
   background: #5f8b05;

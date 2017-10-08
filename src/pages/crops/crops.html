@@ -7,40 +7,40 @@
 
 
 
-<ion-content padding>
+<ion-content scroll="false">
 <h1 class="title"> {{'CROPS_TITLE' | translate}}</h1>
-<ion-row margin>
-  <ion-col class="imagc" col-5 (click)="addEvent('Kharif');" [ngStyle]="{'background-color': peon}">
-    <img src="assets/img/coffee_beans_2017-10-05/drawable-hdpi/coffee_beans.png"/>
-
-  </ion-col>
-  <ion-col></ion-col>
-  <ion-col class="nextC " col-5 (click)="addEvent('Horticulture');" [ngStyle]="{'background-color': buttonColor}">
-    <img src="assets/img/xmlid_544_2017-10-05/drawable-hdpi/xmlid_544.png" />
-  </ion-col>
-</ion-row>
 <ion-row >
-  <ion-col class="textCol">
-    <h2> {{'VEDIO_SEEDS' | translate}}</h2>
+  <ion-col  class="paddingLeft" col-6 (click)="addEvent('Kharif');" >
+    <img class="dimen" src="assets/img/{{kharifImage}}"/>
+ 
+    <div class="displayOneFont alignCenter"> {{'VEDIO_SEEDS' | translate}}</div>
+ 
   </ion-col>
-    <ion-col col-1></ion-col>
-    <ion-col class="textCol">
-      <h2>{{'CROPS_FRUITE' | translate}}</h2>
-    </ion-col>
+  <ion-col class="paddingLeft" col-6 (click)="addEvent('Horticulture');">
+    <img   class="dimen" src="assets/img/{{hortiImage}}" />
+     <div class="displayOneFont alignCenter">{{'CROPS_FRUITE' | translate}}</div>
+  </ion-col>
 </ion-row>
-<ion-row  class="mainCheck">
+
+<ion-scroll scrollY="true" style="width: 100%; height: 40%;">
+<ion-row >
   <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
-    <ion-row >
-      <ion-col *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
+
+    <ion-row *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
+      <ion-col >
         <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
-        <p class="titleName" >{{item.name}}</p>
+        <div class="titleName titleFont" >{{item.name}}</div>
       </ion-col>
-      <ion-col *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
+    </ion-row>
+    <ion-row *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
+      <ion-col >
         <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
-        <p class="titleName" >{{item.name}}</p>
+        <div class="titleName titleFont" >{{item.name}}</div>
       </ion-col>
     </ion-row>
   </ion-col>
 </ion-row>
+</ion-scroll>
+
 <button (click)="selected()" ion-button block class="button">{{'SING_UP_GOOD' | translate}}</button>
 </ion-content>
