@@ -59,6 +59,15 @@
   "VERIFY_THANKS": "बहुत धन्यवाद",
   "VERIFY_TYPE_OTP": "मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज करें?",
 
+  "SING_UP_VERY_GOOD": "बहुत अच्छा",
+  "SING_UP_PASSWORD": "अधिक सेवा के लिया कृपया अपना नाम और पासवर्ड  दर्ज कर?",
+  "SING_UP_NAME_REQUIRED": "नाम आवश्यक है",
+  "SING_UP_USER_NAME": "उपयोगकर्ता नाम",
+  "SING_UP_TYPE_PASSWORD": "पासवर्ड",
+  "SING_UP_CONF_PASSWORD": "पासवर्ड की पुष्टि करें",
+  "SING_UP_GOOD": "ठीक हेें",
+
+
   "ITEM_CREATE_TITLE": "नई वस्तु",
   "ITEM_CREATE_CHOOSE_IMAGE": "छवि जोड़ें",
 
