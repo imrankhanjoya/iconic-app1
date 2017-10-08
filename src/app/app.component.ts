@@ -64,6 +64,7 @@ export class MyApp {
     { title: 'rentals', component: 'RentalsPage' },
     { title: 'rental-detail', component: 'RentalDetailPage' },
     { title: 'experts-detail', component: 'ExpertsDetailPage' },
+    { title: 'crops-list', component: 'CropslistPage' },
 
 
 

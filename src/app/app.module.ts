@@ -39,6 +39,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { CallNumber } from '@ionic-native/call-number';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
+import { CropsProvider } from '../providers/crops/crops';
 
 
 // The translate loader needs to know where to load i18n files
@@ -116,7 +117,8 @@ export function provideSettings(storage: Storage) {
     AnnouncementproProvider,
     CallNumber,
     Camera,
-    NativeGeocoder
+    NativeGeocoder,
+    CropsProvider
   ]
 })
 export class AppModule { }
