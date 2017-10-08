@@ -16,7 +16,7 @@ import { CropsProvider } from '../../providers/crops/crops';
   templateUrl: 'cropslist.html',
 })
 export class CropslistPage {
-	public cropList:any;
+  public cropList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public cropsProvider:CropsProvider,public loadingCtrl: LoadingController) {
@@ -30,7 +30,7 @@ export class CropslistPage {
 		});
 		loading.present();
 		this.cropsProvider.sendCrop('hi_IN').map(res => res.json()).subscribe((resp) => {
-		this.cropList=resp.data;
+		this.cropList=resp;
 		console.log(this.cropList);
 		loading.dismiss();
 		}, (err) => {

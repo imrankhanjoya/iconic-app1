@@ -46,8 +46,6 @@ export class HomePage {
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private youtube: YoutubeVideoPlayer) {
 
-      console.log(api.userData);
-
       
   		this.topMenu = false;
   }

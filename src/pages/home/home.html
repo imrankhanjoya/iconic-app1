@@ -391,8 +391,20 @@
 
   <ion-card >
   <img src="https://maps.googleapis.com/maps/api/staticmap?center={{geoLoc.lat}},{{geoLoc.lng}}&zoom=16&size=400x400&markers=color:green%7Clabel:k%7C{{geoLoc.lat}},{{geoLoc.lng}}&key=AIzaSyDyovCt6Vv3pefuZ0JdQC9caXFg3NNf2R0">
-  <p>कृषि केंद्र 10 किमी दूर है..</p>
-  <!-- <button ion-button small class="button" padding-left padding-right>Small</button> -->
+  
+  <ion-grid>
+      <ion-row>
+      <ion-col >
+          <p>कृषि केंद्र 10 किमी दूर है..</p>
+      </ion-col>
+      <ion-col >
+          <button ion-button small class="button" padding-left padding-right>Small</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+  
+  
+  
   </ion-card >
 
 

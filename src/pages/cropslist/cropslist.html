@@ -13,6 +13,49 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+<div *ngIf="cropList.status==true">
+
+	<ion-grid >
+      <ion-row  *ngFor=" let news of cropList.data, let i = index "  (click)="gotoWebView(cropList.data[i].link)">
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'MARKET'| translate}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+
+
+  <!-------Product Sectopn------>
+<ion-row   *ngFor="let crops of cropList.data;">
+ <ion-grid>
+      	<ion-row>
+	      	<ion-col >
+	        	<img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+	      	</ion-col>
+	      	<ion-col  class="pClass">
+	          {{crops.cat_name}}
+	      	</ion-col>
+	      	<ion-col>
+	        	<img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
+	      	</ion-col>
+    	</ion-row>
+  </ion-grid>
+  <ion-slides [slidesPerView]="'auto'">
+    <ion-slide class="slideItem"  *ngFor="let productData of productcatData.product_data;">
+      	<ion-card>
+        	<img class="produtimage" src="{{productData.feature_image}}"/>
+        	<div class="sarsTitle colorGrey smallTitle">{{crops.name}}</div>
+        	<div class="detailSar colorGreen smallTitle"> विनती पर मुल्य</div>
+      	</ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-row>
+  <!-------END Product Sectopn------>
+	
+
+
+</div>
+
 
 </ion-content>
