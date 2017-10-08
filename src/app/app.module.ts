@@ -40,6 +40,8 @@ import { CallNumber } from '@ionic-native/call-number';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { CropsProvider } from '../providers/crops/crops';
+import { CroplistProvider } from '../providers/croplist/croplist';
+import { CroptyeProvider } from '../providers/croptye/croptye';
 
 
 // The translate loader needs to know where to load i18n files
@@ -118,7 +120,9 @@ export function provideSettings(storage: Storage) {
     CallNumber,
     Camera,
     NativeGeocoder,
-    CropsProvider
+    CropsProvider,
+    CroplistProvider,
+    CroptyeProvider
   ]
 })
 export class AppModule { }

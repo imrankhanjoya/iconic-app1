@@ -34,4 +34,40 @@ export class CropsProvider {
 
 		return seq;
 	}
+
+	sendCropGroupType(lang,crop_type){
+		var paramCond ={lang:'en_US',crop_type:crop_type};
+		let seq = this.api.get('v1/crops/find',paramCond).share();
+
+		seq
+		.map(res => res.json())
+		.subscribe(res => {
+			// If the API returned a successful response, mark the user as logged in
+			if (res.status == 'success') {
+			 console.log(res);
+			}
+		}, err => {
+			console.error('ERROR', err);
+		});
+
+		return seq;
+	}
+
+	sendCropDetail(crop_id){
+		var paramCond ={crop_id:crop_id};
+		let seq = this.api.get('/v1/crops/view',paramCond).share();
+
+		seq
+		.map(res => res.json())
+		.subscribe(res => {
+			// If the API returned a successful response, mark the user as logged in
+			if (res.status == 'success') {
+			 console.log(res);
+			}
+		}, err => {
+			console.error('ERROR', err);
+		});
+
+		return seq;
+	}
 }

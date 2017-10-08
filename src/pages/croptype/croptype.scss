@@ -1,0 +1,44 @@
+page-croptype {
+
+.image-card {
+    position: relative;
+    text-align: center;
+  }
+
+	.image-card {
+	  position: relative;
+	  text-align: center;
+	  height: 175px;
+	  overflow:hidden;
+	  padding: 0px;
+  	}
+  	.image-card img{
+        width: 100%;
+        border-radius: 5px;
+  	}
+
+  	.card-title-box {
+        position: absolute;
+        top:20%;
+        left: 5%;
+        width:90%;
+        
+  	}
+  	.card-title {
+        
+        font-size: 2.0em;
+        width:100%;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 2px 2px #000000;
+  	}
+  	.image-card button{
+        display: block;
+        margin: auto;
+        border: 2px solid;
+  	}
+  	.image-card .button-outline-md-light{
+    	text-shadow: 2px 2px #000000;        
+  	}
+
+}

@@ -1,0 +1,85 @@
+<!--
+  Generated template for the CropdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{cropdetail.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-segment [(ngModel)]="Crop">
+		<ion-segment-button value="General">
+		  General
+		</ion-segment-button>
+		<ion-segment-button value="Varieties">
+		  Varieties
+		</ion-segment-button>
+		<ion-segment-button value="Desease">
+		  Desease
+		</ion-segment-button>
+		<ion-segment-button value="Insect">
+		  Insect
+		</ion-segment-button>
+		<ion-segment-button value="water_management">
+		  Water Management
+		</ion-segment-button>
+	</ion-segment>
+
+	<div [ngSwitch]="Crop">
+
+		<!---------Generale  Section-------->
+	    <ion-card  *ngSwitchCase="'General'">
+	    	<img class="cropimage" src="{{cropdetail.image}}"/>
+		    <div class="allContent" >
+			    <div class=" Headline fontBold colorGrey">
+			    	{{cropdetail.name}}
+			    </div>
+			    <div class="pTitle1 subHeadingFont colorGreen">
+			    	{{cropdetail.crop_type}}
+			    </div>
+				<div *ngFor="let AllDetails of cropdetail.AllDetail;"  >
+					<div class="displayOneFont">{{AllDetails.key}}</div> 
+					<div class="pContent"><p>{{AllDetails.value}}</p></div>
+				</div>
+			</div>
+	  	</ion-card>
+
+
+
+
+		<ion-card *ngSwitchCase="'Varieties'">
+			<div  *ngFor="let Deseas of cropdetail.Desease;">
+		    	<img class="cropimage" src="{{Deseas.picture}}"/>
+				<div class="allContent" >
+					<div  >
+						<div class="displayOneFont">{{Deseas.desease_name}}kjkhkhk</div> 
+						<div class="pContent"><p>{{Deseas.cause_nature_damage}}</p></div>
+					</div>
+				</div>
+			</div>
+		</ion-card>
+
+	  <ion-list *ngSwitchCase="'Desease'">
+	    <ion-item>
+			Desease
+	    </ion-item>
+	  </ion-list>
+	  <ion-list *ngSwitchCase="'Insect'">
+	    <ion-item>
+			Insect
+	    </ion-item>
+	  </ion-list>
+	  <ion-list *ngSwitchCase="'water_management'">
+	    <ion-item>
+			water_management
+	    </ion-item>
+	  </ion-list>
+	</div>
+</ion-content>

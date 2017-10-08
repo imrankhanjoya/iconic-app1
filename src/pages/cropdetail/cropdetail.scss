@@ -1,0 +1,24 @@
+page-cropdetail {
+ 	.cropimage{
+    	height: fit-content;
+    	margin: auto;
+  	}
+
+	.pContent p{
+	    font-size: 1.5rem;
+	    margin:5px;
+	    font-weight: normal;
+	    line-height: 1.5;
+  	}
+  	.allContent {
+	    padding: 5px;
+	}
+	.fontBold {
+	    font-weight: bold;
+	    font-size: 27px;
+	}
+	.pTitle1.subHeadingFont.colorGreen {
+	    font-size: 15px;
+	    margin-bottom: 10px;
+	}
+}
