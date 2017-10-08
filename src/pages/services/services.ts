@@ -40,7 +40,9 @@ export class ServicesPage {
     this.navCtrl.push('RentalsPage');
   }
 
-
+ gotoMarket(){
+    this.navCtrl.push('MarketPage');
+  }
    gotoservices_detailPage(){
     this.navCtrl.push('ServicDetalisPage');
   }
