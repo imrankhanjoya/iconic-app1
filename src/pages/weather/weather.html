@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Weather Detail</ion-title>
+    <ion-title>{{'WEATHER' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -40,10 +40,10 @@
 
 
 
-            <div class="titleFont alignLeft">Feels like : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
+            <div class="titleFont alignLeft">{{'WEATHER_FILL_LIKES' | translate}} : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
 
           <div class="grapImage">
-            <p>पूर्वानुमान</p>
+            <p>{{'WEATHER_FORECAST' | translate}}</p>
             <img src="assets/img/Weather/drawable-hdpi/line_28.png"/>
           </div>
           <div class="july">
@@ -74,34 +74,34 @@
               <ion-col class="imageline">
                   <img src="assets/img/agri bolo icon/hdpi/air.png" alt=""/>
                   <p class="imagP">SE {{wheaterdetail.WeatherData.windimperial.Value}}{{wheaterdetail.WeatherData.windimperial.Unit}} </p>
-                  <p>वायु</p>
+                  <p>{{'WEATHER_WIND'| translate}}</p>
               </ion-col>
               <ion-col class="imageline">
                   <img src="assets/img/agri bolo icon/hdpi/mosture.png" alt=""/>
                   <p class="imagP">{{wheaterdetail.WeatherData.RelativeHumidity}}%</p>
-                  <p>नमी</p>
+                  <p>{{'WEATHER_MOIISTURE'| translate}}</p>
               </ion-col>
               <ion-col>
                   <img src="assets/img/agri bolo icon/hdpi/eye.png" alt=""/>
                   <p class="imagP">{{wheaterdetail.WeatherData.Visibility.Value}}{{wheaterdetail.WeatherData.Visibility.Unit}} </p>
-                  <p>दृश्यता</p>
+                  <p>{{'WEATHER_VISIBILITY'| translate}}</p>
               </ion-col>
             </ion-row>
             <ion-row class="imageAlt1">
               <ion-col class="imageline">
                   <img src="assets/img/agri bolo icon/hdpi/preshure.png" alt=""/>
                   <p class="imagP">{{wheaterdetail.WeatherData.Pressure.Value}}{{wheaterdetail.WeatherData.Pressure.Unit}}</p>
-                  <p>दबाव</p>
+                  <p>{{'WEATHER_PRESSURE'| translate}}</p>
               </ion-col>
               <ion-col class="imageline">
                   <img src="assets/img/agri bolo icon/hdpi/uv.png" alt=""/>
                   <p class="imagP">{{wheaterdetail.WeatherData.UVIndex}}</p>
-                  <p>UV</p>
+                  <p>{{'WEATHER_UV'| translate}}</p>
               </ion-col>
               <ion-col>
                   <img src="assets/img/agri bolo icon/hdpi/illumination.png" alt=""/>
-                  <p class="imagP">05:30AM 7:30PM Sunrise / Sunset</p>
-                  <p>वायु</p>
+                  <p class="imagP">05:30AM 7:30PM {{'WEATHER_SUNRISE_SUNSET'| translate}}</p>
+                  <p>{{'WEATHER_WIND'| translate}}</p>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -110,7 +110,7 @@
               <img src="assets/img/agri bolo icon/hdpi/idea.png" alt=""/>
             </ion-col>
             <ion-col class="Pbulb" *ngIf="weatherfiveday.status==true">
-              <p >सुत्र :{{weatherfiveday.data.headline.Text}}</p>
+              <p >{{'WEATHER_SUTRA' | translate}} :{{weatherfiveday.data.headline.Text}}</p>
             </ion-col>
           </ion-row>
       </ion-card>
