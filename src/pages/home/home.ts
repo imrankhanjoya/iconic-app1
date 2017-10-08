@@ -41,11 +41,15 @@ export class HomePage {
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
   public topMenu:any;
+  public rotateClass:any;
+  public toolbarClass:any;
+  
+
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private youtube: YoutubeVideoPlayer) {
-
+    this.rotateClass="";
       
   		this.topMenu = false;
   }
@@ -70,11 +74,16 @@ export class HomePage {
   }
 
   toggleMenu(){
-
-  	if(this.topMenu==false){
-  		this.topMenu =true;
+  	if(this.topMenu=='toolbarClosed'){
+      console.log(this.rotateClass);
+      this.rotateClass="rotateimage1";
+      this.toolbarClass="toolbarOpen";
+  		this.topMenu ="toolbarOpen";
   	}else{
-  		this.topMenu = false;
+      console.log(this.rotateClass);
+      this.rotateClass="rotateimage2";
+      this.toolbarClass="toolbarClosed";
+  		this.topMenu = "toolbarClosed";
   	}
 
   }

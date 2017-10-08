@@ -20,11 +20,7 @@
 </button>
 </ion-buttons>
 </ion-toolbar>
-</ion-header>
-
-<ion-content >
-  <div class="main-content">
-  <ion-grid  class="gridView gridDesign">
+<ion-grid  class="gridView gridDesign">
   <ion-row class="gridRow">
     <ion-col class="toolbarCol" (click)="gotoWeatherPage()">
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
@@ -39,29 +35,37 @@
       {{'AGRICULTURAL_SERVICES' | translate }}
     </ion-col>
     <ion-col class="toolbarCol">
-      <img (click)="toggleMenu()" src="assets/img/agri bolo icon/hdpi/Group 37.png">
+      <img (click)="toggleMenu()" class="{{rotateClass}}" src="assets/img/agri bolo icon/hdpi/Group 37.png">
       {{'LESS' | translate }}
     </ion-col>
-  </ion-row>
-  <ion-row class="gridRow" *ngIf="topMenu" >
-    <ion-col class="toolbarCol" (click)="gotoAskquestion()">
-      <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
-        {{'MANAGED' | translate }}
-    </ion-col>
-    <ion-col class="toolbarCol"(click)="gotoVedio()">
-      <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
-      {{'VIDEO' | translate }}
-    </ion-col>
-    <ion-col class="toolbarCol" (click)="gotoAskquestion()">
-      <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
-      {{'ASK_THE_EXPERT' | translate }}
-    </ion-col>
-    <ion-col class="toolbarCol">
 
-    </ion-col>
   </ion-row>
+  <div class="{{toolbarClass}}" *ngIf="topMenu">
+  <ion-row class="gridRow" >
+    
+      <ion-col class="toolbarCol" (click)="gotoAskquestion()">
+        <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
+          {{'MANAGED' | translate }}
+      </ion-col>
+      <ion-col class="toolbarCol"(click)="gotoVedio()">
+        <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
+        {{'VIDEO' | translate }}
+      </ion-col>
+      <ion-col class="toolbarCol" (click)="gotoAskquestion()">
+        <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
+        {{'ASK_THE_EXPERT' | translate }}
+      </ion-col>
+      <ion-col class="toolbarCol">
+
+      </ion-col>
+    
+  </ion-row>
+  </div>
   </ion-grid>
+</ion-header>
 
+<ion-content >
+  <div>
   <!-------Welcome Promoe------>
 
   <ion-card class="dialogYellow backgroundColorYellow" *ngIf="announceList.status==true">

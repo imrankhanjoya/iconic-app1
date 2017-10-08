@@ -106,26 +106,28 @@ export class User {
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
-  userRegister(lag,long,mobile,name,password,language,state,district,village,crops,vegetables) {
+  userRegister(lag,long,mobile,name,password,language,state,district,village,crops) {
           let body = new FormData();
-          
-          body.append('lag',lag);
-          body.append('long',long);
-          body.append('mobile',mobile);//[number as username]
-          body.append('user_name',name);
-          body.append('email',mobile+'@agribolo.com');
-          body.append('password',password);
-          body.append('language',language);
-          body.append('state',state);
+  
+          body.append('latitude',lag);
+          body.append('longitude',long);
+          body.append('user_name',mobile);//[number as username]
+          body.append('name',name);
+          body.append('user_email',mobile+'@agribolo.com');
+          body.append('user_pass',password);
+          body.append('user_lang',language);
+          body.append('state_id',state);
           body.append('district',district);
-          body.append('village',village);
-          body.append('crops',crops);
-          body.append('vegetables',vegetables);
+          body.append('city_id','');
 
-          body.append('irrigationType','');
+          
+          body.append('crops',crops);
+
+
+          body.append('irrigation_type','');
           body.append('irrigationSource','');
-          body.append('landHolding','');
-          body.append('LandHoldingType','');
+          body.append('landholding_size','');
+          
 
           let seq = this.api.post('v1/user/register', body).share();
 

@@ -104,19 +104,16 @@ export class CropsPage {
     var selectedVegetables=[];
     for (var i = 0; i < this.cropList.length; i++) {
       if (this.cropList[i].sub_type=='true') {
-        if (this.cropList[i].crop_type=='Kharif') {
-            selectedCrops.push(this.cropList[i].id);
-          }
-         if (this.cropList[i].crop_type=='Horticulture') {
-            selectedVegetables.push(this.cropList[i].id);
-          }
+        
+            selectedCrops.push({'crop_id':this.cropList[i].id,'crop_type':this.cropList[i].crop_type});
+          
         isSelect++;
       }
       if (i==this.cropList.length-1) {
         if (isSelect<3) {
           alert('Select Minimum 3')
         }else {
-          this.userRigister(selectedCrops,selectedVegetables);
+          this.userRigister(selectedCrops);
           //lag,long,mobile,name,password,language,state,district,village,crops,vegetables
 
           //this.navCtrl.push('MarketselectPage');
@@ -124,14 +121,17 @@ export class CropsPage {
       }
     }
   }
-  userRigister(selectedCrops,selectedVegetables){
+  userRigister(selectedCrops){
     let loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
     loading.present();
-    console.log(this.userLat+'-----'+this.userLong+'-----'+this.userPhone+'-----'+this.userName+'-----'+this.userPassword+'-----'+this.lang+'-----'+this.userStateId+'-----'+this.userDictrictId+'-----'+'village'+'-----'+selectedCrops+'-----'+selectedVegetables);
+    console.log(this.userLat+'-----'+this.userLong+'-----'+this.userPhone+'-----'+
+      this.userName+'-----'+this.userPassword+'-----'+this.lang+'-----'+this.userStateId+'-----'+
+      this.userDictrictId+'-----'+'village'+'-----'+JSON.stringify(selectedCrops)+'-----');
+
     this.user.userRegister(this.userLat,this.userLong,this.userPhone,this.userName,this.userPassword,this.lang,
-      this.userStateId,this.userDictrictId,'village',selectedCrops,selectedVegetables).map(res => res.json()).subscribe((resp) => {
+      this.userStateId,this.userDictrictId,'village',selectedCrops).map(res => res.json()).subscribe((resp) => {
       loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);

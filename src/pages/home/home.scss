@@ -267,6 +267,37 @@ page-home {
             word-wrap: normal;
       }
 
+      .rotateimage1 {
+          animation:spin 1s linear 2000;
+          animation-iteration-count:1;
+      }
+      @keyframes spin { 
+            100% { transform:rotate(180deg); }
+      }
+      
+      .rotateimage2 {
+          animation:spin1 1s linear 2000;
+          animation-iteration-count:1;
+      }
+      @keyframes spin1 { 
+            100% { transform:rotate(180deg); }
+      }
 
+      .toolbarOpen {
+            overflow-y: hidden;
+            z-index: 5;
+            max-height: 100px; /* approximate max height */
+
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: cubic-bezier(0, 1, 4, 1);
+      }
+      .toolbarClosed {
+            max-height: 0;
+            overflow-y: hidden;
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: cubic-bezier(0, 1, 4, 1);
+      }
 
 }
