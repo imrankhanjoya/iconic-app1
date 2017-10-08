@@ -48,6 +48,7 @@
 	//equivalent to 13px
 }
 
+
 .colorWhite{
 	color: white;
 }
@@ -72,6 +73,18 @@
 
 .fontNormal{
     font-weight: normal;
+}
+.fontBold{
+	font-weight: bold;
+}
+.fontShadow{
+	text-shadow: 2px 2px #000000;
+}
+
+.imageShadow {
+    opacity: 0.4;
+   filter: alpha(opacity=40);
+   zoom: 1;
 }
 
 .titleFontSize{
