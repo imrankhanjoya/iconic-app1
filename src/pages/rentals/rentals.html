@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="fulldark">
-    <ion-title>किराया</ion-title>
+    <ion-title>{{'RENTAL_DETAIL_TITLE' | translate}}</ion-title>
     <ion-buttons end>
     <button ion-button icon-only color="royal" (click)="gotoSearchProduct()" class="wallet">
     <img src="assets/img/agri bolo icon/hdpi/wallet.png">
@@ -31,12 +31,12 @@
 
 <ion-content padding>
   <ion-item >
-      <ion-label>categery</ion-label>
+      <ion-label>{{'RENTAL_CATEGORY' | translate}}</ion-label>
       <ion-select [(ngModel)]="notifications" interface="action-sheet">
-        <ion-option value="enable">Enable</ion-option>
-        <ion-option value="mute">Mute</ion-option>
-        <ion-option value="mute_week">Mute for a week</ion-option>
-        <ion-option value="mute_year" >Mute for a year</ion-option>
+        <ion-option value="enable">{{'RENTAL_ENABLE'| translate}}</ion-option>
+        <ion-option value="mute">{{'RENTAL_MUTE'| translate}}</ion-option>
+        <ion-option value="mute_week">{{'RENTAL_MUTE_ONE_WEEKS'| translate}}</ion-option>
+        <ion-option value="mute_year" >{{'RENTAL_MUTE_ONE_YEARS'| translate}}</ion-option>
       </ion-select>
     </ion-item>
    <ion-grid >
@@ -45,10 +45,10 @@
       <ion-card  class="image-card" (click)="RentalsPage(data.id)">
      <img class="produtimage" src="{{data.attachments}}"/>
       <p class="sarsTitle">{{data.title}}</p>
-      <p class="detailSar"> विनती पर मुल्य</p>
-      </ion-card>    
+      <p class="detailSar"> {{'VALUE_ON_REQUEST' | translate}}</p>
+      </ion-card>
       </ion-col>
-    
+
   </ion-row>
 </ion-grid>
 </ion-content>
