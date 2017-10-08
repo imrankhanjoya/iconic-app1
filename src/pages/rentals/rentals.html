@@ -29,7 +29,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-item >
       <ion-label>categery</ion-label>
       <ion-select [(ngModel)]="notifications" interface="action-sheet">
@@ -40,15 +40,30 @@
       </ion-select>
     </ion-item>
    <ion-grid >
-  <ion-row>
-    <ion-col  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
-      <ion-card  class="image-card" (click)="RentalsPage(data.id)">
-     <img class="produtimage" src="{{data.attachments}}"/>
-      <p class="sarsTitle">{{data.title}}</p>
-      <p class="detailSar"> विनती पर मुल्य</p>
-      </ion-card>    
-      </ion-col>
-    
-  </ion-row>
+  
+
+    <ion-card class="image-card" (click)="RentalsPage(data.id)" *ngFor=" let data of Rental_Listdata.data, let i = index "  >
+      <div class="row">
+      <img  src="{{data.attachments}}" class="newsLargeImage fitImage"/>
+      <div class="alignLeft paddingLeft colorGrey newsLargeTitle">{{data.title}}</div>
+      <div class="alignCenter">
+        <button ion-button clear class="labelGreen"  (click)="gotoNewsPage()">विनती पर मुल्य </button>
+      </div>
+
+
+    </div>
+    </ion-card>
+
+      
+
+
+
+
+
+
+
+
+
+
 </ion-grid>
 </ion-content>
