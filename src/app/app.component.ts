@@ -67,9 +67,6 @@ export class MyApp {
     { title: 'crops-list', component: 'CropslistPage' },
     { title: 'marketselect', component: 'MarketselectPage' },
 
-
-
-
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
