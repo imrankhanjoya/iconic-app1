@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>VerifyNumber</ion-title>
+    <ion-title>{{'VERIFY_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,8 +15,8 @@
 
 <ion-content padding>
 <div class="main" padding>
-	<h1 class="text"> बहुत धन्यवाद</h1>
-	<p class="text1" >मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज कर?
+	<h1 class="text"> {{'VERIFY_THANKS' | translate}}</h1>
+	<p class="text1" >{{'VERIFY_TYPE_OTP' | translate}}
 </p>
 </div>
 <div class="greatinput"padding>
@@ -43,7 +43,7 @@
 </div>
 </div>
 <div  class="p_button">
-    <button class="p_1" (click)="verifyNumber()" >send otp </button>
+    <button class="p_1" (click)="verifyNumber()" >{{'OTP_NUMBER_SEND_OTP' | translate}}</button>
   </div>
 </ion-content>
 
@@ -54,16 +54,16 @@
     </div>
     <i class="fa fa-cloud" id="cloud1"></i>
     <i class="fa fa-cloud" id="cloud2"></i>
-    
+
     <img id="radio" src="assets/img/radio_control.png" />
-    
+
     <div id="village">
         &nbsp;
     </div>
     <div id="tractor">
         <img src="assets/img/fan.png" class="fa-spin" id="fan"/>
         <img src="assets/img/shape.png" id="tower"/>
-        
+
     </div>
     <div id="grass">
     </div>

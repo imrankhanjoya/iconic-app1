@@ -30,7 +30,6 @@
   "TUTORIAL_SLIDE4_TITLE": "खेलने के लिए तैयार?",
 
   "WELCOME_INTRO": "अपने अगले महान आयनिक ऐप के लिए शुरुआती बिंदु",
-
   "SETTINGS_TITLE": "सेटिंग्स",
   "SETTINGS_OPTION1": "विकल्प 1",
   "SETTINGS_OPTION2": "विकल्प 2",
@@ -50,6 +49,15 @@
   "SIGNUP_ERROR": "खाता बनाने में असमर्थ कृपया अपनी खाता जानकारी की जांच करें और फिर से प्रयास करें।",
 
   "LIST_MASTER_TITLE": "वस्तु",
+  "OTP_NUMBER_HELLO": "नमस्ते स्वागत है",
+  "OTP_NUMBER_TYPE_OTP": "कृपया ओटीपी पिन के लिए अपना मोबाइल नंमबर दर्ज करे",
+  "OTP_NUMBER_TYPE_NUMBER": "अपना नंबर दर्ज करेे",
+  "OTP_NUMBER_VALID_NUMBER": "वैध मोबाइल नंबर दर्ज करें",
+  "OTP_NUMBER_SEND_OTP": "ओटीपी भेजें",
+
+  "VERIFY_TITLE": "नंबर सत्यापित करें",
+  "VERIFY_THANKS": "बहुत धन्यवाद",
+  "VERIFY_TYPE_OTP": "मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज करें?",
 
   "ITEM_CREATE_TITLE": "नई वस्तु",
   "ITEM_CREATE_CHOOSE_IMAGE": "छवि जोड़ें",
