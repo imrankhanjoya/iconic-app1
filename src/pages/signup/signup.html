@@ -25,7 +25,7 @@
    </div>
 <ion-item>
     <ion-label floating>{{'SING_UP_CONF_PASSWORD' | translate}}</ion-label>
-    <ion-input  [(ngModel)]="RegisterData.confirmPassword" name="confirmPassword" value="password" type="confirmPassword" ng-required></ion-input>
+    <ion-input  [(ngModel)]="RegisterData.confirmPassword" name="confirmPassword" value="password" type="password" ng-required></ion-input>
   </ion-item>
   <div class="error" *ngIf="passConpError==true" >
       {{passErrorMsg}}

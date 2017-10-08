@@ -112,21 +112,24 @@ export class User {
           body.append('latitude',lag);
           body.append('longitude',long);
           body.append('user_name',mobile);//[number as username]
-          body.append('name',name);
+          body.append('display_name',name);
           body.append('user_email',mobile+'@agribolo.com');
           body.append('user_pass',password);
-          body.append('user_lang',language);
-          body.append('state_id',state);
-          body.append('district',district);
-          body.append('city_id','');
+          body.append('user_language',language);
+          body.append('user_state_id',state);
+          body.append('user_district_id',district);
+          body.append('user_tahsil_id','10000');
+          body.append('user_place','1');
 
           
           body.append('crops',crops);
+          console.log(crops);
 
 
-          body.append('irrigation_type','');
-          body.append('irrigationSource','');
-          body.append('landholding_size','');
+          body.append('user_irrigation_type','');
+          body.append('user_irrigation_source','');
+          body.append('user_landholding_size','');
+          body.append('user_landholding_size_unit','');
           
 
           let seq = this.api.post('v1/user/register', body).share();
