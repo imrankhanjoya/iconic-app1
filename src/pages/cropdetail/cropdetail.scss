@@ -1,4 +1,4 @@
-page-cropdetail {
+.page-cropdetail {
  	.cropimage{
     	height: fit-content;
     	margin: auto;
@@ -21,4 +21,14 @@ page-cropdetail {
 	    font-size: 15px;
 	    margin-bottom: 10px;
 	}
+	.sarsTitle{
+      text-align: left;
+      padding-left: 4%;
+      padding-top: 5%;
+      text-align: left;
+      height: 84px;
+    }
+    .card-md{
+    	margin:0px;
+    }
 }
