@@ -34,8 +34,8 @@ export class CityStateProvider {
     return seq;
   }
 
-  getCity() {
-     var paramCond ={lang:'hi_IN',city_state:29};
+  getDistrict(lang,stateId) {
+     var paramCond ={lang:lang,city_state:stateId};
     let seq = this.api.get('v1/location/cites',paramCond).share();
 
     seq

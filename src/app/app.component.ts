@@ -64,7 +64,11 @@ export class MyApp {
     { title: 'rentals', component: 'RentalsPage' },
     { title: 'rental-detail', component: 'RentalDetailPage' },
     { title: 'experts-detail', component: 'ExpertsDetailPage' },
+<<<<<<< Updated upstream
     { title: 'crops-list', component: 'CropslistPage' },
+=======
+    { title: 'marketselect', component: 'MarketselectPage' },
+>>>>>>> Stashed changes
 
 
 
