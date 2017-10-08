@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
+import { Content } from 'ionic-angular';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
@@ -29,6 +30,12 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
   templateUrl: 'home.html'
 })
 export class HomePage {
+@ViewChild('man_id') elem:ElementRef;
+@ViewChild('karsi_id') karsi_id:ElementRef;
+@ViewChild('tongl_id') tongl_id:ElementRef;
+@ViewChild('main_div') main_div:ElementRef;
+@ViewChild(Content) content: Content;
+
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
@@ -43,12 +50,13 @@ export class HomePage {
   public topMenu:any;
   public rotateClass:any;
   public toolbarClass:any;
+  public maindiIconClass:any;
   
 
   constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
-    public storage:Storage,private youtube: YoutubeVideoPlayer) {
+    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2) {
     this.rotateClass="";
       
   		this.topMenu = false;
@@ -75,7 +83,6 @@ export class HomePage {
 
   toggleMenu(){
   	if(this.topMenu=='toolbarClosed'){
-      console.log(this.rotateClass);
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
   		this.topMenu ="toolbarOpen";
@@ -231,5 +238,77 @@ export class HomePage {
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 
   }
+public isRun1=true;
+public isRun2=false;
+public isRun3=false;
+public isCount=true;
+public oneForSize:any;
+  onScroll(ev){
+    if(this.isCount){
+      this.isCount=false
+       this.oneForSize=ev.scrollHeight/4;
+    }
+    if(this.isRun1){
+      if (ev.scrollTop >= this.oneForSize&& ev.scrollTop <= this.oneForSize+100) {
+          this.changeClass('1');
+          this.isRun1=false;
+          this.isRun2=true;
+          this.isRun3=true;
+          //console.log('--------'+JSON.stringify(ev));
+        }
+    }
+    if(this.isRun2){
+     
+      if (ev.scrollTop >= (this.oneForSize*2) && ev.scrollTop <= (this.oneForSize*2)+200) {
+          this.changeClass('2');
+          this.isRun2=false;
+          this.isRun1=false;
+          this.isRun3=true;
+        }
+    }
+    if(this.isRun3){
+      
+      if (ev.scrollTop >= (this.oneForSize*3) && ev.scrollTop <= (this.oneForSize*3)+200) {
+          this.changeClass('3');
+          this.isRun2=false;
+          this.isRun1=false;
+          this.isRun3=true;
+        }
+    }
+  }
+
+async changeClass(count): Promise<string> {
+   // console.log('-------------------');
+      if (count=='1') {
+        this.rd.addClass(this.elem.nativeElement, 'fadeInLeft');
+        this.rd.removeClass(this.elem.nativeElement, 'opacityGone');
+        return 'datarebjnj';  
+      }
+      if (count=='2') {
+        this.rd.addClass(this.karsi_id.nativeElement, 'fadeInLeft');
+        this.rd.removeClass(this.karsi_id.nativeElement, 'opacityGone');
+        return 'datarebjnj';  
+      }
+      if (count=='3') {
+        this.rd.addClass(this.tongl_id.nativeElement, 'fadeInLeft');
+        this.rd.removeClass(this.tongl_id.nativeElement, 'opacityGone');
+        return 'datarebjnj';  
+      }
+      
+      return 'datarebjnj';
+   }
+// ngAfterViewInit() {
+//   this.content.ionScroll.subscribe((data)=>{
+//    // console.log(data);
+//     if (data.scrollTop >= 206) {
+//       if(this.isRun){
+//         console.log(this.main_div.nativeElement.offsetHeight);
+//         this.rd.addClass(this.elem.nativeElement, 'fadeInLeft');
+//         this.rd.removeClass(this.elem.nativeElement, 'opacityGone');
+//         this.isRun=false;
+//       }
+//     }
+//   });
+// }
 
 }

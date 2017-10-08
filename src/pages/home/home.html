@@ -27,15 +27,15 @@
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
       {{ 'WEATHER' | translate }}
     </ion-col>
-    <ion-col class="toolbarCol" (click)="gotomandiPage()">
-      <img src="assets/img/agri bolo icon/hdpi/Group 21.png" >
+    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiPage()">
+      <img class="{{maindiIconClass}}" src="assets/img/agri bolo icon/hdpi/Group 21.png" >
       {{'MANDI' | translate }}
     </ion-col>
-    <ion-col class="toolbarCol" (click)="gotoservicesPage()">
+    <ion-col #karsi_id class="toolbarCol opacityGone" (click)="gotoservicesPage()">
       <img src="assets/img/agri bolo icon/hdpi/rishi sevna.png">
       {{'AGRICULTURAL_SERVICES' | translate }}
     </ion-col>
-    <ion-col class="toolbarCol">
+    <ion-col #tongl_id class="toolbarCol opacityGone">
       <img (click)="toggleMenu()" class="{{rotateClass}}" src="assets/img/agri bolo icon/hdpi/Group 37.png">
       {{'LESS' | translate }}
     </ion-col>
@@ -65,8 +65,10 @@
   </ion-grid>
 </ion-header>
 
-<ion-content>
-  <div>
+
+<ion-content (ionScroll)="onScroll($event)">
+  <div #main_div >
+
   <!-------Welcome Promoe------>
 
   <ion-card class="dialogYellow backgroundColorYellow" *ngIf="announceList.status==true">
