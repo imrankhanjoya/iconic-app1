@@ -68,6 +68,7 @@ export class MyApp {
     { title: 'marketselect', component: 'MarketselectPage' },
 
 
+
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
