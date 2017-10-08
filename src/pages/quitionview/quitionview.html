@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Experts Section</ion-title>
+    <ion-title>{{'QUESTION_VIEW_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -38,13 +38,13 @@
 	    <ion-col>
 	      <button ion-button icon-left clear small>
 	        <ion-icon name="ios-compass"></ion-icon>
-	        <div>{{questionviewData.data.view_count}} Views</div>
+	        <div>{{questionviewData.data.view_count}} {{'QUESTION_VIEW' | translate}}</div>
 	      </button>
 	    </ion-col>
 
 	  </ion-row>
 	</ion-card>
 	<div class="block">
-    <button ion-button block (click)="gotoAskquestion()">View All Questions</button>
+    <button ion-button block (click)="gotoAskquestion()">{{'QUESTION_VIEW_ALL_QUESTION' | translate}}</button>
   </div>
 </ion-content>
