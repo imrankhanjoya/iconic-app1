@@ -16,9 +16,9 @@
 <ion-content>
   <ion-card *ngIf="expertdetail.status">
     <img class="wallet" src="{{expertdetail.data.attachments}}"/>
-    <p class="pClass">{{expertdetail.data.title}}</p>
-    <p class="pTitle1">{{expertdetail.data.date}}</p>
-    <p class="pContent"><span innerHtml="{{expertdetail.data.content}}"></span></p>
+    <div class="pClass smallTitle fontBold colorGrey">{{expertdetail.data.title}}</div>
+    <div class="pTitle1 captionFont colorGreen">{{expertdetail.data.date}}</div>
+    <div class="pContent"><span innerHtml="{{expertdetail.data.content}}"></span></div>
 
           <div class="block" *ngIf="expertdetail.type=='services'">
           <button ion-button block>{{'EXPRET_CONTECT' | translate}}</button>

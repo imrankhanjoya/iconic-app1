@@ -7,15 +7,32 @@ page-experts-detail {
     padding-right: 5%;
     padding-top: 5%;
     padding-bottom: 2%;
-    font-size: 22px;
-    color: #000000;
-    font-weight: bold;
   }
   .pContent{
   	font-size: 12px;
   	color: #4a4b4c !important;
     padding-left: 5%;
     padding-right: 5%;
+  }
+  .pContent p{
+    font-size: 1.5rem;
+    margin:5px;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  .pContent ul{
+    font-size: 1.5rem;
+    margin:5px;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  .pContent h4{
+    font-size: 1.7rem;
+    color: #4A4B4C;
+  }
+  .pContent h5{
+    font-size: 1.6rem;
+    color: #4A4B4C;
   }
   .block button{
       margin-left: 5%;
@@ -29,7 +46,6 @@ page-experts-detail {
 
     }.pTitle1{
     margin-left: 20px;
-    color: green;
     margin-bottom: 9px;
 }
 }
