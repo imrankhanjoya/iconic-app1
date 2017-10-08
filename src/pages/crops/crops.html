@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-<h1 class="title"> कृपया अपनी फसल प्रकार को चुनें</h1>
+<h1 class="title"> {{'CROPS_TITLE' | translate}}</h1>
 <ion-row margin>
   <ion-col class="imagc" col-5 (click)="addEvent('Kharif');" [ngStyle]="{'background-color': peon}">
     <img src="assets/img/coffee_beans_2017-10-05/drawable-hdpi/coffee_beans.png"/>
@@ -21,11 +21,11 @@
 </ion-row>
 <ion-row >
   <ion-col class="textCol">
-    <h2> बीज</h2>
+    <h2> {{'VEDIO_SEEDS' | translate}}</h2>
   </ion-col>
     <ion-col col-1></ion-col>
     <ion-col class="textCol">
-      <h2>फल</h2>
+      <h2>{{'CROPS_FRUITE' | translate}}</h2>
     </ion-col>
 </ion-row>
 <ion-row  class="mainCheck">
@@ -42,5 +42,5 @@
     </ion-row>
   </ion-col>
 </ion-row>
-<button (click)="selected()" ion-button block class="button">ठीक है</button>
+<button (click)="selected()" ion-button block class="button">{{'SING_UP_GOOD' | translate}}</button>
 </ion-content>

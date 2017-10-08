@@ -67,6 +67,17 @@
   "SING_UP_CONF_PASSWORD": "पासवर्ड की पुष्टि करें",
   "SING_UP_GOOD": "ठीक हेें",
 
+   "SELECT_LOCTION": "स्थान चुने",
+   "SELECT_LOCTION_PLEASE": "कृपया अपने स्थान का चयन करें क्योंकि हम आपकी कृषि के लिए मदद कर रहे हैं",
+   "SELECT_LOCTION_SELECT": "चुनते हैें",
+   "SELECT_LOCTION_STATE": "राज्य",
+   "SELECT_LOCTION_DISTRICT": "जिला",
+   "SELECT_LOCTION_STATE": "राज्य",
+   "SELECT_LOCTION_OR": "या",
+   "SELECT_LOCTION_PRESENT_ADDRESS": "मेरा वर्तमान स्थान",
+
+   "CROPS_TITLE": "कृपया अपनी फसल प्रकार को चुनें",
+   "CROPS_FRUITE": "फल",
 
   "ITEM_CREATE_TITLE": "नई वस्तु",
   "ITEM_CREATE_CHOOSE_IMAGE": "छवि जोड़ें",
