@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
+
 /**
  * The Welcome Page is a splash page that quickly describes the app,
  * and then directs the user to create an account or log in.
@@ -14,12 +16,21 @@ import { Storage } from '@ionic/storage';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController,private storage: Storage) { }
+  constructor(private translate: TranslateService,public navCtrl: NavController,private storage: Storage) { }
 
   setLanguage(lang) {
   this.storage.set('userLang',lang);
+    this.initTranslate(lang);
     this.navCtrl.push('LoginPage');
   }
+
+  initTranslate(lang) {
+    // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang('hi');
+    this.translate.use(lang);
+    
+  }
+
 
   signup() {
     this.navCtrl.push('VerifyNumberPage');
