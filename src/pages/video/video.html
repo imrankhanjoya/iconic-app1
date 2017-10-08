@@ -31,22 +31,22 @@
     <ion-toolbar color="fulldark" class="subtabs">
         <ion-buttons end>
           <button color="light" ion-button (click)="videoByCat('favourite')">
-              favourite
+              {{'VEDIO_FAVOURITE' | translate}}
           </button>
         </ion-buttons>
          <ion-buttons   end>
           <button ion-button color="light" full (click)="videoByCat('fertilizers')">
-              Fertilizers
+              {{'VEDIO_FERTILIZERS' | translate}}
           </button>
         </ion-buttons>
          <ion-buttons  end>
           <button ion-button color="light" (click)="videoByCat('seeds')">
-              Seeds
+              {{'VEDIO_SEEDS' | translate}}
           </button>
         </ion-buttons>
          <ion-buttons color="white" end>
           <button ion-button color="light" (click)="videoByCat('pesticide')">
-              pesticide
+              {{'VEDIO_PESTICIDE' | translate}}
           </button>
         </ion-buttons>
     </ion-toolbar>
@@ -71,7 +71,7 @@
  <ion-card *ngIf=" i == 0 " class="card card-md" (click)="gotoWebView(newsData.data[i].link)">
       <div (click)="playVideo(data.videoid)">
       <img src="https://img.youtube.com/vi/{{data.videoid}}/0.jpg" class="roundImage" >
-      
+
       <ion-row >
       <div padding-top padding-left class="newsLargeTitle">{{data.title}}</div>
       </ion-row>
