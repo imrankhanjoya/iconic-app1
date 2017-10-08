@@ -29,25 +29,18 @@
     </ion-col>
 </ion-row>
 <ion-row  class="mainCheck">
-    <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
-      <ion-row >
-        <ion-col *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
-    <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
-      <p class="titleName" >{{item.name}}</p>
-    </ion-col>
-    <ion-col *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
-      <input type="checkbox" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
-      <p class="titleName" >{{item.name}}</p>
-    </ion-col>
+  <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
+    <ion-row >
+      <ion-col *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
+        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <p class="titleName" >{{item.name}}</p>
+      </ion-col>
+      <ion-col *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
+        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <p class="titleName" >{{item.name}}</p>
+      </ion-col>
     </ion-row>
-    </ion-col>
-
-    <!-- <ion-col *ngFor="let itme of cropList; let i= index " col-6 class="mainClass">
-    <ion-item >
-    <ion-label class="lableName">{{itme.name}}</ion-label>
-    <ion-checkbox [(ngModel)]="itme.name"></ion-checkbox>
-  </ion-item>
- </ion-col> -->
+  </ion-col>
 </ion-row>
 <button (click)="selected()" ion-button block class="button">ठीक है</button>
 </ion-content>

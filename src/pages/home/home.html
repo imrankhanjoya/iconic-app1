@@ -62,6 +62,34 @@
   </ion-row>
   </ion-grid>
 
+  <!-------Welcome Promoe------>
+
+  <ion-card class="dialogYellow backgroundColorYellow" *ngIf="announceList.status==true">
+    <ion-grid >
+      <ion-row>
+        <ion-col col-3 >
+          <ion-thumbnail item-start >
+         <img src="assets/img/promo_icon.png" >
+         </ion-thumbnail>
+            </ion-col>
+        <ion-col  col-9>
+        <ion-row >
+        <div class="smallTitle">
+          Welcome Ramesh
+        </div>
+        </ion-row>
+        <ion-row>
+          <div class="Headline colorBlack fontNormal">
+            {{announceList.data[0].title}}
+          </div>
+        </ion-row>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-card>
+
 
 
 <!-----------------Weather section-->
@@ -104,7 +132,7 @@
         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
       <ion-col col-11 class="sources">
-      <p class="Headline colorBlack" >{{'SUTRA' | translate}}</p>
+      <div class="Headline colorBlack" >{{'SUTRA' | translate}}</div>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -236,8 +264,8 @@
               <ion-card class="image-card"  (click)=" goToExpertDetial(expert.id)" >
                 <img src="{{expert.attachments}}" >
                 <div class="card-title-box">
-                <div class="card-title">  {{expert.title}}</div>
-                <div class="card-subtitle">{{expert.date}}</div>
+                <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
+                <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
 
                 <button ion-button color="light" (click)=" goToExpertDetial(expert.id)" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
@@ -301,8 +329,8 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
-        <p class="sarsTitle Headline">{{productData.name}}</p>
-        <p class="detailSar"> {{'VALUE_ON_REQUEST' | translate}}</p>
+        <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
+        <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
     <ion-slide class="slideItem "  (click)="gotoMarketPage()">
@@ -325,12 +353,12 @@
          <img src="assets/img/watring_can/drawable-hdpi/watering_can.png" >
          </ion-thumbnail>
             </ion-col>
-        <ion-col col-9>
+        <ion-col class="smallTitle" col-9>
           {{announceList.data[0].title}}
         </ion-col>
       </ion-row>
     </ion-grid>
-    <p class="readMore" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</p>
+    <div class="readMore titleFont" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</div>
   </ion-card>
 
 

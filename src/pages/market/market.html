@@ -13,22 +13,16 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 <div class="main-content">
 <!-------Product Sectopn------>
 <ion-row   *ngFor="let productcatData of productDatas.data;">
  <ion-grid>
-      	<ion-row>
-	      	<ion-col >
-	        	<img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-	      	</ion-col>
-	      	<ion-col  class="pClass">
-	          {{productcatData.cat_name}}
-	      	</ion-col>
-	      	<ion-col>
-	        	<img src="assets/img/line/drawable-hdpi/rectangle_8.png"/>
-	      	</ion-col>
-    	</ion-row>
+          <ion-row>
+          <ion-col class="cardHeader">
+              <div class="headerClass smallTitle">{{productcatData.cat_name}}</div>
+          </ion-col>
+        </ion-row>
   </ion-grid>
   <ion-slides [slidesPerView]="'auto'">
     <ion-slide class="slideItem"  *ngFor="let productData of productcatData.product_data;">
@@ -36,6 +30,11 @@
         	<img class="produtimage" src="{{productData.feature_image}}"/>
         	<p class="sarsTitle">{{productData.name}}</p>
         	<p class="detailSar">{{'VALUE_ON_REQUEST' | translate}}</p>
+        	<div class="sarsTitle colorGrey smallTitle">{{productData.name}}</div>
+          <ion-row>
+              <div class="detailSar colorGreen smallTitle"> विनती पर मुल्य</div>
+          </ion-row>
+
       	</ion-card>
     </ion-slide>
   </ion-slides>

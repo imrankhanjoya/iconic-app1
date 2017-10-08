@@ -1,7 +1,14 @@
 page-home {
 
 
-
+      .dialogYellow{
+            font-weight: bold;
+            font-size: 2rem;
+            padding: 2%;
+      }
+      .fontNormal{
+            font-weight: normal;
+      }
       .slidImage{
       border: solid;
       color: white;
@@ -21,14 +28,6 @@ page-home {
       width: 50%;
 
       }
-      .sarsTitle{
-      font-weight: bold;
-      font-size: 1.9rem;
-      text-align: left;
-      padding-left: 4%;
-      padding-top: 5%;
-      color: #000000;
-      }
       
       .showAll{
       margin-top: 5%;
@@ -42,12 +41,6 @@ page-home {
       border-width: 1px;
       font-size:1.5rem;
       border-radius: 5px;
-      }
-      .detailSar{
-      text-align: left;
-      padding-left: 4%;
-      padding-bottom: 7%;
-      color: #649305;
       }
       .cardShow h2{
       border: solid;
@@ -170,24 +163,20 @@ page-home {
 
       /******Product Css*******/
       .slideItem{
-      width: 50%;
+      width: 60%;
 
       }
+
       .sarsTitle{
-      font-weight: bold;
-      font-size: 1.5rem;
       text-align: left;
       padding-left: 4%;
       padding-top: 5%;
-      color: #000000;
-      text-align: center;
       height: 84px;
       }
       .detailSar{
       text-align: center;
       padding-left: 4%;
-      padding-bottom: 7%;
-      color: #649305;
+      padding-bottom: 4%;
       }
       .cardShow h2{
       border: solid;
@@ -223,16 +212,15 @@ page-home {
             margin:auto;
       }
       .see-title-box{
-            height: 220px;
+            height: 240px;
             text-align: center;
-            padding-top:20% 
+            padding-top:45% 
       }
       .see-title-box button{
             display: block;
             color:#649305;
             margin: auto;
-            font-weight: bolder;
-            border: 4px #649305 solid;
+            border: 2px #649305 solid;
             border-radius: 5px;
       }
       .image-card .button-outline-md-light{
@@ -249,19 +237,15 @@ page-home {
             
       }
       .card-title {
-            
-            font-size: 2.0em;
             width:100%;
-            font-weight: bold;
             color: #fff;
-            text-shadow: 2px 2px #000000;
+            
+
       }
 
       .card-subtitle {
-      font-size: 1.0em;
       width: 100%;
       color: #fff;
-      text-shadow: 2px 2px #000000;
       left: 5%;
       }
 

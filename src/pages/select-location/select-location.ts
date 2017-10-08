@@ -1,5 +1,5 @@
   import { Component } from '@angular/core';
-  import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+  import { IonicPage, NavController, NavParams,AlertController, LoadingController } from 'ionic-angular';
   import { CityStateProvider } from '../../providers/city-state/city-state';
   import { Storage } from '@ionic/storage';
   import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
@@ -23,19 +23,23 @@
     public lang:any;
     public selectState: any;
     public stateList: any;
+    public districtList: any;
     searchQuery: string = '';
     public showList:boolean=false;
-    private items: string[];
-
+    
     public userLat:any;
     public userLong:any;
+    public loading:any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
       public alertCtrl: AlertController,public cityStateProvider:CityStateProvider,private nativeGeocoder: NativeGeocoder,
-      private geolocation: Geolocation) {
+      private geolocation: Geolocation,public loadingCtrl: LoadingController) {
       this. storage.get('userLang').then((val) => {
         this.lang=val;
-        this.items = [];
+        this.loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+        this.loading.present();
         this.getAllState();
       });
     }
@@ -46,57 +50,48 @@
        console.log(resp);
        this.userLat=resp.coords.latitude;
        this.userLong=resp.coords.longitude;
+       this.storage.set('userLat',this.userLat);
+       this.storage.set('userLong',this.userLong);
        //this.storage.set('userLoction',resp.coords);
       }).catch((error) => {
         console.log('Error getting location', error);
       });
     }
-    change(ev){
-      
-       if( ev.length>2){
-         this.initializeItems();
-          this.showList=true;
-          let val = ev;
-          if (val && val.trim() != '') {
-            this.items = this.items.filter((item) => {
-              //this.items.remove();
-              console.log(item.toLowerCase().indexOf(val.toLowerCase()));
-                console.log('---'+val.toLowerCase());
-              return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-            })
-          }
-         }else{
-          this.showList=false;
-             console.log("less");
-         }
-  }
+
 
     getAllState() {
       this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
         this.stateList=resp.data;
-        this.initializeItems();
+        this.loading.dismiss();
       });
     }
     getCourrnt(){
-      this.nativeGeocoder.reverseGeocode(this.userLat, this.userLong)
-      .then((result: NativeGeocoderReverseResult) => {
-        console.log(JSON.stringify(result));
-
-        this.navCtrl.push('CropsPage');
-      })
-      .catch((error: any) => console.log(error));
+      this.navCtrl.push('CropsPage');
+      // this.nativeGeocoder.reverseGeocode(this.userLat, this.userLong)
+      // .then((result: NativeGeocoderReverseResult) => {
+      //   console.log(JSON.stringify(result));
+      //   this.navCtrl.push('CropsPage');
+      // })
+      // .catch((error: any) => console.log(error));
       //this.navCtrl.push('CropsPage');
     }
 
 
-    initializeItems() {
-      for (var i = 0;  i < this.stateList.length ; i++) {
-        this.items.push(this.stateList[i].state_name);
-      }
-    }
     userSelectedState(state){
       this.storage.set('userState',state);
       this.navCtrl.push('CropsPage');
     }
 
+  onStateSelect(stateid) {
+    //this.loading.present();
+    this.storage.set('userStateId',stateid);
+    this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
+        this.districtList=resp.data;
+        //  this.loading.dismiss();
+      }); 
   }
+  onDistrictSelect(districtId){
+    this.storage.set('userDictrictId',districtId);
+    this.navCtrl.push('CropsPage');
+  }
+}

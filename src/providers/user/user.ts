@@ -106,13 +106,26 @@ export class User {
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
-  signup(phoneNumber,password,user_name,lang,user_email) {
+  userRegister(lag,long,mobile,name,password,language,state,district,village,crops,vegetables) {
           let body = new FormData();
-          body.append('phoneNumber', phoneNumber);
-          body.append('password', password);
-          body.append('user_name', user_name);
-          body.append('lang', lang);
-          body.append('user_email','hello@agri.com');
+          
+          body.append('lag',lag);
+          body.append('long',long);
+          body.append('mobile',mobile);//[number as username]
+          body.append('user_name',name);
+          body.append('email',mobile+'@agribolo.com');
+          body.append('password',password);
+          body.append('language',language);
+          body.append('state',state);
+          body.append('district',district);
+          body.append('village',village);
+          body.append('crops',crops);
+          body.append('vegetables',vegetables);
+
+          body.append('irrigationType','');
+          body.append('irrigationSource','');
+          body.append('landHolding','');
+          body.append('LandHoldingType','');
 
           let seq = this.api.post('v1/user/register', body).share();
 

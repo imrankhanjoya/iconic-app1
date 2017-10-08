@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { CityStateProvider } from '../../providers/city-state/city-state';
+import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
 /**
@@ -26,26 +27,47 @@ export class CropsPage {
    peon:string =  '#101c00';
    public shoPage:any;
    public skipDataList: Array<Object>;
+   public userPhone:any;
+   public userOTP:any;
+   public userName:any;
+   public userPassword:any;
+   public userState:any;
+   public userKharif:any;
+   public userDictrictId:any;
+   public userStateId:any;
+   public userLat:any;
+   public userLong:any;
+   public loading:any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
-      public cityStateProvider:CityStateProvider,public storage:Storage) {
-    this.shoPage='Kharif';
-    this.skipDataList = [];
-    this. storage.get('userLang').then((val) => {
-      this.lang=val;
-      this.getCrops();
-    });
+      public cityStateProvider:CityStateProvider,public storage:Storage,
+      public loadingCtrl: LoadingController,public user: User) {
+
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+
+      this.shoPage='Kharif';
+      this.skipDataList = [];
+      this. storage.get('userLang').then((val) => {
+       this.lang=val;
+       this.getCrops();
+      });
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CropsPage');
+    this.getUserData();
   }
 
   getCrops() {
+    this.loading.present();
     this.cityStateProvider.sendCrop(this.lang).map(res => res.json()).subscribe((resp) => {
-    this.cropList=resp.data;
-    console.log(this.cropList);
+      this.cropList=resp.data;
+      console.log(this.cropList);
+      this.loading.dismiss();
     }, (err) => {
-      console.log('my name is khan')
+      console.log('my name is khan');
+      this.loading.dismiss();
     });
   }
 
@@ -75,22 +97,80 @@ export class CropsPage {
     }
   }
   selected(){
+  //  this.loading.present();
     console.log(this.cropList);
     var isSelect=0;
-    var selectedList=[];
+    var selectedCrops=[];
+    var selectedVegetables=[];
     for (var i = 0; i < this.cropList.length; i++) {
       if (this.cropList[i].sub_type=='true') {
-        selectedList.push(this.cropList[i]);
+        if (this.cropList[i].crop_type=='Kharif') {
+            selectedCrops.push(this.cropList[i].id);
+          }
+         if (this.cropList[i].crop_type=='Horticulture') {
+            selectedVegetables.push(this.cropList[i].id);
+          }
         isSelect++;
       }
       if (i==this.cropList.length-1) {
         if (isSelect<3) {
           alert('Select Minimum 3')
         }else {
-          this.storage.set('userKharif',selectedList);
-           alert('Thanks')
+          this.userRigister(selectedCrops,selectedVegetables);
+          //lag,long,mobile,name,password,language,state,district,village,crops,vegetables
+
+          //this.navCtrl.push('MarketselectPage');
         }
       }
     }
+  }
+  userRigister(selectedCrops,selectedVegetables){
+    let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+    loading.present();
+    console.log(this.userLat+'-----'+this.userLong+'-----'+this.userPhone+'-----'+this.userName+'-----'+this.userPassword+'-----'+this.lang+'-----'+this.userStateId+'-----'+this.userDictrictId+'-----'+'village'+'-----'+selectedCrops+'-----'+selectedVegetables);
+    this.user.userRegister(this.userLat,this.userLong,this.userPhone,this.userName,this.userPassword,this.lang,
+      this.userStateId,this.userDictrictId,'village',selectedCrops,selectedVegetables).map(res => res.json()).subscribe((resp) => {
+      loading.dismiss();
+     if(resp.status==true){
+       this.storage.set('userData',resp.data);
+       this.navCtrl.push('  MainPage');
+      }else{
+        console.log(resp.status);
+        alert(resp.msg);
+      }
+     }, (err) => {
+      loading.dismiss();
+    });
+  }
+  getUserData(){
+    this.storage.get('userPhone').then((val) => {
+      this.userPhone=val;
+    });
+    this.storage.get('userOTP').then((val) => {
+      this.userOTP=val;
+    });
+    this.storage.get('userName').then((val) => {
+      this.userName=val;
+    });
+    this.storage.get('userPassword').then((val) => {
+      this.userPassword=val;
+    });
+    this.storage.get('userState').then((val) => {
+       this.userState=val;
+    });
+    this.storage.get('userDictrictId').then((val) => {
+       this.userDictrictId=val;
+    });
+    this.storage.get('userStateId').then((val) => {
+       this.userStateId=val;
+    });
+    this.storage.get('userLat').then((val) => {
+       this.userLat=val;
+    });
+    this.storage.get('userLong').then((val) => {
+       this.userLong=val;
+    });
   }
 }

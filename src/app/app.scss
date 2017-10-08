@@ -63,6 +63,16 @@
 .baseColor{
 	color: royal;
 }
+.colorGreen{
+	color:#649305;
+}
+.backgroundColorYellow{
+	background-color:#FCF691;
+}
+
+.fontNormal{
+    font-weight: normal;
+}
 
 .titleFontSize{
 	font-size: 1.8rem;
@@ -115,7 +125,7 @@
 
 .card-md{
 	padding: 5px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 /*This is to reduce the empty space between block title and the actual card*/
 .card-md-topspacing{
@@ -239,7 +249,7 @@
 	margin: auto;
 	border: solid;
 	border-color: white;
-	border-radius: 10px;
+	border-radius: 5px;
 	border-width: 1px;
 	width: 95%;
 	height: fit-content;
