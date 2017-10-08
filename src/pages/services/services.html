@@ -6,7 +6,7 @@
 -->
 <ion-header>
  <ion-navbar color="fulldark">
-    <ion-title start>कृषि सेवाएं</ion-title>
+    <ion-title start>{{'AGRICULTURAL_SERVICES' | translate}}</ion-title>
     <ion-buttons end>
     <button ion-button icon-only color="royal" (click)="gotoSearchProduct()" class="wallet">
     <img src="assets/img/agri bolo icon/hdpi/wallet.png">
@@ -29,16 +29,20 @@
 
 <ion-content>
   <ion-list *ngFor="let data of krishData.data;let i=index ">
-  
+
     <ion-card class="image-card" >
     <img src="{{data.attachments}}" >
     <div class="card-title-box">
     <div class="card-title">  {{data.title}}</div>
-    <button ion-button color="light" (click)="gotoRental()" outline>{{'SEE_MORE'| translate}}</button>
-    <button ion-button color="light" (click)="goToExpertDetial(data.id)" outline>{{'SEE_MORE'| translate}}</button>
+
+    <button *ngIf="i==0" ion-button color="light" (click)="gotoMarket()" outline>{{'SEE_MORE'| translate}}</button>
+    <button *ngIf="i==1" ion-button color="light" (click)="gotoRental()" outline>{{'SEE_MORE'| translate}}</button>
+    <button *ngIf="i==2" ion-button color="light" (click)="gotoRental()" outline>{{'SEE_MORE'| translate}}</button>
     </div>
     </ion-card>
 
 
 </ion-list>
+
+
 </ion-content>

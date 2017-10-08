@@ -28,13 +28,20 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
   <ion-card>
-      <img  src="{{Rental_detaildata.data.attachments}}"/>
-    <p class="pClass">{{Rental_detaildata.data.title}}</p>
-    <p class="pContent"><span innerHtml="{{Rental_detaildata.data.content}}"></span></p>
-          <div class="block">
-          <button ion-button block>{{'EXPRET_CONTECT' | translate}}</button>
-          </div>
+    <img  class="newsLargeImage roundImage fixImage" src="{{Rental_detaildata.data.attachments}}"/>
+    <div class="pClass smallTitle fontBold colorGrey">{{Rental_detaildata.data.title}}</div>
+    <div class="pTitle1 Heading clorGrey">{{Rental_detaildata.data.content}}</div>
+    <div class="pContent"><span innerHtml="{{Rental_detaildata.data.content}}"></span></div>
+
+    <div >
+    <button ion-button block class="buttonGreen">{{'EXPRET_CONTECT' | translate}}</button>
+    </div>
+    
   </ion-card>
+
+
+
 </ion-content>

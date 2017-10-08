@@ -7,21 +7,21 @@
 
 <ion-content padding>
 <div class="main" padding>
-	<h1 class="text"> नमस्ते स्वागत हैं</h1>
-	<p class="text1" >कृपया ओटीपी पिन के लिए अपना मोबाइल नंमबर दर्ज करे
+	<h1 class="text"> {{'OTP_NUMBER_HELLO' | translate}}</h1>
+	<p class="text1" >{{'OTP_NUMBER_TYPE_OTP' | translate}}
 </p>
 </div>
 <div class="textinput" >
  <ion-item>
 	<ion-label class="lable" >+91</ion-label>
-    <ion-input [(ngModel)]="RegisterData.phoneNumber" name="phoneNumber" size="10" maxlength="10" class="lable" value="" type="number"  placeholder="your number" ng-required></ion-input>
+    <ion-input [(ngModel)]="RegisterData.phoneNumber" name="phoneNumber" size="10" maxlength="10" class="lable" value="" type="number"  placeholder="{{'OTP_NUMBER_TYPE_NUMBER' | translate}}" ng-required></ion-input>
     </ion-item>
     <div class="error" *ngIf="phoneNumberError==true" >
-     Enter valid mobile number
+     {{'OTP_NUMBER_VALID_NUMBER'|translate}}
     </div>
   </div>
     <div  class="p_button" >
-    <button class="p_1" (click)="sendOtp()" type="submit">send otp</button>
+    <button class="p_1" (click)="sendOtp()" type="submit">{{'OTP_NUMBER_SEND_OTP'| translate}}</button>
   </div>
 
 </ion-content>
@@ -32,16 +32,16 @@
     </div>
     <i class="fa fa-cloud" id="cloud1"></i>
     <i class="fa fa-cloud" id="cloud2"></i>
-    
+
     <img id="radio" src="assets/img/radio_control.png" />
-    
+
     <div id="village">
         &nbsp;
     </div>
     <div id="tractor">
         <img src="assets/img/fan.png" class="fa-spin" id="fan"/>
         <img src="assets/img/shape.png" id="tower"/>
-        
+
     </div>
     <div id="grass">
     </div>

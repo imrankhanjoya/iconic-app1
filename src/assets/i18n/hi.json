@@ -30,13 +30,16 @@
   "TUTORIAL_SLIDE4_TITLE": "खेलने के लिए तैयार?",
 
   "WELCOME_INTRO": "अपने अगले महान आयनिक ऐप के लिए शुरुआती बिंदु",
-
   "SETTINGS_TITLE": "सेटिंग्स",
   "SETTINGS_OPTION1": "विकल्प 1",
   "SETTINGS_OPTION2": "विकल्प 2",
   "SETTINGS_OPTION3": "विकल्प 3",
   "SETTINGS_OPTION4": "विकल्प 4",
-
+  "SETTINGS_RIGHT_ICON":"दाएँ आइकन",
+  "SETTINGS_LANGUAGE": "भाषा",
+  "SETTINGS_UPDATE_PROFILE":"प्रोफ़ाइल अपडेट करें",
+  "SETTINGS_CHANGE_CROPS": "फसल बदलें",
+  "SETTINGS_CHANGE_LOCATION": "स्थान बदलें",
   "SETTINGS_PROFILE_BUTTON": "प्रोफाइल एडिट करें",
   "WELCOME_TITLE": "स्वागत हे",
 
@@ -46,6 +49,41 @@
   "SIGNUP_ERROR": "खाता बनाने में असमर्थ कृपया अपनी खाता जानकारी की जांच करें और फिर से प्रयास करें।",
 
   "LIST_MASTER_TITLE": "वस्तु",
+  "OTP_NUMBER_HELLO": "नमस्ते स्वागत है",
+  "OTP_NUMBER_TYPE_OTP": "कृपया ओटीपी पिन के लिए अपना मोबाइल नंमबर दर्ज करे",
+  "OTP_NUMBER_TYPE_NUMBER": "अपना नंबर दर्ज करेे",
+  "OTP_NUMBER_VALID_NUMBER": "वैध मोबाइल नंबर दर्ज करें",
+  "OTP_NUMBER_SEND_OTP": "ओटीपी भेजें",
+
+  "VERIFY_TITLE": "नंबर सत्यापित करें",
+  "VERIFY_THANKS": "बहुत धन्यवाद",
+  "VERIFY_TYPE_OTP": "मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज करें?",
+
+  "SING_UP_VERY_GOOD": "बहुत अच्छा",
+  "SING_UP_PASSWORD": "अधिक सेवा के लिया कृपया अपना नाम और पासवर्ड  दर्ज कर?",
+  "SING_UP_NAME_REQUIRED": "नाम आवश्यक है",
+  "SING_UP_USER_NAME": "उपयोगकर्ता नाम",
+  "SING_UP_TYPE_PASSWORD": "पासवर्ड",
+  "SING_UP_CONF_PASSWORD": "पासवर्ड की पुष्टि करें",
+  "SING_UP_GOOD": "ठीक हेें",
+
+  "LOGIN_TEXT": "कृपया लोगिन करेें",
+  "LOGIN_PHONE_NUMBER": "फ़ोन नंबर",
+  "LOGIN_PHONE_NUMBER_VALID": "वैध मोबाइल नंबर दर्ज करें",
+  "LOGIN_PASSWORD_REQUIRED": "पासवर्ड की आवश्यकता है",
+  "LOGIN_NEW_USER_SING_UP": "क्या आप नई उपभोक्ता हो? साइन अप करें",
+
+   "SELECT_LOCTION": "स्थान चुने",
+   "SELECT_LOCTION_PLEASE": "कृपया अपने स्थान का चयन करें क्योंकि हम आपकी कृषि के लिए मदद कर रहे हैं",
+   "SELECT_LOCTION_SELECT": "चुनते हैें",
+   "SELECT_LOCTION_STATE": "राज्य",
+   "SELECT_LOCTION_DISTRICT": "जिला",
+   "SELECT_LOCTION_STATE": "राज्य",
+   "SELECT_LOCTION_OR": "या",
+   "SELECT_LOCTION_PRESENT_ADDRESS": "मेरा वर्तमान स्थान",
+
+   "CROPS_TITLE": "कृपया अपनी फसल प्रकार को चुनें",
+   "CROPS_FRUITE": "फल",
 
   "ITEM_CREATE_TITLE": "नई वस्तु",
   "ITEM_CREATE_CHOOSE_IMAGE": "छवि जोड़ें",
@@ -112,6 +150,10 @@
   "RENTAL_MUTE":"चुप",
   "RENTAL_MUTE_ONE_WEEKS":"एक सप्ताह के लिए चुप करें",
   "RENTAL_MUTE_ONE_YEARS":"एक वर्ष के लिए चुप करें",
+  "VEDIO_FAVOURITE":"पसंदीदाें",
+  "VEDIO_FERTILIZERS":"उर्वरक",
+  "VEDIO_SEEDS":"बीज",
+  "VEDIO_PESTICIDE":"कीटनाशक",
   "TIPS_INDIAN_FARMER":"Agribolo: भारतीय किसानों की उंगली युक्तियों पर कृषि",
   "SUTRA":"सुत्र : भारी बारिश से अपनी फसल को बचाने के लिए ऐसा करें",
   "SEARCH_PLACEHOLDER": "आइटम की सूची खोजें, उदा। \"डोनाल्ड डक\""

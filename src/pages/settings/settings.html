@@ -1,7 +1,7 @@
   <ion-header>
 
   <ion-navbar>
-    <ion-title>Settings</ion-title>
+    <ion-title>{{'SETTINGS_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -11,25 +11,25 @@
   <ion-list>
   <ion-item [navPush]="NewsPage">
       <button ion-button icon-right>
-      Right Icon
+      {{'SETTINGS_RIGHT_ICON' | translate}}
       <ion-icon name="home"></ion-icon>
       </button>
   </ion-item>
   <ion-item [navPush]="NewsPage">
     <ion-icon name="globe"  item-start></ion-icon>
-      Language
+      {{'SETTINGS_LANGUAGE' | translate}}
   </ion-item>
   <ion-item>
     <ion-icon name="contact" item-start></ion-icon>
-      Update Profile
+      {{'SETTINGS_UPDATE_PROFILE' | translate}}
   </ion-item>
   <ion-item>
     <ion-icon name="leaf" item-start></ion-icon>
-      Change Crops
+    {{'SETTINGS_CHANGE_CROPS' | translate}}
   </ion-item>
   <ion-item>
     <ion-icon name="compass" item-start></ion-icon>
-      Change Location
+    {{'SETTINGS_CHANGE_LOCATION' | translate}}
   </ion-item>
 </ion-list>
 

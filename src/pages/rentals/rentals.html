@@ -29,7 +29,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-item >
       <ion-label>{{'RENTAL_CATEGORY' | translate}}</ion-label>
       <ion-select [(ngModel)]="notifications" interface="action-sheet">
@@ -40,15 +40,17 @@
       </ion-select>
     </ion-item>
    <ion-grid >
-  <ion-row>
-    <ion-col  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
-      <ion-card  class="image-card" (click)="RentalsPage(data.id)">
-     <img class="produtimage" src="{{data.attachments}}"/>
-      <p class="sarsTitle">{{data.title}}</p>
-      <p class="detailSar"> {{'VALUE_ON_REQUEST' | translate}}</p>
-      </ion-card>
-      </ion-col>
+  
+    <ion-card class="image-card"  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
+      <div class="row" (click)="RentalsPage(data.id)" >
+        <img  src="{{data.attachments}}" class="newsLargeImage roundImage fixImage"/>
+        <div class="alignLeft paddingTop paddingLeft colorGrey newsLargeTitle">{{data.title}}</div>
+        <div class="alignCenter">
+          <button ion-button clear class="labelGreen">{{'VALUE_ON_REQUEST' | translate}}</button>
+        </div>
+      </div>
+    </ion-card>
 
-  </ion-row>
+
 </ion-grid>
 </ion-content>

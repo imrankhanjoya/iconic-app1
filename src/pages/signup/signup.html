@@ -4,29 +4,29 @@
 <ion-content>
 
    <div class="main" padding>
-  <h1 class="text"> बहुत अच्छा</h1>
-  <p class="text1" >अधिक सेवा के लिया कृपया अपना नाम और पासवर्ड  दर्ज कर?
+  <h1 class="text"> {{'SING_UP_VERY_GOOD' | translate}}</h1>
+  <p class="text1" >{{'SING_UP_PASSWORD' | translate}}
 </p>
 </div>
 <div>
-  
+
 
   <ion-item>
-    <ion-label  class="inpu" stacked>User Name</ion-label>
+    <ion-label  class="inpu" stacked>{{'SING_UP_USER_NAME'| translate}}</ion-label>
     <ion-input [(ngModel)]="RegisterData.userName" name="userName" value="" type="text" ng-required></ion-input>
   </ion-item>
    <div class="error" *ngIf="UserNameError==true" >
-      Name is required
+      {{'SING_UP_NAME_REQUIRED' | translate}}
    </div>
   <ion-item>
-    <ion-label class="inpu"  stacked>पासवर्ड</ion-label>
+    <ion-label class="inpu"  stacked>{{'SING_UP_TYPE_PASSWORD'| translate}}</ion-label>
     <ion-input [(ngModel)]="RegisterData.password" name="password" value="" type="password" ng-required></ion-input>
   </ion-item>
     <div class="error" *ngIf="passError==true" >
       {{passErrorMsg}}
    </div>
 <ion-item>
-    <ion-label class="inpu" stacked>पासवर्ड की पुष्टि कीजिये</ion-label>
+    <ion-label class="inpu" stacked>{{'SING_UP_CONF_PASSWORD' | translate}}</ion-label>
     <ion-input  [(ngModel)]="RegisterData.confirmPassword" name="confirmPassword" value="password" type="confirmPassword" ng-required></ion-input>
   </ion-item>
   <div class="error" *ngIf="passConpError==true" >
@@ -34,7 +34,7 @@
    </div>
 </div>
 <div  class="p_button">
-    <button class="p_1" (click)="doSignup()" >ठीक हे </button>
+    <button class="p_1" (click)="doSignup()" >{{'SING_UP_GOOD'|translate}} </button>
   </div>
   </ion-content>
 
@@ -45,16 +45,16 @@
     </div>
     <i class="fa fa-cloud" id="cloud1"></i>
     <i class="fa fa-cloud" id="cloud2"></i>
-    
+
     <img id="radio" src="assets/img/radio_control.png" />
-    
+
     <div id="village">
         &nbsp;
     </div>
     <div id="tractor">
         <img src="assets/img/fan.png" class="fa-spin" id="fan"/>
         <img src="assets/img/shape.png" id="tower"/>
-        
+
     </div>
     <div id="grass">
     </div>

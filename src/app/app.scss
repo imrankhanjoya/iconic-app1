@@ -86,12 +86,36 @@
    filter: alpha(opacity=40);
    zoom: 1;
 }
-
+.paddingTop{
+	padding-top: 16px;
+}
+.paddingLeft{
+	padding-left: 16px;
+}
+.paddingBottom{
+	padding-bottom: 16px;
+}
 .titleFontSize{
 	font-size: 1.8rem;
 	color: #4a4b4c;
 }
-
+.buttonGreen{
+	background-color: #649305;
+	color:#ffffff;
+}
+.labelGreen{
+	color:#649305;
+}
+.alignCenter{
+	text-align: center;
+	width: 100%;
+}
+.alignLeft{
+	text-align: left;
+}
+.roundImage{
+	border-radius: 5px;
+}
 .toolbarCol{
   text-align: center;
   color: white;
@@ -319,6 +343,18 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+
+.fitImage {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+
 
 
 

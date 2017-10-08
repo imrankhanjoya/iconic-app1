@@ -238,7 +238,11 @@
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
      <ion-col>
-      <p class="colShow" (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</p>
+      
+      <div class="alignCenter">
+        <button ion-button  class="buttonGreen"  (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</button>
+    </div>
+
     </ion-col>
   </ion-row>
 
@@ -304,7 +308,7 @@
   <ion-grid >
     <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
       <ion-col col-3 *ngIf="i > 0 ">
-        <img class = "newsSmallImage" src="{{news.image}}" width="200px" />
+        <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
       </ion-col>
       <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
         <div >{{news.title}}</div>
@@ -312,7 +316,12 @@
       </ion-col>
     </ion-row>
 
-    <p class="showAll" (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </p>
+    <div class="alignCenter">
+      <button ion-button  class="buttonGreen"  (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </button>
+    </div>
+
+
+
   </ion-grid>
   </ion-card>
 
@@ -375,12 +384,20 @@
   </ion-grid>  
 
   <ion-card class="vedioCard">
-  <div padding class="displayOneFont">Agribolo : Agriculture on the finger tips of Indian farmer</div>
-  <img src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
-  <p class="showAll" (click)="gotoVedio()">{{'SEE_MORE' | translate}}</p>
+  <ion-row><img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" ></ion-row>
+  <div>
+    <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">Agribolo : Agriculture on the finger tips of Indian farmer
+    </div>
+    <div class="alignCenter">
+      <button ion-button  class="buttonGreen"  (click)="gotoVedio()">{{'SEE_MORE' | translate}}</button>
+    </div>
+    
+  </div>
+  
+  
   </ion-card >
 
-
+  
 
   <ion-grid>
       <ion-row>

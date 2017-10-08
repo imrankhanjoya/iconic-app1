@@ -28,8 +28,6 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productcatData.product_data;">
       	<ion-card>
         	<img class="produtimage" src="{{productData.feature_image}}"/>
-        	<p class="sarsTitle">{{productData.name}}</p>
-        	<p class="detailSar">{{'VALUE_ON_REQUEST' | translate}}</p>
         	<div class="sarsTitle colorGrey smallTitle">{{productData.name}}</div>
           <ion-row>
               <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>

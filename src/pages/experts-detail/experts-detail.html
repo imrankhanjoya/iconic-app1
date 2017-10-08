@@ -17,7 +17,7 @@
   <ion-card *ngIf="expertdetail.status">
     <img class="wallet" src="{{expertdetail.data.attachments}}"/>
     <div class="pClass smallTitle fontBold colorGrey">{{expertdetail.data.title}}</div>
-    <div class="pTitle1 captionFont colorGreen">{{expertdetail.data.date}}</div>
+    <div class="pTitle1 subHeadingFont colorGreen">{{expertdetail.data.date}}</div>
     <div class="pContent"><span innerHtml="{{expertdetail.data.content}}"></span></div>
 
           <div class="block" *ngIf="expertdetail.type=='services'">
