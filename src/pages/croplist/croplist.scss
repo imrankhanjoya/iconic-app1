@@ -1,4 +1,7 @@
 page-croplist {
+    .card-md{
+      margin:5px;
+    }
   	.cardHeader{
         text-align: center;
         font-size: 3rem;
@@ -14,4 +17,13 @@ page-croplist {
         display: inline-block;
         padding:0px 25px;
   	}
+    .produtimage{
+      max-width: 45%;
+      margin-right: 7px;
+      margin-left: 7px;
+    }
+    .sarsTitle{
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
 }

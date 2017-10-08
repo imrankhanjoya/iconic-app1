@@ -1,3 +1,4 @@
+
 <ion-header no-border>
 <ion-toolbar class="headercolor">
 <button ion-button menuToggle class="menufontcolor">
@@ -26,15 +27,15 @@
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
       {{ 'WEATHER' | translate }}
     </ion-col>
-    <ion-col class="toolbarCol" (click)="gotomandiPage()">
-      <img src="assets/img/agri bolo icon/hdpi/Group 21.png" >
+    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiPage()">
+      <img class="{{maindiIconClass}}" src="assets/img/agri bolo icon/hdpi/Group 21.png" >
       {{'MANDI' | translate }}
     </ion-col>
-    <ion-col class="toolbarCol" (click)="gotoservicesPage()">
+    <ion-col #karsi_id class="toolbarCol opacityGone" (click)="gotoservicesPage()">
       <img src="assets/img/agri bolo icon/hdpi/rishi sevna.png">
       {{'AGRICULTURAL_SERVICES' | translate }}
     </ion-col>
-    <ion-col class="toolbarCol">
+    <ion-col #tongl_id class="toolbarCol opacityGone">
       <img (click)="toggleMenu()" class="{{rotateClass}}" src="assets/img/agri bolo icon/hdpi/Group 37.png">
       {{'LESS' | translate }}
     </ion-col>
@@ -64,8 +65,10 @@
   </ion-grid>
 </ion-header>
 
-<ion-content >
-  <div>
+
+<ion-content (ionScroll)="onScroll($event)">
+  <div #main_div >
+
   <!-------Welcome Promoe------>
 
   <ion-card class="dialogYellow backgroundColorYellow" *ngIf="announceList.status==true">
@@ -183,39 +186,11 @@
 
   </ion-row>
   <ion-row>
-    <ion-col col-3 class="mandiGrap">
-    <p> {{'RS_PER_QUINTAL' | translate }}</p>
-    <p> 500</p>
-    <p> 400</p>
-    <p> 300</p>
-    <p> 200</p>
-    </ion-col>
-    <ion-col col-9>
-      <img src="assets/img/grapImage.png" class="grapImage"/>
-    </ion-col>
+    
+    <iframe style="width: 100%; height: 200px; overflow: hidden; border: none;" src="http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/mandi-map&market_id=792&commodity_id=230"></iframe>
+
   </ion-row>
-  <div class="july">
-  <ion-row  padding-left class="MandyDay">
-    <ion-col>
-    13 जुलाई
-    </ion-col>
-    <ion-col>
-      14 जुलाई
-    </ion-col>
-    <ion-col>
-      15 जुलाई
-    </ion-col>
-    <ion-col>
-      16 जुलाई
-    </ion-col>
-    <ion-col>
-      17 जुलाई
-    </ion-col>
-    <ion-col>
-      18 जुलाई
-    </ion-col>
-  </ion-row>
-  </div>
+        
   </ion-grid>
   <ion-grid>
   <ion-row padding-top class="weatherfoter">

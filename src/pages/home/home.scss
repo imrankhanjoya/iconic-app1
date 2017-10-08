@@ -275,6 +275,7 @@ page-home {
             100% { transform:rotate(180deg); }
       }
       
+
       .rotateimage2 {
           animation:spin1 1s linear 2000;
           animation-iteration-count:1;
@@ -282,6 +283,7 @@ page-home {
       @keyframes spin1 { 
             100% { transform:rotate(180deg); }
       }
+
 
       .toolbarOpen {
             overflow-y: hidden;
@@ -299,5 +301,42 @@ page-home {
             transition-duration: 1s;
             transition-timing-function: cubic-bezier(0, 1, 4, 1);
       }
+
+
+      .zoomIn {
+        animation: zoomIn 2s;
+        transition-duration: 4s;
+      }
+      @keyframes zoomIn {
+        from {
+          opacity: 0;
+          transform: scale3d(.3, .3, .3);
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+
+
+      .fadeInLeft {
+        animation: fadeInLeft 1s;
+        transition-duration: 1s;
+      }
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .opacityGone{
+         opacity: 0;   
+      }
+
 
 }
