@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Q & A</ion-title>
+    <ion-title>{{'QUESTION_ANSWER_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -27,12 +27,12 @@
           <div class="subtitles">{{data.display_name}} • {{data.ago}} ago</div>
         </ion-col>
       </ion-row>
-      
+
     </ion-item>
     <div class="ans"></div>
   </ion-list>
   <div class="block">
-    <button ion-button block (click)="gotoAskquestion()">अपना प्रश्न पोस्ट करें</button>
+    <button ion-button block (click)="gotoAskquestion()">{{'QUESTION_POST_QUESTION' | translate}}</button>
   </div>
 </ion-card>
 </ion-content>
