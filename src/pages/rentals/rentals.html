@@ -41,16 +41,14 @@
     </ion-item>
    <ion-grid >
   
-    <ion-card class="image-card" (click)="RentalsPage(data.id)" *ngFor=" let data of Rental_Listdata.data, let i = index "  >
-      <div class="row">
-      <img  src="{{data.attachments}}" class="newsLargeImage fitImage"/>
-      <div class="alignLeft paddingLeft colorGrey newsLargeTitle">{{data.title}}</div>
-      <div class="alignCenter">
-        <button ion-button clear class="labelGreen"  (click)="gotoNewsPage()">विनती पर मुल्य </button>
+    <ion-card class="image-card"  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
+      <div class="row" (click)="RentalsPage(data.id)" >
+        <img  src="{{data.attachments}}" class="newsLargeImage roundImage fixImage"/>
+        <div class="alignLeft paddingTop paddingLeft colorGrey newsLargeTitle">{{data.title}}</div>
+        <div class="alignCenter">
+          <button ion-button clear class="labelGreen">{{'VALUE_ON_REQUEST' | translate}}</button>
+        </div>
       </div>
-
-
-    </div>
     </ion-card>
 
 

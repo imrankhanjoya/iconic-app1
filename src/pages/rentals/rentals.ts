@@ -37,7 +37,7 @@ export class RentalsPage {
 
   }
    RentalsPage(id){
-  this.navCtrl.push('RentalDetailPage',{rid:id});
+    this.navCtrl.push('RentalDetailPage',{rid:id});
   }
 
 }

@@ -9,8 +9,6 @@ page-rental-detail {
     padding-top: 5%;
     padding-bottom: 2%;
     font-size: 22px;
-    color: #000000;
-    font-weight: bold;
   }
   .pContent{
     padding-left: 5%;
@@ -26,5 +24,8 @@ page-rental-detail {
       margin-top: 10%;
       margin-bottom: 10%;
 
+    }
+    .fixImage{
+      width:100%;
     }
 }
