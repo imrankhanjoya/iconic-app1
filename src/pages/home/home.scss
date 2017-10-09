@@ -268,20 +268,20 @@ page-home {
       }
 
       .rotateimage1 {
-          animation:spin 1s linear 2000;
+          animation:spin 700ms linear 2000;
           animation-iteration-count:1;
       }
       @keyframes spin { 
-            100% { transform:rotate(180deg); }
+            100% { transform:rotate(360deg); }
       }
       
 
       .rotateimage2 {
-          animation:spin1 1s linear 2000;
+          animation:spin1 700ms linear 2000;
           animation-iteration-count:1;
       }
       @keyframes spin1 { 
-            100% { transform:rotate(180deg); }
+            100% { transform:rotate(360deg); }
       }
 
 
@@ -291,14 +291,14 @@ page-home {
             max-height: 100px; /* approximate max height */
 
             transition-property: all;
-            transition-duration: 1s;
+            transition-duration: 700ms;
             transition-timing-function: cubic-bezier(0, 1, 4, 1);
       }
       .toolbarClosed {
             max-height: 0;
             overflow-y: hidden;
             transition-property: all;
-            transition-duration: 1s;
+            transition-duration: 700ms;
             transition-timing-function: cubic-bezier(0, 1, 4, 1);
       }
 
