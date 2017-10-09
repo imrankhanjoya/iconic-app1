@@ -28,16 +28,21 @@ export class TabsPage {
   tab4Title = " ";
   tab5Title = " ";
 
+
   constructor(private translate: TranslateService,public navCtrl: NavController, public translateService: TranslateService) {
-    
+
     this.initTranslate();
-    translateService.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market']).subscribe(values => {
+    translateService.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
       this.tab2Title = values['Krishi Center'];
       this.tab3Title = values['News'];
       this.tab4Title = values['Choupal'];
       this.tab5Title = values['Market'];
+
     });
+
+
+
   }
 
   initTranslate() {
@@ -52,6 +57,6 @@ export class TabsPage {
     }
 
 
-    
+
   }
 }
