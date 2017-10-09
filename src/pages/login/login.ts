@@ -26,7 +26,7 @@ export class LoginPage {
     public translateService: TranslateService) {
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
-    })
+    });
   }
 
   doLogin(){

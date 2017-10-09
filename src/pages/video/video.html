@@ -5,51 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-toolbar color="fulldark">
-        <button ion-button menuToggle>
-            <ion-icon name="people"></ion-icon>
-        </button>
-        <ion-buttons end>
-            <button ion-button icon-only color="royal" (click)="gotoSearchProduct()">
-                <img src="assets/img/agri bolo icon/hdpi/wallet.png">
-            </button>
-        </ion-buttons>
-        <ion-title>hello {{'SEARCH_TITLE'|translate}}</ion-title>
-        <ion-buttons end>
-            <button ion-button icon-only color="royal" (click)="presentPopover($event)">
-                <img src="assets/img/agri bolo icon/hdpi/notification.png">
-            </button>
-        </ion-buttons>
-        <ion-buttons end>
-            <button ion-button icon-only color="royal" (click)="presentPopover($event)">
-                <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
-            </button>
-        </ion-buttons>
-    </ion-toolbar>
+
+  <ion-navbar>
+    <ion-title>{{'VIDEO' | translate}}</ion-title>
+  </ion-navbar>
 
 
-    <ion-toolbar color="fulldark" class="subtabs">
-        <ion-buttons end>
-          <button color="light" ion-button >
-              
-          </button>
-        </ion-buttons>
-         <ion-buttons   end>
-          <button ion-button color="light" full >
-            
-          </button>
-        </ion-buttons>
-         <ion-buttons  end>
-          <button ion-button color="light">
-             
-          </button>
-        </ion-buttons>
-         <ion-buttons color="white" end>
-          <button ion-button color="light">
-              
-          </button>
-        </ion-buttons>
-    </ion-toolbar>
 
       <ion-segment  class="themeColor" [(ngModel)]="Crop">
           <ion-segment-button class="themeColor"  value="General" (click)="videoByCat('favourite')">

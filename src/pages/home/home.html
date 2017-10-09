@@ -27,7 +27,7 @@
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
       {{ 'WEATHER' | translate }}
     </ion-col>
-    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiPage()">
+    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiDetail()">
       <img class="{{maindiIconClass}}" src="assets/img/agri bolo icon/hdpi/Group 21.png" >
       {{'MANDI' | translate }}
     </ion-col>
@@ -82,7 +82,7 @@
         <ion-col  col-9>
         <ion-row >
         <div class="smallTitle">
-          Welcome Ramesh
+          Welcome {{userDisplayName}}
         </div>
         </ion-row>
         <ion-row>
@@ -393,7 +393,7 @@
           <p>कृषि केंद्र 10 किमी दूर है..</p>
       </ion-col>
       <ion-col >
-          <button ion-button small class="button" padding-left padding-right>Small</button>
+          <button ion-button small class="button" padding-left padding-right (click)="gotoMap(geoLoc.lat,geoLoc.lng)" >GOTO LOCTION</button>
       </ion-col>
     </ion-row>
   </ion-grid> 
