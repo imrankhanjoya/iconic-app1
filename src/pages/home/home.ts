@@ -46,8 +46,8 @@ export class HomePage {
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
-  public topMenu:any;
+  public geoLoc:{lat:any,lng:any} = {lat:29.0942542,lng:75.9646484};
+  public topMenu:string='';
   public rotateClass:any;
   public toolbarClass:any;
   public maindiIconClass:any;
@@ -59,7 +59,7 @@ export class HomePage {
     public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2) {
     this.rotateClass="";
       
-  		this.topMenu = false;
+  		//this.topMenu = 'toolbarClosed';
   }
 
   ionViewDidLoad() {
@@ -77,12 +77,11 @@ export class HomePage {
     this.get_expert();
     this.getmarkets();
     this.getannouncement();
-    console.log('ionViewDidLoad HomePage');
-    console.log(this.getannouncement);
+    
   }
 
   toggleMenu(){
-  	if(this.topMenu=='toolbarClosed'){
+  	if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
   		this.topMenu ="toolbarOpen";
@@ -90,6 +89,7 @@ export class HomePage {
       console.log(this.rotateClass);
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarClosed";
+      this.topMenu ="toolbarOpen";
   		this.topMenu = "toolbarClosed";
   	}
 
@@ -143,7 +143,7 @@ export class HomePage {
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
-        console.log(this.newsData.data);
+        
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -173,10 +173,14 @@ export class HomePage {
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
         this.kendraHome.data = res.data.results[0];
-        console.log(res.data);
-        //this.geoLoc.lat = res.data.results[0].geometry.location.lat;
-        //this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-        console.log(this.geoLoc);
+        
+        console.log(res['data']);
+        console.log(res['data'].results);
+        this.geoLoc.lat = res.data.results[0].geometry.location.lat;
+        this.geoLoc.lng = res.data.results[0].geometry.location.lng;
+        var distance = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+        console.log(this.geoLoc.lat+" "+this.geoLoc.lng+" "+lat+" "+long);
+        console.log(distance);
       }, (err) => {
         // Unable to log in
         console.log(err);
