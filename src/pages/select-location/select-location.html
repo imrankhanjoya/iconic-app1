@@ -24,14 +24,14 @@
   </ion-list> -->
  
 
-  <ion-item class="fullWidth">
+  <ion-item>
   <select class="selectBox"  (change)="onStateSelect($event.target.value)">
     <option value="0">{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
     <option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</option>
   </select>
   </ion-item>
 
-  <ion-item class="fullWidth">
+  <ion-item>
   <select class="selectBox"  (change)="onDistrictSelect($event.target.value)">
     <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
     <option *ngFor="let district of districtList" value={{district.id}}~{{district.city_name}}>{{district.city_name}}</option>

@@ -359,7 +359,7 @@
   </ion-grid>
 
   <ion-card class="vedioCard">
-  <ion-row><img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" ></ion-row>
+  <ion-row><img class="roundImage fitImage" (click)="playVideo('Moin-yDG7Ss')" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" ></ion-row>
   <div>
     <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">Agribolo : Agriculture on the finger tips of Indian farmer
     </div>
@@ -390,7 +390,7 @@
   <ion-grid>
       <ion-row>
       <ion-col >
-          <p>{{'HOME_KM' | translate}}.</p>
+          <p>कृषि केंद्र {{userKm}} किमी दूर है।</p>
       </ion-col>
       <ion-col >
           <button ion-button small class="button" padding-left padding-right (click)="gotoMap(geoLoc.lat,geoLoc.lng)" >{{'HOME_GOTO_LUCTION' | translate}}</button>

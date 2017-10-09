@@ -345,5 +345,10 @@ async changeClass(count): Promise<string> {
   mackCall(){
     this.callProvider.makeCall();
   }
+  playVideo(videoid:any){
+    console.log('videoid  : '+videoid);
+    this.youtube.openVideo(videoid);
+  }
+  }
 
 }
