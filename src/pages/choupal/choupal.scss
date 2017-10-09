@@ -57,3 +57,49 @@ page-choupal {
   
 
 }
+.boxAlignLeft{
+    text-align: left;
+  display: inline-block; 
+  
+}
+.formatBubbleLeft{
+  text-align: left;
+  
+  float: left;
+  padding:10px;
+  border-radius: 10px;
+}
+
+.boxAlignRight{
+    text-align: right;
+  display: inline-block; 
+  
+  float: right;
+}
+.formatBubble{
+  text-align: right;
+  max-width: 60%; 
+  float: right;
+  padding:10px;
+  border-radius: 10px;
+}
+.bubbleDateFormat{
+  text-align:right;
+  width: 100%;
+}
+.floatRight{
+  float:right;
+}
+.floatLeft{
+  float:left;
+}
+.textAlignLeft{
+  text-align: left;
+}
+.chatUserImage{
+  border-radius: 50%;
+  max-width:20%;
+}
+.fullWidth{
+  width: 80%;
+}
