@@ -72,14 +72,14 @@
 
     <ion-row class="InputFormat" >
       <ion-col  col-1>
-         <ion-icon name="attach"></ion-icon>
+         <ion-icon name="attach" class="displayOneFont"></ion-icon>
       </ion-col>
       <ion-col col-10>
       <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
       </ion-input>
       </ion-col>
       <ion-col col-1>
-      <ion-icon name="md-send"  (click)="postCopal()"></ion-icon>
+      <ion-icon name="md-send" class="displayOneFont" (click)="postCopal()"></ion-icon>
       </ion-col>
     </ion-row>
     

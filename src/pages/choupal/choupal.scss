@@ -64,7 +64,6 @@ page-choupal {
 }
 .formatBubbleLeft{
   text-align: left;
-  
   float: left;
   padding:10px;
   border-radius: 10px;
@@ -78,7 +77,7 @@ page-choupal {
 }
 .formatBubble{
   text-align: right;
-  max-width: 60%; 
+  max-width: 80%; 
   float: right;
   padding:10px;
   border-radius: 10px;
@@ -105,4 +104,7 @@ page-choupal {
 }
 .InputFormat{
   background-color: #fff;
+}
+.verticalAlign{
+  
 }
