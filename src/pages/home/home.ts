@@ -1,6 +1,6 @@
 import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { Content } from 'ionic-angular';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -46,19 +46,26 @@ export class HomePage {
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public geoLoc:{lat:any,lng:any} = {lat:29.0942542,lng:75.9646484};
+  public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public rotateClass:any;
   public toolbarClass:any;
   public maindiIconClass:any;
+  public userDisplayName:any;
+  public userKm:any;
   
 
-  constructor(private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
+  constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2) {
     this.rotateClass="";
       
+       storage.get('userData').then((userdata) => {
+          if (userdata) {
+            this.userDisplayName=userdata.display_name;
+          }
+       });
   		//this.topMenu = 'toolbarClosed';
   }
 
@@ -178,9 +185,8 @@ export class HomePage {
         console.log(res['data'].results);
         this.geoLoc.lat = res.data.results[0].geometry.location.lat;
         this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-        var distance = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
-        console.log(this.geoLoc.lat+" "+this.geoLoc.lng+" "+lat+" "+long);
-        console.log(distance);
+        this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+        console.log(this.userKm);
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -242,6 +248,11 @@ export class HomePage {
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 
   }
+  goToSetting(){
+   this.navCtrl.push('SettingsPage'); 
+  }
+
+  //----------------------Hader Animiation Start------
 public isRun1=true;
 public isRun2=false;
 public isRun3=false;
@@ -253,7 +264,7 @@ public oneForSize:any;
        this.oneForSize=ev.scrollHeight/4;
     }
     if(this.isRun1){
-      if (ev.scrollTop >= this.oneForSize&& ev.scrollTop <= this.oneForSize+100) {
+      if (ev.scrollTop >= this.oneForSize) {
           this.changeClass('1');
           this.isRun1=false;
           this.isRun2=true;
@@ -263,7 +274,7 @@ public oneForSize:any;
     }
     if(this.isRun2){
      
-      if (ev.scrollTop >= (this.oneForSize*2) && ev.scrollTop <= (this.oneForSize*2)+200) {
+      if (ev.scrollTop >= (this.oneForSize*2)) {
           this.changeClass('2');
           this.isRun2=false;
           this.isRun1=false;
@@ -272,7 +283,7 @@ public oneForSize:any;
     }
     if(this.isRun3){
       
-      if (ev.scrollTop >= (this.oneForSize*3) && ev.scrollTop <= (this.oneForSize*3)+200) {
+      if (ev.scrollTop >= (this.oneForSize*3)) {
           this.changeClass('3');
           this.isRun2=false;
           this.isRun1=false;
@@ -301,6 +312,8 @@ async changeClass(count): Promise<string> {
       
       return 'datarebjnj';
    }
+//----------------------Hader Animiation End------
+
 // ngAfterViewInit() {
 //   this.content.ionScroll.subscribe((data)=>{
 //    // console.log(data);
@@ -314,5 +327,12 @@ async changeClass(count): Promise<string> {
 //     }
 //   });
 // }
+  gotoMap(latitude,longitude){
+    console.log(latitude+'---'+longitude+'----');
+   if (this.platform.is('android')) {
+      //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
+        window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(no)', '_system');
+      };
+  }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { VideoProvider } from '../../providers/video/video';
 
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -21,7 +21,8 @@ export class VideoPage {
 
   public videolistData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider,
-    private youtube: YoutubeVideoPlayer) {
+    private youtube: YoutubeVideoPlayer,public loadingCtrl: LoadingController) {
+
  }
 
 
@@ -31,25 +32,36 @@ export class VideoPage {
     console.log('ionViewDidLoad VideoPage');
   }
   getvideo(){
+    let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      loading.present();
     this.VideoProvider.video_list().map(res => res.json()).subscribe((res) => {
       	this.videolistData=res;
         // this.videolistDatamsg = res.msg;
         // this.videolistDatastatus = res.status;
         console.log(this.videolistData);
+        loading.dismiss();
       }, (err) => {
-        // Unable to log in
+        loading.dismiss();
         console.log(err);
       });
 
   }
   videoByCat(cat_slug){
+    let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      loading.present();
     this.VideoProvider.videoByCat(cat_slug).map(res => res.json()).subscribe((res) => {
         this.videolistData=res;
         // this.videolistDatamsg = res.msg;
         // this.videolistDatastatus = res.status;
+        loading.dismiss();
         console.log(this.videolistData);
       }, (err) => {
         // Unable to log in
+        loading.dismiss();
         console.log(err);
       });
 

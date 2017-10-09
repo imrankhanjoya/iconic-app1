@@ -68,8 +68,8 @@ export class KrishProvider {
     Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
     Math.sin(dLon/2) * Math.sin(dLon/2); 
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-    var d = R * c; // Distance in km
-    return d;
+    var d = (R * c).toFixed(0); // Distance in km
+    return d+"Km";
   }
 
   deg2rad(deg) {
