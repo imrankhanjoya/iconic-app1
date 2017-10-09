@@ -27,7 +27,7 @@ export class CropdetailPage {
 		content: 'Please wait...'
 		});
 		loading.present();
-		this.cropsProvider.sendCropDetail(555).map(res => res.json()).subscribe((resp) => {
+		this.cropsProvider.sendCropDetail(this.id).map(res => res.json()).subscribe((resp) => {
 		this.cropdetail=resp.data;
 		console.log(this.cropdetail);
 		console.log(this.id+'send for crop detail');
