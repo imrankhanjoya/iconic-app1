@@ -56,7 +56,15 @@
   "OTP_NUMBER_SEND_OTP": "ओटीपी भेजें",
 
   "MENU":"बहुत अच्छ",
-  
+
+  "CROP_DETAIL_GENRAL":"सामान्य",
+  "CROP_DETAIL_VERIETIES":"किस्में",
+  "CROP_DETAIL_DEASEASE":"रोग",
+   "CROP_DETAIL_INSECT":"कीट",
+   "CROP_DETAIL_WATER":"जल प्रबंधन",
+   "CROP_LIST":"फसल सूची",
+   "CROP_TYPE":"फसल प्रकार",
+
   "VERIFY_TITLE": "नंबर सत्यापित करें",
   "VERIFY_THANKS": "बहुत धन्यवाद",
   "VERIFY_TYPE_OTP": "मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज करें?",

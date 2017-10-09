@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Crop List</ion-title>
+    <ion-title>{{'CROP_LIST' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,11 +23,11 @@
 	    </ion-row>
 	</ion-grid>
 	<ion-row>
-		
+
 	      	<ion-card   class="produtimage" (click)="gotocropdetail(crops.id)" *ngFor="let crops of cropList.data;">
 	        	<img  src="{{crops.image}}"/>
 	        	<div class="sarsTitle colorGrey Headline alignCenter paddingTop">{{crops.name}}</div>
 	      	</ion-card>
-	  	
+
 	</ion-row>
 </ion-content>

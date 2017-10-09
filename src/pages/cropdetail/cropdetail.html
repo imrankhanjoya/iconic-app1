@@ -9,27 +9,27 @@
   <ion-navbar>
     <ion-title>{{cropdetail.name}}</ion-title>
   </ion-navbar>
-	<ion-segment  class="themeColor" [(ngModel)]="Crop">
-		<ion-segment-button class="themeColor"  value="General">
-		  General
+	<ion-segment class="themeColor" [(ngModel)]="Crop">
+		<ion-segment-button class="themeColor" value="General">
+		  {{'CROP_DETAIL_GENRAL' | translate}}
 		</ion-segment-button>
-		<ion-segment-button value="Desease">
-		  Disease
-		</ion-segment-button>
-		<ion-segment-button value="Insect">
-		  Insect
-		</ion-segment-button>
-		<ion-segment-button value="Varities">
-		  Varieties
-		</ion-segment-button>
+    <ion-segment-button value="Desease">
+		 {{'CROP_DETAIL_DEASEASE' | translate}}
+   		</ion-segment-button>
+      <ion-segment-button value="Insect">
+  		  {{'CROP_DETAIL_INSECT' | translate}}
+  		</ion-segment-button>
+      <ion-segment-button value="Varities">
+        {{'CROP_DETAIL_VERIETIES' | translate}}
+      </ion-segment-button>
 		<ion-segment-button value="Water">
-		  Water Management
+      {{'CROP_DETAIL_WATER' | translate}}
 		</ion-segment-button>
 	</ion-segment>
 </ion-header>
 
 
-<ion-content>
+<ion-content >
 
 
 	<div [ngSwitch]="Crop">
@@ -45,10 +45,10 @@
 			    	({{cropdetail.crop_type}})
 			    </div>
 				<div  *ngFor="let AllDetails of cropdetail.AllDetail;"  >
-					<div class="headline paddingTop fontBold" >{{AllDetails.key}}</div> 
+					<div class="headline paddingTop fontBold" >{{AllDetails.key}}</div>
 					<div class="pContent headline">{{AllDetails.value}}</div>
-				</div>
 			</div>
+      </div>
 	  	</ion-card>
 
 
@@ -58,10 +58,10 @@
 		    	<img class="cropimage paddingTop alignCenter" src="{{Deseas.picture}}"/>
 				<div class="paddingLeft" >
 					<div>
-						<div class="smallTitle fontBold">{{Deseas.desease_name}}</div> 
+						<div class="smallTitle fontBold">{{Deseas.desease_name}}</div>
 						<div class="headline fontBold paddingTop ">Nature of Damage:</div>
 						<div class="headline">{{Deseas.cause_nature_damage}}</div>
-						
+
 						<div class="headline fontBold paddingTop colorGrey">Management:</div>
 						<div class="headline paddingBottom colorGrey separator">{{Deseas.management}}</div>
 					</div>
@@ -77,21 +77,20 @@
 			<div >
 				<div class="paddingLeft" >
 					<div>
-						<div class="smallTitle fontBold paddingTop">{{Varity.improved_varieties}}</div> 
+						<div class="smallTitle fontBold paddingTop">{{Varity.improved_varieties}}</div>
 
 						<div class="headline fontBold paddingTop ">Avergae Yield</div>
 						<div class="headline">{{Varity.average_yield}}</div>
 
 						<div class="headline fontBold paddingTop ">Maturity Period</div>
 						<div class="headline">{{Varity.maturity_period}} Days</div>
-						
+
 						<div class="headline fontBold paddingTop ">Characterists</div>
 						<div class="headline colorGrey">{{Varity.characteristics}}</div>
 
 						<div class="headline fontBold paddingTop ">Special Features</div>
 						<div class="headline paddingBottom separator colorGrey">{{Varity.special_features}}</div>
 
-						
 					</div>
 				</div>
 			</div>
@@ -104,10 +103,10 @@
 		    	<img class="cropimage paddingTop alignCenter" src="{{Insects.picture}}"/>
 				<div class="paddingLeft" >
 					<div>
-						<div class="smallTitle fontBold">{{Insects.insects_name}}</div> 
+						<div class="smallTitle fontBold">{{Insects.insects_name}}</div>
 						<div class="headline fontBold paddingTop ">Nature of Damage:</div>
 						<div class="headline">{{Insects.insects_damage}}</div>
-						
+
 						<div class="headline fontBold paddingTop ">Management:</div>
 						<div class="headline paddingBottom separator colorGrey">{{Insects.management}}</div>
 					</div>
@@ -119,24 +118,20 @@
 		<div *ngSwitchCase="'Water'">
 	  		<ion-row  *ngFor="let waters of cropdetail.WaterManagement;">
 			<div >
-		    	
+
 				<div class="paddingLeft" >
 					<div>
 						<div class="headline fontBold paddingTop ">Sowing Time: {{waters.sowing_time}}</div>
 
 						<div class="headline fontBold paddingTop ">Districts: {{waters.districts}}</div>
-						
-						
+
+
 						<div class="headline paddingTop paddingBottom separator colorGrey">{{waters.water}}</div>
 					</div>
 				</div>
 			</div>
 		</ion-row>
 	  	</div>
-	  <ion-list *ngSwitchCase="'water_management'">
-	    <ion-item>
-			water_management
-	    </ion-item>
-	  </ion-list>
+
 	</div>
 </ion-content>

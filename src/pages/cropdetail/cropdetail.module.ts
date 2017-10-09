@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CropdetailPage } from './cropdetail';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { CropdetailPage } from './cropdetail';
   ],
   imports: [
     IonicPageModule.forChild(CropdetailPage),
+    TranslateModule.forChild()
   ],
 })
 export class CropdetailPageModule {}

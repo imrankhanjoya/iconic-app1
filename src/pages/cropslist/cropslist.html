@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cropslist</ion-title>
+    <ion-title>{{'CROP_LIST' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,7 +23,7 @@
           <div class="headerClass">{{'MARKET'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 
 
   <!-------Product Sectopn------>
@@ -46,13 +46,13 @@
       	<ion-card>
         	<img class="produtimage" src="{{productData.feature_image}}"/>
         	<div class="sarsTitle colorGrey smallTitle">{{crops.name}}</div>
-        	<div class="detailSar colorGreen smallTitle"> विनती पर मुल्य</div>
+        	<div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
       	</ion-card>
     </ion-slide>
   </ion-slides>
 </ion-row>
   <!-------END Product Sectopn------>
-	
+
 
 
 </div>

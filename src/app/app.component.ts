@@ -32,7 +32,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Menu', component: 'MenuPage' },
+    { title: 'Menu', component: 'MenuPage'},
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' },
     { title: 'News', component: 'NewsPage' },
