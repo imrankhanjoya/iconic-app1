@@ -69,6 +69,8 @@ export class VerifyNumberPage {
              loading.dismiss();
             }else{
               alert(resp.msg)
+              this.storage.set('userPhone', this.phoneNumber);
+              this.storage.set('userOTP', this.otp);
               this.navCtrl.push('SignupPage');
               console.log(resp.msg);
               loading.dismiss();

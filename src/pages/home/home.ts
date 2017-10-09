@@ -54,6 +54,8 @@ export class HomePage {
   public maindiIconClass:any;
   public userDisplayName:any;
   public userKm:any;
+  public userId:any;
+  public userStateId:any;
   
 
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
@@ -64,8 +66,12 @@ export class HomePage {
       
        storage.get('userData').then((userdata) => {
           if (userdata) {
+            this.userId=userdata.ID;
             this.userDisplayName=userdata.display_name;
           }
+       });
+       storage.get('userStateId').then((userdata) => {
+          this.userStateId=userdata;
        });
   		//this.topMenu = 'toolbarClosed';
   }
@@ -133,7 +139,7 @@ export class HomePage {
   
 
   getMandiData(){
-    this.mandi.usermandi().map(res => res.json()).subscribe((res) => {
+    this.mandi.usermandi(this.userId,this.userStateId).map(res => res.json()).subscribe((res) => {
         this.mandidata= res.data[0] ;
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];        

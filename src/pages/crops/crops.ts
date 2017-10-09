@@ -142,7 +142,7 @@ export class CropsPage {
       loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);
-       this.navCtrl.push('MainPage');
+       this.navCtrl.push('LoginPage');
       }else{
         console.log(resp.status);
         alert(resp.msg);

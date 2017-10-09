@@ -45,9 +45,11 @@ export class MandiProvider {
 
     return seq;
   }
-   usermandi() {
+   usermandi(userId,stateId) {
+
+
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={page:0,state_id:12};
+    var paramCond ={page:0,state_id:stateId,user_id:userId};
     let seq = this.api.get('v1/user-detail/mandi', paramCond).share();
 
     seq
