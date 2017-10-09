@@ -10,4 +10,4 @@ export const Tab1Root = 'HomePage';
 export const Tab2Root = 'KrishCenterPage';
 export const Tab3Root = 'NewsPage';
 export const Tab4Root = 'ChoupalPage';
-export const Tab5Root = 'ItemCreatePage';
+export const Tab5Root = 'MarketPage';
