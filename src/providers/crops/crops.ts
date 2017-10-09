@@ -36,7 +36,7 @@ export class CropsProvider {
 	}
 
 	sendCropGroupType(lang,crop_type){
-		var paramCond ={lang:'en_US',crop_type:crop_type};
+		var paramCond ={lang:'hi_IN',crop_type:crop_type};
 		let seq = this.api.get('v1/crops/find',paramCond).share();
 
 		seq
@@ -54,7 +54,7 @@ export class CropsProvider {
 	}
 
 	sendCropDetail(crop_id){
-		var paramCond ={crop_id:crop_id};
+		var paramCond ={crop_id:crop_id,lang:'hi_IN'};
 		let seq = this.api.get('/v1/crops/view',paramCond).share();
 
 		seq
