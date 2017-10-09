@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -12,12 +13,31 @@ export class ItemCreatePage {
   @ViewChild('fileInput') fileInput;
 
   isReadyToSave: boolean;
-
   item: any;
-
   form: FormGroup;
+  public userDisplayName:any;
+  public userState:any;
+  public userDict:any;
+  public userPhome:any;
+  
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder,
+    public camera: Camera,public storage:Storage) {
+
+    storage.get('userName').then((userdata) => {
+      this.userDisplayName=userdata;
+    });
+    storage.get('userState').then((userdata) => {
+      this.userState=userdata;
+    });
+    storage.get('userDictrict').then((userdata) => {
+      this.userDict=userdata;
+    });
+    storage.get('userPhone').then((userdata) => {
+      this.userPhome=userdata;
+    });
+
+
     this.form = formBuilder.group({
       profilePic: [''],
       name: ['', Validators.required],

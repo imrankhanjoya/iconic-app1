@@ -84,15 +84,18 @@
 
   onStateSelect(stateid) {
     console.log('------'+stateid);
-    //this.loading.present();
-    this.storage.set('userStateId',stateid);
-    this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
+    var array = stateid.split('~');
+    this.storage.set('userStateId',array[0]);
+    this.storage.set('userState',array[1]);
+    this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
         this.districtList=resp.data;
         //  this.loading.dismiss();
       }); 
   }
   onDistrictSelect(districtId){
-    this.storage.set('userDictrictId',districtId);
+    var array = districtId.split('~');
+    this.storage.set('userDictrictId',array[0]);
+    this.storage.set('userDictrict',array[1]);
     this.navCtrl.push('CropsPage');
   }
 }

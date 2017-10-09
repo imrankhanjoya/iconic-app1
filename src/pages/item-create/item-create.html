@@ -25,14 +25,14 @@
 <ion-content >
 <ion-card>
   <img class="circle-pic" src="assets/img/IMG_0560.JPG">
-  <p class="Name"> रमेश शर्मा</p>
+  <p class="Name"> {{userDisplayName}}</p>
   <ion-grid>
   <ion-row>
     <ion-col col-3>
       <img  src="assets/img/agri bolo icon/hdpi/placeholder (1).png">
     </ion-col>
     <ion-col class="colText">
-      71 पिलग्रीम एवेन्यू चेवी चेस, एमडी 20815
+      {{userDict}} {{userState}}
     </ion-col>
   </ion-row>
   <ion-row>
@@ -40,7 +40,7 @@
       <img  src="assets/img/agri bolo icon/hdpi/phone-call.png">
     </ion-col>
     <ion-col class="colText">
-      +91 9945872308
+      +91 {{userPhome}}
     </ion-col>
   </ion-row>
   <ion-row>
