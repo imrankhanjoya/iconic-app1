@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { LoadingController } from 'ionic-angular';
+import { CallProvider } from '../../providers/call/call';
 
 /**
  * Generated class for the MarketPage page.
@@ -19,7 +20,8 @@ export class MarketPage {
   public limit:'100';
   public loading :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  constructor(public loadingCtrl: LoadingController, navCtrl: NavController, public navParams: NavParams,public market:MarketproProvider) {
+  constructor(public loadingCtrl: LoadingController, navCtrl: NavController, public navParams: NavParams,
+    public market:MarketproProvider,public callProvider:CallProvider) {
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
@@ -48,6 +50,9 @@ export class MarketPage {
         console.log(err);
       });
 
+  }
+  mackCall(){
+    this.callProvider.makeCall();
   }
 
 }

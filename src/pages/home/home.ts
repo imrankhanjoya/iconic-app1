@@ -11,6 +11,7 @@ import { ExpertproviderProvider } from '../../providers/expertprovider/expertpro
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
+import { CallProvider } from '../../providers/call/call';
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
@@ -46,18 +47,19 @@ export class HomePage {
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public geoLoc:{lat:any,lng:any} = {lat:29.0942542,lng:75.9646484};
+  public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public rotateClass:any;
   public toolbarClass:any;
   public maindiIconClass:any;
   public userDisplayName:any;
+  public userKm:any;
   
 
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
-    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2) {
+    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider) {
     this.rotateClass="";
       
        storage.get('userData').then((userdata) => {
@@ -184,9 +186,8 @@ export class HomePage {
         console.log(res['data'].results);
         this.geoLoc.lat = res.data.results[0].geometry.location.lat;
         this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-        var distance = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
-        console.log(this.geoLoc.lat+" "+this.geoLoc.lng+" "+lat+" "+long);
-        console.log(distance);
+        this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+        console.log(this.userKm);
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -333,6 +334,10 @@ async changeClass(count): Promise<string> {
       //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
         window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(no)', '_system');
       };
+  }
+
+  mackCall(){
+    this.callProvider.makeCall();
   }
 
 }

@@ -317,7 +317,7 @@
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
         <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
-        <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
+        <div class="detailSar colorGreen smallTitle" (click)="mackCall()"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
     <ion-slide class="slideItem ">
@@ -390,7 +390,7 @@
   <ion-grid>
       <ion-row>
       <ion-col >
-          <p>कृषि केंद्र 10 किमी दूर है..</p>
+          <p>कृषि केंद्र {{userKm}} किमी दूर है..</p>
       </ion-col>
       <ion-col >
           <button ion-button small class="button" padding-left padding-right (click)="gotoMap(geoLoc.lat,geoLoc.lng)" >GOTO LOCTION</button>

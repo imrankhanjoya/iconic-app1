@@ -31,25 +31,31 @@
     <ion-list >
           <div  *ngFor="let data of choupaldata.data;let i=index " style=" border-radius: 5px; margin:10px;  ">
 
-          <div style="display: inline-block; min-width: 60%" *ngIf="data.uid!=userId">
-            <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' "  >
-
-              <ion-avatar item-start *ngIf="data.uid!=userId">
-              <img src="{{data.user_profile_image}}" >
-              </ion-avatar>
-
-                <h3 *ngIf="data.uid!=userId" >{{data.display_name}}</h3>
-                <p style="white-space:pre-wrap">{{data.message}}</p>
-                <p>{{data.ago}}</p>
-            </ion-item>
+          
+          <div class=" fullWidth" >
+            <ion-row class=" boxAlignLeft " *ngIf="data.uid!=userId" >
+              
+              <div class="backgroundColorLightGreen formatBubbleLeft paddingTop ">  
+              <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}}</div>
+                <div style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop ">{{data.message}}</div>
+              </div>
+                <div class="bubbleDateFormat textAlignLeft floatLeft colorGreen subHeadingFont">{{data.ago}}</div>
+            </ion-row>
           </div>
-          <div style="display: inline-block; min-width: 60%; float: right" *ngIf="data.uid==userId">
-            <ion-item [style.background-color]=" data.uid != userId ? '#f8f8f8' : '#eef5e1' "  >
-                <h3 *ngIf="data.uid!=userId" >Finn</h3>
-                <p style="white-space:pre-wrap">{{data.message}}</p>
-                <p style="text-align:right">{{data.ago}}</p>
-            </ion-item>
-          </div>
+          
+
+
+
+            <div  class="paddingTop">
+            <ion-row  class="boxAlignRight" style="width:100%;" *ngIf="data.uid==userId">
+                <br>
+                <div  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop ">{{data.message}}</div>    
+                <div class="bubbleDateFormat floatRight colorGreen subHeadingFont">{{data.ago}}</div>
+            </ion-row>
+
+            
+            </div>            
+          
 
 
         </div>
@@ -65,15 +71,17 @@
     <ion-card>
 
     <ion-row >
-      <ion-col col-2>
-        <img src="assets/img/agri bolo icon/hdpi/attachment.png"/>
+      <ion-col col-1>
+         <ion-icon name="attach"></ion-icon>
       </ion-col>
-      <ion-col col-8>
+      <ion-col col-10>
       <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
       </ion-input>
       </ion-col>
-      <ion-col col-2>
-      <img  (click)="postCopal()"  src="{{sendIcon}}"/>
+      <ion-col col-1>
+      <ion-icon name="md-send" class="caption" (click)="postCopal()"></ion-icon>
+
+      
       </ion-col>
     </ion-row>
     </ion-card>
