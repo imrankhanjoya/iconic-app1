@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingControllers } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ExpertsProvider } from '../../providers/experts/experts';
 
 /**
@@ -16,6 +16,7 @@ import { ExpertsProvider } from '../../providers/experts/experts';
 })
 export class ExpertsDetailPage {
   public expertid:any;
+  public loading:any;
   public expertdetail:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public experts:ExpertsProvider,
     public loadingCtrl: LoadingController) {
