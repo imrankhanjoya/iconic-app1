@@ -43,7 +43,7 @@
   </ion-row>
   <div class="{{toolbarClass}}" *ngIf="topMenu">
   <ion-row class="gridRow" >
-    
+
       <ion-col class="toolbarCol" (click)="gotoAskquestion()">
         <img src="assets/img/agri bolo icon/hdpi/Group 36.png">
           {{'MANAGED' | translate }}
@@ -59,7 +59,7 @@
       <ion-col class="toolbarCol">
 
       </ion-col>
-    
+
   </ion-row>
   </div>
   </ion-grid>
@@ -90,11 +90,11 @@
             {{announceList.data[0].title}}
           </div>
         </ion-row>
-          
+
         </ion-col>
       </ion-row>
     </ion-grid>
-    
+
   </ion-card>
 
 
@@ -151,7 +151,7 @@
 <!----Start Mandi Section-->
 
 
-  
+
 
   <ion-grid>
       <ion-row>
@@ -186,11 +186,11 @@
 
   </ion-row>
   <ion-row>
-    
+
     <iframe style="width: 100%; height: 200px; overflow: hidden; border: none;" src="http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/mandi-map&market_id=792&commodity_id=230"></iframe>
 
   </ion-row>
-        
+
   </ion-grid>
   <ion-grid>
   <ion-row padding-top class="weatherfoter">
@@ -213,7 +213,7 @@
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
      <ion-col>
-      
+
       <div class="alignCenter">
         <button ion-button  class="buttonGreen"  (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</button>
     </div>
@@ -238,10 +238,10 @@
           <div class="headerClass">{{'SPECIALIST'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 
    <ion-slides  [slidesPerView]="'auto'" >
-        
+
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
               <ion-card class="image-card" >
                 <img src="{{expert.attachments}}" >
@@ -261,10 +261,10 @@
                 </div>
               </ion-card>
           </ion-slide>
-           
+
    </ion-slides>
 
-  
+
 
   <ion-grid>
       <ion-row>
@@ -272,7 +272,7 @@
           <div class="headerClass">{{'NEWS'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 
   <ion-card>
       <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
@@ -301,7 +301,7 @@
   </ion-card>
 
 <!------Start Product Sectoipn---->
- 
+
 
   <ion-grid>
       <ion-row>
@@ -309,7 +309,7 @@
           <div class="headerClass">{{'MARKET'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 
 
   <ion-slides [slidesPerView]="'auto'">
@@ -325,7 +325,7 @@
           <div class="see-title-box">
           <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
           </div>
-      </ion-card>    
+      </ion-card>
 
   </ion-slide>
   </ion-slides>
@@ -349,14 +349,14 @@
   </ion-card>
 
 
- 
+
   <ion-grid>
       <ion-row>
       <ion-col class="cardHeader">
           <div class="headerClass">{{'VIDEO'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 
   <ion-card class="vedioCard">
   <ion-row><img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" ></ion-row>
@@ -366,13 +366,13 @@
     <div class="alignCenter">
       <button ion-button  class="buttonGreen"  (click)="gotoVedio()">{{'SEE_MORE' | translate}}</button>
     </div>
-    
+
   </div>
-  
-  
+
+
   </ion-card >
 
-  
+
 
   <ion-grid>
       <ion-row>
@@ -380,26 +380,26 @@
           <div class="headerClass">{{'AGRICULTURAL_CENTER'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid> 
+  </ion-grid>
 
 
 
   <ion-card >
   <img src="https://maps.googleapis.com/maps/api/staticmap?center={{geoLoc.lat}},{{geoLoc.lng}}&zoom=16&size=400x400&markers=color:green%7Clabel:k%7C{{geoLoc.lat}},{{geoLoc.lng}}&key=AIzaSyDyovCt6Vv3pefuZ0JdQC9caXFg3NNf2R0">
-  
+
   <ion-grid>
       <ion-row>
       <ion-col >
-          <p>कृषि केंद्र {{userKm}} किमी दूर है..</p>
+          <p>{{'HOME_KM' | translate}}.</p>
       </ion-col>
       <ion-col >
-          <button ion-button small class="button" padding-left padding-right (click)="gotoMap(geoLoc.lat,geoLoc.lng)" >GOTO LOCTION</button>
+          <button ion-button small class="button" padding-left padding-right (click)="gotoMap(geoLoc.lat,geoLoc.lng)" >{{'HOME_GOTO_LUCTION' | translate}}</button>
       </ion-col>
     </ion-row>
-  </ion-grid> 
-  
-  
-  
+  </ion-grid>
+
+
+
   </ion-card >
 
 
