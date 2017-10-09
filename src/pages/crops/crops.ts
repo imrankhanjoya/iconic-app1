@@ -138,11 +138,11 @@ export class CropsPage {
       this.userDictrictId+'-----'+'village'+'-----'+JSON.stringify(selectedCrops)+'-----');
 
     this.user.userRegister(this.userLat,this.userLong,this.userPhone,this.userName,this.userPassword,this.lang,
-      this.userStateId,this.userDictrictId,'village',selectedCrops).map(res => res.json()).subscribe((resp) => {
+      this.userStateId,this.userDictrictId,'village',JSON.stringify(selectedCrops)).map(res => res.json()).subscribe((resp) => {
       loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);
-       this.navCtrl.push('  MainPage');
+       this.navCtrl.push('MainPage');
       }else{
         console.log(resp.status);
         alert(resp.msg);
