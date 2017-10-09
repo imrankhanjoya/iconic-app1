@@ -349,6 +349,6 @@ async changeClass(count): Promise<string> {
     console.log('videoid  : '+videoid);
     this.youtube.openVideo(videoid);
   }
-  }
+  
 
 }
