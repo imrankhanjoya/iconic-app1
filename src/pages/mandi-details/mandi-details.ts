@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 
 /**
@@ -17,7 +17,13 @@ import { MandiProvider } from '../../providers/mandi/mandi';
 export class MandiDetailsPage {
    public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
 //  public mandiData:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,) {
+  public loading:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
+    public loadingCtrl: LoadingController) {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+     this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -27,10 +33,10 @@ export class MandiDetailsPage {
    getMandiDetails(){
     this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
         this.mandiData= res;
-        
+        this.loading.dismiss();
         console.log(this.mandiData);
       }, (err) => {
-        // Unable to log in
+        this.loading.dismiss();
         console.log(err);
       });
 
