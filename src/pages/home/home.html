@@ -317,7 +317,7 @@
       <ion-card>
         <img class="produtimage" src="{{productData.feature_image}}"/>
         <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
-        <div class="detailSar colorGreen smallTitle"> {{'VALUE_ON_REQUEST' | translate}}</div>
+        <div class="detailSar colorGreen smallTitle" (click)="mackCall()"> {{'VALUE_ON_REQUEST' | translate}}</div>
       </ion-card>
     </ion-slide>
     <ion-slide class="slideItem ">

@@ -11,6 +11,7 @@ import { ExpertproviderProvider } from '../../providers/expertprovider/expertpro
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
+import { CallProvider } from '../../providers/call/call';
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
@@ -58,7 +59,7 @@ export class HomePage {
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
-    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2) {
+    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider) {
     this.rotateClass="";
       
        storage.get('userData').then((userdata) => {
@@ -333,6 +334,10 @@ async changeClass(count): Promise<string> {
       //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
         window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(no)', '_system');
       };
+  }
+
+  mackCall(){
+    this.callProvider.makeCall();
   }
 
 }

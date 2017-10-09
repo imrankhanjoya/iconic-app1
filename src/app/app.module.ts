@@ -42,6 +42,7 @@ import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResul
 import { CropsProvider } from '../providers/crops/crops';
 import { CroplistProvider } from '../providers/croplist/croplist';
 import { CroptyeProvider } from '../providers/croptye/croptye';
+import { CallProvider } from '../providers/call/call';
 
 
 // The translate loader needs to know where to load i18n files
@@ -122,7 +123,8 @@ export function provideSettings(storage: Storage) {
     NativeGeocoder,
     CropsProvider,
     CroplistProvider,
-    CroptyeProvider
+    CroptyeProvider,
+    CallProvider
   ]
 })
 export class AppModule { }
