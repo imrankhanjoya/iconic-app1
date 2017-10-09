@@ -46,12 +46,13 @@ export class HomePage {
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public geoLoc:{lat:any,lng:any} = {lat:29.0942542,lng:75.9646484};
+  public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public rotateClass:any;
   public toolbarClass:any;
   public maindiIconClass:any;
   public userDisplayName:any;
+  public userKm:any;
   
 
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
@@ -184,9 +185,8 @@ export class HomePage {
         console.log(res['data'].results);
         this.geoLoc.lat = res.data.results[0].geometry.location.lat;
         this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-        var distance = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
-        console.log(this.geoLoc.lat+" "+this.geoLoc.lng+" "+lat+" "+long);
-        console.log(distance);
+        this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+        console.log(this.userKm);
       }, (err) => {
         // Unable to log in
         console.log(err);
