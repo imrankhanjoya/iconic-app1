@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
+import { MainPage } from '../pages';
+import { Storage } from '@ionic/storage';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -19,7 +21,8 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
-  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService, public platform: Platform) {
+  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService,
+    public platform: Platform,public storage:Storage) {
     this.dir = platform.dir();
     translate.get(["TUTORIAL_SLIDE1_TITLE",
       "TUTORIAL_SLIDE1_DESCRIPTION",
@@ -48,6 +51,23 @@ export class TutorialPage {
           }
         ];
       });
+    
+    setTimeout(()=>{
+      storage.get('isLogin').then((userlogin) => {
+          if (userlogin) {
+            this.navCtrl.setRoot(MainPage, {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          }else if(!userlogin){
+            this.navCtrl.setRoot('WelcomePage', {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          }
+          
+       });
+      },3000);
   }
 
   startApp() {

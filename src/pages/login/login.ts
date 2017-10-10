@@ -49,15 +49,18 @@ export class LoginPage {
       });
       loading.present();
      this.user.login(this.RegisterData.user_name,this.RegisterData.userPassword).map(res => res.json()).subscribe((resp) => {
-      loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);
+       this.storage.set('isLogin',true);
        this.navCtrl.push(MainPage);
       }else{
+        this.storage.set('isLogin',false);
         console.log(resp.status);
         alert(resp.msg);
       }
+      loading.dismiss();
      }, (err) => {
+      this.storage.set('isLogin',true);
       loading.dismiss();
     });
    }
