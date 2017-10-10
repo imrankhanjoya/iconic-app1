@@ -18,7 +18,7 @@ import { Settings } from '../providers/providers';
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
+          {{p.title | translate}}
         </button>
       </ion-list>
     </ion-content>
@@ -32,12 +32,11 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Menu', component: 'MenuPage'},
+    { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' },
-    { title: 'News', component: 'NewsPage' },
-    { title: 'Home', component: 'HomePage' },
-    { title: 'marketselect', component: 'MarketselectPage' },
+    { title: 'Privacy & Policy', component: 'HomePage' },
+    { title: 'About Us', component: 'MarketselectPage' },
 
 
 

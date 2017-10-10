@@ -31,6 +31,7 @@
 
   "WELCOME_INTRO": "अपने अगले महान आयनिक ऐप के लिए शुरुआती बिंदु",
   "SETTINGS_TITLE": "सेटिंग्स",
+  "Settings": "सेटिंग्स",
   "SETTINGS_OPTION1": "विकल्प 1",
   "SETTINGS_OPTION2": "विकल्प 2",
   "SETTINGS_OPTION3": "विकल्प 3",
@@ -41,6 +42,9 @@
   "SETTINGS_CHANGE_CROPS": "फसल बदलें",
   "SETTINGS_CHANGE_LOCATION": "स्थान बदलें",
   "SETTINGS_PROFILE_BUTTON": "प्रोफाइल एडिट करें",
+  "Profile": "प्रोफाइल",
+  "Privacy & Policy": "गोपनीयता नीति",
+  "About Us": "हमारे बारे में",
   "WELCOME_TITLE": "स्वागत हे",
 
   "LOGIN_TITLE": "साइन इन करें",
@@ -124,6 +128,7 @@
   "RS_PER_QUINTAL":"₹ प्रति क्विंटल",
   "SEE_MORE":"और देखें",
   "SPECIALIST":"विशेषज्ञ",
+  "Search": "खोज",
   "SEARCH_TITLE": "खोज",
   "PTI_AND_UPDATE":"पीटीआई और अद्यतन",
   "VALUE_ON_REQUEST":"विनती पर मुल्य",
