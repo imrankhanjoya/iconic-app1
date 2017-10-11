@@ -108,11 +108,9 @@
 
   "ITEM_NAME_PLACEHOLDER": "नाम",
   "ITEM_ABOUT_PLACEHOLDER": "के बारे में",
-
   "DONE_BUTTON": "किया हुआ",
   "CANCEL_BUTTON": "रद्द करना",
   "DELETE_BUTTON": "हटाना",
-
   "CARDS_TITLE": "सामाजिक",
   "NEWS":"समाचार",
   "WEATHER":"मौसम",
@@ -137,6 +135,7 @@
   "SEARCH_THE_WAY":"रास्ते खोजें",
   "CHOPAL":"चौपाल",
   "TABS_HOME":"घर",
+  "Home":"घर",
   "TABS_ITEM_CREATE":"आइटम बनाएं",
   "ASK_QUESTION":"प्रश्न",
   "ASK_QUESTION_TITLE":"कृषि में युग्म पैदावार किसे कहते है?",

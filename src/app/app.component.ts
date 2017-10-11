@@ -11,7 +11,7 @@ import { Settings } from '../providers/providers';
   template: `<ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Pages</ion-title>
+        <ion-title>{{'Profile' | translate}}</ion-title>
       </ion-toolbar>
     </ion-header>
 

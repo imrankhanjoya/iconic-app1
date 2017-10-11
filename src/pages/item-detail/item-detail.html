@@ -1,7 +1,12 @@
 <ion-header>
 
+ 
+  
   <ion-navbar>
-    <ion-title>Change Password</ion-title>
+    <button ion-button menuToggle class="menufontcolor">
+    <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title>{{'Profile' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,8 +14,8 @@
 
 <ion-content>
   <ion-card>
-  <img class="circle-pic" src="assets/img/IMG_0560.JPG">
-  <p class="Name"> रमेश शर्मा</p>
+  <img class="circle-pic" src="assets/img/appicon.png">
+  <p class="Name"> {{userlogin.display_name}}</p>
  <div>
 
  <ion-item>
@@ -28,9 +33,17 @@
     <ion-input  [(ngModel)]="confirmPassword" name="confirmPassword" value="" type="password"></ion-input>
   </ion-item>
 
+<ion-item>
+  <div>
+<p class="password" (click)="gotoprofile()">पासवर्ड बदलें</p>
 </div>
+</ion-item>
+</div>
+
 <div  class="p_button">
     <button class="p_1"  >ठीक हे </button>
   </div>
+
+  
 </ion-card>
 </ion-content>
