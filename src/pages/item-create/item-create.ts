@@ -19,24 +19,22 @@ export class ItemCreatePage {
   public userState:any;
   public userDict:any;
   public userPhome:any;
+  public userlogin:{display_name:string,phone:string,userDict:any,userState:any}={display_name:'',phone:'',userDict:'',userState:''};
   
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder,
     public camera: Camera,public storage:Storage) {
 
-    storage.get('userName').then((userdata) => {
-      this.userDisplayName=userdata;
-    });
-    storage.get('userState').then((userdata) => {
-      this.userState=userdata;
-    });
-    storage.get('userDictrict').then((userdata) => {
-      this.userDict=userdata;
-    });
-    storage.get('userPhone').then((userdata) => {
-      this.userPhome=userdata;
-    });
+    
+    storage.get('userData').then((userlogin) => {
 
+      this.userlogin.display_name = userlogin.display_name;
+      this.userlogin.phone = userlogin.user_login;
+      this.userlogin.userState = userlogin._user_state;
+      this.userlogin.userDict = userlogin._user_state;
+      console.log(userlogin);
+    });
+    
 
     this.form = formBuilder.group({
       profilePic: [''],

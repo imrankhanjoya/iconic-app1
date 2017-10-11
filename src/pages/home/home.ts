@@ -82,9 +82,9 @@ export class HomePage {
        console.log(resp);
        this.storage.set('userLoction',resp.coords);
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
-      }).catch((error) => {
-        console.log('Error getting location', error);
-      });
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
     this.getMandiData();
     this.getNews();
     this.getweather(127900);

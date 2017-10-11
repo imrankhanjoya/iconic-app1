@@ -16,6 +16,7 @@ export class LoginPage {
 
     public userMobilNoError:any;
     public UserPassError:any;
+    public errorMsg:any;
 
     private loginErrorString: string;
     RegisterData = {user_name:'9783555770', userPassword:'agribolo'};
@@ -24,9 +25,11 @@ export class LoginPage {
     public user: User,public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
+
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
     });
+
   }
 
   doLogin(){
@@ -51,16 +54,13 @@ export class LoginPage {
      this.user.login(this.RegisterData.user_name,this.RegisterData.userPassword).map(res => res.json()).subscribe((resp) => {
      if(resp.status==true){
        this.storage.set('userData',resp.data);
-       this.storage.set('isLogin',true);
        this.navCtrl.push(MainPage);
       }else{
-        this.storage.set('isLogin',false);
+        this.errorMsg = true;
         console.log(resp.status);
-        alert(resp.msg);
       }
       loading.dismiss();
      }, (err) => {
-      this.storage.set('isLogin',true);
       loading.dismiss();
     });
    }

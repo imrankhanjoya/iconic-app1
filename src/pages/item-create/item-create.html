@@ -1,17 +1,21 @@
 <ion-header>
 
-  <ion-navbar>
-    
-    <ion-title>{{'Profile' | translate}}</ion-title>
-  </ion-navbar>
 
+
+<ion-navbar>
+    <button menuToggle="left">
+    <ion-icon name="back"></ion-icon>
+  </button>
+        <ion-title>{{'Profile' | translate}}</ion-title>
+  </ion-navbar>
 </ion-header>
+
 
 
 <ion-content >
 <ion-card>
   <img class="circle-pic" src="assets/img/IMG_0560.JPG">
-  <p class="Name"> {{userDisplayName}}</p>
+  <p class="Name"> {{userlogin.display_name}}</p>
   <ion-grid>
   <ion-row>
     <ion-col col-3>
@@ -26,7 +30,7 @@
       <img  src="assets/img/agri bolo icon/hdpi/phone-call.png">
     </ion-col>
     <ion-col class="colText">
-      +91 {{userPhome}}
+      +91 {{userlogin.phone}}
     </ion-col>
   </ion-row>
   <ion-row>

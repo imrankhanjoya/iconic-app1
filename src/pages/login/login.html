@@ -8,7 +8,12 @@
 
 
 
- <ion-item>
+ <ion-item *ngIf="errorMsg==true">
+   <div class="error"   >
+      {{'LOGIN_ERROR' | translate}}
+   </div>
+ </ion-item>
+<ion-item>
     <ion-label  floating>{{'LOGIN_PHONE_NUMBER' | translate}}</ion-label>
     <ion-input [(ngModel)]="RegisterData.user_name" name="user_name" value="" type="number"></ion-input>
  </ion-item>

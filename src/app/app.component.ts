@@ -32,6 +32,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
+    { title: 'Home', component: 'HomePage'},
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' },
