@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
+import { Storage } from '@ionic/storage';
 
 //import { Storage } from '@ionic/storage';
 
@@ -11,20 +12,24 @@ import { Settings } from '../providers/providers';
   template: `<ion-menu [content]="content">
     
 
-    <ion-content>
-    <ion-row class="MenuHeader">
+    <ion-content style="background-color:white">
+    <ion-row class="MenuHeader" justify-content-center align-items-center>
       <img class="profilePic"  src="assets/img/marty-avatar.png">
       
     </ion-row>
-    <ion-row class="MenuHeader">
+    <ion-row class="MenuHeader" justify-content-center align-items-center>
       
-      <div class="titleFont colorGrey fontBold floatLeft"> Baran Khan</div>
+      <div class="smallTitle colorGrey fontBold floatLeft"> {{username}}</div>
     </ion-row>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title | translate}}
         </button>
       </ion-list>
+      <ion-label>Change Language</ion-label>
+      <ion-row >
+      <div class="smallTitle colorGrey fontBold floatLeft"> Change Language</div>
+    </ion-row>
     </ion-content>
 
   </ion-menu>
@@ -32,7 +37,7 @@ import { Settings } from '../providers/providers';
 })
 export class MyApp {
   rootPage = FirstRunPage;
-
+  public username : any;
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
@@ -42,14 +47,21 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' },
     { title: 'Privacy & Policy', component: 'HomePage' },
     { title: 'About Us', component: 'MarketselectPage' },
+    { title: 'Change Language', component: 'ChangeLanguage' },
 
 
 
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
-    private config: Config, private statusBar: StatusBar) {
+    private config: Config, private statusBar: StatusBar, storage:Storage) {
     this.initTranslate();
+    storage.get('userData').then((userlogin) => {
+          
+          this.username = userlogin.display_name;
+          console.log("The name is"+this.username);
+       });
+     
 
   }
 
@@ -85,4 +97,6 @@ export class MyApp {
     //console.log(page);
     this.nav.setRoot(page.component);
   }
+
+
 }
