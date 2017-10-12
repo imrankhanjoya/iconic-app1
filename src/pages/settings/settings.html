@@ -12,12 +12,9 @@
 
 <ion-content>
 
-  <ion-list>
+<ion-list>
   <ion-item [navPush]="NewsPage">
-      <button ion-button icon-right>
-      {{'SETTINGS_RIGHT_ICON' | translate}}
-      <ion-icon name="home"></ion-icon>
-      </button>
+      
   </ion-item>
   <ion-item [navPush]="NewsPage">
     <ion-icon name="globe"  item-start></ion-icon>
@@ -35,6 +32,42 @@
     <ion-icon name="compass" item-start></ion-icon>
     {{'SETTINGS_CHANGE_LOCATION' | translate}}
   </ion-item>
+
+
+  <ion-item>
+    This is form
+      <ion-item>
+        <ion-label>Todo</ion-label>
+        <ion-input type="text" [(ngModel)]="loc.state" name="state"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea [(ngModel)]="loc.district" name="district"></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" block>Add Todo</button>
+  </ion-item>
+
+  <ion-item>
+   
+
+
+  </ion-item>
+
 </ion-list>
+
+ <form [formGroup]="todo" (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label>Todo</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea formControlName="description"></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+    </form>
+
+
+
 
 </ion-content>
