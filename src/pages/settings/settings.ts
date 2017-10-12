@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -16,12 +16,21 @@ import { Settings } from '../../providers/providers';
   templateUrl: 'settings.html'
 })
 export class SettingsPage {
-  
+  private todo : FormGroup;
+  public loc:{state:string,district:string} = {state:'',district:''};
+
   constructor(public navCtrl: NavController,
     public settings: Settings,
-    public formBuilder: FormBuilder,
     public navParams: NavParams,
+    private formBuilder: FormBuilder,
     public translate: TranslateService) {
+
+    this.todo = this.formBuilder.group({
+      title: ['', Validators.required],
+      description: [''],
+    });
+
+
   }
 
  
@@ -35,5 +44,8 @@ export class SettingsPage {
 
   ngOnChanges() {
     console.log('Ng All Changes');
+  }
+logForm(){
+    console.log(this.todo.value)
   }
 }
