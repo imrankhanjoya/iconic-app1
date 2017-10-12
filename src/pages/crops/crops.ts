@@ -81,7 +81,7 @@ export class CropsPage {
       this.cropList[e].sub_type='-';
     }else {
       this.cropList[e].sub_type='true';
-    }
+    } 
     //this.storage.set('Kharif',this.skipDataList);
     console.log('--------'+this.skipDataList);
  }
