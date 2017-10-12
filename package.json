@@ -38,12 +38,8 @@
         "cordova-android": "^6.3.0",
         "cordova-plugin-camera": "^2.4.1",
         "cordova-plugin-compat": "^1.2.0",
-<<<<<<< Updated upstream
         "cordova-plugin-device": "^1.1.6",
-=======
-        "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-firebase": "^0.1.24",
->>>>>>> Stashed changes
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-inappbrowser": "^1.7.1",
         "cordova-plugin-nativegeocoder": "^2.0.3",
