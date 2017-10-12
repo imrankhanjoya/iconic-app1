@@ -95,6 +95,10 @@
    filter: alpha(opacity=40);
    zoom: 1;
 }
+
+.blockPaddingBottom{
+  padding-bottom: 5px;
+}
 .paddingTop{
 	padding-top: 16px;
 }
@@ -122,9 +126,23 @@
 .alignLeft{
 	text-align: left;
 }
+.alignRight{
+  text-align: right;
+}
 .roundImage{
 	border-radius: 5px;
 }
+
+.MenuHeader{
+  background-color:#FFFFFF; 
+  padding:20px; 
+  text-align:center;
+}
+.profilePic{
+  border-radius: 50%;
+}
+
+
 .toolbarCol{
   text-align: center;
   color: white;

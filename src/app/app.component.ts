@@ -9,13 +9,17 @@ import { Settings } from '../providers/providers';
 
 @Component({
   template: `<ion-menu [content]="content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>{{'Profile' | translate}}</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    
 
     <ion-content>
+    <ion-row class="MenuHeader">
+      <img class="profilePic"  src="assets/img/marty-avatar.png">
+      
+    </ion-row>
+    <ion-row class="MenuHeader">
+      
+      <div class="titleFont colorGrey fontBold floatLeft"> Baran Khan</div>
+    </ion-row>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title | translate}}
