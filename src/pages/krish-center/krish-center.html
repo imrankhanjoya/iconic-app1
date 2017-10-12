@@ -14,22 +14,26 @@
 
 
 <ion-content padding>
-<ion-card class="card-title" *ngFor="let data of kendraHome.data;let i=index ">
+<ion-card  *ngFor="let data of kendraHome.data;let i=index ">
 <ion-grid>
   <ion-row>
-    <ion-col col-7><p class="bhari Headline">{{data.name}} </p></ion-col>
-    <ion-col col-5 (click)="makeCall()"> <p class="colShow">{{'BY_CALLING' | translate}}</p>
-</ion-col>
+    <div class="Headline  colorGrey blockPaddingBottom">{{data.name}} </div>
+   
   </ion-row>
   <ion-row>
          <ion-col col-1><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
 </ion-col>
-<ion-col col-6>
-    <p >{{data.formatted_address}}</p>
+<ion-col col-11>
+    <div class="titleFont blockPaddingBottom" >{{data.formatted_address}}</div>
     </ion-col>
-    <ion-col col-5 (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)"> <p class="colShow">{{'SEARCH_THE_WAY'| translate}}</p></ion-col>
+ 
   </ion-row>
-  <hr>
+  <ion-row>
+       
+       <div class="colorGreen blockWidth" (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)">{{'SEARCH_THE_WAY'| translate}}</div>
+       
+        <div class="colorGreen blockWidth" (click)="makeCall()">{{'BY_CALLING' | translate}}</div>
+  </ion-row>
 </ion-grid>
 </ion-card>
 </ion-content>
