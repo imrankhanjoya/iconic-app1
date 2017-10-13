@@ -56,7 +56,7 @@
   "OTP_NUMBER_HELLO": "Hello welcome",
   "OTP_NUMBER_TYPE_OTP": "Please enter your mobile number for OTP PIN",
   "OTP_NUMBER_TYPE_NUMBER": "Enter your number",
-  "OTP_NUMBER_VALID_NUMBER": "Enter valid mobile numberं",
+  "OTP_NUMBER_VALID_NUMBER": "Enter valid mobile number",
   "OTP_NUMBER_SEND_OTP": "Send OTP",
 
   "MENU":"Very good",
