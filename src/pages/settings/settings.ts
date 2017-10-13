@@ -17,6 +17,7 @@ import { Settings } from '../../providers/providers';
 })
 export class SettingsPage {
   private todo : FormGroup;
+  public pageTitle:string;
   public loc:{state:string,district:string} = {state:'',district:''};
 
   constructor(public navCtrl: NavController,
@@ -24,6 +25,8 @@ export class SettingsPage {
     public navParams: NavParams,
     private formBuilder: FormBuilder,
     public translate: TranslateService) {
+
+    //this.pageTitle = this.navParams('pTitle');
 
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],
