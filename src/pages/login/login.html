@@ -33,11 +33,15 @@
 <div  class="p_button">
     <button class="p_1 colorGreen buttonGreen"  (click)="doLogin()" >  {{'SING_UP_GOOD' | translate}} </button>
   </div>
-  <div  class="sing" (click)="singUp()">
-    <p class="sing1">
+  <div  class="sing" >
+    <p class="sing1" (click)="singUp()">
       {{'LOGIN_NEW_USER_SING_UP' | translate}}
     </p>
+    <p class="forget" (click)="gotoForgatPassword()">
+      Forget Password
+    </p>
   </div>
+
 </ion-content>
 
 <div class="background">

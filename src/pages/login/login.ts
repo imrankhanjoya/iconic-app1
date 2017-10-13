@@ -68,4 +68,7 @@ export class LoginPage {
   singUp(){
     this.navCtrl.push('OtpNumberPage');
   }
+  gotoForgatPassword(){
+  this.navCtrl.push('ForgatePasswordMobileNumberPage');
+  }
 }
