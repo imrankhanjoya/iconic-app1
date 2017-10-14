@@ -25,10 +25,24 @@ import { Storage } from '@ionic/storage';
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title | translate}}
         </button>
+        <button menuClose ion-item (click)="openPageWithP('Crops')">
+          {{ 'Crops'| translate}}
+        </button>
       </ion-list>
-      <ion-label>Change Language</ion-label>
+      
       <ion-row >
-      <div class="smallTitle colorGrey fontBold floatLeft"> Change Language</div>
+
+      <div width-20 >
+      <div class="smallTitle colorGrey fontBold floatLeft paddingLeft">Language</div>
+      </div>
+      
+    </ion-row>
+    <ion-row class="paddingTop alignCenter">
+    
+    <div class ="colorGreen smallTitleFont fontBold " style="width:50%" (click)="setLanguage('hi')">हिंदी</div>
+    <div class="colorGrey smallTitleFont fontBold" style="width:50%" (click)="setLanguage('en')">ENGLISH</div>
+      
+      
     </ion-row>
     </ion-content>
 
@@ -44,13 +58,11 @@ export class MyApp {
     { title: 'Home', component: 'HomePage'},
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Crops', component: 'SettingsPage' },
+    { title: 'Location', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' },
     { title: 'Privacy & Policy', component: 'HomePage' },
     { title: 'About Us', component: 'MarketselectPage' },
-    { title: 'Change Language', component: 'ChangeLanguage' },
-
-
-
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
@@ -94,8 +106,14 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    //console.log(page);
+    // console.log(page);
     this.nav.setRoot(page.component);
+  }
+  openPageWithP(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    // console.log(page);
+    this.nav.setRoot('SettingsPage',{pTitle:page});
   }
 
 

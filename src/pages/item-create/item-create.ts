@@ -19,7 +19,9 @@ export class ItemCreatePage {
   public userState:any;
   public userDict:any;
   public userPhome:any;
-  public userlogin:{display_name:string,phone:string,userDict:any,userState:any}={display_name:'',phone:'',userDict:'',userState:''};
+  public userDictname:any;
+  public userStateName: any;
+  public userlogin:{display_name:string,phone:string,userDict:any,userState:any,userDictName:any, userStateName:any}={display_name:'',phone:'',userDict:'',userState:'',userDictName:'', userStateName:''};
   
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder,
@@ -32,6 +34,8 @@ export class ItemCreatePage {
       this.userlogin.phone = userlogin.user_login;
       this.userlogin.userState = userlogin._user_state;
       this.userlogin.userDict = userlogin._user_state;
+      this.userlogin.userDictName = userlogin.district_name;
+      this.userlogin.userStateName = userlogin.state_name;
       console.log(userlogin);
     });
     
