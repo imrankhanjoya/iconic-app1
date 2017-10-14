@@ -21,7 +21,7 @@ export class ForgateVerifyNumberPage {
     public otp:any;
    RegisterData = {verifyOtpfirst:'',verifyOtpSecond:'',verifyOtpThired:'',verifyOtpFourth:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,public storage:Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage) {
   this.phoneNumber=navParams.get('phoneNumber');
   }
 
@@ -60,13 +60,13 @@ export class ForgateVerifyNumberPage {
            this.storage.set('userPhone', this.phoneNumber);
            this.storage.set('userOTP', this.otp);
            console.log(resp.status);
-           this.navCtrl.push('SignupPage');
+           this.navCtrl.push('ForgatePasswordPage');
            loading.dismiss();
           }else{
             alert(resp.msg)
             this.storage.set('userPhone', this.phoneNumber);
             this.storage.set('userOTP', this.otp);
-            this.navCtrl.push('SignupPage');
+            this.navCtrl.push('ForgatePasswordPage');
             console.log(resp.msg);
             loading.dismiss();
           }
