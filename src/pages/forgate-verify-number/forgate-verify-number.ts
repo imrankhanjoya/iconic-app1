@@ -32,19 +32,19 @@ export class ForgateVerifyNumberPage {
 
     var sendForm = true;
     if(this.RegisterData.verifyOtpfirst.length<1){
-        alert('Entere OTP');
+        alert('Enter OTP');
         sendForm = false;
     }
     if(this.RegisterData.verifyOtpSecond.length<1){
-        alert('Entere OTP');
+        alert('Enter OTP');
         sendForm = false;
     }
     if(this.RegisterData.verifyOtpThired.length<1){
-        alert('Entere OTP');
+        alert('Enter OTP');
         sendForm = false;
     }
     if(this.RegisterData.verifyOtpFourth.length<1){
-        alert('Entere OTP');
+        alert('Enter OTP');
         sendForm = false;
     }
 
@@ -64,9 +64,9 @@ export class ForgateVerifyNumberPage {
            loading.dismiss();
           }else{
             alert(resp.msg)
-            this.storage.set('userPhone', this.phoneNumber);
+            /*this.storage.set('userPhone', this.phoneNumber);
             this.storage.set('userOTP', this.otp);
-            this.navCtrl.push('ForgatePasswordPage');
+            this.navCtrl.push('ForgatePasswordPage');*/
             console.log(resp.msg);
             loading.dismiss();
           }

@@ -15,7 +15,7 @@ import { User } from '../../providers/providers';
 })
 export class ForgatePasswordMobileNumberPage {
   RegisterData = {phoneNumber:''}
-  public name='allanoor';
+  public name='agribolo';
   public phoneNumberError:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,  public alertCtrl: AlertController,public loadingCtrl: LoadingController) {
   }
@@ -38,7 +38,7 @@ export class ForgatePasswordMobileNumberPage {
             content: 'Please wait...'
           });
           loading.present();
-        this.user.sendOtp(this.RegisterData.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
+        this.user.sendPasswordOtp(this.RegisterData.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
         if(resp.status === true){
           console.log(resp.status);
           this.navCtrl.push('ForgateVerifyNumberPage',{phoneNumber:this.RegisterData.phoneNumber});

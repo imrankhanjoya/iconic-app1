@@ -25,8 +25,14 @@ import { Storage } from '@ionic/storage';
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title | translate}}
         </button>
-        <button menuClose ion-item (click)="openPageWithP('Crops')">
+        <button menuClose ion-item (click)="openPageWithP('changelocation')">
+          locationss
+        </button>
+        <button menuClose ion-item (click)="openPageWithP('crops')">
           {{ 'Crops'| translate}}
+        </button>
+        <button menuClose ion-item (click)="openPageWithP('changepass')">
+          {{ 'Change_Password'| translate}}
         </button>
       </ion-list>
       
@@ -70,8 +76,8 @@ export class MyApp {
     this.initTranslate();
     storage.get('userData').then((userlogin) => {
           
-          this.username = userlogin.display_name;
-          console.log("The name is"+this.username);
+          this.username = '';
+          //console.log("The name is"+this.username);
        });
      
 
@@ -112,7 +118,7 @@ export class MyApp {
   openPageWithP(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    // console.log(page);
+     console.log(page);
     this.nav.setRoot('SettingsPage',{pTitle:page});
   }
 

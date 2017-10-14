@@ -170,6 +170,114 @@ export class User {
   }
 
   /**
+   * Forgot Password status of user
+   */
+   sendPasswordOtp(phoneNumber,name){
+   let body = new FormData();
+   body.append('phoneNumber', phoneNumber);
+   body.append('name', name);
+
+
+   let seq = this.api.post('v1/user/reset-varify-phone', body).share();
+
+   seq
+     .map(res => res.json())
+     .subscribe(res => {
+       // If the API returned a successful response, mark the user as logged in
+       if (res.status == 'success') {
+
+       } else {
+       }
+     }, err => {
+       console.error('ERROR', err);
+     });
+
+   return seq;
+   }
+  /**
+   * Reset Password of user
+   */
+   ResetPassword(phoneNumber,password){
+     let body = new FormData();
+     body.append('phoneNumber', phoneNumber);
+     body.append('password', password);
+
+      console.log(phoneNumber + password);
+
+     let seq = this.api.post('v1/user/forgot-password', body).share();
+
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
+
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
+
+     return seq;
+   }
+   
+  /**
+   * Reset Password of user
+   */
+   ChangePassword(phoneNumber,password,old_pass){
+     let body = new FormData();
+     body.append('phoneNumber', phoneNumber);
+     body.append('password', password);
+     body.append('old_pass', old_pass);
+
+      console.log(phoneNumber + password);
+
+     let seq = this.api.post('v1/user/change-password', body).share();
+
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
+
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
+
+     return seq;
+   }
+   
+  /**
+   * Update Profile
+   */
+   UpdateProfile(phoneNumber,password,old_pass){
+     let body = new FormData();
+     body.append('phoneNumber', phoneNumber);
+     body.append('password', password);
+     body.append('old_pass', old_pass);
+
+      console.log(phoneNumber + password);
+
+     let seq = this.api.post('v1/user/change-password', body).share();
+
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
+
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
+
+     return seq;
+   }
+
+  /**
    * Record OTP status of user
    */
   otpset(res) {

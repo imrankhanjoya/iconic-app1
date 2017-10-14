@@ -10,30 +10,99 @@
 </ion-header>
 
 
-<ion-content>
-  
-<form *ngIf="pageTitle=='crops'" [formGroup]="todo" (ngSubmit)="logForm()">
-  <ion-item>
-    <ion-label>Todo</ion-label>
-    <ion-input type="text" formControlName="title"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Description</ion-label>
-    <ion-textarea formControlName="description"></ion-textarea>
-  </ion-item>
-  <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
-</form>
+<ion-content padding>
 
-<form *ngIf="pageTitle=='crops'" [formGroup]="todo" (ngSubmit)="logForm()">
-  <ion-item>
-    <ion-label>Todo Part two</ion-label>
-    <ion-input type="text" formControlName="title"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Description</ion-label>
-    <ion-textarea formControlName="description"></ion-textarea>
-  </ion-item>
-  <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
-</form>
+<!---------Change Password------>
+  <form *ngIf="pageTitle=='changepass'" [formGroup]="changepass" (ngSubmit)="changepassform()">
+     <ion-card>
+        <img class="circle-pic" src="assets/img/appicon.png">
+        <p class="Name"> <!-- {{userlogin.display_name}} --></p>
+       <div>
 
+       <ion-item>
+          <ion-label  class="inpu" stacked>पुराना पासवर्ड</ion-label>
+          <ion-input  formControlName="oldpass"  placeholder="Old Password" ng-required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label class="inpu"  stacked>पासवर्ड</ion-label>
+          <ion-input  formControlName="newpass"  placeholder="Old Password" ng-required></ion-input>
+        </ion-item>
+      <div class="error" *ngIf="passError==true" >
+        {{passErrorMsg}}
+     </div>
+
+      <ion-item>
+          <ion-label class="inpu" stacked>पासवर्ड की पुष्टि कीजिये</ion-label>
+          <ion-input  formControlName="confirmpass"  placeholder="Old Password" ng-required></ion-input>
+        </ion-item>
+      <div class="error" *ngIf="passConpError==true" >
+          {{passErrorMsg}}
+      </div>
+
+      </div>
+
+      <div  class="p_button">
+          <button class="p_1" type="submit"  [disabled]="!changepass.valid">Submit</button>
+        </div>
+
+        
+      </ion-card>
+  </form>
+
+<!---------Change Profile Data------>
+  <form *ngIf="pageTitle=='changeprofile'" [formGroup]="changeprofile" (ngSubmit)="changeprofileform()">
+     <ion-card>
+        <img class="circle-pic" src="assets/img/appicon.png">
+        <p class="Name"> <!-- {{userlogin.display_name}} --></p>
+       <div>
+
+       <ion-item>
+          <ion-label  class="inpu" stacked>Display Name</ion-label>
+          <ion-input  formControlName="display_name"  placeholder="Display Name" ng-required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Language</ion-label>
+          <ion-select  formControlName="user_language">
+            <ion-option value="en_US">English</ion-option>
+            <ion-option value="hi_IN">Hindi</ion-option>
+          </ion-select>
+        </ion-item>
+        <div class="error" *ngIf="passConpError==true" >
+            {{passErrorMsg}}
+        </div>
+
+      </div>
+
+      <div  class="p_button">
+          <button class="p_1" type="submit"  [disabled]="!changeprofile.valid">Submit</button>
+        </div>
+
+        
+      </ion-card>
+  </form>
+
+  <form *ngIf="pageTitle=='changelocation'" [formGroup]="changelocation" (ngSubmit)="changepassform()">
+    <ion-card>
+      <div class="main" padding>
+          <h1 class="text"> {{'SELECT_LOCTION' | translate}}</h1>
+          <p class="text1" >{{'SELECT_LOCTION_PLEASE' | translate}}</p>
+      </div> 
+      <ion-item >
+        <select class="selectBox"  (change)="onStateSelect($event.target.value)">
+          <option value="0">{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+          <option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</option>
+        </select>
+      </ion-item>
+      <ion-item >
+        <select class="selectBox" >
+          <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+          <option *ngFor="let district of districtList" value={{district.id}}~{{district.city_name}}>{{district.city_name}}</option>
+        </select>
+      </ion-item>
+      <div  class="p_button">
+        <button class="p_1" type="submit"  [disabled]="!changepass.valid">Submit</button>
+      </div>
+    </ion-card>
+  </form>
 </ion-content>
