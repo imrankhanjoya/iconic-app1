@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Camera } from '@ionic-native/camera';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, PopoverController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -25,7 +25,7 @@ export class ItemCreatePage {
   
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder,
-    public camera: Camera,public storage:Storage) {
+    public camera: Camera,public storage:Storage, public popoverCtrl: PopoverController) {
 
     
     storage.get('userData').then((userlogin) => {
@@ -116,5 +116,34 @@ export class ItemCreatePage {
   editcrops() {
     this.navCtrl.push('CropsuodatePage');
   }
-
+  uploadeImg(){
+    let popover = this.popoverCtrl.create('UploadImagePage');
+     popover.present({
+     });
+     popover.onDidDismiss((popoverData) => {
+      console.log(popoverData);
+        if(popoverData=='camera'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.CAMERA,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              console.log('=========data:image/jpeg;base64,'+imageData);
+             
+             }, (err) => {
+              console.log(err);
+            });
+        }
+        if(popoverData=='gallery'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              console.log('=========data:image/jpeg;base64,'+imageData);
+             
+             }, (err) => {
+              console.log(err);
+            });
+        }
+     });
+  }
 }
