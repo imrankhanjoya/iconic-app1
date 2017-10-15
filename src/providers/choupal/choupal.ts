@@ -44,7 +44,7 @@ export class ChoupalProvider {
     body.append('lat', this.userLatLong.latitude);
     body.append('longe', this.userLatLong.longitude);
     body.append('message', message);
-    body.append('image', '');
+    body.append('image', image);
     body.append('url', '');
     let seq = this.api.post('v1/choupal/post', body).share();
     seq

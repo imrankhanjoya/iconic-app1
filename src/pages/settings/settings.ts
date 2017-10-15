@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams ,AlertController,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';

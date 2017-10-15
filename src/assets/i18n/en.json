@@ -184,5 +184,8 @@
   "TIPS_INDIAN_FARMER":"Agribolo: Agriculture on Finger Tips of Indian Farmers",
   "SUTRA":"Sutra: Do this to save your crop with heavy rain",
   "SEARCH_PLACEHOLDER": "Find the list of items, e.g. \"Donald Duck\"",
-  "LOGIN_ERROR":"The username or password is incorrect"
+  "LOGIN_ERROR":"The username or password is incorrect",
+  "FORGOT_PASSWORD": "Forgot Password?",
+  "RESET_PASSWORD_TITLE": "CREATE NEW PASSWORD",
+  "RESET_PASSWORD_SUBTITLE":"Please enter new password"
 }

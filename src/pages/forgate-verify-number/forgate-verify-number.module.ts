@@ -9,7 +9,7 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   imports: [
     IonicPageModule.forChild(ForgateVerifyNumberPage),
-    TranslateModule.forChild()
+    TranslateModule.forChild(TranslateModule)
   ],
 })
 export class ForgateVerifyNumberPageModule {}

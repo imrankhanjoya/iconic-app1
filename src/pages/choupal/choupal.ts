@@ -1,8 +1,9 @@
 import { Component,NgModule } from '@angular/core';
-import { IonicPage, NavController, NavParams , LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams , LoadingController, PopoverController} from 'ionic-angular';
 import { ChoupalProvider } from '../../providers/choupal/choupal';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Api } from '../../providers/api/api';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ChoupalPage page.
@@ -19,15 +20,17 @@ import { Api } from '../../providers/api/api';
 export class ChoupalPage {
   public userId:any;
   public isSend:boolean=false;
-  public newMessge:any;
+  public newMessge:string='';
+  public selectedImg:any;
   public sendIcon: string ="assets/img/agri bolo icon/hdpi/senddis.png";
 	public choupaldata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
-  public api:Api, public loadingCtrl: LoadingController ) {
-    this.userId=api.userData.ID;
-    console.log(this.userId);
-    //this.navCtrl.setRoot(ChoupalPage)
+  public api:Api, public loadingCtrl: LoadingController, public popoverCtrl: PopoverController, public camera:Camera,
+  public storage:Storage) {
 
+    this.userId=api.userData.ID;
+    console.log('user id--- : '+this.userId);
+    this.selectedImg='';
   }
 
   ionViewDidLoad() {
@@ -72,6 +75,7 @@ export class ChoupalPage {
     loading.present();
     // console.log('ionViewDidLoad '+this.questionaddData.title);
     this.ChoupalProvider.postChoupal(this.userId,this.newMessge,'no Image').map(res => res.json()).subscribe((res) => {
+        this.selectedImg='';
         console.log(this.choupaldata.data);
         this.choupalget();
         loading.dismiss();
@@ -80,6 +84,39 @@ export class ChoupalPage {
         loading.dismiss();
         console.log(err);
       });
+  }
+
+  uploadeImg(){
+    let popover = this.popoverCtrl.create('UploadImagePage');
+     popover.present({
+     });
+     popover.onDidDismiss((popoverData) => {
+      console.log(popoverData);
+        if(popoverData=='camera'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.CAMERA,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              console.log('=========data:image/jpeg;base64,'+imageData);
+             this.selectedImg=imageData;
+             this.postCopal();
+             }, (err) => {
+              console.log(err);
+            });
+        }
+        if(popoverData=='gallery'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              console.log('=========data:image/jpeg;base64,'+imageData);
+              this.selectedImg=imageData;
+             this.postCopal();
+             }, (err) => {
+              console.log(err);
+            });
+        }
+     });
   }
 
 }
