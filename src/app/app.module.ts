@@ -37,6 +37,7 @@ import { AnnouncementproProvider } from '../providers/announcementpro/announceme
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 import { CallNumber } from '@ionic-native/call-number';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 import { CropsProvider } from '../providers/crops/crops';
 import { CroplistProvider } from '../providers/croplist/croplist';
@@ -119,6 +120,7 @@ export function provideSettings(storage: Storage) {
     AnnouncementproProvider,
     CallNumber,
     Camera,
+    AndroidPermissions,
     NativeGeocoder,
     CropsProvider,
     CroplistProvider,

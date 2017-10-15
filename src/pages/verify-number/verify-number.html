@@ -16,7 +16,7 @@
 
  <div class="input">
  	<ion-item>
-        <ion-input [(ngModel)]="RegisterData.verifyOtpfirst" name="verifyOtpfirst" value="" type="number" maxlength="1" (keyup)="next(verifyOtpSecond)" ></ion-input>
+        <ion-input [(ngModel)]="RegisterData.verifyOtpfirst" name="verifyOtpfirst" value="" type="number" maxlength="1" #verifyOtpfirst (keyup)="next(verifyOtpSecond)" ></ion-input>
 </ion-item>
 </div>
 <div class="input">

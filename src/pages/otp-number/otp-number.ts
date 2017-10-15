@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController,LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 /**
  * Generated class for the OtpNumberPage page.
@@ -24,7 +25,7 @@ export class OtpNumberPage {
   RegisterData = {phoneNumber:''}
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public storage:Storage,
-    public alertCtrl: AlertController,public loadingCtrl: LoadingController) {
+    public alertCtrl: AlertController,public loadingCtrl: LoadingController,private androidPermissions: AndroidPermissions) {
   }
 
   ionViewDidLoad() {
@@ -32,8 +33,6 @@ export class OtpNumberPage {
   }
 
   sendOtp(){
-
-
     var sendForm = true;
     if(this.RegisterData.phoneNumber.length<10){
       this.phoneNumberError = true;
@@ -42,10 +41,33 @@ export class OtpNumberPage {
       this.phoneNumberError = false;
     }
     if(sendForm){
-        let loading = this.loadingCtrl.create({
+        this.cheakSmsPermission();
+    }
+  }
+  cheakSmsPermission(){
+
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECEIVE_SMS).then(()=>{
+          console.log('checkPermission Pass');
+          this.smsRequestPermission();
+      },(err) =>{
+        console.log('checkPermission Fail');
+      }); 
+  }
+  smsRequestPermission(){
+    
+    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECEIVE_SMS).then(() =>{
+              console.log('requestPermission pass');
+              this.sendOptApiCall();
+            },() =>{
+              console.log('requestPermission Fail');
+              this.sendOptApiCall();
+            });
+  }
+  sendOptApiCall(){
+      let loading = this.loadingCtrl.create({
             content: 'Please wait...'
           });
-          loading.present();
+        loading.present();
         this.user.sendOtp(this.RegisterData.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
         if(resp.status === true){
           console.log(resp.status);
@@ -60,7 +82,5 @@ export class OtpNumberPage {
         loading.dismiss();
         console.log('--unsuccess')  
       });
-    }
   }
-  
 }
