@@ -1,7 +1,7 @@
 page-tutorial {
   .toolbar-background {
-    background: transparent;
-    border-color: transparent;
+    background: #101c00;
+    border-color: #101c00;
   }
 
   .slide-zoom {
@@ -33,7 +33,20 @@ page-tutorial {
     }
   }
   .content-md{
-  background-color: #ffffff;
+  background-color: #101c00;
+  }
+
+  .backgroundnew{
+    width: 100%;
+    height: 45%;
+    bottom: 0px;
+    display: block;
+    position: absolute;
+    background-image: url(../assets/img/agri_splashbottom.png);
+    background-size: auto 55%;
+    background-repeat: no-repeat;
+    background-position:100% 100%;
+
   }
 
 }
