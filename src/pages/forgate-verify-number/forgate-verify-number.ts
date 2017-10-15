@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
