@@ -20,20 +20,30 @@ import { FilterModelPage } from '../filter-model/filter-model';
 export class MandiDetailsPage {
   public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public loading:any;
+  public filterMarket:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
+    
+    this.filterMarket = navParams.get('filter_market');
+
+    console.log(this.filterMarket);
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
-      });
+    });
+
      this.loading.present();
   }
 
   ionViewDidLoad() {
-  	 this.getMandiDetails();
+    this.getMandiDetails();
+     
      console.log('ionViewDidLoad MandiDetailsPage');
   }
    getMandiDetails(){
-    this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
+    
+    var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
+    
+    this.mandi.mandiRates(marketId).map(res => res.json()).subscribe((res) => {
         this.mandiData= res;
         this.loading.dismiss();
         console.log(this.mandiData);
@@ -50,5 +60,9 @@ export class MandiDetailsPage {
     modal.present();
   }
   
+  dismiss(){
+        let data = { 'foo': 'bar' };
+        this.viewCtrl.dismiss(data);
+    }
 
 }

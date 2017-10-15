@@ -1,68 +1,50 @@
 <!--
-  Generated template for the SelectLocationPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+Generated template for the SelectLocationPage page.
+See http://ionicframework.com/docs/components/#navigation for more info on
+Ionic pages and navigation.
 -->
-
-
-
 <ion-content padding>
-  <div class="main" padding>
+<div class="main" padding>
   <h1 class="text"> {{'SELECT_LOCTION' | translate}}</h1>
   <p class="text1" >{{'SELECT_LOCTION_PLEASE' | translate}}</p>
-  </div>
-  <!-- <ion-item>
-     <ion-label  class="inpu" stacked>गांव का नाम</ion-label>
-     <ion-input [(ngModel)]="selectState" name="selectState" value="" type="text"  (ngModelChange)="change($event)"></ion-input>
-  </ion-item>
+</div>
 
- <ion-list *ngIf="showList">
-    <ion-item *ngFor=" let item of items" (click)="userSelectedState(item)">
-      {{ item }}
-    </ion-item>
-  </ion-list> -->
-
-  <ion-item >
-    <select class="selectBox"  (change)="onStateSelect($event.target.value)">
-      <option value="0">{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
-      <option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</option>
-    </select>
-  </ion-item>
-  <ion-item >
-    <select class="selectBox"  (change)="onDistrictSelect($event.target.value)">
-      <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
-      <option *ngFor="let district of districtList" value={{district.id}}~{{district.district_name}}>{{district.district_name}}</option>
-    </select>
-  </ion-item>
-
-   <p class="span1">{{'SELECT_LOCTION_OR' | translate}}</p>
-  <ion-row class="div_button" (click)="getCourrnt()">
-    <ion-col col-3 class="bakc">
-      <img class="img1" src="assets/img/shape_2017-10-04/drawable-hdpi/shape.png">
-    </ion-col>
-    <ion-col col-7 class="bakc">
-        <p class="p_1">{{'SELECT_LOCTION_PRESENT_ADDRESS' | translate}}</p>
-    </ion-col>
+<ion-item >
+<select class="selectBox"  (change)="onStateSelect($event.target.value)">
+  <option value="0">{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+  <option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</option>
+</select>
+</ion-item>
+<ion-item >
+<select class="selectBox"  (change)="onDistrictSelect($event.target.value)">
+  <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+  <option *ngFor="let district of districtList" value={{district.id}}~{{district.district_name}}>{{district.district_name}}</option>
+</select>
+</ion-item>
+<p class="span1">{{'SELECT_LOCTION_OR' | translate}}</p>
+<ion-row class="div_button" (click)="getCourrnt()">
+<ion-col col-3 class="bakc">
+<img class="img1" src="assets/img/shape_2017-10-04/drawable-hdpi/shape.png">
+</ion-col>
+<ion-col col-7 class="bakc">
+<p class="p_1">{{'SELECT_LOCTION_PRESENT_ADDRESS' | translate}}</p>
+</ion-col>
 </ion-row>
 </ion-content>
 <div class="background">
-    <div id="sun">
-        <div id="sunbg"></div>
-    </div>
-    <i class="fa fa-cloud" id="cloud1"></i>
-    <i class="fa fa-cloud" id="cloud2"></i>
-
-    <img id="radio" src="assets/img/radio_control.png" />
-
-    <div id="village">
-        &nbsp;
-    </div>
-    <div id="tractor">
-        <img src="assets/img/fan.png" class="fa-spin" id="fan"/>
-        <img src="assets/img/shape.png" id="tower"/>
-
-    </div>
-    <div id="grass">
-    </div>
+  <div id="sun">
+    <div id="sunbg"></div>
+  </div>
+  <i class="fa fa-cloud" id="cloud1"></i>
+  <i class="fa fa-cloud" id="cloud2"></i>
+  <img id="radio" src="assets/img/radio_control.png" />
+  <div id="village">
+    &nbsp;
+  </div>
+  <div id="tractor">
+    <img src="assets/img/fan.png" class="fa-spin" id="fan"/>
+    <img src="assets/img/shape.png" id="tower"/>
+  </div>
+  <div id="grass">
+  </div>
 </div>

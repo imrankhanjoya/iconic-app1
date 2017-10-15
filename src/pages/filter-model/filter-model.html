@@ -19,5 +19,38 @@
 </ion-header>
 
 <ion-content padding>
-Hello this is filter page
+ <form  [formGroup]="changelocation" (ngSubmit)="filterLocaltionForm()">
+    <ion-card>
+      <div>
+          <div class="displayOneFont colorGrey fontBold greySeparator paddingBottom"> {{'SELECT_LOCTION' | translate}}</div>
+          <div class="smallTitle colorGrey alignCenter paddingTop" >{{'SELECT_LOCTION_PLEASE' | translate}}</div>
+      </div>
+
+
+      <ion-item >
+        <select class="selectBox"  formControlName="user_state_id" (change)="onStateSelect($event.target.value)">
+          <option value="0" selected>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+          <option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</option>
+        </select>
+      </ion-item>
+
+
+      <ion-item >
+        <select class="selectBox"  formControlName="user_district_id"  (change)="onDistrictSelect($event.target.value)">
+          <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+          <option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</option>
+        </select>
+      </ion-item>
+      <ion-item >
+        <select class="selectBox"  formControlName="user_market_id" >
+          <option value="0">{{'SELECT_LOCTION_TEHSIL' | translate}} {{'SELECT_LOCTION_TEHSIL' | translate}}</option>
+          <option *ngFor="let market of marketList" value={{market.id}}>{{market.market_name}}</option>
+        </select>
+      </ion-item>
+      <div  class="p_button">
+        <button class="p_1" type="submit"  [disabled]="!changelocation.valid">Submit</button>
+      </div>
+    </ion-card>
+  </form>
+
 </ion-content>

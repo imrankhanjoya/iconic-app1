@@ -25,16 +25,7 @@ export class MandiPage {
     console.log('ionViewDidLoad MandiPage');
   }
    getmandi(){
-   	// console.log('ionViewDidLoad '+this.questionaddData.title);
-    this.MandiProvider.mandiRates().map(res => res.json()).subscribe((res) => {
-        this.mandidata = res.data;
-        this.mandidata.msg = res.msg;
-        this.mandidata.status = res.status;
-        console.log(this.mandidata.data);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+   	
   }
 
 }

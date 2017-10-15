@@ -115,7 +115,8 @@ export class SettingsPage {
   onDistrictSelect(districtId){
     var array = districtId.split('~');
     this.storage.set('userDictrictId',array[0]);
-    this.storage.set('userDictrict',array[1]);this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
+    this.storage.set('userDictrict',array[1]);
+    this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
       this.tehsilList=resp.data;
       //  this.loading.dismiss();
     }); 
