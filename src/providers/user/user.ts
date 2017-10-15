@@ -146,13 +146,13 @@ export class User {
             });
 
           return seq;
-  }
+    }
 
   /**
    * Send a POST request to our otp endpoint with the data
    * the user entered on the form.
    */
-  otp(accountInfo: any) {
+    otp(accountInfo: any) {
     let seq = this.api.post('signup', accountInfo).share();
 
     seq
@@ -167,7 +167,7 @@ export class User {
       });
 
     return seq;
-  }
+    }
 
   /**
    * Forgot Password status of user
@@ -250,7 +250,7 @@ export class User {
    }
    
   /**
-   * Update Profile
+   * Update Location
    */
    UpdateLocation(user_id,user_state_id,user_district_id,user_tahsil_id){
      let body = new FormData();
@@ -275,6 +275,29 @@ export class User {
 
      return seq;
    }
+   
+  /**
+   * Update Crops
+   */
+    UpdateCrops(user_id,crops){
+        let body = new FormData();
+        body.append('user_id',user_id);
+        body.append('crops',crops);
+        let seq = this.api.post('v1/user/crop-update', body).share();
+
+        seq
+          .map(res => res.json())
+          .subscribe(res => {
+            // If the API returned a successful response, mark the user as logged in
+            if (res.status == 'success') {
+              console.log(res);
+            }
+          }, err => {
+            console.error('ERROR', err);
+          });
+
+        return seq;
+    }
 
   /**
    * Record OTP status of user
