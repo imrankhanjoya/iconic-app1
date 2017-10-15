@@ -126,10 +126,10 @@ export class User {
           console.log(crops);
 
 
-          body.append('user_irrigation_type','');
-          body.append('user_irrigation_source','');
-          body.append('user_landholding_size','');
-          body.append('user_landholding_size_unit','');
+          body.append('user_irrigation_type','empty');
+          body.append('user_irrigation_source','empty');
+          body.append('user_landholding_size','0');
+          body.append('user_landholding_size_unit','empty');
           
 
           let seq = this.api.post('v1/user/register', body).share();
