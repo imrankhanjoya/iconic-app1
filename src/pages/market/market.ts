@@ -38,6 +38,7 @@ export class MarketPage {
     console.log('ionViewDidLoad MarketPage');
   }
 
+
   getmarkets(cat_id){
     this.market.productlistview(cat_id).map(res => res.json()).subscribe((res) => {
       

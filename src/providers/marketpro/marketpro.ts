@@ -34,6 +34,7 @@ export class MarketproProvider {
 
 	    	return seq;
   	}
+  	
 
     productlistview(cat_id) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
