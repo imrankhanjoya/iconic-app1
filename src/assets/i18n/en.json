@@ -188,5 +188,10 @@
   "FORGOT_PASSWORD": "Forgot Password?",
   "RESET_PASSWORD_TITLE": "CREATE NEW PASSWORD",
   "RESET_PASSWORD_SUBTITLE":"Please enter new password",
-  "SELECT_PRODUCT_CATEGORY": "Select Product Category"
+  "SELECT_PRODUCT_CATEGORY": "Select Product Category",
+  "AGRO_SERVICES": "AGRO SERVICES",
+  "GET_MORE_INSIGHT": "GET More Insights",
+  "ASK_EXPERT_SUBTILE": "Get expert advice on your crops",
+  "CROP": "CROP KNOWLEDGE BASE",
+  "HORTICULTURE": "HORTICULTURE"
 }
