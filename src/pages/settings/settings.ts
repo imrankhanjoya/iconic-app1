@@ -51,6 +51,7 @@ export class SettingsPage {
           public cityStateProvider:CityStateProvider
           ) {
 
+          console.log("I am here");
           this.storage.get('userData').then((val) => {
             this.phoneNumber = val.user_login; 
             this.user_id = val.ID; 
@@ -58,6 +59,7 @@ export class SettingsPage {
           });
           this.pageTitle = navParams.get('pTitle');
             console.log(this.pageTitle);
+           
           //Change Password
           this.changepass = this.formBuilder.group({
             oldpass: ['', Validators.required],

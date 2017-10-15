@@ -81,7 +81,15 @@
   "SING_UP_TYPE_PASSWORD": "Password",
   "SING_UP_CONF_PASSWORD": "Confirm Password",
   "SING_UP_GOOD": "Okay",
+  "CHANGE_PASSWORD_TITLE": "RESET PASSWORD",
+  "ENTER_CURRENT_PASSWORD": "Existing Password",
+  "CURRENT_PASSWORD_ERROR": "Please enter current password",
+  "ENTER_NEW_PASSWORD": "New Password`",
+  "NEW_PASSWORD_ERROR": "Please enter new password",
+  "CONFIRM_PASSWORD": "Confirm Password",
+  "CONFIRM_PASSWORD_ERROR": "Please confirm password",
 
+  
   "LOGIN_TEXT": "Please log in",
   "LOGIN_PHONE_NUMBER": "Phone number",
   "LOGIN_PHONE_NUMBER_VALID": "Enter valid mobile number",

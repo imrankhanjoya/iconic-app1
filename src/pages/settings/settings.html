@@ -1,3 +1,4 @@
+
 <ion-header>
 
   <ion-navbar>
@@ -5,10 +6,10 @@
      <ion-icon name="back"></ion-icon>
     </button>
     <ion-title *ngIf="pageTitle=='changepass'" >{{'CHANGE_PASSWORD_TITLE' | translate}}</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
-
 
 <ion-content >
 
@@ -90,16 +91,20 @@
 
   <form *ngIf="pageTitle=='changelocation'" [formGroup]="changelocation" (ngSubmit)="changelocaltionform()">
     <ion-card>
-      <div class="main" padding>
-          <h1 class="text"> {{'SELECT_LOCTION' | translate}}</h1>
-          <p class="text1" >{{'SELECT_LOCTION_PLEASE' | translate}}</p>
-      </div> 
+      <div>
+          <div class="displayOneFont colorGrey fontBold greySeparator paddingBottom"> {{'SELECT_LOCTION' | translate}}</div>
+          <div class="smallTitle colorGrey alignCenter paddingTop" >{{'SELECT_LOCTION_PLEASE' | translate}}</div>
+      </div>
+
+
       <ion-item >
         <select class="selectBox"  formControlName="user_state_id" (change)="onStateSelect($event.target.value)">
-          <option value="0">{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+          <option value="0" selected>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
           <option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</option>
         </select>
       </ion-item>
+
+
       <ion-item >
         <select class="selectBox"  formControlName="user_district_id"  (change)="onDistrictSelect($event.target.value)">
           <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>

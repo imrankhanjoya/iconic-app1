@@ -111,8 +111,10 @@ export class ItemCreatePage {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.navCtrl.push('SettingsPage',{pTitle:page});
+    
   }
   editcrops() {
     this.navCtrl.push('CropsuodatePage');
   }
+
 }
