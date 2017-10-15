@@ -101,7 +101,22 @@ export class User {
 
     return seq;
   }
-
+  userUpdateProImg(userId,image) {
+  let body = new FormData();
+  body.append('user_id', userId);
+  body.append('image', image);
+    let seq = this.api.post('v1/user/image-update', body).share();
+    seq
+      .map(res => res.json())
+      .subscribe(res => {
+        if (res.status == 'success') {
+        } else {
+        }
+      }, err => {
+        console.error('ERROR', err);
+      });
+    return seq;
+  }
   /**
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.

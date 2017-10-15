@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,AlertController,LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 /**
  * Generated class for the ForgatePasswordMobileNumberPage page.
  *
@@ -17,7 +18,8 @@ export class ForgatePasswordMobileNumberPage {
   RegisterData = {phoneNumber:''}
   public name='agribolo';
   public phoneNumberError:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,  public alertCtrl: AlertController,public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,  public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController, private androidPermissions: AndroidPermissions) {
   }
 
   ionViewDidLoad() {
@@ -34,7 +36,29 @@ export class ForgatePasswordMobileNumberPage {
       this.phoneNumberError = false;
     }
     if(sendForm){
-        let loading = this.loadingCtrl.create({
+      this.cheakSmsPermission();
+    }
+  }
+  cheakSmsPermission(){
+    this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECEIVE_SMS).then(()=>{
+      console.log('checkPermission Pass');
+      this.smsRequestPermission();
+    },(err) =>{
+      console.log('checkPermission Fail');
+      this.smsRequestPermission();
+    }); 
+  }
+  smsRequestPermission(){
+    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECEIVE_SMS).then(() =>{
+      console.log('requestPermission pass');
+      this.sendPasswordOtpAPI();
+    },() =>{
+      console.log('requestPermission Fail');
+      this.sendPasswordOtpAPI();
+    });
+  }
+  sendPasswordOtpAPI(){
+    let loading = this.loadingCtrl.create({
             content: 'Please wait...'
           });
           loading.present();
@@ -52,6 +76,5 @@ export class ForgatePasswordMobileNumberPage {
         loading.dismiss();
         console.log('--unsuccess')
       });
-    }
   }
 }

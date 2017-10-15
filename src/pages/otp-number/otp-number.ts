@@ -51,6 +51,7 @@ export class OtpNumberPage {
           this.smsRequestPermission();
       },(err) =>{
         console.log('checkPermission Fail');
+        this.sendOptApiCall();
       }); 
   }
   smsRequestPermission(){
