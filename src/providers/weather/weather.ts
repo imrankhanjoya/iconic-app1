@@ -49,9 +49,9 @@ export class WeatherProvider {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
-  weatherdetail() {
+  weatherdetail(tehsil) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={lang:'hi_IN',gaphour:'2'};
+    var paramCond ={lang:'hi_IN',gaphour:'2',tehsil_id:tehsil};
     let seq = this.api.get('v1/weather/current-conditions', paramCond).share();
 
     seq

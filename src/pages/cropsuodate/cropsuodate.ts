@@ -131,7 +131,7 @@ export class CropsuodatePage {
 	    this.user.UpdateCrops(this.user_id,JSON.stringify(selectedCrops)).map(res => res.json()).subscribe((resp) => {
 	      loading.dismiss();
 	     if(resp.status==true){
-	       this.navCtrl.push('LoginPage');
+	       this.navCtrl.push('ItemCreatePage');
 	      }else{
 	        alert(resp.msg);
 	      }
