@@ -7,22 +7,20 @@
 <ion-header>
 
   <ion-navbar>
-    <button menuToggle="left">
-    <ion-icon name="menu"></ion-icon>
-  </button>
+    
     <ion-title>{{'MARKET' | translate}}</ion-title>
   </ion-navbar>
-
-</ion-header>
-
-
-<ion-content >
 <ion-item>
-  <ion-label>Select Product Category</ion-label>
+  <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
   <ion-select [(ngModel)]="product_cat" multiple="true" (ionChange)="onChange(product_cat)">
     <ion-option *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
   </ion-select>
 </ion-item>
+</ion-header>
+
+
+<ion-content >
+
 <div class="main-content">
 
 <!-------Product Sectopn------>

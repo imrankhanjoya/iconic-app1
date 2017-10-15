@@ -187,5 +187,6 @@
   "LOGIN_ERROR":"The username or password is incorrect",
   "FORGOT_PASSWORD": "Forgot Password?",
   "RESET_PASSWORD_TITLE": "CREATE NEW PASSWORD",
-  "RESET_PASSWORD_SUBTITLE":"Please enter new password"
+  "RESET_PASSWORD_SUBTITLE":"Please enter new password",
+  "SELECT_PRODUCT_CATEGORY": "Select Product Category"
 }

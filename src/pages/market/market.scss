@@ -37,6 +37,7 @@ page-market {
       padding-top: 5%;
       text-align: left;
       height: 84px;
+      display:inline-block;
       }
       .detailSar{
       text-align: center;
@@ -134,5 +135,6 @@ page-market {
             display: inline-block;
             padding:0px 25px;
       }
+      .alert-md [aria-checked=true] .alert-checkbox-icon{ background-color: red; }
 
 }

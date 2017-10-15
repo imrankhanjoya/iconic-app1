@@ -187,6 +187,7 @@
   "LOGIN_ERROR":"उपयोगकर्ता नाम या पासवर्ड गलत है",
   "FORGOT_PASSWORD": "पासवर्ड भूल गए?",
   "RESET_PASSWORD_TITLE": "नया पासवर्ड बनाएं",
-  "RESET_PASSWORD_SUBTITLE":"कृपया नया पासवर्ड दर्ज करें"
+  "RESET_PASSWORD_SUBTITLE":"कृपया नया पासवर्ड दर्ज करें",
+  "SELECT_PRODUCT_CATEGORY": "उत्पाद श्रेणी का चयन करें"
 }
 
