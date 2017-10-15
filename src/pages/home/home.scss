@@ -158,7 +158,45 @@ page-home {
       }
 
 
+      /******** Krishi Sevayen Block*********/
+      
+      .krishisevayen-title-box {
+            position: absolute;
+            top:25%;
+            left: 5%;
+            width:90%;
+            
+      }
+      .krishisevayen-title {
+            width:100%;
+            color: #fff;
+            padding-bottom: 10px;
 
+      }
+
+      .krishisevayen-subtitle {
+      width: 100%;
+      color: #fff;
+      left: 5%;
+      }
+
+      .krishisevayen-cardHeader{
+            text-align: center;
+            font-size: 3rem;
+            border-bottom: 4px;
+            border-bottom: 1px #d8d8d8 solid ;
+            height: 25px;
+            position: relative;
+            margin-bottom: 25px;
+      }
+      
+      .krishisevayen-headerClass{
+            margin-top:0px;
+            background-color:#f3f4f8;
+            display: inline-block;
+            padding:0px 25px;
+            word-wrap: normal;
+      }
  
 
       /******Product Css*******/

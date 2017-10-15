@@ -251,12 +251,17 @@ export class HomePage {
   gotoAnounsePage(){
   this.navCtrl.push('AnnouncementPage');
   }
-
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 
   }
   goToSetting(){
    this.navCtrl.push('SettingsPage'); 
+  }
+  goToCrops(){
+   this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
+  }
+  goToHorticulture(){
+    this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
 
   //----------------------Hader Animiation Start------

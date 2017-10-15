@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost:8101/#/tabs/%E0%A4%98%E0%A4%B0/home -->
+<html lang="en" dir="ltr" class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- Ionic Dev Server: Injected Logger Script -->
+  <script type="text/javascript" async="" src="./Ionic App_files/analytics.js"></script><script async="" src="./Ionic App_files/gtm.js"></script><script>var IonicDevServerConfig={"sendConsoleLogs":false,"wsPort":53704,"appScriptsVersion":"2.1.4","systemInfo":["Ionic Framework: 3.6.1","Ionic App Scripts: 2.1.4","Angular Core: 4.1.3","Angular Compiler CLI: 4.1.3","Node: 8.6.0","OS Platform: macOS Sierra"]};</script>
+  <link href="./Ionic App_files/ion-dev.css" rel="stylesheet">
+  <script src="./Ionic App_files/ion-dev.js"></script>
+  
+  <script data-ionic="inject">
+    (function(w){var i=w.Ionic=w.Ionic||{};i.version='3.6.1';i.angular='4.1.3';i.staticDir='build/';})(window);
+  </script>
+  
+  <title>Ionic App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  
+  <link rel="manifest" href="http://localhost:8101/manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- cordova.js required for cordova apps -->
+  <script src="./Ionic App_files/cordova.js"></script>
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
+  </script>-->
+
+  <link href="./Ionic App_files/main.css" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WMDQFQQ');</script>
+  <!-- End Google Tag Manager -->
+
+
+<script type="text/javascript" charset="utf-8" async="" src="./Ionic App_files/6.js"></script><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAACWFBMVEUAAABPpf9Ck/80f/9Qpv9Bkf9Qpf81gP81f/9Qpf81gP81f/9Ppf9Qp/80f/81gP9DlP9Qpv80f/82gf81f/9Qpv81gP81f/9Rp/9Nov83g/9Ppv82gv9Nov9Qpv81f/82gP9Ppf9Ppf81gP9Rp/9Qpv9Qpv9Ppf9Qpv81f/82gf9Oov83gv9Nof9Rp/9Nof80f/9Oov83gv9PpP9Nov83g/82gP82gP////9Qpv83g/9PpP86hv9Oo/81f/84hf82gf81gP88if9JnP9Nof9Imv89i/9GmP9Knf9Dlf80fv86iP9Ckf9MoP9Lnv9Ln/9Flv9Rp/9Hmf8+jP8+jf8/jv9BkP9Aj/9Ck/9Bkf/8/v/+/v/u9v/5/P/1+v/o8v/r9P/w9v/m8f/3+//y+P/c6/8+iP9HlP/7/P/f7f/j7//a6f9Rnv+/3P+31f+nzv+izf91tP9nrP9Ci//h7v/U5//H3//A2f9Hjv/K3//D3v+Vv/9dqf9spv9bpv9XpP9Tov9koP9Lmv9Kl/+62f+81v+eyv+lyP+Uwv+Etf96r//Y6v/X6P+00/+uzf+ayf99uP+It/9Pof9Kkf9Dj//Q5f/J4v+y1/+Kv/+Evv9xqv9Yp/9UmP/N5P/M4f/G3f+oy/+XyP+gxf+Cuv95tv+Bsv9gq/9hp/9mpf9cm//T5f+w1P+iyv+Txf+dw/+Nwv+Pvf9xsf9qsP91rv92q/9hnv9NlP/P4/+r0/9urv9aof9YnP9QmP/5+//e6/+22P+u0f+x0P+Zw/+HvP+Luf99s/9+u/9Wof9vgxRDAAAAOHRSTlMASh/dCwni6+MUFPLdm5taB+t2bkfYTwz09PTx1tHHx7y4qKd3b1xXJibRlJTrv7u4kJB2bEW4tzpe9IwAAA2/SURBVHja5Z33Q1NXFMeDVK3VDrW11Wp3a/cej4ZSB1pqJdXSVptFJishhABhJATCDCB77733VJYiiP5bDYjlvuTdl5d776N57fdnCO/Du+Pc7zk5V+RDz3xz/OM3Th889eO2Qp/oF7cubOvytqLc+t2tP9y6cePGn2799dfVbd28efPnx7q2pZ8e6ze3Lm3r4rYitiRx61e3It06+cmRM5999HXQIRG69p/48sPvt+R+9D0HiAx/rB/OfBH0lAhFL759yv3s/z6AWyffChL5qZePB7sfPFAA3Dryrj+vYf+xg+fOBRbAD+KjX+0XcdTzT587F3gAYvGBsyIu2vfduXOBCSAWv7mPw7//8PnABRC/+p6v0f/c+fOBDCAWP/sC67b1+vlABwh57RDL8A8+H/gAIUegE+GDp88LASDkwPuw5w8TBgCE4JngMKEAhBxhmAcvvB4mHICQ17zXoufChAQQ8qzX/hUmLIAQjx1t32GhAbxKX0w/DxMaQMib9AEkPICQs0AE9LQQAQ7sHnGOhQkRIOSdf86PB4UJcPTJKzh+RZgAIe/uAAQLFeDIjn9yRagA1x+7LW8LF+Ct7TX0sHABXtmaxieukAW4cTV2ZWhzaqw8scOQoJKr5Rp9fZYpydW7uJSX9xNZgO0x9BxBgD9iV7IfdFlVFKPU9aOu6UdGkgBbQWkwMYCF+eo1A+VDCQWuxUeXSAG85D6IXSEDsDA0la6mOEnRUDT9iAzA9UOiF4kADFcXyik/pLWOW/JIAASJjuED1A0V36L8VuposhEf4B3Rc7gAUS3lGgpJ8sReIy7As6I3MAFaTCoKWcqsphw8gE9Fp7EAnOXRFJaiLXgAL4kOYgBk9KRSeIrvM+IBHBUdRgcoHYmj8FQ2iDsHXhFdQQWorVBTmEod3F2FJJbe8e7x5ulw/wCuowJcaDFIKRbJ5HfdEdBaUldX0pop8bZexfDT8sV/ltEBc5lOqVAotLrUOzORewBw2aalIJIqNNauB9krsTu6Fhv7U36+0bIxlpWqkIKMTU82shyzWrr7+8rGAd4BFkwyilGr8sye2XxYOJ23WNmpUlA7Sry4AzBd5hkvPQznF8DJvPEqVFbbsq/zwJIr6zGDcnAnlKhSeUcak3wCXChl3Lp0aWNObgeawaI0NUUl7cRCfUyfpmjmDyDmgYIp1u8sqfPjRNZrTRh8HI0OljGHGTN8AaTYGBZ/Zeemv0dKS942gOQOxawGMT8AKRMM62FmyQ3UM/E0LApXNPMCEMPw/Am2BeRDfYSZgqmBFwDbKuUp0xCGK+HQQwFUMzwAPFB6RZPVGTi2SrIMHmpPkgeY03mN/iE8X6iJJRi5Qxxg3mvCVSzgGVsXKym4skgD1Bo890tbHaYzFzHGAtBAGCCm0HOvKYm6gAtQtHcAoTaZx/SdI+CNulgA7pEFyNZ6PH82CXO3isU6qiQKkGHwfH4i7rRFDjddqkgChFbQB5C6hYy9brwHBdC3kgRooQ8gZT+p/MCGFLYNmEmGEhkj9A+3EUtw5LTDXGw7SYCJOPr+RTBD0ydnfgGTJM8Dw3T7rSODIMBF5q2gkeiJ7D5tBmucRHNkuaOUtxJbSQJk099yNfck3838lZX8WB9JvlyzzOv/30ryUB9TTo//UzgBtG2OmawjBr3ekNZQkLSxxJKljOyNp+8x47kkfCHIC0h1ckizLk1kanTAxJfqom8nWeBpVvv4LkK02fLEmWsdEBMAiKmgQNl85on/3LTKGYyLOF19Ux4sTxyRk1xZUBZfllhUZa/5xxu90zBAAMCpoZ1gan0A1G2OrEKze/qpPGieWFJTk5tbE7nrTv/QLY1rxgf4sYe+BbMnuv8csrJ7viPJeRzzxDlFMooqyMEGaKPZiOkxrAC1LiXlQ3FJRk4AA9tRkioZG6CfZh+WsmbqlwspDrpt8Q2QU7VjV5hxAVJoz9TJmqnPNnDMi1X5AGhNLngyENMGMAHmVbQZwAYwyznbqm5iA4hsTtTuLsAPMQEeUIBGUlgAZv3IV+qaWABqaHbvnVwcAPoIkvaEwgGGEig/pO5lGUKV4C6iH8ACGNaBZt8wHKDN4G9+GA7gAMeitAoLoJ82heHFHnXplJ+6ZYRP4gIwujOL0QHoYYRiCg5go/zWKBygWQHaQ60YADQvQtUGBXAq/QdQVEEBcsH5pJzBAJiXgmEQtF4oKhOpzMAI3choY6gZAwCcAtIJKECplEJRJRRgPA6cBCHIAKHF4CvPhgFEpSFWqhhhABYd6FJfRwaI6QR9jhQYQOkqGkBcJTQWAvcyjR0ZICOatojCADIpROkjYACgYSebRgaYpwAVwwCW1agAyj4YAC3x0YwMMEcBKoEBTCBXDckKYAB94DLUjQxQDS5CTggAMIIQxhAEwK4D4zlkgAnQ7c6AACwkoAPIFyEAufGgy4UMAAYS+hgIwKYOHUBRBAEQ11O7akcGKAQNURhAD0bhnOweBKAmEaysQwYAR3c6DKCcwlADDKARjDmQAUBD4j4MoBOrbFHCDBCeBO5kyABgVWgXBCBqBKtuNAcCAJruKmQAFbiPhTID1BlwABLsEABwJ5MjA4Cubg8EoFaPA6CxQAC6wQP0/xdgD4bQIK9DKEHok5jTMmrFATBwWUajiWxkhTAAEw5AO2wjGwWTQsgAoNmTCQMolmIAFPAbStwHXzYMoETJRzDXTiSY6wFnEiycXtGgA6iT+Q2nQWtaOg870NzGWIQkEIBWOXigIXOk7IcAYEwCWSLsSEkrx6wkc6jvgQHMI59otL0wgG4yh/pa8EWmQwAwxlCqBAbQSAFKRje2MsG/FgMDqFZQSJImQY2tNHAfs6Nbi13gkueEAdTdRQNQ5cAA7KDVZEW3Fum+ig1q7lbLkACSoOZuUxz4YyHoAE4psGSkQwHq0pC83VwowD3wP9KEk+CIB/9gLTTBka1FmAEb0ASHGPyz2hmcFBMYTCiq4SmmYv8BEuEppocKMJBoxUnylVDgGIID1Pq9lCY44ACNUnAK5GKlWZXgGGqDp1nn/TQY5cnwNGtOKgXoIV6iG3R94mwsie5S/75TP8mS6J7Ugm8KL9H9o41WZ8ICEFWi8yM3032JBcAKrkGNOXi1Ek7wsXRzcAA3gZrzMaA7j6VWIllOD4TwADJoKfhC1nKb0miOiZlJ1sYYjeAL0FvwAOibMaVqYS14GqrndAhI/o2tXmgmgbZbi3EBhmmBjom9t8pChdT3MXiJveRsFHwB6j7cii16QEep59iL/q6WGmTsy/+Gj6K/ZNoJNasVHYC57jU9xUfZZawrIQ4aPUSbjT7a80Teo/3CZDg+QIqJ9pHVPgtf8123dAyvQabUjz3y2SCpWUezjQZIlB7PKWl1PsscSo9nyw0qLW3hlOsLevN9d3hytNO3C8zaaabCRariMqfi7+z1cuutu6kaTWq8ocNUNJvPpUVVuJkClTZApvye/hXK1VLO5fexK0uDg0vGfM49tvrk9P0unAyAx3f49G18NQlrpR+M6h14ALtyyin6SsQPgKSRHvA1kfsSkId31cMPwDh97coSkwOopfsO2n4+AKrowaCc6De6+1fpH95CHmAmmh5xm8NJAsQU0l+vxkkawB5P0ZTWSrYpwIKHiX53mCyAw8OZUSaTbozhWZmoHyYJkOPx/NKiSNIAoZ7OyV0nOQC7pzOWVUO+t0pKpmeSuuUyIYAZvadtbeeju02bxjNB1J9CAiCiKprynAD8NEjK9vQdFOu1+ABGl9LLc+Grw5N3QtK0jAvg2MkI03YAvgBCvSssb5VGYQH0efsAjTX8NQmL6fL22IqX0QEcRd5eUlYOn23aUiooL42U1CEC9LYzVNE5+O0zl8FAoC1sQQFYNDGYkVY7343yMrqYki33s/0FsNxhyvBn2X/lGyA0ZZ3JvNKUz/oDMD3KaMc3OiT8A4RertYyOv4dUyvcAIxNzH2RpeZcCf8Abl2YY3Zxtanlm7G+AC71rcUrIZ5vjYR3gB0Nd0CsN2286cEyHGBpo1yvlMI8X4lkzwDcixEsOy+T6tLKbbNtsVu6ufX0sdeubXWLXHSN1svjZLCUR6IdSLPuRbvOEtZkgEyt7yhcG1t3TU251sfWCjr0clbTV1kpiUAECENtmDqcrqUISVE/HRGBCIDTc3cqgSKiaLMEo2VtMEbT4Lb7KgpbusRFrKbBH2K1bZ5NV1JYimtvwmvbjNs4+4+SzlUKXfXjuZiNs/Fbl9eWoL4Face4A7t1OYnm8QuzKP2/1YkbDgLN48m0788YWvez2qMsaTqXSPt+YhcotLVw7+Efv1bluEjoAgWCV1hcbWtZz1L7TNN3jPU58ohdYUH4EpG6/OXSifR4GSS+0GSZeweNeUQvESF/jUtdbP5Q6VSxyZqm16jkcrVcpYm/5W7y5KqyGPPyebjG5WWhX6Qj+KuMhH+ZlHCv8zrwX7lQTfBX2gn+UkHhX+sozIs13/svXW0q/MtlBX+9r/AvWBb+FdeCv2Rc+Ne8C/+iffdieloIAC/tE0H1zOuBD/DaIRGLXvg40AE+ekHErhOHAxng1bMin9r3beACvLlPxEXPPx2YAAfOijhq/7GDgQdw9Kv9Iu56+XhwYAEcefcpkZ968e1TgQJw8q0gEYr2n/jyw38f4MwXQU+J0PXMN8c/fuP0wVN7D3DykzOfffR10CERu/4GltYY/Gjw6lkAAAAASUVORK5CYII="><script type="text/javascript" charset="utf-8" async="" src="./Ionic App_files/7.js"></script><script type="text/javascript" charset="utf-8" async="" src="./Ionic App_files/32.js"></script></head>
+<body data-gr-c-s-loaded="true">
+<!-- Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMDQFQQ"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app class="app-root app-root-md md platform-mobile platform-android platform-android6 platform-android6_0 platform-phablet platform-mobileweb" ng-version="4.1.3"><div app-viewport=""></div><ng-component class="app-root"><ion-menu role="navigation" side="left" type="overlay" class="menu-enabled" ng-reflect-content="[object Object]"><div class="menu-inner">
+    
+
+    <ion-content style="background-color:white" class="content content-md"><div class="fixed-content"></div><div class="scroll-content">
+    <ion-row align-items-center="" class="MenuHeader row" justify-content-center="">
+      <img class="profilePic" src="./Ionic App_files/marty-avatar.png">
+      
+    </ion-row>
+    <ion-row align-items-center="" class="MenuHeader row" justify-content-center="">
+      
+      <div class="smallTitle colorGrey fontBold floatLeft"> </div>
+    </ion-row>
+      <ion-list class="list list-md">
+        <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          घर
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          प्रोफाइल
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          सेटिंग्स
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          Crops
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          Location
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          खोज
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          गोपनीयता नीति
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button><button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          हमारे बारे में
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button>
+        <button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          locationss
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button>
+        <button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          Crops
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button>
+        <button class="item item-block item-md" ion-item="" menuclose="" ng-reflect-menu-close=""><div class="item-inner"><div class="input-wrapper"><!--bindings={
+  "ng-reflect-ng-if": "true"
+}--><ion-label class="label label-md">
+          Change_Password
+        </ion-label></div><!--bindings={
+  "ng-reflect-ng-if": "false"
+}--></div><div class="button-effect"></div></button>
+      </ion-list>
+      
+      <ion-row class="row">
+
+      <div width-20="">
+      <div class="smallTitle colorGrey fontBold floatLeft paddingLeft">Language</div>
+      </div>
+      
+    </ion-row>
+    <ion-row class="paddingTop alignCenter row">
+    
+    <div class="colorGreen smallTitleFont fontBold " style="width:50%">हिंदी</div>
+    <div class="colorGrey smallTitleFont fontBold" style="width:50%">ENGLISH</div>
+      
+      
+    </ion-row>
+    </div></ion-content>
+
+  </div><ion-backdrop disable-activated="" role="presentation" tappable=""></ion-backdrop></ion-menu>
+  <ion-nav class="menu-content menu-content-overlay" ng-reflect-root="TutorialPage"><div nav-viewport=""></div><page-tabs class="ion-page show-page" style="z-index: 101;"><ion-tabs class="tabs tabs-md" tabsplacement="bottom" tabslayout="icon-top" tabshighlight="false"><div class="tabbar show-tabbar" role="tablist" style="bottom: 0px;"><!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><a class="tab-button has-title has-icon disable-hover" href="http://localhost:8101/#" role="tab" ng-reflect-tab="[object Object]" id="tab-t0-0" aria-controls="tabpanel-t0-0" aria-selected="true"><!--bindings={
+  "ng-reflect-ng-if": "home"
+}--><ion-icon class="tab-button-icon icon icon-md ion-md-home" role="img" aria-label="home" ng-reflect-name="home" ng-reflect-is-active="true"></ion-icon><!--bindings={
+  "ng-reflect-ng-if": "घर"
+}--><span class="tab-button-text">घर</span><!--bindings={}--><div class="button-effect"></div></a><a class="tab-button has-title has-icon disable-hover" href="http://localhost:8101/#" role="tab" ng-reflect-tab="[object Object]" id="tab-t0-1" aria-controls="tabpanel-t0-1" aria-selected="false"><!--bindings={
+  "ng-reflect-ng-if": "md-analytics"
+}--><ion-icon class="tab-button-icon icon icon-md ion-md-analytics" role="img" aria-label="analytics" ng-reflect-name="md-analytics" ng-reflect-is-active="false"></ion-icon><!--bindings={
+  "ng-reflect-ng-if": "कृषि सेवाए"
+}--><span class="tab-button-text">कृषि सेवाए</span><!--bindings={}--><div class="button-effect"></div></a><a class="tab-button has-title has-icon disable-hover" href="http://localhost:8101/#" role="tab" ng-reflect-tab="[object Object]" id="tab-t0-2" aria-controls="tabpanel-t0-2" aria-selected="false"><!--bindings={
+  "ng-reflect-ng-if": "ios-globe"
+}--><ion-icon class="tab-button-icon icon icon-md ion-ios-globe-outline" role="img" aria-label="globe outline" ng-reflect-name="ios-globe" ng-reflect-is-active="false"></ion-icon><!--bindings={
+  "ng-reflect-ng-if": "समाचार"
+}--><span class="tab-button-text">समाचार</span><!--bindings={}--><div class="button-effect"></div></a><a class="tab-button has-title has-icon disable-hover" href="http://localhost:8101/#" role="tab" ng-reflect-tab="[object Object]" id="tab-t0-3" aria-controls="tabpanel-t0-3" aria-selected="false"><!--bindings={
+  "ng-reflect-ng-if": "ios-contacts"
+}--><ion-icon class="tab-button-icon icon icon-md ion-ios-contacts-outline" role="img" aria-label="contacts outline" ng-reflect-name="ios-contacts" ng-reflect-is-active="false"></ion-icon><!--bindings={
+  "ng-reflect-ng-if": "चौपाल"
+}--><span class="tab-button-text">चौपाल</span><!--bindings={}--><div class="button-effect"></div></a><a class="tab-button has-title has-icon disable-hover" href="http://localhost:8101/#" role="tab" ng-reflect-tab="[object Object]" id="tab-t0-4" aria-controls="tabpanel-t0-4" aria-selected="false"><!--bindings={
+  "ng-reflect-ng-if": "ios-cart"
+}--><ion-icon class="tab-button-icon icon icon-md ion-ios-cart-outline" role="img" aria-label="cart outline" ng-reflect-name="ios-cart" ng-reflect-is-active="false"></ion-icon><!--bindings={
+  "ng-reflect-ng-if": "बाजार"
+}--><span class="tab-button-text">बाजार</span><!--bindings={}--><div class="button-effect"></div></a><div class="tab-highlight"></div></div>
+  <ion-tab role="tabpanel" tabicon="home" ng-reflect-root="HomePage" ng-reflect-tab-title="घर" ng-reflect-tab-icon="home" id="tabpanel-t0-0" aria-labelledby="tab-t0-0" class="show-tab" aria-hidden="false"><div></div><page-home class="ion-page show-page" style="z-index: 100;">
+<ion-header no-border="" class="header header-md">
+<ion-toolbar class="headercolor toolbar toolbar-md"><div class="toolbar-background toolbar-background-md" ng-reflect-klass="toolbar-background" ng-reflect-ng-class="toolbar-background-md"></div><button class="menufontcolor disable-hover bar-buttons bar-buttons-md bar-button bar-button-md bar-button-default bar-button-default-md bar-button-menutoggle bar-button-menutoggle-md" ion-button="" menutoggle="" ng-reflect-menu-toggle=""><span class="button-inner">
+<ion-icon name="menu" role="img" class="icon icon-md ion-md-menu" aria-label="menu" ng-reflect-name="menu"></ion-icon>
+</span><div class="button-effect"></div></button><ion-buttons end="" class="bar-buttons bar-buttons-md">
+<button class="headericon disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" icon-only="" ion-button=""><span class="button-inner">
+<img src="./Ionic App_files/wallet.png">
+</span><div class="button-effect"></div></button>
+</ion-buttons><ion-buttons end="" class="bar-buttons bar-buttons-md">
+<button class="headericon disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" icon-only="" ion-button=""><span class="button-inner">
+  <img src="./Ionic App_files/notification.png">
+</span><div class="button-effect"></div></button>
+</ion-buttons><ion-buttons end="" class="bar-buttons bar-buttons-md">
+<button class="headericon disable-hover bar-button bar-button-md bar-button-default bar-button-default-md" icon-only="" ion-button=""><span class="button-inner">
+  <img src="./Ionic App_files/Fill 31 + Fill 32 + Fill 33.png">
+</span><div class="button-effect"></div></button>
+</ion-buttons><div class="toolbar-content toolbar-content-md" ng-reflect-klass="toolbar-content" ng-reflect-ng-class="toolbar-content-md">
+
+
+<ion-title class="title title-md"><div class="toolbar-title toolbar-title-md" ng-reflect-klass="toolbar-title" ng-reflect-ng-class="toolbar-title-md">नमस्ते</div></ion-title>
+
+
+</div></ion-toolbar>
+<ion-grid class="gridView gridDesign grid">
+  <ion-row class="gridRow row">
+    <ion-col class="toolbarCol col">
+      <img src="./Ionic App_files/Group 39.png">
+      मौसम
+    </ion-col>
+    <ion-col class="toolbarCol col fadeInLeft">
+      <img src="./Ionic App_files/Group 21.png" class="">
+      मंडी
+    </ion-col>
+    <ion-col class="toolbarCol col fadeInLeft">
+      <img src="./Ionic App_files/rishi sevna.png">
+      कृषि सेवाए
+    </ion-col>
+    <ion-col class="toolbarCol col fadeInLeft">
+      <img src="./Ionic App_files/Group 37.png" class="">
+      कम
+    </ion-col>
+
+  </ion-row>
+  <!--bindings={
+  "ng-reflect-ng-if": ""
+}-->
+  </ion-grid>
+</ion-header>
+
+
+<ion-content class="content content-md"><div class="fixed-content" style="margin-top: 88px; margin-bottom: 56px;"></div><div class="scroll-content" style="margin-top: 88px; margin-bottom: 56px;">
+  <div>
+
+  
+
+  <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+
+
+
+   <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">मौसम</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+
+
+
+
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">मंडी</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+
+  <ion-card class="card card-md">
+    <ion-grid class="grid">
+  <ion-row class="row">
+    <ion-col class="col" col-3="">
+
+      <img class="grapImage" src="http://localhost:8101/">
+    </ion-col>
+    <ion-col class="col" col-9="">
+      <div>
+        <div class="MandiTitle"></div>
+
+      </div>
+
+      <div class="MandiPrice">₹-</div>
+      <ion-row class="MandiUnit row">
+      <div>प्रति क्विंटल | </div>
+      </ion-row>
+    </ion-col>
+
+  </ion-row>
+  <ion-row class="row">
+
+    <iframe src="./Ionic App_files/index.html" style="width: 100%; height: 200px; overflow: hidden; border: none;"></iframe>
+
+  </ion-row>
+
+  </ion-grid>
+  <ion-grid class="grid">
+  <ion-row class="weatherfoter row" padding-top="">
+    <ion-col class="col" col-2="">
+      <img class="grapImage" src="http://localhost:8101/">
+
+    </ion-col>
+    <ion-col class="sepRight col" col-4="">
+      <div class="SmallerMandiTitle"></div>
+      <div class="SmallerMandiPrice">₹-</div>
+      <div class="SmallerMandiUnit">प्रति क्विंटल</div>
+    </ion-col>
+
+    <ion-col class="col" col-2="">
+      <img class="grapImage" src="http://localhost:8101/">
+    </ion-col>
+    <ion-col class="col" col-4="">
+      <div class="SmallerMandiTitle"></div>
+      <div class="SmallerMandiPrice">₹-</div>
+      <div class="SmallerMandiUnit">प्रति क्विंटल</div>
+    </ion-col>
+     <ion-col class="col">
+
+      <div class="alignCenter">
+        <button class="buttonGreen disable-hover button button-md button-default button-default-md" ion-button=""><span class="button-inner">और देखें</span><div class="button-effect"></div></button>
+    </div>
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row">
+  </ion-row>
+
+  </ion-grid>
+  </ion-card>
+
+  
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">विशेषज्ञ</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+   <ion-slides class="slides slides-md slides-0" ng-reflect-slides-per-view="auto"><div class="swiper-container swiper-container-horizontal swiper-container-android"><div class="swiper-wrapper">
+
+        <!--bindings={
+  "ng-reflect-ng-for-of": ""
+}-->
+          <ion-slide class="swiper-slide swiper-slide-active"><div class="slide-zoom">
+              <ion-card class="card card-md">
+                <div class="see-title-box">
+                <button color="light" ion-button="" outline="" class="disable-hover button button-md button-outline button-outline-md button-outline-md-light" ng-reflect-color="light" ng-reflect-outline=""><span class="button-inner">और देखें</span><div class="button-effect"></div></button>
+                </div>
+              </ion-card>
+          </div></ion-slide>
+
+   </div><div class="swiper-pagination hide swiper-pagination-clickable swiper-pagination-bullets"><button class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-label="Go to slide 1" data-slide-index="0"></button></div></div></ion-slides>
+
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">समाचार</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="card card-md">
+      <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+  <ion-grid class="grid">
+    <!--bindings={
+  "ng-reflect-ng-for-of": ""
+}-->
+
+    <div class="alignCenter">
+      <button class="buttonGreen disable-hover button button-md button-default button-default-md" ion-button=""><span class="button-inner">और देखें </span><div class="button-effect"></div></button>
+    </div>
+
+
+
+  </ion-grid>
+  </ion-card>
+
+
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">बाजार</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-slides class="slides slides-md slides-1" ng-reflect-slides-per-view="auto"><div class="swiper-container swiper-container-horizontal swiper-container-android"><div class="swiper-wrapper">
+    <!--bindings={
+  "ng-reflect-ng-for-of": ""
+}-->
+    <ion-slide class="slideItem swiper-slide swiper-slide-active"><div class="slide-zoom">
+      <ion-card class="card card-md">
+          <div class="see-title-box">
+          <button color="light" ion-button="" outline="" class="disable-hover button button-md button-outline button-outline-md button-outline-md-light" ng-reflect-color="light" ng-reflect-outline=""><span class="button-inner">और देखें</span><div class="button-effect"></div></button>
+          </div>
+      </ion-card>
+
+  </div></ion-slide>
+  </div><div class="swiper-pagination hide swiper-pagination-clickable swiper-pagination-bullets"><button class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-label="Go to slide 1" data-slide-index="0"></button></div></div></ion-slides>
+
+  
+
+  <!--bindings={
+  "ng-reflect-ng-if": "false"
+}-->
+
+
+
+ 
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="krishisevayen-cardHeader col">
+          <div class="headerClass">कृषि सेवाएं</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+   <ion-slides class="slides slides-md slides-2" ng-reflect-slides-per-view="1.05"><div class="swiper-container swiper-container-horizontal swiper-container-android"><div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+
+                <ion-slide class="swiper-slide swiper-slide-active" style="width: 90%;HEIGHT: AUTO;"><div class="slide-zoom">
+              <ion-card class="image-card card card-md">
+                <img src="./Ionic App_files/askquestion.jpg">
+                <div class="krishisevayen-title-box">
+                <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">विशेषज्ञ से पूछें</div>
+                <button ion-button="" class="disable-hover button button-md button-default button-default-md"><span class="button-inner">अपने फसलों पर विशेषज्ञ सलाह लें</span><div class="button-effect"></div></button>
+
+                </div>
+              </ion-card>
+              </div></ion-slide>
+
+              <ion-slide class="swiper-slide swiper-slide-next" style="width: 392.381px;" aria-hidden="true"><div class="slide-zoom">
+              <ion-card class="image-card card card-md">
+                <img src="./Ionic App_files/Kharif.jpeg">
+                <div class="krishisevayen-title-box">
+                <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">फसल</div>
+                <button ion-button="" class="disable-hover button button-md button-default button-default-md"><span class="button-inner">अधिक जानकारी प्राप्त करें</span><div class="button-effect"></div></button>
+
+                </div>
+              </ion-card>
+
+              </div></ion-slide>
+
+              <ion-slide class="swiper-slide" style="width: 392.381px;" aria-hidden="true"><div class="slide-zoom">
+              <ion-card class="image-card card card-md">
+                <img src="./Ionic App_files/horticulture.jpeg">
+                <div class="krishisevayen-title-box">
+                <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">बागवानी</div>
+                <button ion-button="" class="disable-hover button button-md button-default button-default-md"><span class="button-inner">अधिक जानकारी प्राप्त करें</span><div class="button-effect"></div></button>
+
+                </div>
+              </ion-card>
+
+              </div></ion-slide>
+
+          <ion-slide class="swiper-slide" aria-hidden="true" style="width: 392.381px;"><div class="slide-zoom">
+              <ion-card class="card card-md">
+                <div class="see-title-box">
+                <button color="light" ion-button="" outline="" class="disable-hover button button-md button-outline button-outline-md button-outline-md-light" ng-reflect-color="light" ng-reflect-outline=""><span class="button-inner">और देखें</span><div class="button-effect"></div></button>
+                </div>
+              </ion-card>
+          </div></ion-slide>
+
+   </div><div class="swiper-pagination hide swiper-pagination-clickable swiper-pagination-bullets"><button class="swiper-pagination-bullet swiper-pagination-bullet-active" aria-label="Go to slide 1" data-slide-index="0"></button><button class="swiper-pagination-bullet" aria-label="Go to slide 2" data-slide-index="1"></button><button class="swiper-pagination-bullet" aria-label="Go to slide 3" data-slide-index="2"></button><button class="swiper-pagination-bullet" aria-label="Go to slide 4" data-slide-index="3"></button></div></div></ion-slides>
+
+
+
+
+
+
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">वीडियो</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="vedioCard card card-md">
+  <ion-row class="row"><img class="roundImage fitImage" src="./Ionic App_files/0.jpg"></ion-row>
+  <div>
+    <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">Agribolo : Agriculture on the finger tips of Indian farmer
+    </div>
+    <div class="alignCenter">
+      <button class="buttonGreen disable-hover button button-md button-default button-default-md" ion-button=""><span class="button-inner">और देखें</span><div class="button-effect"></div></button>
+    </div>
+
+  </div>
+
+
+  </ion-card>
+
+
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="cardHeader col">
+          <div class="headerClass">कृषि सेवाए</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <ion-card class="card card-md">
+  <img src="./Ionic App_files/staticmap">
+
+  <ion-grid class="grid">
+      <ion-row class="row">
+      <ion-col class="col">
+          <p>कृषि केंद्र  किमी दूर है।</p>
+      </ion-col>
+      <ion-col class="col">
+          <button class="button disable-hover button-md button-default button-default-md button-small button-small-md" ion-button="" padding-left="" padding-right="" small="" ng-reflect-small=""><span class="button-inner">स्थान पर जाएं</span><div class="button-effect"></div></button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  </ion-card>
+
+
+
+  </div>
+</div></ion-content>
+</page-home><div class="nav-decor"></div></ion-tab>
+  <ion-tab role="tabpanel" tabicon="md-analytics" ng-reflect-root="KrishCenterPage" ng-reflect-tab-title="कृषि सेवाए" ng-reflect-tab-icon="md-analytics" id="tabpanel-t0-1" aria-labelledby="tab-t0-1" aria-hidden="true"><div></div><div class="nav-decor"></div></ion-tab>
+  <ion-tab role="tabpanel" tabicon="ios-globe" ng-reflect-root="NewsPage" ng-reflect-tab-title="समाचार" ng-reflect-tab-icon="ios-globe" id="tabpanel-t0-2" aria-labelledby="tab-t0-2" aria-hidden="true"><div></div><div class="nav-decor"></div></ion-tab>
+  <ion-tab role="tabpanel" tabicon="ios-contacts" ng-reflect-root="ChoupalPage" ng-reflect-tab-title="चौपाल" ng-reflect-tab-icon="ios-contacts" id="tabpanel-t0-3" aria-labelledby="tab-t0-3" aria-hidden="true"><div></div><div class="nav-decor"></div></ion-tab>
+  <ion-tab role="tabpanel" tabicon="ios-cart" ng-reflect-root="MarketPage" ng-reflect-tab-title="बाजार" ng-reflect-tab-icon="ios-cart" id="tabpanel-t0-4" aria-labelledby="tab-t0-4" aria-hidden="true"><div></div><div class="nav-decor"></div></ion-tab>
+<div tab-portal=""></div></ion-tabs>
+</page-tabs><div class="nav-decor"></div></ion-nav></ng-component><div overlay-portal="" ng-reflect-_overlay-portal=""></div><div overlay-portal="" ng-reflect-_overlay-portal=""></div><div class="loading-portal" overlay-portal="" ng-reflect-_overlay-portal=""></div><div class="toast-portal" ng-reflect-_overlay-portal="10000"></div><div class="click-block click-block-enabled"></div></ion-app>
+
+  <!-- The polyfills js is generated during the build process -->
+  <script src="./Ionic App_files/polyfills.js"></script>
+  <script src="./Ionic App_files/vendor.js"></script>
+  <!-- The bundle js is generated during the build process -->
+  <script src="./Ionic App_files/main.js"></script>
+
+  <!-- Ionic Dev Server: Injected LiveReload Script -->
+  <script src="./Ionic App_files/livereload.js" async="" defer=""></script>
+
+
+</body></html>
