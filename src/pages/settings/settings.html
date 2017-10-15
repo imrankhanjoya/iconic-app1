@@ -4,46 +4,52 @@
     <button menuToggle="left">
      <ion-icon name="back"></ion-icon>
     </button>
-    <ion-title>{{'SETTING_TITLE' | translate}}</ion-title>
+    <ion-title *ngIf="pageTitle=='changepass'" >{{'CHANGE_PASSWORD_TITLE' | translate}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
 <!---------Change Password------>
   <form *ngIf="pageTitle=='changepass'" [formGroup]="changepass" (ngSubmit)="changepassform()">
      <ion-card>
-        <img class="circle-pic" src="assets/img/appicon.png">
+
         <p class="Name"> <!-- {{userlogin.display_name}} --></p>
        <div>
 
-       <ion-item>
-          <ion-label  class="inpu" stacked>पुराना पासवर्ड</ion-label>
-          <ion-input  formControlName="oldpass"  placeholder="Old Password" ng-required></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label class="inpu"  stacked>पासवर्ड</ion-label>
-          <ion-input  formControlName="newpass"  placeholder="Old Password" ng-required></ion-input>
-        </ion-item>
-      <div class="error" *ngIf="passError==true" >
-        {{passErrorMsg}}
-     </div>
+       <div class="textinput">
+      <ion-item>
+          <ion-label  floating>{{'ENTER_CURRENT_PASSWORD' | translate}}</ion-label>
+          <ion-input formControlName="oldpass"  value="" type="password"></ion-input>
+       </ion-item>
+       </div>
+       <div class="error" *ngIf="passError==true" >
+          {{'CURRENT_PASSWORD_ERROR' | translate}}
+       </div>
 
       <ion-item>
-          <ion-label class="inpu" stacked>पासवर्ड की पुष्टि कीजिये</ion-label>
-          <ion-input  formControlName="confirmpass"  placeholder="Old Password" ng-required></ion-input>
-        </ion-item>
-      <div class="error" *ngIf="passConpError==true" >
-          {{passErrorMsg}}
-      </div>
+          <ion-label  floating>{{'ENTER_NEW_PASSWORD' | translate}}</ion-label>
+          <ion-input formControlName="newpass"  value="" type="password"></ion-input>
+       </ion-item>
+       <div class="error" *ngIf="passError==true" >
+          {{'NEW_PASSWORD_ERROR' | translate}}
+       </div>
+
+      <ion-item>
+          <ion-label  floating>{{'CONFIRM_PASSWORD' | translate}}</ion-label>
+          <ion-input formControlName="confirmpass"  value="" type="password"></ion-input>
+       </ion-item>
+       <div class="error" *ngIf="passConpError==true" >
+          {{'CONFIRM_PASSWORD_ERROR' | translate}}
+       </div>
+
 
       </div>
 
       <div  class="p_button">
-          <button class="p_1" type="submit"  [disabled]="!changepass.valid">Submit</button>
+          <button class="p_1" type="submit" >Submit</button>
         </div>
 
         

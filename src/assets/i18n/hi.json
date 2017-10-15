@@ -81,6 +81,14 @@
   "SING_UP_TYPE_PASSWORD": "पासवर्ड",
   "SING_UP_CONF_PASSWORD": "पासवर्ड की पुष्टि करें",
   "SING_UP_GOOD": "ठीक हेें",
+  "CHANGE_PASSWORD_TITLE": "पासवर्ड रीसेट",
+  "ENTER_CURRENT_PASSWORD": "पुराना पासवर्ड",
+  "CURRENT_PASSWORD_ERROR": "कृपया वर्तमान पासवर्ड दर्ज करें",
+  "ENTER_NEW_PASSWORD": "नया पासवर्ड",
+  "NEW_PASSWORD_ERROR": "कृपया नया पासवर्ड दर्ज करें",
+  "CONFIRM_PASSWORD": "पासवर्ड की पुष्टि कीजिये",
+  "CONFIRM_PASSWORD_ERROR": "कृपया नया पासवर्ड की पुष्टि करें",
+
 
   "LOGIN_TEXT": "कृपया लोगिन करेें",
   "LOGIN_PHONE_NUMBER": "फ़ोन नंबर",
