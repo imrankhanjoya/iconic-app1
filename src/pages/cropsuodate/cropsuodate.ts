@@ -31,9 +31,17 @@ export class CropsuodatePage {
    public skipDataList: Array<Object>;
    public userKharif:any;
    public loading:any;
-  	constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
-      public loadingCtrl: LoadingController,public cityStateProvider:CityStateProvider) {      this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
+   public user_id:any;
+  	constructor(public navCtrl: NavController, 
+  		public navParams: NavParams,
+  		public storage:Storage,
+      	public loadingCtrl: LoadingController,
+      	public cityStateProvider:CityStateProvider,
+        public user: User
+      	) 
+  		{      
+  			this.loading = this.loadingCtrl.create({
+        	content: 'Please wait...'
       });
 
       this.shoPage='Kharif';
@@ -41,6 +49,10 @@ export class CropsuodatePage {
       this. storage.get('userLang').then((val) => {
       this.lang=val;
       this.getCrops();
+      });
+      this.storage.get('userData').then((val) => { 
+        this.user_id = val.ID; 
+        console.log(val);
       });
   }
 
@@ -88,6 +100,7 @@ export class CropsuodatePage {
   }
   selected(){
   //  this.loading.present();
+    console.log('FormSubmit Suceesfully');
     console.log(this.cropList);
     var isSelect=0;
     var selectedCrops=[];
@@ -103,13 +116,28 @@ export class CropsuodatePage {
         if (isSelect<3) {
           alert('Select Minimum 3')
         }else {
-          //this.userRigister(selectedCrops);
-          //lag,long,mobile,name,password,language,state,district,village,crops,vegetables
-
-          //this.navCtrl.push('MarketselectPage');
+          this.CropUpdate(selectedCrops);
         }
       }
     }
   }
+
+
+  	CropUpdate(selectedCrops){
+	    let loading = this.loadingCtrl.create({
+	        content: 'Please wait...'
+	      });
+	    loading.present();
+	    this.user.UpdateCrops(this.user_id,JSON.stringify(selectedCrops)).map(res => res.json()).subscribe((resp) => {
+	      loading.dismiss();
+	     if(resp.status==true){
+	       this.navCtrl.push('LoginPage');
+	      }else{
+	        alert(resp.msg);
+	      }
+	     }, (err) => {
+	      loading.dismiss();
+	    });
+  	}
 
 }
