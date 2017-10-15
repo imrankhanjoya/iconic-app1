@@ -21,7 +21,7 @@
           <ion-label class="secondary">{{'ASK_QUESTION' | translate}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-input [(ngModel)]="questionaddData.title" value=""  name="title" placeholder="{{'ASK_QUESTION_TITLE' | translate}}"></ion-input>
+          <ion-textarea [(ngModel)]="questionaddData.title" value=""  name="title" placeholder="{{'ASK_QUESTION_TITLE' | translate}}"></ion-textarea>
         </ion-item>
         <div class="inputborder"></div>
 <!--         <ion-item>
@@ -33,14 +33,11 @@
         </ion-item>
         <div class="inputborder"></div> -->
       <ion-item>
-        <label class="secondary">{{'ASK_QUESTION_PUT_A_PICTURE' | translate}}</label>
-          <ion-row>
-            <ion-col col-8>
-              <input type="file" questionsimage [(ngModel)]="questionaddData.Attachments"  id="file-input" style="opacity: 0" >
-            </ion-col>
-            <ion-col col-4>
-              <button ion-button class="quitionimagebtn">{{'ASK_QUESTION_PUT_A_PICTURE' | translate}}</button>
-            </ion-col>
+          <ion-row justify-content-end>
+              <button ion-button clear>
+              <ion-icon name="attach">{{'ASK_QUESTION_PUT_A_PICTURE' | translate}}</ion-icon>
+              </button>
+           
           </ion-row>
       </ion-item>
         <div class="inputborder"></div>
