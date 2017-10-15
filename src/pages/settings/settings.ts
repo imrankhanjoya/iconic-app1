@@ -7,7 +7,6 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 
-
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
@@ -85,35 +84,8 @@ export class SettingsPage {
           this.loading.present();
           this.getAllState();
     }
-
-  ngOnChanges() {
-    console.log('Ng All Changes');
-  }
-  changepassform(){
-    this.changepassformdata = this.changepass.value;
-    var sendForm = true;
-    if(this.changepassformdata.newpass.length<6){
-        this.passError = true;
-        this.passErrorMsg='Password week';
-        sendForm = false;
-    }else{
-      this.passError = false;
-    }
-
-    if(this.changepassformdata.newpass!=this.changepassformdata.confirmpass){
-        this.passConpError = true;
-        this.passErrorMsg='Password Not Match';
-        sendForm = false;
-    }else{
-      this.passConpError = false;
-    }
-    if(sendForm){
-        this.user.ChangePassword(this.phoneNumber,this.changepassformdata.newpass,this.changepassformdata.oldpass).map(res => res.json()).subscribe((resp) => {
-            console.log(resp.status);
-     }, (err) => {
-      //this.navCtrl.push('LoginPage');
-    });
-    }
+  ionViewDidLoad() {
+    
   }
   changelocaltionform(){
     this.changelocationformdata = this.changelocation.value;
@@ -127,13 +99,9 @@ export class SettingsPage {
     });
   }
 
-  getAllState() {
-    this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
-      this.stateList=resp.data;
-      this.loading.dismiss();
-    });
+  ionViewWillEnter() {
+    
   }
-
   onStateSelect(stateid) {
     var array = stateid.split('~');
     this.storage.set('userStateId',array[0]);
@@ -152,4 +120,11 @@ export class SettingsPage {
       //  this.loading.dismiss();
     }); 
   }
+  
+    getAllState() {
+      this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
+        this.stateList=resp.data;
+        this.loading.dismiss();
+      });
+    }
 }

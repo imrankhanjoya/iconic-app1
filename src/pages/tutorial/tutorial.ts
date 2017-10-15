@@ -25,23 +25,23 @@ export class TutorialPage {
     public platform: Platform,public storage:Storage) {
     this.dir = platform.dir();
     
-    // setTimeout(()=>{
-    //   storage.get('userData').then((userlogin) => {
-    //       console.log(userlogin);
-    //       if (userlogin) {
-    //         this.navCtrl.setRoot(MainPage, {}, {
-    //           animate: true,
-    //           direction: 'forward'
-    //         });
-    //       }else if(!userlogin){
-    //         this.navCtrl.setRoot('WelcomePage', {}, {
-    //           animate: true,
-    //           direction: 'forward'
-    //         });
-    //       }
+    setTimeout(()=>{
+      storage.get('userData').then((userlogin) => {
+          console.log(userlogin);
+          if (userlogin) {
+            this.navCtrl.setRoot(MainPage, {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          }else if(!userlogin){
+            this.navCtrl.setRoot('WelcomePage', {}, {
+              animate: true,
+              direction: 'forward'
+            });
+          }
           
-    //    });
-    //   },3000);
+       });
+      },3000);
   }
 
   startApp() {
