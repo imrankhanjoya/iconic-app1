@@ -89,7 +89,7 @@ export class ItemCreatePage {
 
   /**
    * The user cancelled, so we dismiss without sending data back.
-   */
+  */
   cancel() {
     this.viewCtrl.dismiss();
   }
@@ -111,5 +111,8 @@ export class ItemCreatePage {
     // we wouldn't want the back button to show in this scenario
     console.log(page);
     this.navCtrl.push('SettingsPage',{pTitle:page});
+  }
+  editcrops() {
+    this.navCtrl.push('CropsuodatePage');
   }
 }

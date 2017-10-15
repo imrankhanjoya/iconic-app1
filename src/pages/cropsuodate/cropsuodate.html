@@ -1,0 +1,55 @@
+<!--
+  Generated template for the CropsuodatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>cropsuodate</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-content scroll="false">
+<h1 class="title"> {{'CROPS_TITLE' | translate}}</h1>
+<ion-row >
+  <ion-col  class="paddingLeft" col-6 (click)="addEvent('Kharif');" >
+    <img class="dimen" src="assets/img/{{kharifImage}}"/>
+ 
+    <div class="displayOneFont alignCenter"> {{'VEDIO_SEEDS' | translate}}</div>
+ 
+  </ion-col>
+  <ion-col class="paddingLeft" col-6 (click)="addEvent('Horticulture');">
+    <img   class="dimen" src="assets/img/{{hortiImage}}" />
+     <div class="displayOneFont alignCenter">{{'CROPS_FRUITE' | translate}}</div>
+  </ion-col>
+</ion-row>
+
+<ion-scroll scrollY="true" style="width: 100%; height: 50%;">
+<ion-row >
+  <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
+
+    <ion-row *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
+      <ion-col >
+        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <div class="titleName titleFont" >{{item.name}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
+      <ion-col >
+        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <div class="titleName titleFont" >{{item.name}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+</ion-row>
+</ion-scroll>
+
+<button (click)="selected()" ion-button block class="button">{{'SING_UP_GOOD' | translate}}</button>
+</ion-content>
+
+</ion-content>

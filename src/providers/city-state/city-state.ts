@@ -35,8 +35,27 @@ export class CityStateProvider {
   }
 
   getDistrict(lang,stateId) {
-     var paramCond ={lang:lang,city_state:stateId};
-    let seq = this.api.get('v1/location/cites',paramCond).share();
+     var paramCond ={lang:lang,district_state:stateId};
+    let seq = this.api.get('v1/location/districts',paramCond).share();
+
+    seq
+      .map(res => res.json())
+      .subscribe(res => {
+        // If the API returned a successful response, mark the user as logged in
+        if (res.status == 'success') {
+          console.log(res);
+        } else {
+        }
+      }, err => {
+        console.error('ERROR', err);
+      });
+
+    return seq;
+  }
+
+  getTehsil(lang,districtid) {
+     var paramCond ={lang:lang,districtid:districtid};
+    let seq = this.api.get('v1/location/tehsil',paramCond).share();
 
     seq
       .map(res => res.json())

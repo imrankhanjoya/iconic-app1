@@ -252,15 +252,14 @@ export class User {
   /**
    * Update Profile
    */
-   UpdateProfile(phoneNumber,password,old_pass){
+   UpdateLocation(user_id,user_state_id,user_district_id,user_tahsil_id){
      let body = new FormData();
-     body.append('phoneNumber', phoneNumber);
-     body.append('password', password);
-     body.append('old_pass', old_pass);
+     body.append('user_id', user_id);
+     body.append('user_state_id', user_state_id);
+     body.append('user_district_id', user_district_id);
+     body.append('user_tahsil_id', user_tahsil_id);
 
-      console.log(phoneNumber + password);
-
-     let seq = this.api.post('v1/user/change-password', body).share();
+     let seq = this.api.post('v1/user/location-update', body).share();
 
      seq
        .map(res => res.json())
