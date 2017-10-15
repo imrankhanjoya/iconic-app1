@@ -17,6 +17,12 @@
 
 
 <ion-content >
+<ion-item>
+  <ion-label>Select Product Category</ion-label>
+  <ion-select [(ngModel)]="product_cat" multiple="true" (ionChange)="onChange(product_cat)">
+    <ion-option *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
+  </ion-select>
+</ion-item>
 <div class="main-content">
 <!-------Product Sectopn------>
 <ion-row   *ngFor="let productcatData of productDatas.data;">

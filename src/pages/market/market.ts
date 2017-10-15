@@ -19,23 +19,27 @@ import { CallProvider } from '../../providers/call/call';
 export class MarketPage {
   public limit:'100';
   public loading :any;
+  public cat_id :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public loadingCtrl: LoadingController, navCtrl: NavController, public navParams: NavParams,
     public market:MarketproProvider,public callProvider:CallProvider) {
     this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
+      content: 'Please wait...'
+    });
       this.loading.present();
+      this.cat_id = 0;
   }
 
 
   ionViewDidLoad() {
-      this.getmarkets();
+    this.getCategory();
+    this.getmarkets(this.cat_id);
     console.log('ionViewDidLoad MarketPage');
   }
 
-  getmarkets(){
-    this.market.productlistview().map(res => res.json()).subscribe((res) => {
+  getmarkets(cat_id){
+    this.market.productlistview(cat_id).map(res => res.json()).subscribe((res) => {
       
         this.productDatas.data = res.data;
         this.productDatas.msg = res.msg;
@@ -49,10 +53,29 @@ export class MarketPage {
         this.loading.dismiss();
         console.log(err);
       });
-
   }
+
+  getCategory(){
+    this.market.productcat().map(res => res.json()).subscribe((res) => {
+      
+        this.catDatas.data = res.data;
+        this.catDatas.msg = res.msg;
+        this.catDatas.status = res.status;
+        console.log('cat data');
+        console.log(this.catDatas.data);
+        console.log('cat data END ');
+        //this.loading.dismiss();
+      }, (err) => {
+        // Unable to log in
+        //this.loading.dismiss();
+        console.log(err);
+      });
+  }
+
   mackCall(){
     this.callProvider.makeCall();
   }
-
+  onChange(selectedData){
+      this.getmarkets(selectedData);
+  }
 }

@@ -34,10 +34,31 @@ export class MarketproProvider {
 
 	    	return seq;
   	}
-    productlistview() {
+
+    productlistview(cat_id) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	var paramCond ={page:0,lang:'en_US'};
+	  	var paramCond ={page:0,lang:'en_US','category_id':cat_id};
 	    let seq = this.api.get('v1/product/all-view', paramCond).share();
+
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status) {
+	          console.log('im here');
+	          console.log(cat_id);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+
+	    	return seq;
+  	}
+
+    productcat() {
+  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+	  	var paramCond ={lang:'en_US'};
+	    let seq = this.api.get('v1/product/category', paramCond).share();
 
 	    seq
 	      .map(res => res.json())
