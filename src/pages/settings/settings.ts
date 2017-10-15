@@ -7,6 +7,7 @@ import { IonicPage, NavController, NavParams ,AlertController,LoadingController 
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 
+
 /**
  * The Settings page is a simple form that syncs with a Settings provider
  * to enable the user to customize settings for the app.
