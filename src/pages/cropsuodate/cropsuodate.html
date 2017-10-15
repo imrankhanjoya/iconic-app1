@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cropsuodate</ion-title>
+    <ion-title>Update Crops</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-<ion-content scroll="false">
+<ion-content padding scroll="false">
+
 <h1 class="title"> {{'CROPS_TITLE' | translate}}</h1>
 <ion-row >
   <ion-col  class="paddingLeft" col-6 (click)="addEvent('Kharif');" >
@@ -49,7 +49,6 @@
 </ion-row>
 </ion-scroll>
 
-<button (click)="selected()" ion-button block class="button">{{'SING_UP_GOOD' | translate}}</button>
+<button class="buttonGreen" (click)="selected()" ion-button block >{{'SING_UP_GOOD' | translate}}</button>
 </ion-content>
 
-</ion-content>

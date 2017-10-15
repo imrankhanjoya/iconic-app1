@@ -15,6 +15,7 @@
 
 <!---------Change Password------>
   <form *ngIf="pageTitle=='changepass'" [formGroup]="changepass" (ngSubmit)="changepassform()">
+     <ion-card>
 
         <p class="Name"> <!-- {{userlogin.display_name}} --></p>
        <div>
@@ -52,6 +53,8 @@
           <button class="p_1" type="submit" >Submit</button>
         </div>
 
+        
+      </ion-card>
   </form>
 
 <!---------Change Profile Data------>
@@ -89,8 +92,8 @@
   <form *ngIf="pageTitle=='changelocation'" [formGroup]="changelocation" (ngSubmit)="changelocaltionform()">
     <ion-card>
       <div>
-          <div class="displayOneFont colorGrey fontBold separator"> {{'SELECT_LOCTION' | translate}}</div>
-          <div class="smallTitle colorGrey alignCenter" >{{'SELECT_LOCTION_PLEASE' | translate}}</div>
+          <div class="displayOneFont colorGrey fontBold greySeparator paddingBottom"> {{'SELECT_LOCTION' | translate}}</div>
+          <div class="smallTitle colorGrey alignCenter paddingTop" >{{'SELECT_LOCTION_PLEASE' | translate}}</div>
       </div>
 
 
@@ -100,6 +103,8 @@
           <option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</option>
         </select>
       </ion-item>
+
+
       <ion-item >
         <select class="selectBox"  formControlName="user_district_id"  (change)="onDistrictSelect($event.target.value)">
           <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
