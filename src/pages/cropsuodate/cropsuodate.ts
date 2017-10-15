@@ -18,15 +18,19 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
 })
 export class CropsuodatePage {
   	public lang:any;
-	public loading:any;
-   	public shoPage:any;
-  	public cropList:any;
-   	public kharifImage='cropselected.png';
-   	public hortiImage='fruitunselected.png';
-   	public skipDataList: Array<Object>;
-   	public tump:boolean = true;
-   	public temp:boolean = true;
-   	buttonColor: string = '#dbdbdb';
+  public cropList:any;
+   public kharifImage='cropselected.png';
+   public hortiImage='fruitunselected.png';
+
+   public ionicNamedColor: string = '#101c00';
+   public tump:boolean = true;
+   public temp:boolean = true;
+   buttonColor: string = '#dbdbdb';
+   peon:string =  '#101c00';
+   public shoPage:any;
+   public skipDataList: Array<Object>;
+   public userKharif:any;
+   public loading:any;
   	constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
       public loadingCtrl: LoadingController,public cityStateProvider:CityStateProvider) {      this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -53,6 +57,17 @@ export class CropsuodatePage {
       this.loading.dismiss();
     });
   }
+  addValue(e) {
+    this.skipDataList.push({key: e});
+    console.log(this.cropList);
+    if (this.cropList[e].sub_type=='true') {
+      this.cropList[e].sub_type='-';
+    }else {
+      this.cropList[e].sub_type='true';
+    } 
+    //this.storage.set('Kharif',this.skipDataList);
+    console.log('--------'+this.skipDataList);
+ }
   addEvent(index){
     this.shoPage=index;
     console.log(this.tump);
@@ -69,6 +84,31 @@ export class CropsuodatePage {
       this.kharifImage = 'cropselected.png';
       this.hortiImage='fruitunselected.png';
 
+    }
+  }
+  selected(){
+  //  this.loading.present();
+    console.log(this.cropList);
+    var isSelect=0;
+    var selectedCrops=[];
+    var selectedVegetables=[];
+    for (var i = 0; i < this.cropList.length; i++) {
+      if (this.cropList[i].sub_type=='true') {
+        
+            selectedCrops.push({'crop_id':this.cropList[i].id,'crop_type':this.cropList[i].crop_type});
+          
+        isSelect++;
+      }
+      if (i==this.cropList.length-1) {
+        if (isSelect<3) {
+          alert('Select Minimum 3')
+        }else {
+          //this.userRigister(selectedCrops);
+          //lag,long,mobile,name,password,language,state,district,village,crops,vegetables
+
+          //this.navCtrl.push('MarketselectPage');
+        }
+      }
     }
   }
 
