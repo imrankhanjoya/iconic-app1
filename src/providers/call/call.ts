@@ -17,6 +17,7 @@ export class CallProvider {
   }
 
   makeCall(){
+    console.log('----call---');
     this.callNumber.callNumber('9694967744', true)
   .then(() => console.log('Launched dialer!'))
   .catch(() => console.log('Error launching dialer'));
