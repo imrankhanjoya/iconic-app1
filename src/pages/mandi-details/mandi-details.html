@@ -14,7 +14,7 @@
 
 
 <ion-content>
-
+<button ion-button (click)="openFilter()" >filter</button>
 <div class="maindiv" *ngFor="let data of mandiData.data; let i=index " >
   
 
@@ -51,7 +51,7 @@
     </ion-col>
 
   </ion-row>
-         <ion-row>
+      <ion-row>
       <ion-col col-3 class="mandiGrap">
       <p> {{'RS_PER_QUINTAL' | translate}}</p>
       <p> 500</p>
@@ -82,7 +82,8 @@
       </ion-col>
       <ion-col>
         15 जुलाई
-      </ion-col></ion-row>
+      </ion-col>
+    </ion-row>
     </div>
       </ion-grid>
     </ion-card>

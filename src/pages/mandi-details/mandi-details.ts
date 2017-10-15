@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { ModalController, ViewController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
+import { FilterModelPage } from '../filter-model/filter-model';
+
 
 /**
  * Generated class for the MandiDetailsPage page.
@@ -15,11 +18,10 @@ import { MandiProvider } from '../../providers/mandi/mandi';
   templateUrl: 'mandi-details.html',
 })
 export class MandiDetailsPage {
-   public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-//  public mandiData:any;
+  public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public loading:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
@@ -28,7 +30,7 @@ export class MandiDetailsPage {
 
   ionViewDidLoad() {
   	 this.getMandiDetails();
-    console.log('ionViewDidLoad MandiDetailsPage');
+     console.log('ionViewDidLoad MandiDetailsPage');
   }
    getMandiDetails(){
     this.mandi.mandiRates().map(res => res.json()).subscribe((res) => {
@@ -41,5 +43,12 @@ export class MandiDetailsPage {
       });
 
   }
+
+  openFilter(){
+    let modal = this.modalCtrl.create('FilterModelPage');
+    
+    modal.present();
+  }
+  
 
 }
