@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, ViewController, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, PopoverController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { User } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -21,15 +22,19 @@ export class ItemCreatePage {
   public userPhome:any;
   public userDictname:any;
   public userStateName: any;
+  public userId: any;
+  public base64Image: string ='assets/img/appicon.png';
   public userlogin:{display_name:string,phone:string,userDict:any,userState:any,userDictName:any, userStateName:any}={display_name:'',phone:'',userDict:'',userState:'',userDictName:'', userStateName:''};
   
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder,
-    public camera: Camera,public storage:Storage, public popoverCtrl: PopoverController) {
+    public camera: Camera,public storage:Storage, public popoverCtrl: PopoverController,public user: User,
+    public loadingCtrl: LoadingController) {
 
     
     storage.get('userData').then((userlogin) => {
 
+      this.userId = userlogin.ID;
       this.userlogin.display_name = userlogin.display_name;
       this.userlogin.phone = userlogin.user_login;
       this.userlogin.userState = userlogin._user_state;
@@ -39,6 +44,9 @@ export class ItemCreatePage {
       console.log(userlogin);
     });
     
+    if (this.base64Image=='') {
+        this.base64Image='assets/img/appicon.png';
+    }
 
     this.form = formBuilder.group({
       profilePic: [''],
@@ -127,8 +135,9 @@ export class ItemCreatePage {
              sourceType: this.camera.PictureSourceType.CAMERA,
              destinationType: this.camera.DestinationType.DATA_URL
             }).then((imageData) => {
+              this.base64Image = 'data:image/jpeg;base64,'+imageData;
               console.log('=========data:image/jpeg;base64,'+imageData);
-             
+             this.updateProImg(imageData);
              }, (err) => {
               console.log(err);
             });
@@ -138,12 +147,24 @@ export class ItemCreatePage {
              sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
              destinationType: this.camera.DestinationType.DATA_URL
             }).then((imageData) => {
+              this.base64Image = 'data:image/jpeg;base64,'+imageData;
               console.log('=========data:image/jpeg;base64,'+imageData);
-             
+             this.updateProImg(imageData);
              }, (err) => {
               console.log(err);
             });
         }
      });
   }
+  updateProImg(image){
+    let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+     });
+     loading.present();
+     this.user.userUpdateProImg(this.userId,image).map(res => res.json()).subscribe((resp) => {
+      loading.dismiss();
+     }, (err) => {
+      loading.dismiss();
+    });
+   }
 }

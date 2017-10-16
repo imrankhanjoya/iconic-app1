@@ -45,7 +45,6 @@ export class MarketPage {
         this.productDatas.data = res.data;
         this.productDatas.msg = res.msg;
         this.productDatas.status = res.status;
-        this.productDatas.status = res.status;
         console.log('market data start');
         console.log(this.productDatas.data);
         this.loading.dismiss();

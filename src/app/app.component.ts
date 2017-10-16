@@ -69,6 +69,11 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' },
     { title: 'Privacy & Policy', component: 'HomePage' },
     { title: 'About Us', component: 'MarketselectPage' },
+    { title: 'about', component: 'AboutPage' },
+    { title: 'privacy', component: 'PrivacyPage' },
+
+
+
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
