@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,ViewChild} from '@angular/core';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
@@ -17,6 +17,7 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
   templateUrl: 'weather.html',
 })
 export class WeatherPage {
+@ViewChild('mySlider') slider;
   public loading:any;
   public lang:any;
   public selectState: any;
@@ -24,10 +25,11 @@ export class WeatherPage {
   public districtList: any;
   public tehsilList: any;
   public location:any
+  public tehsilId:any;
 	public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   	public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   	constructor(
-              public navCtrl: NavController, 
+              public navCtrl: NavController,
               public navParams: NavParams,
               public loadingCtrl: LoadingController,
               public storage:Storage,
@@ -50,13 +52,15 @@ export class WeatherPage {
         this.loading.present();
         console.log('send tehsil'+tehsil);
         this.weather.weatherdetail(tehsil).map(res => res.json()).subscribe((res) => {
-      
+
         this.wheaterdetailall.data = res.data;
         this.wheaterdetailall.msg = res.msg;
         this.wheaterdetailall.status = res.status;
+        this.tehsilId=this.wheaterdetailall.data.tehsil_id;
+
         //this.weatherfivedayD=res.data.headline.Text;
-        console.log(this.wheaterdetailall);
-        
+        //console.log(JSON.stringify());
+
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -66,13 +70,13 @@ export class WeatherPage {
 
   weatherfivedays(location:any){
     this.weather.weatherfivedays().map(res => res.json()).subscribe((res) => {
-      
+
         this.weatherfiveday.data = res.data;
         this.weatherfiveday.msg = res.msg;
         this.weatherfiveday.status = res.status;
         console.log(res.data.headline.Text);
         console.log(this.weatherfiveday.data);
-        
+
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -83,19 +87,21 @@ export class WeatherPage {
     var array = stateid.split('~');
     this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
         this.districtList=resp.data;
+        console.log('-----tehId---------'+this.tehsilId);
         console.log('this is district');
         console.log(this.districtList);
-      }); 
+      });
   }
   onDistrictSelect(districtId){
     var array = districtId.split('~');
     this.storage.set('userDictrictId',array[0]);
     this.storage.set('userDictrict',array[1]);this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
       this.tehsilList=resp.data;
+      console.log('+++++tehsilId+++'+JSON.stringify(resp));
       //  this.loading.dismiss();
-    }); 
+    });
   }
-  
+
   getAllState() {
     this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
       this.stateList=resp.data;
@@ -107,5 +113,11 @@ export class WeatherPage {
     this.weatherdetail(tehsil);
     this.weatherfivedays(tehsil);
   }
+slideChanged(index){
+console.log(index);
+}
+
+
+
 
 }

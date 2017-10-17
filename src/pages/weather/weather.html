@@ -45,16 +45,11 @@
 </ion-header>
 
 
-<ion-content class="content">
-  <ion-slides pager class="mainCard1" parallax="true" >
+<ion-content class="content" >
+  <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="slideChanged(tehsil)">
 
-
-    <ion-slide  class="ionslides" *ngFor="let wheaterdetail of wheaterdetailall.data;"  >
+    <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
-
-
-
-
         <ion-row>
           <ion-col col-6 class="colCandigare subHeadingFont">
           {{wheaterdetail.WeatherData.DateTime | date:'dd MMMM yyyy hh a'}}
@@ -68,12 +63,7 @@
          <img class="weatherimage" src="{{wheaterdetail.WeatherData.WeatherIconsBig}}"/>
           </ion-col>
         </ion-row>
-
-
-
-
-
-            <div class="titleFont alignLeft">{{'WEATHER_FILL_LIKES' | translate}} : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
+      <div class="titleFont alignLeft">{{'WEATHER_FILL_LIKES' | translate}} : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
 
           <div class="grapImage">
             <p>{{'WEATHER_FORECAST' | translate}}</p>
@@ -144,14 +134,13 @@
             </ion-col>
           </ion-row>
       </ion-card>
+
     </ion-slide>
 </ion-slides>
-
-<!---Bottom Clods-->
-  <ion-row class="cloud">
-    <ion-col  *ngFor="let weatherfivedaydetail of weatherfiveday.data.WeatherData;">
-      <p>सोम</p>
-      <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt=""/>
-    </ion-col>
-  </ion-row>
+<ion-row class="cloud">
+  <ion-col  *ngFor="let weatherfivedaydetail of weatherfiveday.data.WeatherData;">
+    <p>सोम</p>
+    <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt=""/>
+  </ion-col>
+</ion-row>
 </ion-content>
