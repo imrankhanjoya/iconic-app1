@@ -18,17 +18,19 @@
 
 <div class = "list">
     <ion-card>
+      <form [formGroup]="answer" (ngSubmit)="submitanswer()">
         <ion-item>
           <ion-label class="secondary">{{'QUESTION_DELIVERY'| translate}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-textarea [(ngModel)]="answerformData.description" name="description" placeholder="कृषि में युग्म पैदावार किसे कहते है?" row=20>
+          <ion-textarea [(ngModel)]="answerformData.description" name="description" placeholder="{{'QUESTION_DELIVERY'| translate}}"  ng-required>
           </ion-textarea>
         </ion-item>
         <div class="inputborder"></div>
         <ion-item >
-      <button ion-button block  class="sbmtbtn"  (click)="submitanswer()">{{'QUESTION_SUBMIT_ANSWER'| translate}}</button>
+      <button ion-button block  class="sbmtbtn" type="submit">{{'QUESTION_SUBMIT_ANSWER'| translate}}</button>
       </ion-item>
+    </form>
   </ion-card>
 </div>
 </ion-content>

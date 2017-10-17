@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuitionanswerpProvider } from '../../providers/quitionanswerp/quitionanswerp';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 /**
  * Generated class for the QuitionanswerPage page.
@@ -16,10 +17,15 @@ import { QuitionanswerpProvider } from '../../providers/quitionanswerp/quitionan
 })
 export class QuitionanswerPage {
 	public qid:any;
+  private answer : FormGroup;
   	public  answerformData = {user_id:1,title:'',description:''};
 	public answerData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   	constructor(public navCtrl: NavController, public navParams: NavParams,public questionanswer: QuitionanswerpProvider) {
   		this.qid=navParams.get('QuitionID');
+      //Change Password
+        this.answer = this.formBuilder.group({
+            description: ['', Validators.required],
+        });
 	}
 
   	ionViewDidLoad() {

@@ -23,7 +23,7 @@ export class QuitionviewPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuitionviewPage');
-  	this. getquestionsview();
+    this. getquestionsview();
   }
   getquestionsview(){
     this.questionview.Quitionviews(this.qid).map(res => res.json()).subscribe((res) => {
@@ -31,7 +31,7 @@ export class QuitionviewPage {
         this.questionviewData.data = res.data;
         this.questionviewData.msg = res.msg;
         this.questionviewData.status = res.status;
-        console.log(this.questionviewData.data);
+        console.log(this.questionviewData.data.QuestionAnswer);
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -41,9 +41,6 @@ export class QuitionviewPage {
   gotoAnswerquestion(Qid){
     console.log(Qid);
     this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
-  }
-  gotoAskquestion(){
-    this.navCtrl.push('QuestionlistPage');
   }
 
 }

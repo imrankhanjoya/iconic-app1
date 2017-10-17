@@ -151,7 +151,7 @@
       </ion-item>
       <ion-item >
         <select class="selectBox"  formControlName="user_tahsil_id" >
-          <option value="0">{{'SELECT_LOCTION_TEHSIL' | translate}} {{'SELECT_LOCTION_TEHSIL' | translate}}</option>
+          <option value="0">{{'SELECT_LOCTION_TEHSIL' | translate}}</option>
           <option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}~{{tehsil.tehsil_name}}>{{tehsil.tehsil_name}}</option>
         </select>
       </ion-item>

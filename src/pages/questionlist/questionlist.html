@@ -26,7 +26,8 @@
       </ion-row>
       <ion-row  >
         <ion-col col-12>
-          <div class="subtitles">{{data.display_name}} • {{data.ago}} ago</div>
+          <div class="subtitles">{{data.display_name}} • {{data.ago}} ago 
+          <span *ngIf="data.answer_count!=0">{{data.answer_count}} Reply</span></div>
         </ion-col>
       </ion-row>
 
