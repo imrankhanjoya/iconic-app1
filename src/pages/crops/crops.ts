@@ -19,6 +19,8 @@ import { Storage } from '@ionic/storage';
 export class CropsPage {
   public lang:any;
   public cropList:any;
+   public kharifImage='cropselected.png';
+   public hortiImage='fruitunselected.png';
 
    public ionicNamedColor: string = '#101c00';
    public tump:boolean = true;
@@ -38,8 +40,6 @@ export class CropsPage {
    public userLat:any;
    public userLong:any;
    public loading:any;
-   public kharifImage='cropselected.png';
-   public hortiImage='fruitunselected.png';
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
       public cityStateProvider:CityStateProvider,public storage:Storage,
@@ -52,8 +52,8 @@ export class CropsPage {
       this.shoPage='Kharif';
       this.skipDataList = [];
       this. storage.get('userLang').then((val) => {
-       this.lang=val;
-       this.getCrops();
+      this.lang=val;
+      this.getCrops();
       });
   }
   ionViewDidLoad() {
@@ -68,7 +68,6 @@ export class CropsPage {
       console.log(this.cropList);
       this.loading.dismiss();
     }, (err) => {
-      console.log('my name is khan');
       this.loading.dismiss();
     });
   }

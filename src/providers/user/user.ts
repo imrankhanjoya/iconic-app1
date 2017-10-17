@@ -274,7 +274,38 @@ export class User {
      body.append('user_district_id', user_district_id);
      body.append('user_tahsil_id', user_tahsil_id);
 
-     let seq = this.api.post('v1/user/location-update', body).share();
+     let seq = this.api.post('v1/user/update', body).share();
+
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
+
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
+
+     return seq;
+   }
+   
+  /**
+   * Update Profile
+   */
+   UpdateProfile(user_id,profiledata){
+     let body = new FormData();
+     body.append('user_id', user_id);
+     console.log(profiledata);
+     body.append('display_name', profiledata.display_name);
+     body.append('user_irrigation_source', profiledata.user_irrigation_source);
+     body.append('user_irrigation_type', profiledata.user_irrigation_type);
+     body.append('user_landholding_size', profiledata.user_landholding_size);
+     body.append('user_landholding_size_unit', profiledata.user_landholding_size_unit);
+     body.append('user_language', profiledata.user_language);
+
+     let seq = this.api.post('v1/user/update', body).share();
 
      seq
        .map(res => res.json())

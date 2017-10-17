@@ -14,8 +14,6 @@ import { MainPage } from '../pages';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-
-
   public passErrorMsg:any;
   public passError : any;
   public passConpError : any;
@@ -28,8 +26,8 @@ export class SignupPage {
     public translateService: TranslateService,public storage:Storage,
     public cityStateProvider:CityStateProvider) {
 
-    
-  }
+    }
+
   doSignup() {
     var sendForm = true;
     if(this.RegisterData.userName.length<5){
@@ -56,7 +54,7 @@ export class SignupPage {
     }
 
     if(sendForm){
-      console.log('passsss')
+      console.log('passsss');
       this.storage.set('userName',this.RegisterData.userName);
       this.storage.set('userPassword',this.RegisterData.confirmPassword);
       this.navCtrl.push('SelectLocationPage');

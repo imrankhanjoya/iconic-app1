@@ -90,7 +90,7 @@ export class HomePage {
     });
     this.getMandiData();
     this.getNews();
-    this.getweather(127900);
+    this.getweather(1);
     this.get_expert();
     this.getmarkets();
     this.getannouncement();
@@ -142,7 +142,7 @@ export class HomePage {
   
 
   getMandiData(){
-    this.mandi.usermandi(this.userId,this.userStateId).map(res => res.json()).subscribe((res) => {
+    this.mandi.usermandi(this.userId).map(res => res.json()).subscribe((res) => {
         this.mandidata= res.data[0] ;
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];        
