@@ -43,6 +43,27 @@ export class VerifyNumberPage {
         console.log("Error while receiving messages")
       });
     }
+    var patt = /\d{4}/;
+   var result = 'your 2376'.match(patt);
+   
+   console.log(result);
+   /* SmsReceiver.startReception(({messageBody, originatingAddress}) => {
+        var n = originatingAddress.search('AGRBLO');
+        if (n=='-1') {
+          console.log('This SMS Not From AgriBolo');
+        }else{
+           var patt = /\d{4}/;
+           var result = messageBody.match(patt);
+           var otp=result.toString().split('');
+           this.RegisterData.verifyOtpfirst=otp[0];
+           this.RegisterData.verifyOtpSecond=otp[1];
+           this.RegisterData.verifyOtpThired=otp[2];
+           this.RegisterData.verifyOtpFourth=otp[3];
+           this.verifyNumberAPI();
+        }
+    }, () => {
+      console.log("Error while receiving messages")
+    });*/
 
 }
   ionViewDidLoad() {
@@ -93,6 +114,11 @@ export class VerifyNumberPage {
                 console.log("Error while stopping the SMS receiver")
               })
             }
+            /*SmsReceiver.stopReception(() => {
+                console.log("Correctly stopped")
+              }, () => {
+                console.log("Error while stopping the SMS receiver")
+              })*/
             if(resp.status === true){
              this.storage.set('userPhone', this.phoneNumber);
              this.storage.set('userOTP', this.otp);
