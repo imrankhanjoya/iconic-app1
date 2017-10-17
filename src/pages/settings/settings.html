@@ -14,8 +14,14 @@
 <ion-content >
 
 <!---------Change Password------>
+<ion-card>
+<img class="circle-pic" src="assets/img/appicon.png">
+      <p class="Name"> <!-- {{userlogin.display_name}} --></p>
+     <div class="error" style="color: red">
+          {{passresError}}
+       </div>
   <form *ngIf="pageTitle=='changepass'" [formGroup]="changepass" (ngSubmit)="changepassform()">
-     <ion-card>
+     
 
         <p class="Name"> <!-- {{userlogin.display_name}} --></p>
        <div>
@@ -54,14 +60,12 @@
         </div>
 
         
-      </ion-card>
   </form>
 
 <!---------Change Profile Data------>
   <form *ngIf="pageTitle=='changeprofile'" [formGroup]="changeprofile" (ngSubmit)="changeprofileform()">
-     <ion-card>
-        <img class="circle-pic" src="assets/img/appicon.png">
-        <p class="Name"> <!-- {{userlogin.display_name}} --></p>
+     
+        
        <div>
 
        <ion-item>
@@ -79,6 +83,44 @@
             {{passErrorMsg}}
         </div>
 
+        <ion-item>
+          <ion-label>Irrigation Type</ion-label>
+          <ion-select  formControlName="user_irrigation_type"  ng-required>
+            <ion-option value="Flood irrigation">Flood irrigation</ion-option>
+            <ion-option value="Surface irrigation">Surface irrigation</ion-option>
+            <ion-option value="Sprinkler irrigation" selected="true" >Sprinkler irrigation</ion-option>
+            <ion-option value="Drip irrigation">Drip irrigation</ion-option>
+            <ion-option value="Furrow irrigation" >Furrow irrigation</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Irrigation Source</ion-label>
+          <ion-select  formControlName="user_irrigation_source"  ng-required>
+            <ion-option value="Canal">Canal</ion-option>
+            <ion-option value="Well">Well</ion-option>
+            <ion-option value="Pond">Pond</ion-option>
+            <ion-option value="River" checked="true">River</ion-option>
+            <ion-option value="Stream">Stream</ion-option>
+            <ion-option value="Tube Well">Tube Well</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Landholding Size Unit</ion-label>
+          <ion-select  formControlName="user_landholding_size_unit"  ng-required>
+            <ion-option value="Acre">Acre</ion-option>
+            <ion-option value="Bigha">Bigha</ion-option>
+            <ion-option value="Marba">Marba</ion-option>
+            <ion-option value="Hectare">Hectare</ion-option>
+            <ion-option value="Killa">Killa</ion-option>
+          </ion-select>
+        </ion-item>
+
+         <ion-item>
+            <ion-label  class="inpu" stacked>Landholding Size</ion-label>
+            <ion-input  formControlName="user_landholding_size"  placeholder="Landholding Size" ng-required></ion-input>
+          </ion-item>
       </div>
 
       <div  class="p_button">
@@ -86,11 +128,9 @@
         </div>
 
         
-      </ion-card>
   </form>
 
   <form *ngIf="pageTitle=='changelocation'" [formGroup]="changelocation" (ngSubmit)="changelocaltionform()">
-    <ion-card>
       <div>
           <div class="displayOneFont colorGrey fontBold greySeparator paddingBottom"> {{'SELECT_LOCTION' | translate}}</div>
           <div class="smallTitle colorGrey alignCenter paddingTop" >{{'SELECT_LOCTION_PLEASE' | translate}}</div>
@@ -98,16 +138,14 @@
 
 
       <ion-item >
-        <select class="selectBox"  formControlName="user_state_id" (change)="onStateSelect($event.target.value)">
-          <option value="0" selected>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
-          <option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</option>
-        </select>
+        <ion-select class="selectBox"  formControlName="user_state_id" (ionChange)="onStateSelect(user_state_id)">
+          <ion-option value="0" selected>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</ion-option>
+          <ion-option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</ion-option>
+        </ion-select>
       </ion-item>
-
-
       <ion-item >
-        <select class="selectBox"  formControlName="user_district_id"  (change)="onDistrictSelect($event.target.value)">
-          <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
+        <select class="selectBox"  formControlName="user_district_id" (change)="onDistrictSelect($event.target.value)">
+          <option value="0" selected>{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
           <option *ngFor="let district of districtList" value={{district.id}}~{{district.district_name}}>{{district.district_name}}</option>
         </select>
       </ion-item>
@@ -120,6 +158,6 @@
       <div  class="p_button">
         <button class="p_1" type="submit"  [disabled]="!changelocation.valid">Submit</button>
       </div>
-    </ion-card>
   </form>
+  </ion-card>
 </ion-content>
