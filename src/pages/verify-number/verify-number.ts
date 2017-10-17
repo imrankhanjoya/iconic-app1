@@ -107,7 +107,7 @@ export class VerifyNumberPage {
           this.otp=this.RegisterData.verifyOtpfirst+this.RegisterData.verifyOtpSecond+this.RegisterData.verifyOtpThired+this.RegisterData.verifyOtpFourth;
           console.log('------'+this.otp);
           this.user.verifyNumber(this.phoneNumber,this.otp).map(res => res.json()).subscribe((resp) => {
-            if (platform.is('android')) {
+            if (this.platform.is('android')) {
               SmsReceiver.stopReception(() => {
                 console.log("Correctly stopped")
               }, () => {

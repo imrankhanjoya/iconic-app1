@@ -22,8 +22,14 @@ export class MandiDetailsPage {
   public loading:any;
   public filterMarket:any;
   public filter_crops:any;
+
+  public topMenu:string='';
+  
+  public toolbarClass:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
+
     
     this.filterMarket = navParams.get('filter_market');
     this.filter_crops = navParams.get('filter_crops');
@@ -70,5 +76,17 @@ export class MandiDetailsPage {
         let data = { 'foo': 'bar' };
         this.viewCtrl.dismiss(data);
     }
-
+  showFilter(){
+    if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
+      
+      this.toolbarClass="toolbarOpen";
+      this.topMenu ="toolbarOpen";
+    }else{
+      console.log(this.rotateClass);
+      
+      this.toolbarClass="toolbarClosed";
+      this.topMenu ="toolbarOpen";
+      this.topMenu = "toolbarClosed";
+    }
+  }
 }

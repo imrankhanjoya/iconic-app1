@@ -20,7 +20,7 @@ import { MandiProvider } from '../../providers/mandi/mandi';
 export class FilterCropsPage {
     public loading:any;
     public lang:any;
-    public cropList:any;
+    public cropList:Array<number>;
     public shoPage:any;
     public search:any;
     public filterCrops:Array<number>;
@@ -48,31 +48,46 @@ export class FilterCropsPage {
         this.viewCtrl.dismiss(data);
     }
 
-    addValue(id){
-
-
-       
-        
-      console.log(id);
-      //this.filterCrops.push({id:id});
-      console.log(this.filterCrops);
-    }
-
-    gotoFilter(){
-      console.log(this.filterCrops);
-      this.navCtrl.push('MandiDetailsPage',{filter_crops:this.filterCrops});          
-    }
+    
+    // gotoFilter(){
+    //   console.log(this.filterCrops);
+    //   this.navCtrl.push('MandiDetailsPage',{filter_crops:this.filterCrops});          
+    // }
 
     getCommudity() {
         this.loading.present();
         this.mandiProvider.commudity(this.lang).map(res => res.json()).subscribe((resp) => {
         this.cropList=resp.data;
-        console.log(this.cropList[0]);
+        console.log(this.cropList);
+        
         this.loading.dismiss();
         }, (err) => {
         console.log('my name is khan');
         this.loading.dismiss();
         });
     }
+    addValue(cropIndex,commodityIndex) {
+        console.log(this.cropList);
+        if (this.cropList[cropIndex].commodity[commodityIndex].crop_type=='true') {
+          this.cropList[cropIndex].commodity[commodityIndex].crop_type='-';
+        }else {
+          this.cropList[cropIndex].commodity[commodityIndex].crop_type='true';
+        } 
+     }
+    gotoFilter(){
+      this.filterCrops=[];
+    console.log(this.cropList);
+    for (var i = 0; i < this.cropList.length; i++) {
+      for (var j = 0; j < this.cropList[i].commodity.length; j++) {
+        if (this.cropList[i].commodity[j].crop_type=='true') {
+          this.filterCrops.push(this.cropList[i].commodity[j].id);
+        }
+     }
+      if (i==this.cropList.length-1) {
+        console.log(this.filterCrops.toString());
+       this.navCtrl.push('MandiDetailsPage',{filter_crops:this.filterCrops.toString()});
+      }
+    }
+  }
 
 }

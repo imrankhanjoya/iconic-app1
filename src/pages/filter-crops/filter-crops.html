@@ -28,9 +28,9 @@
 <ion-row  *ngFor="let item of cropList ; let i = index " col-12  >
 
       
-      <ion-col  *ngFor="let com of item.commodity ; let i = index " col-4 >
+      <ion-col  *ngFor="let com of item.commodity ; let j = index " col-4 >
                
-            <input type="checkbox" (click)="addValue(com.id)" class="checkbox" >
+            <input type="checkbox" (click)="addValue(i,j)" class="checkbox" >
             <div class="titleName titleFont" >{{com.commodity_name}}</div>
        
       </ion-col>

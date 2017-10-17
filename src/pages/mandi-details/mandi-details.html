@@ -7,15 +7,34 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{'MANDI' | translate}}</ion-title>
+    <ion-title >{{'MANDI' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="headericon" (click)="showFilter()">
+        <img src="assets/img/agri bolo icon/hdpi/filter.png">
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <div class="{{toolbarClass}}" *ngIf="topMenu">
+  <ion-row class="gridRow" >
 
+      <ion-col class="toolbarCol" (click)="openFilter()">  
+        <button ion-button >filter</button>
+        <div>{{filterMarket}}</div>
+      </ion-col>
+      
+      <ion-col class="toolbarCol" (click)="openCropFilter()" >
+        <button ion-button >filterCrop</button>
+       
+      </ion-col>
+
+  </ion-row>
+  </div>
 </ion-header>
 
 
 <ion-content>
-<button ion-button (click)="openFilter()" >filter</button>
-<button ion-button (click)="openCropFilter()" >filterCrop</button>
+
+
 <div class="maindiv" *ngFor="let data of mandiData.data; let i=index " >
   
 
