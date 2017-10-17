@@ -28,27 +28,29 @@
 
 
       <ion-item >
-        <select class="selectBox"  formControlName="user_state_id" (change)="onStateSelect($event.target.value)">
-          <option value="0" selected>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
-          <option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</option>
-        </select>
+        <ion-label>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</ion-label>
+        <ion-select   formControlName="user_state_id" (ionChange)="onStateSelect()">
+          <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
+        </ion-select>
       </ion-item>
 
 
       <ion-item >
-        <select class="selectBox"  formControlName="user_district_id"  (change)="onDistrictSelect($event.target.value)">
-          <option value="0">{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
-          <option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</option>
-        </select>
+        <ion-label>
+        {{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}
+        </ion-label>
+        <ion-select class="selectBox"  formControlName="user_district_id" (ionChange)="onDistrictSelect()" >
+          <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
+        </ion-select>
       </ion-item>
       <ion-item >
-        <select class="selectBox"  formControlName="user_market_id" >
-          <option value="0">{{'SELECT_LOCTION_TEHSIL' | translate}} {{'SELECT_LOCTION_TEHSIL' | translate}}</option>
-          <option *ngFor="let market of marketList" value={{market.id}}>{{market.market_name}}</option>
-        </select>
+        <ion-select class="selectBox"  formControlName="user_market_id" >
+          <ion-option value="0">{{'SELECT_LOCTION_TEHSIL' | translate}} {{'SELECT_LOCTION_TEHSIL' | translate}}</ion-option>
+          <ion-option *ngFor="let market of marketList" value={{market.id}}>{{market.market_name}}</ion-option>
+        </ion-select>
       </ion-item>
       <div  class="p_button">
-        <button class="p_1" type="submit"  [disabled]="!changelocation.valid">Submit</button>
+        <button class="p_1" ion-button type="submit"  [disabled]="!changelocation.valid">Submit</button>
       </div>
     </ion-card>
   </form>

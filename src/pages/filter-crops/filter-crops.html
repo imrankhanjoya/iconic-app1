@@ -1,0 +1,47 @@
+<!--
+  Generated template for the FilterCropsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{'FILTER_CROP' | translate }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon light ios="ios-close-circle" md="md-close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+<input type="text" [(ngModel)]="search" value="" name="findme">  
+<ion-scroll scrollY="true" style="width: 100%; height:90%;" >
+<ion-grid> 
+
+<ion-row  *ngFor="let item of cropList ; let i = index " col-12  >
+
+      
+      <ion-col  *ngFor="let com of item.commodity ; let i = index " col-4 >
+               
+            <input type="checkbox" (click)="addValue(com.id)" class="checkbox" >
+            <div class="titleName titleFont" >{{com.commodity_name}}</div>
+       
+      </ion-col>
+       
+     
+
+</ion-row>
+</ion-grid>
+</ion-scroll>
+
+<button ion-button full outline (click)="gotoFilter()">Show Results</button>
+
+</ion-content>
+
