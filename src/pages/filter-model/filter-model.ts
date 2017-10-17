@@ -24,7 +24,7 @@ export class FilterModelPage {
     public districtList: any;
     public marketList: any;
     public loading:any;
-    private changelocation : FormGroup;
+    public changelocation : FormGroup;
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,
@@ -48,7 +48,10 @@ export class FilterModelPage {
       console.log('bye bye view');
     }
 
-    onStateSelect(stateid) {
+    onStateSelect() {
+
+        console.log(this.changelocation.value.user_state_id);
+        var stateid = this.changelocation.value.user_state_id;
         this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
           this.districtList=resp.data;
           //console.log(this.districtList);
@@ -56,6 +59,7 @@ export class FilterModelPage {
         }); 
     }
     onDistrictSelect(districtId){
+        var districtId = this.changelocation.value.user_district_id;
         this.cityStateProvider.getMarket(this.lang,districtId).map(res => res.json()).subscribe((resp) => {
           this.marketList=resp.data;
           //  this.loading.dismiss();
@@ -66,7 +70,7 @@ export class FilterModelPage {
     getAllState() {
         this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
           this.stateList=resp.data;
-          this.loading.dismiss();
+          //this.loading.dismiss();
         });
     }
 

@@ -80,7 +80,10 @@ export class HomePage {
 
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
-       this.storage.set('userLoction',resp.coords);
+       //this.storage.set('userLoction',resp.coords);
+       this.storage.set('userLoction.latitude',resp.coords.latitude);
+       this.storage.set('userLoction.longitude',resp.coords.longitude);
+
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
     }).catch((error) => {
       console.log('Error getting location', error);

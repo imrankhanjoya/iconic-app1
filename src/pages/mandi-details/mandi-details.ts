@@ -21,12 +21,14 @@ export class MandiDetailsPage {
   public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public loading:any;
   public filterMarket:any;
+  public filter_crops:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
     
     this.filterMarket = navParams.get('filter_market');
+    this.filter_crops = navParams.get('filter_crops');
 
-    console.log(this.filterMarket);
+    console.log(this.filter_crops);
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
@@ -42,8 +44,9 @@ export class MandiDetailsPage {
    getMandiDetails(){
     
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
+    var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
     
-    this.mandi.mandiRates(marketId).map(res => res.json()).subscribe((res) => {
+    this.mandi.mandiRates(marketId,filter_crops).map(res => res.json()).subscribe((res) => {
         this.mandiData= res;
         this.loading.dismiss();
         console.log(this.mandiData);
@@ -56,7 +59,10 @@ export class MandiDetailsPage {
 
   openFilter(){
     let modal = this.modalCtrl.create('FilterModelPage');
-    
+    modal.present();
+  }
+  openCropFilter(){
+    let modal = this.modalCtrl.create('FilterCropsPage');
     modal.present();
   }
   
