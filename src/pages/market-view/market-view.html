@@ -1,0 +1,28 @@
+<!--
+  Generated template for the MarketViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+	    <ion-title>market-view</ion-title>
+	</ion-navbar>
+	<ion-segment class="themeColor" [(ngModel)]="Crop">
+		<ion-segment-button class="themeColor" value="General">
+		  {{'OBSERVATION' | translate}}
+		</ion-segment-button>
+    <ion-segment-button value="Desease">
+		 {{'CROP_DETAIL_DEASEASE' | translate}}
+   		</ion-segment-button>
+	</ion-segment>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card>
+		
+	</ion-card>
+</ion-content>

@@ -24,9 +24,9 @@ export class WeatherPage {
   public tehsilId:any;
   public filterLocation:any;
   public weatherInfo:any;
-	public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  	public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  	constructor(
+  public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+    public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+    constructor(
               public navCtrl: NavController,
               public navParams: NavParams,
               public loadingCtrl: LoadingController,

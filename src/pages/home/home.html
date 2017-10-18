@@ -327,7 +327,7 @@
 
   <ion-slides [slidesPerView]="'auto'">
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
-      <ion-card>
+      <ion-card (click)="gotoMarketViewPage(productData.id)">
         <img class="produtimage" src="{{productData.feature_image}}"/>
         <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
         <div class="detailSar colorGreen smallTitle" (click)="mackCall()"> {{'VALUE_ON_REQUEST' | translate}}</div>
@@ -467,6 +467,7 @@
 
 
   </ion-card >
+
 
 
 
