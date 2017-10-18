@@ -201,6 +201,7 @@
   "IRRIGATION_TYPE": "सिंचाई प्रकार",
   "IRRIGATION_SOURCE": "सिंचाई स्रोत",
   "LANDHOLDING_SIZE_UNIT": "जमीन का आकार इकाई",
-  "LANDHOLDING_SIZE": "भू-आकार का आकार"
+  "LANDHOLDING_SIZE": "भू-आकार का आकार",
+  "LOCATION_FILTER_TITLE": "कृपया मौसम विवरण देखने के लिए स्थान चुनें"
 }
 

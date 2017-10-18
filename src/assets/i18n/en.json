@@ -201,7 +201,8 @@
   "IRRIGATION_TYPE": "Irrigation Type",
   "IRRIGATION_SOURCE": "Irrigation Source",
   "LANDHOLDING_SIZE_UNIT": "Landingholding Size Unit",
-  "LANDHOLDING_SIZE": "Landholding Size"
+  "LANDHOLDING_SIZE": "Landholding Size",
+  "LOCATION_FILTER_TITLE": "Please choose the location to see weather details"
 
 
 }
