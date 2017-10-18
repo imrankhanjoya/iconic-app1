@@ -19,7 +19,7 @@ import { Storage } from '@ionic/storage';
     </ion-row>
     <ion-row class="MenuHeader" justify-content-center align-items-center>
       
-      <div class="smallTitle colorGrey fontBold floatLeft"> {{username}}</div>
+      <div class="smallTitle colorGrey fontBold floatLeft"> {{display_name}}</div>
     </ion-row>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
