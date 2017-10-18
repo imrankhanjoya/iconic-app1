@@ -66,7 +66,7 @@ export class HomePage {
     public tabProvider:TabProvider) {
     this.rotateClass="";
       
-  		//this.topMenu = 'toolbarClosed';
+      //this.topMenu = 'toolbarClosed';
   }
 
   ionViewDidLoad() {
@@ -101,19 +101,19 @@ export class HomePage {
   }
 
   toggleMenu(){
-  	if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
+    if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
-  		this.topMenu ="toolbarOpen";
+      this.topMenu ="toolbarOpen";
       this.tabProvider.hide()
-  	}else{
+    }else{
       console.log(this.rotateClass);
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
-  		this.topMenu = "toolbarClosed";
+      this.topMenu = "toolbarClosed";
       this.tabProvider.show()
-  	}
+    }
 
   }
   
@@ -252,6 +252,9 @@ export class HomePage {
   }
   gotoMarketPage(){
     this.navCtrl.push('MarketPage');
+  }
+  gotoMarketViewPage(product_id){
+    this.navCtrl.push('MarketViewPage',{id:product_id});
   }
   gotoVedio(){
   this.navCtrl.push('VideoPage');
