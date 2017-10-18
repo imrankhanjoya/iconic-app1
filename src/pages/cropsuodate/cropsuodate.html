@@ -35,7 +35,7 @@
 
     <ion-row *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
       <ion-col >
-        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="condiment.checked" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
         <div class="titleName titleFont" >{{item.name}}</div>
       </ion-col>
     </ion-row>
