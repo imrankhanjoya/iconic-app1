@@ -27,7 +27,7 @@
        <div>
 
        <div class="textinput">
-      <ion-item>
+      <ion-item class="colorGrey separator">
           <ion-label  floating>{{'ENTER_CURRENT_PASSWORD' | translate}}</ion-label>
           <ion-input formControlName="oldpass"  value="" type="password"></ion-input>
        </ion-item>
@@ -36,7 +36,7 @@
           {{'CURRENT_PASSWORD_ERROR' | translate}}
        </div>
 
-      <ion-item>
+      <ion-item class="colorGrey separator">
           <ion-label  floating>{{'ENTER_NEW_PASSWORD' | translate}}</ion-label>
           <ion-input formControlName="newpass"  value="" type="password"></ion-input>
        </ion-item>
@@ -44,7 +44,7 @@
           {{'NEW_PASSWORD_ERROR' | translate}}
        </div>
 
-      <ion-item>
+      <ion-item class="colorGrey separator">
           <ion-label  floating>{{'CONFIRM_PASSWORD' | translate}}</ion-label>
           <ion-input formControlName="confirmpass"  value="" type="password"></ion-input>
        </ion-item>
@@ -56,7 +56,7 @@
       </div>
 
       <div  class="p_button">
-          <button class="p_1" type="submit" >Submit</button>
+          <button class="p_1" type="submit" >{{'DONE_BUTTON' | translate}}</button>
         </div>
 
         
@@ -68,23 +68,23 @@
         
        <div>
 
-       <ion-item>
-          <ion-label  class="inpu" stacked>Display Name</ion-label>
-          <ion-input  formControlName="display_name"  placeholder="Display Name" ng-required></ion-input>
+       <ion-item class="separator paddingBottom8px">
+          <ion-label  class="inpu" stacked>{{'DISPLAY_NAME' | translate}}</ion-label>
+          <ion-input  formControlName="display_name"  placeholder="Display Name" class="colorGrey" ng-required></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label>Language</ion-label>
+        <ion-item class="separator paddingBottom8px">
+          <ion-label >{{'SELECT_LANGUAGE' | translate}}</ion-label>
           <ion-select  formControlName="user_language">
             <ion-option value="en_US">English</ion-option>
             <ion-option value="hi_IN">Hindi</ion-option>
           </ion-select>
-        </ion-item>
+        </ion-item >
         <div class="error" *ngIf="passConpError==true" >
             {{passErrorMsg}}
         </div>
 
-        <ion-item>
-          <ion-label>Irrigation Type</ion-label>
+        <ion-item class="separator paddingBottom8px">
+          <ion-label>{{'IRRIGATION_TYPE' | translate}}</ion-label>
           <ion-select  formControlName="user_irrigation_type"  ng-required>
             <ion-option value="Flood irrigation">Flood irrigation</ion-option>
             <ion-option value="Surface irrigation">Surface irrigation</ion-option>
@@ -94,8 +94,8 @@
           </ion-select>
         </ion-item>
 
-        <ion-item>
-          <ion-label>Irrigation Source</ion-label>
+        <ion-item class="separator paddingBottom8px">
+          <ion-label>{{'IRRIGATION_SOURCE' | translate}}</ion-label>
           <ion-select  formControlName="user_irrigation_source"  ng-required>
             <ion-option value="Canal">Canal</ion-option>
             <ion-option value="Well">Well</ion-option>
@@ -106,8 +106,8 @@
           </ion-select>
         </ion-item>
 
-        <ion-item>
-          <ion-label>Landholding Size Unit</ion-label>
+        <ion-item class="separator paddingBottom8px">
+          <ion-label>{{'LANDHOLDING_SIZE_UNIT' | translate}}</ion-label>
           <ion-select  formControlName="user_landholding_size_unit"  ng-required>
             <ion-option value="Acre">Acre</ion-option>
             <ion-option value="Bigha">Bigha</ion-option>
@@ -117,14 +117,14 @@
           </ion-select>
         </ion-item>
 
-         <ion-item>
-            <ion-label  class="inpu" stacked>Landholding Size</ion-label>
+         <ion-item class="paddingBottom8px separator colorGrey">
+            <ion-label  class="inpu" stacked>{{'LANDHOLDING_SIZE' | translate}}</ion-label>
             <ion-input  formControlName="user_landholding_size"  placeholder="Landholding Size" ng-required></ion-input>
           </ion-item>
       </div>
 
       <div  class="p_button">
-          <button class="p_1" type="submit"  [disabled]="!changeprofile.valid">Submit</button>
+          <button class="p_1" type="submit"  [disabled]="!changeprofile.valid">{{'DONE_BUTTON' | translate}}</button>
         </div>
 
         

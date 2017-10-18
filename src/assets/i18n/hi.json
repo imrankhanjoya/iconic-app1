@@ -118,7 +118,7 @@
 
   "ITEM_NAME_PLACEHOLDER": "नाम",
   "ITEM_ABOUT_PLACEHOLDER": "के बारे में",
-  "DONE_BUTTON": "किया हुआ",
+  "DONE_BUTTON": "जमा करें",
   "CANCEL_BUTTON": "रद्द करना",
   "DELETE_BUTTON": "हटाना",
   "CARDS_TITLE": "सामाजिक",
@@ -196,6 +196,11 @@
   "GET_MORE_INSIGHT": "अधिक जानकारी प्राप्त करें",
   "ASK_EXPERT_SUBTILE": "अपने फसलों पर विशेषज्ञ सलाह लें",
   "CROP": "फसल",
-  "HORTICULTURE": "बागवानी"
+  "HORTICULTURE": "बागवानी",
+  "DISPLAY_NAME": "प्रदर्शित होने वाला नाम",
+  "IRRIGATION_TYPE": "सिंचाई प्रकार",
+  "IRRIGATION_SOURCE": "सिंचाई स्रोत",
+  "LANDHOLDING_SIZE_UNIT": "जमीन का आकार इकाई",
+  "LANDHOLDING_SIZE": "भू-आकार का आकार"
 }
 
