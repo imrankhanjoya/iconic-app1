@@ -325,10 +325,11 @@ export class User {
   /**
    * Update Crops
    */
-    UpdateCrops(user_id,crops){
+    UpdateCrops(user_id,crops,lang){
         let body = new FormData();
         body.append('user_id',user_id);
         body.append('crops',crops);
+        body.append('lang',lang);
         let seq = this.api.post('v1/user/crop-update', body).share();
 
         seq

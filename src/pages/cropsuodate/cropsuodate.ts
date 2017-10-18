@@ -32,6 +32,7 @@ export class CropsuodatePage {
    public userKharif:any;
    public loading:any;
    public user_id:any;
+   public userdata:any;
   	constructor(public navCtrl: NavController, 
   		public navParams: NavParams,
   		public storage:Storage,
@@ -40,18 +41,19 @@ export class CropsuodatePage {
         public user: User
       	) 
   		{      
-  			this.loading = this.loadingCtrl.create({
-        	content: 'Please wait...'
-      });
+  			  this.loading = this.loadingCtrl.create({
+        	   content: 'Please wait...'
+          });
 
-      this.shoPage='Kharif';
-      this.skipDataList = [];
-      this. storage.get('userLang').then((val) => {
-      this.lang=val;
-      this.getCrops();
+          this.shoPage='Kharif';
+          this.skipDataList = [];
+          this. storage.get('userLang').then((val) => {
+          this.lang=val;
+          this.getCrops();
       });
       this.storage.get('userData').then((val) => { 
-        this.user_id = val.ID; 
+        this.user_id = val.ID;
+        this.userdata = val;  
         console.log(val);
       });
   }
@@ -128,10 +130,15 @@ export class CropsuodatePage {
 	        content: 'Please wait...'
 	      });
 	    loading.present();
-	    this.user.UpdateCrops(this.user_id,JSON.stringify(selectedCrops)).map(res => res.json()).subscribe((resp) => {
+	    this.user.UpdateCrops(this.user_id,JSON.stringify(selectedCrops),this.lang).map(res => res.json()).subscribe((resp) => {
 	      loading.dismiss();
 	     if(resp.status==true){
-	       this.navCtrl.push('ItemCreatePage');
+          console.log(resp);
+          this.userdata.crops = resp.data;
+          console.log(this.userdata);
+          this.storage.set('userData',this.userdata);
+            
+	       //this.navCtrl.push('ItemCreatePage');
 	      }else{
 	        alert(resp.msg);
 	      }
