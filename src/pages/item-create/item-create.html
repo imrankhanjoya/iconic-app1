@@ -15,32 +15,27 @@
 <ion-content >
 <ion-card>
   <img (click)="uploadeImg()" class="circle-pic" src="{{base64Image}}">
-  <p class="Name"> {{userlogin.display_name}}</p>
+  <div class="colorGrey smallTitle fontBold alignCenter paddingTop"> {{userlogin.display_name}}</div>
   <ion-grid>
-  <ion-row>
-    <ion-col col-3>
-      <img  src="assets/img/agri bolo icon/hdpi/placeholder (1).png">
+ <ion-row class="separator paddingTop paddingBottom paddingRight">
+    <ion-col class="colText"> <ion-icon name="call" class="paddingRight colorGrey"></ion-icon> 
+      +91 {{userlogin.phone}}
     </ion-col>
-    <ion-col class="colText">
+  </ion-row>
+  <ion-row class="separator paddingTop paddingBottom paddingRight">
+    <ion-col class="colText"><ion-icon name="compass" class="paddingRight colorGrey"></ion-icon>
       {{userlogin.userDictName}}, {{userlogin.userStateName}}
     </ion-col>
     <ion-col class="colText" col-1  (click)="openPageWithP('changelocation')">
        <ion-icon name="ios-create-outline" ></ion-icon>
     </ion-col>
   </ion-row>
-  <ion-row>
-    <ion-col class="colImage" col-3>
-      <img  src="assets/img/agri bolo icon/hdpi/phone-call.png">
+  <ion-row class="separator paddingTop paddingBottom paddingRight">
+    <ion-col class="colText" col-2 ><img  src="assets/img/agri bolo icon/hdpi/plant.png" class="paddingRight">
     </ion-col>
-    <ion-col class="colText">
-      +91 {{userlogin.phone}}
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-3>
-      <img  src="assets/img/agri bolo icon/hdpi/plant.png">
-    </ion-col>
-    <ion-col class="colText" col-8>
+    <ion-col col-9>
+    
+    
        सरसों
     </ion-col>
     <ion-col class="colText" col-1  (click)="editcrops()">

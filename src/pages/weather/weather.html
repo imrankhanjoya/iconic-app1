@@ -17,7 +17,7 @@
 
 
 <ion-content class="content" >
-  <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="slideChanged(tehsil)">
+  <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="onSlideChanged()">
 
     <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
@@ -111,7 +111,7 @@
 <ion-row class="cloud">
   <ion-col  *ngFor="let weatherfivedaydetail of weatherfiveday.data.WeatherData;">
     <p>सोम</p>
-    <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt=""/>
+    <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt="" class="cloudImage"/>
   </ion-col>
 </ion-row>
 </ion-content>

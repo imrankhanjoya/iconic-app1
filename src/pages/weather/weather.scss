@@ -3,7 +3,7 @@ page-weather {
     height: 100%;
   padding: 20%;
 }
-  
+
   .content{
   background-color: #f3f4f8;
   }
@@ -128,6 +128,11 @@ page-weather {
   }
   .cloud{
     margin-bottom: 20%;
+  }
+  .cloudImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .cloud p{
     text-align: center;

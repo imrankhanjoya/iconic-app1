@@ -171,7 +171,8 @@ export class SettingsPage {
   ionViewWillEnter() {
     
   }
-  onStateSelect(stateid) {
+   onStateSelect(stateid) {
+    console.log(stateid);
     var array = stateid.split('~');
     this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
         this.districtList=resp.data;

@@ -196,5 +196,12 @@
   "CROP": "CROP KNOWLEDGE BASE",
   "HORTICULTURE": "HORTICULTURE",
   "FILTER_CROP": "Please Select Mandi",
-  "FILTER_LOCATION": "Please Select Location"
+  "FILTER_LOCATION": "Please Select Location",
+  "DISPLAY_NAME": "Display Name",
+  "IRRIGATION_TYPE": "Irrigation Type",
+  "IRRIGATION_SOURCE": "Irrigation Source",
+  "LANDHOLDING_SIZE_UNIT": "Landingholding Size Unit",
+  "LANDHOLDING_SIZE": "Landholding Size"
+
+
 }
