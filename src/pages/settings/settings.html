@@ -135,25 +135,23 @@
           <div class="displayOneFont colorGrey fontBold paddingBottom alignCenter"> {{'SELECT_LOCTION' | translate}}</div>
       </div>
 
-
       <ion-item class="separator">
       <ion-label class="colorGrey">{{'SELECT_LOCTION_STATE' | translate}}</ion-label>
-        <ion-select class="selectBox"  formControlName="user_state_id" (ionChange)="onStateSelect(user_state_id)">
-         
+        <ion-select   formControlName="user_state_id" #user_state_id (ionChange)="onStateSelect(user_state_id.value)">
           <ion-option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item >
-        <select class="selectBox"  formControlName="user_district_id" (change)="onDistrictSelect($event.target.value)">
-          <option value="0" selected>{{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</option>
-          <option *ngFor="let district of districtList" value={{district.id}}~{{district.district_name}}>{{district.district_name}}</option>
-        </select>
+      <ion-item class="separator">
+      <ion-label class="colorGrey">{{'SELECT_LOCTION_DISTRICT' | translate}}</ion-label>
+        <ion-select  formControlName="user_district_id" #user_district_id (ionChange)="onDistrictSelect(user_district_id.value)">
+          <ion-option *ngFor="let district of districtList" value={{district.id}}~{{district.district_name}}>{{district.district_name}}</ion-option>
+        </ion-select>
       </ion-item>
       <ion-item >
-        <select class="selectBox"  formControlName="user_tahsil_id" >
-          <option value="0">{{'SELECT_LOCTION_TEHSIL' | translate}}</option>
-          <option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}~{{tehsil.tehsil_name}}>{{tehsil.tehsil_name}}</option>
-        </select>
+      <ion-label class="colorGrey">{{'SELECT_LOCTION_TEHSIL' | translate}}</ion-label>
+        <ion-select   formControlName="user_tahsil_id" >
+          <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}~{{tehsil.tehsil_name}}>{{tehsil.tehsil_name}}</ion-option>
+        </ion-select>
       </ion-item>
       <div  class="p_button">
         <button class="p_1" type="submit"  [disabled]="!changelocation.valid">{{'DONE_BUTTON' | translate}}</button>
