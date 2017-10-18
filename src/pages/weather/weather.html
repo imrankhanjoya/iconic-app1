@@ -17,6 +17,11 @@
 
 
 <ion-content class="content" >
+  <ion-card>
+    <div class="paddingTop paddingLeft smallTitle"> {{'CURRENTLY_SELECTED_LOCATION' | translate}} <b>Nagaur, Rajasthan</b></div>
+    <button ion-button clear class="floatRight">CHANGE LOCATION</button>
+  
+  </ion-card>
   <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="onSlideChanged()">
 
     <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
