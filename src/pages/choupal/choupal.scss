@@ -1,33 +1,32 @@
 page-choupal {
-.wallet img{
+    .wallet img{
     height: 100%;
-  padding: 20%;
-  }
-  .topTitle{
-   
-   background-color: #f8f8f8;
-  }
-  
-  .timeuser{
+    padding: 20%;
+    }
+    .topTitle{
+    background-color: #f8f8f8;
+    }
+
+    .timeuser{
     float: right;
     font-size: 1rem;
     color:#649305;
     margin-right:15px;
-  }
-  .timeother{
+    }
+    .timeother{
     float: left;
     font-size: 1rem;
     color:#649305;
     margin-left:15px;
-  }
-  .chatbubbleother{
+    }
+    .chatbubbleother{
     height:auto;
     border-radius: 10px;
     background-color: #EEF5E0;
     margin-left:5px;
     padding: 5px 10px 5px 10px;
-  }
-  .chatbubbleuser{
+    }
+    .chatbubbleuser{
     height:auto;
     border-radius: 10px;
     background-color: #EEF5E0;
@@ -35,76 +34,76 @@ page-choupal {
     margin-left:5px;
     padding: 5px 10px 5px 10px;
     float: right;
-  }
-  .chatbubbleuseralign{
+    }
+    .chatbubbleuseralign{
     text-align: right;
     float: right;
-  }
-  .chatbox{
+    }
+    .chatbox{
     height:auto;
     margin-bottom: 4px;
     width: 90%;
-  }
-  .show-tabbar {
+    }
+    .show-tabbar {
     display: none;
-  }
-  .username{
+    }
+    .username{
     color:#4A4B4C;
     font-size: 1rem;
-  }
+    }
 
 
-  
 
-}
-.boxAlignLeft{
+
+    
+    .boxAlignLeft{
     text-align: left;
-  display: inline-block; 
-  
-}
-.formatBubbleLeft{
-  text-align: left;
-  float: left;
-  padding:10px;
-  border-radius: 10px;
-}
+    display: inline-block; 
 
-.boxAlignRight{
+    }
+    .formatBubbleLeft{
+    text-align: left;
+    float: left;
+    padding:10px;
+    border-radius: 10px;
+    }
+
+    .boxAlignRight{
     text-align: right;
-  display: inline-block; 
-  
-  float: right;
-}
-.formatBubble{
-  text-align: right;
-  max-width: 80%; 
-  float: right;
-  padding:10px;
-  border-radius: 10px;
-}
-.bubbleDateFormat{
-  text-align:right;
-  width: 100%;
-}
-.floatRight{
-  float:right;
-}
-.floatLeft{
-  float:left;
-}
-.textAlignLeft{
-  text-align: left;
-}
-.chatUserImage{
-  border-radius: 50%;
-  max-width:20%;
-}
-.fullWidth{
-  width: 80%;
-}
-.InputFormat{
-  background-color: #fff;
-}
-.verticalAlign{
-  
-}
+    display: inline-block; 
+    float: right;
+    }
+    .formatBubble{
+    text-align: right;
+    max-width: 80%; 
+    float: right;
+    padding:10px;
+    border-radius: 10px;
+    }
+    .bubbleDateFormat{
+    text-align:right;
+    width: 100%;
+    }
+    .floatRight{
+    float:right;
+    }
+    .floatLeft{
+    float:left;
+    }
+    .textAlignLeft{
+    text-align: left;
+    }
+    .chatUserImage{
+    border-radius: 50%;
+    max-width:20%;
+    }
+    .fullWidth{
+    width: 80%;
+    }
+    .InputFormat{
+    background-color: #fff;
+    }
+    .verticalAlign{
+
+    }
+}    

@@ -1,42 +1,43 @@
 page-rentals {
-.sarsTitle{
-      text-align: left;
-      padding-left: 4%;
-      padding-top: 5%;
-      
-  }
-  .detailSar{
-      text-align: center;
-      padding-left: 4%;
-      padding-bottom: 4%;
-  }
-     .produtimage{
-      max-height: 120px;
-      max-width: 120px;
-      margin: auto;
-      }
+    .sarsTitle{
+    text-align: left;
+    padding-left: 4%;
+    padding-top: 5%;
 
-  .image-card {
+    }
+    .detailSar{
+    text-align: center;
+    padding-left: 4%;
+    padding-bottom: 4%;
+    }
+    .produtimage{
+    max-height: 120px;
+    max-width: 120px;
+    margin: auto;
+    }
+
+    .image-card {
     position: relative !important;
     text-align: center;
     height:auto;
 
-  }
+    }
 
 
-  .wallet img{
+    .wallet img{
     height: 100%;
-  padding: 20%;
-  }
-  .item-select {
-  width: 100%; /* Or whatever you'd like the width to be */
-}
+    padding: 20%;
+    }
+    .item-select {
+    width: 100%; /* Or whatever you'd like the width to be */
+    }
 
-.item-select select {
-  left: 0;
-}
-}
-  .fixImage{
+    .item-select select {
+    left: 0;
+    }
+    .fixImage{
     max-height: 70%;
     max-width: 100%;
-  }
+    }
+}
+  

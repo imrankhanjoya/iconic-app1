@@ -1,90 +1,90 @@
 page-mandi-details {
-.wallet img{
+    .wallet img{
     height: 100%;
-  padding: 20%;
-  }
-  .ionslides{
+    padding: 20%;
+    }
+    .ionslides{
     display: block!important;
     width: 100%;
-}
-.maindiv{
-   display: block!important;
+    }
+    .maindiv{
+    display: block!important;
     width: 100%;
-}
-.pClass{
+    }
+    .pClass{
     text-align: center;
     font-size: 2rem;
-} 
-  .first{
+    } 
+    .first{
     height: auto;
     width: auto;
 
-  }
-  .subClass{
+    }
+    .subClass{
     height: auto;
     width: 80%;
-  }
-  .subClass{
+    }
+    .subClass{
     height: auto;
     width: 80%;
-  }
-  .content{
+    }
+    .content{
     background-color: #f3f4f8;
-  }
-  .date{
+    }
+    .date{
     font-size: 1.3rem;
-  padding: 2%;
-  }
-  .grapImage{
-    
-  }
-  .MandiTitle{
+    padding: 2%;
+    }
+    .grapImage{
+
+    }
+    .MandiTitle{
     font-size: 1.5rem;
     padding-top: 5px;
-  }.pirce{
-        font-size: 2.0rem;
-  }
-  .MandyDay{
+    }.pirce{
+    font-size: 2.0rem;
+    }
+    .MandyDay{
     font-size: 1rem;
     text-align: center;
-  }
+    }
     .july{
-      margin: auto;
-      width: auto;
+    margin: auto;
+    width: auto;
     }
     .cardHeader{
-            text-align: center;
-            font-size: 2rem;
-            border-bottom: 4px;
-            border-bottom: 1px #d8d8d8 solid ;
-            height: 25px;
-            position: relative;
-            margin-bottom: 25px;
-      }
-      
-      .headerClass{
-            margin-top:0px;
-            background-color:#f3f4f8;
-            display: inline-block;
-            padding:0px 25px;
-            word-wrap: normal;
-      }
-      
-    .toolbarOpen {
-            overflow-y: hidden;
-            z-index: 5;
-            max-height: 100px; /* approximate max height */
+      text-align: center;
+      font-size: 2rem;
+      border-bottom: 4px;
+      border-bottom: 1px #d8d8d8 solid ;
+      height: 25px;
+      position: relative;
+      margin-bottom: 25px;
+    }
 
-            transition-property: all;
-            transition-duration: 700ms;
-            transition-timing-function: cubic-bezier(0, 1, 4, 1);
-      }
-      .toolbarClosed {
-            max-height: 0;
-            overflow-y: hidden;
-            transition-property: all;
-            transition-duration: 700ms;
-            transition-timing-function: cubic-bezier(0, 1, 4, 1);
-      }
+    .headerClass{
+      margin-top:0px;
+      background-color:#f3f4f8;
+      display: inline-block;
+      padding:0px 25px;
+      word-wrap: normal;
+    }
+
+    .toolbarOpen {
+      overflow-y: hidden;
+      z-index: 5;
+      max-height: 100px; /* approximate max height */
+
+      transition-property: all;
+      transition-duration: 700ms;
+      transition-timing-function: cubic-bezier(0, 1, 4, 1);
+    }
+    .toolbarClosed {
+      max-height: 0;
+      overflow-y: hidden;
+      transition-property: all;
+      transition-duration: 700ms;
+      transition-timing-function: cubic-bezier(0, 1, 4, 1);
+    }
 
 }

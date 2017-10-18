@@ -1,89 +1,89 @@
 page-services {
-.slidImage{
-  text-align: center;
-  background-size: cover;
-  padding: 5%;
+    .slidImage{
+    text-align: center;
+    background-size: cover;
+    padding: 5%;
 
-}
-.title{
-  color: black;
-  font-size: 2.9rem;
-  font-weight: bold;
-   position: absolute;
+    }
+    .title{
+    color: black;
+    font-size: 2.9rem;
+    font-weight: bold;
+    position: absolute;
     top: 36%;
     width: 100%;
 
-}
-.pContent{
-  color: black;
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-bottom: 2%;
-  padding-top: 2%;
+    }
+    .pContent{
+    color: black;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 2%;
+    padding-top: 2%;
 
-}
-.image-card {
+    }
+    .image-card {
     position: relative;
     text-align: center;
-  }
-.readMore{
-  color: black;
-  border-color: white;
-  border: 2px solid;
-  border-radius: 4px;
-  margin-left: 32%;
-  padding: 2%;
-   font-size: 1.0em;
+    }
+    .readMore{
+    color: black;
+    border-color: white;
+    border: 2px solid;
+    border-radius: 4px;
+    margin-left: 32%;
+    padding: 2%;
+    font-size: 1.0em;
     position: absolute;
     top: 57%;
     width: 36%;
-}.card{
-  border-radius: 5px;
-}
+    }.card{
+    border-radius: 5px;
+    }
 
-     .image-card {
-      position: relative;
-      text-align: center;
-      height: 200px;
-      overflow:hidden;
-      padding: 0px;
-      }
-      .image-card img{
-            width: 100%;
-            border-radius: 5px;
-      }
+    .image-card {
+    position: relative;
+    text-align: center;
+    height: 200px;
+    overflow:hidden;
+    padding: 0px;
+    }
+    .image-card img{
+    width: 100%;
+    border-radius: 5px;
+    }
 
-      .card-title-box {
-            position: absolute;
-            top:20%;
-            left: 5%;
-            width:90%;
-            
-      }
-      .card-title {
-            
-            font-size: 2.0em;
-            width:100%;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 2px 2px #000000;
-      }
+    .card-title-box {
+    position: absolute;
+    top:20%;
+    left: 5%;
+    width:90%;
 
-      .card-subtitle {
-      font-size: 1.0em;
-      width: 100%;
-      color: #fff;
-      text-shadow: 2px 2px #000000;
-      left: 5%;
-      }
-      .image-card button{
-            display: block;
-            margin: auto;
-            border: 2px solid;
-      }
-      .image-card .button-outline-md-light{
-        text-shadow: 2px 2px #000000;        
-      }
+    }
+    .card-title {
+
+    font-size: 2.0em;
+    width:100%;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px #000000;
+    }
+
+    .card-subtitle {
+    font-size: 1.0em;
+    width: 100%;
+    color: #fff;
+    text-shadow: 2px 2px #000000;
+    left: 5%;
+    }
+    .image-card button{
+    display: block;
+    margin: auto;
+    border: 2px solid;
+    }
+    .image-card .button-outline-md-light{
+    text-shadow: 2px 2px #000000;        
+    }
 
 
 }

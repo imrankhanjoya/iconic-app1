@@ -44,20 +44,19 @@ export class WeatherPage {
 
   ionViewDidLoad() {
   
-    console.log('ionViewDidLoad WeatherPage');
+      console.log('ionViewDidLoad WeatherPage');
 
-  this.storage.get('userData').then((userdata) => {
+      this.storage.get('userData').then((userdata) => {
       if (userdata) {
-        console.log(userdata);
-        this.userId=userdata.ID;
-        this.userDisplayName=userdata.display_name;
-        this.tehsil=userdata._user_tehsil;
-        this.getAllState();
-        this.weatherdetail(this.tehsil);
-        this.weatherfivedays(this.tehsil);
-        console.log('ionViewDidLoad WeatherPage');
+      console.log(userdata);
+      this.userId=userdata.ID;
+      this.userDisplayName=userdata.display_name;
+      this.tehsil=userdata._user_tehsil;
+      this.weatherdetail(this.tehsil);
+      this.weatherfivedays(this.tehsil);
+      console.log('ionViewDidLoad WeatherPage');
       }
-    });
+      });
   }
 
  weatherdetail(tehsil){
@@ -87,16 +86,16 @@ export class WeatherPage {
   }
 
   weatherfivedays(location:any){
-    this.weather.weatherfivedays(location).map(res => res.json()).subscribe((res) => {
-        this.weatherfiveday.data = res.data;
-        this.weatherfiveday.msg = res.msg;
-        this.weatherfiveday.status = res.status;
-        console.log(res.data.headline.Text);
-        //console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
+      this.weather.weatherfivedays(location).map(res => res.json()).subscribe((res) => {
+      this.weatherfiveday.data = res.data;
+      this.weatherfiveday.msg = res.msg;
+      this.weatherfiveday.status = res.status;
+      console.log(res.data.headline.Text);
+      //console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
 
       }, (err) => {
-        // Unable to log in
-        console.log(err);
+      // Unable to log in
+      console.log(err);
       });
   }
 
@@ -120,20 +119,10 @@ export class WeatherPage {
     });
   }
 
-  getAllState() {
-    // this.loading = this.loadingCtrl.create({
-    //       content: 'Please wait...'
-    //     });
-    //     this.loading.present();
-    this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
-      this.stateList=resp.data;
-      console.log(this.stateList);
-      //this.loading.dismiss();
-    });
-  }
+
 
   weatherget(tehsil){
-    console.log(tehsil);
+    //console.log(tehsil);
     this.weatherdetail(tehsil);
     this.weatherfivedays(tehsil);
   }
@@ -146,7 +135,6 @@ export class WeatherPage {
   }
 
   dismiss(){
-    let data = { 'foo': 'bar' };
     //this.viewCtrl.dismiss(data);
 
   }
