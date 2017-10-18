@@ -3,6 +3,8 @@ import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController,ModalController, ViewController } from 'ionic-angular';
 import { FilterLocationPage } from '../filter-model/FilterLocationPage';
+import { CityStateProvider } from '../../providers/city-state/city-state';
+import { Slides } from 'ionic-angular';
 
 /**
  * Generated class for the WeatherPage page.
@@ -17,7 +19,7 @@ import { FilterLocationPage } from '../filter-model/FilterLocationPage';
   templateUrl: 'weather.html',
 })
 export class WeatherPage {
-@ViewChild('mySlider') slider;
+@ViewChild(Slides) slider: Slides;
   public loading:any;
   public lang:any;
   public location:any
@@ -33,15 +35,15 @@ export class WeatherPage {
               public storage:Storage,
               public weather:WeatherProvider,
               public modalCtrl:ModalController,
-              public viewCtrl:ViewController
+              public viewCtrl:ViewController,
+              public cityStateProvider:CityStateProvider
               ) {
 
               this.tehsilId = navParams.get('filter_tehsil');
       }
 
   ionViewDidLoad() {
-    this.weatherdetail(1);
-    this.weatherfivedays(1);
+  
     console.log('ionViewDidLoad WeatherPage');
 
   this.storage.get('userData').then((userdata) => {
@@ -61,10 +63,10 @@ export class WeatherPage {
  weatherdetail(tehsil){
 
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
-        this.loading = this.loadingCtrl.create({
-          content: 'Please wait...'
-        });
-        this.loading.present();
+        // this.loading = this.loadingCtrl.create({
+        //   content: 'Please wait...'
+        // });
+        // this.loading.present();
         console.log('send tehsil'+tehsil);
         this.weather.weatherdetail(tehsil).map(res => res.json()).subscribe((res) => {
 
@@ -74,15 +76,14 @@ export class WeatherPage {
         this.weatherInfo=this.wheaterdetailall.data;
         this.tehsilId=res.data;
 
-
+        //this.loading.dismiss();
         //this.weatherfivedayD=res.data.headline.Text;
-        console.log(JSON.stringify(this.tehsilId));
 
       }, (err) => {
         // Unable to log in
         console.log(err);
       });
-      this.loading.dismiss();
+      
   }
 
   weatherfivedays(location:any){
@@ -91,7 +92,7 @@ export class WeatherPage {
         this.weatherfiveday.msg = res.msg;
         this.weatherfiveday.status = res.status;
         console.log(res.data.headline.Text);
-        console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
+        //console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
 
       }, (err) => {
         // Unable to log in
@@ -120,14 +121,19 @@ export class WeatherPage {
   }
 
   getAllState() {
+    // this.loading = this.loadingCtrl.create({
+    //       content: 'Please wait...'
+    //     });
+    //     this.loading.present();
     this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
       this.stateList=resp.data;
       console.log(this.stateList);
-      this.loading.dismiss();
+      //this.loading.dismiss();
     });
   }
+
   weatherget(tehsil){
-      console.log(tehsil);
+    console.log(tehsil);
     this.weatherdetail(tehsil);
     this.weatherfivedays(tehsil);
   }
@@ -140,15 +146,16 @@ export class WeatherPage {
   }
 
   dismiss(){
-        let data = { 'foo': 'bar' };
-        this.viewCtrl.dismiss(data);
+    let data = { 'foo': 'bar' };
+    //this.viewCtrl.dismiss(data);
+  }
 
   onSlideChanged(){
-  console.log(JSON.stringify(this.tehsilId));
-    console.log(this.tehsilId);
-    console.log(this.tehsilId[this.slider.getActiveIndex()].tehsil_id);
-    //let currentIndex = this.slider.getActiveIndex();
-    this.weatherfivedays(this.tehsilId[this.slider.getActiveIndex()].tehsil_id);
+      var sindex = this.slider.getActiveIndex()-1;
+      var tasilId=this.wheaterdetailall.data[sindex].tehsil_id;
+      console.log("Slider index for"+sindex);
+      console.log(this.wheaterdetailall.data[sindex].tehsil_id);
+        this.weatherfivedays(tasilId);
   }
 
 

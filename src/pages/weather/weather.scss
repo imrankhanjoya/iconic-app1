@@ -142,8 +142,10 @@ page-weather {
       width: 200px;
   }
   .alignLeft{
-    text-align: center;
-    width: 50%;
+    text-align: left;
+    width:100%;
     float: left;
+    word-wrap: normal;
+    word-spacing: normal;
   }
 }

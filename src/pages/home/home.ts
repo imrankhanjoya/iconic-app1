@@ -278,7 +278,21 @@ public isRun2=false;
 public isRun3=false;
 public isCount=true;
 public oneForSize:any;
+public slideHeaderPrevious=0;
   onScroll(ev){
+   // console.log(ev);
+     var start = 0;
+    var threshold = 150;
+    if(ev.scrollTop - start > threshold) {
+        console.log('-------');
+      } else {
+        console.log('-----++++++++');
+      }
+      
+      // if (this.slideHeaderPrevious >= ev.scrollTop - start) {
+      //   console.log('-----*********');
+      // }
+      this.slideHeaderPrevious = ev.scrollTop - start;
     if(this.isCount){
       this.isCount=false
        this.oneForSize=ev.scrollHeight/4;

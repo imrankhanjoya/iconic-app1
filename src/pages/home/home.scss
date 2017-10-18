@@ -376,5 +376,8 @@ page-home {
          opacity: 0;   
       }
 
-
+      .bar.bar-header.ng-hide,
+      .bar.bar-footer.ng-hide{
+        height: 0px !important;
+      }
 }

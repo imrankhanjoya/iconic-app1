@@ -24,6 +24,7 @@
   </ion-card>
   <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="onSlideChanged()">
 
+
     <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
         <ion-row>
@@ -32,6 +33,7 @@
           <div class="main">
           <div class="elementTitle smallTitle"> {{wheaterdetail.tehsil_name}}</div>
           <p class="weathertitle">{{wheaterdetail.WeatherData.Temperature.Value}}˚{{wheaterdetail.WeatherData.Temperature.Unit}} </p>
+          <div class="titleFont alignLeft">{{'WEATHER_FILL_LIKES' | translate}} : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
 
         </div>
           </ion-col>
@@ -39,11 +41,9 @@
          <img class="weatherimage" src="{{wheaterdetail.WeatherData.WeatherIconsBig}}"/>
           </ion-col>
         </ion-row>
-      <div class="titleFont alignLeft">{{'WEATHER_FILL_LIKES' | translate}} : {{wheaterdetail.WeatherData.RealFeelTemperature.Value}} ˚{{wheaterdetail.WeatherData.RealFeelTemperature.Unit}}</div>
-
+      
           <div class="grapImage">
             <p>{{'WEATHER_FORECAST' | translate}}</p>
-            <img src="assets/img/Weather/drawable-hdpi/line_28.png"/>
           </div>
           <div class="july">
 
