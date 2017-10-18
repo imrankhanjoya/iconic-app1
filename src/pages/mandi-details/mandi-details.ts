@@ -82,7 +82,6 @@ export class MandiDetailsPage {
       this.toolbarClass="toolbarOpen";
       this.topMenu ="toolbarOpen";
     }else{
-      console.log(this.rotateClass);
       
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";

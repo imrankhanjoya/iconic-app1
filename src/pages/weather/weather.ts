@@ -2,8 +2,6 @@ import { Component ,ViewChild} from '@angular/core';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController,ModalController, ViewController } from 'ionic-angular';
-import { FilterLocationPage } from '../filter-model/FilterLocationPage';
-import { CityStateProvider } from '../../providers/city-state/city-state';
 import { Slides } from 'ionic-angular';
 
 /**
@@ -35,8 +33,7 @@ export class WeatherPage {
               public storage:Storage,
               public weather:WeatherProvider,
               public modalCtrl:ModalController,
-              public viewCtrl:ViewController,
-              public cityStateProvider:CityStateProvider
+              public viewCtrl:ViewController
               ) {
 
               this.tehsilId = navParams.get('filter_tehsil');
@@ -49,11 +46,9 @@ export class WeatherPage {
       this.storage.get('userData').then((userdata) => {
       if (userdata) {
       console.log(userdata);
-      this.userId=userdata.ID;
-      this.userDisplayName=userdata.display_name;
-      this.tehsil=userdata._user_tehsil;
-      this.weatherdetail(this.tehsil);
-      this.weatherfivedays(this.tehsil);
+      this.tehsilId=userdata._user_tehsil;
+      this.weatherdetail(this.tehsilId);
+      this.weatherfivedays(this.tehsilId);
       console.log('ionViewDidLoad WeatherPage');
       }
       });
@@ -100,24 +95,6 @@ export class WeatherPage {
   }
 
 
-
-  onStateSelect(stateid) {
-    var array = stateid.split('~');
-    this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
-        this.districtList=resp.data;
-        console.log('this is district');
-        console.log(this.districtList);
-      });
-  }
-  onDistrictSelect(districtId){
-    var array = districtId.split('~');
-    this.storage.set('userDictrictId',array[0]);
-    this.storage.set('userDictrict',array[1]);this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
-      this.tehsilList=resp.data;
-
-      //  this.loading.dismiss();
-    });
-  }
 
 
 

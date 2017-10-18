@@ -39,8 +39,8 @@ export class HomePage {
 @ViewChild('main_div') main_div:ElementRef;
 @ViewChild(Content) content: Content;
 
-  public expertdata:{ status: string, msg: string,data: any , graph_months:any, graph_price:any} = {status:'false',msg: 'test',data:'', graph_months:[],graph_price:[]};
-  public mandidata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public mandidata:{ status: boolean, msg: string,data: any,graph_months:any, graph_price:any} = {status:false,msg: 'test',data:'', graph_months:[],graph_price:[]};
   public mandidata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  
   public newsData: { status:string, msg: string,data: any } =   {status:'false',msg:'test',data:''};
@@ -147,7 +147,6 @@ export class HomePage {
         this.mandidata= res.data[0] ;
         this.mandidata.graph_months=this.mandidata.graph_months;
         this.mandidata.graph_price=this.mandidata.graph_price;
-        this.lineChartLabels=this.mandidata.graph_months;
         
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];

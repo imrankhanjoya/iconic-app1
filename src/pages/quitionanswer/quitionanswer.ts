@@ -20,7 +20,7 @@ export class QuitionanswerPage {
   private answer : FormGroup;
   	public  answerformData = {user_id:1,title:'',description:''};
 	public answerData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  	constructor(public navCtrl: NavController, public navParams: NavParams,public questionanswer: QuitionanswerpProvider) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams,public questionanswer: QuitionanswerpProvider,public formBuilder:FormBuilder) {
   		this.qid=navParams.get('QuitionID');
       //Change Password
         this.answer = this.formBuilder.group({

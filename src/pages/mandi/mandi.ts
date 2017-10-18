@@ -15,7 +15,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MandiPage {
 	public mandidata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public MandiProvider: MandiProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
 
