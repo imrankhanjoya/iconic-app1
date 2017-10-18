@@ -20,7 +20,7 @@ import { MandiProvider } from '../../providers/mandi/mandi';
 export class FilterCropsPage {
     public loading:any;
     public lang:any;
-    public cropList:Array<number>;
+    public cropList:any=[];
     public shoPage:any;
     public search:any;
     public filterCrops:Array<number>;
@@ -30,8 +30,9 @@ export class FilterCropsPage {
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public viewCtrl:ViewController) {
-      this.filterCrops=[];
-    	this.shoPage='Kharif';
+      this.cropList    = [];
+      this.filterCrops = [];
+    	this.shoPage = 'Kharif';
     	this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
@@ -40,7 +41,6 @@ export class FilterCropsPage {
 
     ionViewDidLoad() {
       this.getCommudity();
-
       console.log('ionViewDidLoad FilterCropsPage');
     }
     dismiss(){
@@ -48,16 +48,11 @@ export class FilterCropsPage {
         this.viewCtrl.dismiss(data);
     }
 
-    
-    // gotoFilter(){
-    //   console.log(this.filterCrops);
-    //   this.navCtrl.push('MandiDetailsPage',{filter_crops:this.filterCrops});          
-    // }
 
     getCommudity() {
         this.loading.present();
         this.mandiProvider.commudity(this.lang).map(res => res.json()).subscribe((resp) => {
-        this.cropList=resp.data;
+        this.cropList = resp.data;
         console.log(this.cropList);
         
         this.loading.dismiss();

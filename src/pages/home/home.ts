@@ -55,8 +55,6 @@ export class HomePage {
   public userDisplayName:any;
   public userKm:any;
   public userId:any;
-  public userStateId:any;
-  
 
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
@@ -64,15 +62,8 @@ export class HomePage {
     public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider) {
     this.rotateClass="";
       
-       storage.get('userData').then((userdata) => {
-          if (userdata) {
-            this.userId=userdata.ID;
-            this.userDisplayName=userdata.display_name;
-          }
-       });
-       storage.get('userStateId').then((userdata) => {
-          this.userStateId=userdata;
-       });
+       
+       
   		//this.topMenu = 'toolbarClosed';
   }
 
@@ -81,6 +72,8 @@ export class HomePage {
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
        //this.storage.set('userLoction',resp.coords);
+       this.geoLoc.lat = resp.coords.latitude;
+       this.geoLoc.lng = resp.coords.longitude;
        this.storage.set('userLoction.latitude',resp.coords.latitude);
        this.storage.set('userLoction.longitude',resp.coords.longitude);
 
@@ -88,7 +81,15 @@ export class HomePage {
     }).catch((error) => {
       console.log('Error getting location', error);
     });
-    this.getMandiData();
+    this.storage.get('userData').then((userdata) => {
+      if (userdata) {
+        console.log(userdata);
+        this.userId=userdata.ID;
+        this.userDisplayName=userdata.display_name;
+        this.getMandiData();
+      }
+    });
+    
     this.getNews();
     this.getweather(1);
     this.get_expert();
@@ -142,7 +143,7 @@ export class HomePage {
   
 
   getMandiData(){
-    this.mandi.usermandi(this.userId).map(res => res.json()).subscribe((res) => {
+    this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
         this.mandidata= res.data[0] ;
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];        
