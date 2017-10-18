@@ -54,8 +54,7 @@ export class MyApp {
     { title: 'Home', component: 'HomePage'},
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
-    { title: 'About Us', component: 'AboutPage' }
-
+    { title: 'About Us', component: 'AboutPage'}
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
