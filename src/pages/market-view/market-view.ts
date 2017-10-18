@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
-import { LoadingController } from 'ionic-angular';
 import { CallProvider } from '../../providers/call/call';
 
 /**
@@ -17,29 +16,44 @@ import { CallProvider } from '../../providers/call/call';
   templateUrl: 'market-view.html',
 })
 export class MarketViewPage {
-	public id :any;
+	public id:any;
 	public loading :any;
-  	public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  
-
+	public ProductViewData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+	Crop: string = "General";
 	constructor(
-			public loadingCtrl: LoadingController, 
 			navCtrl: NavController,
 			public navParams: NavParams,
     		public market:MarketproProvider,
-    		public callProvider:CallProvider
+    		public callProvider:CallProvider,
+    		public loadingCtrl: LoadingController
     		) {
 			this.id=navParams.get('id');
 			console.log('Market View ID '+this.id);
-		    /*this.loading = this.loadingCtrl.create({
-		      content: 'Please wait...'
-		    });
-		   this.loading.present();*/
   	}
 
   ionViewDidLoad() {
-  	//this.getmarkets(this.cat_id);
-    console.log('ionViewDidLoad MarketViewPage');
+  	
+    this.getProductView();
+  }
+
+  getProductView(){
+  	let loading = this.loadingCtrl.create({
+	content: 'Please wait...'
+	});
+	loading.present();
+    this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
+      	
+        this.ProductViewData.data = res.data;
+        this.ProductViewData.msg = res.msg;
+        this.ProductViewData.status = res.status;
+        console.log('market data start');
+        console.log(this.ProductViewData.data);
+        loading.dismiss();
+      }, (err) => {
+        // Unable to log in
+        loading.dismiss();
+        console.log(err);
+      });
   }
 
 }

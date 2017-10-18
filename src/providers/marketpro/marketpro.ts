@@ -56,6 +56,26 @@ export class MarketproProvider {
 	    	return seq;
   	}
 
+    ProductView(id) {
+  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+	  	var paramCond ={'product_id':id};
+	    let seq = this.api.get('v1/product/view', paramCond).share();
+
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status) {
+	          console.log('im here');
+	          console.log(id);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+
+	    	return seq;
+  	}
+
     productcat() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
 	  	var paramCond ={lang:'en_US'};

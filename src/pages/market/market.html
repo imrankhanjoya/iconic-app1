@@ -34,7 +34,7 @@
   </ion-grid>
   <ion-slides [slidesPerView]="'auto'">
     <ion-slide class="slideItem"  *ngFor="let productData of productcatData.product_data;">
-      	<ion-card>
+      	<ion-card  (click)="gotoMarketViewPage(productData.id)">
         	<img class="produtimage" src="{{productData.feature_image}}"/>
         	<div class="sarsTitle colorGrey smallTitle">{{productData.name}}</div>
           <ion-row>

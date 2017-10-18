@@ -13,16 +13,52 @@
 		<ion-segment-button class="themeColor" value="General">
 		  {{'OBSERVATION' | translate}}
 		</ion-segment-button>
-    <ion-segment-button value="Desease">
-		 {{'CROP_DETAIL_DEASEASE' | translate}}
-   		</ion-segment-button>
+	    <ion-segment-button value="Speacification">
+			 {{'Speacification' | translate}}
+	   	</ion-segment-button>
+	    <ion-segment-button value="Dealer">
+			 {{'DEALER' | translate}}
+	   	</ion-segment-button>
 	</ion-segment>
 
 </ion-header>
 
 
 <ion-content padding>
-	<ion-card>
-		
+<div [ngSwitch]="Crop">
+	<!---------Generale  Section-------->
+    <ion-card  *ngSwitchCase="'General'">
+	  <ion-card-content>
+	    <ion-card-title>
+	      {{ProductViewData.data.name}}
+	    </ion-card-title>
+	  <img src="{{ProductViewData.data.feature_image}}"/>
+	  </ion-card-content>
 	</ion-card>
+
+
+	<!----Speacification Section---->
+    <ion-card  *ngSwitchCase="'Speacification'">
+	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.cat_name">
+	  	<h2>Category</h2>
+    	<p>{{ProductViewData.data.cat_name}}</p>
+	  </ion-item>
+	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail.manufacturer">
+	  	<h2>manufacturer</h2>
+    	<p>{{ProductViewData.data.alldetail.manufacturer}}</p>
+	  </ion-item>
+	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail._stock_status">
+	  	<h2>Stock Status</h2>
+    	<p>{{ProductViewData.data.alldetail._stock_status}}</p>
+	  </ion-item>
+	</ion-card>
+
+
+	<!----Dealer Section---->
+    <ion-card  *ngSwitchCase="'Dealer'">
+	  <ion-item *ngFor="let vendors of ProductViewData.data.alldetail.product_vendors;" class="greySeparator" >
+	  	{{vendors.vendorname}}
+	  </ion-item>
+	</ion-card>
+</div>
 </ion-content>

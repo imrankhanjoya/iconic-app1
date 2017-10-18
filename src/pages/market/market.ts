@@ -18,6 +18,7 @@ import { CallProvider } from '../../providers/call/call';
 })
 export class MarketPage {
   public limit:'100';
+  public id :any;
   public loading :any;
   public cat_id :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
@@ -77,5 +78,8 @@ export class MarketPage {
   }
   onChange(selectedData){
       this.getmarkets(selectedData);
+  }
+  gotoMarketViewPage(product_id){
+    this.navCtrl.push('MarketViewPage',{id:product_id});
   }
 }
