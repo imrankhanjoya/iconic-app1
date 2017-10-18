@@ -194,5 +194,7 @@
   "GET_MORE_INSIGHT": "GET More Insights",
   "ASK_EXPERT_SUBTILE": "Get expert advice on your crops",
   "CROP": "CROP KNOWLEDGE BASE",
-  "HORTICULTURE": "HORTICULTURE"
+  "HORTICULTURE": "HORTICULTURE",
+  "FILTER_CROP": "Please Select Mandi",
+  "FILTER_LOCATION": "Please Select Location"
 }

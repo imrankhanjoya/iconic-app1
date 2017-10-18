@@ -1,0 +1,58 @@
+<!--
+  Generated template for the FilterModelPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{'FILTER_LOCATION' | translate }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon light ios="ios-close-circle" md="md-close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ <form  [formGroup]="changelocation" (ngSubmit)="filterLocaltionForm()">
+    <ion-card>
+      <div>
+          <div class="displayOneFont colorGrey fontBold greySeparator paddingBottom"> {{'SELECT_LOCTION' | translate}}</div>
+      </div>
+
+
+      <ion-item >
+        <ion-label>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</ion-label>
+        <ion-select   formControlName="user_state_id" (ionChange)="onStateSelect()">
+          <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item >
+        <ion-label>
+        {{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}
+        </ion-label>
+        <ion-select class="selectBox"  formControlName="user_district_id" (ionChange)="onDistrictSelect()" >
+          <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item >
+      	<ion-label>{{'SELECT_LOCTION_TEHSIL' | translate}}</ion-label>
+        <ion-select class="selectBox"  formControlName="user_teshsil_id" >
+          <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}>
+              {{tehsil.tehsil_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <div  class="p_button">
+        <button class="p_1" ion-button type="submit"  [disabled]="!changelocation.valid">Submit</button>
+      </div>
+    </ion-card>
+  </form>
+
+</ion-content>

@@ -25,15 +25,6 @@ import { Storage } from '@ionic/storage';
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title | translate}}
         </button>
-        <button menuClose ion-item (click)="openPageWithP('changelocation')">
-          locationss
-        </button>
-        <button menuClose ion-item (click)="openPageWithP('crops')">
-          {{ 'Crops'| translate}}
-        </button>
-        <button menuClose ion-item (click)="openPageWithP('changepass')">
-          {{ 'Change_Password'| translate}}
-        </button>
       </ion-list>
       
       <ion-row >
@@ -44,7 +35,6 @@ import { Storage } from '@ionic/storage';
       
     </ion-row>
     <ion-row class="paddingTop alignCenter">
-    
     <div class ="colorGreen smallTitleFont fontBold " style="width:50%" (click)="setLanguage('hi')">हिंदी</div>
     <div class="colorGrey smallTitleFont fontBold" style="width:50%" (click)="setLanguage('en')">ENGLISH</div>
       
@@ -63,16 +53,8 @@ export class MyApp {
   pages: any[] = [
     { title: 'Home', component: 'HomePage'},
     { title: 'Profile', component: 'ItemCreatePage'},
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Crops', component: 'SettingsPage' },
-    { title: 'Location', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' },
-    { title: 'Privacy & Policy', component: 'HomePage' },
-    { title: 'About Us', component: 'MarketselectPage' },
-    { title: 'about', component: 'AboutPage' },
-    { title: 'privacy', component: 'PrivacyPage' },
-
-
+    { title: 'Privacy & Policy', component: 'PrivacyPage' },
+    { title: 'About Us', component: 'AboutPage' }
 
   ]
 
