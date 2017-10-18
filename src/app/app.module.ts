@@ -46,6 +46,7 @@ import { CroplistProvider } from '../providers/croplist/croplist';
 import { CroptyeProvider } from '../providers/croptye/croptye';
 import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
+import { TabProvider } from '../providers/tab/tab';
 
 
 
@@ -134,7 +135,8 @@ export function provideSettings(storage: Storage) {
     CropsProvider,
     CroplistProvider,
     CroptyeProvider,
-    CallProvider
+    CallProvider,
+    TabProvider
   ]
 })
 export class AppModule { }

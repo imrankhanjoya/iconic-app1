@@ -13,6 +13,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
 import { CallProvider } from '../../providers/call/call';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
+import { TabProvider } from '../../providers/tab/tab';
 
 
 import { Api } from '../../providers/api/api';
@@ -61,7 +62,8 @@ export class HomePage {
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
-    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider) {
+    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider,
+    public tabProvider:TabProvider) {
     this.rotateClass="";
       
   		//this.topMenu = 'toolbarClosed';
@@ -103,12 +105,14 @@ export class HomePage {
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
   		this.topMenu ="toolbarOpen";
+      this.tabProvider.hide()
   	}else{
       console.log(this.rotateClass);
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
   		this.topMenu = "toolbarClosed";
+      this.tabProvider.show()
   	}
 
   }
