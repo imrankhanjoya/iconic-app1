@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MandiProvider } from '../../providers/mandi/mandi';
 
 /**
  * Generated class for the MandiPage page.

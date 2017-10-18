@@ -89,7 +89,7 @@ export class WeatherPage {
     this.weatherfivedays(tehsil);
   }
   slideChanged(index){
-    console.log(index);
+    console.log('---------');
   }
   openFilter(){
     let modal = this.modalCtrl.create('FilterLocationPage');

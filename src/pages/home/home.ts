@@ -12,6 +12,8 @@ import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
 import { CallProvider } from '../../providers/call/call';
+import { MandiDetailsPage } from '../mandi-details/mandi-details';
+
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
@@ -37,7 +39,7 @@ export class HomePage {
 @ViewChild('main_div') main_div:ElementRef;
 @ViewChild(Content) content: Content;
 
-  public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public expertdata:{ status: string, msg: string,data: any , graph_months:any, graph_price:any} = {status:'false',msg: 'test',data:'', graph_months:[],graph_price:[]};
   public mandidata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata1:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata2:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};  
@@ -62,8 +64,6 @@ export class HomePage {
     public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider) {
     this.rotateClass="";
       
-       
-       
   		//this.topMenu = 'toolbarClosed';
   }
 
@@ -145,9 +145,13 @@ export class HomePage {
   getMandiData(){
     this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
         this.mandidata= res.data[0] ;
+        this.mandidata.graph_months=this.mandidata.graph_months;
+        this.mandidata.graph_price=this.mandidata.graph_price;
+        this.lineChartLabels=this.mandidata.graph_months;
+        
         this.mandidata1= res.data[1];
-        this.mandidata2= res.data[2];        
-        console.log(this.mandidata.data);
+        this.mandidata2= res.data[2];
+        this.mandidata.status=true;
       }, (err) => {
         // Unable to log in
         console.log(err);
@@ -238,7 +242,7 @@ export class HomePage {
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
   gotomandiDetail(){
-    this.navCtrl.push('MandiDetailsPage');
+    this.navCtrl.push(MandiDetailsPage);
   }
   gotoNewsPage(){
     this.navCtrl.push('NewsPage');
@@ -359,5 +363,30 @@ async changeClass(count): Promise<string> {
     this.youtube.openVideo(videoid);
   }
   
+
+
+
+
+//----------------  Chart  --------------------
+
+
+  public lineChartOptions:any = {
+    responsive: true
+  };
+  public lineChartColors:Array<any> = [
+    { 
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+   ]
+  public lineChartLegend:boolean = false;
+  public lineChartType:string = 'line';
+ 
+  
+//--------------- chat end ----------
 
 }

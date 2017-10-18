@@ -72,39 +72,20 @@
 
   </ion-row>
       <ion-row>
-      <ion-col col-3 class="mandiGrap">
-      <p> {{'RS_PER_QUINTAL' | translate}}</p>
-      <p> 500</p>
-      <p> 400</p>
-      <p> 300</p>
-      <p> 200</p>
-      </ion-col>
-      <ion-col col-9>
-        <img src="assets/img/Weather/drawable-hdpi/line_28.png" class="grapImage"/>
-      </ion-col>
+      
+
+      <canvas *ngIf="subData.graph_price" baseChart style="width:100%; height: 100%; overflow: hidden; border: none;"
+                [datasets]="[{data: subData.graph_price}]"
+                [labels]="subData.graph_months"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType">
+                  
+                </canvas>
+   
       </ion-row>
-        <div class="july">
-      <ion-row  padding-left class="MandyDay">
-      <ion-col>
-      15 जुलाई
-      </ion-col>
-      <ion-col>
-        15 जुलाई
-      </ion-col>
-      <ion-col>
-        15 जुलाई
-      </ion-col>
-      <ion-col>
-        15 जुलाई
-      </ion-col>
-      <ion-col>
-        15 जुलाई
-      </ion-col>
-      <ion-col>
-        15 जुलाई
-      </ion-col>
-    </ion-row>
-    </div>
+       
       </ion-grid>
     </ion-card>
   </ion-slide>

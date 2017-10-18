@@ -16,7 +16,7 @@ import { NewsPage } from '../../pages/news/news';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  tab1Root: any = Tab1Root;
+  tab1Root: any = HomePage;
   tab2Root: any = Tab2Root;
   tab3Root: any = Tab3Root;
   tab4Root: any = Tab4Root;

@@ -6,6 +6,8 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
 
+import { HomePage } from '../pages/home/home';
+
 //import { Storage } from '@ionic/storage';
 
 @Component({
@@ -51,10 +53,17 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Home', component: 'HomePage'},
+    { title: 'Home', component: HomePage},
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
-    { title: 'About Us', component: 'AboutPage'}
+    { title: 'About Us', component: 'AboutPage'},
+    { title: 'Settings', component: 'SettingsPage' },
+    { title: 'Crops', component: 'SettingsPage' },
+    { title: 'Location', component: 'SettingsPage' },
+    { title: 'Search', component: 'SearchPage' },
+    { title: 'about', component: 'AboutPage' },
+    { title: 'privacy', component: 'PrivacyPage' },
+
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,

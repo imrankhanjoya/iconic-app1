@@ -32,6 +32,8 @@ import { ExpertsProvider } from '../providers/experts/experts';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { RentalsProvider } from '../providers/rentals/rentals';
 import { AnnouncementproProvider } from '../providers/announcementpro/announcementpro';
+import { HomePage } from '../pages/home/home';
+import { MandiDetailsPage } from '../pages/mandi-details/mandi-details';
 
 //plugns..
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -43,6 +45,8 @@ import { CropsProvider } from '../providers/crops/crops';
 import { CroplistProvider } from '../providers/croplist/croplist';
 import { CroptyeProvider } from '../providers/croptye/croptye';
 import { CallProvider } from '../providers/call/call';
+import { ChartsModule } from 'ng2-charts';
+
 
 
 // The translate loader needs to know where to load i18n files
@@ -68,11 +72,14 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage,
+    MandiDetailsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    ChartsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -85,7 +92,9 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage,
+    MandiDetailsPage
   ],
   providers: [
     Api,
