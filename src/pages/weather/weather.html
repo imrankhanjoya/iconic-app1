@@ -7,41 +7,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{'WEATHER' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="headericon" (click)="openFilter()">
+        <img src="assets/img/agri bolo icon/hdpi/filter.png">
+      </button>
+    </ion-buttons>
   </ion-navbar>
-  <ion-row>
-    <ion-col col-4 >
-      <ion-item>
-        <ion-label>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</ion-label>
-        <ion-select [(ngModel)]="state" (ionChange)="onStateSelect(state)">
-          <ion-option *ngFor="let state of stateList" value={{state.id}}~{{state.state_name}}>{{state.state_name}}</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-    <ion-col col-4 >
-      <ion-item>
-        <ion-label>
-            {{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}
-        </ion-label>
-        <ion-select [(ngModel)]="district" (ionChange)="onDistrictSelect(district)">
-          <ion-option *ngFor="let district of districtList" value={{district.id}}>
-              {{district.district_name}}
-          </ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-    <ion-col col-4 >
-      <ion-item>
-        <ion-label>
-            {{'SELECT_LOCTION_TEHSIL' | translate}} {{'SELECT_LOCTION_TEHSIL' | translate}}
-        </ion-label>
-        <ion-select [(ngModel)]="tehsil" (ionChange)="weatherget(tehsil)">
-          <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}>
-              {{tehsil.tehsil_name}}
-          </ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-col>
-  </ion-row>
 </ion-header>
 
 
