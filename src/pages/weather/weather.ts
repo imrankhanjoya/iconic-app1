@@ -148,6 +148,7 @@ export class WeatherPage {
   dismiss(){
     let data = { 'foo': 'bar' };
     //this.viewCtrl.dismiss(data);
+
   }
 
   onSlideChanged(){
