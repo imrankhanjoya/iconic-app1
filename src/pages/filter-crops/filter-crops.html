@@ -19,7 +19,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="backgroundColorWhite">
 
 <input type="text" [(ngModel)]="search" value="" name="findme">  
 <ion-scroll scrollY="true" style="width: 100%; height:90%;" >
@@ -28,12 +28,14 @@
 <ion-row  *ngFor="let item of cropList ; let i = index " col-12  >
 
       
-      <ion-col  *ngFor="let com of item.commodity ; let j = index " col-4 >
-               
-            <input type="checkbox" (click)="addValue(i,j)" class="checkbox" >
-            <div class="titleName titleFont" >{{com.commodity_name}}</div>
-       
-      </ion-col>
+
+
+<ion-col *ngFor="let com of item.commodity ; let j = index " col-6>
+    <ion-item>
+      <ion-label class="titleName titleFont">{{com.commodity_name}}</ion-label>
+      <ion-checkbox (click)="addValue(i,j)"></ion-checkbox>
+    </ion-item>
+</ion-col>
        
      
 
@@ -41,7 +43,7 @@
 </ion-grid>
 </ion-scroll>
 
-<button ion-button full outline (click)="gotoFilter()">Show Results</button>
+<button ion-button full (click)="gotoFilter()">Show Results</button>
 
 </ion-content>
 

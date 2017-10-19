@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController,LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
+import { MandiDetailsPage } from '../mandi-details/mandi-details';
 
 //import { ModalController, ViewController,LoadingController } from 'ionic-angular';
 
@@ -80,7 +81,7 @@ export class FilterCropsPage {
      }
       if (i==this.cropList.length-1) {
         console.log(this.filterCrops.toString());
-       this.navCtrl.push('MandiDetailsPage',{filter_crops:this.filterCrops.toString()});
+       this.navCtrl.push(MandiDetailsPage,{filter_crops:this.filterCrops.toString()});
       }
     }
   }
