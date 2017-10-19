@@ -47,6 +47,7 @@ import { CroptyeProvider } from '../providers/croptye/croptye';
 import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
+import { Firebase } from '@ionic-native/firebase';
 
 
 
@@ -137,6 +138,7 @@ export function provideSettings(storage: Storage) {
     CroptyeProvider,
     CallProvider,
     TabProvider
+    Firebase
   ]
 })
 export class AppModule { }

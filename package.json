@@ -24,6 +24,7 @@
         "@ionic-native/call-number": "^4.3.1",
         "@ionic-native/camera": "^3.12.1",
         "@ionic-native/core": "^3.14.0",
+        "@ionic-native/firebase": "^4.3.2",
         "@ionic-native/geolocation": "^4.3.0",
         "@ionic-native/google-maps": "3.12.1",
         "@ionic-native/in-app-browser": "^4.3.0",
