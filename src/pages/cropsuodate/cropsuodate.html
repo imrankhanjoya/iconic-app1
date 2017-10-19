@@ -29,22 +29,23 @@
   </ion-col>
 </ion-row>
 
-<ion-scroll scrollY="true" style="width: 100%; height: 50%;">
+<ion-scroll scrollY="true" style="width: 100%; height: 50%; background: #ffffff">
 <ion-row >
-  <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
-
-    <ion-row *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
-      <ion-col >
-        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="condiment.checked" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
-        <div class="titleName titleFont" >{{item.name}}</div>
+  <ion-col *ngFor="let item of cropList ; let i = index " >
+      <ion-col *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'"  col-6 class="mainClass">
+        <ion-item no-lines class="titlename">
+      <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox (click)="addValue(i,j)"></ion-checkbox>
+    </ion-item>
+      <!--   <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <div class="titleName titleFont" >{{item.name}}</div> -->
       </ion-col>
-    </ion-row>
-    <ion-row *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
-      <ion-col >
-        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
-        <div class="titleName titleFont" >{{item.name}}</div>
+      <ion-col *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'"  col-6 class="mainClass">
+        <ion-item no-lines class="titlename">
+      <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox (click)="addValue(i,j)"></ion-checkbox>
+    </ion-item>
       </ion-col>
-    </ion-row>
   </ion-col>
 </ion-row>
 </ion-scroll>
