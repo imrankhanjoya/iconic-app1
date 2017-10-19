@@ -48,18 +48,20 @@ export class WeatherPage {
       console.log('ionViewDidLoad WeatherPage');
 
       this.storage.get('userData').then((userdata) => {
-      if (userdata) {
-      console.log(userdata);
-      this.tehsilId=userdata._user_tehsil;
-      this.weatherdetail(this.tehsilId);
-      this.weatherfivedays(this.tehsilId);
-      console.log('ionViewDidLoad WeatherPage');
-      }
+        if (userdata) {
+          console.log(userdata);
+          this.tehsilId=userdata._user_tehsil;
+          this.weatherdetail(this.tehsilId);
+          this.weatherfivedays(this.tehsilId);
+          console.log('ionViewDidLoad WeatherPage');
+        }
       });
   }
 
  weatherdetail(tehsil){
-
+        if (this.navParams.get('fromFilter')) {
+          this.tehsilId = this.navParams.get('filter_tehsil');
+        }
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
         // this.loading = this.loadingCtrl.create({
         //   content: 'Please wait...'
@@ -85,6 +87,9 @@ export class WeatherPage {
   }
 
   weatherfivedays(location:any){
+      if (this.navParams.get('fromFilter')) {
+          location = this.navParams.get('filter_tehsil');
+        }
       this.weather.weatherfivedays(location).map(res => res.json()).subscribe((res) => {
       this.weatherfiveday.data = res.data;
       this.weatherfiveday.msg = res.msg;
@@ -127,7 +132,7 @@ export class WeatherPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        this.navCtrl.push(WeatherPage,{filter_tehsil:popoverData.data}); 
+        this.navCtrl.push(WeatherPage,{filter_tehsil:popoverData.data, fromFilter:true}); 
       }
     });
   }
