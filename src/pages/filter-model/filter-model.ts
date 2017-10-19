@@ -24,7 +24,7 @@ export class FilterModelPage {
     public districtList: any;
     public marketList: any;
     public loading:any;
-    public changelocation : FormGroup;
+    public changemarket : FormGroup;
 
 
     constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,
@@ -32,7 +32,7 @@ export class FilterModelPage {
     private formBuilder: FormBuilder,
     ) {
         //Change Profile Details
-        this.changelocation = this.formBuilder.group({
+        this.changemarket = this.formBuilder.group({
         user_state_id: ['', Validators.required],
         user_district_id: ['', Validators.required],
         user_market_id: ['', Validators.required]
@@ -50,8 +50,8 @@ export class FilterModelPage {
 
     onStateSelect() {
 
-        console.log(this.changelocation.value.user_state_id);
-        var stateid = this.changelocation.value.user_state_id;
+        console.log(this.changemarket.value.user_state_id);
+        var stateid = this.changemarket.value.user_state_id;
         this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
           this.districtList=resp.data;
           //console.log(this.districtList);
@@ -59,7 +59,7 @@ export class FilterModelPage {
         }); 
     }
     onDistrictSelect(districtId){
-        var districtId = this.changelocation.value.user_district_id;
+        var districtId = this.changemarket.value.user_district_id;
         this.cityStateProvider.getMarket(this.lang,districtId).map(res => res.json()).subscribe((resp) => {
           this.marketList=resp.data;
           //  this.loading.dismiss();
@@ -76,8 +76,8 @@ export class FilterModelPage {
 
     filterLocaltionForm(){
 
-        console.log(this.changelocation.value.user_market_id);
-        this.navCtrl.push('MandiDetailsPage',{filter_market:this.changelocation.value.user_market_id});          
+        console.log(this.changemarket.value.user_market_id);
+        this.navCtrl.push('MandiDetailsPage',{filter_market:this.changemarket.value.user_market_id});          
     }
 
     dismiss(){

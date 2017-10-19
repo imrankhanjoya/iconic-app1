@@ -14,7 +14,7 @@ import { AnnouncementproProvider } from '../../providers/announcementpro/announc
 import { CallProvider } from '../../providers/call/call';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
 import { TabProvider } from '../../providers/tab/tab';
-
+import { WeatherPage } from '../weather/weather';
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
@@ -235,7 +235,7 @@ export class HomePage {
 
   }
   gotoWeatherPage(){
-    this.navCtrl.push('WeatherPage');
+    this.navCtrl.push(WeatherPage);
   }
   gotoservicesPage(){
     this.navCtrl.push('ServicesPage');

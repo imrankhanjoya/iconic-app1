@@ -34,6 +34,7 @@ import { RentalsProvider } from '../providers/rentals/rentals';
 import { AnnouncementproProvider } from '../providers/announcementpro/announcementpro';
 import { HomePage } from '../pages/home/home';
 import { MandiDetailsPage } from '../pages/mandi-details/mandi-details';
+import { WeatherPage } from '../pages/weather/weather';
 
 //plugns..
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -47,6 +48,7 @@ import { CroptyeProvider } from '../providers/croptye/croptye';
 import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
+import { Firebase } from '@ionic-native/firebase';
 
 
 
@@ -75,7 +77,8 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     HomePage,
-    MandiDetailsPage
+    MandiDetailsPage,
+    WeatherPage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +98,8 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     HomePage,
-    MandiDetailsPage
+    MandiDetailsPage,
+    WeatherPage
   ],
   providers: [
     Api,
@@ -136,7 +140,8 @@ export function provideSettings(storage: Storage) {
     CroplistProvider,
     CroptyeProvider,
     CallProvider,
-    TabProvider
+    TabProvider,
+    Firebase
   ]
 })
 export class AppModule { }

@@ -1,10 +1,7 @@
 .toolbarCol {
   text-align: center;
   color: white;
-  border-right: 1px solid;
-  border-top: 1px solid;
-  border-color: #0a1200;
-  background-color: #101C00; }
+}
 
 .toolbarCol img {
   padding-left: 15%;

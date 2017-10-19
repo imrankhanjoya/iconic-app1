@@ -1,4 +1,5 @@
 import { Component ,ViewChild} from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController,ModalController, ViewController } from 'ionic-angular';
@@ -18,15 +19,18 @@ import { Slides } from 'ionic-angular';
 })
 export class WeatherPage {
 @ViewChild(Slides) slider: Slides;
+  public hours:Array<string>=[];
+  public hourlyTmp:Array<number>=[];
   public loading:any;
   public lang:any;
   public location:any
   public tehsilId:any;
   public filterLocation:any;
   public weatherInfo:any;
-  public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-    public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-    constructor(
+
+	public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  	constructor(
               public navCtrl: NavController,
               public navParams: NavParams,
               public loadingCtrl: LoadingController,
@@ -85,7 +89,18 @@ export class WeatherPage {
       this.weatherfiveday.data = res.data;
       this.weatherfiveday.msg = res.msg;
       this.weatherfiveday.status = res.status;
-      console.log(res.data.headline.Text);
+
+      //console.log(this.weatherfiveday.data.WeatherHourly.data.WeatherData);
+      for(let tmp of this.weatherfiveday.data.WeatherHourly.data.WeatherData){
+        var dp = new DatePipe("en-US");
+        var th = dp.transform(tmp.DateTime, 'j');
+        //this.hours.push(tmp.DateTime);  
+        this.hours.push(th);  
+        this.hourlyTmp.push(tmp.tempratureValue);
+      }
+      
+      console.log(this.hours);
+      console.log(this.hourlyTmp);
       //console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
 
       }, (err) => {
@@ -124,7 +139,27 @@ export class WeatherPage {
         this.weatherfivedays(tasilId);
   }
 
+//----------------  Chart  --------------------
 
+
+  public lineChartOptions:any = {
+    responsive: true
+  };
+  public lineChartColors:Array<any> = [
+    { 
+      backgroundColor: '#eaefda',
+      borderColor: '#4a4b4c',
+      pointBackgroundColor: '#649305',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    }
+   ]
+  public lineChartLegend:boolean = false;
+  public lineChartType:string = 'line';
+ 
+  
+//--------------- chat end ----------
 
 
 }

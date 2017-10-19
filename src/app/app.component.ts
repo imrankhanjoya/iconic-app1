@@ -57,12 +57,6 @@ export class MyApp {
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
     { title: 'About Us', component: 'AboutPage'},
-    { title: 'Settings', component: 'SettingsPage' },
-    { title: 'Crops', component: 'SettingsPage' },
-    { title: 'Location', component: 'SettingsPage' },
-    { title: 'Search', component: 'SearchPage' },
-    { title: 'about', component: 'AboutPage' },
-    { title: 'privacy', component: 'PrivacyPage' },
 
   ]
 
