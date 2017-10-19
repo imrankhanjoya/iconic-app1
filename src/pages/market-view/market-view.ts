@@ -32,7 +32,6 @@ export class MarketViewPage {
   	}
 
   ionViewDidLoad() {
-  	
     this.getProductView();
   }
 
