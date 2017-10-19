@@ -1,5 +1,5 @@
-import { Component,NgModule } from '@angular/core';
-import { IonicPage, NavController, NavParams , LoadingController, PopoverController} from 'ionic-angular';
+import { Component,NgModule, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams , LoadingController, PopoverController, Scroll} from 'ionic-angular';
 import { ChoupalProvider } from '../../providers/choupal/choupal';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Api } from '../../providers/api/api';
@@ -18,6 +18,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'choupal.html',
 })
 export class ChoupalPage {
+  @ViewChild('chatScroll') chatScroll: Scroll;
   public userId:any;
   public isSend:boolean=false;
   public newMessge:string='';
@@ -32,10 +33,15 @@ export class ChoupalPage {
     console.log('user id--- : '+this.userId);
     this.selectedImg='';
   }
-
   ionViewDidLoad() {
     this.choupalget();
     console.log('ionViewDidLoad ChoupalPage');
+  }
+  scrollToBottom(scroll) {
+    scroll.scrollTop = scroll.scrollHeight - scroll.clientHeight;
+  }
+  goBottomBtnClick() {
+     this.scrollToBottom(this.chatScroll._scrollContent.nativeElement);
   }
   choupalget(){
     let loading = this.loadingCtrl.create({
@@ -48,6 +54,9 @@ export class ChoupalPage {
         this.choupaldata.msg = res.msg;
         this.choupaldata.status = res.status;
         console.log(this.choupaldata.data);
+        setTimeout(() => {
+          this.goBottomBtnClick();
+        });
         loading.dismiss();
       }, (err) => {
         alert(err)
@@ -69,14 +78,17 @@ export class ChoupalPage {
  }
 
  postCopal(){
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
+    if (this.isSend) {
+      let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
     loading.present();
     // console.log('ionViewDidLoad '+this.questionaddData.title);
-    this.ChoupalProvider.postChoupal(this.userId,this.newMessge,'no Image').map(res => res.json()).subscribe((res) => {
+    this.ChoupalProvider.postChoupal(this.userId,this.newMessge,'').map(res => res.json()).subscribe((res) => {
         this.selectedImg='';
         console.log(this.choupaldata.data);
+        this.newMessge='';
+        this.isSend=false;
         this.choupalget();
         loading.dismiss();
       }, (err) => {
@@ -84,6 +96,7 @@ export class ChoupalPage {
         loading.dismiss();
         console.log(err);
       });
+    }
   }
 
   uploadeImg(){
