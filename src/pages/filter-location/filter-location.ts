@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, ViewController,LoadingController } from 'ionic-angular';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { WeatherPage } from '../weather/weather';
 
 /**
  * Generated class for the FilterLocationPage page.
@@ -49,7 +50,7 @@ export class FilterLocationPage {
     filterLocaltionForm(){
 
         console.log(this.changelocation.value.user_teshsil_id);
-        this.navCtrl.push('WeatherPage',{filter_tehsil:this.changelocation.value.user_teshsil_id});          
+        this.navCtrl.push(WeatherPage,{filter_tehsil:this.changelocation.value.user_teshsil_id});          
     }
 
     onStateSelect() {

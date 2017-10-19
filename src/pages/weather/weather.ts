@@ -52,10 +52,10 @@ export class WeatherPage {
       this.storage.get('userData').then((userdata) => {
       if (userdata) {
       console.log(userdata);
-      this.tehsilId=userdata._user_tehsil;
+      this.tehsil=userdata._user_tehsil;
       this.state_name=userdata.state_name;
       this.tehsil_name=userdata.tehsil_name;
-      this.weatherdetail(this.tehsilId);
+      this.weatherdetail(this.tehsil);
       this.weatherfivedays(this.tehsilId);
       console.log('ionViewDidLoad WeatherPage'+this.tehsil+'  ,  '+this.tehsilId);
       }
@@ -64,6 +64,7 @@ export class WeatherPage {
 
  weatherdetail(tehsil){
 
+        var resetcard = ( typeof this.tehsilId != 'undefined' )?true:false;
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
         // this.loading = this.loadingCtrl.create({
         //   content: 'Please wait...'
@@ -75,6 +76,7 @@ export class WeatherPage {
         this.wheaterdetailall.data = res.data;
         this.wheaterdetailall.msg = res.msg;
         this.wheaterdetailall.status = res.status;
+        this.resetcard = resetcard;
         this.weatherInfo=this.wheaterdetailall.data;
         this.tehsilId=res.data;
 
