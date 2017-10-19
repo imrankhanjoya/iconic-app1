@@ -382,39 +382,5 @@ page-home {
       
 
 
-      .bottmTabShow {
-        animation-name: bottmTabShow;
-      }
-      @keyframes bottmTabShow {
-        from {
-          opacity: 0;
-          transform: translate3d(0, 100%, 0);
-        }
-
-        to {
-          opacity: 1;
-          transform: none;
-        }
-      }
-
-
-
-      .bottmTabHide {
-        animation-name: bottmTabHide;
-      }
-      @keyframes bottmTabHide {
-        from {
-          opacity: 1;
-          height: 100px;
-        }
-
-        to {
-            height: 0;
-            overflow-y: hidden;
-          opacity: 0;
-          
-          transform: translate3d(0, 100%, 0);
-        }
-      }
 
 }

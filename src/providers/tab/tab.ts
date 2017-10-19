@@ -19,30 +19,30 @@ export class TabProvider {
 
 
 
-    let tabs = document.querySelectorAll('.tabbar');
-    let scrollContent = document.querySelectorAll('.scroll-content');
-    if (tabs !== null) {
-      Object.keys(tabs).map((key) => {
-        tabs[key].style = 'transform:translateY(56px); animation:2s';
-      });
+    // let tabs = document.querySelectorAll('.tabbar');
+    // let scrollContent = document.querySelectorAll('.scroll-content');
+    // if (tabs !== null) {
+    //   Object.keys(tabs).map((key) => {
+    //     tabs[key].style = 'transform:translateY(56px); animation:2s';
+    //   });
 
-      // fix for removing the margin if you got scorllable content
-      setTimeout(() =>{
-        Object.keys(scrollContent).map((key) => {
-          scrollContent[key].style.marginBottom = '0';
-        });
-      })
-    }
+    //   // fix for removing the margin if you got scorllable content
+    //   setTimeout(() =>{
+    //     Object.keys(scrollContent).map((key) => {
+    //       scrollContent[key].style.marginBottom = '30';
+    //     });
+    //   })
+    // }
   }
 
   public show() {
-    let tabs = document.querySelectorAll('.tabbar');
-    if (tabs !== null) {
-      Object.keys(tabs).map((key) => {
-       // tabs[key].addClass('helo');
+    // let tabs = document.querySelectorAll('.tabbar');
+    // if (tabs !== null) {
+    //   Object.keys(tabs).map((key) => {
+    //    // tabs[key].addClass('helo');
         
-      });
-    }
+    //   });
+    // }
   }
 
 }
