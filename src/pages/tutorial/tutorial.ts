@@ -21,27 +21,32 @@ export class TutorialPage {
   showSkip = true;
   dir: string = 'ltr';
 
-  constructor(public navCtrl: NavController, public menu: MenuController, translate: TranslateService,
+  constructor(public navCtrl: NavController, public menu: MenuController,public translate: TranslateService,
     public platform: Platform,public storage:Storage) {
     this.dir = platform.dir();
     
     setTimeout(()=>{
-      storage.get('userData').then((userlogin) => {
-          console.log(userlogin);
-          if (userlogin) {
-            this.navCtrl.setRoot(MainPage, {}, {
-              animate: true,
-              direction: 'forward'
-            });
-          }else if(!userlogin){
-            this.navCtrl.setRoot('WelcomePage', {}, {
-              animate: true,
-              direction: 'forward'
-            });
-          }
+      this.platform.ready().then((readySource) => {
           
-       });
+          storage.get('userData').then((userlogin) => {
+              console.log(userlogin);
+              if (userlogin) {
+                this.navCtrl.setRoot(MainPage, {}, {
+                  animate: true,
+                  direction: 'forward'
+                });
+              }else if(!userlogin){
+                this.navCtrl.setRoot('WelcomePage', {}, {
+                  animate: true,
+                  direction: 'forward'
+                });
+              }
+              
+           });
+      });
       },3000);
+
+
   }
 
   startApp() {
@@ -64,5 +69,6 @@ export class TutorialPage {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
   }
+
 
 }

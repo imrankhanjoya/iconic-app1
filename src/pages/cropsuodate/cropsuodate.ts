@@ -56,7 +56,6 @@ export class CropsuodatePage {
         this.userdata = val;  
         console.log(val);
       });
-      
   }
 
   ionViewDidLoad() {

@@ -26,7 +26,7 @@ export class WelcomePage {
 
   initTranslate(lang) {
     // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('hi');
+    this.translate.setDefaultLang(lang);
     this.translate.use(lang);
     
   }
