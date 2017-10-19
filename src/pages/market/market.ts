@@ -23,7 +23,7 @@ export class MarketPage {
   public cat_id :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  constructor(public loadingCtrl: LoadingController, navCtrl: NavController, public navParams: NavParams,
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,
     public market:MarketproProvider,public callProvider:CallProvider) {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
