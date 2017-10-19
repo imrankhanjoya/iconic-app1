@@ -45,28 +45,21 @@
           <div class="grapImage">
             <p>{{'WEATHER_FORECAST' | translate}}</p>
           </div>
-          <div class="july">
+          <div style="height:120px">
 
-          <ion-row  padding-left class="MandyDay">
-            <ion-col>
-          <p> 10 AM</p>
-            </ion-col>
-            <ion-col>
-              <p> 10 AM</p>
-            </ion-col>
-            <ion-col>
-            <p> 10 AM</p>
-            </ion-col>
-            <ion-col>
-              <p> 10 AM</p>
-            </ion-col>
-            <ion-col>
-              <p> 10 AM</p>
-            </ion-col>
-            <ion-col>
-              <p> 10 AM</p>
-            </ion-col>
-          </ion-row>
+
+             <canvas *ngIf="hourlyTmp" baseChart style="width:100%; height: 100%; overflow: hidden; border: none;"
+                [datasets]="[{data: hourlyTmp}]"
+                [labels]="hours"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType">
+                  
+                </canvas>
+
+
+
           </div>
           <ion-grid class="grid">
             <ion-row class="imageAlt">
@@ -115,7 +108,8 @@
 </ion-slides>
 <ion-row class="cloud">
   <ion-col  *ngFor="let weatherfivedaydetail of weatherfiveday.data.WeatherData;">
-    <p>सोम</p>
+    <ion-datetime displayFormat="DDD" [(ngModel)]="weatherfivedaydetail.Weatherdate"></ion-datetime>
+
     <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt="" class="cloudImage"/>
   </ion-col>
 </ion-row>

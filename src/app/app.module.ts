@@ -34,6 +34,7 @@ import { RentalsProvider } from '../providers/rentals/rentals';
 import { AnnouncementproProvider } from '../providers/announcementpro/announcementpro';
 import { HomePage } from '../pages/home/home';
 import { MandiDetailsPage } from '../pages/mandi-details/mandi-details';
+import { WeatherPage } from '../pages/weather/weather';
 
 //plugns..
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -76,7 +77,8 @@ export function provideSettings(storage: Storage) {
   declarations: [
     MyApp,
     HomePage,
-    MandiDetailsPage
+    MandiDetailsPage,
+    WeatherPage
   ],
   imports: [
     BrowserModule,
@@ -96,7 +98,8 @@ export function provideSettings(storage: Storage) {
   entryComponents: [
     MyApp,
     HomePage,
-    MandiDetailsPage
+    MandiDetailsPage,
+    WeatherPage
   ],
   providers: [
     Api,
@@ -137,7 +140,7 @@ export function provideSettings(storage: Storage) {
     CroplistProvider,
     CroptyeProvider,
     CallProvider,
-    TabProvider
+    TabProvider,
     Firebase
   ]
 })
