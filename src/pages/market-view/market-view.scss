@@ -1,3 +1,20 @@
 page-market-view {
-
+	.content-md{
+		background-color: #ffffff;
+	}
+	.fullWidth{
+		width: 100%;
+	}
+	.marketViewGridTitle{
+		border: 1px solid #c8c7cc;
+		background-color: #f0f0f0;
+		font-weight: bold;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	.marketViewGridContent{
+		border: 1px solid #c8c7cc;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
 }

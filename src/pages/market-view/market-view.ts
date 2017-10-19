@@ -18,7 +18,7 @@ import { CallProvider } from '../../providers/call/call';
 export class MarketViewPage {
 	public id:any;
 	public loading :any;
-	public ProductViewData: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+	public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
 	Crop: string = "General";
 	constructor(
 			navCtrl: NavController,
@@ -46,7 +46,7 @@ export class MarketViewPage {
         this.ProductViewData.msg = res.msg;
         this.ProductViewData.status = res.status;
         console.log('market data start');
-        console.log(this.ProductViewData.data);
+        console.log(this.ProductViewData.data.detail);
         loading.dismiss();
       }, (err) => {
         // Unable to log in
