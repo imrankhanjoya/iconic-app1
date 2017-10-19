@@ -7,7 +7,7 @@
 <ion-header>
 
 	<ion-navbar>
-	    <ion-title class="title fontBold fontShadow"><{{ProductViewData.data.name}}</ion-title>
+	    <ion-title class="title fontBold fontShadow">{{ProductViewData.data.name}}</ion-title>
 	</ion-navbar>
 </ion-header>
 
@@ -22,7 +22,7 @@
 	<ion-col col-8>
 		<div class="smallTitle fontBold paddingTop paddingLeft colorGrey">{{ProductViewData.data.name}}</div>
 		<div class="paddingLeft colorGrey"  >
-	   		{{ProductViewData.data.alldetail.manufacturer}}
+	   		{{ProductViewData.data.brand}}
 	   	</div>
 	   	<div class="paddingLeft colorGreen" >
 	   		{{ProductViewData.data.alldetail._stock_status}}
@@ -39,51 +39,25 @@
 <ion-row>
 	<div>
 		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop">Overview</div>
-		<div class="paddingLeft colorGrey separator"><p>The quick brown fox jumps over the little lazy dog. The quick brown fox jumps over the little lazy dog.</p></div>
+		<div class="paddingLeft colorGrey separator">
+			<div class="smallTitle" >Advantage
+			</div>
+			<ul *ngIf="ProductViewData.status==true">
+				<li *ngFor="let ProductAdvantages of ProductViewData.data.advantages, let i = index " >{{ProductAdvantages.value}}</li>
+			</ul>
+		</div>
 	</div>
 </ion-row>
-<ion-row>
-	<ion-row>
+<ion-row *ngIf="ProductViewData.status==true">
+	<ion-row >
 		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Specifications</div>
-	</ion-row>
-	<ion-row class="fullWidth paddingLeft paddingRight">
+	</ion-row >
+	<ion-row *ngFor="let ProductDetail of ProductViewData.data.alldetail, let i = index " class="fullWidth paddingLeft paddingRight">
 		<ion-col col-4 class="marketViewGridTitle">
-			<div>Category</div>
+			{{ProductDetail.key}}
 		</ion-col>
 		<ion-col col-8 class="marketViewGridContent">
-			{{ProductViewData.data.cat_name}}
-		</ion-col>
-	</ion-row>
-	<ion-row class="fullWidth paddingLeft paddingRight">
-		<ion-col col-4 class="marketViewGridTitle">
-			<div>Brand</div>
-		</ion-col>
-		<ion-col col-8 class="marketViewGridContent">
-			{{ProductViewData.data.cat_name}}
-		</ion-col>
-	</ion-row>	
-	<ion-row class="fullWidth paddingLeft paddingRight">
-		<ion-col col-4  class="marketViewGridTitle">
-			<div>Type</div>
-		</ion-col>
-		<ion-col col-8 class="marketViewGridContent">
-			{{ProductViewData.data.cat_name}}
-		</ion-col>
-	</ion-row>
-	<ion-row class="fullWidth paddingLeft paddingRight">
-		<ion-col col-4  class="marketViewGridTitle">
-			<div>Quantity</div>
-		</ion-col>
-		<ion-col col-8 class="marketViewGridContent">
-			{{ProductViewData.data.cat_name}}
-		</ion-col>
-	</ion-row>	
-	<ion-row class="fullWidth paddingLeft paddingRight">
-		<ion-col col-4 class="marketViewGridTitle">
-			<div>Advantage</div>
-		</ion-col>
-		<ion-col col-8 class="marketViewGridContent">
-			{{ProductViewData.data.cat_name}}
+			{{ProductDetail.value}}
 		</ion-col>
 	</ion-row>
 </ion-row>
