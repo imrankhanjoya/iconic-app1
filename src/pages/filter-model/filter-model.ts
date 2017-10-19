@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, ViewController,LoadingController } from 'ionic-angular';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { MandiDetailsPage } from '../mandi-details/mandi-details';
 
 /**
 * Generated class for the FilterModelPage page.
@@ -77,7 +78,7 @@ export class FilterModelPage {
     filterLocaltionForm(){
 
         console.log(this.changemarket.value.user_market_id);
-        this.navCtrl.push('MandiDetailsPage',{filter_market:this.changemarket.value.user_market_id});          
+        this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
     }
 
     dismiss(){
