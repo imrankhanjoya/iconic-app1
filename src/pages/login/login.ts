@@ -19,7 +19,7 @@ export class LoginPage {
     public errorMsg:any;
 
     private loginErrorString: string;
-    RegisterData = {user_name:'9783555770', userPassword:'agribolo'};
+    RegisterData = {user_name:'', userPassword:''};
 
   constructor(public navCtrl: NavController,public storage:Storage,
     public user: User,public loadingCtrl: LoadingController,
