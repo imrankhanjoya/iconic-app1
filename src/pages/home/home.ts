@@ -40,6 +40,7 @@ export class HomePage {
 @ViewChild('tongl_id') tongl_id:ElementRef;
 @ViewChild('main_div') main_div:ElementRef;
 @ViewChild(Content) content: Content;
+@ViewChild("contentRef") contentHandle: Content;
 
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public mandidata:{ status: boolean, msg: string,data: any,graph_months:any, graph_price:any} = {status:false,msg: 'test',data:'', graph_months:[],graph_price:[]};
@@ -103,17 +104,19 @@ export class HomePage {
 
   toggleMenu(){
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
+      document.querySelector(".tabbar").classList.remove('bottmTabShow');
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
       this.topMenu ="toolbarOpen";
-      this.tabProvider.hide()
+      
     }else{
       console.log(this.rotateClass);
+      document.querySelector(".tabbar").classList.remove('bottmTabHide');
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
       this.topMenu = "toolbarClosed";
-      this.tabProvider.show()
+      
     }
 
   }
@@ -277,28 +280,48 @@ export class HomePage {
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
-
+ionViewDidEnter() {
+    this.topOrBottom=this.contentHandle._tabsPlacement;
+    this.contentBox=document.querySelector(".scroll-content")['style'];
+  
+    if (this.topOrBottom == "top") {
+      this.tabBarHeight = this.contentBox.marginTop;
+    } else if (this.topOrBottom == "bottom") {
+      this.tabBarHeight = this.contentBox.marginBottom;
+    }
+  }
   //----------------------Hader Animiation Start------
 public isRun1=true;
 public isRun2=false;
 public isRun3=false;
 public isCount=true;
 public oneForSize:any;
-public slideHeaderPrevious=0;
+public startVisbol=true;
   onScroll(ev){
-   // console.log(ev);
-     var start = 0;
-    var threshold = 150;
-    if(ev.scrollTop - start > threshold) {
-        console.log('-------');
-      } else {
-        console.log('-----++++++++');
+    console.log(ev);
+
+    if (ev.deltaY < -51) {
+      if (this.startVisbol) {
+        this.startVisbol=false;
+       // document.querySelector(".tabbar")['style'].display = 'flex';
+        document.querySelector(".tabbar").classList.add('bottmTabShow');
+        document.querySelector(".tabbar").classList.remove('bottmTabHide');
+        // var elems = document.querySelectorAll(".tabbar");
+        // [].forEach.call(elems, function(elems) {
+           
+        // });
       }
-      
-      // if (this.slideHeaderPrevious >= ev.scrollTop - start) {
-      //   console.log('-----*********');
-      // }
-      this.slideHeaderPrevious = ev.scrollTop - start;
+    } else if(ev.deltaY > 51){
+      this.startVisbol=true;
+     // document.querySelector(".tabbar")['style'].display = 'none';
+     document.querySelector(".tabbar").classList.add('bottmTabHide');
+     document.querySelector(".tabbar").classList.remove('bottmTabShow');
+    }
+
+
+     var start = 0;
+    
+    this.slideHeaderPrevious = ev.scrollTop - start;
     if(this.isCount){
       this.isCount=false
        this.oneForSize=ev.scrollHeight/4;
