@@ -61,13 +61,25 @@ export class MyApp {
   ]
 
   constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
-    private config: Config, private statusBar: StatusBar, storage:Storage) {
-    this.initTranslate();
-    storage.get('userData').then((userlogin) => {
-          
-          this.username = '';
-          //console.log("The name is"+this.username);
+    private config: Config, private statusBar: StatusBar,public storage:Storage) {
+    
+    //
+    
+    this.platform.ready().then((readySource) => {
+      
+      this.storage.get('userLang').then((userLang) => {
+          console.log(userLang);
+          if(userLang){
+            this.initTranslate(userLang);
+
+          }else{
+            this.initTranslate('hi');
+          }
+
        });
+
+    });
+    
      
 
   }
@@ -81,16 +93,13 @@ export class MyApp {
     });
   }
 
-  initTranslate() {
+  initTranslate(userLang) {
+
     // Set the default language for translation strings, and the current language.
+    this.translate.setDefaultLang('en');
     this.translate.setDefaultLang('hi');
 
-    if (this.translate.getBrowserLang() !== undefined) {
-      //this.translate.use(this.translate.getBrowserLang());
-      this.translate.use('hi');
-    } else {
-      this.translate.use('hi'); // Set your language here
-    }
+    this.translate.use(userLang); // Set your language here
 
 
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
@@ -109,6 +118,17 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
      console.log(page);
     this.nav.setRoot('SettingsPage',{pTitle:page});
+  }
+
+  setLanguage(lang){
+    console.log(lang);
+    this.storage.set('userLang',lang);
+    this.translate.setDefaultLang(lang);
+    this.translate.use(lang);
+    this.nav.setRoot('TabsPage', {}, {
+      animate: true,
+      direction: 'forward'
+    });
   }
 
 

@@ -29,10 +29,10 @@ export class TabsPage {
   tab5Title = " ";
 
 
-  constructor(private translate: TranslateService,public navCtrl: NavController, public translateService: TranslateService) {
+  constructor(private translate: TranslateService,public navCtrl: NavController) {
 
-    this.initTranslate();
-    translateService.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
+    //this.initTranslate();
+    this.translate.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
       this.tab2Title = values['Krishi Center'];
       this.tab3Title = values['News'];
