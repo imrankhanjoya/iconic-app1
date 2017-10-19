@@ -40,16 +40,17 @@ export class FilterLocationPage {
     }
 
 	ionViewDidLoad() {
-        console.log('ionViewDidLoad FilterModelPage');
+        console.log('ionViewDidLoad FilterLocationPage');
     }
     ionViewWillUnload(){
       console.log('bye bye view');
     }
 
     filterLocaltionForm(){
-
+        let data = { 'data': this.changelocation.value.user_teshsil_id };
+        this.viewCtrl.dismiss(data);
         console.log(this.changelocation.value.user_teshsil_id);
-        this.navCtrl.push('WeatherPage',{filter_tehsil:this.changelocation.value.user_teshsil_id});          
+        //this.navCtrl.push('WeatherPage',{filter_tehsil:this.changelocation.value.user_teshsil_id});          
     }
 
     onStateSelect() {
@@ -78,7 +79,7 @@ export class FilterLocationPage {
     }
 
     dismiss(){
-        let data = { 'foos': 'bars' };
+        let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }
 

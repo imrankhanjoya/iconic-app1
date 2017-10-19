@@ -48,7 +48,10 @@ export class MandiDetailsPage {
      console.log('ionViewDidLoad MandiDetailsPage');
   }
    getMandiDetails(){
-    
+    console.log('-----'+this.filterMarket);
+
+    console.log('-----'+this.filter_crops)
+
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
     
@@ -66,16 +69,25 @@ export class MandiDetailsPage {
   openFilter(){
     let modal = this.modalCtrl.create('FilterModelPage');
     modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+          this.navCtrl.push(MandiDetailsPage,{filter_market:popoverData.filter_market});
+      }
+    });
   }
   openCropFilter(){
     let modal = this.modalCtrl.create('FilterCropsPage');
     modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        this.navCtrl.push(MandiDetailsPage,{filter_crops:popoverData.filter_crops});
+      }
+    });
   }
   
-  dismiss(){
-        let data = { 'foo': 'bar' };
-        this.viewCtrl.dismiss(data);
-    }
+ 
   showFilter(){
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
       

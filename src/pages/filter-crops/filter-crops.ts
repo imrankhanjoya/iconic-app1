@@ -45,7 +45,7 @@ export class FilterCropsPage {
       console.log('ionViewDidLoad FilterCropsPage');
     }
     dismiss(){
-        let data = { 'foo': 'bar' };
+        let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }
 
@@ -81,7 +81,9 @@ export class FilterCropsPage {
      }
       if (i==this.cropList.length-1) {
         console.log(this.filterCrops.toString());
-       this.navCtrl.push(MandiDetailsPage,{filter_crops:this.filterCrops.toString()});
+        let data = { 'filter_crops': this.filterCrops.toString() };
+        this.viewCtrl.dismiss(data);
+        // this.navCtrl.push(MandiDetailsPage,{filter_crops:this.filterCrops.toString()});
       }
     }
   }

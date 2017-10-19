@@ -4,6 +4,7 @@ import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController,ModalController, ViewController } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
+import { WeatherPage } from '../weather/weather';
 
 /**
  * Generated class for the WeatherPage page.
@@ -124,12 +125,14 @@ export class WeatherPage {
   openFilter(){
     let modal = this.modalCtrl.create('FilterLocationPage');
     modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        this.navCtrl.push(WeatherPage,{filter_tehsil:popoverData.data}); 
+      }
+    });
   }
 
-  dismiss(){
-    //this.viewCtrl.dismiss(data);
-
-  }
 
   onSlideChanged(){
       var sindex = this.slider.getActiveIndex()-1;

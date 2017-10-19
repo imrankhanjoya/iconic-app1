@@ -45,9 +45,7 @@ export class FilterModelPage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad FilterModelPage');
     }
-    ionViewWillUnload(){
-      console.log('bye bye view');
-    }
+    
 
     onStateSelect() {
 
@@ -76,14 +74,15 @@ export class FilterModelPage {
     }
 
     filterLocaltionForm(){
-
+        let data = { 'filter_market': this.changemarket.value.user_market_id };
+        this.viewCtrl.dismiss(data);
         console.log(this.changemarket.value.user_market_id);
-        this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
+        //this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
     }
-
     dismiss(){
-        let data = { 'foo': 'bar' };
+        let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }
+   
 
 }
