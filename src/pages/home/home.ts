@@ -7,7 +7,6 @@ import { WeatherProvider } from '../../providers/weather/weather';
 import { KrishProvider } from '../../providers/krish/krish';
 import { ExpertsProvider } from '../../providers/experts/experts';
 import { Geolocation } from '@ionic-native/geolocation';
-import { ExpertproviderProvider } from '../../providers/expertprovider/expertprovider';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
