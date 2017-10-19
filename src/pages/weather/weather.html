@@ -17,8 +17,7 @@
 
 
 <ion-content class="content" >
-{{tehsil}} , {{tehsilId}}
-  <ion-card *ngIf="wheaterdetailall.tehsilId==tehsil">
+  <ion-card *ngIf="resetcard==true">
     <div class="paddingTop paddingLeft smallTitle"> {{'CURRENTLY_SELECTED_LOCATION' | translate}} <b>{{tehsil_name}}, {{state_name}}</b></div>
     <button ion-button clear class="floatRight">{{'CHANGE_LOCATION' | translate}}</button>
   
