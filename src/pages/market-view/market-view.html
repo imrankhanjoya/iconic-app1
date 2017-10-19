@@ -9,60 +9,83 @@
 	<ion-navbar>
 	    <ion-title class="title fontBold fontShadow"><{{ProductViewData.data.name}}</ion-title>
 	</ion-navbar>
-	<ion-segment class="themeColor" [(ngModel)]="Crop">
-		<ion-segment-button class="themeColor" value="General">
-		  {{'OBSERVATION' | translate}}
-		</ion-segment-button>
-	    <ion-segment-button value="Speacification">
-			 {{'Speacification' | translate}}
-	   	</ion-segment-button>
-	    <ion-segment-button value="Dealer">
-			 {{'DEALER' | translate}}
-	   	</ion-segment-button>
-	</ion-segment>
-
 </ion-header>
 
 
-<ion-content padding>
-<div [ngSwitch]="Crop">
-	<!---------Generale  Section-------->
-    <ion-card  *ngSwitchCase="'General'">
-	  <ion-card-content>
-	    <ion-card-title>
-	      {{ProductViewData.data.name}}
-	    </ion-card-title>
-	  <img src="{{ProductViewData.data.feature_image}}"/>
-	  </ion-card-content>
-	</ion-card>
 
 
-	<!----Speacification Section---->
-    <ion-card  *ngSwitchCase="'Speacification'">
-	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.cat_name">
-	  	<h2>Category</h2>
-    	<p>{{ProductViewData.data.cat_name}}</p>
-	  </ion-item>
-	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail.manufacturer">
-	  	<h2>manufacturer</h2>
-    	<p>{{ProductViewData.data.alldetail.manufacturer}}</p>
-	  </ion-item>
-	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail._stock_status">
-	  	<h2>Stock Status</h2>
-    	<p>{{ProductViewData.data.alldetail._stock_status}}</p>
-	  </ion-item>
-	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail._productType">
-	  	<h2>Product Type</h2>
-    	<p>{{ProductViewData.data.alldetail._productType}}</p>
-	  </ion-item>
-	</ion-card>
+<ion-content>
+<ion-row *ngIf="ProductViewData.status==true">
+	<ion-col col-4>
+		<img class="paddingLeft paddingTop" src="{{ProductViewData.data.feature_image}}"/>
+	</ion-col>
+	<ion-col col-8>
+		<div class="smallTitle fontBold paddingTop paddingLeft colorGrey">{{ProductViewData.data.name}}</div>
+		<div class="paddingLeft colorGrey"  >
+	   		{{ProductViewData.data.alldetail.manufacturer}}
+	   	</div>
+	   	<div class="paddingLeft colorGreen" >
+	   		{{ProductViewData.data.alldetail._stock_status}}
+	   	</div>
 
+	</ion-col>
+</ion-row>
+<ion-row  justify-content-center>
+	   	<div class="paddingTop" >
+	   		
+	   		<button ion-button >Price on Request</button>
+	   	</div>
+</ion-row>
+<ion-row>
+	<div>
+		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop">Overview</div>
+		<div class="paddingLeft colorGrey separator"><p>The quick brown fox jumps over the little lazy dog. The quick brown fox jumps over the little lazy dog.</p></div>
+	</div>
+</ion-row>
+<ion-row>
+	<ion-row>
+		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Specifications</div>
+	</ion-row>
+	<ion-row class="fullWidth paddingLeft paddingRight">
+		<ion-col col-4 class="marketViewGridTitle">
+			<div>Category</div>
+		</ion-col>
+		<ion-col col-8 class="marketViewGridContent">
+			{{ProductViewData.data.cat_name}}
+		</ion-col>
+	</ion-row>
+	<ion-row class="fullWidth paddingLeft paddingRight">
+		<ion-col col-4 class="marketViewGridTitle">
+			<div>Brand</div>
+		</ion-col>
+		<ion-col col-8 class="marketViewGridContent">
+			{{ProductViewData.data.cat_name}}
+		</ion-col>
+	</ion-row>	
+	<ion-row class="fullWidth paddingLeft paddingRight">
+		<ion-col col-4  class="marketViewGridTitle">
+			<div>Type</div>
+		</ion-col>
+		<ion-col col-8 class="marketViewGridContent">
+			{{ProductViewData.data.cat_name}}
+		</ion-col>
+	</ion-row>
+	<ion-row class="fullWidth paddingLeft paddingRight">
+		<ion-col col-4  class="marketViewGridTitle">
+			<div>Quantity</div>
+		</ion-col>
+		<ion-col col-8 class="marketViewGridContent">
+			{{ProductViewData.data.cat_name}}
+		</ion-col>
+	</ion-row>	
+	<ion-row class="fullWidth paddingLeft paddingRight">
+		<ion-col col-4 class="marketViewGridTitle">
+			<div>Advantage</div>
+		</ion-col>
+		<ion-col col-8 class="marketViewGridContent">
+			{{ProductViewData.data.cat_name}}
+		</ion-col>
+	</ion-row>
+</ion-row>
 
-	<!----Dealer Section---->
-    <ion-card  *ngSwitchCase="'Dealer'">
-	  <ion-item *ngFor="let vendors of ProductViewData.data.alldetail.product_vendors;" class="greySeparator" >
-	  	{{vendors.vendorname}}
-	  </ion-item>
-	</ion-card>
-</div>
 </ion-content>
