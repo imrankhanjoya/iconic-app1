@@ -231,8 +231,7 @@ export class HomePage {
     this.navCtrl.push('QuestionlistPage');
   }
 
-  gotoWebView(URL){
-    console.log("baran"+URL); 
+  gotoWebView(URL){ 
     var ref = this.iab.create(URL, '_blank', 'location=yes');
 
   }
@@ -258,13 +257,13 @@ export class HomePage {
     this.navCtrl.push('MarketViewPage',{id:product_id});
   }
   gotoVedio(){
-  this.navCtrl.push('VideoPage');
+    this.navCtrl.push('VideoPage');
   }
   gotoRentals(){
-  this.navCtrl.push('RentalsPage');
+    this.navCtrl.push('RentalsPage');
   }
   gotoAnounsePage(){
-  this.navCtrl.push('AnnouncementPage');
+    this.navCtrl.push('AnnouncementPage');
   }
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 

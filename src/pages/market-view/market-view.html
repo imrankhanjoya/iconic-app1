@@ -7,7 +7,7 @@
 <ion-header>
 
 	<ion-navbar>
-	    <ion-title>market-view</ion-title>
+	    <ion-title class="title fontBold fontShadow"><{{ProductViewData.data.name}}</ion-title>
 	</ion-navbar>
 	<ion-segment class="themeColor" [(ngModel)]="Crop">
 		<ion-segment-button class="themeColor" value="General">
@@ -50,6 +50,10 @@
 	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail._stock_status">
 	  	<h2>Stock Status</h2>
     	<p>{{ProductViewData.data.alldetail._stock_status}}</p>
+	  </ion-item>
+	  <ion-item class="greySeparator" *ngIf="ProductViewData.data.alldetail._productType">
+	  	<h2>Product Type</h2>
+    	<p>{{ProductViewData.data.alldetail._productType}}</p>
 	  </ion-item>
 	</ion-card>
 

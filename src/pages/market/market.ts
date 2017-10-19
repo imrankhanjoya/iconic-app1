@@ -21,6 +21,7 @@ export class MarketPage {
   public id :any;
   public loading :any;
   public cat_id :any;
+  public product_id :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,

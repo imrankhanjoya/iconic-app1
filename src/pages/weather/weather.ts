@@ -26,6 +26,8 @@ export class WeatherPage {
   public lang:any;
   public location:any
   public tehsilId:any;
+  public tehsil_name:any;
+  public state_name:any;
   public filterLocation:any;
   public weatherInfo:any;
 
@@ -52,9 +54,11 @@ export class WeatherPage {
       if (userdata) {
       console.log(userdata);
       this.tehsilId=userdata._user_tehsil;
+      this.state_name=userdata.state_name;
+      this.tehsil_name=userdata.tehsil_name;
       this.weatherdetail(this.tehsilId);
       this.weatherfivedays(this.tehsilId);
-      console.log('ionViewDidLoad WeatherPage');
+      console.log('ionViewDidLoad WeatherPage'+this.tehsil+'  ,  '+this.tehsilId);
       }
       });
   }
