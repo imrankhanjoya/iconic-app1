@@ -14,7 +14,7 @@ import { CallProvider } from '../../providers/call/call';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
 import { TabProvider } from '../../providers/tab/tab';
 import { WeatherPage } from '../weather/weather';
-import { CallNumber } from '@ionic-native/call-number';
+
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
@@ -64,7 +64,7 @@ export class HomePage {
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public callNumber:CallNumber) {
+    public tabProvider:TabProvider) {
     this.rotateClass="";
       
       //this.topMenu = 'toolbarClosed';
@@ -231,7 +231,7 @@ export class HomePage {
   }
 
   gotoWebView(URL){ 
-    var ref = this.iab.create(URL, '_blank', 'location=yes');
+    this.iab.create(URL, '_blank', 'location=yes');
 
   }
   gotoWeatherPage(){
@@ -324,7 +324,6 @@ public startVisbol=true;
 
      var start = 0;
     
-    this.slideHeaderPrevious = ev.scrollTop - start;
     if(this.isCount){
       this.isCount=false
        this.oneForSize=ev.scrollHeight/4;
@@ -403,9 +402,9 @@ async changeClass(count): Promise<string> {
 
   mackCall(){
     //this.callProvider.makeCall();
-    this.callNumber.callNumber('9694967744', true)
-    .then(() => console.log('Launched dialer!'))
-    .catch(() => console.log('Error launching dialer'));
+    // this.callNumber.callNumber('9694967744', true)
+    // .then(() => console.log('Launched dialer!'))
+    // .catch(() => console.log('Error launching dialer'));
 
   }
 
