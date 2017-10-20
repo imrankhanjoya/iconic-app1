@@ -66,8 +66,8 @@ export class HomePage {
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider) {
     this.rotateClass="";
-      
 
+      //this.topMenu = 'toolbarClosed';
   }
 
   ionViewDidLoad() {

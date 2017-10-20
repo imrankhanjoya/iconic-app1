@@ -84,7 +84,7 @@ export class ChoupalPage {
       });
     loading.present();
     // console.log('ionViewDidLoad '+this.questionaddData.title);
-    this.ChoupalProvider.postChoupal(this.userId,this.newMessge,'').map(res => res.json()).subscribe((res) => {
+    this.ChoupalProvider.postChoupal(this.userId,this.newMessge,this.selectedImg).map(res => res.json()).subscribe((res) => {
         this.selectedImg='';
         console.log(this.choupaldata.data);
         this.newMessge='';
