@@ -31,16 +31,16 @@
 
 <ion-row  justify-content-center>
 	   	<div class="paddingTop" >
-	   		
-	   		<button ion-button (click)="mackCall()">Price on Request</button>
+	   		<a href="tel:18001200800" style="text-decoration: none;" class="buttonClass">
+        {{'VALUE_ON_REQUEST' | translate}}
+        </a>
+
 	   	</div>
 </ion-row>
 <ion-row>
 	<div>
 		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop">Overview</div>
 		<div class="paddingLeft colorGrey separator">
-			<div class="smallTitle" >Advantage
-			</div>
 			<ul *ngIf="ProductViewData.status==true">
 				<li *ngFor="let ProductAdvantages of ProductViewData.data.advantages, let i = index " >{{ProductAdvantages.value}}</li>
 			</ul>
