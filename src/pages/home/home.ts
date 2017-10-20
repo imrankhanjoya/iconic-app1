@@ -67,7 +67,7 @@ export class HomePage {
     public tabProvider:TabProvider) {
     this.rotateClass="";
       
-      //this.topMenu = 'toolbarClosed';
+     
   }
 
   ionViewDidLoad() {
@@ -276,16 +276,7 @@ export class HomePage {
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
-// ionViewDidEnter() {
-//     this.topOrBottom=this.contentHandle._tabsPlacement;
-//     this.contentBox=document.querySelector(".scroll-content")['style'];
-  
-//     if (this.topOrBottom == "top") {
-//       this.tabBarHeight = this.contentBox.marginTop;
-//     } else if (this.topOrBottom == "bottom") {
-//       this.tabBarHeight = this.contentBox.marginBottom;
-//     }
-//   }
+
   //----------------------Hader Animiation Start------
 public isRun1=true;
 public isRun2=false;
@@ -293,23 +284,23 @@ public isRun3=false;
 public isCount=true;
 public oneForSize:any;
 public startVisbol=true;
+
+ionViewWillUnload(){
+  console.log("Sayooo naara");
+
+}
   onScroll(ev){
     //console.log(ev);
 
-    if (ev.deltaY < -51) {
+    if (ev.deltaY < -1) {
       if (this.startVisbol==false) {
         this.startVisbol=true;
         document.querySelector(".tabbar").classList.add('show-tabbar');
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
-        //document.querySelector(".scroll-content").['style'].margin-bottom = '68px';
-        // var elems = document.querySelectorAll(".tabbar");
-        // [].forEach.call(elems, function(elems) {
-           
-        // });
+        
       }
-    } else if(ev.deltaY > 51){
+    } else if(ev.deltaY > 1){
      
-     // document.querySelector(".tabbar")['style'].display = 'none';
      if(this.startVisbol==true){
         
         console.log('------++++-------');
@@ -379,19 +370,7 @@ async changeClass(count): Promise<string> {
    }
 //----------------------Hader Animiation End------
 
-// ngAfterViewInit() {
-//   this.content.ionScroll.subscribe((data)=>{
-//    // console.log(data);
-//     if (data.scrollTop >= 206) {
-//       if(this.isRun){
-//         console.log(this.main_div.nativeElement.offsetHeight);
-//         this.rd.addClass(this.elem.nativeElement, 'fadeInLeft');
-//         this.rd.removeClass(this.elem.nativeElement, 'opacityGone');
-//         this.isRun=false;
-//       }
-//     }
-//   });
-// }
+
   gotoMap(latitude,longitude){
     console.log(latitude+'---'+longitude+'----');
    if (this.platform.is('android')) {
@@ -400,13 +379,7 @@ async changeClass(count): Promise<string> {
       };
   }
 
-  mackCall(){
-    //this.callProvider.makeCall();
-    // this.callNumber.callNumber('9694967744', true)
-    // .then(() => console.log('Launched dialer!'))
-    // .catch(() => console.log('Error launching dialer'));
-
-  }
+ 
 
   playVideo(videoid:any){
     console.log('videoid  : '+videoid);
