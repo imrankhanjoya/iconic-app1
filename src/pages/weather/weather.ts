@@ -51,6 +51,8 @@ export class WeatherPage {
         if (userdata) {
           console.log(userdata);
           this.tehsilId=userdata._user_tehsil;
+          this.tehsil_name=userdata.tehsil_name;
+          this.state_name=userdata.state_name;
           this.weatherdetail(this.tehsilId);
           this.weatherfivedays(this.tehsilId);
           console.log('ionViewDidLoad WeatherPage');
@@ -61,6 +63,7 @@ export class WeatherPage {
  weatherdetail(tehsil){
         if (this.navParams.get('fromFilter')) {
           this.tehsilId = this.navParams.get('filter_tehsil');
+          this.resetcard = true
         }
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
         // this.loading = this.loadingCtrl.create({
@@ -89,7 +92,7 @@ export class WeatherPage {
   weatherfivedays(location:any){
       if (this.navParams.get('fromFilter')) {
           location = this.navParams.get('filter_tehsil');
-        }
+      }
       this.weather.weatherfivedays(location).map(res => res.json()).subscribe((res) => {
       this.weatherfiveday.data = res.data;
       this.weatherfiveday.msg = res.msg;
@@ -112,6 +115,10 @@ export class WeatherPage {
       // Unable to log in
       console.log(err);
       });
+  }
+
+  ResetData(){
+    this.navCtrl.push('wheaterdetailall');
   }
 
 
@@ -144,6 +151,9 @@ export class WeatherPage {
       console.log("Slider index for"+sindex);
       console.log(this.wheaterdetailall.data[sindex].tehsil_id);
         this.weatherfivedays(tasilId);
+  }
+  gotoWeatherPage(){
+    this.navCtrl.push(WeatherPage);
   }
 
 //----------------  Chart  --------------------
