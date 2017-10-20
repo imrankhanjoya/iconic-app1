@@ -74,8 +74,8 @@ export class MarketPage {
       });
   }
 
-  mackCall(){
-    this.callProvider.makeCall();
+  makeCall(){
+    
   }
   onChange(selectedData){
       this.getmarkets(selectedData);

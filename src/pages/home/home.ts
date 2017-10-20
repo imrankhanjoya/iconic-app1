@@ -386,7 +386,9 @@ async changeClass(count): Promise<string> {
     //this.youtube.openVideo(videoid);
   }
   
-
+  makeCall(){
+    
+  }
 
 
 
