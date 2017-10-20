@@ -8,6 +8,7 @@ import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
 import { Deeplinks } from '@ionic-native/deeplinks';
+import { FCM } from '@ionic-native/fcm';
 
 
 //import { Storage } from '@ionic/storage';
@@ -63,12 +64,31 @@ export class MyApp {
   ]
 
   constructor(private translate: TranslateService, public platform: Platform, settings: Settings,
-    private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks) {
-    
-    //
+    private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
+    private fcm: FCM) {
     
     this.platform.ready().then((readySource) => {
       
+      fcm.subscribeToTopic('marketing');
+
+      fcm.getToken(function(token){
+          console.log('--getToken--'+token);
+      });
+
+      fcm.onNotification().subscribe(data=>{
+        if(data.wasTapped){
+          console.log("Received in background");
+        } else {
+          console.log("Received in foreground");
+        };
+      });
+
+      fcm.onTokenRefresh(function(token){
+          console.log('--onTokenRefresh--'+token);
+      });
+
+        //fcm.unsubscribeFromTopic('---------------marketing');
+
       this.storage.get('userLang').then((userLang) => {
           console.log(userLang);
           if(userLang){
