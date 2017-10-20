@@ -37,8 +37,8 @@ import { MandiDetailsPage } from '../pages/mandi-details/mandi-details';
 import { WeatherPage } from '../pages/weather/weather';
 
 //plugns..
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
-import { CallNumber } from '@ionic-native/call-number';
+
+
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
@@ -49,6 +49,7 @@ import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
 import { Firebase } from '@ionic-native/firebase';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 
 
@@ -130,9 +131,8 @@ export function provideSettings(storage: Storage) {
     InAppBrowser,
     ExpertsProvider,
     RentalsProvider,
-    YoutubeVideoPlayer,
+    
     AnnouncementproProvider,
-    CallNumber,
     Camera,
     AndroidPermissions,
     NativeGeocoder,
@@ -141,7 +141,8 @@ export function provideSettings(storage: Storage) {
     CroptyeProvider,
     CallProvider,
     TabProvider,
-    Firebase
+    Firebase,
+    Deeplinks
   ]
 })
 export class AppModule { }

@@ -63,7 +63,7 @@
         &nbsp; <ion-icon name="attach" class="displayOneFont verticalAlign"></ion-icon>
       </ion-col>
       <ion-col col-10>
-      <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
+      <ion-input [(ngModel)]="newMessge" (keyup.enter)="postCopal()" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
       </ion-input>
       </ion-col>
       <ion-col col-1>

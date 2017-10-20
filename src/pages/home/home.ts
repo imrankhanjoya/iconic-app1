@@ -18,7 +18,7 @@ import { CallNumber } from '@ionic-native/call-number';
 
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
-import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+// import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 /**
  * Generated class for the HomePage page.
@@ -63,7 +63,7 @@ export class HomePage {
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
-    public storage:Storage,private youtube: YoutubeVideoPlayer,private rd: Renderer2,public callProvider:CallProvider,
+    public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public callNumber:CallNumber) {
     this.rotateClass="";
       
@@ -276,16 +276,16 @@ export class HomePage {
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
-ionViewDidEnter() {
-    this.topOrBottom=this.contentHandle._tabsPlacement;
-    this.contentBox=document.querySelector(".scroll-content")['style'];
+// ionViewDidEnter() {
+//     this.topOrBottom=this.contentHandle._tabsPlacement;
+//     this.contentBox=document.querySelector(".scroll-content")['style'];
   
-    if (this.topOrBottom == "top") {
-      this.tabBarHeight = this.contentBox.marginTop;
-    } else if (this.topOrBottom == "bottom") {
-      this.tabBarHeight = this.contentBox.marginBottom;
-    }
-  }
+//     if (this.topOrBottom == "top") {
+//       this.tabBarHeight = this.contentBox.marginTop;
+//     } else if (this.topOrBottom == "bottom") {
+//       this.tabBarHeight = this.contentBox.marginBottom;
+//     }
+//   }
   //----------------------Hader Animiation Start------
 public isRun1=true;
 public isRun2=false;
@@ -411,7 +411,7 @@ async changeClass(count): Promise<string> {
 
   playVideo(videoid:any){
     console.log('videoid  : '+videoid);
-    this.youtube.openVideo(videoid);
+    //this.youtube.openVideo(videoid);
   }
   
 

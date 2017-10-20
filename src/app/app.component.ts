@@ -7,6 +7,8 @@ import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
+import { Deeplinks } from '@ionic-native/deeplinks';
+
 
 //import { Storage } from '@ionic/storage';
 
@@ -60,8 +62,8 @@ export class MyApp {
 
   ]
 
-  constructor(private translate: TranslateService, private platform: Platform, settings: Settings,
-    private config: Config, private statusBar: StatusBar,public storage:Storage) {
+  constructor(private translate: TranslateService, public platform: Platform, settings: Settings,
+    private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks) {
     
     //
     
@@ -131,5 +133,33 @@ export class MyApp {
     });
   }
 
+  ngAfterViewInit(){
+      this.platform.ready().then(() => {
+        console.log('-------ngAfterViewInit--------')
+
+         /*
+        IonicDeeplink.route({
+          '/about-us': AboutPage,
+          '/universal-links-test': AboutPage,
+          '/products/:productId': ProductPage
+        }, function(match) {
+          // Handle the route manually
+        }, function(nomatch) {
+          // No match
+        })
+        */
+
+
+        // Convenience to route with a given nav
+        this.deeplinks.routeWithNavController(this.nav, {
+          '/agribolo/': HomePage,
+          '/contact-us': HomePage
+        }).subscribe((match) => {
+          console.log('Successfully routed', match);
+        }, (nomatch) => {
+          console.warn('Unmatched Route', nomatch);
+        });
+      });
+  }
 
 }

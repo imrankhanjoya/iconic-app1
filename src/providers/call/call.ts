@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { CallNumber } from '@ionic-native/call-number';
 
 /*
   Generated class for the CallProvider provider.
@@ -12,15 +11,12 @@ import { CallNumber } from '@ionic-native/call-number';
 @Injectable()
 export class CallProvider {
 
-  constructor(public http: Http, private callNumber: CallNumber) {
+  constructor(public http: Http) {
     console.log('Hello CallProvider Provider');
   }
 
   makeCall(){
     console.log('----call---');
-    this.callNumber.callNumber('9694967744', true)
-  .then(() => console.log('Launched dialer!'))
-  .catch(() => console.log('Error launching dialer'));
   }
 
 }
