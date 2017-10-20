@@ -277,18 +277,6 @@ export class HomePage {
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
 
-<<<<<<< Updated upstream
-=======
-// ionViewDidEnter() {
-//     this.topOrBottom=this.contentHandle._tabsPlacement;
-  
-//     if (this.topOrBottom == "top") {
-//       this.tabBarHeight = this.contentBox.marginTop;
-//     } else if (this.topOrBottom == "bottom") {
-//       this.tabBarHeight = this.contentBox.marginBottom;
-//     }
-//   }
->>>>>>> Stashed changes
   //----------------------Hader Animiation Start------
 public isRun1=true;
 public isRun2=false;
