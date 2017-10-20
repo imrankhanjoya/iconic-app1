@@ -53,6 +53,7 @@ import { Deeplinks } from '@ionic-native/deeplinks';
 import { ContactusProvider } from '../providers/contactus/contactus';
 import { WalletProvider } from '../providers/wallet/wallet';
 import { FCM } from '@ionic-native/fcm';
+import { CacheModule } from "ionic-cache";
 
 
 // The translate loader needs to know where to load i18n files
@@ -95,7 +96,8 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    CacheModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

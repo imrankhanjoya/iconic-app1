@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
+import { CacheService } from "ionic-cache";
 
 
 //import { Storage } from '@ionic/storage';
@@ -65,7 +66,9 @@ export class MyApp {
 
   constructor(private translate: TranslateService, public platform: Platform, settings: Settings,
     private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
-    private fcm: FCM) {
+    private fcm: FCM,public cacheService: CacheService) {
+
+    cacheService.setDefaultTTL(60 * 60); //set default cache TTL for 1 hour
     
     this.platform.ready().then((readySource) => {
       
