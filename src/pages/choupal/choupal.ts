@@ -112,6 +112,7 @@ export class ChoupalPage {
             }).then((imageData) => {
               console.log('=========data:image/jpeg;base64,'+imageData);
              this.selectedImg=imageData;
+             this.isSend=true;
              this.postCopal();
              }, (err) => {
               console.log(err);
@@ -124,6 +125,7 @@ export class ChoupalPage {
             }).then((imageData) => {
               console.log('=========data:image/jpeg;base64,'+imageData);
               this.selectedImg=imageData;
+              this.isSend=true;
              this.postCopal();
              }, (err) => {
               console.log(err);

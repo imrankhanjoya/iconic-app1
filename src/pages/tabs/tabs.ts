@@ -42,7 +42,13 @@ export class TabsPage {
     });
 
 
+    
+  }
 
+
+  ionViewDidLoad(){
+    document.querySelector(".tabbar").classList.add('show-tabbar');
+    document.querySelector(".tabbar").classList.remove('bottmTabHide');
   }
 
   initTranslate() {
