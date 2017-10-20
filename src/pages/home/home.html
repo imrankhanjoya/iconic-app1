@@ -240,134 +240,9 @@
   </ion-grid>
   </ion-card>
 
-  <!---*******
-        Experts Section
-                        ******-->
-
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{'SPECIALIST'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-   <ion-slides  [slidesPerView]="'auto'" >
-
-        <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="image-card" >
-                <img src="{{expert.attachments}}" >
-                <div class="card-title-box">
-                <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
-                <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
-
-                <button ion-button color="light" (click)=" goToExpertDetial(expert.id)" outline>{{'SEE_MORE'| translate}}</button>
-                </div>
-              </ion-card>
-
-          </ion-slide>
-          <ion-slide  >
-              <ion-card  >
-                <div class="see-title-box">
-                <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
-                </div>
-              </ion-card>
-          </ion-slide>
-
-   </ion-slides>
-
-
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{'NEWS'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-card>
-      <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
-      <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
-      <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
-      <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
-    </div>
-  <ion-grid >
-    <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
-      <ion-col col-3 *ngIf="i > 0 ">
-        <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
-      </ion-col>
-      <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
-        <div >{{news.title}}</div>
-        <div class="newsSmallPTI">{{'PTI_AND_UPDATE' | translate}}  : Jun 12, 2017, 05:44PM IST</div>
-      </ion-col>
-    </ion-row>
-
-    <div class="alignCenter">
-      <button ion-button  class="buttonGreen"  (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </button>
-    </div>
-
-
-
-  </ion-grid>
-  </ion-card>
-
-<!------Start Product Sectoipn---->
-
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{'MARKET'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-  <ion-slides [slidesPerView]="'auto'">
-    <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
-      <ion-card (click)="gotoMarketViewPage(productData.id)">
-        <img class="produtimage" src="{{productData.feature_image}}"/>
-        <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
-        <div class="detailSar colorGreen smallTitle" (click)="makeCall()"> 
-         <a href="tel:18001200800" style="text-decoration: none;">
-         {{'VALUE_ON_REQUEST' | translate}}
-         </a>
-        </div>
-      </ion-card>
-    </ion-slide>
-    <ion-slide class="slideItem ">
-      <ion-card>
-          <div class="see-title-box">
-          <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
-          </div>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-
-  <!-------END Product Sectopn------>
-
-  <ion-card class="dialog" *ngIf="announceList.status==true">
-    <ion-grid >
-      <ion-row>
-        <ion-col col-3 >
-          <ion-thumbnail item-start class="avatar">
-         <img src="assets/img/watering_can.png" >
-         </ion-thumbnail>
-            </ion-col>
-        <ion-col class="smallTitle" col-9>
-          {{announceList.data[0].title}}
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-    <div class="readMore titleFont" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</div>
-  </ion-card>
-
-
-
+ 
  <!---*******
-        Experts Section
+        Krishi Sevayen Section
                         ******-->
 
 
@@ -420,6 +295,103 @@
 
 
 
+
+  <ion-card class="dialog" *ngIf="announceList.status==true">
+    <ion-grid >
+      <ion-row>
+        <ion-col col-3 >
+          <ion-thumbnail item-start class="avatar">
+         <img src="assets/img/watering_can.png" >
+         </ion-thumbnail>
+            </ion-col>
+        <ion-col class="smallTitle" col-9>
+          {{announceList.data[0].title}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="readMore titleFont" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</div>
+  </ion-card>
+
+ 
+
+<!------Start Product Sectoipn---->
+
+
+  <ion-grid>
+      <ion-row>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'MARKET'| translate}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-slides [slidesPerView]="'auto'">
+    <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
+      <ion-card (click)="gotoMarketViewPage(productData.id)">
+        <img class="produtimage" src="{{productData.feature_image}}"/>
+        <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
+        <div class="detailSar colorGreen smallTitle" (click)="makeCall()"> 
+         <a href="tel:18001200800" style="text-decoration: none;">
+         {{'VALUE_ON_REQUEST' | translate}}
+         </a>
+        </div>
+      </ion-card>
+    </ion-slide>
+    <ion-slide class="slideItem ">
+      <ion-card>
+          <div class="see-title-box">
+          <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
+          </div>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <!-------END Product Sectopn------>
+
+
+<!---*******
+        Experts/Blog Section
+                        ******-->
+
+
+  <ion-grid>
+      <ion-row>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'SPECIALIST'| translate}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+   <ion-slides  [slidesPerView]="'1.1'" >
+
+        <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
+              <ion-card class="image-card" (click)=" goToExpertDetial(expert.id)" >
+                <img src="{{expert.attachments}}" >
+                <div class="card-title-box">
+                <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
+                <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
+
+                <button ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
+                </div>
+              </ion-card>
+
+          </ion-slide>
+          <ion-slide  >
+              <ion-card>
+                <div class="see-title-box-blog">
+                <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
+                </div>
+              </ion-card>
+          </ion-slide>
+
+   </ion-slides>
+
+
+<!---*******
+        Video Section
+                        ******-->
+
   <ion-grid>
       <ion-row>
       <ion-col class="cardHeader">
@@ -443,6 +415,39 @@
   </ion-card >
 
 
+  <ion-grid>
+      <ion-row>
+      <ion-col class="cardHeader">
+          <div class="headerClass">{{'NEWS'| translate}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card>
+      <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
+      <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
+      <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
+      <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
+    </div>
+  <ion-grid >
+    <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
+      <ion-col col-3 *ngIf="i > 0 ">
+        <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
+      </ion-col>
+      <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
+        <div >{{news.title}}</div>
+        <div class="newsSmallPTI">{{'PTI_AND_UPDATE' | translate}}  : Jun 12, 2017, 05:44PM IST</div>
+      </ion-col>
+    </ion-row>
+
+    <div class="alignCenter">
+      <button ion-button  class="buttonGreen"  (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </button>
+    </div>
+
+
+
+  </ion-grid>
+  </ion-card>
 
   <ion-grid>
       <ion-row>
