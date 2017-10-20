@@ -97,5 +97,4 @@
         <variable name="DEEPLINK_HOST" value="agribolo.com" />
         
     </plugin>
-    <engine name="android" spec="~6.2.3" />
 </widget>
