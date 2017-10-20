@@ -49,9 +49,10 @@ import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
 import { Firebase } from '@ionic-native/firebase';
+<<<<<<< Updated upstream
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { ContactusProvider } from '../providers/contactus/contactus';
-
+import { WalletProvider } from '../providers/wallet/wallet';
 
 
 // The translate loader needs to know where to load i18n files
@@ -144,7 +145,8 @@ export function provideSettings(storage: Storage) {
     TabProvider,
     Firebase,
     Deeplinks,
-    ContactusProvider
+    ContactusProvider,
+    WalletProvider
   ]
 })
 export class AppModule { }
