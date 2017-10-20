@@ -1,5 +1,6 @@
 import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { Content } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
@@ -64,9 +65,13 @@ export class HomePage {
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider) {
+    public tabProvider:TabProvider,public events:Events) {
     this.rotateClass="";
+    this.platform.ready().then(() => { 
+
       
+      
+    });  
 
   }
 
@@ -285,9 +290,11 @@ public isCount=true;
 public oneForSize:any;
 public startVisbol=true;
 
-ionViewWillUnload(){
+showBar(){
   console.log("Sayooo naara");
-
+  document.querySelector(".tabbar").classList.add('show-tabbar');
+  document.querySelector(".tabbar").classList.remove('bottmTabHide');
+  
 }
   onScroll(ev){
     //console.log(ev);
@@ -299,7 +306,7 @@ ionViewWillUnload(){
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
         
       }
-    } else if(ev.deltaY > 1){
+    } else if(ev.deltaY >= 0){
      
      if(this.startVisbol==true){
         
