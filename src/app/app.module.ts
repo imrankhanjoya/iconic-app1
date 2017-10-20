@@ -50,6 +50,7 @@ import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
 import { Firebase } from '@ionic-native/firebase';
 import { Deeplinks } from '@ionic-native/deeplinks';
+import { ContactusProvider } from '../providers/contactus/contactus';
 
 
 
@@ -142,7 +143,8 @@ export function provideSettings(storage: Storage) {
     CallProvider,
     TabProvider,
     Firebase,
-    Deeplinks
+    Deeplinks,
+    ContactusProvider
   ]
 })
 export class AppModule { }
