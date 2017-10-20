@@ -96,5 +96,4 @@
         <variable name="DEEPLINK_SCHEME" value="https" />
         <variable name="DEEPLINK_HOST" value="agribolo.com" />
     </plugin>
-    
 </widget>
