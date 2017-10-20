@@ -5,7 +5,17 @@
   Ionic pages and navigation.
 -->
 
-<ion-content padding>
-	<button ion-button (click)="dismiss('camera')">CAMERA</button>
-	<button ion-button (click)="dismiss('gallery')">GALLERY</button>
+<ion-content>
+	<ion-row>
+		<ion-col (click)="dismiss('camera')" col-6 style="text-align: center;" class="paddingTop paddingBottom">
+			<ion-icon name="camera" color="primary" class="paddingTop" style="font-size: 4rem;"></ion-icon>
+			<div class="paddingBottom">Camera</div>
+		</ion-col>
+		<ion-col (click)="dismiss('gallery')" col-6 style="text-align: center;" class="paddingTop paddingBottom">
+			 <ion-icon name="image" color="primary" class="paddingTop" style="font-size: 4rem;"></ion-icon>
+			 <div class="paddingBottom">Gallery</div>
+		</ion-col>
+	</ion-row>
+	
+	
 </ion-content>
