@@ -5,4 +5,50 @@ page-tabs {
 	.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
 	color:#649305;
 	}
+
+
+	.show-tabbar {
+        animation-name: anbottmTabShow;
+        animation-duration: 1s;
+
+      }
+      @keyframes anbottmTabShow {
+        0% {
+          bottom:-50px;
+        }
+        50% {
+          bottom:-25px;
+        }
+        100% {
+          bottom:0px;
+        }
+      }
+
+
+
+      .bottmTabHide {
+        animation-name: infrontAnimation;
+        animation-duration:1s;
+
+
+      }
+      
+
+
+      @keyframes infrontAnimation {
+        0% {
+          bottom:0px;
+          opacity:1;
+        }
+        50% {
+				bottom:-25px;
+           opacity:1;
+        }
+        100% {
+			 bottom:-50px;
+          opacity:0;
+          z-index: -10;
+        }
+      }
+
 }

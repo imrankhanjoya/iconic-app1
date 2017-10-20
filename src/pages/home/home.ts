@@ -7,7 +7,6 @@ import { WeatherProvider } from '../../providers/weather/weather';
 import { KrishProvider } from '../../providers/krish/krish';
 import { ExpertsProvider } from '../../providers/experts/experts';
 import { Geolocation } from '@ionic-native/geolocation';
-import { ExpertproviderProvider } from '../../providers/expertprovider/expertprovider';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
@@ -104,14 +103,11 @@ export class HomePage {
 
   toggleMenu(){
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
-      document.querySelector(".tabbar").classList.remove('bottmTabShow');
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
       this.topMenu ="toolbarOpen";
       
     }else{
-      console.log(this.rotateClass);
-      document.querySelector(".tabbar").classList.remove('bottmTabHide');
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
@@ -298,24 +294,31 @@ public isCount=true;
 public oneForSize:any;
 public startVisbol=true;
   onScroll(ev){
-    console.log(ev);
+    //console.log(ev);
 
     if (ev.deltaY < -51) {
-      if (this.startVisbol) {
-        this.startVisbol=false;
-       // document.querySelector(".tabbar")['style'].display = 'flex';
-        document.querySelector(".tabbar").classList.add('bottmTabShow');
+      if (this.startVisbol==false) {
+        this.startVisbol=true;
+        document.querySelector(".tabbar").classList.add('show-tabbar');
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
+        //document.querySelector(".scroll-content").['style'].margin-bottom = '68px';
         // var elems = document.querySelectorAll(".tabbar");
         // [].forEach.call(elems, function(elems) {
            
         // });
       }
     } else if(ev.deltaY > 51){
-      this.startVisbol=true;
+     
      // document.querySelector(".tabbar")['style'].display = 'none';
-     document.querySelector(".tabbar").classList.add('bottmTabHide');
-     document.querySelector(".tabbar").classList.remove('bottmTabShow');
+     if(this.startVisbol==true){
+        
+        console.log('------++++-------');
+          document.querySelector(".tabbar").classList.add('bottmTabHide');
+          document.querySelector(".tabbar").classList.remove('show-tabbar');
+          
+          
+        this.startVisbol=false;
+      }
     }
 
 

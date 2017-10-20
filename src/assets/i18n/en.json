@@ -97,8 +97,8 @@
   "LOGIN_NEW_USER_SING_UP": "Are you a new consumer? Sign up",
 
    "LOADING":"Please wait",
-   "HOME_KM":"The agricultural center {{userKm}} is far from Km.",
-   "HOME_GOTO_LUCTION":"Go to the place",
+   "KM":"Nearest agriculture center is {{km}} away.",
+   "HOME_GOTO_LUCTION":"Get Dir",
 
    "SELECT_LOCTION": "Select location",
    "SELECT_LOCTION_PLEASE": "Please select your location as we are helping your farm",
@@ -125,8 +125,8 @@
   "NEWS":"News",
   "WEATHER":"Weather",
   "MANDI":"Mandi",
-  "AGRICULTURAL_SERVICES":"Agricultural services",
-  "AGRICULTURAL_CENTER":"Agricultural services",
+  "AGRICULTURAL_SERVICES":"Agro services",
+  "AGRICULTURAL_CENTER":"Agro services",
   "LESS":"Less",
   "MANAGED":"Managed",
   "VIDEO":"Video",
@@ -205,6 +205,4 @@
   "LOCATION_FILTER_TITLE": "Please choose the location to see weather details",
   "CURRENTLY_SELECTED_LOCATION": "Showing Results for",
   "CHANGE_LOCATION": "Change Location"
-
-
 }

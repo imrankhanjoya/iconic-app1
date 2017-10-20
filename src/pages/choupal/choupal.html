@@ -11,7 +11,7 @@
 
 <ion-content>
 
-<ion-scroll scrollX="true" scrollY="true" maxZoom="3" zoom="1" style="height:90%">
+<ion-scroll #chatScroll scrollX="true" scrollY="true" maxZoom="3" zoom="1" style="height:90%">
 
 
 
@@ -24,7 +24,8 @@
               
               <div class="backgroundColorLightGreen formatBubbleLeft paddingTop ">  
               <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}}</div>
-                <div style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop ">{{data.message}}</div>
+              
+                <div style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
               </div>
                 <div class="bubbleDateFormat textAlignLeft floatLeft colorGreen subHeadingFont">{{data.ago}}</div>
             </ion-row>
@@ -36,7 +37,7 @@
             <div  class="paddingTop">
             <ion-row  class="boxAlignRight" style="width:100%;" *ngIf="data.uid==userId">
                 <br>
-                <div  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop ">{{data.message}}</div>    
+                <div  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
                 <div class="bubbleDateFormat floatRight colorGreen subHeadingFont">{{data.ago}}</div>
             </ion-row>
 
@@ -59,14 +60,14 @@
 
     <ion-row class="InputFormat" >
       <ion-col  col-1 (click)="uploadeImg()">
-         <ion-icon name="attach" class="displayOneFont"></ion-icon>
+        &nbsp; <ion-icon name="attach" class="displayOneFont verticalAlign"></ion-icon>
       </ion-col>
       <ion-col col-10>
       <ion-input [(ngModel)]="newMessge" (ngModelChange)="change($event)" placeholder="{{'CHOPAL_ENTER_MESSAGE' | translate }}">
       </ion-input>
       </ion-col>
       <ion-col col-1>
-      <ion-icon name="md-send" class="displayOneFont" (click)="postCopal()"></ion-icon>
+      <ion-icon name="md-send" class="displayOneFont verticalAlign" (click)="postCopal()"></ion-icon>
       </ion-col>
     </ion-row>
     

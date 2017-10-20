@@ -17,7 +17,7 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class QuitionanswerPage {
 	public qid:any;
-  private answer : FormGroup;
+  public answer : FormGroup;
   	public  answerformData = {user_id:1,title:'',description:''};
 	public answerData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   	constructor(public navCtrl: NavController, public navParams: NavParams,public questionanswer: QuitionanswerpProvider,public formBuilder:FormBuilder) {

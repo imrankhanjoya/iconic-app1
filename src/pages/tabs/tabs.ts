@@ -56,15 +56,5 @@ export class TabsPage {
       this.translate.use('hi'); // Set your language here
     }
   }
-  public slideHeaderPrevious=0;
-  onScroll(ev){
-   // console.log(ev);
-    var start = 0;
-    var threshold = 150;
-    if(ev.scrollTop - start > threshold) {
-        console.log('000000');
-      } else {
-        console.log('----8888888++++++');
-      }
-  }
+  
 }
