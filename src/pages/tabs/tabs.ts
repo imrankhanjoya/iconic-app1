@@ -46,10 +46,6 @@ export class TabsPage {
   }
 
 
-  ionViewDidLoad(){
-    document.querySelector(".tabbar").classList.add('show-tabbar');
-    document.querySelector(".tabbar").classList.remove('bottmTabHide');
-  }
 
   initTranslate() {
     // Set the default language for translation strings, and the current language.

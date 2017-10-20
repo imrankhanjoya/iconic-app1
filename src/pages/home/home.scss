@@ -1,6 +1,8 @@
 page-home {
 
-
+      .slides{
+            height: auto;
+      }
       .dialogYellow{
             font-weight: bold;
             font-size: 2rem;
@@ -380,6 +382,40 @@ page-home {
         height: 0px !important;
       }
       
+
+      .topBar{
+            animation-name: TopBarAni;
+            animation-duration:1ms;
+            display: none;
+
+      }
+      @keyframes TopBarAni {
+            0% {
+            display: block;
+            opacity: 1;
+            }
+            100% {
+            display: none;
+            opacity: 0;
+            }
+      }
+
+
+      .showTopBar{
+            animation-name: TopBarAniShow;
+            animation-duration:500ms;
+            display: block;
+      }
+      @keyframes TopBarAniShow {
+            0% {
+            display:none;
+            }
+
+            100% {
+            display:block;
+            }
+      }
+
 
 
 

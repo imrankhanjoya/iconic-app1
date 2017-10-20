@@ -21,7 +21,8 @@
 </button>
 </ion-buttons>
 </ion-toolbar>
-<ion-grid  class="gridView gridDesign">
+<div class="barCustomAct">
+  <ion-grid  class="gridView gridDesign top">
   <ion-row class="gridRow">
     <ion-col class="toolbarCol" (click)="gotoWeatherPage()">
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
@@ -63,11 +64,11 @@
   </ion-row>
   </div>
   </ion-grid>
+</div>
 </ion-header>
 
 
 <ion-content #contentRef (ionScroll)="onScroll($event)" (click)="showBar()">
-  <div #main_div >
 
 
 
@@ -253,7 +254,7 @@
     </ion-row>
   </ion-grid>
 
-   <ion-slides  [slidesPerView]="'auto'" >
+   <ion-slides >
 
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
               <ion-card class="image-card" >
@@ -471,9 +472,5 @@
 
   </ion-card >
 
-
-
-
-  </div>
 
 </ion-content>
