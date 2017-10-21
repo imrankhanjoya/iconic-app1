@@ -61,31 +61,25 @@ export class WeatherPage {
   }
 
  weatherdetail(tehsil){
+
         if (this.navParams.get('fromFilter')) {
           this.tehsilId = this.navParams.get('filter_tehsil');
           this.resetcard = true
         }
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
-        // this.loading = this.loadingCtrl.create({
-        //   content: 'Please wait...'
-        // });
-        // this.loading.present();
-        console.log('send tehsil'+tehsil);
-        this.weather.weatherdetail(tehsil).map(res => res.json()).subscribe((res) => {
 
-        this.wheaterdetailall.data = res.data;
-        this.wheaterdetailall.msg = res.msg;
-        this.wheaterdetailall.status = res.status;
-        this.weatherInfo=this.wheaterdetailall.data;
-        this.tehsilId=res.data;
+        this.weather.weatherdetail(tehsil).then((res)=>{
+            console.log(res);
+            this.wheaterdetailall.data = res.data;
+            this.wheaterdetailall.msg = res.msg;
+            this.wheaterdetailall.status = res.status;
+            this.weatherInfo=this.wheaterdetailall.data;
+            this.tehsilId=res.data;
+        });
 
-        //this.loading.dismiss();
-        //this.weatherfivedayD=res.data.headline.Text;
 
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+        
+        
       
   }
 

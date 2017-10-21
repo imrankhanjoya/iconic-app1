@@ -51,7 +51,7 @@ export class HomePage {
   public kendraHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public rotateClass:any;
@@ -119,36 +119,36 @@ export class HomePage {
   }
   
   get_expert(){
-    this.experts.Experts_list().map(res => res.json()).subscribe((res) => {
-      
+
+    this.experts.Experts_list().then((res)=>{
         this.expertdata = res;
-        console.log(this.expertdata);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
+
+    // this.experts.Experts_list().map(res => res.json()).subscribe((res) => {
+      
+    //     this.expertdata = res;
+    //     console.log(this.expertdata);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
 
   }
 
 
 
   getweather(location:any){
-    this.weather.weatheHourly().map(res => res.json()).subscribe((res) => {
-      
+
+    this.weather.weatheHourly().then((res)=>{
         this.wheaterHome.data = res.data;
         this.wheaterHome.msg = res.msg;
         this.wheaterHome.status = res.status;
-        console.log(res.data);
-        
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
   }
   
 
   getMandiData(){
-    this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
+    this.mandi.usermandi(this.userId,this.geoLoc).then((res)=>{
         this.mandidata= res.data[0] ;
         this.mandidata.graph_months=this.mandidata.graph_months;
         this.mandidata.graph_price=this.mandidata.graph_price;
@@ -156,74 +156,115 @@ export class HomePage {
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];
         this.mandidata.status=true;
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
+
+    // this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
+    //     this.mandidata= res.data[0] ;
+    //     this.mandidata.graph_months=this.mandidata.graph_months;
+    //     this.mandidata.graph_price=this.mandidata.graph_price;
+        
+    //     this.mandidata1= res.data[1];
+    //     this.mandidata2= res.data[2];
+    //     this.mandidata.status=true;
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
 
   }
 
   getNews(){
-    this.news.homeNews(3).map(res => res.json()).subscribe((res) => {
-      
+    this.news.homeNews(3).then((res)=>{
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
+    });
+
+    // this.news.homeNews(3).map(res => res.json()).subscribe((res) => {
+      
+    //     this.newsData.data = res.data;
+    //     this.newsData.msg = res.msg;
+    //     this.newsData.status = res.status;
         
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
 
   }
 
   getmarkets(){
-    this.market.productlist(5).map(res => res.json()).subscribe((res) => {
-      
+    console.log('getmarkets');
+    this.market.productlist(5).then((res)=>{
         this.productHome.data = res.data;
         this.productHome.msg = res.msg;
         this.productHome.status = res.status;
-        console.log('market data start');
-        console.log(this.productHome);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
+
+    // this.market.productlist(5).map(res => res.json()).subscribe((res) => {
+      
+    //     this.productHome.data = res.data;
+    //     this.productHome.msg = res.msg;
+    //     this.productHome.status = res.status;
+    //     console.log('market data start');
+    //     console.log(this.productHome);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
 
   }
 
   getkrish(lat:any,long:any){
-    this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
-      
+    this.krish.kendraList(lat,long).then((res)=>{
         this.kendraData.data = res.data;
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
         this.kendraHome.data = res.data.results[0];
         
-        console.log(res['data']);
-        console.log(res['data'].results);
         this.geoLoc.lat = res.data.results[0].geometry.location.lat;
         this.geoLoc.lng = res.data.results[0].geometry.location.lng;
         this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
-        console.log(this.userKm);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
+    // this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
+      
+    //     this.kendraData.data = res.data;
+    //     this.kendraData.msg = res.msg;
+    //     this.kendraData.status = res.status;
+    //     this.kendraHome.data = res.data.results[0];
+        
+    //     console.log(res['data']);
+    //     console.log(res['data'].results);
+    //     this.geoLoc.lat = res.data.results[0].geometry.location.lat;
+    //     this.geoLoc.lng = res.data.results[0].geometry.location.lng;
+    //     this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+    //     console.log(this.userKm);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
   }
 
   getannouncement(){
-    this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
-      
+
+
+    this.Announce.announcementList(1).then((res)=>{
+        console.log(this.announceList);
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;
-        console.log('Add for Announcement');
-        console.log(this.announceList.data[0].title);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
+    // this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
+      
+    //     this.announceList.data = res.data;
+    //     this.announceList.msg = res.msg;
+    //     this.announceList.status = res.status;
+    //     console.log('Add for Announcement');
+    //     console.log(this.announceList.data[0].title);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
   }
   
 

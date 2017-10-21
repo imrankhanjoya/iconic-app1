@@ -47,23 +47,31 @@ export class MandiProvider {
 
 
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,lang:geoLoc.lng};
-    let seq = this.api.get('v1/mandi/user-mandi', paramCond).share();
-
-
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
+      
+      var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,lang:geoLoc.lng};
+      return new Promise((resolve)=>{
+        this.api.getCache('v1/mandi/user-mandi', paramCond).then((usermandiData)=>{
+          resolve(usermandiData);
+        });  
       });
 
-    return seq;
+    // var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,lang:geoLoc.lng};
+    // let seq = this.api.get('v1/mandi/user-mandi', paramCond).share();
+
+
+    // seq
+    //   .map(res => res.json())
+    //   .subscribe(res => {
+    //     // If the API returned a successful response, mark the user as logged in
+    //     if (res.status == 'success') {
+    //       console.log(res);
+    //     } else {
+    //     }
+    //   }, err => {
+    //     console.error('ERROR', err);
+    //   });
+
+    // return seq;
   }
 
   commudity(lang) {

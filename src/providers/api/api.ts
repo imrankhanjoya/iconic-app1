@@ -56,24 +56,67 @@ export class Api {
     }
 
     return this.http.get(this.url + '/' + endpoint, options);
-    //let cacheKey = this.url;
-    //let request = this.http.get(this.url + '/' + endpoint, options);
-    //return this.cache.loadFromObservable(cacheKey, request);
-    // let key = this.url + '/' + endpoint;
-    // let apiurl = this.url + '/' + endpoint;
-    // return this.getCall(key,this.url,endpoint,options);
+    
   }
 
-  getCall(key,url,endpoint,options){
-    console.log(key);
-    this.cache.getItem(key).catch(() => {
-    // fall here if item is expired or doesn't exist 
-    let result = this.http.get(url + '/' + endpoint, options).map(res => res.json());
-    return this.cache.saveItem(key, result);
-    }).then((data) => {
-        console.log("Saved data: ", data);
-        return data;
-    });
+  getCache(endpoint: string, params?: any, options?: RequestOptions) {
+    if (!options) {
+      options = new RequestOptions();
+    }
+
+    // Support easy query params for GET requests
+    if (params) {
+      let p = new URLSearchParams();
+      for (let k in params) {
+        p.set(k, params[k]);
+      }
+      // Set the search field if we have params and don't already have
+      // a search field set in options.
+      options.search = !options.search && p || options.search;
+    }
+
+    
+    let key = this.url + '/' + endpoint;
+    return this.getCall(key,endpoint,options);
+  }
+
+  getCall(key,endpoint,options){
+    
+   return new Promise((resolve)=>{
+
+
+          this.cache.getItem(key).catch(() => {
+            
+
+          }).then((data) => {
+                if(typeof data == 'undefined'){
+                      let seq = this.http.get(this.url + '/' + endpoint, options).share();
+                      seq.map(res => res.json())
+                      .subscribe(res => {
+                        console.log(res);
+                        // If the API returned a successful response, mark the user as logged in
+                        if (res.status == 'success' || res.status == true) {
+                          console.log(res);
+                          this.cache.saveItem(key, res);
+                          resolve(res);
+                        }else{
+                          resolve(res);
+                        }
+                      }, err => {
+                        console.error('ERROR', err);
+                        resolve(err);
+                      });  
+                }else{
+                      console.log("Saved data: ", JSON.stringify(data));
+                      resolve(data);
+                }
+          });
+
+
+
+
+   });
+    
 
   }
 

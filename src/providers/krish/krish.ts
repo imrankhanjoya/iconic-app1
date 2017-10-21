@@ -42,22 +42,30 @@ export class KrishProvider {
   kendraList(lat,long) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
       //ang=en_US&lat=23&long=34
-     var paramCond ={lat:lat,long:long,lang:'en_US'};
-    let seq = this.api.get('v1/krishi/nearby', paramCond).share();
+      
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
+    var paramCond ={lat:lat,long:long,lang:'en_US'};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/krishi/nearby', paramCond).then((kendraListData)=>{
+        resolve(kendraListData);
+      });  
+    });
+    //  var paramCond ={lat:lat,long:long,lang:'en_US'};
+    // let seq = this.api.get('v1/krishi/nearby', paramCond).share();
 
-    return seq;
+    // seq
+    //   .map(res => res.json())
+    //   .subscribe(res => {
+    //     // If the API returned a successful response, mark the user as logged in
+    //     if (res.status == 'success') {
+    //       console.log(res);
+    //     } else {
+    //     }
+    //   }, err => {
+    //     console.error('ERROR', err);
+    //   });
+
+    // return seq;
   }
   getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
     var R = 6371; // Radius of the earth in km

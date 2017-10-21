@@ -16,23 +16,31 @@ export class MarketproProvider {
 	constructor(public http: Http, public api: Api) {
 	   	console.log('Hello MarketproProvider Provider');
 	}
-    productlist(limit) {
+    productlist(dataLimit) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	var paramCond ={page:0,limit:limit,lang:'en_US'};
-	    let seq = this.api.get('v1/product/all', paramCond).share();
+  		
+  		 var paramCond ={page:0,limit:dataLimit,lang:'en_US'};
+	    return new Promise((resolve)=>{
+	      this.api.getCache('v1/product/all', paramCond).then((productlistData)=>{
+	        resolve(productlistData);
+	      });  
+	    });
 
-	    seq
-	      .map(res => res.json())
-	      .subscribe(res => {
-	        if (res.status == 'success') {
-	          console.log(res);
-	        } else {
-	        }
-	      }, err => {
-	        console.error('ERROR', err);
-	      });
+	  	// var paramCond ={page:0,limit:limit,lang:'en_US'};
+	   //  let seq = this.api.get('v1/product/all', paramCond).share();
 
-	    	return seq;
+	   //  seq
+	   //    .map(res => res.json())
+	   //    .subscribe(res => {
+	   //      if (res.status == 'success') {
+	   //        console.log(res);
+	   //      } else {
+	   //      }
+	   //    }, err => {
+	   //      console.error('ERROR', err);
+	   //    });
+
+	   //  	return seq;
   	}
   	
 
