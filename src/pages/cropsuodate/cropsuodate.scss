@@ -44,12 +44,7 @@ page-cropsuodate {
 	  text-align: center;
 	}
 
-	.button{
-	  background-color: #649305;
-	  width: 75%;
-	  margin-top: 2%;
-	  margin-left: 10%;
-	}
+
 	.checkbox{
 	  float: left;
 	  height: 90%;
@@ -69,5 +64,8 @@ page-cropsuodate {
 	}
 	.mainClass{
 		width: 50%;
+	}
+	.paddingFooterButton{
+		padding: 5px;
 	}
 }
