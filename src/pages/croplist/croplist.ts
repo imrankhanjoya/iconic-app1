@@ -27,13 +27,18 @@ export class CroplistPage {
 		content: 'Please wait...'
 		});
 		loading.present();
-		this.cropsProvider.sendCropGroupType('hi_IN',this.croptype).map(res => res.json()).subscribe((resp) => {
-		this.cropList=resp;
-		console.log(this.cropList);
-		loading.dismiss();
-		}, (err) => {
-		console.log('Error In cropList')
-		});
+		this.cropsProvider.sendCropGroupType('hi_IN',this.croptype).then((res)=>{
+            this.cropList=res;
+				console.log(this.cropList);
+				loading.dismiss();
+        });
+		// this.cropsProvider.sendCropGroupType('hi_IN',this.croptype).map(res => res.json()).subscribe((resp) => {
+		// this.cropList=resp;
+		// console.log(this.cropList);
+		// loading.dismiss();
+		// }, (err) => {
+		// console.log('Error In cropList')
+		// });
 		console.log('ionViewDidLoad CropslistPage');
   	}
 	gotocropdetail(crop_id){

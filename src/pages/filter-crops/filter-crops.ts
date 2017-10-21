@@ -52,15 +52,20 @@ export class FilterCropsPage {
 
     getCommudity() {
         this.loading.present();
-        this.mandiProvider.commudity(this.lang).map(res => res.json()).subscribe((resp) => {
-        this.cropList = resp.data;
-        console.log(this.cropList);
-        
-        this.loading.dismiss();
-        }, (err) => {
-        console.log('my name is khan');
-        this.loading.dismiss();
+
+        this.mandiProvider.commudity(this.lang).then((res)=>{
+          this.cropList = res.data;
+          this.loading.dismiss();
         });
+        // this.mandiProvider.commudity(this.lang).map(res => res.json()).subscribe((resp) => {
+        // this.cropList = resp.data;
+        // console.log(this.cropList);
+        
+        // this.loading.dismiss();
+        // }, (err) => {
+        // console.log('my name is khan');
+        // this.loading.dismiss();
+        // });
     }
     addValue(cropIndex,commodityIndex) {
         console.log(this.cropList);

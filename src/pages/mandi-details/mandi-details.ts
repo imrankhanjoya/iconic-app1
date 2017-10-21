@@ -54,15 +54,18 @@ export class MandiDetailsPage {
 
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
-    
-    this.mandi.mandiRates(marketId,filter_crops).map(res => res.json()).subscribe((res) => {
-        this.mandiData= res;
-        this.loading.dismiss();
-        console.log(this.mandiData);
-      }, (err) => {
-        this.loading.dismiss();
-        console.log(err);
-      });
+    this.mandi.mandiRates(marketId,filter_crops).then((res)=>{
+      this.mandiData= res;
+      this.loading.dismiss();
+    });
+    // this.mandi.mandiRates(marketId,filter_crops).map(res => res.json()).subscribe((res) => {
+    //     this.mandiData= res;
+    //     this.loading.dismiss();
+    //     console.log(this.mandiData);
+    //   }, (err) => {
+    //     this.loading.dismiss();
+    //     console.log(err);
+    //   });
 
   }
 

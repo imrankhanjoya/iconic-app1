@@ -48,19 +48,27 @@ export class MarketViewPage {
 	     content: 'Please wait...'
 	   });
 	   loading.present();
-    this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
-      	
+     this.market.ProductView(this.id).then((res)=>{
         this.ProductViewData.data = res.data;
         this.ProductViewData.msg = res.msg;
         this.ProductViewData.status = res.status;
         console.log('market data start');
         console.log(this.ProductViewData.data.detail);
         loading.dismiss();
-      }, (err) => {
-        // Unable to log in
-        loading.dismiss();
-        console.log(err);
       });
+    // this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
+      	
+    //     this.ProductViewData.data = res.data;
+    //     this.ProductViewData.msg = res.msg;
+    //     this.ProductViewData.status = res.status;
+    //     console.log('market data start');
+    //     console.log(this.ProductViewData.data.detail);
+    //     loading.dismiss();
+    //   }, (err) => {
+    //     // Unable to log in
+    //     loading.dismiss();
+    //     console.log(err);
+    //   });
   }
 
   mackCall(){

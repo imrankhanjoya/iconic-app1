@@ -16,101 +16,132 @@ export class CityStateProvider {
     console.log('Hello CityStateProvider Provider');
   }
   getState(lang) {
-     var paramCond ={lang:lang};
-    let seq = this.api.get('v1/location/state',paramCond).share();
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-      if (res.status == true) {
-        console.log(res);
-      } else {
-        console.log(res);
-      }
-      }, err => {
-        console.error('ERROR', err);
-      });
+    var paramCond ={lang:lang};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/location/state', paramCond).then((getStateData)=>{
+        resolve(getStateData);
+      });  
+    });
 
-    return seq;
+    //  var paramCond ={lang:lang};
+    // let seq = this.api.get('v1/location/state',paramCond).share();
+
+    // seq
+    //   .map(res => res.json())
+    //   .subscribe(res => {
+    //   if (res.status == true) {
+    //     console.log(res);
+    //   } else {
+    //     console.log(res);
+    //   }
+    //   }, err => {
+    //     console.error('ERROR', err);
+    //   });
+
+    // return seq;
   }
 
   getDistrict(lang,stateId) {
-     var paramCond ={lang:lang,district_state:stateId};
-    let seq = this.api.get('v1/location/districts',paramCond).share();
+    var paramCond ={lang:lang,district_state:stateId};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/location/districts', paramCond).then((getDistrictData)=>{
+        resolve(getDistrictData);
+      });  
+    });
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
+    //  var paramCond ={lang:lang,district_state:stateId};
+    // let seq = this.api.get('v1/location/districts',paramCond).share();
 
-    return seq;
+    // seq
+    //   .map(res => res.json())
+    //   .subscribe(res => {
+    //     // If the API returned a successful response, mark the user as logged in
+    //     if (res.status == 'success') {
+    //       console.log(res);
+    //     } else {
+    //     }
+    //   }, err => {
+    //     console.error('ERROR', err);
+    //   });
+
+    // return seq;
   }
 
   getTehsil(lang,districtid) {
      var paramCond ={lang:lang,districtid:districtid};
-    let seq = this.api.get('v1/location/tehsil',paramCond).share();
-
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
+     return new Promise((resolve)=>{
+        this.api.getCache('v1/location/tehsil', paramCond).then((getTehsilData)=>{
+          resolve(getTehsilData);
+        });  
       });
 
-    return seq;
+    // let seq = this.api.get('v1/location/tehsil',paramCond).share();
+
+    // seq
+    //   .map(res => res.json())
+    //   .subscribe(res => {
+    //     // If the API returned a successful response, mark the user as logged in
+    //     if (res.status == 'success') {
+    //       console.log(res);
+    //     } else {
+    //     }
+    //   }, err => {
+    //     console.error('ERROR', err);
+    //   });
+
+    // return seq;
   }
 
 
-  getMarket(lang,districtId)
-{
-    var paramCond ={lang:lang,district_state:districtId};
-    let seq = this.api.get('v1/location/market',paramCond).share();
+  getMarket(lang,districtId) {
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
+        var paramCond ={lang:lang,district_state:districtId};
 
-    return seq;
+        return new Promise((resolve)=>{
+        this.api.getCache('v1/location/market', paramCond).then((getMarketData)=>{
+            resolve(getMarketData);
+          });  
+        });
 
+        // let seq = this.api.get('v1/location/market',paramCond).share();
 
-}
+        // seq
+        //   .map(res => res.json())
+        //   .subscribe(res => {
+        //     // If the API returned a successful response, mark the user as logged in
+        //     if (res.status == 'success') {
+        //       console.log(res);
+        //     } else {
+        //     }
+        //   }, err => {
+        //     console.error('ERROR', err);
+        //   });
+
+        // return seq;
+    }
 
   sendCrop(lang){
-var paramCond ={lang:'en_US'};
- let seq = this.api.get('v1/crops/all',paramCond).share();
 
- seq
-   .map(res => res.json())
-   .subscribe(res => {
-     // If the API returned a successful response, mark the user as logged in
-     if (res.status == 'success') {
-       console.log(res);
-     } else {
-     }
-   }, err => {
-     console.error('ERROR', err);
-   });
+    var paramCond ={lang:'en_US'};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/crops/all', paramCond).then((sendCropData)=>{
+          resolve(sendCropData);
+        });  
+      });
 
- return seq;
-  }
+     // let seq = this.api.get('v1/crops/all',paramCond).share();
+     // seq
+     //   .map(res => res.json())
+     //   .subscribe(res => {
+     //     // If the API returned a successful response, mark the user as logged in
+     //     if (res.status == 'success') {
+     //       console.log(res);
+     //     } else {
+     //     }
+     //   }, err => {
+     //     console.error('ERROR', err);
+     //   });
+     // return seq;
+    }
 }

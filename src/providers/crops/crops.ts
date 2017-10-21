@@ -18,56 +18,74 @@ export class CropsProvider {
  
 
 	sendCrop(lang){
+
 		var paramCond ={lang:'en_US'};
-		let seq = this.api.get('v1/crops/all',paramCond).share();
+		return new Promise((resolve)=>{
+      this.api.getCache('v1/crops/all', paramCond).then((sendCropData)=>{
+	        resolve(sendCropData);
+	      });  
+	    });
 
-		seq
-		.map(res => res.json())
-		.subscribe(res => {
-			// If the API returned a successful response, mark the user as logged in
-			if (res.status == 'success') {
-			 console.log(res);
-			}
-		}, err => {
-			console.error('ERROR', err);
-		});
+		// let seq = this.api.get('v1/crops/all',paramCond).share();
 
-		return seq;
+		// seq
+		// .map(res => res.json())
+		// .subscribe(res => {
+		// 	// If the API returned a successful response, mark the user as logged in
+		// 	if (res.status == 'success') {
+		// 	 console.log(res);
+		// 	}
+		// }, err => {
+		// 	console.error('ERROR', err);
+		// });
+
+		// return seq;
 	}
 
 	sendCropGroupType(lang,crop_type){
 		var paramCond ={lang:'hi_IN',crop_type:crop_type};
-		let seq = this.api.get('v1/crops/find',paramCond).share();
+		return new Promise((resolve)=>{
+      this.api.getCache('v1/crops/find', paramCond).then((sendCropGroupTypeData)=>{
+	        resolve(sendCropGroupTypeData);
+	      });  
+	    });
 
-		seq
-		.map(res => res.json())
-		.subscribe(res => {
-			// If the API returned a successful response, mark the user as logged in
-			if (res.status == 'success') {
-			 console.log(res);
-			}
-		}, err => {
-			console.error('ERROR', err);
-		});
+		// let seq = this.api.get('v1/crops/find',paramCond).share();
 
-		return seq;
+		// seq
+		// .map(res => res.json())
+		// .subscribe(res => {
+		// 	// If the API returned a successful response, mark the user as logged in
+		// 	if (res.status == 'success') {
+		// 	 console.log(res);
+		// 	}
+		// }, err => {
+		// 	console.error('ERROR', err);
+		// });
+
+		// return seq;
 	}
 
 	sendCropDetail(crop_id){
 		var paramCond ={crop_id:crop_id,lang:'hi_IN'};
-		let seq = this.api.get('/v1/crops/view',paramCond).share();
+		return new Promise((resolve)=>{
+      this.api.getCache('/v1/crops/view', paramCond).then((sendCropDetailData)=>{
+	        resolve(sendCropDetailData);
+	      });  
+	    });
 
-		seq
-		.map(res => res.json())
-		.subscribe(res => {
-			// If the API returned a successful response, mark the user as logged in
-			if (res.status == 'success') {
-			 console.log(res);
-			}
-		}, err => {
-			console.error('ERROR', err);
-		});
+		// let seq = this.api.get('/v1/crops/view',paramCond).share();
+		// seq
+		// .map(res => res.json())
+		// .subscribe(res => {
+		// 	// If the API returned a successful response, mark the user as logged in
+		// 	if (res.status == 'success') {
+		// 	 console.log(res);
+		// 	}
+		// }, err => {
+		// 	console.error('ERROR', err);
+		// });
 
-		return seq;
+		// return seq;
 	}
 }

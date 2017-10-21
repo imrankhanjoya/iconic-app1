@@ -23,13 +23,16 @@ export class CardsPage {
   }
 
   get_expert(){
-    this.experts.Experts_list('blogs',10).map(res => res.json()).subscribe((res) => {
-        this.expertdata = res;
-        console.log(this.expertdata);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    this.experts.Experts_list('blogs',10).then((res)=>{
+      this.expertdata = res;
+    });
+    // this.experts.Experts_list('blogs',10).map(res => res.json()).subscribe((res) => {
+    //   this.expertdata = res;
+    //   console.log(this.expertdata);
+    // }, (err) => {
+    //   // Unable to log in
+    //   console.log(err);
+    // });
   }
 
   get_cat_expert(category_id){

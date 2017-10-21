@@ -76,7 +76,8 @@ export class Api {
     }
 
     
-    let key = this.url + '/' + endpoint;
+    let key = this.url + '/' + endpoint+p.toString();
+    console.log('Data Save key : '+key);
     return this.getCall(key,endpoint,options);
   }
 
@@ -107,7 +108,7 @@ export class Api {
                         resolve(err);
                       });  
                 }else{
-                      console.log("Saved data: ", JSON.stringify(data));
+                      console.log("Saved data: ",data);
                       resolve(data);
                 }
           });

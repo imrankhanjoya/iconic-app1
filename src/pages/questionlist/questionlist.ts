@@ -24,16 +24,23 @@ import { QuestionsProvider } from '../../providers/questions/questions';
     console.log('ionViewDidLoad QuestionlistPage');
   }
   getquestions(){
-    this.QuestionsProvider.questionList().map(res => res.json()).subscribe((res) => {
-      
-        this.questionsDatalist.data = res.data;
+
+    this.QuestionsProvider.questionList().then((res)=>{
+      this.questionsDatalist.data = res.data;
         this.questionsDatalist.msg = res.msg;
         this.questionsDatalist.status = res.status;
-        console.log(this.questionsDatalist.data);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
+    });
+    
+    // this.QuestionsProvider.questionList().map(res => res.json()).subscribe((res) => {
+      
+    //     this.questionsDatalist.data = res.data;
+    //     this.questionsDatalist.msg = res.msg;
+    //     this.questionsDatalist.status = res.status;
+    //     console.log(this.questionsDatalist.data);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
 
   }
   gotoAskquestion(){

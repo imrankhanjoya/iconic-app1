@@ -28,16 +28,21 @@ export class AnnouncementPage {
 
 
   getannouncement(){
-    this.Announce.announcementList(20).map(res => res.json()).subscribe((res) => {
-      
+    this.Announce.announcementList(20).then((res)=>{
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;
-        console.log(res.data);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
       });
+    // this.Announce.announcementList(20).map(res => res.json()).subscribe((res) => {
+      
+    //     this.announceList.data = res.data;
+    //     this.announceList.msg = res.msg;
+    //     this.announceList.status = res.status;
+    //     console.log(res.data);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
   }
 
 }

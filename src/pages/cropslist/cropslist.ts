@@ -29,13 +29,19 @@ export class CropslistPage {
 		content: 'Please wait...'
 		});
 		loading.present();
-		this.cropsProvider.sendCrop('hi_IN').map(res => res.json()).subscribe((resp) => {
-		this.cropList=resp;
-		console.log(this.cropList);
-		loading.dismiss();
-		}, (err) => {
-		console.log('my name is khan')
-		});
+
+		this.cropsProvider.sendCrop('hi_IN').then((res)=>{
+            this.cropList=resp;
+				console.log(this.cropList);
+				loading.dismiss();
+        });
+		// this.cropsProvider.sendCrop('hi_IN').map(res => res.json()).subscribe((resp) => {
+		// this.cropList=resp;
+		// console.log(this.cropList);
+		// loading.dismiss();
+		// }, (err) => {
+		// console.log('my name is khan')
+		// });
 		console.log('ionViewDidLoad CropslistPage');
   }
 

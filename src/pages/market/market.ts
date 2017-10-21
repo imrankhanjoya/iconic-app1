@@ -42,36 +42,48 @@ export class MarketPage {
 
 
   getmarkets(cat_id){
-    this.market.productlistview(cat_id).map(res => res.json()).subscribe((res) => {
-      
-        this.productDatas.data = res.data;
-        this.productDatas.msg = res.msg;
-        this.productDatas.status = res.status;
-        console.log('market data start');
-        console.log(this.productDatas.data);
-        this.loading.dismiss();
-      }, (err) => {
-        // Unable to log in
-        this.loading.dismiss();
-        console.log(err);
-      });
+    this.market.productlistview(cat_id).then((res)=>{
+      this.productDatas.data = res.data;
+      this.productDatas.msg = res.msg;
+      this.productDatas.status = res.status;
+      this.loading.dismiss();
+    });
+    // this.market.productlistview(cat_id).map(res => res.json()).subscribe((res) => {      
+    //     this.productDatas.data = res.data;
+    //     this.productDatas.msg = res.msg;
+    //     this.productDatas.status = res.status;
+    //     console.log('market data start');
+    //     console.log(this.productDatas.data);
+    //     this.loading.dismiss();
+    //   }, (err) => {
+    //     // Unable to log in
+    //     this.loading.dismiss();
+    //     console.log(err);
+    //   });
   }
 
   getCategory(){
-    this.market.productcat().map(res => res.json()).subscribe((res) => {
+
+    this.market.productcat().then((res)=>{
+      this.catDatas.data = res.data;
+      this.catDatas.msg = res.msg;
+      this.catDatas.status = res.status;
+    });
+
+    // this.market.productcat().map(res => res.json()).subscribe((res) => {
       
-        this.catDatas.data = res.data;
-        this.catDatas.msg = res.msg;
-        this.catDatas.status = res.status;
-        console.log('cat data');
-        console.log(this.catDatas.data);
-        console.log('cat data END ');
-        //this.loading.dismiss();
-      }, (err) => {
-        // Unable to log in
-        //this.loading.dismiss();
-        console.log(err);
-      });
+    //     this.catDatas.data = res.data;
+    //     this.catDatas.msg = res.msg;
+    //     this.catDatas.status = res.status;
+    //     console.log('cat data');
+    //     console.log(this.catDatas.data);
+    //     console.log('cat data END ');
+    //     //this.loading.dismiss();
+    //   }, (err) => {
+    //     // Unable to log in
+    //     //this.loading.dismiss();
+    //     console.log(err);
+    //   });
   }
 
   makeCall(){

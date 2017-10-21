@@ -75,11 +75,7 @@ export class WeatherPage {
             this.wheaterdetailall.status = res.status;
             this.weatherInfo=this.wheaterdetailall.data;
             this.tehsilId=res.data;
-        });
-
-
-        
-        
+        }); 
       
   }
 
@@ -87,34 +83,44 @@ export class WeatherPage {
       if (this.navParams.get('fromFilter')) {
           location = this.navParams.get('filter_tehsil');
       }
-      this.weather.weatherfivedays(location).map(res => res.json()).subscribe((res) => {
-      this.weatherfiveday.data = res.data;
-      this.weatherfiveday.msg = res.msg;
-      this.weatherfiveday.status = res.status;
-
-      //console.log(this.weatherfiveday.data.WeatherHourly.data.WeatherData);
-      for(let tmp of this.weatherfiveday.data.WeatherHourly.data.WeatherData){
-        var dp = new DatePipe("en-US");
-        var th = dp.transform(tmp.DateTime, 'j');
-        //this.hours.push(tmp.DateTime);  
-        this.hours.push(th);  
-        this.hourlyTmp.push(tmp.tempratureValue);
-      }
-      
-      console.log(this.hours);
-      console.log(this.hourlyTmp);
-      //console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
-
-      }, (err) => {
-      // Unable to log in
-      console.log(err);
+      this.weather.weatherfivedays(location).then((res)=>{
+        this.weatherfiveday.data = res.data;
+        this.weatherfiveday.msg = res.msg;
+        this.weatherfiveday.status = res.status;
+        for(let tmp of this.weatherfiveday.data.WeatherHourly.data.WeatherData){
+          var dp = new DatePipe("en-US");
+          var th = dp.transform(tmp.DateTime, 'j');
+          this.hours.push(th);  
+          this.hourlyTmp.push(tmp.tempratureValue);
+        }
       });
+      // this.weather.weatherfivedays(location).map(res => res.json()).subscribe((res) => {
+      // this.weatherfiveday.data = res.data;
+      // this.weatherfiveday.msg = res.msg;
+      // this.weatherfiveday.status = res.status;
+
+      // //console.log(this.weatherfiveday.data.WeatherHourly.data.WeatherData);
+      // for(let tmp of this.weatherfiveday.data.WeatherHourly.data.WeatherData){
+      //   var dp = new DatePipe("en-US");
+      //   var th = dp.transform(tmp.DateTime, 'j');
+      //   //this.hours.push(tmp.DateTime);  
+      //   this.hours.push(th);  
+      //   this.hourlyTmp.push(tmp.tempratureValue);
+      // }
+      
+      // console.log(this.hours);
+      // console.log(this.hourlyTmp);
+      // //console.log(JSON.stringify(this.weatherfiveday.data.WeatherData));
+
+      // }, (err) => {
+      // // Unable to log in
+      // console.log(err);
+      // });
   }
 
   ResetData(){
     this.navCtrl.push('wheaterdetailall');
   }
-
 
 
 

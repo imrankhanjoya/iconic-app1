@@ -59,25 +59,35 @@ export class FilterLocationPage {
 
         console.log(this.changelocation.value.user_state_id);
         var stateid = this.changelocation.value.user_state_id;
-        this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
-          this.districtList=resp.data;
-          //console.log(this.districtList);
-          //  this.loading.dismiss();
-        }); 
+        this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
+            this.districtList=res.data;
+        });
+        // this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
+        //   this.districtList=resp.data;
+        //   //console.log(this.districtList);
+        //   //  this.loading.dismiss();
+        // }); 
     }
     onDistrictSelect(districtId){
         var districtId = this.changelocation.value.user_district_id;
-        this.cityStateProvider.getTehsil(this.lang,districtId).map(res => res.json()).subscribe((resp) => {
-          this.tehsilList=resp.data;
-          //  this.loading.dismiss();
+        this.cityStateProvider.getTehsil(this.lang,districtId).then((res)=>{
+            this.tehsilList=res.data;
         });
+        // this.cityStateProvider.getTehsil(this.lang,districtId).map(res => res.json()).subscribe((resp) => {
+        //   this.tehsilList=resp.data;
+        //   //  this.loading.dismiss();
+        // });
     }
 
     getAllState() {
-        this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
-          this.stateList=resp.data;
-          //this.loading.dismiss();
-        });
+
+        this.cityStateProvider.getState(this.lang).then((res)=>{
+            this.stateList=res.data;
+        }); 
+        // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
+        //   this.stateList=resp.data;
+        //   //this.loading.dismiss();
+        // });
     }
 
     dismiss(){

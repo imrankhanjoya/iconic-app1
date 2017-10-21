@@ -27,14 +27,20 @@ export class CropdetailPage {
 		content: 'Please wait...'
 		});
 		loading.present();
-		this.cropsProvider.sendCropDetail(this.id).map(res => res.json()).subscribe((resp) => {
-		this.cropdetail=resp.data;
-		console.log(this.cropdetail);
-		console.log(this.id+'send for crop detail');
-		loading.dismiss();
-		}, (err) => {
-		console.log('Error In cropList')
-		});
+		this.cropsProvider.sendCropDetail(this.id).then((res)=>{
+      	this.cropdetail=res.data;
+			console.log(this.cropdetail);
+			console.log(this.id+'send for crop detail');
+			loading.dismiss();
+	    });
+		// this.cropsProvider.sendCropDetail(this.id).map(res => res.json()).subscribe((resp) => {
+		// this.cropdetail=resp.data;
+		// console.log(this.cropdetail);
+		// console.log(this.id+'send for crop detail');
+		// loading.dismiss();
+		// }, (err) => {
+		// console.log('Error In cropList')
+		// });
 		console.log('ionViewDidLoad CropslistPage');
   	}
 
