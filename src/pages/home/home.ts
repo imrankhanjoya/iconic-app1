@@ -60,6 +60,7 @@ export class HomePage {
   public userDisplayName:any;
   public userKm:any;
   public userId:any;
+  public onBording:boolean=false;
 
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
@@ -284,11 +285,20 @@ public isRun3=false;
 public isCount=true;
 public oneForSize:any;
 public startVisbol=true;
+public bottom = 0;
+public top = 0;
 
 showBar(){
   console.log("Sayooo naara");
   document.querySelector(".tabbar").classList.add('show-tabbar');
   document.querySelector(".tabbar").classList.remove('bottmTabHide');
+  document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
+  if(this.onBording){
+    // document.querySelector(".barCustomAct").classList.add('showTopBar');
+    // document.querySelector(".barCustomAct").classList.remove('topBar');
+    // document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
+  }
+
   
 }
   onScroll(ev){
@@ -299,15 +309,44 @@ showBar(){
         this.startVisbol=true;
         document.querySelector(".tabbar").classList.add('show-tabbar');
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
+        document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
+        if(this.onBording){
+          document.querySelector(".barCustomAct").classList.add('showTopBar');
+          document.querySelector(".barCustomAct").classList.remove('topBar');
+          if(this.top!=0){
+            console.log("Updating top "+this.top);
+            document.querySelectorAll(".scroll-content")[1].style.marginTop = this.top;
+          }
+        }
+
+
+
         
       }
     } else if(ev.deltaY >= 0){
      
      if(this.startVisbol==true){
         
-        console.log('------++++-------');
+          console.log(this.onBording);
+          if(this.onBording){
+            if(this.top==0){
+              console.log(this.top);
+              this.top = document.querySelectorAll(".scroll-content")[1].style.marginTop;              
+            }
+            document.querySelector(".barCustomAct").classList.add('topBar');
+            document.querySelector(".barCustomAct").classList.remove('showTopBar');
+            document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
+          }
+        
           document.querySelector(".tabbar").classList.add('bottmTabHide');
           document.querySelector(".tabbar").classList.remove('show-tabbar');
+          if(this.bottom==0){
+            this.bottom =document.querySelectorAll(".scroll-content")[1].style.marginBottom;
+            
+          }
+          console.log(this.bottom);
+          document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+
           
           
         this.startVisbol=false;
@@ -346,6 +385,7 @@ showBar(){
           this.isRun2=false;
           this.isRun1=false;
           this.isRun3=true;
+          this.onBording = true;
         }
     }
   }

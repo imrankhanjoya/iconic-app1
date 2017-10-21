@@ -4,6 +4,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { CacheService } from "ionic-cache";
+import "rxjs/add/operator/share";
+
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
@@ -20,7 +23,7 @@ export class Api {
 
   public userLoction : {longitude:number,latitude:number} = {longitude:0,latitude:0};
 
-  constructor(private geolocation: Geolocation,public http: Http,public storage:Storage) {
+  constructor(private geolocation: Geolocation,public http: Http,public storage:Storage,public cache:CacheService) {
     storage.get('userData').then((userdata) => {
         console.log('----userData--'+userdata);
         if (userdata) {
@@ -53,6 +56,25 @@ export class Api {
     }
 
     return this.http.get(this.url + '/' + endpoint, options);
+    //let cacheKey = this.url;
+    //let request = this.http.get(this.url + '/' + endpoint, options);
+    //return this.cache.loadFromObservable(cacheKey, request);
+    // let key = this.url + '/' + endpoint;
+    // let apiurl = this.url + '/' + endpoint;
+    // return this.getCall(key,this.url,endpoint,options);
+  }
+
+  getCall(key,url,endpoint,options){
+    console.log(key);
+    this.cache.getItem(key).catch(() => {
+    // fall here if item is expired or doesn't exist 
+    let result = this.http.get(url + '/' + endpoint, options).map(res => res.json());
+    return this.cache.saveItem(key, result);
+    }).then((data) => {
+        console.log("Saved data: ", data);
+        return data;
+    });
+
   }
 
   post(endpoint: string, body: any, options?: RequestOptions) {

@@ -51,8 +51,9 @@ import { TabProvider } from '../providers/tab/tab';
 import { Firebase } from '@ionic-native/firebase';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { ContactusProvider } from '../providers/contactus/contactus';
-
-
+import { WalletProvider } from '../providers/wallet/wallet';
+import { FCM } from '@ionic-native/fcm';
+import { CacheModule } from "ionic-cache";
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -94,7 +95,8 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    CacheModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -144,7 +146,9 @@ export function provideSettings(storage: Storage) {
     TabProvider,
     Firebase,
     Deeplinks,
-    ContactusProvider
+    ContactusProvider,
+    WalletProvider,
+    FCM,
   ]
 })
 export class AppModule { }

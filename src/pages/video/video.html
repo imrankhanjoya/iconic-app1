@@ -15,20 +15,20 @@
   </ion-navbar>
 
 
-      <ion-segment  class="themeColor" [(ngModel)]="Crop">
-          <ion-segment-button class="themeColor"  value="General" (click)="videoByCat('favourite')">
+      <ion-segment  [(ngModel)]="Crop" >
+          <ion-segment-button value="General" (click)="videoByCat('favourite')">
             {{'VEDIO_FAVOURITE' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="Desease" (click)="videoByCat('fertilizers')">
+          <ion-segment-button value="backgroundThemeGreen" (click)="videoByCat('fertilizers')">
               {{'VEDIO_FERTILIZERS' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="Insect"  (click)="videoByCat('pesticide')">
+          <ion-segment-button value="backgroundThemeGreen"  (click)="videoByCat('pesticide')">
              {{'VEDIO_SEEDS' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="Varities" >
+          <ion-segment-button value="backgroundThemeGreen" >
             {{'VEDIO_PESTICIDE' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="Water"  (click)="videoByCat('seeds')">
+          <ion-segment-button value="backgroundThemeGreen"  (click)="videoByCat('seeds')">
             {{'VEDIO_SEEDS' | translate}}
           </ion-segment-button>
       </ion-segment>
