@@ -38,9 +38,8 @@
 	   	</div>
 </ion-row>
 <ion-row>
-	<div>
-		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop">Overview</div>
-		<div class="paddingLeft colorGrey separator">
+	<div class="fullWidth separator">
+		<div class="paddingLeft colorGrey">
 			<ul *ngIf="ProductViewData.status==true">
 				<li *ngFor="let ProductAdvantages of ProductViewData.data.advantages, let i = index " >{{ProductAdvantages.value}}</li>
 			</ul>
