@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the AskquestionPage page.
@@ -15,10 +16,18 @@ import { QuestionsProvider } from '../../providers/questions/questions';
   templateUrl: 'askquestion.html',
 })
 export class AskquestionPage {
-  public  questionaddData = {user_id:1,title:'',description:'',privacy:'',Attachments:''};
+  private user_id :any;
+  public  questionaddData = {user_id:'',title:'',description:'',privacy:'',Attachments:''};
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
-  }
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public QuestionsProvider: QuestionsProvider,
+              public storage:Storage) {
+
+                this.storage.get('userData').then((val) => {
+                  this.user_id = val.ID; 
+                });
+              }
 
   ionViewDidLoad() {
     //this.getaskquestions();
@@ -28,7 +37,7 @@ export class AskquestionPage {
    	// console.log('ionViewDidLoad '+this.questionaddData.title);
 
 
-    this.QuestionsProvider.askquestion(this.questionaddData).map(res => res.json()).subscribe((res) => {
+    this.QuestionsProvider.askquestion(this.user_id,this.questionaddData).map(res => res.json()).subscribe((res) => {
       
         /*this.askquestionsData.data = res.data;
         this.askquestionsData.msg = res.msg;

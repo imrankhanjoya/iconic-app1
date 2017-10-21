@@ -51,10 +51,10 @@
 		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Specifications</div>
 	</ion-row >
 	<ion-row *ngFor="let ProductDetail of ProductViewData.data.alldetail, let i = index " class="fullWidth paddingLeft paddingRight">
-		<ion-col col-4 class="marketViewGridTitle">
-			{{ProductDetail.key}}
+		<ion-col col-5 class="marketViewGridTitle">
+			{{ProductDetail.label}}
 		</ion-col>
-		<ion-col col-8 class="marketViewGridContent">
+		<ion-col col-7 class="marketViewGridContent">
 			{{ProductDetail.value}}
 		</ion-col>
 	</ion-row>
