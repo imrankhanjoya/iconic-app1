@@ -1,4 +1,7 @@
 page-cropsuodate {
+	.content-md{
+		background-color: #ffffff;
+	}
 	.lableName{
 	    font-size: 12px;
 	}
@@ -8,17 +11,12 @@ page-cropsuodate {
 	  border: 1px solid #f00;
 	}
 	.dimen{
-	  max-width: 80%;
+	  max-width: 60%;
 	  text-align: center;
 	  padding-left: 10%;
 	}
 	.title{
 	text-align: center;
-	margin-left: 20%;
-	margin-right: 20%;
-	font-weight: bold;
-	padding-top: 8%;
-	padding-bottom: 5%;
 	}
 	.imagc{
 	  border-radius: 50%;
@@ -46,22 +44,28 @@ page-cropsuodate {
 	  text-align: center;
 	}
 
-	.button{
-	  background-color: #649305;
-	  width: 75%;
-	  margin-top: 2%;
-	  margin-left: 10%;
-	}
+
 	.checkbox{
 	  float: left;
-	  width: 20%;
 	  height: 90%;
 
+	}
+	.item.item-md .checkbox-md{
+		margin: 3px;
 	}
 	p.titleName{
 	  margin-left: 5px important;
 	}
 	.titlename{
 		padding-left:0px;	
-}
+	}
+	.minWidth{
+		min-width: 50%;
+	}
+	.mainClass{
+		width: 50%;
+	}
+	.paddingFooterButton{
+		padding: 5px;
+	}
 }
