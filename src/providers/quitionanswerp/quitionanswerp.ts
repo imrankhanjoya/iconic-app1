@@ -13,13 +13,13 @@ import { Api } from '../api/api';
 @Injectable()
 export class QuitionanswerpProvider {
 
-  constructor(public http: Http, public api: Api) {
-    console.log('Hello QuitionanswerpProvider Provider');
-  }
-   	answerquestion(answerdata:any,quistion_id:any) {
-	      console.log('answerdata '+answerdata);
+	  constructor(public http: Http, public api: Api) {
+	    console.log('Hello QuitionanswerpProvider Provider');
+	  }
+   	answerquestion(user_id:any,quistion_id:any,answerdata:any) {
+	      console.log('api call here '+user_id);
 	      let body = new FormData();
-	      body.append('user_id', answerdata.user_id);
+	      body.append('user_id', user_id);
 	      body.append('title', 'test');
 	      body.append('description', answerdata.description);
 	      body.append('quistion_id', quistion_id);
