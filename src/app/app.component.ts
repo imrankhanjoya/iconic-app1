@@ -71,7 +71,16 @@ export class MyApp {
     cacheService.setDefaultTTL(60 * 60); //set default cache TTL for 1 hour
     
     this.platform.ready().then((readySource) => {
-      
+      this.storage.get('userLang').then((userLang) => {
+          console.log(userLang);
+          if(userLang){
+            this.initTranslate(userLang);
+
+          }else{
+            this.initTranslate('hi');
+          }
+
+       });
       fcm.subscribeToTopic('marketing');
 
       fcm.getToken(function(token){
@@ -91,17 +100,6 @@ export class MyApp {
       });
 
         //fcm.unsubscribeFromTopic('---------------marketing');
-
-      this.storage.get('userLang').then((userLang) => {
-          console.log(userLang);
-          if(userLang){
-            this.initTranslate(userLang);
-
-          }else{
-            this.initTranslate('hi');
-          }
-
-       });
 
     });
     
@@ -123,10 +121,8 @@ export class MyApp {
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');
     this.translate.setDefaultLang('hi');
-
+    console.log('User Lang set : '+userLang)
     this.translate.use(userLang); // Set your language here
-
-
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
     });
