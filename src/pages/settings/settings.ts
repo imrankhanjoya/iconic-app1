@@ -160,24 +160,35 @@ export class SettingsPage {
    onStateSelect(stateid) {
     console.log(stateid);
     var array = stateid.split('~');
-    this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
-        this.districtList=resp.data;
-        //console.log(this.districtList);
-        //  this.loading.dismiss();
-      }); 
+    this.cityStateProvider.getDistrict(this.lang,array[1]).then((res)=>{
+    this.districtList=res.data;
+    });
+    // this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
+    //     this.districtList=resp.data;
+    //     //console.log(this.districtList);
+    //     //  this.loading.dismiss();
+    //   }); 
   }
   onDistrictSelect(districtId){
     var array = districtId.split('~');
-    this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
-      this.tehsilList=resp.data;
+    this.cityStateProvider.getTehsil(this.lang,array[0]).then((res)=>{
+            this.tehsilList=res.data;
+        });
+    // this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
+    //   this.tehsilList=resp.data;
       //this.loading.dismiss();
     }); 
   }
   
     getAllState() {
-      this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
-        this.stateList=resp.data;
-        this.loading.dismiss();
-      });
+
+      this.cityStateProvider.getState(this.lang).then((res)=>{
+            this.stateList=res.data;
+        }); 
+      
+      // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
+      //   this.stateList=resp.data;
+      //   this.loading.dismiss();
+      // });
     }
 }
