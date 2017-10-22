@@ -61,6 +61,7 @@ export class HomePage {
   public userKm:any;
   public userId:any;
   public onBording:boolean=false;
+  public isHeaderAnimition=true;
 
   constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
@@ -69,10 +70,17 @@ export class HomePage {
     public tabProvider:TabProvider,public events:Events) {
     this.rotateClass="";
       //this.topMenu = 'toolbarClosed';
+
   }
 
   ionViewDidLoad() {
-
+    this.storage.get('haderAnimition').then((data) => {
+        if (data) {
+          this.isHeaderAnimition=false;
+          this.allTimeShow();
+        }
+      });
+   
     this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
        //this.storage.set('userLoction',resp.coords);
@@ -401,34 +409,38 @@ showBar(){
       this.isCount=false
        this.oneForSize=ev.scrollHeight/4;
     }
-    if(this.isRun1){
-      if (ev.scrollTop >= this.oneForSize) {
-          this.changeClass('1');
-          this.isRun1=false;
-          this.isRun2=true;
-          this.isRun3=true;
-          //console.log('--------'+JSON.stringify(ev));
-        }
+    if (this.isHeaderAnimition) {
+      if(this.isRun1){
+        if (ev.scrollTop >= this.oneForSize) {
+            this.changeClass('1');
+            this.isRun1=false;
+            this.isRun2=true;
+            this.isRun3=true;
+            //console.log('--------'+JSON.stringify(ev));
+          }
+      }
+      if(this.isRun2){
+       
+        if (ev.scrollTop >= (this.oneForSize*2)) {
+            this.changeClass('2');
+            this.isRun2=false;
+            this.isRun1=false;
+            this.isRun3=true;
+          }
+      }
+      if(this.isRun3){
+        
+        if (ev.scrollTop >= (this.oneForSize*3)) {
+            this.changeClass('3');
+            this.isRun2=false;
+            this.isRun1=false;
+            this.isRun3=true;
+            this.onBording = true;
+            this.storage.set('haderAnimition',true);
+          }
+      }
     }
-    if(this.isRun2){
-     
-      if (ev.scrollTop >= (this.oneForSize*2)) {
-          this.changeClass('2');
-          this.isRun2=false;
-          this.isRun1=false;
-          this.isRun3=true;
-        }
-    }
-    if(this.isRun3){
-      
-      if (ev.scrollTop >= (this.oneForSize*3)) {
-          this.changeClass('3');
-          this.isRun2=false;
-          this.isRun1=false;
-          this.isRun3=true;
-          this.onBording = true;
-        }
-    }
+    
   }
 
 async changeClass(count): Promise<string> {
@@ -449,6 +461,17 @@ async changeClass(count): Promise<string> {
         return 'datarebjnj';  
       }
       
+      return 'datarebjnj';
+   }
+   async allTimeShow(): Promise<string> {
+    
+        this.rd.addClass(this.elem.nativeElement, 'opacityShow');
+        this.rd.addClass(this.karsi_id.nativeElement, 'opacityShow');
+        this.rd.addClass(this.tongl_id.nativeElement, 'opacityShow');
+
+        // this.rd.removeClass(this.elem.nativeElement, 'opacityGone');
+        // this.rd.removeClass(this.karsi_id.nativeElement, 'opacityGone');
+        // this.rd.removeClass(this.tongl_id.nativeElement, 'opacityGone');
       return 'datarebjnj';
    }
 //----------------------Hader Animiation End------
