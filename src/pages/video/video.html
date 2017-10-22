@@ -51,21 +51,22 @@
 
 
  <ion-card *ngIf=" i == 0 " class="card card-md" (click)="gotoWebView(newsData.data[i].link)">
-      <div (click)="playVideo(data.videoid)">
-      <img src="https://img.youtube.com/vi/{{data.videoid}}/0.jpg" class="roundImage" >
-
-      <ion-row >
-      <div padding-top padding-left class="newsLargeTitle">{{data.title}}</div>
-      </ion-row>
-      <ion-row >
-      <div padding-left class="newsSmallPTI" >{{data.date}} </div>
-      </ion-row>
+      <div (click)="playVideo(data.videoid)" style="position: relative; height: 350px">
+        <img src="https://img.youtube.com/vi/{{data.videoid}}/0.jpg" class="roundImage" >
+        <ion-row >
+        <div padding-top padding-left class="newsLargeTitle">{{data.title}}</div> 
+        </ion-row>
+        <ion-row >
+        <div padding-left class="newsSmallPTI" >{{data.date}} </div>
+        </ion-row>
+        <img style="position: relative; top:-200px; height:50px"  src="assets/img/play-button.svg"> 
     </div>
   </ion-card>
   <ion-card *ngIf=" i > 0 " >
     <ion-row (click)="playVideo(data.videoid)">
-        <ion-col col-4>
+        <ion-col col-4 style="height:100px">
         <img src="https://img.youtube.com/vi/{{data.videoid}}/0.jpg" class="roundImage" >
+        <img style="position: relative; top:-65px; height:50px"  src="assets/img/play-button.svg"> 
         </ion-col>
         <ion-col col-8>
         <h2 class="http">{{data.title}}</h2>

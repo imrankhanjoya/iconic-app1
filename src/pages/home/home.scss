@@ -160,12 +160,17 @@ page-home {
       }
 
       .videoCard{
-            display: block;
-            position: absolute;
+            position: relative;
+            height: 350px;
       }
       .playIcon{
-            position: absolute;
-            top:10%;
+            position: relative;
+            top:-250px;
+            margin: 0 auto;
+            color:#649305;
+            font-size:4.2em;
+            height:50px
+
       }
 
       /******** Krishi Sevayen Block*********/

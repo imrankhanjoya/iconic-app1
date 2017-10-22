@@ -26,15 +26,12 @@ export class NewsPage {
     console.log('ionViewDidLoad NewsPage');
   }
    getNews(){
-    this.NewsProvider.homeNews(20).map(res => res.json()).subscribe((res) => {
 
+    this.NewsProvider.homeNews(20).then((res)=>{
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
         console.log(this.newsData.data);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
       });
 
   }

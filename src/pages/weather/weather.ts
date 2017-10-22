@@ -84,6 +84,7 @@ export class WeatherPage {
           location = this.navParams.get('filter_tehsil');
       }
       this.weather.weatherfivedays(location).then((res)=>{
+        console.log(res);
         this.weatherfiveday.data = res.data;
         this.weatherfiveday.msg = res.msg;
         this.weatherfiveday.status = res.status;
