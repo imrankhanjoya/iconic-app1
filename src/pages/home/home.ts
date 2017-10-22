@@ -77,6 +77,7 @@ export class HomePage {
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
           this.isHeaderAnimition=false;
+          this.onBording = true;
           this.allTimeShow();
         }
       });
@@ -464,14 +465,10 @@ async changeClass(count): Promise<string> {
       return 'datarebjnj';
    }
    async allTimeShow(): Promise<string> {
-    
-        this.rd.addClass(this.elem.nativeElement, 'opacityShow');
-        this.rd.addClass(this.karsi_id.nativeElement, 'opacityShow');
-        this.rd.addClass(this.tongl_id.nativeElement, 'opacityShow');
 
-        // this.rd.removeClass(this.elem.nativeElement, 'opacityGone');
-        // this.rd.removeClass(this.karsi_id.nativeElement, 'opacityGone');
-        // this.rd.removeClass(this.tongl_id.nativeElement, 'opacityGone');
+        this.rd.removeClass(this.elem.nativeElement, 'opacityGone');
+        this.rd.removeClass(this.karsi_id.nativeElement, 'opacityGone');
+        this.rd.removeClass(this.tongl_id.nativeElement, 'opacityGone');
       return 'datarebjnj';
    }
 //----------------------Hader Animiation End------
