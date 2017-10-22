@@ -3,6 +3,7 @@ page-home {
       .slides{
             height: auto;
       }
+
       .dialogYellow{
             font-weight: bold;
             font-size: 2rem;
@@ -158,6 +159,14 @@ page-home {
       margin:auto;
       }
 
+      .videoCard{
+            display: block;
+            position: absolute;
+      }
+      .playIcon{
+            position: absolute;
+            top:10%;
+      }
 
       /******** Krishi Sevayen Block*********/
       
