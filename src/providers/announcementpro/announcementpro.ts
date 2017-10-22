@@ -26,21 +26,6 @@ export class AnnouncementproProvider {
 			});  
 		});
 	  	
-	    // let seq = this.api.get('v1/announcement/all', paramCond).share();
-
-	    // seq
-	    //   .map(res => res.json())
-	    //   .subscribe(res => {
-	    //     // If the API returned a successful response, mark the user as logged in
-	    //     if (res.status == 'success') {
-	    //       console.log(res);
-	    //     } else {
-	    //     }
-	    //   }, err => {
-	    //     console.error('ERROR', err);
-	    //   });
-
-	    // return seq;
 	}
 
 }

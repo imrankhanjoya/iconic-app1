@@ -327,6 +327,9 @@ export class HomePage {
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
+  gotoWallet(){
+    this.navCtrl.push('WalletPage');
+  }
 
   //----------------------Hader Animiation Start------
 public isRun1=true;

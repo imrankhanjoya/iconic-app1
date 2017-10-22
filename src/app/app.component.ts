@@ -101,8 +101,6 @@ export class MyApp {
           console.log('--onTokenRefresh--'+token);
       });
 
-        //fcm.unsubscribeFromTopic('---------------marketing');
-
     });
     
      
@@ -134,7 +132,13 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     // console.log(page);
-    this.nav.setRoot(page.component);
+    if(page.component=='AboutPage' && this.userLanguage=='hi'){
+       this.nav.setRoot('AboutHindiPage');
+    }else if(page.component=='PrivacyPage' && this.userLanguage=='hi'){    
+       this.nav.setRoot('PrivacyHindiPage');
+    }else{
+       this.nav.setRoot(page.component);
+    }
   }
   openPageWithP(page) {
     // Reset the content nav to have just this page
@@ -157,8 +161,6 @@ export class MyApp {
 
   ngAfterViewInit(){
       this.platform.ready().then(() => {
-        console.log('-------ngAfterViewInit--------')
-
          /*
         IonicDeeplink.route({
           '/about-us': AboutPage,
