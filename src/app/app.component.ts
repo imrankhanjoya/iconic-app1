@@ -41,8 +41,8 @@ import { CacheService } from "ionic-cache";
       
     </ion-row>
     <ion-row class="paddingTop alignCenter">
-    <div class ="colorGreen smallTitleFont fontBold " style="width:50%" (click)="setLanguage('hi')">हिंदी</div>
-    <div class="colorGrey smallTitleFont fontBold" style="width:50%" (click)="setLanguage('en')">ENGLISH</div>
+    <div [class]="userLanguage == 'hi' ? 'colorGreen smallTitleFont fontBold':'colorGrey smallTitleFont fontBold' " style="width:50%" (click)="setLanguage('hi')">हिंदी</div>
+    <div [class]="userLanguage == 'en' ? 'colorGreen smallTitleFont fontBold':'colorGrey smallTitleFont fontBold'" style="width:50%" (click)="setLanguage('en')">ENGLISH</div>
       
       
     </ion-row>
@@ -54,6 +54,7 @@ import { CacheService } from "ionic-cache";
 export class MyApp {
   rootPage = FirstRunPage;
   public username : any;
+  public userLanguage:any;
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
@@ -74,10 +75,11 @@ export class MyApp {
       this.storage.get('userLang').then((userLang) => {
           console.log(userLang);
           if(userLang){
+            this.userLanguage = userLang;
             this.initTranslate(userLang);
-
           }else{
             this.initTranslate('hi');
+            this.userLanguage = 'hi';
           }
 
        });
@@ -144,6 +146,7 @@ export class MyApp {
   setLanguage(lang){
     console.log(lang);
     this.storage.set('userLang',lang);
+    this.userLanguage = lang;
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
     this.nav.setRoot('TabsPage', {}, {
