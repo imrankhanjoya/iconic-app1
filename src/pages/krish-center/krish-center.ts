@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController,Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { KrishProvider } from '../../providers/krish/krish';
-import { CallNumber } from '@ionic-native/call-number';
 
 
 
@@ -26,8 +25,7 @@ export class KrishCenterPage {
   public loading:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
-    public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
-    private callNumber: CallNumber) {
+    public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform) {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
@@ -47,21 +45,16 @@ export class KrishCenterPage {
 
   getkrish(lat:any,long:any){
     console.log('Run getkrish API');
-    this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
+
+    this.krish.kendraList(lat,long).then((res)=>{
+      this.loading.dismiss();
       this.kendraData.data = res.data;
       this.kendraData.msg = res.msg;
       this.kendraData.status = res.status;
       this.kendraHome.data = res.data.results;
-      console.log(res.data);
-      //this.geoLoc.lat = res.data.results[0].geometry.location.lat;
-      //this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-      console.log(this.geoLoc);
-      this.loading.dismiss();
-    }, (err) => {
-      // Unable to log in
-      this.loading.dismiss();
-      console.log(err);
-    });
+
+    });  
+
   }
 
   gotoMap(latitude,longitude,name){
@@ -72,8 +65,6 @@ export class KrishCenterPage {
       };
   }
   makeCall(){
-    this.callNumber.callNumber('9694967744', true)
-  .then(() => console.log('Launched dialer!'))
-  .catch(() => console.log('Error launching dialer'));
+   
   }
 }

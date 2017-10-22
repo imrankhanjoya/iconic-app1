@@ -17,23 +17,13 @@ export class KrishCenterProvider {
     console.log('Hello KrishCenterProvider Provider');
   }
    krish_centerlist() {
-  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	 var paramCond ={page:0,post_type:'blogs ',lang:'en_US'};
-    let seq = this.api.get('v1/wp/detail', paramCond).share();
-
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
+      //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+      var paramCond ={page:0,post_type:'blogs ',lang:'en_US'};
+      return new Promise((resolve)=>{
+        this.api.getCache('v1/wp/detail', paramCond).then((krish_centerlist)=>{
+          resolve(krish_centerlist);
+        });  
       });
-
-    return seq;
   }
 
 }
