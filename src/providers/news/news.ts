@@ -30,7 +30,7 @@ export class NewsProvider {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
       
 
-    var paramCond ={page:0,limit:limit,lang:'en_US'};
+    var paramCond ={page:0,limit:limit,lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/news/all', paramCond).then((weatherdetail)=>{
         resolve(weatherdetail);

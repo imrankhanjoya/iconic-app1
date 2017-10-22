@@ -21,7 +21,7 @@ export class ContactusProvider {
 		console.log(data);
 		console.log('data');
 		let body = new FormData();
-        body.append('user_id',data.ID);
+        body.append('user_id',this.api.userData.ID);
         body.append('contact_id',data.contact_id);
         body.append('contact_type',data.contact_type);
         body.append('name',data.display_name);

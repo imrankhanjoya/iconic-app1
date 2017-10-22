@@ -19,8 +19,8 @@ export class QuitionanswerpProvider {
    	answerquestion(user_id:any,quistion_id:any,answerdata:any) {
 	      console.log('api call here '+user_id);
 	      let body = new FormData();
-	      body.append('user_id', user_id);
-	      body.append('title', 'test');
+	      body.append('user_id', this.api.userData.ID);
+	      body.append('title', 'QuestionTitle');
 	      body.append('description', answerdata.description);
 	      body.append('quistion_id', quistion_id);
 

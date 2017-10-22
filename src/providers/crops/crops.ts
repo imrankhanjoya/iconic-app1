@@ -19,7 +19,7 @@ export class CropsProvider {
 
 	sendCrop(lang){
 
-		var paramCond ={lang:'en_US'};
+		var paramCond ={lang:this.api.userLanguage};
 		return new Promise((resolve)=>{
       this.api.getCache('v1/crops/all', paramCond).then((sendCropData)=>{
 	        resolve(sendCropData);
@@ -43,7 +43,7 @@ export class CropsProvider {
 	}
 
 	sendCropGroupType(lang,crop_type){
-		var paramCond ={lang:'hi_IN',crop_type:crop_type};
+		var paramCond ={lang:this.api.userLanguage,crop_type:crop_type};
 		return new Promise((resolve)=>{
       this.api.getCache('v1/crops/find', paramCond).then((sendCropGroupTypeData)=>{
 	        resolve(sendCropGroupTypeData);
@@ -67,7 +67,7 @@ export class CropsProvider {
 	}
 
 	sendCropDetail(crop_id){
-		var paramCond ={crop_id:crop_id,lang:'hi_IN'};
+		var paramCond ={crop_id:crop_id,lang:this.api.userLanguage};
 		return new Promise((resolve)=>{
       this.api.getCache('/v1/crops/view', paramCond).then((sendCropDetailData)=>{
 	        resolve(sendCropDetailData);

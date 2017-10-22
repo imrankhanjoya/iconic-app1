@@ -390,6 +390,10 @@ page-home {
       .opacityGone{
          opacity: 0;   
       }
+      .opacityShow{
+         opacity: 1;
+         transform: none;
+      }
 
       .bar.bar-header.ng-hide,
       .bar.bar-footer.ng-hide{

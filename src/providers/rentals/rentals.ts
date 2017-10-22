@@ -17,7 +17,7 @@ export class RentalsProvider {
   }
    Rental_list() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	var paramCond ={post_type:'rentals  ',lang:'hi_IN'};
+  	var paramCond ={post_type:'rentals',lang:this.api.userLanguage};
     let seq = this.api.get('v1/wp/all', paramCond).share();
 
     seq
@@ -37,7 +37,7 @@ export class RentalsProvider {
    Rental_Detail(rentalid) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
   	console.log(rentalid+'my ost detail by noser');
-  	var paramCond ={post_id:rentalid ,lang:'hi_IN'};
+  	var paramCond ={post_id:rentalid ,lang:this.api.userLanguage};
     let seq = this.api.get('v1/wp/detail', paramCond).share();
 
     seq

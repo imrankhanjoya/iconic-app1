@@ -16,7 +16,7 @@ export class WalletProvider {
   }
  	Wallet() {
 	  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	 var paramCond ={phoneNumber:9783555770,lang:'en_US'};
+	  	 var paramCond ={phoneNumber:this.api.userData.username,lang:this.api.userLanguage};
 	    let seq = this.api.get('v1/wallet/all', paramCond).share();
 
 	    seq
