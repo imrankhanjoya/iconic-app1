@@ -19,7 +19,7 @@ export class QuestionsProvider {
   }
    questionList() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	 var paramCond ={};
+  	 var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/question/q-a&user_id=1', paramCond).then((questionListData)=>{
         resolve(questionListData);
@@ -43,7 +43,7 @@ export class QuestionsProvider {
    askquestion(user_id:any,questionaddData:any) {
       console.log('questionaddData '+questionaddData);
       let body = new FormData();
-      body.append('user_id', user_id);
+      body.append('user_id', this.api.userData.ID);
       body.append('title', questionaddData.title);
       body.append('privacy', 'public');
       body.append('message', 'remove description fields');

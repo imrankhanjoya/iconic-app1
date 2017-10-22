@@ -27,7 +27,7 @@ export class WeatherProvider {
    */
   weatheHourly() {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={lang:'hi_IN',gaphour:'2'};
+    var paramCond ={lang:this.api.userLanguage,gaphour:'2'};
 
     return new Promise((resolve)=>{
       this.api.getCache('v1/weather/weather-hourly', paramCond).then((wdata)=>{

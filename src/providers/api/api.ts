@@ -19,9 +19,10 @@ export class Api {
   public userData : {ID:string, display_name:string, sID:string, token:string, user_activation_key:string,
     user_email:string, user_login:string, user_nicename:string, user_registered:string, user_status:string,
     user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
-    user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:''};
+    user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:'',_user_latitude:0,_user_longitude:0};
 
   public userLoction : {longitude:number,latitude:number} = {longitude:0,latitude:0};
+  public userLanguage :string = 'hi_IN';
 
   constructor(private geolocation: Geolocation,public http: Http,public storage:Storage,public cache:CacheService) {
     storage.get('userData').then((userdata) => {
@@ -31,6 +32,14 @@ export class Api {
           this.userData=userdata;
         }
      });
+    storage.get('userLang').then((userLang) => {
+        console.log(userLang);
+        if(userLang=='hi'){
+          this.userLanguage = 'hi_IN';
+        }else{
+          this.userLanguage = 'en_US';
+        }
+    });
      this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp);
        this.userLoction.latitude = resp.coords.latitude;

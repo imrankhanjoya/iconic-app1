@@ -20,8 +20,9 @@ export class ChoupalProvider {
 
 
   getChoupal() {
-  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	 var paramCond ={post_type:'services',lang:'hi_IN',lat:this.userLatLong.latitude,longe:this.userLatLong.longitude};
+    var user_id = this.api.userData.ID;
+    //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+  	var paramCond ={post_type:'services',lat:this.userLatLong.latitude,longe:this.userLatLong.longitude,user_id:user_id};
     let seq = this.api.get('v1/choupal/get', paramCond).share();
 
     seq
@@ -39,8 +40,10 @@ export class ChoupalProvider {
     return seq;
   }
   postChoupal(uid,message,image) {
+    var user_id = this.api.userData.ID;
+
     let body = new FormData();
-    body.append('uid', uid);
+    body.append('uid', user_id);
     body.append('lat', this.userLatLong.latitude);
     body.append('longe', this.userLatLong.longitude);
     body.append('message', message);

@@ -19,7 +19,7 @@ export class VideoProvider {
   }
    video_list() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	var paramCond ={post_type:'agri_video',lang:'en_US'};
+  	var paramCond ={post_type:'agri_video',lang:this.api.userLanguage};
     let seq = this.api.get('v1/wp/all', paramCond).share();
 
     seq
@@ -39,7 +39,7 @@ export class VideoProvider {
 
   videoByCat(cat:any) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={post_type:'agri_video',lang:'en_US',slug:cat};
+    var paramCond ={post_type:'agri_video',lang:this.api.userLanguage,slug:cat};
     let seq = this.api.get('v1/wp/cat-post', paramCond).share();
 
     seq

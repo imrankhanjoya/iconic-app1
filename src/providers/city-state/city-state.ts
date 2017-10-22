@@ -16,8 +16,7 @@ export class CityStateProvider {
     console.log('Hello CityStateProvider Provider');
   }
   getState(lang) {
-
-    var paramCond ={lang:lang};
+    var paramCond ={lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/location/state', paramCond).then((getStateData)=>{
         resolve(getStateData);
@@ -43,7 +42,7 @@ export class CityStateProvider {
   }
 
   getDistrict(lang,stateId) {
-    var paramCond ={lang:lang,district_state:stateId};
+    var paramCond ={lang:this.api.userLanguage,district_state:stateId};
     return new Promise((resolve)=>{
       this.api.getCache('v1/location/districts', paramCond).then((getDistrictData)=>{
         resolve(getDistrictData);
@@ -69,7 +68,7 @@ export class CityStateProvider {
   }
 
   getTehsil(lang,districtid) {
-     var paramCond ={lang:lang,districtid:districtid};
+     var paramCond ={lang:this.api.userLanguage,districtid:districtid};
      return new Promise((resolve)=>{
         this.api.getCache('v1/location/tehsil', paramCond).then((getTehsilData)=>{
           resolve(getTehsilData);
@@ -96,7 +95,7 @@ export class CityStateProvider {
 
   getMarket(lang,districtId) {
 
-        var paramCond ={lang:lang,district_state:districtId};
+        var paramCond ={lang:this.api.userLanguage,district_state:districtId};
 
         return new Promise((resolve)=>{
         this.api.getCache('v1/location/market', paramCond).then((getMarketData)=>{
@@ -123,7 +122,7 @@ export class CityStateProvider {
 
   sendCrop(lang){
 
-    var paramCond ={lang:'en_US'};
+    var paramCond ={lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/crops/all', paramCond).then((sendCropData)=>{
           resolve(sendCropData);

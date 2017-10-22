@@ -17,10 +17,9 @@ export class ExpertsProvider {
     console.log('Hello ExpertsProvider Provider');
   }
    Experts_list(post_type='blogs',limit=3) {
-      //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-      
-
-    var paramCond ={post_type:post_type,lang:'hi_IN',limit:limit};
+    //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+    
+    var paramCond ={post_type:post_type,lang:this.api.userLanguage,limit:limit};
     return new Promise((resolve)=>{
       this.api.getCache('v1/wp/all', paramCond).then((Experts_listData)=>{
         resolve(Experts_listData);
@@ -48,7 +47,7 @@ export class ExpertsProvider {
    Experts_Cat_list(post_type='blogs',limit=3,slug) {
     //?lang=en_US&json=get_category_posts&post_type=agri_video&limit=20&slug=seeds
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={post_type:post_type,lang:'hi_IN',limit:limit,slug:slug};
+    var paramCond ={post_type:post_type,lang:this.api.userLanguage,limit:limit,slug:slug};
     let seq = this.api.get('v1/wp/cat-post', paramCond).share();
 
     seq
@@ -67,7 +66,7 @@ export class ExpertsProvider {
   }
   Cat_list(parent_id) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={parent_id:parent_id};
+    var paramCond ={parent_id:parent_id,lang:this.api.userLanguage};
     let seq = this.api.get('v1/wp/post-cat', paramCond).share();
 
     seq
@@ -87,7 +86,7 @@ export class ExpertsProvider {
 Experts_detail(expertids) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
       console.log(expertids+'my ost detail by noser');
-     var paramCond ={post_id:expertids,lang:'en_US'};
+     var paramCond ={post_id:expertids,lang:this.api.userLanguage};
     let seq = this.api.get('v1/wp/detail', paramCond).share();
 
     seq
