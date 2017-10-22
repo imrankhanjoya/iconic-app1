@@ -165,8 +165,8 @@ export class SettingsPage {
       stateid='name~'+stateid
       array = stateid.split('~');
     }
-    console.log(array);
-    this.cityStateProvider.getDistrict(this.lang,array[1]).then((res)=>{
+    console.log(array[2]);
+    this.cityStateProvider.getDistrict(this.lang,array[2]).then((res)=>{
       this.districtList=res.data;
       
     });
@@ -185,7 +185,7 @@ export class SettingsPage {
       districtId='name~'+districtId
       array = districtId.split('~');
     }
-    this.cityStateProvider.getTehsil(this.lang,array[1]).then((res)=>{
+    this.cityStateProvider.getTehsil(this.lang,array[2]).then((res)=>{
             this.tehsilList=res.data;
             this.loading.dismiss();
         });
