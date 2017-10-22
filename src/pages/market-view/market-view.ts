@@ -22,7 +22,6 @@ export class MarketViewPage {
 	public loading :any;
   public ContactSendData = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:''}
 	public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-	Crop: string = "General";
 	constructor(
 			navCtrl: NavController,
 			public navParams: NavParams,

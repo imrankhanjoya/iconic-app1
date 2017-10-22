@@ -96,18 +96,31 @@ export class SettingsPage {
   }
 
   changeprofileform(){
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
     this.changeprofiledata = this.changeprofile.value;
     this.user.UpdateProfile(this.user_id,this.changeprofiledata).map(res => res.json()).subscribe((resp) => {
             this.storage.set('userData',resp.data);
+            console.log(resp.data);
             if (resp.status==true) {
-              this.passresError='Profile Update Sucessfully';
+              this.loading.dismiss();
+              alert('Profile Update Sucessfully.');
+              this.navCtrl.push('ItemCreatePage');
             }
      }, (err) => {
-      //this.navCtrl.push('LoginPage');
+      this.loading.dismiss();
+      this.navCtrl.push('LoginPage');
     });
   }
 
   changelocaltionform(){
+
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
     this.changelocationformdata = this.changelocation.value;
     var statearray = this.changelocationformdata.user_state_id;
     var districtarray = this.changelocationformdata.user_district_id;
@@ -116,9 +129,11 @@ export class SettingsPage {
             this.storage.set('userData',resp.data);if (resp.status==true) {
               this.passresError='Change Location Sucessfully';
             }
-
+          this.loading.dismiss();
+          alert('Profile Update Sucessfully.');
+          this.navCtrl.push('ItemCreatePage');
      }, (err) => {
-      //this.navCtrl.push('LoginPage');
+    this.loading.dismiss();
     });
   }
 
@@ -157,7 +172,8 @@ export class SettingsPage {
   ionViewWillEnter() {
     
   }
-   onStateSelect(stateid) {
+   
+  onStateSelect(stateid) {
     var array = stateid.split('~');
     if (!stateid.search('~')) {
       array = stateid.split('~');
@@ -195,16 +211,16 @@ export class SettingsPage {
     //}); 
   }
   
-    getAllState() {
+  getAllState() {
 
-      this.cityStateProvider.getState(this.lang).then((res)=>{
-            this.stateList=res.data;
+    this.cityStateProvider.getState(this.lang).then((res)=>{
+          this.stateList=res.data;
 
-        }); 
-      
-      // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
-      //   this.stateList=resp.data;
-      //   this.loading.dismiss();
-      // });
-    }
+      }); 
+    
+    // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
+    //   this.stateList=resp.data;
+    this.loading.dismiss();
+    // });
+  }
 }

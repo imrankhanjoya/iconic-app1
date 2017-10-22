@@ -19,12 +19,12 @@
   <ion-grid>
  <ion-row class="separator paddingTop paddingBottom paddingRight">
     <ion-col class="colText"> <ion-icon name="call" class="paddingRight colorGrey"></ion-icon> 
-      +91 {{userlogin.phone}}
+      +91 {{userlogin.user_login}}
     </ion-col>
   </ion-row>
   <ion-row class="separator paddingTop paddingBottom paddingRight">
     <ion-col class="colText"><ion-icon name="compass" class="paddingRight colorGrey"></ion-icon>
-      {{userlogin.userDictName}}, {{userlogin.userStateName}}
+      {{userlogin.tehsil_name}}, <!-- {{userlogin.userDictName}}, --> {{userlogin.state_name}}
     </ion-col>
     <ion-col class="colText" col-1  (click)="openPageWithP('changelocation')">
        <ion-icon name="ios-create-outline" ></ion-icon>
@@ -33,10 +33,11 @@
   <ion-row class="separator paddingTop paddingBottom paddingRight">
     <ion-col class="colText" col-2 ><img  src="assets/img/agri bolo icon/hdpi/plant.png" class="paddingRight">
     </ion-col>
-    <ion-col col-9>
-    
-    
-       सरसों
+    <ion-col col-9 *ngIf="userlogin.crop_count > 2">
+      <span >{{userlogin.crops[0].name}}, {{userlogin.crops[1].name}} and {{userlogin.crop_count-2}} others</span> 
+    </ion-col>
+    <ion-col col-9 *ngIf="userlogin.crop_count <= 2">
+      <span *ngFor="let crop of userlogin.crops">{{crop.name}} , </span> 
     </ion-col>
     <ion-col class="colText" col-1  (click)="editcrops()">
        <ion-icon name="ios-create-outline" ></ion-icon>

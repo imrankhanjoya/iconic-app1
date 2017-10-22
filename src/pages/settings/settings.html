@@ -138,13 +138,13 @@
       <ion-item class="separator">
       <ion-label class="colorGrey">{{'SELECT_LOCTION_STATE' | translate}}</ion-label>
         <ion-select   formControlName="user_state_id" #user_state_id (ionChange)="onStateSelect(user_state_id.value)">
-          <ion-option *ngFor="let state of stateList" value={{state.state_name}}~{{state.id}}>{{state.state_name}}</ion-option>
+          <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item class="separator">
       <ion-label class="colorGrey">{{'SELECT_LOCTION_DISTRICT' | translate}}</ion-label>
         <ion-select  formControlName="user_district_id" #user_district_id (ionChange)="onDistrictSelect(user_district_id.value)">
-          <ion-option *ngFor="let district of districtList" value={{district.district_name}}~{{district.id}}>{{district.district_name}}</ion-option>
+          <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item >
