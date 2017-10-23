@@ -21,6 +21,7 @@ export class MandiDetailsPage {
   public mandiData:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public loading:any;
   public filterMarket:any;
+  public filterDistrict:any;
   public filter_crops:any;
 
   public topMenu:string='';
@@ -32,6 +33,7 @@ export class MandiDetailsPage {
 
     
     this.filterMarket = navParams.get('filter_market');
+    this.filterDistrict = navParams.get('filter_district');
     this.filter_crops = navParams.get('filter_crops');
 
     console.log(this.filter_crops);
@@ -52,9 +54,10 @@ export class MandiDetailsPage {
 
     console.log('-----'+this.filter_crops)
 
+    var DistrictId = ( typeof this.filterDistrict != 'undefined' )?this.filterDistrict:0;
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
-    this.mandi.mandiRates(marketId,filter_crops).then((res)=>{
+    this.mandi.mandiRates(DistrictId,marketId,filter_crops).then((res)=>{
       this.mandiData= res;
       this.loading.dismiss();
     });
@@ -75,7 +78,7 @@ export class MandiDetailsPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-          this.navCtrl.push(MandiDetailsPage,{filter_market:popoverData.filter_market});
+          this.navCtrl.push(MandiDetailsPage,{filter_district:popoverData.filter_district,filter_market:popoverData.filter_market});
       }
     });
   }

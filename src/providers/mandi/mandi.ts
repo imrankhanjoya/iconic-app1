@@ -22,10 +22,10 @@ export class MandiProvider {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
-  mandiRates(marketId,filter_crops) {
+  mandiRates(DistrictId,marketId,filter_crops) {
 
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	var paramCond ={page:0,market_id:marketId,filter_crops:JSON.stringify(filter_crops),user_id:this.api.userData.ID,latitude:this.api.userLoction.latitude,longitude:this.api.userLoction.longitude,lang:this.api.userLanguage};
+  	var paramCond ={page:0,district_id:DistrictId,market_id:marketId,filter_crops:JSON.stringify(filter_crops),user_id:this.api.userData.ID,latitude:this.api.userLoction.latitude,longitude:this.api.userLoction.longitude,lang:this.api.userLanguage};
      return new Promise((resolve)=>{
         this.api.getCache('v1/mandi/all-crop', paramCond).then((mandiRatesData)=>{
           resolve(mandiRatesData);
