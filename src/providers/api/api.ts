@@ -95,18 +95,13 @@ export class Api {
    return new Promise((resolve)=>{
 
 
-          this.cache.getItem(key).catch(() => {
-            
-
-          }).then((data) => {
+          this.cache.getItem(key).catch(() => {}).then((data) => {
                 if(typeof data == 'undefined'){
                       let seq = this.http.get(this.url + '/' + endpoint, options).share();
                       seq.map(res => res.json())
                       .subscribe(res => {
-                        console.log(res);
                         // If the API returned a successful response, mark the user as logged in
                         if (res.status == 'success' || res.status == true) {
-                          console.log(res);
                           this.cache.saveItem(key, res);
                           resolve(res);
                         }else{
