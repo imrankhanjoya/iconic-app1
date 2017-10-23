@@ -36,7 +36,7 @@ export class FilterModelPage {
         this.changemarket = this.formBuilder.group({
         user_state_id: ['', Validators.required],
         user_district_id: ['', Validators.required],
-        user_market_id: ['', Validators.required]
+        user_market_id: ['']
         });
         this.getAllState();
 
@@ -83,9 +83,9 @@ export class FilterModelPage {
     }
 
     filterLocaltionForm(){
-        let data = { 'filter_market': this.changemarket.value.user_market_id };
+        let data = { 'filter_district': this.changemarket.value.user_district_id,'filter_market': this.changemarket.value.user_market_id };
         this.viewCtrl.dismiss(data);
-        console.log(this.changemarket.value.user_market_id);
+        //console.log(this.changemarket.value.user_market_id);
         //this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
     }
     dismiss(){

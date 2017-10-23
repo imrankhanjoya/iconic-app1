@@ -33,12 +33,8 @@
   <ion-card>
     <img  class="newsLargeImage roundImage fixImage" src="{{Rental_detaildata.data.attachments}}"/>
     <div class="pClass smallTitle fontBold colorGrey">{{Rental_detaildata.data.title}}</div>
-    <div class="pTitle1 Heading clorGrey">{{Rental_detaildata.data.content}}</div>
-    <div class="pContent"><span innerHtml="{{Rental_detaildata.data.content}}"></span></div>
-
-    <div >
+    <span class="headline" innerHtml="{{Rental_detaildata.data.content}}"></span>
     <button ion-button block class="buttonGreen">{{'EXPRET_CONTECT' | translate}}</button>
-    </div>
     
   </ion-card>
 
