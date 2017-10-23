@@ -99,10 +99,10 @@ export class HomePage {
         console.log(userdata);
         this.userId=userdata.ID;
         this.userDisplayName=userdata.display_name;
-        this.getMandiData();
       }
     });
     
+    this.getMandiData();
     this.getNews();
     this.getweather(1);
     this.get_expert();

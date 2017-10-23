@@ -34,7 +34,7 @@
     <ion-col class="colText" col-2 ><img  src="assets/img/agri bolo icon/hdpi/plant.png" class="paddingRight">
     </ion-col>
     <ion-col col-9 *ngIf="userlogin.crop_count > 2">
-      <span >{{userlogin.crops[0].name}}, {{userlogin.crops[1].name}} and {{userlogin.crop_count-2}} others</span> 
+      <span >{{userlogin.crops[0].name}}, {{userlogin.crops[1].name}} {{'AND' | translate}} {{userlogin.crop_count-2}} {{'OTHER' | translate}}</span> 
     </ion-col>
     <ion-col col-9 *ngIf="userlogin.crop_count <= 2">
       <span *ngFor="let crop of userlogin.crops">{{crop.name}} , </span> 
@@ -46,10 +46,10 @@
 </ion-grid>
 
 <div class="block">
-<button ion-button block   (click)="openPageWithP('changeprofile')" >प्रोफाइल एडिट करें</button>
+<button ion-button block   (click)="openPageWithP('changeprofile')" >{{'EDIT_PROFILE' | translate}}</button>
 </div>
 <div class="block">
-<button ion-button block (click)="openPageWithP('changepass')">पासवर्ड बदलें</button>
+<button ion-button block (click)="openPageWithP('changepass')"></button>
 </div>
 </ion-card>
 </ion-content>

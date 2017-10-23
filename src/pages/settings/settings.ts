@@ -68,7 +68,6 @@ export class SettingsPage {
             });
             this.changeprofile = this.formBuilder.group({
               display_name: [this.userData.display_name, Validators.required],
-              user_language: [this.userData._user_language, Validators.required],
               user_irrigation_type: [this.userData._user_irrigation_type, Validators.required],
               user_irrigation_source: [this.userData._user_irrigation_source, Validators.required],
               user_landholding_size_unit: [this.userData.user_landholding_size_unit, Validators.required],

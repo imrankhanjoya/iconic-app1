@@ -73,17 +73,6 @@
           <ion-input  formControlName="display_name"  placeholder="Display Name" class="colorGrey" ng-required></ion-input>
         </ion-item>
         <ion-item class="separator paddingBottom8px">
-          <ion-label >{{'SELECT_LANGUAGE' | translate}}</ion-label>
-          <ion-select  formControlName="user_language">
-            <ion-option value="en_US">English</ion-option>
-            <ion-option value="hi_IN">Hindi</ion-option>
-          </ion-select>
-        </ion-item >
-        <div class="error" *ngIf="passConpError==true" >
-            {{passErrorMsg}}
-        </div>
-
-        <ion-item class="separator paddingBottom8px">
           <ion-label>{{'IRRIGATION_TYPE' | translate}}</ion-label>
           <ion-select  formControlName="user_irrigation_type"  ng-required>
             <ion-option value="Flood irrigation">Flood irrigation</ion-option>

@@ -209,5 +209,9 @@
   "DESCRIPTION": "Description",
   "PRICE_REQUEST": "Price Request",
   "CANCEL": "Cancel",
-  "LOCATION": "Location"
+  "LOCATION": "Location",
+  "AND": "and",
+  "OTHER": "others",
+  "EDIT_PROFILE": "Edit Profile",
+  "CHANGE_PASSWORD": "Change Password"
 }
