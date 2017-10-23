@@ -15,8 +15,6 @@ import { CallProvider } from '../../providers/call/call';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
 import { TabProvider } from '../../providers/tab/tab';
 import { WeatherPage } from '../weather/weather';
-
-
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -329,6 +327,10 @@ export class HomePage {
   }
   gotoWallet(){
     this.navCtrl.push('WalletPage');
+  }
+  gotoRentalsPage(id){
+    //console.log(id);
+    this.navCtrl.push('RentalDetailPage',{rid:id});
   }
 
   //----------------------Hader Animiation Start------

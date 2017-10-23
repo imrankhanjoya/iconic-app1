@@ -155,8 +155,7 @@ export class CropsuodatePage {
           this.userdata.crops = resp.data;
           console.log(this.userdata);
           this.storage.set('userData',this.userdata);
-            
-	       //this.navCtrl.push('ItemCreatePage');
+          this.navCtrl.push('ItemCreatePage');
 	      }else{
 	        alert(resp.msg);
 	      }

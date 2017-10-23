@@ -173,15 +173,7 @@ export class SettingsPage {
   }
    
   onStateSelect(stateid) {
-    var array = stateid.split('~');
-    if (!stateid.search('~')) {
-      array = stateid.split('~');
-    }else{
-      stateid='name~'+stateid
-      array = stateid.split('~');
-    }
-    console.log(array[2]);
-    this.cityStateProvider.getDistrict(this.lang,array[0]).then((res)=>{
+    this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
       
     });
@@ -192,15 +184,7 @@ export class SettingsPage {
     //   }); 
   }
   onDistrictSelect(districtId){
-    
-    var array = districtId.split('~');
-    if (!districtId.search('~')) {
-      array = districtId.split('~');
-    }else{
-      districtId='name~'+districtId
-      array = districtId.split('~');
-    }
-    this.cityStateProvider.getTehsil(this.lang,array[0]).then((res)=>{
+    this.cityStateProvider.getTehsil(this.lang,districtId).then((res)=>{
             this.tehsilList=res.data;
             this.loading.dismiss();
         });
