@@ -297,7 +297,7 @@
 
 
 
-  <ion-card class="dialog" *ngIf="announceList.status==true">
+  <ion-card class="dialog" *ngIf="announceList.status==true" >
     <ion-grid >
       <ion-row>
         <ion-col col-3 >
@@ -310,7 +310,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <div class="readMore titleFont" (click)="gotoAnounsePage()">{{'SEE_MORE' | translate}}</div>
+    <div class="readMore titleFont" (click)="gotoRentalsPage(announceList.data[0].page_id)">{{'SEE_MORE' | translate}}</div>
   </ion-card>
 
  
@@ -404,7 +404,6 @@
   <ion-card class="vedioCard"  style="height:400px">
   <ion-row >
     <img class="roundImage fitImage" (click)="playVideo('Moin-yDG7Ss')" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
-
     <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">Agribolo : Agriculture on the finger tips of Indian farmer
     </div>
   </ion-row>
