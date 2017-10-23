@@ -34,19 +34,14 @@ export class KrishCenterPage {
 
 
   ionViewDidLoad() {
-     this.geolocation.getCurrentPosition().then((resp) => {
-       console.log(resp);
-       this.getkrish(resp.coords.latitude,resp.coords.longitude);
-      }).catch((error) => {
-        console.log('Error getting location', error);
-      });
-    console.log('ionViewDidLoad KrishCenterPage');
+     this.getkrish();
+     console.log('ionViewDidLoad KrishCenterPage');
   }
 
   getkrish(lat:any,long:any){
     console.log('Run getkrish API');
 
-    this.krish.kendraList(lat,long).then((res)=>{
+    this.krish.kendraList().then((res)=>{
       this.loading.dismiss();
       this.kendraData.data = res.data;
       this.kendraData.msg = res.msg;

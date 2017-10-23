@@ -5,7 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="fulldark">
     <ion-title>{{'RENTAL_DETAIL_TITLE' | translate}}</ion-title>
     <ion-buttons end>
@@ -23,8 +22,6 @@
       <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
     </button>
     </ion-buttons>
-
-
   </ion-navbar>
 </ion-header>
 
@@ -33,23 +30,21 @@
   <ion-card>
     <img  class="newsLargeImage roundImage fixImage" src="{{Rental_detaildata.data.attachments}}"/>
     <div class="pClass smallTitle fontBold colorGrey">{{Rental_detaildata.data.title}}</div>
-    <div class="pTitle1 Heading clorGrey">{{Rental_detaildata.data.content}}</div>
-    <div class="pContent"><span innerHtml="{{Rental_detaildata.data.content}}"></span></div>
-
-    <div >
+    <span class="headline" innerHtml="{{Rental_detaildata.data.content}}"></span>
     <button ion-button block class="buttonGreen">{{'EXPRET_CONTECT' | translate}}</button>
-    </div>
     
   </ion-card>
 
 
 <div col-12 style="position: fixed; top:80%">
+    <a href="tel:18001200800" >
     <button (click)="mackCall()" ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:10px;">
       <ion-icon name="call" class="displayOneFont" style="padding-left: 55px; padding-right:5px"></ion-icon>
       <div  class="{{textSlide}} smallTitle" style="opacity: 0;">
         CLICK TO CALL
     </div>
-
     </button>
+    </a>
   </div>
 </ion-content>
+

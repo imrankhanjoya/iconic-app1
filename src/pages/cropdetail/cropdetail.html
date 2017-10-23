@@ -46,7 +46,7 @@
 			    </div>
 				<div  *ngFor="let AllDetails of cropdetail.AllDetail;"  >
 					<div class="headline paddingTop fontBold" >{{AllDetails.key}}</div>
-					<div class="pContent headline">{{AllDetails.value}}</div>
+					<div class="pContent headline"  innerHtml="{{AllDetails.value}}"></div>
 			</div>
       </div>
 	  	</ion-card>
@@ -60,10 +60,10 @@
 					<div>
 						<div class="smallTitle fontBold">{{Deseas.desease_name}}</div>
 						<div class="headline fontBold paddingTop ">Nature of Damage:</div>
-						<div class="headline">{{Deseas.cause_nature_damage}}</div>
+						<div class="headline" innerHtml="{{Deseas.cause_nature_damage}}"></div>
 
 						<div class="headline fontBold paddingTop colorGrey">Management:</div>
-						<div class="headline paddingBottom colorGrey separator">{{Deseas.management}}</div>
+						<div class="headline paddingBottom colorGrey separator"  innerHtml="{{Deseas.management}}"></div>
 					</div>
 				</div>
 			</div>
@@ -77,19 +77,19 @@
 			<div >
 				<div class="paddingLeft" >
 					<div>
-						<div class="smallTitle fontBold paddingTop">{{Varity.improved_varieties}}</div>
+						<div class="smallTitle fontBold paddingTop"  innerHtml="{{Varity.improved_varieties}}"></div>
 
 						<div class="headline fontBold paddingTop ">Avergae Yield</div>
-						<div class="headline">{{Varity.average_yield}}</div>
+						<div class="headline"  innerHtml="{{Varity.average_yield}}"></div>
 
 						<div class="headline fontBold paddingTop ">Maturity Period</div>
 						<div class="headline">{{Varity.maturity_period}} Days</div>
 
 						<div class="headline fontBold paddingTop ">Characterists</div>
-						<div class="headline colorGrey">{{Varity.characteristics}}</div>
+						<div class="headline colorGrey" innerHtml="{{Varity.characteristics}}"></div>
 
 						<div class="headline fontBold paddingTop ">Special Features</div>
-						<div class="headline paddingBottom separator colorGrey">{{Varity.special_features}}</div>
+						<div class="headline paddingBottom separator colorGrey" innerHtml="{{Varity.special_features}}"></div>
 
 					</div>
 				</div>
@@ -105,10 +105,10 @@
 					<div>
 						<div class="smallTitle fontBold">{{Insects.insects_name}}</div>
 						<div class="headline fontBold paddingTop ">Nature of Damage:</div>
-						<div class="headline">{{Insects.insects_damage}}</div>
+						<div class="headline" innerHtml="{{Insects.insects_damage}}"></div>
 
 						<div class="headline fontBold paddingTop ">Management:</div>
-						<div class="headline paddingBottom separator colorGrey">{{Insects.management}}</div>
+						<div class="headline paddingBottom separator colorGrey" innerHtml="{{Insects.management}}"></div>
 					</div>
 				</div>
 			</div>
@@ -121,9 +121,9 @@
 
 				<div class="paddingLeft" >
 					<div>
-						<div class="headline fontBold paddingTop ">Sowing Time: {{waters.sowing_time}}</div>
+						<div *ngIf="waters.districts.length > 0" class="headline fontBold paddingTop">Sowing Time: {{waters.sowing_time}}</div>
 
-						<div class="headline fontBold paddingTop ">Districts: {{waters.districts}}</div>
+						<div *ngIf="waters.districts.length > 1" class="headline fontBold paddingTop ">Districts: {{waters.districts.length}}</div>
 
 
 						<div class="headline paddingTop paddingBottom separator colorGrey">{{waters.water}}</div>
