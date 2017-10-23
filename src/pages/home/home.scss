@@ -321,20 +321,23 @@ page-home {
       }
 
       .rotateimage1 {
-          animation:spin 700ms linear 2000;
+          animation:spin 500ms linear 2000;
           animation-iteration-count:1;
+          animation-fill-mode: forwards;
       }
       @keyframes spin { 
-            100% { transform:rotate(360deg); }
+            100% { transform:rotate(180deg); }
       }
       
 
       .rotateimage2 {
-          animation:spin1 700ms linear 2000;
+          animation:spin1 500ms linear 2000;
           animation-iteration-count:1;
+          animation-fill-mode: forwards;
       }
       @keyframes spin1 { 
-            100% { transform:rotate(360deg); }
+            0% { transform:rotate(180deg); }
+            100% { transform:rotate(0deg); }
       }
 
 
