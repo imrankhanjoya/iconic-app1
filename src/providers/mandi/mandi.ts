@@ -25,7 +25,7 @@ export class MandiProvider {
   mandiRates(marketId,filter_crops) {
 
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	var paramCond ={page:0,market_id:marketId,filter_crops:JSON.stringify(filter_crops),user_id:this.api.userData.ID,latitude:this.api.userLoction.latitude,longitude:this.api.userLoction.longitude};
+  	var paramCond ={page:0,market_id:marketId,filter_crops:JSON.stringify(filter_crops),user_id:this.api.userData.ID,latitude:this.api.userLoction.latitude,longitude:this.api.userLoction.longitude,lang:this.api.userLanguage};
      return new Promise((resolve)=>{
         this.api.getCache('v1/mandi/all-crop', paramCond).then((mandiRatesData)=>{
           resolve(mandiRatesData);
@@ -53,7 +53,7 @@ export class MandiProvider {
 
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
       
-      var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,long:geoLoc.lng};
+      var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,long:geoLoc.lng,lang:this.api.userLanguage};
       return new Promise((resolve)=>{
         this.api.getCache('v1/mandi/user-mandi', paramCond).then((usermandiData)=>{
           resolve(usermandiData);
@@ -83,7 +83,7 @@ export class MandiProvider {
 
 
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-      var paramCond ={lang:lang};
+      var paramCond ={lang:this.api.userLanguage};
       return new Promise((resolve)=>{
         this.api.getCache('v1/mandi/commudity', paramCond).then((commudityData)=>{
           resolve(commudityData);

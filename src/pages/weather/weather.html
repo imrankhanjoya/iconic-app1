@@ -23,8 +23,6 @@
   
   </ion-card>
   <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="onSlideChanged()">
-
-
     <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
         <ion-row>
@@ -103,7 +101,6 @@
             </ion-col>
           </ion-row>
       </ion-card>
-
     </ion-slide>
 </ion-slides>
 <ion-row class="cloud">
