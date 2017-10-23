@@ -84,13 +84,13 @@ page-market-view {
 		}
 	}
 	
-	.fadeInLeft {
-        animation: fadeInLeft 1s;
+	.fadeInLeftMarket {
+        animation: fadeInLeftM 1s;
         transition-duration: 1s;
-        animation-delay: 1s;
+        animation-delay: 500ms;
         animation-fill-mode: forwards;
       }
-      @keyframes fadeInLeft {
+      @keyframes fadeInLeftM {
         from {
           opacity: 0;
           transform: translate3d(100%, 0, 0);

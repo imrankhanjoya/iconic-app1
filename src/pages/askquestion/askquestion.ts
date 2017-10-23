@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Storage } from '@ionic/storage';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
  * Generated class for the AskquestionPage page.
@@ -21,8 +22,8 @@ export class AskquestionPage {
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public QuestionsProvider: QuestionsProvider,
-              public storage:Storage) {
+              public QuestionsProvider: QuestionsProvider, public camera:Camera,
+              public storage:Storage, public popoverCtrl: PopoverController,) {
 
                 this.storage.get('userData').then((val) => {
                   this.user_id = val.ID; 
@@ -34,8 +35,7 @@ export class AskquestionPage {
     console.log('ionViewDidLoad AskquestionPage');
   }
    getaskquestions(){
-   	// console.log('ionViewDidLoad '+this.questionaddData.title);
-
+   	console.log('questionaddData : '+this.questionaddData);
 
     this.QuestionsProvider.askquestion(this.user_id,this.questionaddData).map(res => res.json()).subscribe((res) => {
       
@@ -55,6 +55,36 @@ export class AskquestionPage {
   goToUsrask(){
  	 this.getaskquestions();
   	this.navCtrl.push(AskquestionPage);
+  }
+  addImg(){
+    let popover = this.popoverCtrl.create('UploadImagePage');
+     popover.present({
+     });
+     popover.onDidDismiss((popoverData) => {
+      console.log(popoverData);
+        if(popoverData=='camera'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.CAMERA,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              console.log('=========data:image/jpeg;base64,'+imageData);
+             this.questionaddData.Attachments=imageData;
+             }, (err) => {
+              console.log(err);
+            });
+        }
+        if(popoverData=='gallery'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              console.log('=========data:image/jpeg;base64,'+imageData);
+              this.questionaddData.Attachments=imageData;
+             }, (err) => {
+              console.log(err);
+            });
+        }
+     });
   }
 
 }

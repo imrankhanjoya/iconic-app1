@@ -33,7 +33,9 @@
         </ion-item>
         <div class="inputborder"></div> -->
       <ion-item>
-          <ion-row justify-content-end>
+
+          <ion-row justify-content-end (click)="addImg()">
+            <img style="height: 100px; width: 100px;" src="{{questionaddData.Attachments}}">
               <button ion-button clear>
               <ion-icon name="attach">{{'ASK_QUESTION_PUT_A_PICTURE' | translate}}</ion-icon>
               </button>

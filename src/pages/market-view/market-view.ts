@@ -48,16 +48,6 @@ export class MarketViewPage {
         });
     }
   ionViewDidLoad() {
-    this.buttonOnCloseCSS="buttonOnClose";
-    this.aniName="openCallButton";
-    this.textSlide="fadeInLeft"
-    setTimeout(() => {
-      this.textSlide="textGoingBack"
-    }, 3000);
-
-    setTimeout(() => {
-      this.aniName="closeCallButton"
-    }, 4000);
     this.getProductView();
     
   }
@@ -73,6 +63,9 @@ export class MarketViewPage {
         this.ProductViewData.status = res.status;
         console.log('market data start');
         console.log(this.ProductViewData.data.detail);
+        setTimeout(() => {
+          this.startAnimitio();
+        }, 1000);
         loading.dismiss();
       });
     // this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
@@ -110,8 +103,19 @@ export class MarketViewPage {
     });
   }
   animitionStar(){
-    this.aniName="openCallButton";
-    this.textSlide="fadeInLeft"
+    
+  }
+  startAnimitio(){
+      this.buttonOnCloseCSS="buttonOnClose";
+      this.aniName="openCallButton";
+      this.textSlide="fadeInLeftMarket"
+      setTimeout(() => {
+        this.textSlide="textGoingBack"
+      }, 3000);
+
+      setTimeout(() => {
+        this.aniName="closeCallButton"
+      }, 4000);
   }
 
 }
