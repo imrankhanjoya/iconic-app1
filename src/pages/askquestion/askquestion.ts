@@ -68,7 +68,7 @@ export class AskquestionPage {
              destinationType: this.camera.DestinationType.DATA_URL
             }).then((imageData) => {
               console.log('=========data:image/jpeg;base64,'+imageData);
-             this.questionaddData.Attachments=imageData;
+             this.questionaddData.Attachments='data:image/jpeg;base64,'+imageData;
              }, (err) => {
               console.log(err);
             });
@@ -79,7 +79,7 @@ export class AskquestionPage {
              destinationType: this.camera.DestinationType.DATA_URL
             }).then((imageData) => {
               console.log('=========data:image/jpeg;base64,'+imageData);
-              this.questionaddData.Attachments=imageData;
+              this.questionaddData.Attachments='data:image/jpeg;base64,'+imageData;
              }, (err) => {
               console.log(err);
             });
