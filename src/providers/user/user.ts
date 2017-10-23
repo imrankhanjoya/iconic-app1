@@ -83,6 +83,7 @@ export class User {
 
   login(username,password) {
   let body = new FormData();
+  body.append('lang', this.api.userLanguage);
   body.append('username', username);
   body.append('password', password);
     let seq = this.api.post('v1/user/login', body).share();
@@ -103,6 +104,7 @@ export class User {
   }
   userUpdateProImg(userId,image) {
   let body = new FormData();
+  body.append('lang', this.api.userLanguage);
   body.append('user_id', userId);
   body.append('image', image);
     let seq = this.api.post('v1/user/image-update', body).share();
@@ -269,6 +271,7 @@ export class User {
    */
    UpdateLocation(user_id,user_state_id,user_district_id,user_tahsil_id){
      let body = new FormData();
+     body.append('lang', this.api.userLanguage);
      body.append('user_id', user_id);
      body.append('user_state_id', user_state_id);
      body.append('user_district_id', user_district_id);
@@ -296,6 +299,7 @@ export class User {
    */
    UpdateProfile(user_id,profiledata){
      let body = new FormData();
+     body.append('lang', this.api.userLanguage);
      body.append('user_id', user_id);
      console.log(profiledata);
      body.append('display_name', profiledata.display_name);
@@ -327,6 +331,7 @@ export class User {
    */
     UpdateCrops(user_id,crops,lang){
         let body = new FormData();
+        body.append('lang', this.api.userLanguage);
         body.append('user_id',user_id);
         body.append('crops',crops);
         body.append('lang',lang);
