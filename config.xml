@@ -99,4 +99,6 @@
         <variable name="DEEPLINK_HOST" value="agribolo.com" />
     </plugin>
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+
+    <engine name="android" spec="~6.3.0" />
 </widget>
