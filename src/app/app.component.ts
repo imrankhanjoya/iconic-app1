@@ -11,7 +11,6 @@ import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
 import { CacheService } from "ionic-cache";
 
-
 //import { Storage } from '@ionic/storage';
 
 @Component({
@@ -70,8 +69,10 @@ export class MyApp {
     private fcm: FCM,public cacheService: CacheService) {
 
     cacheService.setDefaultTTL(60 * 60); //set default cache TTL for 1 hour
-    
+        
     this.platform.ready().then((readySource) => {
+
+        //fcm.unsubscribeFromTopic('---------------marketing');
       this.storage.get('userLang').then((userLang) => {
           console.log(userLang);
           if(userLang){

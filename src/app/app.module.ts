@@ -55,6 +55,7 @@ import { WalletProvider } from '../providers/wallet/wallet';
 import { FCM } from '@ionic-native/fcm';
 import { CacheModule } from "ionic-cache";
 
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function HttpLoaderFactory(http: Http) {
@@ -149,6 +150,7 @@ export function provideSettings(storage: Storage) {
     ContactusProvider,
     WalletProvider,
     FCM,
+
   ]
 })
 export class AppModule { }

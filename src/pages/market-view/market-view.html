@@ -9,9 +9,12 @@
 	<ion-navbar>
 	    <ion-title class="title fontBold fontShadow">{{ProductViewData.data.name}}</ion-title>
 	</ion-navbar>
+
+
 </ion-header>
 
 <ion-content>
+
 <ion-row *ngIf="ProductViewData.status==true">
 	<ion-col col-4>
 		<img class="paddingLeft paddingTop" src="{{ProductViewData.data.feature_image}}"/>
@@ -60,4 +63,10 @@
 	</ion-row>
 </ion-row>
 
+	<button ion-button  class="{{aniName}} buttonOnClose buttonGreen"  >
+  	<ion-icon name="call" class="displayOneFont" style="padding-left: 30px;"></ion-icon>
+  	<div  class="{{textSlide}}" style="opacity: 0;">
+  		CLICK TO CALL
+	</div>
+  </button>
 </ion-content>

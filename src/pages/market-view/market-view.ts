@@ -18,45 +18,63 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'market-view.html',
 })
 export class MarketViewPage {
-	public id:any;
-	public loading :any;
+  public id:any;
+  public loading :any;
+  public aniName:any;
+  public textSlide:any;
+  public textGotoBack:any;
+  public buttonOnCloseCSS:any;
   public ContactSendData = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:''}
-	public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-	constructor(
-			navCtrl: NavController,
-			public navParams: NavParams,
-    		public market:MarketproProvider,
-    		public callProvider:CallProvider,
-    		public loadingCtrl: LoadingController,
+  public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  constructor(
+      navCtrl: NavController,
+      public navParams: NavParams,
+        public market:MarketproProvider,
+        public callProvider:CallProvider,
+        public loadingCtrl: LoadingController,
         public contactus:ContactusProvider,
         public storage:Storage
-    		) {
-			  this.id=navParams.get('id');
-			   console.log('Market View ID '+this.id);
+        ) {
+        this.textSlide='';
+        this.buttonOnCloseCSS='';
+        
+        this.id=navParams.get('id');
+         console.log('Market View ID '+this.id);
         this.storage.get('userData').then((val) => { 
           this.ContactSendData = val; 
           console.log(val);
         });
     }
   ionViewDidLoad() {
+    this.buttonOnCloseCSS="buttonOnClose";
+    this.aniName="openCallButton";
+    this.textSlide="fadeInLeft"
+    setTimeout(() => {
+      this.textSlide="textGoingBack"
+    }, 3000);
+
+    setTimeout(() => {
+      this.aniName="closeCallButton"
+    }, 4000);
     this.getProductView();
+    
   }
 
   getProductView(){
-  	let loading = this.loadingCtrl.create({
-	     content: 'Please wait...'
-	   });
-	   loading.present();
+    let loading = this.loadingCtrl.create({
+       content: 'Please wait...'
+     });
+     loading.present();
      this.market.ProductView(this.id).then((res)=>{
         this.ProductViewData.data = res.data;
-        this.ProductViewData.msg = res.msg;
+        this.ProductViewData.msg = res.msg; 
         this.ProductViewData.status = res.status;
         console.log('market data start');
         console.log(this.ProductViewData.data.detail);
         loading.dismiss();
       });
     // this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
-      	
+        
     //     this.ProductViewData.data = res.data;
     //     this.ProductViewData.msg = res.msg;
     //     this.ProductViewData.status = res.status;
@@ -77,6 +95,10 @@ export class MarketViewPage {
     this.ContactSendData.message = this.ProductViewData.data.slug;
     this.contactus.Send(this.ContactSendData);
     this.callProvider.makeCall();
+  }
+  animitionStar(){
+    this.aniName="openCallButton";
+    this.textSlide="fadeInLeft"
   }
 
 }
