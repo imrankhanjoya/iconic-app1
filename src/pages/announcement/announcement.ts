@@ -26,10 +26,8 @@ export class AnnouncementPage {
     this.getannouncement();
   }
 
-
   getannouncement(){
     this.Announce.announcementList(20).then((res)=>{
-        console.log(res);
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;

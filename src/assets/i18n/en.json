@@ -204,5 +204,10 @@
   "LANDHOLDING_SIZE": "Landholding Size",
   "LOCATION_FILTER_TITLE": "Please choose the location to see weather details",
   "CURRENTLY_SELECTED_LOCATION": "Showing Results for",
-  "CHANGE_LOCATION": "Change Location"
+  "CHANGE_LOCATION": "Change Location",
+  "PRODUCT_NAME": "Product Name",
+  "DESCRIPTION": "Description",
+  "PRICE_REQUEST": "Price Request",
+  "CANCEL": "Cancel",
+  "LOCATION": "Location"
 }
