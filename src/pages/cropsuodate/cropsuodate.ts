@@ -33,6 +33,7 @@ export class CropsuodatePage {
    public loading:any;
    public user_id:any;
    public userdata:any;
+   public userCropIdList:['','',''];
   	constructor(public navCtrl: NavController, 
   		public navParams: NavParams,
   		public storage:Storage,
@@ -47,14 +48,19 @@ export class CropsuodatePage {
 
           this.shoPage='Kharif';
           this.skipDataList = [];
-          this. storage.get('userLang').then((val) => {
-          this.lang=val;
-          this.getCrops();
+      this. storage.get('userLang').then((val) => {
+        this.lang=val;
+        this.getCrops();
       });
       this.storage.get('userData').then((val) => { 
         this.user_id = val.ID;
         this.userdata = val;  
-        console.log(val);
+        this.userCropIdList=val.crops;
+        // for (var i = 0; i < val.crops.length; i++) {
+        //   console.log(val.crops[i].id)
+        //   this.userCropIdList.push(val.crops[i].id);
+        // }
+        console.log(this.userCropIdList);
       });
   }
 
@@ -63,13 +69,25 @@ export class CropsuodatePage {
   }
   getCrops() {
     this.loading.present();
-    this.cityStateProvider.sendCrop(this.lang).map(res => res.json()).subscribe((resp) => {
-      this.cropList=resp.data;
+    this.cityStateProvider.sendCrop(this.lang).then((res)=>{
+      for (var i = 0; i < res.data.length; i++) {
+        for (var j = 0; j < this.userCropIdList.length; j++) {
+          if (this.userCropIdList[j].id==res.data[i].id) {
+            res.data[i].sub_type='true';
+          }
+        }
+      }
+      this.cropList=res.data;
       console.log(this.cropList);
-      this.loading.dismiss();
-    }, (err) => {
-      this.loading.dismiss();
+      this.loading.dismiss();;
     });
+    // this.cityStateProvider.sendCrop(this.lang).map(res => res.json()).subscribe((resp) => {
+    //   this.cropList=resp.data;
+    //   console.log(this.cropList);
+    //   this.loading.dismiss();
+    // }, (err) => {
+    //   this.loading.dismiss();
+    // });
   }
   addValue(e) {
     this.skipDataList.push({key: e});
