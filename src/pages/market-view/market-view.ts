@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController, ModalController, ViewController  } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { CallProvider } from '../../providers/call/call';
 import { ContactusProvider } from '../../providers/contactus/contactus';
@@ -29,7 +29,8 @@ export class MarketViewPage {
     		public callProvider:CallProvider,
     		public loadingCtrl: LoadingController,
         public contactus:ContactusProvider,
-        public storage:Storage
+        public storage:Storage,
+        public modalCtrl:ModalController,
     		) {
 			  this.id=navParams.get('id');
 			   console.log('Market View ID '+this.id);
@@ -71,12 +72,23 @@ export class MarketViewPage {
   }
 
   mackCall(){
+    this.contactus.Send(this.ContactSendData);
+    this.callProvider.makeCall();
+  }
+
+  openFilter(){
     this.ContactSendData.contact_type = 'product';
     this.ContactSendData.contact_id = this.ProductViewData.data.id;
     this.ContactSendData.subject = this.ProductViewData.data.name;
     this.ContactSendData.message = this.ProductViewData.data.slug;
-    this.contactus.Send(this.ContactSendData);
-    this.callProvider.makeCall();
+    let modal = this.modalCtrl.create('PriceRequestFilterPage',{formdata:this.ContactSendData});
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+      }
+    });
   }
 
 }
