@@ -63,10 +63,10 @@ export class MarketViewPage {
         this.ProductViewData.status = res.status;
         console.log('market data start');
         console.log(this.ProductViewData.data.detail);
+        loading.dismiss();
         setTimeout(() => {
           this.startAnimitio();
         }, 1000);
-        loading.dismiss();
       });
     // this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
         
@@ -102,8 +102,8 @@ export class MarketViewPage {
       }
     });
   }
-  animitionStar(){
-    
+  mackCall(){
+    console.log('-----------------------------');
   }
   startAnimitio(){
       this.buttonOnCloseCSS="buttonOnClose";

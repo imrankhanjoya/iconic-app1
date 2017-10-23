@@ -28,4 +28,84 @@ page-rental-detail {
     .fixImage{
     width:100%;
     }
+    .buttonOnClose{
+        height: 55px;
+        width: 55px;
+        left: 82%;
+        top: 80%;
+        border-radius: 30px;
+        float: right;
+    }
+    .openCallButton {       
+        animation-duration: 2s;
+        float: right;
+        border-radius: 30px;
+        animation: buttonOpen 1s ease-in-out;
+        animation-fill-mode: forwards;
+      }
+    @keyframes buttonOpen {
+        0% { 
+            opacity: 1;
+            width: 55px;
+            /* transform: translate(0, 0); */
+         }
+        100% {
+             opacity: 1;
+            width: 300px;
+            /* transform: translate(-100%, 0); */
+        }
+    }
+
+    .closeCallButton {      
+        animation-duration: 2s;
+        float: right;
+        border-radius: 30px;
+        animation: buttonClose 1s ease-in-out;
+        animation-fill-mode: forwards;
+      }
+    @keyframes buttonClose {
+        0% { 
+            opacity: 1;
+            width: 300px;
+            /* transform: translate(0, 0); */
+         }
+        100% { 
+            opacity: 1;
+            width: 55px;
+            /* transform: translate(-100%, 0); */
+        }
+    }
+    
+    .fadeInLeftMarket {
+        animation: fadeInLeftM 1s;
+        transition-duration: 1s;
+        animation-delay: 500ms;
+        animation-fill-mode: forwards;
+      }
+      @keyframes fadeInLeftM {
+        from {
+          opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .textGoingBack {
+        animation: textClose 1s;
+        transition-duration: 1s;
+        animation-fill-mode: forwards;
+      }
+      @keyframes textClose {
+        from {
+          opacity: 1;
+        }
+
+        to {
+          opacity: 0;
+           transform: translate3d(100%, 0, 0);
+        }
+      }
 }

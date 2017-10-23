@@ -18,8 +18,16 @@ export class RentalDetailPage {
   public Rental_detaildata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public rentalid:any;
 
+  public aniName:any;
+  public textSlide:any;
+  public textGotoBack:any;
+  public buttonOnCloseCSS:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public rentals:RentalsProvider ) {
     this.rentalid=navParams.get('rid');
+    this.textSlide='';
+    this.buttonOnCloseCSS='';
+
 
   }
 
@@ -34,11 +42,30 @@ export class RentalDetailPage {
         this.Rental_detaildata.msg = res.msg;
         this.Rental_detaildata.status = res.status;
         console.log(this.Rental_detaildata);
+        setTimeout(() => {
+          this.startAnimitio();
+        }, 1000);
       }, (err) => {
         // Unable to log in
         console.log(err);
       });
 
+  }
+
+  mackCall(){
+    console.log('-----------------------------');
+  }
+  startAnimitio(){
+      this.buttonOnCloseCSS="buttonOnClose";
+      this.aniName="openCallButton";
+      this.textSlide="fadeInLeftMarket"
+      setTimeout(() => {
+        this.textSlide="textGoingBack"
+      }, 3000);
+
+      setTimeout(() => {
+        this.aniName="closeCallButton"
+      }, 4000);
   }
 
 }
