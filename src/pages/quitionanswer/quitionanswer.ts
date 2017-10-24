@@ -44,6 +44,7 @@ export class QuitionanswerPage {
   	}   
 
   	submitanswer(){
+      
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
           this.viewCtrl.dismiss();

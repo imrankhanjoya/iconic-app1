@@ -23,7 +23,7 @@ export class QuestionsProvider {
      var msec = dTime.getMilliseconds();
   	 var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage,ctime:msec};
     return new Promise((resolve)=>{
-      this.api.getCache('v1/question/q-a', paramCond).then((questionListData)=>{
+      this.api.getCache('v1/question/all', paramCond).then((questionListData)=>{
         resolve(questionListData);
       });  
     });
@@ -45,7 +45,7 @@ export class QuestionsProvider {
    askquestion(user_id:any,questionaddData:any) {
       console.log('questionaddData '+questionaddData);
       let body = new FormData();
-      body.append('user_id', this.api.userData.ID);
+      body.append('user_id', user_id);
       body.append('title', questionaddData.title);
       body.append('privacy', 'public');
       body.append('message', 'remove description fields');

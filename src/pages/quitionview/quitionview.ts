@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp';
+import { IonicStorageModule, Storage } from '@ionic/storage';
 
 /**
  * Generated class for the QuitionviewPage page.
@@ -15,18 +16,24 @@ import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp'
   templateUrl: 'quitionview.html',
 })
 export class QuitionviewPage {
-	public qid:any;
+  public qid:any;
+	public user_id:any;
 	public questionviewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  	constructor(public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,public questionview:QuitionviewpProvider) {
+  	constructor(public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,
+      public questionview:QuitionviewpProvider,public storage:Storage) {
   		this.qid=navParams.get('QuitionID');
+      
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuitionviewPage');
-    this. getquestionsview();
+    this.storage.get('userData').then((val) => {
+        this.user_id = val.ID; 
+        this. getquestionsview();
+      });
   }
   getquestionsview(){
-    this.questionview.Quitionviews(this.qid).map(res => res.json()).subscribe((res) => {
+    this.questionview.Quitionviews(this.qid,this.user_id).map(res => res.json()).subscribe((res) => {
       
         this.questionviewData.data = res.data;
         this.questionviewData.msg = res.msg;
