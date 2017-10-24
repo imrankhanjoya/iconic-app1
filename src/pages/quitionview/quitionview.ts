@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp';
 
 /**
@@ -17,7 +17,7 @@ import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp'
 export class QuitionviewPage {
 	public qid:any;
 	public questionviewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  	constructor(public navCtrl: NavController, public navParams: NavParams,public questionview:QuitionviewpProvider) {
+  	constructor(public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,public questionview:QuitionviewpProvider) {
   		this.qid=navParams.get('QuitionID');
   }
 
@@ -40,6 +40,7 @@ export class QuitionviewPage {
   } 
   gotoAnswerquestion(Qid){
     console.log(Qid);
+    this.viewCtrl.dismiss();
     this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
   }
 

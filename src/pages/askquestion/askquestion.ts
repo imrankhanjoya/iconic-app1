@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, ViewController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -22,6 +22,7 @@ export class AskquestionPage {
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
+              public viewCtrl: ViewController,
               public QuestionsProvider: QuestionsProvider, public camera:Camera,
               public storage:Storage, public popoverCtrl: PopoverController,) {
 
@@ -42,7 +43,8 @@ export class AskquestionPage {
         /*this.askquestionsData.data = res.data;
         this.askquestionsData.msg = res.msg;
         this.askquestionsData.status = res.status;*/
-        this.navCtrl.push('QuestionlistPage');
+        
+        this.viewCtrl.dismiss();
         console.log(this.askquestionsData.data);
       }, (err) => {
         // Unable to log in
@@ -54,7 +56,6 @@ export class AskquestionPage {
   
   goToUsrask(){
  	 this.getaskquestions();
-  	this.navCtrl.push(AskquestionPage);
   }
   addImg(){
     let popover = this.popoverCtrl.create('UploadImagePage');

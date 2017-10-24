@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { VideoProvider } from '../../providers/video/video';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
@@ -21,7 +22,7 @@ export class VideoPage {
 
   public videolistData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider,
-    public loadingCtrl: LoadingController) {
+    private iab: InAppBrowser,public loadingCtrl: LoadingController) {
 
  }
 
@@ -72,9 +73,11 @@ export class VideoPage {
 
   playVideo(videoid:any){
     console.log('videoid  : '+videoid);
+    this.gotoWebView('https://www.youtube.com/watch?v='+videoid);
     //this.youtube.openVideo(videoid);
   }
+  gotoWebView(URL){
+    this.iab.create(URL, '_blank', 'location=yes');
 
-
-
+  }
 }

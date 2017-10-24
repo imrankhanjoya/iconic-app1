@@ -279,7 +279,7 @@ export class HomePage {
     this.navCtrl.push('QuestionlistPage');
   }
 
-  gotoWebView(URL){ 
+  gotoWebView(URL){
     this.iab.create(URL, '_blank', 'location=yes');
 
   }
@@ -491,6 +491,7 @@ async changeClass(count): Promise<string> {
 
   playVideo(videoid:any){
     console.log('videoid  : '+videoid);
+    this.gotoWebView('https://www.youtube.com/watch?v='+videoid);
     //this.youtube.openVideo(videoid);
   }
   

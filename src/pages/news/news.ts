@@ -35,7 +35,7 @@ export class NewsPage {
       });
 
   }
-    gotoWebView(URL){
+  gotoWebView(URL){
     console.log("baran"+URL);
     var ref = this.iab.create(URL, '_blank', 'location=yes');
 

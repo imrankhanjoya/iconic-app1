@@ -403,14 +403,14 @@
 
   <ion-card class="vedioCard"  style="height:400px">
   <ion-row >
-    <img class="roundImage fitImage" (click)="playVideo('Moin-yDG7Ss')" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
+    <img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
     <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">Agribolo : Agriculture on the finger tips of Indian farmer
     </div>
   </ion-row>
   <div class="alignCenter">
       <button ion-button  class="buttonGreen"  (click)="gotoVedio()">{{'SEE_MORE' | translate}}</button>
     </div>
-  <img class='playIcon' src="assets/img/play-button.svg">  
+  <img class='playIcon' (click)="playVideo('Moin-yDG7Ss')" src="assets/img/play-button.svg">  
   <div>
     
 
