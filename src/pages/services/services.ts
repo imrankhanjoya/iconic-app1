@@ -49,6 +49,9 @@ export class ServicesPage {
    gotocroplist(){
     this.navCtrl.push('CroptypePage');
   }
+   RentalsPage(id){
+    this.navCtrl.push('RentalDetailPage',{rid:id});
+  }
 
 
 }
