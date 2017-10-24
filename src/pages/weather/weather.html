@@ -18,9 +18,10 @@
 
 <ion-content class="content" >
   <ion-card *ngIf="resetcard==true">
-    <div class="paddingTop paddingLeft smallTitle"> {{'CURRENTLY_SELECTED_LOCATION' | translate}} <b>{{tehsil_name}}, {{state_name}}</b></div>
-    <button ion-button clear class="floatRight" (click)="gotoWeatherPage()">{{'CHANGE_LOCATION' | translate}}</button>
-  
+    <div *ngIf="weatherfiveday.status==true">
+      <div class="paddingTop paddingLeft smallTitle"> {{'CURRENTLY_SELECTED_LOCATION' | translate}} <b>{{weatherfiveday.data.tehsil_name}}, {{weatherfiveday.data.state_name}}</b></div>
+      <button ion-button clear class="floatRight" (click)="openFilter()">{{'CHANGE_LOCATION' | translate}}</button>
+    </div>
   </ion-card>
   <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="onSlideChanged()">
     <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
