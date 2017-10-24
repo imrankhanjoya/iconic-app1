@@ -63,13 +63,20 @@ export class CropsPage {
 
   getCrops() {
     this.loading.present();
-    this.cityStateProvider.sendCrop(this.lang).map(res => res.json()).subscribe((resp) => {
-      this.cropList=resp.data;
+
+    this.cityStateProvider.sendCrop(this.lang).then((res)=>{
+        this.cropList=res.data;
       console.log(this.cropList);
       this.loading.dismiss();
-    }, (err) => {
-      this.loading.dismiss();
-    });
+    }); 
+    
+    // this.cityStateProvider.sendCrop(this.lang).map(res => res.json()).subscribe((resp) => {
+    //   this.cropList=resp.data;
+    //   console.log(this.cropList);
+    //   this.loading.dismiss();
+    // }, (err) => {
+    //   this.loading.dismiss();
+    // });
   }
 
 

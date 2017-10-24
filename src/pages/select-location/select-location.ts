@@ -64,6 +64,7 @@
 
       this.cityStateProvider.getState(this.lang).then((res)=>{
             this.stateList=res.data;
+            this.loading.dismiss();
         }); 
       // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
       //   this.stateList=resp.data;
@@ -88,14 +89,20 @@
     }
 
   onStateSelect(stateid) {
+    let loadingSate = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+    loadingSate.present();
     console.log('------'+stateid);
     var array = stateid.split('~');
     this.storage.set('userStateId',array[0]);
     this.storage.set('userState',array[1]);
-
-this.cityStateProvider.getDistrict(this.lang,array[1]).then((res)=>{
-            this.districtList=res.data;
-        });
+    this.districtList=[];
+    this.cityStateProvider.getDistrict(this.lang,array[0]).then((res)=>{
+        this.districtList=res.data;
+        console.log(this.districtList);
+        loadingSate.dismiss();
+    });
     // this.cityStateProvider.getDistrict(this.lang,array[1]).then((res)=>{
     //         this.districtList=res.data;
     // });
