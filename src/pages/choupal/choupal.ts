@@ -59,7 +59,6 @@ export class ChoupalPage {
         });
         loading.dismiss();
       }, (err) => {
-        alert(err)
         loading.dismiss();
         console.log(err);
       });

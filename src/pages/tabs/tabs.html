@@ -2,6 +2,6 @@
   <ion-tab [root]="tab1Root" tabTitle="{{'TABS_HOME' | translate}}" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="{{'SEVA_KENDAR' | translate}}" tabIcon="md-analytics"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="{{'NEWS' | translate}}" tabIcon="ios-globe"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="{{'CHOPAL' | translate}}" tabIcon="ios-contacts"></ion-tab>
+  <ion-tab (ionSelect)="gotoChoupal()"  tabTitle="{{'CHOPAL' | translate}}" tabIcon="ios-contacts"></ion-tab>
   <ion-tab [root]="tab5Root" tabTitle="{{'MARKET' | translate}}" tabIcon="ios-cart"></ion-tab>
 </ion-tabs>

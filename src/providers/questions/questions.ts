@@ -19,9 +19,11 @@ export class QuestionsProvider {
   }
    questionList() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	 var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
+     var dTime = new Date();
+     var msec = dTime.getMilliseconds();
+  	 var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage,ctime:msec};
     return new Promise((resolve)=>{
-      this.api.getCache('v1/question/q-a&user_id=1', paramCond).then((questionListData)=>{
+      this.api.getCache('v1/question/q-a', paramCond).then((questionListData)=>{
         resolve(questionListData);
       });  
     });
