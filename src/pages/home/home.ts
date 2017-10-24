@@ -58,6 +58,7 @@ export class HomePage {
   public userDisplayName:any;
   public userKm:any;
   public userId:any;
+  public tehsil:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
 
@@ -97,15 +98,17 @@ export class HomePage {
         console.log(userdata);
         this.userId=userdata.ID;
         this.userDisplayName=userdata.display_name;
+        this.tehsil=userdata._user_tehsil;
       }
-    });
+      
     
-    this.getMandiData();
-    this.getNews();
-    this.getweather(1);
-    this.get_expert();
-    this.getmarkets();
-    this.getannouncement();
+      this.getMandiData();
+      this.getNews();
+      this.getweather(this.tehsil);
+      this.get_expert();
+      this.getmarkets();
+      this.getannouncement();
+    });
     
   }
 
@@ -144,9 +147,9 @@ export class HomePage {
 
 
 
-  getweather(location:any){
-
-    this.weather.weatheHourly().then((res)=>{
+  getweather(tehsil){
+    console.log('this is current tehsil'+tehsil);
+    this.weather.weatheHourly(tehsil).then((res)=>{
         this.wheaterHome.data = res.data;
         this.wheaterHome.msg = res.msg;
         this.wheaterHome.status = res.status;

@@ -25,7 +25,7 @@
 
       <ion-item class="separator colorGrey">
         <ion-label>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</ion-label>
-        <ion-select   formControlName="user_state_id" (ionChange)="onStateSelect()">
+        <ion-select   formControlName="user_state_id" (ionChange)="onMandiStateSelect()">
           <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
         </ion-select>
       </ion-item>
@@ -36,7 +36,7 @@
           <ion-label>
           {{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}
           </ion-label>
-          <ion-select class="selectBox"  formControlName="user_district_id" (ionChange)="onDistrictSelect()" >
+          <ion-select class="selectBox"  formControlName="user_district_id" (ionChange)="onMandiDistrictSelect()" >
             <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
           </ion-select>
         </ion-item>

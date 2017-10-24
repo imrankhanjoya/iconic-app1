@@ -25,9 +25,9 @@ export class WeatherProvider {
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
-  weatheHourly() {
+  weatheHourly(tehsil) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-    var paramCond ={lang:this.api.userLanguage,gaphour:'2'};
+    var paramCond ={lang:this.api.userLanguage,gaphour:'2',tehsil_id:tehsil};
 
     return new Promise((resolve)=>{
       this.api.getCache('v1/weather/weather-hourly', paramCond).then((wdata)=>{
@@ -61,7 +61,7 @@ export class WeatherProvider {
 
     // return seq;
 
-    var paramCond ={lang:'hi_IN',gaphour:'2',tehsil_id:tehsil};
+    var paramCond ={lang:this.api.userLanguage,gaphour:'2',tehsil_id:tehsil};
     return new Promise((resolve)=>{
       this.api.getCache('v1/weather/current-conditions', paramCond).then((weatherdetail)=>{
         resolve(weatherdetail);
@@ -79,7 +79,7 @@ export class WeatherProvider {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
       
 
-    var paramCond ={lang:'hi_IN',gaphour:location};
+    var paramCond ={lang:this.api.userLanguage,gaphour:location,tehsil_id:location};
     return new Promise((resolve)=>{
       this.api.getCache('v1/weather/5-days', paramCond).then((weatherfivedaysData)=>{
         resolve(weatherfivedaysData);

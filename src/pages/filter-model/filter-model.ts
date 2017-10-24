@@ -38,7 +38,7 @@ export class FilterModelPage {
         user_district_id: ['', Validators.required],
         user_market_id: ['']
         });
-        this.getAllState();
+        this.getMandiAllState();
 
     }
 
@@ -47,11 +47,11 @@ export class FilterModelPage {
     }
     
 
-    onStateSelect() {
+    onMandiStateSelect() {
 
         console.log(this.changemarket.value.user_state_id);
         var stateid = this.changemarket.value.user_state_id;
-        this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
+        this.cityStateProvider.getMandiDistrict(this.lang,stateid).then((res)=>{
             this.districtList=res.data;
         }); 
         // this.cityStateProvider.getDistrict(this.lang,stateid).map(res => res.json()).subscribe((resp) => {
@@ -60,7 +60,7 @@ export class FilterModelPage {
         //   //  this.loading.dismiss();
         // }); 
     }
-    onDistrictSelect(districtId){
+    onMandiDistrictSelect(districtId){
         var districtId = this.changemarket.value.user_district_id;
         this.cityStateProvider.getMarket(this.lang,districtId).then((res)=>{
             this.marketList=res.data;
@@ -72,8 +72,8 @@ export class FilterModelPage {
 
     }
 
-    getAllState() {
-        this.cityStateProvider.getState(this.lang).then((res)=>{
+    getMandiAllState() {
+        this.cityStateProvider.getMandiState(this.lang).then((res)=>{
             this.stateList=res.data;
         }); 
         // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {

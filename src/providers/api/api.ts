@@ -1,6 +1,5 @@
 import 'rxjs/add/operator/map';
 import { Geolocation } from '@ionic-native/geolocation';
-
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, URLSearchParams } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -13,8 +12,8 @@ import "rxjs/add/operator/share";
  */
 @Injectable()
 export class Api {
-  url: string = 'http://205.147.100.82/agriboloapiv2/api/web/index.php?r=';
-  //url: string = 'http://localhost/project/agriboloapiv2/api/web/index.php?r=';
+  //url: string = 'http://205.147.100.82/agriboloapiv2/api/web/index.php?r=';
+  url: string = 'http://localhost/project/agriboloapiv2/api/web/index.php?r=';
 
   public userData : {ID:string, display_name:string, sID:string, token:string, user_activation_key:string,
     user_email:string, user_login:string, user_nicename:string, user_registered:string, user_status:string,

@@ -22,23 +22,24 @@ export class CityStateProvider {
         resolve(getStateData);
       });  
     });
+  }
 
-    //  var paramCond ={lang:lang};
-    // let seq = this.api.get('v1/location/state',paramCond).share();
+  getMandiState(lang) {
+    var paramCond ={lang:this.api.userLanguage};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/location/mandi-state', paramCond).then((getStateData)=>{
+        resolve(getStateData);
+      });  
+    });
+  }
 
-    // seq
-    //   .map(res => res.json())
-    //   .subscribe(res => {
-    //   if (res.status == true) {
-    //     console.log(res);
-    //   } else {
-    //     console.log(res);
-    //   }
-    //   }, err => {
-    //     console.error('ERROR', err);
-    //   });
-
-    // return seq;
+  getMandiDistrict(lang,stateId) {
+    var paramCond ={lang:this.api.userLanguage,district_state:stateId};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/location/mandi-districts', paramCond).then((getDistrictData)=>{
+        resolve(getDistrictData);
+      });  
+    });
   }
 
   getDistrict(lang,stateId) {
