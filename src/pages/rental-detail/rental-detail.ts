@@ -42,9 +42,9 @@ export class RentalDetailPage {
         this.Rental_detaildata.msg = res.msg;
         this.Rental_detaildata.status = res.status;
         console.log(this.Rental_detaildata);
-        setTimeout(() => {
-          this.startAnimitio();
-        }, 1000);
+        // setTimeout(() => {
+        //   this.startAnimitio();
+        // }, 1000);
       }, (err) => {
         // Unable to log in
         console.log(err);

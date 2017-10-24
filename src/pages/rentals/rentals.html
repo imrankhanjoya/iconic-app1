@@ -8,37 +8,20 @@
 
   <ion-navbar color="fulldark">
     <ion-title>{{'RENTAL_DETAIL_TITLE' | translate}}</ion-title>
-    <ion-buttons end>
-    <button ion-button icon-only color="royal" (click)="gotoSearchProduct()" class="wallet">
-    <img src="assets/img/agri bolo icon/hdpi/wallet.png">
-    </button>
-    </ion-buttons>
-    <ion-buttons end>
-    <button ion-button icon-only color="royal" (click)="presentPopover($event)" class="wallet">
-      <img src="assets/img/agri bolo icon/hdpi/notification.png">
-    </button>
-    </ion-buttons>
-    <ion-buttons end>
-    <button ion-button icon-only color="royal" (click)="presentPopover($event)" class="wallet">
-      <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
-    </button>
-    </ion-buttons>
-
-
   </ion-navbar>
+
+  <!-- <ion-item>
+    <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
+    <ion-select [(ngModel)]="product_cat" multiple="true" (ionChange)="onChange(product_cat)">
+      <ion-option *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
+    </ion-select>
+  </ion-item> -->
+
 </ion-header>
 
 
 <ion-content>
-  <ion-item >
-      <ion-label>{{'RENTAL_CATEGORY' | translate}}</ion-label>
-      <ion-select [(ngModel)]="notifications" interface="action-sheet">
-        <ion-option value="enable">{{'RENTAL_ENABLE'| translate}}</ion-option>
-        <ion-option value="mute">{{'RENTAL_MUTE'| translate}}</ion-option>
-        <ion-option value="mute_week">{{'RENTAL_MUTE_ONE_WEEKS'| translate}}</ion-option>
-        <ion-option value="mute_year" >{{'RENTAL_MUTE_ONE_YEARS'| translate}}</ion-option>
-      </ion-select>
-    </ion-item>
+
    <ion-grid >
   
     <ion-card class="image-card"  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
