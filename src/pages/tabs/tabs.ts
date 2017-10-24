@@ -31,7 +31,6 @@ export class TabsPage {
 
   constructor(private translate: TranslateService,public navCtrl: NavController) {
 
-    //this.initTranslate();
     this.translate.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
       this.tab2Title = values['Krishi Center'];
@@ -46,17 +45,11 @@ export class TabsPage {
   }
 
 
-
-  initTranslate() {
-    // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('hi');
-
-    if (this.translate.getBrowserLang() !== undefined) {
-      //this.translate.use(this.translate.getBrowserLang());
-      this.translate.use('hi');
-    } else {
-      this.translate.use('hi'); // Set your language here
-    }
+  gotoChoupal(){
+    this.navCtrl.push('ChoupalPage');
   }
+
+
+
   
 }

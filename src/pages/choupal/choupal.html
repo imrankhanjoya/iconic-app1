@@ -11,7 +11,7 @@
 
 <ion-content>
 
-<ion-scroll #chatScroll scrollX="true" scrollY="true" maxZoom="3" zoom="1" style="height:90%">
+<ion-scroll #chatScroll scrollX="true" scrollY="true" maxZoom="3" zoom="1" style="height:100%">
 
 
 
@@ -58,6 +58,15 @@
 
     
 
+    
+    
+
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar style="background-color: #fff" >
+
     <ion-row class="InputFormat" >
       <ion-col  col-1 (click)="uploadeImg()">
         &nbsp; <ion-icon name="attach" class="displayOneFont verticalAlign"></ion-icon>
@@ -70,8 +79,6 @@
       <ion-icon name="md-send" class="displayOneFont verticalAlign" (click)="postCopal()"></ion-icon>
       </ion-col>
     </ion-row>
-    
 
-
-
-</ion-content>
+  </ion-toolbar>
+</ion-footer>
