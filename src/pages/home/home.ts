@@ -368,14 +368,14 @@ showBar(){
         document.querySelector(".tabbar").classList.add('show-tabbar');
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
         document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
-        if(this.onBording){
-          document.querySelector(".barCustomAct").classList.add('showTopBar');
-          document.querySelector(".barCustomAct").classList.remove('topBar');
-          if(this.top!=0){
-            console.log("Updating top "+this.top);
-            document.querySelectorAll(".scroll-content")[1].style.marginTop = this.top;
-          }
-        }
+        // if(this.onBording){
+        //   document.querySelector(".barCustomAct").classList.add('showTopBar');
+        //   document.querySelector(".barCustomAct").classList.remove('topBar');
+        //   if(this.top!=0){
+        //     console.log("Updating top "+this.top);
+        //     document.querySelectorAll(".scroll-content")[1].style.marginTop = this.top;
+        //   }
+        // }
 
 
 
@@ -384,30 +384,27 @@ showBar(){
     } else if(ev.deltaY >= 0){
      
      if(this.startVisbol==true){
-        
-          console.log(this.onBording);
-          if(this.onBording){
-            if(this.top==0){
-              console.log(this.top);
-              this.top = document.querySelectorAll(".scroll-content")[1].style.marginTop;              
-            }
-            document.querySelector(".barCustomAct").classList.add('topBar');
-            document.querySelector(".barCustomAct").classList.remove('showTopBar');
-            document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
-          }
-        
+          this.startVisbol=false;
           document.querySelector(".tabbar").classList.add('bottmTabHide');
           document.querySelector(".tabbar").classList.remove('show-tabbar');
+          document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+
+
+          // if(this.onBording){
+          //   if(this.top==0){
+          //     console.log(this.top);
+          //     this.top = document.querySelectorAll(".scroll-content")[1].style.marginTop;              
+          //   }
+          //   document.querySelector(".barCustomAct").classList.add('topBar');
+          //   document.querySelector(".barCustomAct").classList.remove('showTopBar');
+          //   document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
+          // }
+        
+
           if(this.bottom==0){
             this.bottom =document.querySelectorAll(".scroll-content")[1].style.marginBottom;
             
           }
-          console.log(this.bottom);
-          document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-
-          
-          
-        this.startVisbol=false;
       }
     }
 

@@ -17,8 +17,8 @@ export class Api {
 
   public userData : {ID:string, display_name:string, sID:string, token:string, user_activation_key:string,
     user_email:string, user_login:string, user_nicename:string, user_registered:string, user_status:string,
-    user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
-    user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:'',_user_latitude:0,_user_longitude:0};
+    user_url:string,_user_latitude:string,_user_longitude:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
+    user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:'',_user_latitude:'0',_user_longitude:'0'};
 
   public userLoction : {longitude:number,latitude:number} = {longitude:0,latitude:0};
   public userLanguage :string = 'hi_IN';
@@ -72,6 +72,7 @@ export class Api {
       options = new RequestOptions();
     }
 
+    let pco:any;
     // Support easy query params for GET requests
     if (params) {
       let p = new URLSearchParams();
@@ -81,10 +82,11 @@ export class Api {
       // Set the search field if we have params and don't already have
       // a search field set in options.
       options.search = !options.search && p || options.search;
+      pco = p;
     }
 
     
-    let key = this.url + '/' + endpoint+p.toString();
+    let key = this.url + '/' + endpoint+pco.toString();
     console.log('Data Save key : '+key);
     return this.getCall(key,endpoint,options);
   }

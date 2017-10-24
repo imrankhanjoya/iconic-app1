@@ -23,6 +23,7 @@
     public lang:any;
     public selectState: any;
     public stateList: any;
+    public tehsilList: any;
     public districtList: any;
     searchQuery: string = '';
     public showList:boolean=false;
@@ -107,10 +108,33 @@
     //         this.districtList=res.data;
     // });
   }
+  // onDistrictSelect(districtId){
+  //   var array = districtId.split('~');
+  //   this.storage.set('userDictrictId',array[0]);
+  //   this.storage.set('userDictrict',array[1]);
+  //   this.navCtrl.push('CropsPage');
+  // }
+
   onDistrictSelect(districtId){
+    let loadingDistrict = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+    loadingDistrict.present();
     var array = districtId.split('~');
+    this.cityStateProvider.getTehsil(this.lang,array[0]).then((res)=>{
+            this.tehsilList=res.data;
+            console.log(this.tehsilList);
+            loadingDistrict.dismiss();
+        });
+  
+  }
+
+
+  onTehsilListSelect(userTehsilList){
+    var array = userTehsilList.split('~');
     this.storage.set('userDictrictId',array[0]);
     this.storage.set('userDictrict',array[1]);
+    this.storage.set('userTehsilId',array[0]);
     this.navCtrl.push('CropsPage');
   }
 }

@@ -123,7 +123,7 @@ export class User {
    * Send a POST request to our signup endpoint with the data
    * the user entered on the form.
    */
-  userRegister(lag,long,mobile,name,password,language,state,district,village,crops) {
+  userRegister(lag,long,mobile,name,password,language,state,district,village,crops,tehsilId) {
           let body = new FormData();
   
           body.append('latitude',lag);
@@ -135,7 +135,7 @@ export class User {
           body.append('user_language',language);
           body.append('user_state_id',state);
           body.append('user_district_id',district);
-          body.append('user_tahsil_id','10000');
+          body.append('user_tahsil_id',tehsilId);
           body.append('user_place','1');
 
           

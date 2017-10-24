@@ -37,6 +37,7 @@ export class CropsPage {
    public userKharif:any;
    public userDictrictId:any;
    public userStateId:any;
+   public userTehsilId:any;
    public userLat:any;
    public userLong:any;
    public loading:any;
@@ -144,7 +145,7 @@ export class CropsPage {
       this.userDictrictId+'-----'+'village'+'-----'+JSON.stringify(selectedCrops)+'-----');
 
     this.user.userRegister(this.userLat,this.userLong,this.userPhone,this.userName,this.userPassword,this.lang,
-      this.userStateId,this.userDictrictId,'village',JSON.stringify(selectedCrops)).map(res => res.json()).subscribe((resp) => {
+      this.userStateId,this.userDictrictId,'village',JSON.stringify(selectedCrops),this.userTehsilId).map(res => res.json()).subscribe((resp) => {
       loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);
@@ -178,6 +179,9 @@ export class CropsPage {
     });
     this.storage.get('userStateId').then((val) => {
        this.userStateId=val;
+    });
+    this.storage.get('userTehsilId').then((val) => {
+       this.userTehsilId=val;
     });
     this.storage.get('userLat').then((val) => {
        this.userLat=val;
