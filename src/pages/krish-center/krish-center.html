@@ -32,7 +32,10 @@
        
        <div class="colorGreen blockWidth" (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)">{{'SEARCH_THE_WAY'| translate}}</div>
        
-        <div class="colorGreen blockWidth" (click)="makeCall()">{{'BY_CALLING' | translate}}</div>
+        <div class="colorGreen blockWidth" (click)="makeCall()">
+          <a href="tel:18001200800" style="text-decoration: none;">
+         {{'BY_CALLING' | translate}}
+         </a></div>
   </ion-row>
 </ion-grid>
 </ion-card>
