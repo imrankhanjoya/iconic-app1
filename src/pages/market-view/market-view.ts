@@ -24,7 +24,7 @@ export class MarketViewPage {
   public textSlide:any;
   public textGotoBack:any;
   public buttonOnCloseCSS:any;
-  public ContactSendData = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:''}
+  public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
   public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(
       navCtrl: NavController,
@@ -49,6 +49,7 @@ export class MarketViewPage {
     }
   ionViewDidLoad() {
     this.getProductView();
+    console.log("page loaded MarketViewPage");
     
   }
 
@@ -91,6 +92,7 @@ export class MarketViewPage {
   openFilter(){
     this.ContactSendData.contact_type = 'product';
     this.ContactSendData.contact_id = this.ProductViewData.data.id;
+    this.ContactSendData.user_id = this.ContactSendData.ID;
     this.ContactSendData.subject = this.ProductViewData.data.name;
     this.ContactSendData.message = this.ProductViewData.data.slug;
     let modal = this.modalCtrl.create('PriceRequestFilterPage',{formdata:this.ContactSendData});
@@ -98,7 +100,7 @@ export class MarketViewPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+        //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
       }
     });
   }

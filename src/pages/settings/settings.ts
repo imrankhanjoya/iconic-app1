@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -50,6 +50,7 @@ export class SettingsPage {
           public translate: TranslateService,
           public loadingCtrl: LoadingController,
           public storage:Storage,
+          public viewCtrl: ViewController,
           public cityStateProvider:CityStateProvider
           ) {
 
@@ -101,16 +102,18 @@ export class SettingsPage {
     this.loading.present();
     this.changeprofiledata = this.changeprofile.value;
     this.user.UpdateProfile(this.user_id,this.changeprofiledata).map(res => res.json()).subscribe((resp) => {
-            this.storage.set('userData',resp.data);
             console.log(resp.data);
             if (resp.status==true) {
+              this.storage.set('userData',resp.data);
               this.loading.dismiss();
+              this.viewCtrl.dismiss();
               alert('Profile Update Sucessfully.');
-              this.navCtrl.push('ItemCreatePage');
+            }else {
+              this.loading.dismiss();
             }
+
      }, (err) => {
       this.loading.dismiss();
-      this.navCtrl.push('LoginPage');
     });
   }
 
@@ -130,7 +133,7 @@ export class SettingsPage {
             }
           this.loading.dismiss();
           alert('Profile Update Sucessfully.');
-          this.navCtrl.push('ItemCreatePage');
+          this.viewCtrl.dismiss();
      }, (err) => {
     this.loading.dismiss();
     });
@@ -159,9 +162,11 @@ export class SettingsPage {
         this.user.ChangePassword(this.phoneNumber,this.changepassformdata.newpass,this.changepassformdata.oldpass).map(res => res.json()).subscribe((resp) => {
             if (resp.status==true) {
               this.passresError='Password Reset Sucessfully';
+              this.viewCtrl.dismiss();
             }else{
               this.passresError=resp.msg;
             }
+
             //this.navCtrl.push('ItemCreatePage');
      }, (err) => {
     });

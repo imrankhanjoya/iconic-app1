@@ -27,10 +27,7 @@ export class PriceRequestFilterPage {
     private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider
     ) {
       this.formdata=navParams.get('formdata');
-      console.log('this.data');
-      console.log(this.formdata);
-      console.log('this.data');
-  		this.priceRequest = this.formBuilder.group({
+    	this.priceRequest = this.formBuilder.group({
             phoneNumber: [this.formdata.user_login, Validators.required],
 	          display_name: [this.formdata.display_name, Validators.required],
             description: [this.formdata.message, Validators.required]
@@ -42,12 +39,11 @@ export class PriceRequestFilterPage {
   }
 
   priceRequestForm(){
-      let data = { 'data': '' };
-      this.viewCtrl.dismiss(data);
       console.log(this.priceRequest.value);
       this.formdata.user_login = this.priceRequest.value.phoneNumber;
       this.formdata.display_name = this.priceRequest.value.display_name;
       this.formdata.description = this.priceRequest.description;
+      console.log(this.formdata);
       this.contactus.Send(this.formdata);
       let data = { 'data': '' };
       this.viewCtrl.dismiss(data);      

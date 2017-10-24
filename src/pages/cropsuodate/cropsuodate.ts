@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -39,7 +39,7 @@ export class CropsuodatePage {
   		public storage:Storage,
       	public loadingCtrl: LoadingController,
       	public cityStateProvider:CityStateProvider,
-        public user: User
+         private viewCtrl: ViewController,public user: User
       	) 
   		{      
   			  this.loading = this.loadingCtrl.create({
@@ -155,7 +155,8 @@ export class CropsuodatePage {
           this.userdata.crops = resp.data;
           console.log(this.userdata);
           this.storage.set('userData',this.userdata);
-          this.navCtrl.push('ItemCreatePage');
+          this.viewCtrl.dismiss();
+          loading.dismiss();
 	      }else{
 	        alert(resp.msg);
 	      }

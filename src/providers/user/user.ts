@@ -107,7 +107,7 @@ export class User {
   body.append('lang', this.api.userLanguage);
   body.append('user_id', userId);
   body.append('image', image);
-    let seq = this.api.post('v1/user/image-update', body).share();
+    let seq = this.api.post('v1/user/update', body).share();
     seq
       .map(res => res.json())
       .subscribe(res => {
