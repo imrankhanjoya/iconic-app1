@@ -9,6 +9,11 @@
   <ion-navbar>
     
     <ion-title>{{'MARKET' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openFilter()" class="headericon" >
+        <ion-icon name="md-options" class="colorGreen displayOneFont"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 <ion-item>
   <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
@@ -17,10 +22,7 @@
   </ion-select>
 </ion-item>
 </ion-header>
-
-
 <ion-content >
-
 <div class="main-content">
 
 <!-------Product Sectopn------>

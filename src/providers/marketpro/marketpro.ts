@@ -104,19 +104,16 @@ export class MarketproProvider {
 	        resolve(productcatData);
 	      });  
 	    });
-
-	   // let seq = this.api.get('v1/product/category', paramCond).share();
-	   //  seq
-	   //    .map(res => res.json())
-	   //    .subscribe(res => {
-	   //      if (res.status == 'success') {
-	   //        console.log(res);
-	   //      } else {
-	   //      }
-	   //    }, err => {
-	   //      console.error('ERROR', err);
-	   //    });
-
-	   //  	return seq;
   	}
+  	brandcat() {
+  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
+	  	var paramCond ={lang:this.api.userLanguage};
+
+	  	return new Promise((resolve)=>{
+      	this.api.getCache('v1/product/brand', paramCond).then((productcatData)=>{
+	        resolve(productcatData);
+	      });  
+	    });
+}
+
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, ViewController  } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { LoadingController } from 'ionic-angular';
 import { CallProvider } from '../../providers/call/call';
@@ -22,10 +22,20 @@ export class MarketPage {
   public loading :any;
   public cat_id :any;
   public product_id :any;
+  public productbrand :any;
+  public product_cat :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,
-    public market:MarketproProvider,public callProvider:CallProvider) {
+    public market:MarketproProvider,public callProvider:CallProvider,
+    public modalCtrl:ModalController,
+    public viewCtrl:ViewController) {
+    this.productbrand=navParams.get('productbrand');
+    this.product_cat=navParams.get('product_cat');
+    console.log('productbrand');
+    console.log(this.productbrand);
+    console.log(this.product_cat);
+    console.log('productbrand');
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
@@ -94,5 +104,16 @@ export class MarketPage {
   }
   gotoMarketViewPage(product_id){
     this.navCtrl.push('MarketViewPage',{id:product_id});
+  }
+  openFilter(){
+    let modal = this.modalCtrl.create('MarketFilterPage');
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        console.log(popoverData.data.productbrand);
+        this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,productbrand:popoverData.data.productbrand, fromFilter:true}); 
+      }
+    });
   }
 }

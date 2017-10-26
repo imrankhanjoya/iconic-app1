@@ -5,7 +5,6 @@ import { Config, Nav, Platform } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
-
 import { HomePage } from '../pages/home/home';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
@@ -62,6 +61,7 @@ export class MyApp {
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
     { title: 'About Us', component: 'AboutPage'},
+
 
   ]
 
