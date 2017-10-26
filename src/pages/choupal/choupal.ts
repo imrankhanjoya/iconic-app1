@@ -23,6 +23,7 @@ export class ChoupalPage {
   public isSend:boolean=false;
   public newMessge:string='';
   public selectedImg:any;
+  public filter_distance:any;
   public sendIcon: string ="assets/img/agri bolo icon/hdpi/senddis.png";
 	public choupaldata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
@@ -32,9 +33,10 @@ export class ChoupalPage {
     this.userId=api.userData.ID;
     console.log('user id--- : '+this.userId);
     this.selectedImg='';
+      this.filter_distance = 30;
   }
   ionViewDidLoad() {
-    this.choupalget();
+    this.choupalget(this.filter_distance);
     console.log('ionViewDidLoad ChoupalPage');
   }
   scrollToBottom(scroll) {
@@ -43,13 +45,13 @@ export class ChoupalPage {
   goBottomBtnClick() {
      this.scrollToBottom(this.chatScroll._scrollContent.nativeElement);
   }
-  choupalget(){
+  choupalget(filter_distance){
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     loading.present();
    	// console.log('ionViewDidLoad '+this.questionaddData.title);
-    this.ChoupalProvider.getChoupal().map(res => res.json()).subscribe((res) => {
+    this.ChoupalProvider.getChoupal(filter_distance).map(res => res.json()).subscribe((res) => {
         this.choupaldata.data = res.data;
         this.choupaldata.msg = res.msg;
         this.choupaldata.status = res.status;
@@ -131,6 +133,9 @@ export class ChoupalPage {
             });
         }
      });
+  }
+  onChange(selectedData){
+      this.choupalget(selectedData);
   }
 
 }

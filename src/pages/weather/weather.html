@@ -27,8 +27,8 @@
     <ion-slide  class="ionslides"  *ngFor="let wheaterdetail of wheaterdetailall.data;" >
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
         <ion-row>
-          <ion-col col-6 class="colCandigare subHeadingFont">
-          {{wheaterdetail.WeatherData.DateTime | date:'dd MMMM yyyy hh a'}}
+          <ion-col col-6 class="colCandigare subHeadingFont"> 
+          {{NowTimeT | date:'dd MMMM yyyy hh:mm a'}}
           <div class="main">
           <div class="elementTitle smallTitle"> {{wheaterdetail.tehsil_name}}</div>
           <p class="weathertitle">{{wheaterdetail.WeatherData.Temperature.Value}}˚{{wheaterdetail.WeatherData.Temperature.Unit}} </p>

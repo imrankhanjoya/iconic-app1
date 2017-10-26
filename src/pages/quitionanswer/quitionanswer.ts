@@ -48,7 +48,7 @@ export class QuitionanswerPage {
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
           this.viewCtrl.dismiss();
-        	this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid});
+        	//this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid});
         	//console.log(this.qid);
       }, (err) => {
         // Unable to log in

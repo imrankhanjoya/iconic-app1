@@ -27,6 +27,7 @@ export class WeatherPage {
   public tehsilId:any;
   public filterLocation:any;
   public weatherInfo:any;
+  public NowTimeT:any;
 
 	public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
@@ -62,6 +63,8 @@ export class WeatherPage {
 
  weatherdetail(tehsil){
 
+      this.NowTimeT = new Date();
+      console.log('this is current time'+this.NowTime);
         if (this.navParams.get('fromFilter')) {
           this.tehsilId = this.navParams.get('filter_tehsil');
           this.resetcard = true
@@ -175,7 +178,7 @@ export class WeatherPage {
    ]
   public lineChartLegend:boolean = false;
   public lineChartType:string = 'line';
- 
+
   
 //--------------- chat end ----------
 

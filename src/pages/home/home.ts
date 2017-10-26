@@ -59,6 +59,7 @@ export class HomePage {
   public userKm:any;
   public userId:any;
   public tehsil:any;
+  public NowTime:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
 
@@ -148,6 +149,7 @@ export class HomePage {
 
 
   getweather(tehsil){
+    this.NowTime = new Date();
     console.log('this is current tehsil'+tehsil);
     this.weather.weatheHourly(tehsil).then((res)=>{
         this.wheaterHome.data = res.data;
