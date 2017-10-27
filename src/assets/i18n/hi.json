@@ -216,6 +216,9 @@
   "CHANGE_PASSWORD": "पासवर्ड बदलें",
   "SEVA_KENDAR":"सेवा केंद्र",
   "SHOWING_RESULT_FOR": "परिणाम दिखा रहा है",
-  "SELECT_DISTANCE": "Choose Range"
+  "SELECT_DISTANCE": "Choose Range",
+  "KRISHI_JANKARI": "कृषि जानकारी",
+    "CROP": "फसल "
+
 }
 

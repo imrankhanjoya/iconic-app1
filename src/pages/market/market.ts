@@ -45,8 +45,7 @@ export class MarketPage {
 
 
   ionViewDidLoad() {
-    this.getCategory();
-    this.getmarkets(this.cat_id);
+    this.getmarkets(this.product_cat);
     console.log('ionViewDidLoad MarketPage');
   }
 
@@ -72,30 +71,6 @@ export class MarketPage {
     //   });
   }
 
-  getCategory(){
-
-    this.market.productcat().then((res)=>{
-      this.catDatas.data = res.data;
-      this.catDatas.msg = res.msg;
-      this.catDatas.status = res.status;
-    });
-
-    // this.market.productcat().map(res => res.json()).subscribe((res) => {
-      
-    //     this.catDatas.data = res.data;
-    //     this.catDatas.msg = res.msg;
-    //     this.catDatas.status = res.status;
-    //     console.log('cat data');
-    //     console.log(this.catDatas.data);
-    //     console.log('cat data END ');
-    //     //this.loading.dismiss();
-    //   }, (err) => {
-    //     // Unable to log in
-    //     //this.loading.dismiss();
-    //     console.log(err);
-    //   });
-  }
-
   makeCall(){
     
   }
@@ -111,7 +86,7 @@ export class MarketPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        console.log(popoverData.data.productbrand);
+        console.log(popoverData);
         this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,productbrand:popoverData.data.productbrand, fromFilter:true}); 
       }
     });
