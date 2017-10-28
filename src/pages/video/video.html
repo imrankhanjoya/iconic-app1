@@ -16,20 +16,17 @@
 
 
       <ion-segment  [(ngModel)]="Crop" >
-          <ion-segment-button value="General" (click)="videoByCat('favourite')">
+          <ion-segment-button value="favourite" (click)="videoByCat('favourite')">
             {{'VEDIO_FAVOURITE' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="backgroundThemeGreen" (click)="videoByCat('fertilizers')">
+          <ion-segment-button value="fertilizers" (click)="videoByCat('fertilizers')">
               {{'VEDIO_FERTILIZERS' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="backgroundThemeGreen"  (click)="videoByCat('pesticide')">
+          <ion-segment-button value="seeds"  (click)="videoByCat('seeds')">
              {{'VEDIO_SEEDS' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="backgroundThemeGreen" >
+          <ion-segment-button value="pesticide" (click)="videoByCat('pesticide')">
             {{'VEDIO_PESTICIDE' | translate}}
-          </ion-segment-button>
-          <ion-segment-button value="backgroundThemeGreen"  (click)="videoByCat('seeds')">
-            {{'VEDIO_SEEDS' | translate}}
           </ion-segment-button>
       </ion-segment>
 
