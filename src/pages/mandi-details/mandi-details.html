@@ -48,7 +48,7 @@
 <ion-slides  >
   <ion-slide pager *ngFor="let subData of data.market_data; let in=index " >
 
-    <ion-card >
+    <ion-card  class="">
       <ion-grid  >
          <ion-row>
     <ion-col col-3 >
@@ -84,7 +84,20 @@
                 </canvas>
    
       </ion-row>
-       
+        <ion-grid>
+    <ion-row class="weatherfoter">
+      <ion-col col-5 class="sources">
+      <ion-row>
+      <div class=" litleHeadline colorBlack" >{{'AVERAGE' | translate}} : {{subData.avg}}</div>
+      </ion-row>
+      </ion-col>
+      <ion-col col-7 class="sources">
+       <ion-row>
+      <div class="litleHeadline  colorBlack" >{{'ARRIVEL' | translate}} : {{subData.arrival_date}}</div>
+      </ion-row>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
       </ion-grid>
     </ion-card>
   </ion-slide>

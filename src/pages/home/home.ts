@@ -283,6 +283,9 @@ export class HomePage {
   gotoAskquestion(){
     this.navCtrl.push('QuestionlistPage');
   }
+gotoAgriinfo(){
+    this.navCtrl.push('AgriInfoPage');
+  }
 
   gotoWebView(URL){
     this.iab.create(URL, '_blank', 'location=yes');
@@ -496,6 +499,7 @@ async changeClass(count): Promise<string> {
     this.gotoWebView('https://www.youtube.com/watch?v='+videoid);
     //this.youtube.openVideo(videoid);
   }
+  
   
   makeCall(){
     

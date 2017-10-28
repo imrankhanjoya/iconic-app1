@@ -107,8 +107,8 @@
 <ion-row class="cloud">
   <ion-col  *ngFor="let weatherfivedaydetail of weatherfiveday.data.WeatherData;">
     <ion-datetime displayFormat="DDD" [(ngModel)]="weatherfivedaydetail.Weatherdate"></ion-datetime>
-
     <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt="" class="cloudImage"/>
+   <div class=" alignCenter colorBlack" > {{weatherfivedaydetail.IconPhrase}}</div>
   </ion-col>
 </ion-row>
 </ion-content>

@@ -42,10 +42,15 @@ export class WeatherPage {
               ) {
 
               this.tehsilId = navParams.get('filter_tehsil');
-      }
+                this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+
+     this.loading.present();
+      }  
+    
 
   ionViewDidLoad() {
-  
       console.log('ionViewDidLoad WeatherPage');
 
       this.storage.get('userData').then((userdata) => {
@@ -65,6 +70,7 @@ export class WeatherPage {
 
       this.NowTimeT = new Date();
       console.log('this is current time'+this.NowTime);
+
         if (this.navParams.get('fromFilter')) {
           this.tehsilId = this.navParams.get('filter_tehsil');
           this.resetcard = true
@@ -78,6 +84,8 @@ export class WeatherPage {
             this.wheaterdetailall.status = res.status;
             this.weatherInfo=this.wheaterdetailall.data;
             this.tehsilId=res.data;
+             this.loading.dismiss();
+
         }); 
       
   }

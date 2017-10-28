@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { ExpertsProvider } from '../../providers/experts/experts';
+
 
 /**
  * Generated class for the AgriInfoPage page.
@@ -14,12 +17,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'agri-info.html',
 })
 export class AgriInfoPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public experts:ExpertsProvider,private iab: InAppBrowser) {
   }
 
   ionViewDidLoad() {
+    this.get_expert();
     console.log('ionViewDidLoad AgriInfoPage');
+  }
+   get_expert(){
+    this.experts.Experts_list().then((res)=>{
+        this.expertdata = res;
+        console.log(this.expertdata);
+
+    });
+}
+  gotoWebView(URL){
+    this.iab.create(URL, '_blank', 'location=yes');
+
+  }
+  goToExpertDetial(id){
+    this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
    goToCrops(){
    this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
@@ -27,5 +45,17 @@ export class AgriInfoPage {
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
+   gotoVedio(){
+    this.navCtrl.push('VideoPage');
+  }
+   gotoAskquestion(){
+    this.navCtrl.push('QuestionlistPage');
+  }
+   playVideo(videoid:any){
+    console.log('videoid  : '+videoid);
+    this.gotoWebView('https://www.youtube.com/watch?v='+videoid);
+    //this.youtube.openVideo(videoid);
+  }
+  
 
 }

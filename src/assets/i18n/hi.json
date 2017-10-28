@@ -1,3 +1,4 @@
+
 {
   "BACK_BUTTON_TEXT": "वापस जाओ",
   "SELECT_LANGUAGE":"भाषा चुनिए",
@@ -218,7 +219,10 @@
   "SHOWING_RESULT_FOR": "परिणाम दिखा रहा है",
   "SELECT_DISTANCE": "Choose Range",
   "KRISHI_JANKARI": "कृषि जानकारी",
-    "CROP": "फसल "
+  "CROP": "फसल ",
+  "AVERAGE": "औसत की तारीख",
+  "ARRIVEL": " आगमन की तारीख"
+
 
 }
 

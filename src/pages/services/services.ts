@@ -39,7 +39,9 @@ export class ServicesPage {
    gotoRental(){
     this.navCtrl.push('RentalsPage');
   }
-
+ gotoMarketPage(){
+    this.navCtrl.push('MarketPage');
+  }
   gotoMarket(){
     this.navCtrl.push('MarketPage');
   }

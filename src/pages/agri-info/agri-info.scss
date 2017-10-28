@@ -1,7 +1,7 @@
 page-agri-info {
 .krishisevayen-cardHeader{
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             border-bottom: 4px;
             border-bottom: 1px #d8d8d8 solid ;
             height: 25px;
@@ -35,12 +35,38 @@ page-agri-info {
       color: #fff;
       left: 5%;
       }
+      .card-title-box {
+            position: absolute;
+            top:10%;
+            left: 5%;
+            width:90%;
+            
+      }
+      .card-title {
+            width:100%;
+            color: #fff;
+            
+
+      }
+
+      .card-subtitle {
+      width: 100%;
+      color: #fff;
+      left: 5%;
+      }
+
 
         .image-card {
       position: relative;
       text-align: left;
       height: 220px;
        margin-left: 0%;
+      overflow: hidden;
+      }
+       .image-card1 {
+      position: relative;
+      text-align: left;
+      height: 220px;
       overflow: hidden;
       }
       .image-card img{
@@ -56,4 +82,17 @@ page-agri-info {
     width: 100%;
     height:42%;
   }
+    .videoCard{
+            position: relative;
+            height: 350px;
+      }
+      .playIcon{
+            position: relative;
+            top:-250px;
+            margin: 0 auto;
+            color:#649305;
+            font-size:4.2em;
+            height:50px
+
+      }
 }
