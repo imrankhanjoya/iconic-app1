@@ -61,6 +61,8 @@ export class MyApp {
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
     { title: 'About Us', component: 'AboutPage'},
+    { title: 'AgriInfoPage', component: 'AgriInfoPage'},
+
 
 
   ]
