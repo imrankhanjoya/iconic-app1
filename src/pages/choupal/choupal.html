@@ -10,6 +10,7 @@
       <ion-option  value="30">30 KM</ion-option>
       <ion-option  value="50">50 KM</ion-option>
       <ion-option  value="100">100 KM</ion-option>
+      <ion-option  value="200">200 KM</ion-option>
     </ion-select>
   </ion-item>
 </ion-header>
@@ -22,7 +23,7 @@
               <ion-row class=" boxAlignLeft " *ngIf="data.uid!=userId" >
                 
                 <div class="backgroundColorLightGreen formatBubbleLeft paddingTop ">  
-                <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}}</div>
+                <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}},{{data.uid}},{{userId}}</div>
                 
                   <div style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
                 </div>

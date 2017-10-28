@@ -80,21 +80,21 @@ export class ChoupalPage {
 
  postCopal(){
     if (this.isSend) {
-      let loading = this.loadingCtrl.create({
+      /*let loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
-    loading.present();
+    loading.present();*/
     // console.log('ionViewDidLoad '+this.questionaddData.title);
     this.ChoupalProvider.postChoupal(this.userId,this.newMessge,this.selectedImg).map(res => res.json()).subscribe((res) => {
         this.selectedImg='';
         console.log(this.choupaldata.data);
         this.newMessge='';
         this.isSend=false;
-        this.choupalget();
-        loading.dismiss();
+        this.choupalget(this.filter_distance);
+        //loading.dismiss();
       }, (err) => {
-        alert(err)
-        loading.dismiss();
+        /*alert(err)
+        loading.dismiss();*/
         console.log(err);
       });
     }
