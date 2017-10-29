@@ -24,6 +24,7 @@ export class MarketPage {
   public product_id :any;
   public productbrand :any;
   public product_cat :any;
+  public productbrand :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,
@@ -45,13 +46,13 @@ export class MarketPage {
 
 
   ionViewDidLoad() {
-    this.getmarkets(this.product_cat);
+    this.getmarkets(this.product_cat,this.productbrand);
     console.log('ionViewDidLoad MarketPage');
   }
 
 
-  getmarkets(cat_id){
-    this.market.productlistview(cat_id).then((res)=>{
+  getmarkets(cat_id,productbrand){
+    this.market.productlistview(cat_id,productbrand).then((res)=>{
       this.productDatas.data = res.data;
       this.productDatas.msg = res.msg;
       this.productDatas.status = res.status;
@@ -73,9 +74,6 @@ export class MarketPage {
 
   makeCall(){
     
-  }
-  onChange(selectedData){
-      this.getmarkets(selectedData);
   }
   gotoMarketViewPage(product_id){
     this.navCtrl.push('MarketViewPage',{id:product_id});

@@ -39,6 +39,7 @@
       <ion-card (click)="gotoMarketViewPage(productData.id)">
         <img class="produtimage" src="{{productData.feature_image}}"/>
         <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
+        <div class="sarsTitle">{{productData.brand}}</div>
         <div class="detailSar colorGreen smallTitle" (click)="makeCall()"> 
         <a href="tel:18001200800" style="text-decoration: none;">
         {{'VALUE_ON_REQUEST' | translate}}
