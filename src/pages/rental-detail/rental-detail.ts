@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController,LoadingController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 import { Storage } from '@ionic/storage';
 
@@ -26,8 +26,7 @@ export class RentalDetailPage {
   public textGotoBack:any;
   public buttonOnCloseCSS:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,public rentals:RentalsProvider,
-  public storage:Storage ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,public rentals:RentalsProvider,public loadingCtrl: LoadingController, public storage:Storage ) {
     this.rentalid=navParams.get('rid');
     this.textSlide='';
     this.buttonOnCloseCSS='';
@@ -35,7 +34,13 @@ export class RentalDetailPage {
       this.ContactSendData = val; 
       console.log(val);
     });
-  }
+     this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+
+     this.loading.present();
+      }  
+
 
   ionViewDidLoad() {
   	 this.getRental_detail();
@@ -48,6 +53,7 @@ export class RentalDetailPage {
         this.Rental_detaildata.data = res.data;
         this.Rental_detaildata.msg = res.msg;
         this.Rental_detaildata.status = res.status;
+        this.loading.dismiss();
         console.log(this.Rental_detaildata);
         // setTimeout(() => {
         //   this.startAnimitio();

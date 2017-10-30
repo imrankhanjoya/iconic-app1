@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { KrishProvider } from '../../providers/krish/krish';
 
 /**
@@ -17,7 +17,14 @@ import { KrishProvider } from '../../providers/krish/krish';
 export class ServicesPage {
 	public krishDataList:any;
   public krishData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public KrishProvider: KrishProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,
+public KrishProvider: KrishProvider) {
+     this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+
+     this.loading.present();
+     
   }
 
   ionViewDidLoad() {
@@ -29,6 +36,7 @@ export class ServicesPage {
       	this.krishData.data = res.data;
         this.krishData.msg = res.msg;
         this.krishData.status = res.status;
+        this.loading.dismiss();
         console.log(this.krishData.data);
       }, (err) => {
         // Unable to log in

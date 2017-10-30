@@ -42,11 +42,11 @@ export class KrishCenterPage {
     console.log('Run getkrish API');
 
     this.krish.kendraList().then((res)=>{
-      this.loading.dismiss();
       this.kendraData.data = res.data;
       this.kendraData.msg = res.msg;
       this.kendraData.status = res.status;
       this.kendraHome.data = res.data.results;
+      this.loading.dismiss();
 
     });  
 

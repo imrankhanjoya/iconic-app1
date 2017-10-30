@@ -12,7 +12,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
  */
 
 @IonicPage()
-@Component({
+@Component({  
   selector: 'page-askquestion',
   templateUrl: 'askquestion.html',
 })

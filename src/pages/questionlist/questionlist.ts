@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 
 /**
@@ -16,7 +16,12 @@ import { QuestionsProvider } from '../../providers/questions/questions';
   })
   export class QuestionlistPage {
     public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-    constructor(public navCtrl: NavController, public navParams: NavParams,public QuestionsProvider: QuestionsProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
+     this.loading = this.loadingCtrl.create({
+         content: 'Please wait...'
+        });
+
+     this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -29,6 +34,7 @@ import { QuestionsProvider } from '../../providers/questions/questions';
       this.questionsDatalist.data = res.data;
         this.questionsDatalist.msg = res.msg;
         this.questionsDatalist.status = res.status;
+        this.loading.dismiss();
     });
     
     // this.QuestionsProvider.questionList().map(res => res.json()).subscribe((res) => {

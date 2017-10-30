@@ -32,11 +32,19 @@ page-market {
       }
 
       .sarsTitle{
-      text-align: left;
+      text-align: center;
       padding-left: 4%;
       padding-top: 5%;
-      text-align: left;
       height: 84px;
+      display:inline-block;
+      }
+       .barnd{
+      text-align: center;
+      padding-left: 4%;
+      height: 35px;
+      color: black;
+
+
       display:inline-block;
       }
       .detailSar{
