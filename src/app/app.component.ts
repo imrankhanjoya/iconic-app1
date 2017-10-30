@@ -29,6 +29,9 @@ import { CacheService } from "ionic-cache";
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           {{p.title | translate}}
         </button>
+        <button menuClose ion-item (click)="logout()" >
+          logout
+        </button>
       </ion-list>
       
       <ion-row >
@@ -61,7 +64,7 @@ export class MyApp {
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
     { title: 'About Us', component: 'AboutPage'},
-    { title: 'AgriInfoPage', component: 'AgriInfoPage'},
+    { title: 'AgriInfoPage', component: 'MandiPage'},
 
 
 
@@ -134,7 +137,12 @@ export class MyApp {
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
     });
-  }
+  } 
+  logout() {
+       this.storage.set('userData','');
+        this.nav.setRoot('WelcomePage');
+         console.log("here");
+}
 
   openPage(page) {
     // Reset the content nav to have just this page
