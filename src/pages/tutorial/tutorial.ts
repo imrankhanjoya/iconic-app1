@@ -44,7 +44,7 @@ export class TutorialPage {
               
            });
       });
-      },3000);
+      },10000);
 
 
   }
