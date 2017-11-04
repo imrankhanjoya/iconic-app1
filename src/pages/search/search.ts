@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SearchProvider } from '../../providers/search/search';
+import { Storage } from '@ionic/storage';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers/providers';
+
 
 @IonicPage()
 @Component({
@@ -13,7 +14,9 @@ export class SearchPage {
 
   currentItems: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public searchProvider:SearchProvider) { 
+
+  }
 
   /**
    * Perform a service for the proper items.
@@ -24,8 +27,12 @@ export class SearchPage {
       this.currentItems = [];
       return;
     }
-    this.currentItems = this.items.query({
-      name: val
+    console.log(val);
+    this.searchProvider.find(val).then((res)=>{
+
+      console.log(res.data.response.docs);
+      this.currentItems = res.data.response.docs;
+
     });
   }
 
