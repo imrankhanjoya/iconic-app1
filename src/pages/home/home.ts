@@ -100,12 +100,13 @@ export class HomePage {
         this.userId=userdata.ID;
         this.userDisplayName=userdata.display_name;
         this.tehsil=userdata._user_tehsil;
+        this.getMandiData();
+        this.getweather(this.tehsil);
       }
       
     
-      this.getMandiData();
+      
       this.getNews();
-      this.getweather(this.tehsil);
       this.get_expert();
       this.getmarkets();
       this.getannouncement();
@@ -232,11 +233,12 @@ export class HomePage {
         this.kendraData.data = res.data;
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
-        this.kendraHome.data = res.data.results[0];
+        this.kendraHome.data = res.data[0];
         
-        this.geoLoc.lat = res.data.results[0].geometry.location.lat;
-        this.geoLoc.lng = res.data.results[0].geometry.location.lng;
+        this.geoLoc.lat = res.data;
+        this.geoLoc.lng = res.data;
         this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+    
     });
     // this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
       
@@ -339,6 +341,10 @@ gotoAgriinfo(){
   gotoRentalsPage(id){
     //console.log(id);
     this.navCtrl.push('RentalDetailPage',{rid:id});
+  }
+  SearchPage(){
+    //console.log(id);
+    this.navCtrl.push('SearchPage');
   }
 
   //----------------------Hader Animiation Start------
