@@ -1,23 +1,16 @@
-<ion-header no-border>
-<ion-toolbar color="fulldark">
-<button ion-button menuToggle>
-<ion-icon name="people"></ion-icon>
-</button>
-<ion-buttons end>
-<button ion-button icon-only color="royal" (click)="gotoSearchProduct()">
-<img src="assets/img/agri bolo icon/hdpi/wallet.png">
-</button>
-</ion-buttons>
+<ion-header>
+
+  <ion-navbar>
+
 <ion-title> {{ 'BACK_BUTTON_TEXT' | translate }} </ion-title>
+<ion-buttons end>
+      <button ion-button icon-only (click)="openFilter()" class="headericon" >
+        <ion-icon name="md-options" class="colorGreen displayOneFont"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
 
-</ion-toolbar>
 
-<ion-item>
-  <ion-label>Select Product Category</ion-label>
-  <ion-select [(ngModel)]="product_cat" (ionChange)="onChange(product_cat)">
-    <ion-option *ngFor="let catData of catDatas.data;" value={{catData.slug}}>{{catData.name}}</ion-option>
-  </ion-select>
-</ion-item>
 </ion-header>
 
 
