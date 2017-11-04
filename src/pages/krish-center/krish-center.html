@@ -17,20 +17,20 @@
 <ion-card  *ngFor="let data of kendraHome.data;let i=index ">
 <ion-grid>
   <ion-row>
-    <div class="Headline  colorGrey blockPaddingBottom">{{data.name}} </div>
+    <div class="Headline  colorGrey blockPaddingBottom">{{data.kisan_kendra_firm}} </div>
    
   </ion-row>
   <ion-row>
          <ion-col col-1><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
 </ion-col>
 <ion-col col-11>
-    <div class="titleFont blockPaddingBottom" >{{data.formatted_address}}</div>
+    <div class="titleFont blockPaddingBottom" >{{data.complete_address}}, {{data.location}}, {{data.district}} , {{data.zone}}</div>
     </ion-col>
  
   </ion-row>
   <ion-row>
        
-       <div class="colorGreen blockWidth" (click)="gotoMap(data.geometry.location.lat,data.geometry.location.lng,data.name)">{{'SEARCH_THE_WAY'| translate}}</div>
+       <div class="colorGreen blockWidth" (click)="gotoMap(data.lat,data.longe,data.kisan_kendra_firm)">{{'SEARCH_THE_WAY'| translate}}</div>
        
         <div class="colorGreen blockWidth" (click)="makeCall()">
           <a href="tel:18001200800" style="text-decoration: none;">

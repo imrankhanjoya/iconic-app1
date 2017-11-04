@@ -46,7 +46,7 @@ export class KrishProvider {
 
     var paramCond ={lat:this.api.userLoction.latitude,long:this.api.userLoction.longitude,lang:'en_US'};
     return new Promise((resolve)=>{
-      this.api.getCache('v1/krishi/nearby', paramCond).then((kendraListData)=>{
+      this.api.getCache('v1/krishi/nearby-loc', paramCond).then((kendraListData)=>{
         resolve(kendraListData);
       });  
     });

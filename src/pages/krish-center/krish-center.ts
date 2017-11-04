@@ -45,7 +45,7 @@ export class KrishCenterPage {
       this.kendraData.data = res.data;
       this.kendraData.msg = res.msg;
       this.kendraData.status = res.status;
-      this.kendraHome.data = res.data.results;
+      this.kendraHome.data = res.data;
       this.loading.dismiss();
 
     });  
