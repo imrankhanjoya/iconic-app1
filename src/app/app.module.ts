@@ -54,6 +54,7 @@ import { ContactusProvider } from '../providers/contactus/contactus';
 import { WalletProvider } from '../providers/wallet/wallet';
 import { FCM } from '@ionic-native/fcm';
 import { CacheModule } from "ionic-cache";
+import { SearchProvider } from '../providers/search/search';
 
 
 // The translate loader needs to know where to load i18n files
@@ -150,6 +151,7 @@ export function provideSettings(storage: Storage) {
     ContactusProvider,
     WalletProvider,
     FCM,
+    SearchProvider,
 
   ]
 })
