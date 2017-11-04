@@ -16,7 +16,7 @@
 </button>
 </ion-buttons>
 <ion-buttons end>
-<button ion-button icon-only class="headericon" (click)="presentPopover($event)">
+<button ion-button icon-only class="headericon" (click)="SearchPage()">
   <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
 </button>
 </ion-buttons>
@@ -168,7 +168,7 @@
 
 
 
-  <ion-card >
+  <ion-card *ngIf="mandidata.status==true" >
     <ion-grid  >
   <ion-row>
     <ion-col col-3 >
