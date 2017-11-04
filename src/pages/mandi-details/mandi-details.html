@@ -45,7 +45,7 @@
     </ion-row>
   </ion-grid>
 
-<ion-slides  >
+<ion-slides  [slidesPerView]="'1.08'" >
   <ion-slide pager *ngFor="let subData of data.market_data; let in=index " >
 
     <ion-card  class="">

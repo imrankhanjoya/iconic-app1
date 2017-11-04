@@ -26,7 +26,6 @@ export class ItemCreatePage {
 
     
     storage.get('userData').then((userlogin) => {
-
       this.userId = userlogin.ID;
       this.userlogin = userlogin;
       console.log(userlogin);
