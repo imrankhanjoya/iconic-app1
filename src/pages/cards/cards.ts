@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController,ModalController } from 'ionic-angular';
 import { ExpertsProvider } from '../../providers/experts/experts';
 
 @IonicPage()
@@ -10,7 +10,8 @@ import { ExpertsProvider } from '../../providers/experts/experts';
 export class CardsPage {
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  constructor(public navCtrl: NavController,public experts:ExpertsProvider) {
+  constructor(public navCtrl: NavController,public experts:ExpertsProvider,public modalCtrl:ModalController
+) {
     
 
   }
@@ -18,7 +19,6 @@ export class CardsPage {
 
     
     this.get_expert();
-    this.get_cat();
     
   }
 
@@ -45,18 +45,18 @@ export class CardsPage {
       });
   }
 
-  get_cat(){
-    this.experts.Cat_list(8).map(res => res.json()).subscribe((res) => {
-        this.catDatas.data = res.data;
-        this.catDatas.status = res.status;
-        this.catDatas.msg = res.msg;
-        console.log('all cat data');
-        console.log(res);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
-    }
+ 
+     openFilter(){
+    let modal = this.modalCtrl.create('SpeciatistPage');
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        console.log("kkj"+this.popoverData);
+        this.navCtrl.push(CardsPage,{speciatist:popoverData.data,fromFilter:true}); 
+      }
+    });
+  }
 
    goToExpertDetial(id){
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
