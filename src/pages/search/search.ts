@@ -39,10 +39,30 @@ export class SearchPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
+  openItem(item,id) {
+    console.log(item);
+    if (item=='products') {
+      console.log('im a products');
+      var newstr=id.toString().replace('20000',"");
+      this.navCtrl.push('MarketViewPage',{id:newstr});
+    }
+    if (item=='crops') {
+      console.log('im a crops');
+      var newstr=id.toString().replace('10000',"");
+      this.navCtrl.push('CropdetailPage',{crop_id:newstr});
+    }
+    if (item=='blog') {
+      console.log('im a blogs');
+      this.navCtrl.push('ExpertsDetailPage',{id:id}); 
+    }
+    if (item=='questions') {
+      var newstr=id.toString().replace('30000',"");
+      console.log('im a questions'+newstr);
+      this.navCtrl.push('QuitionviewPage',{QuitionID:newstr});
+    }
+    /*this.navCtrl.push('ItemDetailPage', {
       item: item
-    });
+    });*/
   }
 
 }

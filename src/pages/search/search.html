@@ -13,7 +13,7 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
   <ion-list>
-    <button ion-item (click)="openItem(item)" *ngFor=" let item of currentItems ">
+    <button ion-item *ngFor=" let item of currentItems " (click)="openItem(item.type_s,item.id)">
       <ion-avatar item-start>
         <img [src]="item.img_s" />
       </ion-avatar>
