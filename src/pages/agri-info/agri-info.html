@@ -46,9 +46,11 @@
               </ion-card>
               </ion-slide>
    </ion-slides>
-   <ion-grid>
+   
+
+  <ion-grid>
       <ion-row>
-      <ion-col class="krishisevayen-cardHeader">
+      <ion-col class="cardHeader">
           <div class="headerClass">{{'SPECIALIST'| translate}}</div>
       </ion-col>
     </ion-row>
@@ -57,11 +59,11 @@
    <ion-slides  [slidesPerView]="'1.1'" >
 
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="image-card" (click)=" goToExpertDetial(expert.id)" >
+              <ion-card class="image-card  " (click)=" goToExpertDetial(expert.id)" >
                 <img src="{{expert.attachments}}" >
                 <div class="card-title-box">
                 <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
-                <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
+                <div class="card-subtitle fontBold captionFont ">{{expert.date}}</div>
 
                 <button ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
                 </div>
@@ -79,11 +81,11 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-              <ion-card class="image-card1" (click)="gotoAskquestion()" >
+              <ion-card class="image-card1 " (click)="gotoAskquestion()" >
                 <img src="assets/img/askquestion.jpg" >
                 <div class="krishisevayen-title-box">
                 <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
-                <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
+                <button ion-button  class="bordercard">{{'ASK_EXPERT_SUBTILE'| translate}}</button>
 
                 </div>
             

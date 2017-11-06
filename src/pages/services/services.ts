@@ -57,7 +57,7 @@ public KrishProvider: KrishProvider) {
     this.navCtrl.push('ServicDetalisPage');
   }
    gotocroplist(){
-    this.navCtrl.push('CroptypePage');
+    this.navCtrl.push('CroplistPage');
   }
    RentalsPage(id){
     this.navCtrl.push('RentalDetailPage',{rid:id});

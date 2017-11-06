@@ -54,9 +54,13 @@ page-agri-info {
       color: #fff;
       left: 5%;
       }
+      .bordercard{
+         border: 2px solid !important;
+
+      }
 
 
-        .image-card {
+        .image-card {   
       position: relative;
       text-align: left;
       height: 220px;
@@ -95,4 +99,22 @@ page-agri-info {
             height:50px
 
       }
+       .cardHeader{
+            text-align: center;
+            font-size: 3rem;
+            border-bottom: 4px;
+            border-bottom: 1px #d8d8d8 solid ;
+            height: 25px;
+            position: relative;
+            margin-bottom: 25px;
+      }
+      
+      .headerClass{
+            margin-top:0px;
+            background-color:#f3f4f8;
+            display: inline-block;
+            padding:0px 25px;
+            word-wrap: normal;
+      }
+
 }
