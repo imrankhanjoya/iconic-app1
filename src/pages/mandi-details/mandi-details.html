@@ -72,8 +72,7 @@
   </ion-row>
       <ion-row>
       
-      <img *ngIf="!subData.graph_price" src="assets/img/loading-icon.gif" style="width:40%; display: block; margin: auto;" />
-  
+                   <ion-spinner *ngIf="!subData.graph_price" name="dots"></ion-spinner>
       <canvas *ngIf="subData.graph_price" baseChart style="width:100%; height: 100%; overflow: hidden; border: none;"
                 [datasets]="[{data: subData.graph_price}]"
                 [labels]="subData.graph_months"
