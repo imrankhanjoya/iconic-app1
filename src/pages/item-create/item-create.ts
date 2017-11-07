@@ -28,7 +28,10 @@ export class ItemCreatePage {
     storage.get('userData').then((userlogin) => {
       this.userId = userlogin.ID;
       this.userlogin = userlogin;
+      this.base64Image = userlogin.profile_picture;
+      console.log('userlogin');
       console.log(userlogin);
+      console.log('userlogin');
     });
     
     if (this.base64Image=='') {

@@ -36,6 +36,20 @@
       <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
     </ion-item>
   </ion-col>
+  <ion-col *ngFor="let item of cropList ; let i = index " class="minWidth">
+  
+      <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'"  class="mainClass">
+        
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+      </ion-item>
+        
+  
+        <ion-item no-lines class="titlename" *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'" class="mainClass">
+      <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+    </ion-item>
+  </ion-col>
   
 </ion-row>
 </ion-scroll>

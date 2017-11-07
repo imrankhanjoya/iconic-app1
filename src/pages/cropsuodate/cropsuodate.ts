@@ -152,11 +152,11 @@ export class CropsuodatePage {
 	      loading.dismiss();
 	     if(resp.status==true){
           console.log(resp);
+          this.userdata.crop_count = resp.crop_count;
           this.userdata.crops = resp.data;
           console.log(this.userdata);
           this.storage.set('userData',this.userdata);
-          this.viewCtrl.dismiss();
-          loading.dismiss();
+          this.navCtrl.push('ItemCreatePage');
 	      }else{
 	        alert(resp.msg);
 	      }
