@@ -220,10 +220,8 @@
   "KRISHI_JANKARI":"Agri info",
   "CROP": "Crop ",
   "AVERAGE": "AVERAGE",
-  "ARRIVEL": " ARRIVAL DATE"
-
-
-
-
+  "ARRIVEL": " ARRIVAL DATE",
+  "SEE_DETAIL": "See Detail",
+  "SELECT_PRODUCT_CATEGORY": "Select Product Category"
 
 }

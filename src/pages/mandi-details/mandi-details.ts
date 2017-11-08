@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ModalController, ViewController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
+import { Storage } from '@ionic/storage';
 import { FilterModelPage } from '../filter-model/filter-model';
 
 
@@ -28,7 +29,7 @@ export class MandiDetailsPage {
   
   public toolbarClass:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
+  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
 
     
@@ -42,10 +43,13 @@ export class MandiDetailsPage {
     });
 
      this.loading.present();
+
+    storage.get('userData').then((userlogin) => {
+      this.getMandiDetails();
+    });
   }
 
   ionViewDidLoad() {
-    this.getMandiDetails();
      
      console.log('ionViewDidLoad MandiDetailsPage');
   }

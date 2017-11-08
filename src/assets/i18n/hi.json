@@ -221,7 +221,9 @@
   "KRISHI_JANKARI": "कृषि जानकारी",
   "CROP": "फसल ",
   "AVERAGE": "औसत की तारीख",
-  "ARRIVEL": " आगमन की तारीख"
+  "ARRIVEL": " आगमन की तारीख",
+  "SEE_DETAIL": "विस्तार से देखें",
+  "SELECT_PRODUCT_CATEGORY": "उत्पाद श्रेणी का चयन करें"
 
 
 }

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>market-filter</ion-title>
+    <ion-title>Market Filter</ion-title>
     <ion-buttons end>
       <button ion-button icon-only class="headericon" (click)="dismiss()">
         <ion-icon ios="ios-close" md="md-close" class="colorGreen paddingRightdisplayOneFont"></ion-icon>
@@ -23,28 +23,27 @@
  <form  [formGroup]="filterMarket" (ngSubmit)="filterMarketForm()">
       <ion-card>
 
-     <div>
-          <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
-          > VALUE_ON_REQUES</div>
-      </div>
-       <ion-item>
-         <ion-label>SELECT_PRODUCT_CATEGORY</ion-label>
-          <ion-select formControlName="product_cat" multiple="true" >
-             <ion-option  *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
-            </ion-select>
-              </ion-item>
-      <ion-item>
-         <ion-label>SELECT_BRAND_CATEGORY</ion-label>
-          <ion-select formControlName="productbrand" multiple="true" >
-             <ion-option  *ngFor="let brandData of brandDatas.data; let i=index " value={{brandData.value}}>{{brandData.value}}</ion-option>
-            </ion-select>
-              </ion-item>
+       <div>
+            <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
+            > {{'VALUE_ON_REQUEST' | translate}}</div>
+        </div>
+         <ion-item>
+           <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
+            <ion-select formControlName="product_cat" multiple="true" >
+               <ion-option  *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
+              </ion-select>
+                </ion-item>
+          <ion-item>
+            <ion-select formControlName="productbrand" multiple="true" style="display: none">
+               <ion-option  *ngFor="let brandData of brandDatas.data; let i=index " value={{brandData.value}}>{{brandData.value}}</ion-option>
+              </ion-select>
+          </ion-item>
             <div  class="p_button margin-top" style="float: right">
-                <button class="p_1" ion-button  (click)="dismiss()" clear>CANCEL</button>
+                <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
             </div>
             
             <div  class="p_button" style="float: right">
-              <button class="p_1" ion-button type="submit" [disabled]="!filterMarket.valid">PRICE_REQUEST</button>
+              <button class="p_1" ion-button type="submit" [disabled]="!filterMarket.valid">{{'PRICE_REQUEST' | translate}}</button>
           </div>
           </ion-card>
 
