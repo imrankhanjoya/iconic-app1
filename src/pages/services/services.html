@@ -12,14 +12,16 @@
 
 
 <ion-content>
-  <ion-card class="image-card" >
-    <img src="assets/img/market.jpeg" >
-    <div class="card-title-box">
-    <div class="card-title">  {{'MARKET'| translate}}</div>
-    <button  ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
 
-</div>
-</ion-card>
+  <ion-list >
+    <ion-card class="image-card" >
+      <img src="assets/img/market.jpeg" >
+      <div class="card-title-box">
+        <div class="card-title">  {{'MARKET'| translate}}</div>
+        <button  ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
+      </div>
+    </ion-card>
+  </ion-list>
   <ion-list *ngFor="let data of krishData.data;let i=index ">
 
     <ion-card class="image-card" >
