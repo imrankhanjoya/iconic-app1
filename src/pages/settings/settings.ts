@@ -18,6 +18,7 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
   templateUrl: 'settings.html'
 })
 export class SettingsPage {
+  public profile_picture : any;
   private changepass : FormGroup;
   private changeprofile : FormGroup;
   private changelocation : FormGroup;
@@ -53,37 +54,38 @@ export class SettingsPage {
           public viewCtrl: ViewController,
           public cityStateProvider:CityStateProvider
           ) {
-
+            this.profile_picture = 'assets/img/appicon.png';
             this.storage.get('userData').then((val) => {
-            this.phoneNumber = val.user_login; 
-            this.user_id = val.ID; 
-            this.userData = val; 
-            this.phoneNumber = val.user_login;
-            this.pageTitle = navParams.get('pTitle');
-             
-            //Change Password
-            this.changepass = this.formBuilder.group({
-              oldpass: ['', Validators.required],
-              newpass: ['', Validators.required],
-              confirmpass: ['', Validators.required],
-            });
-            this.changeprofile = this.formBuilder.group({
-              display_name: [this.userData.display_name, Validators.required],
-              user_irrigation_type: [this.userData._user_irrigation_type, Validators.required],
-              user_irrigation_source: [this.userData._user_irrigation_source, Validators.required],
-              user_landholding_size_unit: [this.userData.user_landholding_size_unit, Validators.required],
-              user_landholding_size: [this.userData._user_landholding_size, Validators.required]
-            });
-            //Change Profile Details
-            this.changelocation = this.formBuilder.group({
-              user_state_id: [this.userData._user_state, Validators.required],
-              user_district_id: [this.userData._user_district, Validators.required],
-              user_tahsil_id: [this.userData._user_tehsil, Validators.required]
-            });
-            this.onStateSelect(this.userData._user_state);
-            this.onDistrictSelect(this.userData._user_district);
+              this.phoneNumber = val.user_login; 
+              this.user_id = val.ID; 
+              this.userData = val; 
+              this.phoneNumber = val.user_login;
+              this.profile_picture = val.profile_picture;
+              this.pageTitle = navParams.get('pTitle');
+               
+              //Change Password
+              this.changepass = this.formBuilder.group({
+                oldpass: ['', Validators.required],
+                newpass: ['', Validators.required],
+                confirmpass: ['', Validators.required],
+              });
+              this.changeprofile = this.formBuilder.group({
+                display_name: [this.userData.display_name, Validators.required],
+                user_irrigation_type: [this.userData._user_irrigation_type, Validators.required],
+                user_irrigation_source: [this.userData._user_irrigation_source, Validators.required],
+                user_landholding_size_unit: [this.userData.user_landholding_size_unit, Validators.required],
+                user_landholding_size: [this.userData._user_landholding_size, Validators.required]
+              });
+              //Change Profile Details
+              this.changelocation = this.formBuilder.group({
+                user_state_id: [this.userData._user_state, Validators.required],
+                user_district_id: [this.userData._user_district, Validators.required],
+                user_tahsil_id: [this.userData._user_tehsil, Validators.required]
+              });
+              this.onStateSelect(this.userData._user_state);
+              this.onDistrictSelect(this.userData._user_district);
 
-          });
+            });
 
           this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
@@ -108,6 +110,7 @@ export class SettingsPage {
               this.loading.dismiss();
               this.viewCtrl.dismiss();
               alert('Profile Update Sucessfully.');
+              this.navCtrl.push('ItemCreatePage');
             }else {
               this.loading.dismiss();
             }
@@ -130,10 +133,9 @@ export class SettingsPage {
     this.user.UpdateLocation(this.user_id,statearray,districtarray,tehsilarray).map(res => res.json()).subscribe((resp) => {
             this.storage.set('userData',resp.data);if (resp.status==true) {
               this.passresError='Change Location Sucessfully';
+              this.navCtrl.push('ItemCreatePage');
             }
           this.loading.dismiss();
-          alert('Profile Update Sucessfully.');
-          this.viewCtrl.dismiss();
      }, (err) => {
     this.loading.dismiss();
     });

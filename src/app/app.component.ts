@@ -18,7 +18,7 @@ import { CacheService } from "ionic-cache";
 
     <ion-content style="background-color:white">
     <ion-row class="MenuHeader" justify-content-center align-items-center>
-      <img class="profilePic"  src="assets/img/appicon.png" style="max-width:30%">
+      <img class="profilePic"  src="{{profile_picture}}" style="max-width:30%">
       
     </ion-row>
     <ion-row class="MenuHeader" justify-content-center align-items-center>
@@ -56,6 +56,7 @@ export class MyApp {
   rootPage = FirstRunPage;
   public username : any;
   public display_name : any;
+  public profile_picture : any;
   public userLanguage:any;
   @ViewChild(Nav) nav: Nav;
 
@@ -92,6 +93,8 @@ export class MyApp {
       storage.get('userData').then((userlogin) => {
 
         this.display_name = userlogin.display_name;
+
+        this.profile_picture = userlogin.profile_picture;
       });
       fcm.subscribeToTopic('marketing');
 

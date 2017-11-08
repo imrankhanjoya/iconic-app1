@@ -24,6 +24,9 @@ export class ItemCreatePage {
     public camera: Camera,public storage:Storage, public popoverCtrl: PopoverController,public user: User,
     public loadingCtrl: LoadingController) {
 
+    if (this.base64Image=='') {
+        this.base64Image='assets/img/appicon.png';
+    }
     
     storage.get('userData').then((userlogin) => {
       this.userId = userlogin.ID;
@@ -34,9 +37,7 @@ export class ItemCreatePage {
       console.log('userlogin');
     });
     
-    if (this.base64Image=='') {
-        this.base64Image='assets/img/appicon.png';
-    }
+    
 
     this.form = formBuilder.group({
       profilePic: [''],
@@ -152,6 +153,7 @@ export class ItemCreatePage {
      });
      loading.present();
      this.user.userUpdateProImg(this.userId,image).map(res => res.json()).subscribe((resp) => {
+      this.storage.set('userData',resp.data);
       loading.dismiss();
      }, (err) => {
       loading.dismiss();
