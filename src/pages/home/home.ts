@@ -1,7 +1,7 @@
 import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -33,6 +33,7 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  public loading :any;
 @ViewChild('man_id') elem:ElementRef;
 @ViewChild('karsi_id') karsi_id:ElementRef;
 @ViewChild('tongl_id') tongl_id:ElementRef;
@@ -67,9 +68,13 @@ export class HomePage {
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public events:Events) {
+    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
     this.rotateClass="";
       //this.topMenu = 'toolbarClosed';
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
 
   }
 
@@ -102,14 +107,13 @@ export class HomePage {
         this.tehsil=userdata._user_tehsil;
         this.getMandiData();
         this.getweather(this.tehsil);
+        this.getNews();
+        this.get_expert();
+        this.getmarkets();
+        this.getannouncement();
       }
       
     
-      
-      this.getNews();
-      this.get_expert();
-      this.getmarkets();
-      this.getannouncement();
     });
     
   }
@@ -169,6 +173,7 @@ export class HomePage {
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];
         this.mandidata.status=true;
+        this.loading.dismiss();
     });
 
     // this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
