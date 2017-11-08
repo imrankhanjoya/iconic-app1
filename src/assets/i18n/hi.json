@@ -220,11 +220,13 @@
   "SELECT_DISTANCE": "Choose Range",
   "KRISHI_JANKARI": "कृषि जानकारी",
   "CROP": "फसल ",
-  "AVERAGE": "औसत की तारीख",
+  "AVERAGE": "औसत ",
   "ARRIVEL": " आगमन की तारीख",
   "SEE_DETAIL": "विस्तार से देखें",
-  "SELECT_PRODUCT_CATEGORY": "उत्पाद श्रेणी का चयन करें"
-
-
+  "SELECT_PRODUCT_CATEGORY": "उत्पाद श्रेणी का चयन करें",
+  "Market Filter": "बाजार फिल्टर",
+  "Specialist": "विशेषज्ञ फिल्टर ",
+  "SEARCH_CAT": "खोजना",
+  "SELECT_SPECIALIST_CATEGORY": "विशेषज्ञ  श्रेणी का चयन करें"
 }
 

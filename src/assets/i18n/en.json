@@ -222,6 +222,14 @@
   "AVERAGE": "AVERAGE",
   "ARRIVEL": " ARRIVAL DATE",
   "SEE_DETAIL": "See Detail",
-  "SELECT_PRODUCT_CATEGORY": "Select Product Category"
+  "Market Filter": "Market Filter",
+  "Specialist": "SPECIALIST",
+  "SEARCH_CAT": "Search",
+  "SELECT_PRODUCT_CATEGORY": "Select Product Category",
+  "SELECT_SPECIALIST_CATEGORY": "Select Specialist Category"
+
+
+
+
 
 }

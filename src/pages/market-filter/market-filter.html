@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Market Filter</ion-title>
+    <ion-title>{{'Market Filter' | translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only class="headericon" (click)="dismiss()">
         <ion-icon ios="ios-close" md="md-close" class="colorGreen paddingRightdisplayOneFont"></ion-icon>
@@ -25,7 +25,7 @@
 
        <div>
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
-            > {{'VALUE_ON_REQUEST' | translate}}</div>
+            > {{'SELECT_PRODUCT_CATEGORY' | translate}}</div>
         </div>
          <ion-item>
            <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
@@ -43,7 +43,7 @@
             </div>
             
             <div  class="p_button" style="float: right">
-              <button class="p_1" ion-button type="submit" [disabled]="!filterMarket.valid">{{'PRICE_REQUEST' | translate}}</button>
+              <button class="p_1" ion-button type="submit" [disabled]="!filterMarket.valid">{{'SEARCH_CAT' | translate}}</button>
           </div>
           </ion-card>
 

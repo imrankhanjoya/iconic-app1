@@ -24,6 +24,7 @@ export class QuestionsProvider {
   	 var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage,ctime:msec};
     return new Promise((resolve)=>{
       this.api.getCache('v1/question/all', paramCond).then((questionListData)=>{
+        console.log('----------'+JSON.stringify(questionListData));
         resolve(questionListData);
       });  
     });
@@ -53,17 +54,19 @@ export class QuestionsProvider {
       body.append('Attachments', questionaddData.Attachments);
 
       var Params = questionaddData;  
+      console.log(JSON.stringify(questionaddData));
       let seq = this.api.post('v1/question/add', body).share();
 
       seq.map(res => res.json())
         .subscribe(res => {
           // If the API returned a successful response, mark the user as logged in
+          console.log('--add qustion  res---'+JSON.stringify(res));
           if (res.status == 'success') {
             console.log(res);
           } else {
           }
         }, err => {
-          console.error('ERROR', err);
+          console.error('ERROR-qustion----', err);
         });
 
       return seq;
