@@ -30,7 +30,7 @@ import { CacheService } from "ionic-cache";
           {{p.title | translate}}
         </button>
         <button menuClose ion-item (click)="logout()" >
-          logout
+          {{'LOGOUT' | translate}}
         </button>
       </ion-list>
       
@@ -106,7 +106,8 @@ export class MyApp {
         if(data.wasTapped){
           console.log("Received in background");
         } else {
-          console.log("Received in foreground");
+          console.
+          log("Received in foreground");
         };
       });
 

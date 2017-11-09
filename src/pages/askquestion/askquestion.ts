@@ -46,6 +46,7 @@ export class AskquestionPage {
         
         this.viewCtrl.dismiss();
         console.log(this.askquestionsData.data);
+         this.navCtrl.push('QuestionlistPage');
       }, (err) => {
         // Unable to log in
         console.log(err);
