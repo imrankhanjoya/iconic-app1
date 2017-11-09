@@ -28,13 +28,14 @@
 
     <ion-row *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
       <ion-col >
-        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)" class="checkbox"></ion-checkbox>
+
         <div class="titleName titleFont" >{{item.name}}</div>
       </ion-col>
     </ion-row>
     <ion-row *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
       <ion-col >
-        <input type="checkbox" [checked]=" item.sub_type == 'true' ? true : false" ng-model="item.name" (ionChange)="updateLocalStorage()" (click)="addValue(i)" class="checkbox" />
+        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false"(click)="addValue(i,j)" class="checkbox"></ion-checkbox>
         <div class="titleName titleFont" >{{item.name}}</div>
       </ion-col>
     </ion-row>
