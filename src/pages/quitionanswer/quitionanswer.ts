@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { QuitionanswerpProvider } from '../../providers/quitionanswerp/quitionanswerp';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicStorageModule, Storage } from '@ionic/storage';
-
 /**
  * Generated class for the QuitionanswerPage page.
  *
@@ -27,7 +26,8 @@ export class QuitionanswerPage {
                   public questionanswer: QuitionanswerpProvider,
                   public formBuilder:FormBuilder,
                   public storage:Storage,
-                  public viewCtrl: ViewController
+                  public viewCtrl: ViewController,
+                  private toastCtrl: ToastController
                 ) {
     		        this.qid=navParams.get('QuitionID');
                 this.storage.get('userData').then((val) => {
@@ -39,7 +39,22 @@ export class QuitionanswerPage {
                   });
 	}
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Answer added successfully',
+      duration: 3000,
+      position: 'top'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
+
   	ionViewDidLoad() {
+      //alert('this.data.msg');
     	console.log('ionViewDidLoad QuitionanswerPage');
   	}   
 
@@ -47,9 +62,8 @@ export class QuitionanswerPage {
       
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
-          this.viewCtrl.dismiss();
-        	//this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid});
-        	//console.log(this.qid);
+          this.presentToast();
+        	this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid});
       }, (err) => {
         // Unable to log in
         console.log(err);

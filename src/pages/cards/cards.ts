@@ -47,12 +47,12 @@ export class CardsPage {
 
  
      openFilter(){
-    let modal = this.modalCtrl.create('SpecialistPage');
+    let modal = this.modalCtrl.create('SpeciatistPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        console.log("popoverData"+this.popoverData);
+        console.log("kkj"+this.popoverData);
         this.navCtrl.push(CardsPage,{speciatist:popoverData.data,fromFilter:true}); 
       }
     });

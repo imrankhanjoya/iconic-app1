@@ -107,9 +107,9 @@ export class HomePage {
         this.tehsil=userdata._user_tehsil;
         this.getMandiData();
         this.getweather(this.tehsil);
+        this.getmarkets();
         this.getNews();
         this.get_expert();
-        this.getmarkets();
         this.getannouncement();
       }
       
@@ -173,7 +173,6 @@ export class HomePage {
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];
         this.mandidata.status=true;
-        this.loading.dismiss();
     });
 
     // this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
@@ -217,7 +216,11 @@ export class HomePage {
         this.productHome.data = res.data;
         this.productHome.msg = res.msg;
         this.productHome.status = res.status;
+        console.log(this.productHome.data);
+        this.loading.dismiss();
+
     });
+    console.log('getmarkets');
 
     // this.market.productlist(5).map(res => res.json()).subscribe((res) => {
       

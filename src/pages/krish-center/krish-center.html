@@ -34,7 +34,7 @@
        <div class="colorGreen blockWidth"  (click)="gotoMap(data.lat,data.longe,data.kisan_kendra_firm)">{{'SEARCH_THE_WAY'| translate}}</div>
        
         <div class="colorGreen blockWidth" (click)="makeCall()">
-          <a href="{{data.mobile_number}}" style="text-decoration: none;">
+          <a href="tel:{{data.mobile_number}}" style="text-decoration: none;">
          {{'BY_CALLING' | translate}}
          </a></div>
   </ion-row>
