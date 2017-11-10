@@ -59,6 +59,7 @@
   "OTP_NUMBER_TYPE_NUMBER": "Enter your number",
   "OTP_NUMBER_VALID_NUMBER": "Enter valid mobile number",
   "OTP_NUMBER_SEND_OTP": "Send OTP",
+  "PASSWORD_NOT_VALID": "password required minimum 5 character",
 
   "MENU":"Very good",
 
@@ -219,6 +220,7 @@
   "SELECT_RANGE_CHOUPAL": "सीमा चुनें",
   "KRISHI_JANKARI":"Agri info",
   "CROP": "Crop ",
+  "RABI": "Rabi ",
   "AVERAGE": "Average",
   "ARRIVEL": " Arrivel Date",
   "SEE_DETAIL": "See Detail",

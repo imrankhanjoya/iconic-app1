@@ -198,6 +198,7 @@
   "GET_MORE_INSIGHT": "अधिक जानकारी प्राप्त करें",
   "ASK_EXPERT_SUBTILE": "अपने फसलों पर विशेषज्ञ सलाह लें",
   "CROP": "फसल",
+  "RABI": "रबी ",
   "HORTICULTURE": "बागवानी",
   "DISPLAY_NAME": "प्रदर्शित होने वाला नाम",
   "IRRIGATION_TYPE": "सिंचाई प्रकार",
@@ -214,6 +215,8 @@
   "LOCATION": "स्थान",
   "AND": "और",
   "OTHER": "अन्य",
+  "PASSWORD_NOT_VALID": "पासवर्ड न्यूनतम 5 शब्द  आवश्यक है",
+
   "EDIT_PROFILE": "प्रोफाइल संपादित करें",
   "CHANGE_PASSWORD": "पासवर्ड बदलें",
   "SEVA_KENDAR":"सेवा केंद्र",
