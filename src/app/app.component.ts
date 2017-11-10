@@ -17,7 +17,7 @@ import { CacheService } from "ionic-cache";
     
 
     <ion-content style="background-color:white">
-    <ion-row class="MenuHeader" justify-content-center align-items-center>
+    <ion-row class="MenuHeader circle-pic" justify-content-center align-items-center>
       <img class="profilePic"  src="{{profile_picture}}" style="max-width:30%">
       
     </ion-row>
@@ -56,7 +56,7 @@ export class MyApp {
   rootPage = FirstRunPage;
   public username : any;
   public display_name : any;
-  public profile_picture : any;
+  public profile_picture : 'assets/img/appicon.png';
   public userLanguage:any;
   @ViewChild(Nav) nav: Nav;
 
