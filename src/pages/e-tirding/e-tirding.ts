@@ -52,6 +52,7 @@ export class ETirdingPage {
 	          	this.changemarket = this.formBuilder.group({
 		            user_id: [this.userData.ID],
 		            etrading_crop: ['', Validators.required],
+		            etrading_crop_id: ['', Validators.required],
 		            etrading_varieties: ['', Validators.required],
 		            etrading_prices: ['', Validators.required],
 		            etrading_address: ['', Validators.required],
@@ -70,7 +71,6 @@ export class ETirdingPage {
   }
 
   ionViewDidLoad() {
-  	this.getItems();
     console.log('ionViewDidLoad ETirdingPage');
   }
    onStateSelect(stateid) {
@@ -110,27 +110,25 @@ export class ETirdingPage {
         let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }
-     getItems() {
-     //let val = ev.target.value;
-    // if (!val || !val.trim()) {
-    //   this.currentItems = [];
-    //   return;
-    // }
-    console.log();
-    this.searchProvider.crop_find().then((res)=>{
-      console.log(res.data.response.docs);
-      this.currentItems = res.data.response.docs;
+    
+	getItems(ksseys) {
+	    console.log(ksseys);
+	    this.ETirdingProvider.crop_find(ksseys).then((res)=>{
 
-    });
-  }
-   openItem(item,id) {
-    console.log(item);
-  
-    if (item=='crops') {
-      console.log('im a crops');
-      var newstr=id.toString().replace('10000',"");
-    }
-  }
+	      console.log(res.data);
+	      this.currentItems = res.data;
+
+	    });
+	}
+
+	openItem(item,id) {
+	    console.log(item);
+	  
+	    if (item=='crops') {
+	      console.log('im a crops');
+	      var newstr=id.toString().replace('10000',"");
+	    }
+	}
 
      
    

@@ -47,6 +47,17 @@ export class ETirdingProvider {
 
      return seq;
    }
+
+
+  crop_find(keyword){
+    var paramCond ={keyword:keyword};
+      return new Promise((resolve)=>{
+        this.api.getCache('v1/crops/find', paramCond).then((searchItem)=>{
+          resolve(searchItem);
+        });  
+      });
+    
+  }
    
 
 }

@@ -23,9 +23,24 @@
       </div>
       <ion-item class="separator colorGrey">
         <ion-label>crops</ion-label>
-      <ion-input   formControlName="etrading_crop" type="text"  ></ion-input>
 
-      </ion-item>
+      <ion-input (keyup)="getItems($event)" #etrading_crop formControlName="etrading_crop" type="text"  ></ion-input>
+
+       </ion-item>
+      <!-- <ion-item class="separator colorGrey">
+        <ion-label>crops</ion-label>
+
+      <ion-input formControlName="etrading_crop_id" type="hidden"  ></ion-input>
+
+      </ion-item> --> 
+
+  <ion-list>
+    <button ion-item *ngFor=" let item of currentItems " (click)="openItem(item.name,item.id)">
+      <h2>{{item.name}}</h2>
+      <p>{{item.crop_type}}</p>
+      <!-- <ion-note item-end *ngIf="item.content">{{item.content}}</ion-note> -->
+    </button>
+  </ion-list>
       <ion-item class="separator colorGrey">
         <ion-label>varieties</ion-label>
         <ion-select  formControlName="etrading_varieties">
