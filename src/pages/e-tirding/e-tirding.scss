@@ -1,0 +1,17 @@
+page-e-tirding {
+.text-input:-moz-placeholder {
+  color: red;
+}
+.text-input:-ms-input-placeholder {
+  color: red;
+}
+
+.text-input::-webkit-input-placeholder {
+  color: red;
+}
+.label-md[stacked] {
+    font-size: 1.5rem !important;
+}
+
+
+}

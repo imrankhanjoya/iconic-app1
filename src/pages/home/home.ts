@@ -74,7 +74,7 @@ export class HomePage {
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
-      this.loading.present();
+     // this.loading.present();
 
   }
 
