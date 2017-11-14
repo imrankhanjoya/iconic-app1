@@ -38,6 +38,13 @@
        <ion-label  stacked>{{'QUANTITY'| translate}}</ion-label>
         <ion-input   formControlName="etrading_quantity" type="number"></ion-input>
       </ion-item>
+      <ion-item class="separator colorGrey">
+        <ion-label>{{'QUANTITY'| translate}} Unit</ion-label>
+         <ion-select   formControlName="etrading_quantity_unit" >
+          <ion-option  value='Kg'>KG</ion-option>
+          <ion-option  value='Quintal'>Quintal</ion-option>
+        </ion-select>
+       </ion-item>
        <ion-item class="separator colorGrey">
         <ion-label  stacked>{{'EXCEPT_PRICE'| translate}}</ion-label>
         <ion-input   formControlName="etrading_prices" type="number"></ion-input>

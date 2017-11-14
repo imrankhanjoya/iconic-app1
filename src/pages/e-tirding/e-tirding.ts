@@ -57,7 +57,8 @@ export class ETirdingPage {
 		            etrading_varieties: ['', Validators.required],
 		            etrading_prices: ['', Validators.required],
 		            etrading_address: ['', Validators.required],
-		            etrading_quantity: ['', Validators.required],
+                etrading_quantity: ['', Validators.required],
+		            etrading_quantity_unit: ['', Validators.required],
 		            user_state_id: [this.userData._user_state, Validators.required],
 		            user_district_id: [this.userData._user_district, Validators.required],
 		            user_tahsil_id: [this.userData._user_tehsil, Validators.required]

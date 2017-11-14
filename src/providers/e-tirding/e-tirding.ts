@@ -16,7 +16,7 @@ export class ETirdingProvider {
     console.log('Hello ETirdingProvider Provider');
     // user_id,crop_id,varieties_id,etrading_prices,etrading_prices,etrading_address,user_state_id,user_district_id,user_tahsil_id
   }
-  
+
   crop_e_tirding(data){
      let body = new FormData();
      body.append('lang', this.api.userLanguage);
@@ -24,7 +24,7 @@ export class ETirdingProvider {
      body.append('crop',data.etrading_crop);
      body.append('varieties',data.etrading_varieties);
      body.append('expect_price', data.etrading_prices);
-     body.append('quality', data.etrading_quantity);
+     body.append('quality', data.etrading_quantity +' ' +data.etrading_quantity_unit);
      body.append('address', data.etrading_address);
      body.append('state', data.user_state_id);
      body.append('district', data.user_district_id);
