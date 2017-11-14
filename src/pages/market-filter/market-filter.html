@@ -27,16 +27,25 @@
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
             > {{'SELECT_PRODUCT_CATEGORY' | translate}}</div>
         </div>
-         <ion-item>
+         <ion-item  class="separator colorGrey">
            <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
             <ion-select formControlName="product_cat" multiple="true" >
                <ion-option  *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
-              </ion-select>
-                </ion-item>
-          <ion-item>
-            <ion-select formControlName="productbrand" multiple="true" style="display: none">
+            </ion-select>
+          </ion-item>
+          <ion-item class="separator colorGrey"  style="display: none">
+            <ion-select formControlName="productbrand" multiple="true">
                <ion-option  *ngFor="let brandData of brandDatas.data; let i=index " value={{brandData.value}}>{{brandData.value}}</ion-option>
-              </ion-select>
+            </ion-select>
+          </ion-item>
+          <ion-item class="separator colorGrey">
+            <ion-label>{{'SORT_BY' | translate}}</ion-label>
+            <ion-select formControlName="sortby" >
+               <ion-option value='id desc'>Newest First</ion-option>
+               <ion-option value='status desc'>Popularity</ion-option>
+               <ion-option value='buying_price asc'>Price - Low to High</ion-option>
+               <ion-option value='buying_price desc'>Price - High to Low</ion-option>
+            </ion-select>
           </ion-item>
             <div  class="p_button margin-top" style="float: right">
                 <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>

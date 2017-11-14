@@ -116,6 +116,7 @@
    "SELECT_LOCTION_STATE": "राज्य",
    "SELECT_LOCTION_OR": "या",
    "SELECT_LOCTION_PRESENT_ADDRESS": "मेरा वर्तमान स्थान",
+   "ADDRESS": "स्थान",
 
    "CROPS_TITLE": "कृपया अपनी फसल प्रकार को चुनें",
    "CROPS_FRUITE": "फल",
@@ -238,6 +239,10 @@
   "Market Filter": "बाजार फिल्टर",
   "Specialist": "विशेषज्ञ फिल्टर ",
   "SEARCH_CAT": "खोजना",
-  "SELECT_SPECIALIST_CATEGORY": "विशेषज्ञ  श्रेणी का चयन करें"
+  "SELECT_SPECIALIST_CATEGORY": "विशेषज्ञ  श्रेणी का चयन करें",
+  "SORT_BY": "क्रमबद्ध करें",
+  "VERIETY": "क़िस्म",
+  "QUANTITY": "मात्रा",
+  "EXCEPT_PRICE": "कीमत की उम्मीद"
 }
 

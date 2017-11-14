@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Http } from '@angular/http';
-
 import { Api } from '../api/api';
 
 /*
@@ -18,6 +16,7 @@ export class ETirdingProvider {
     console.log('Hello ETirdingProvider Provider');
     // user_id,crop_id,varieties_id,etrading_prices,etrading_prices,etrading_address,user_state_id,user_district_id,user_tahsil_id
   }
+  
   crop_e_tirding(data){
      let body = new FormData();
      body.append('lang', this.api.userLanguage);
@@ -25,7 +24,7 @@ export class ETirdingProvider {
      body.append('crop',data.etrading_crop);
      body.append('varieties',data.etrading_varieties);
      body.append('expect_price', data.etrading_prices);
-     body.append('quality', data.etrading_quality);
+     body.append('quality', data.etrading_quantity);
      body.append('address', data.etrading_address);
      body.append('state', data.user_state_id);
      body.append('district', data.user_district_id);
@@ -48,7 +47,24 @@ export class ETirdingProvider {
      return seq;
    }
 
+sendCrop_etriding(lang){
+    var paramCond ={lang:this.api.userLanguage};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/crops/all', paramCond).then((sendCropData)=>{
+          resolve(sendCropData);
+        });  
+      });
 
+}
+send_varieties_etriding(crop_id){
+    var paramCond ={lang:this.api.userLanguage,crop_id:crop_id};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/crops/crop-varieties', paramCond).then((sendCropData)=>{
+          resolve(sendCropData);
+        });  
+      });
+
+}
   crop_find(keyword){
     var paramCond ={keyword:keyword};
       return new Promise((resolve)=>{

@@ -34,7 +34,7 @@
           </ion-col>
         </ion-row>
   </ion-grid>
-  <ion-slides [slidesPerView]="'auto'">
+  <ion-slides *ngIf="productcatData.datasource!='filter'" [slidesPerView]="'auto'">
     <ion-slide class="slideItem"  *ngFor="let productData of productcatData.product_data;">
       <ion-card (click)="gotoMarketViewPage(productData.id)">
         <img class="produtimage" src="{{productData.feature_image}}"/>
@@ -47,6 +47,19 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
+  <ion-row  *ngIf="productcatData.datasource=='filter'">
+    <ion-col col-6 class="colCandigare" *ngFor="let productData of productcatData.product_data;">
+        <ion-card (click)="gotoMarketViewPage(productData.id)">
+          <img class="produtimage" src="{{productData.feature_image}}"/>
+          <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
+          <div class="detailSar colorGreen smallTitle" > 
+          <a style="text-decoration: none;">
+          {{'SEE_DETAIL' | translate}}
+          </a>
+          </div>
+        </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-row>
   <!-------END Product Sectopn------>
 

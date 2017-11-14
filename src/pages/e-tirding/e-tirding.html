@@ -7,7 +7,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>e_tirding</ion-title>
+    <ion-title>{{'E-TRADIND'| translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only class="headericon" (click)="dismiss()">
         <ion-icon ios="ios-close" md="md-close" class="colorGreen paddingRightdisplayOneFont"></ion-icon>
@@ -19,42 +19,27 @@
  <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="changemarket" (ngSubmit)="filterLocaltionForm()">
   <ion-card>
       <div>
-          <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCenter"> user detail</div>
+          <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCenter"></div>
       </div>
       <ion-item class="separator colorGrey">
-        <ion-label>crops</ion-label>
-
-      <ion-input (keyup)="getItems($event)" #etrading_crop formControlName="etrading_crop" type="text"  ></ion-input>
-
+        <ion-label>{{'CROP'| translate}}</ion-label>
+         <ion-select   formControlName="etrading_crop" #etrading_crop (ionChange)="onCropSelect(etrading_crop.value)">
+          <ion-option *ngFor="let crop of cropList" value={{crop.id}}>{{crop.name}}</ion-option>
+        </ion-select>
        </ion-item>
-      <!-- <ion-item class="separator colorGrey">
-        <ion-label>crops</ion-label>
-
-      <ion-input formControlName="etrading_crop_id" type="hidden"  ></ion-input>
-
-      </ion-item> --> 
-
-  <ion-list>
-    <button ion-item *ngFor=" let item of currentItems " (click)="openItem(item.name,item.id)">
-      <h2>{{item.name}}</h2>
-      <p>{{item.crop_type}}</p>
-      <!-- <ion-note item-end *ngIf="item.content">{{item.content}}</ion-note> -->
-    </button>
-  </ion-list>
+     
       <ion-item class="separator colorGrey">
-        <ion-label>varieties</ion-label>
+        <ion-label>{{'VERIETY'| translate}}</ion-label>
         <ion-select  formControlName="etrading_varieties">
-          <ion-option value="ddd">vbkbmkvmk</ion-option>
+          <ion-option  *ngFor="let varieties of varieties_List" value={{varieties.id}}>{{varieties.improved_varieties}}</ion-option>
         </ion-select>
       </ion-item>
        <ion-item class="separator colorGrey">
-        <ion-label>quality</ion-label>
-        <ion-select  formControlName="etrading_quality">
-          <ion-option value="ddd" >vbkbmkvmk</ion-option>
-        </ion-select>
+       <ion-label  stacked>{{'QUANTITY'| translate}}</ion-label>
+        <ion-input   formControlName="etrading_quantity" type="number"></ion-input>
       </ion-item>
-       <ion-item>
-        <ion-label  stacked>expect-price</ion-label>
+       <ion-item class="separator colorGrey">
+        <ion-label  stacked>{{'EXCEPT_PRICE'| translate}}</ion-label>
         <ion-input   formControlName="etrading_prices" type="number"></ion-input>
         </ion-item>
        <ion-item class="separator">
@@ -76,7 +61,7 @@
         </ion-select>
      </ion-item>
       <ion-item>
-    <ion-label  class="inpu" stacked>Address</ion-label>
+    <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
     <ion-input   formControlName="etrading_address" type="text"></ion-input>
   </ion-item>
       <div  class="p_button margin-top" style="float: right">
@@ -89,3 +74,18 @@
     </ion-card>
     </form>
 </ion-content>
+   <!--   <ion-input (keyup)="getItems(etrading_crop.value)" #etrading_crop formControlName="etrading_crop" type="text"  ></ion-input> -->
+      <!-- <ion-item class="separator colorGrey">
+        <ion-label>crops</ion-label>
+
+      <ion-input formControlName="etrading_crop_id" type="hidden"  ></ion-input>
+
+      </ion-item> --> 
+
+ <!--  <ion-list>
+    <button ion-item *ngFor=" let item of currentItems " (click)="openItem(item.name,item.id)">
+      <h2>{{item.name}}</h2>
+      <p>{{item.crop_type}}</p>
+      <!-- <ion-note item-end *ngIf="item.content">{{item.content}}</ion-note> -->
+   <!--  </button>
+  </ion-list> --> 

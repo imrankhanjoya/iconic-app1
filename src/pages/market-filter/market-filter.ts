@@ -28,7 +28,8 @@ export class MarketFilterPage {
 
 			  	this.filterMarket = this.formBuilder.group({
 		        product_cat: [''],
-		        productbrand: ['']
+		        productbrand: [''],
+            sortby: ['']
         });
 	}
 

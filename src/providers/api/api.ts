@@ -13,14 +13,12 @@ import "rxjs/add/operator/share";
 @Injectable()
 export class Api {
   //url: string = 'http://205.147.100.82/agriboloapiv2/api/web/index.php?r=';
-  // url: string = 'http://localhost/project/agriboloapiv2/api/web/index.php?r=';
+  //url: string = 'http://localhost/project/agriboloapiv2/api/web/index.php?r=';
   url: string = 'https://api.agribolo.com/index.php?r=';
   public userData : {ID:string, display_name:string, sID:string, token:string, user_activation_key:string,
-
   user_email:string, user_login:string, user_nicename:string, user_registered:string, user_status:string,
   user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
   user_login:'', user_nicename:'', user_registered:'', user_status:'', user_url:'',_user_latitude:0,_user_longitude:0};
-
   public userLoction : {longitude:number,latitude:number} = {longitude:0,latitude:0};
   public userLanguage :string = 'hi_IN';
 
@@ -85,18 +83,16 @@ export class Api {
       options.search = !options.search && p || options.search;
       pco = p;
     }
-
     
     let key = this.url + '/' + endpoint+pco.toString();
     console.log('Data Save key : '+key);
     return this.getCall(key,endpoint,options);
+
   }
 
   getCall(key,endpoint,options){
     
-   return new Promise((resolve)=>{
-
-
+    return new Promise((resolve)=>{
           this.cache.getItem(key).catch(() => {}).then((data) => {
                 if(typeof data == 'undefined'){
                       let seq = this.http.get(this.url + '/' + endpoint, options).share();
@@ -118,13 +114,7 @@ export class Api {
                       resolve(data);
                 }
           });
-
-
-
-
-   });
-    
-
+    });
   }
 
   post(endpoint: string, body: any, options?: RequestOptions) {

@@ -108,7 +108,8 @@
   <ion-col  *ngFor="let weatherfivedaydetail of weatherfiveday.data.WeatherData;">
     <div class=" alignCenter">{{weatherfivedaydetail.WeatherDay}}</div>
     <img src="{{weatherfivedaydetail.WeatherIconsSmall}}" alt="" class="cloudImage"/>
-   <div class=" alignCenter colorBlack" > {{weatherfivedaydetail.IconPhrase}}</div>
+    <div class=" alignCenter colorBlack" >&#8593;{{weatherfivedaydetail.Temperature.Maximum.Value}}˚{{weatherfivedaydetail.Temperature.Maximum.Unit}}</div>
+    <div class=" alignCenter colorBlack" >&#8595;{{weatherfivedaydetail.Temperature.Minimum.Value}}˚{{weatherfivedaydetail.Temperature.Minimum.Unit}}</div>
   </ion-col>
 </ion-row>
 </ion-content>

@@ -25,6 +25,7 @@ export class MarketPage {
   public productbrand :any;
   public product_cat :any;
   public productbrand :any;
+  public sortby :any;
   public productDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,
@@ -33,10 +34,7 @@ export class MarketPage {
     public viewCtrl:ViewController) {
     this.productbrand=navParams.get('productbrand');
     this.product_cat=navParams.get('product_cat');
-    console.log('productbrand');
-    console.log(this.productbrand);
-    console.log(this.product_cat);
-    console.log('productbrand');
+    this.sortby=navParams.get('sortby');
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
@@ -46,13 +44,13 @@ export class MarketPage {
 
 
   ionViewDidLoad() {
-    this.getmarkets(this.product_cat,this.productbrand);
+    this.getmarkets(this.product_cat,this.productbrand,this.sortby);
     console.log('ionViewDidLoad MarketPage');
   }
 
 
-  getmarkets(cat_id,productbrand){
-    this.market.productlistview(cat_id,productbrand).then((res)=>{
+  getmarkets(cat_id,productbrand,sortby){
+    this.market.productlistview(cat_id,productbrand,sortby).then((res)=>{
       this.productDatas.data = res.data;
       this.productDatas.msg = res.msg;
       this.productDatas.status = res.status;
@@ -85,7 +83,7 @@ export class MarketPage {
       console.log(popoverData)
       if (popoverData.data!="") {
         console.log(popoverData);
-        this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,productbrand:popoverData.data.productbrand, fromFilter:true}); 
+        this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,sortby:popoverData.data.sortby,productbrand:popoverData.data.productbrand, fromFilter:true}); 
       }
     });
   }

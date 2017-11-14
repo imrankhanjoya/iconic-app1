@@ -10,9 +10,7 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
-
   <ion-list >
     <ion-card class="image-card" >
       <img src="assets/img/market.jpeg" >
@@ -21,21 +19,20 @@
         <button  ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
       </div>
     </ion-card>
-  </ion-list>
-  <ion-list *ngFor="let data of krishData.data;let i=index ">
-
     <ion-card class="image-card" >
-    <img src="{{data.attachments}}" >
-    <div class="card-title-box">
-    <div class="card-title">  {{data.title}}</div>
-    <button *ngIf="i==0" ion-button color="light" (click)="gotoMarket()" outline>{{'SEE_MORE'| translate}}</button>
-    <button *ngIf="i==1" ion-button color="light" (click)="gotoRental()" outline>{{'SEE_MORE'| translate}}</button>
-    <button *ngIf="i==2" ion-button color="light" (click)="gotocroplist()" outline>{{'SEE_MORE'| translate}}</button>
-    </div>
+      <img src="assets/img/rental_com.jpeg" >
+      <div class="card-title-box">
+        <div class="card-title">  {{'RENTAL'| translate}}</div>
+        <button  ion-button color="light" (click)="gotoRental()" outline>{{'SEE_MORE'| translate}}</button>
+      </div>
     </ion-card>
-
-
-</ion-list>
-
+    <ion-card class="image-card" >
+      <img src="assets/img/e-triding.jpeg" >
+      <div class="card-title-box">
+        <div class="card-title">  {{'E-TRADIND'| translate}}</div>
+        <button  ion-button color="light" (click)="openFilter()" outline>{{'SEE_MORE'| translate}}</button>
+      </div>
+    </ion-card>
+  </ion-list>
 
 </ion-content>
