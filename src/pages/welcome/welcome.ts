@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -16,20 +16,24 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class WelcomePage {
 
-  constructor(private translate: TranslateService,public navCtrl: NavController,private storage: Storage) { }
+  constructor(
+            private translate: TranslateService,
+            public navCtrl: NavController,
+            private storage: Storage,
+            private toastCtrl: ToastController
+          ) { }
+    setLanguage(lang) {
+      this.storage.set('userLang',lang);
+      this.initTranslate(lang);
+      this.navCtrl.push('LoginPage');
+    }
 
-  setLanguage(lang) {
-  this.storage.set('userLang',lang);
-    this.initTranslate(lang);
-    this.navCtrl.push('LoginPage');
-  }
-
-  initTranslate(lang) {
-    // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang(lang);
-    this.translate.use(lang);
-    
-  }
+    initTranslate(lang) {
+      // Set the default language for translation strings, and the current language.
+      this.translate.setDefaultLang(lang);
+      this.translate.use(lang);
+      
+    }
 
 
   signup() {

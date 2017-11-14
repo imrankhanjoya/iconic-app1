@@ -20,7 +20,7 @@ export class MarketproProvider {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
   		
 
-  		 var paramCond ={page:0,limit:dataLimit,lang:this.api.userLanguage};
+  		 var paramCond ={limit:dataLimit,lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{
 	      this.api.getCache('v1/product/all', paramCond).then((productlistData)=>{
 	        resolve(productlistData);
@@ -47,7 +47,7 @@ export class MarketproProvider {
 
     productlistview(cat_id,productbrand) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	var paramCond ={page:0,lang:this.api.userLanguage,'category_id':cat_id,'brand':productbrand};
+	  	var paramCond ={lang:this.api.userLanguage,'category_id':cat_id,'brand':productbrand};
 	  	return new Promise((resolve)=>{
       this.api.getCache('v1/product/all-view', paramCond).then((productlistviewData)=>{
 	        resolve(productlistviewData);

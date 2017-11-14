@@ -39,6 +39,7 @@
   "SETTINGS_OPTION4": "विकल्प 4",
   "SETTINGS_RIGHT_ICON":"दाएँ आइकन",
   "SETTINGS_LANGUAGE": "भाषा",
+  "LANGUAGE_CHOOSED": "आपकी वर्तमान भाषा हिंदी है",
   "SETTINGS_UPDATE_PROFILE":"प्रोफ़ाइल अपडेट करें",
   "SETTINGS_CHANGE_CROPS": "फसल बदलें",
   "SETTINGS_CHANGE_LOCATION": "स्थान बदलें",
@@ -48,6 +49,7 @@
   "Privacy & Policy": "गोपनीयता नीति",
   "About Us": "हमारे बारे में",
   "WELCOME_TITLE": "स्वागत हे",
+  "WELCOME_BACK": "वापसी पर स्वागत है ",
 
   "LOGIN_TITLE": "साइन इन करें",
   "LOGIN_ERROR": "साइन इन करने में असमर्थ। कृपया अपनी खाता जानकारी जांचें और पुनः प्रयास करें।",
@@ -60,6 +62,8 @@
   "OTP_NUMBER_TYPE_NUMBER": "अपना नंबर दर्ज करेे",
   "OTP_NUMBER_VALID_NUMBER": "वैध मोबाइल नंबर दर्ज करें",
   "OTP_NUMBER_SEND_OTP": "ओटीपी भेजें",
+  "VERIFY_OTP": "OTP सफलतापूर्वक सत्यापित!",
+  "OTP_SEND": "ओटीपी भेजा गया कृपया अपना मोबाइल का संदेश देखें",
 
   "MENU":"बहुत अच्छ",
 
@@ -74,7 +78,8 @@
   "VERIFY_TITLE": "नंबर सत्यापित करें",
   "VERIFY_THANKS": "बहुत धन्यवाद",
   "VERIFY_TYPE_OTP": "मोबाइल सत्यापन का लिया अपना 4 अंको का ओटीपी दर्ज करें?",
-
+  "INVALID_OTP": "कृपया ओटीपी सही दर्ज करें!",
+  "DUPLICATE_MOBILENUMBER": "मोबाइल नंबर पहले से पंजीकृत है कृपया लॉगिन करें!.",
   "SING_UP_VERY_GOOD": "बहुत अच्छा",
   "SING_UP_PASSWORD": "अधिक सेवा के लिया कृपया अपना नाम और पासवर्ड  दर्ज कर?",
   "SING_UP_NAME_REQUIRED": "नाम आवश्यक है",
@@ -96,6 +101,7 @@
   "LOGIN_PHONE_NUMBER_VALID": "वैध मोबाइल नंबर दर्ज करें",
   "LOGIN_PASSWORD_REQUIRED": "पासवर्ड की आवश्यकता है",
   "LOGIN_NEW_USER_SING_UP": "क्या आप नई उपभोक्ता हो? साइन अप करें",
+  "LOGIN_USER_INVALID": "अमान्य उपयोगकर्ता नाम या पासवर्ड!",
 
    "LOADING":"कृपया प्रतीक्षा करें",
    "KM":"कृषि केंद्र {{km}} किमी दूर है।",

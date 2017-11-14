@@ -46,8 +46,6 @@ export class QuitionviewPage {
 
   } 
   gotoAnswerquestion(Qid){
-    console.log(Qid);
-    this.viewCtrl.dismiss();
     this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
   }
 

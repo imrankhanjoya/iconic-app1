@@ -354,6 +354,10 @@ gotoAgriinfo(){
     //console.log(id);
     this.navCtrl.push('SearchPage');
   }
+  gotoAgroCenter(){
+    //console.log(id);
+    this.navCtrl.push('KrishCenterPage');
+  }
 
   //----------------------Hader Animiation Start------
 public isRun1=true;

@@ -38,6 +38,7 @@
   "SETTINGS_OPTION4": "Option 4",
   "SETTINGS_RIGHT_ICON":"Right Icon",
   "SETTINGS_LANGUAGE": "Language",
+  "LANGUAGE_CHOOSED": "Your Current Language is English",
   "SETTINGS_UPDATE_PROFILE":"Update Profile",
   "SETTINGS_CHANGE_CROPS": "Change the Crop",
   "SETTINGS_CHANGE_LOCATION": "Change of Placeें",
@@ -47,6 +48,7 @@
   "Privacy & Policy": "Privacy & Policy",
   "About Us": "About us",
   "WELCOME_TITLE": "Welcome",
+  "WELCOME_BACK": "Welcome Back ",
 
   "LOGIN_TITLE": "Sign in",
   "LOGIN_ERROR": "Unable to Sign in. Please check your account information and try again.",
@@ -59,6 +61,8 @@
   "OTP_NUMBER_TYPE_NUMBER": "Enter your Number",
   "OTP_NUMBER_VALID_NUMBER": "Enter Valid Mobile Number",
   "OTP_NUMBER_SEND_OTP": "Send OTP",
+  "OTP_SEND": "OTP Sent. Please Check Your Mobile's Message.",
+  "VERIFY_OTP": "OTP Verified Successfully!",
   "PASSWORD_NOT_VALID": "password required minimum 5 character",
 
   "MENU":"Very Good",
@@ -74,6 +78,8 @@
   "VERIFY_TITLE": "Verify Number",
   "VERIFY_THANKS": "Thanks a lot",
   "VERIFY_TYPE_OTP": "Enter your 4 digit OTP Registered for Mobile Verification?",
+  "INVALID_OTP": "Please Enter Valid OTP!",
+  "DUPLICATE_MOBILENUMBER": "Mobile Number Already Registered. Please Login!.",
 
   "SING_UP_VERY_GOOD": "Very Good",
   "SING_UP_PASSWORD": "Please enter your Name and Password for more service?",
@@ -95,6 +101,7 @@
   "LOGIN_PHONE_NUMBER": "Phone Number",
   "LOGIN_PHONE_NUMBER_VALID": "Enter valid Mobile Number",
   "LOGIN_PASSWORD_REQUIRED": "Password is required",
+  "LOGIN_USER_INVALID": "Invalid Username or Password!",
   "LOGIN_NEW_USER_SING_UP": "Are you a new Consumer? Sign Up",
 
    "LOADING":"Please Wait",

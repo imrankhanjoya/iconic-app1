@@ -35,7 +35,7 @@
 	      </button>
 	    </ion-col>
 	    <ion-col>
-	      <button ion-button icon-left clear small>
+	      <button ion-button icon-left clear small (click)="gotoAnswerquestion(questionviewData.data.id)">
 	        <ion-icon name="text"></ion-icon>
 	        <div>{{questionviewData.data.answer_count}} Answer</div>
 	      </button>
