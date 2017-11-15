@@ -129,7 +129,7 @@ export class ETirdingPage {
       this.viewCtrl.dismiss(data); 
     }
 
-  dismiss(){
+    dismiss(){
         let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }

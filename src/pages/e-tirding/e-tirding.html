@@ -69,14 +69,13 @@
      </ion-item>
       <ion-item>
     <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
-    <ion-input   formControlName="etrading_address" type="text"></ion-input>
+    <ion-input formControlName="etrading_address" type="text"></ion-input>
   </ion-item>
-    <div  class="p_button margin-top" style="float: right">
-        <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
-    </div>
-    <div  class="p_button" style="float: right">
-      <button class="p_1" ion-button type="submit" [disabled]="!changemarket.valid">{{'SEARCH_CAT' | translate}}</button>
-    </div>
+    <div>
+        <div  class="p_button" style="float: right">
+          <button class="p_1" ion-button type="submit" [disabled]="!changemarket.valid">Submit</button>
+        </div>
+     </div>
     </ion-card>
     </form>
 </ion-content>
