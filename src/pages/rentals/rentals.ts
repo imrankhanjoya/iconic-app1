@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 
 /**
@@ -16,7 +16,13 @@ import { RentalsProvider } from '../../providers/rentals/rentals';
 })
 export class RentalsPage {
   public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public rentals:RentalsProvider ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public rentals:RentalsProvider,public loadingCtrl:LoadingController ) 
+  {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
+
   }
 
   ionViewDidLoad() {
@@ -29,6 +35,8 @@ export class RentalsPage {
         this.Rental_Listdata = res;
         this.Rental_Listdata.msg = res.msg;
         this.Rental_Listdata.status = res.status;
+         this.loading.dismiss();
+
         console.log(this.Rental_Listdata);
       }, (err) => {
         // Unable to log in
