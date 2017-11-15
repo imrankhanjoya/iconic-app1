@@ -14,7 +14,6 @@ export class ETirdingProvider {
 
   constructor(public http: Http,public api:Api) {
     console.log('Hello ETirdingProvider Provider');
-    // user_id,crop_id,varieties_id,etrading_prices,etrading_prices,etrading_address,user_state_id,user_district_id,user_tahsil_id
   }
 
   crop_etirding(data){

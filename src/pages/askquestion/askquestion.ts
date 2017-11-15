@@ -18,7 +18,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class AskquestionPage {
   private user_id :any;
-  private image :any;
+  private base64Image :any;
   public  questionaddData = {user_id:'',title:'',description:'',privacy:'',Attachments:''};
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController,
@@ -37,8 +37,8 @@ export class AskquestionPage {
             presentToast(message) {
               let toast = this.toastCtrl.create({
                 message: message,
-                duration: 3000,
-                position: 'bottom'
+                duration: 1000,
+                position: 'middle'
               });
 
               toast.onDidDismiss(() => {
@@ -92,7 +92,7 @@ export class AskquestionPage {
              destinationType: this.camera.DestinationType.DATA_URL
             }).then((imageData) => {
               console.log('=========data:image/jpeg;base64,'+imageData);
-              this.image = 'data:image/jpeg;base64,'+imageData;
+              this.base64Image = 'data:image/jpeg;base64,'+imageData;
              this.questionaddData.Attachments=imageData;
              }, (err) => {
               console.log(err);
@@ -104,7 +104,7 @@ export class AskquestionPage {
              destinationType: this.camera.DestinationType.DATA_URL
             }).then((imageData) => {
               console.log('=========data:image/jpeg;base64,'+imageData);
-              this.image = 'data:image/jpeg;base64,'+imageData;
+              this.base64Image = 'data:image/jpeg;base64,'+imageData;
               this.questionaddData.Attachments=imageData;
              }, (err) => {
               console.log(err);

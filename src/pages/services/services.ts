@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController  } from 'ionic-angular';
 import { KrishProvider } from '../../providers/krish/krish';
@@ -18,15 +19,21 @@ export class ServicesPage {
 	public krishDataList:any;
   public krishData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,
-public KrishProvider: KrishProvider,
+  public KrishProvider: KrishProvider,
    public modalCtrl:ModalController,
     public viewCtrl:ViewController){
     
   }
-   openFilter(){
+  openFilter(){
     let modal = this.modalCtrl.create('ETirdingPage');
     modal.present();
-    }
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+      }
+    });
+  }
 
 
 

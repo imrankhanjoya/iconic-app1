@@ -42,8 +42,8 @@ export class QuitionanswerPage {
   presentToast() {
     let toast = this.toastCtrl.create({
       message: 'Answer added successfully',
-      duration: 3000,
-      position: 'top'
+      duration: 1000,
+      position: 'middle'
     });
 
     toast.onDidDismiss(() => {

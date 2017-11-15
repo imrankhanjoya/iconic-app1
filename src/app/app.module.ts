@@ -56,6 +56,7 @@ import { FCM } from '@ionic-native/fcm';
 import { CacheModule } from "ionic-cache";
 import { SearchProvider } from '../providers/search/search';
 import { ETirdingProvider } from '../providers/e-tirding/e-tirding';
+import { EtradingProvider } from '../providers/etrading/etrading';
 
 
 // The translate loader needs to know where to load i18n files
@@ -154,6 +155,7 @@ export function provideSettings(storage: Storage) {
     FCM,
     SearchProvider,
     ETirdingProvider,
+    EtradingProvider,
 
   ]
 })

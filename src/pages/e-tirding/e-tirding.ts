@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController, ViewController,LoadingController } from 'ionic-angular';
+import { ModalController, ViewController,LoadingController, ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
-import { ETirdingProvider } from '../../providers/e-tirding/e-tirding';
+import { EtradingProvider } from '../../providers/etrading/etrading';
 import { CityStateProvider } from '../../providers/city-state/city-state';
-import { SearchProvider } from '../../providers/search/search';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -38,13 +38,19 @@ export class ETirdingPage {
 
   constructor(public navCtrl: NavController, 
   				public navParams: NavParams,
+          public toastCtrl: ToastController,
   				public viewCtrl:ViewController, 
   				private formBuilder: FormBuilder,
-  	 			public etanding:ETirdingProvider,
-  	 			public SearchProvider:SearchProvider,
+  	 			public EtradingProvider:EtradingProvider,
   	 			public loc:CityStateProvider,
-  	 			public storage:Storage
+  	 			public storage:Storage,
+          public translateService: TranslateService
   	 		) {
+
+      this.translateService.get('E_TRADING_FORM').subscribe((value) => {
+        this.E_TRADING_FORM = value;
+        console.log(this.validnumber+'tesrtinnng');
+      });
 
 
   		this.storage.get('userData').then((val) => {
@@ -64,14 +70,28 @@ export class ETirdingPage {
 		            user_tahsil_id: [this.userData._user_tehsil, Validators.required]
 	          	});
 
+            this.getCrops_etriding();
           	this.getAllState();
           	this.onStateSelect(this.userData._user_state);
           	this.onDistrictSelect(this.userData._user_district);
-          	this.getCrops_etriding();
           	//this.getvarieties_etriding() ;
 
         });
     
+  }
+  
+  presentToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: 'middle'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   ionViewDidLoad() {
@@ -103,17 +123,11 @@ export class ETirdingPage {
   
   filterLocaltionForm(){
   	console.log(this.changemarket.value);
-      this.etanding.crop_etirding(this.changemarket.value).then((res)=>{
-        let data = { 'data':''};
-      this.viewCtrl.dismiss(data);
-        
-    // this.etanding.crop_e_tirding(this.changemarket.value).then((res)=>{
-    // this.dismiss();
-   //  console.log(this.changemarket.value.user_market_id);
-   // this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
-    }); 
-   
- }
+    this.EtradingProvider.trading_send(this.changemarket.value);
+      this.presentToast(this.E_TRADING_FORM);
+      let data = { 'data': '' };
+      this.viewCtrl.dismiss(data); 
+    }
 
   dismiss(){
         let data = { 'data': '' };
@@ -122,7 +136,7 @@ export class ETirdingPage {
     
 	getItems(ksseys) {
 	    console.log(ksseys);
-	    this.etanding.crop_find(ksseys).then((res)=>{
+	    this.EtradingProvider.crop_find(ksseys).then((res)=>{
 
 	      console.log(res.data);
 	      this.currentItems = res.data;
@@ -139,14 +153,14 @@ export class ETirdingPage {
 	    }
 	}
 	 getCrops_etriding() {
-    this.etanding.sendCrop_etriding(this.lang).then((res)=>{
+    this.EtradingProvider.sendCrop_etriding(this.lang).then((res)=>{
         this.cropList=res.data;
       //console.log('vvvvvvv'+this.cropList);
     }); 
     } 
      onCropSelect(crop_id) {
 	      console.log('im a crops'+crop_id);
-    this.etanding.send_varieties_etriding(crop_id).then((res)=>{
+    this.EtradingProvider.send_varieties_etriding(crop_id).then((res)=>{
         this.varieties_List=res.data;
      console.log(this.varieties_List);
     }); 

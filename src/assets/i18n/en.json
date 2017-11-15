@@ -227,7 +227,7 @@
   "CHANGE_PASSWORD": "Change Password",
   "SEVA_KENDAR": "Seva Kendar",
   "SHOWING_RESULT_FOR": "Showing Results for",
-  "SELECT_RANGE_CHOUPAL": "सीमा चुनें",
+  "SELECT_RANGE_CHOUPAL": "Select Range",
   "KRISHI_JANKARI":"Agri Info",
   "CROP": "Crop ",
   "RABI": "Rabi ",
@@ -243,7 +243,8 @@
   "SORT_BY": "Sort By",
   "VERIETY": "Variety",
   "QUANTITY": "Quantity",
-  "EXCEPT_PRICE": "Except Price"
+  "EXCEPT_PRICE": "Except Price",
+  "E_TRADING_FORM": "Thanks for form fill. Agribolo will call you soon"
 
 
 
