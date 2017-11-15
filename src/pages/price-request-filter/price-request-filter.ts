@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController, ViewController,LoadingController } from 'ionic-angular';
+import { ModalController, ViewController,LoadingController,ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { ContactusProvider } from '../../providers/contactus/contactus';
@@ -24,7 +24,7 @@ export class PriceRequestFilterPage {
 	public priceRequest : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider
+    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider, private toastCtrl: ToastController
     ) {
       this.formdata=navParams.get('formdata');
     	this.priceRequest = this.formBuilder.group({
@@ -33,6 +33,19 @@ export class PriceRequestFilterPage {
             description: [this.formdata.message, Validators.required]
         });
   }
+   presentToast(message) {
+              let toast = this.toastCtrl.create({
+                message: message,
+                duration: 3000,
+                position: 'middle'
+              });
+
+              toast.onDidDismiss(() => {
+                console.log('Dismissed toast');
+              });
+
+              toast.present();
+            }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PriceRequestFilterPage');
@@ -46,7 +59,9 @@ export class PriceRequestFilterPage {
       console.log(this.formdata);
       this.contactus.Send(this.formdata);
       let data = { 'data': '' };
-      this.viewCtrl.dismiss(data);      
+      this.viewCtrl.dismiss(data); 
+      this.presentToast('your order generate successfully');
+     
 
   }
 

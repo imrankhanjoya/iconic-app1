@@ -23,15 +23,16 @@ export class MarketFilterPage {
 				public navParams: NavParams,
 				public viewCtrl:ViewController,
 				public marketpro:MarketproProvider,
-    			private formBuilder: FormBuilder) {
-
+    		private formBuilder: FormBuilder) {
 
 			  	this.filterMarket = this.formBuilder.group({
 		        product_cat: [''],
 		        productbrand: [''],
             sortby: ['']
         });
+            
 	}
+   
 
   ionViewDidLoad() {
   	this.getCategory();
@@ -66,6 +67,7 @@ export class MarketFilterPage {
     filterMarketForm(){
         let data = { 'data': this.filterMarket.value };
         this.viewCtrl.dismiss(data);
+
         
     }
 

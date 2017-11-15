@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, PopoverController, ViewController, ToastController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController, ViewController, 
+  LoadingController,ToastController} from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Storage } from '@ionic/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
@@ -26,13 +27,15 @@ export class AskquestionPage {
               public viewCtrl: ViewController,
               public QuestionsProvider: QuestionsProvider, public camera:Camera,
               public storage:Storage, public popoverCtrl: PopoverController,
-              private toastCtrl: ToastController
+              private toastCtrl: ToastController,
+              public loadingCtrl:LoadingController
               ) {
 
                 this.storage.get('userData').then((val) => {
                   this.user_id = val.ID; 
                 });
-              }
+             
+          }
 
             presentToast(message) {
               let toast = this.toastCtrl.create({
@@ -53,12 +56,16 @@ export class AskquestionPage {
     console.log('ionViewDidLoad AskquestionPage');
   }
    getaskquestions(){
-   	console.log('questionaddData : '+this.questionaddData);
+     this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
 
+   	console.log('questionaddData : '+this.questionaddData);
     this.QuestionsProvider.askquestion(this.user_id,this.questionaddData).map(res => res.json()).subscribe((res) => {
-      
         this.askquestionsData.msg = res.msg;
         this.askquestionsData.status = res.status;
+         this.loading.dismiss();
 
         if (res.status==false) {
             this.presentToast('Please Enter Question');

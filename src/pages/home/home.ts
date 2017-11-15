@@ -69,12 +69,13 @@ export class HomePage {
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
+    
     this.rotateClass="";
       //this.topMenu = 'toolbarClosed';
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
-     // this.loading.present();
+      this.loading.present();
 
   }
 
@@ -160,6 +161,8 @@ export class HomePage {
         this.wheaterHome.data = res.data;
         this.wheaterHome.msg = res.msg;
         this.wheaterHome.status = res.status;
+        this.loading.dismiss();
+
     });
   }
   
@@ -169,10 +172,11 @@ export class HomePage {
         this.mandidata= res.data[0] ;
         this.mandidata.graph_months=this.mandidata.graph_months;
         this.mandidata.graph_price=this.mandidata.graph_price;
-        
         this.mandidata1= res.data[1];
         this.mandidata2= res.data[2];
         this.mandidata.status=true;
+        this.loading.dismiss();
+
     });
 
     // this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
