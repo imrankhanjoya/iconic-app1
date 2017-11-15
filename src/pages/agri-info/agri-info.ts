@@ -57,6 +57,9 @@ export class AgriInfoPage {
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
+   goToBlogPage(){
+   this.navCtrl.push('CardsPage'); 
+  }
    gotoVedio(){
     this.navCtrl.push('VideoPage');
   }

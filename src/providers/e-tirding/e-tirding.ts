@@ -17,7 +17,7 @@ export class ETirdingProvider {
     // user_id,crop_id,varieties_id,etrading_prices,etrading_prices,etrading_address,user_state_id,user_district_id,user_tahsil_id
   }
 
-  crop_e_tirding(data){
+  crop_etirding(data){
      let body = new FormData();
      body.append('lang', this.api.userLanguage);
      body.append('user_id',data.user_id);

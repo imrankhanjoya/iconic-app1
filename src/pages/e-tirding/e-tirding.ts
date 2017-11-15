@@ -103,12 +103,17 @@ export class ETirdingPage {
   
   filterLocaltionForm(){
   	console.log(this.changemarket.value);
-    this.etanding.crop_e_tirding(this.changemarket.value).then((res)=>{
-    this.dismiss();
-    //console.log(this.changemarket.value.user_market_id);
-   //this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
+      this.etanding.crop_etirding(this.changemarket.value).then((res)=>{
+        let data = { 'data':''};
+      this.viewCtrl.dismiss(data);
+        
+    // this.etanding.crop_e_tirding(this.changemarket.value).then((res)=>{
+    // this.dismiss();
+   //  console.log(this.changemarket.value.user_market_id);
+   // this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
     }); 
-   }
+   
+ }
 
   dismiss(){
         let data = { 'data': '' };

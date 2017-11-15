@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController,ModalController,LoadingController } from 'ionic-angular';
 import { ExpertsProvider } from '../../providers/experts/experts';
 
 @IonicPage()
@@ -10,10 +10,13 @@ import { ExpertsProvider } from '../../providers/experts/experts';
 export class CardsPage {
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  constructor(public navCtrl: NavController,public experts:ExpertsProvider,public modalCtrl:ModalController
+  constructor(public navCtrl: NavController,  public loadingCtrl: LoadingController,public experts:ExpertsProvider,public modalCtrl:ModalController
 ) {
-    
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
 
+     this.loading.present();
   }
   ionViewDidLoad() {
 
@@ -25,6 +28,8 @@ export class CardsPage {
   get_expert(){
     this.experts.Experts_list('blogs',10).then((res)=>{
       this.expertdata = res;
+      this.loading.dismiss();
+
     });
     // this.experts.Experts_list('blogs',10).map(res => res.json()).subscribe((res) => {
     //   this.expertdata = res;
