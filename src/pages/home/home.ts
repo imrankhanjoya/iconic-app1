@@ -338,7 +338,13 @@ gotoAgriinfo(){
    this.navCtrl.push('SettingsPage'); 
   }
   goToCrops(){
+   this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
+  }
+   goToKharif(){
    this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
+  }
+   goToRabi(){
+   this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
