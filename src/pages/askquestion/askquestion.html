@@ -35,7 +35,7 @@
       <ion-item>
 
           <ion-row justify-content-end (click)="addImg()">
-            <img style="height: 100px; width: 100px;" *ngIf="questionaddData.Attachments" src="{{questionaddData.Attachments}}">
+            <img style="height: 100px; width: 100px;" *ngIf="questionaddData.base64Image" src="{{questionaddData.base64Image}}">
               <button ion-button clear>
               <ion-icon name="attach">{{'ASK_QUESTION_PUT_A_PICTURE' | translate}}</ion-icon>
               </button>

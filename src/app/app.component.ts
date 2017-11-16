@@ -116,6 +116,79 @@ export class MyApp {
       });
 
     });
+
+platform.ready().then(() => {
+              // Okay, so the platform is ready and our plugins are available.
+              // Here you can do any higher level native things you might need
+
+              platform.registerBackButtonAction(() => {
+
+
+                //uncomment this and comment code below to to show toast and exit app
+                // if (this.backButtonPressedOnceToExit) {
+                //   this.platform.exitApp();
+                // } else if (this.nav.canGoBack()) {
+                //   this.nav.pop({});
+                // } else {
+                //   this.showToast();
+                //   this.backButtonPressedOnceToExit = true;
+                //   setTimeout(() => {
+
+                //     this.backButtonPressedOnceToExit = false;
+                //   },2000)
+                // }
+
+                if(this.nav.canGoBack()){
+                  this.nav.pop();
+                }else{
+                  if(this.alert){ 
+                    this.alert.dismiss();
+                    this.alert =null;     
+                  }else{
+                    this.showAlert();
+                   }
+                }
+              });
+            });
+
+          }
+
+          showAlert() {
+          this.alert = this.alertCtrl.create({
+            title: 'Exit?',
+            message: 'Do you want to exit the app?',
+            buttons: [
+              {
+                text: 'Cancel',
+                role: 'cancel',
+                handler: () => {
+                  this.alert =null;
+                }
+              },
+              {
+                text: 'Exit',
+                handler: () => {
+                  this.platform.exitApp();
+                }
+              }
+            ]
+          });
+          alert.present();
+        }
+
+          showToast() {
+            let toast = this.toastCtrl.create({
+              message: 'Press Again to exit',
+              duration: 2000,
+              position: 'bottom'
+            });
+
+            toast.onDidDismiss(() => {
+              console.log('Dismissed toast');
+            });
+
+            toast.present();
+          }
     
      
 
@@ -141,11 +214,12 @@ export class MyApp {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
     });
   } 
+  
   logout() {
        this.storage.set('userData','');
         this.nav.setRoot('WelcomePage');
          console.log("here");
-}
+  }
 
   openPage(page) {
     // Reset the content nav to have just this page

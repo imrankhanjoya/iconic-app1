@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Api } from '../api/api';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the MarketproProvider provider.
@@ -13,12 +14,11 @@ import { Api } from '../api/api';
 @Injectable()
 export class MarketproProvider {
 
-	constructor(public http: Http, public api: Api) {
+	constructor(public http: Http, public api: Api,public storage:Storage) {
 	   	console.log('Hello MarketproProvider Provider');
 	}
     productlist(dataLimit) {
-  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  		
+
 
   		 var paramCond ={limit:dataLimit,lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{
@@ -26,6 +26,7 @@ export class MarketproProvider {
 	        resolve(productlistData);
 	      });  
 	    });
+
 
 	  	// var paramCond ={page:0,limit:limit,lang:'en_US'};
 	   //  let seq = this.api.get('v1/product/all', paramCond).share();
@@ -46,10 +47,11 @@ export class MarketproProvider {
   	
 
     productlistview(cat_id,productbrand,sortby) {
-  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	var paramCond ={lang:this.api.userLanguage,'category_id':cat_id,'brand':productbrand,'sortby':sortby};
-	  	return new Promise((resolve)=>{
-      this.api.getCache('v1/product/all-view', paramCond).then((productlistviewData)=>{
+
+
+  		var paramCond ={lang:this.api.userLanguage,'category_id':cat_id,'brand':productbrand,'sortby':sortby};
+  		return new Promise((resolve)=>{
+      	this.api.getCache('v1/product/all-view', paramCond).then((productlistviewData)=>{
 	        resolve(productlistviewData);
 	      });  
 	    });

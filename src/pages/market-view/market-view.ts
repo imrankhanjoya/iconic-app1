@@ -95,6 +95,7 @@ export class MarketViewPage {
     this.ContactSendData.user_id = this.ContactSendData.ID;
     this.ContactSendData.subject = this.ProductViewData.data.name;
     this.ContactSendData.message = this.ProductViewData.data.slug;
+    this.ContactSendData.sku = this.ProductViewData.data.sku;
     let modal = this.modalCtrl.create('PriceRequestFilterPage',{formdata:this.ContactSendData});
     modal.present();
     modal.onDidDismiss((popoverData) => {

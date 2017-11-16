@@ -82,8 +82,9 @@ export class MarketPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        console.log(popoverData);
-        this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,sortby:popoverData.data.sortby,productbrand:popoverData.data.productbrand, fromFilter:true}); 
+          this.getmarkets(product_cat:popoverData.data.product_cat,sortby:popoverData.data.sortby,productbrand:popoverData.data.productbrand);
+          this.navCtrl.pop();
+        //this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,sortby:popoverData.data.sortby,productbrand:popoverData.data.productbrand, fromFilter:true}); 
       }
     });
   }

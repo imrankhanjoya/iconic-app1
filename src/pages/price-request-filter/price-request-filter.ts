@@ -57,7 +57,7 @@ export class PriceRequestFilterPage {
       this.formdata.display_name = this.priceRequest.value.display_name;
       this.formdata.description = this.priceRequest.description;
       console.log(this.formdata);
-      this.contactus.Send(this.formdata);
+      this.contactus.ProductSend(this.formdata);
       let data = { 'data': '' };
       this.viewCtrl.dismiss(data); 
       this.presentToast('your order generate successfully');
