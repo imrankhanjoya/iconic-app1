@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>{{cropdetail.name}}</ion-title>
+      <ion-buttons end>
+      <div (click)="getMandiData()" >
+        <a >{{'GO_TO_MANDI' | translate}}</a>
+    </div>
+    </ion-buttons>
   </ion-navbar>
 	<ion-segment class="themeColor" [(ngModel)]="Crop">
 		<ion-segment-button class="themeColor" value="General">
@@ -30,8 +35,6 @@
 
 
 <ion-content >
-
-
 	<div [ngSwitch]="Crop">
 
 		<!---------Generale  Section-------->

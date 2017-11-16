@@ -52,7 +52,7 @@ export class CardsPage {
 
  
      openFilter(){
-    let modal = this.modalCtrl.create('SpeciatistPage');
+    let modal = this.modalCtrl.create('SpeciallistFilterPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)

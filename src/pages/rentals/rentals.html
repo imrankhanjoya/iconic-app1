@@ -23,8 +23,8 @@
 <ion-content>
 
    <ion-grid >
-  
-    <ion-card class="image-card"  *ngFor=" let data of Rental_Listdata.data, let i = index "  >
+
+    <ion-card class="image-card"  *ngFor=" let data of Rental_Listdata.data, let i = index ">
       <div class="row" (click)="RentalsPage(data.id)" >
         <img  src="{{data.attachments}}" class="newsLargeImage roundImage fixImage"/>
         <div class="alignLeft paddingTop paddingLeft colorGrey newsLargeTitle">{{data.title}}</div>
@@ -34,7 +34,5 @@
         </div>
       </div>
     </ion-card>
-
-
 </ion-grid>
 </ion-content>

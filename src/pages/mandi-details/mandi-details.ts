@@ -36,6 +36,8 @@ export class MandiDetailsPage {
     this.filterMarket = navParams.get('filter_market');
     this.filterDistrict = navParams.get('filter_district');
     this.filter_crops = navParams.get('filter_crops');
+    this.crop_id=navParams.get('crop_id');
+
 
     console.log(this.filter_crops);
     this.loading = this.loadingCtrl.create({
@@ -61,7 +63,8 @@ export class MandiDetailsPage {
     var DistrictId = ( typeof this.filterDistrict != 'undefined' )?this.filterDistrict:0;
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
-    this.mandi.mandiRates(DistrictId,marketId,filter_crops).then((res)=>{
+    var crop_id = ( typeof this.crop_id != 'undefined' )?this.crop_id:0;
+    this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id).then((res)=>{
       this.mandiData= res;
       this.loading.dismiss();
     });
