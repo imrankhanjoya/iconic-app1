@@ -36,14 +36,14 @@ export class CropdetailPage {
 		this.cropsProvider.sendCropDetail(this.id).then((res)=>{
       	this.cropdetail=res.data;
 			console.log(this.cropdetail);
-			console.log(this.id+'send for crop detail');
+			console.log(this.cropdetail.id+'send for crop detail');
 			loading.dismiss();
 	    });
 		
 		console.log('ionViewDidLoad CropslistPage');
   	}
   	 getMandiData(){
-  	 		this.navCtrl.push(MandiDetailsPage,{crop_id:this.id});
+  	 	this.navCtrl.push(MandiDetailsPage,{crop_id:this.cropdetail.id});
 }
 
 }
