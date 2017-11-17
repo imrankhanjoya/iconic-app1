@@ -21,7 +21,7 @@ export class SpeciallistFilterPage {
     	private formBuilder: FormBuilder) {
 
   		this.speciatist = this.formBuilder.group({
-		        SpeciaList: ['']
+		        SpeciaList: ['',Validators.required]
         });
   }
 
@@ -31,7 +31,7 @@ export class SpeciallistFilterPage {
   }
 
   filteSpeciatistForm(){
-        let data = { 'data': this.speciatist.value };
+        let data = { 'data': this.speciatist.value.SpeciaList };
         this.viewCtrl.dismiss(data);
         
     }

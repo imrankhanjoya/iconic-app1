@@ -33,18 +33,10 @@ export class MandiDetailsPage {
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
 
     
-    this.filterMarket = navParams.get('filter_market');
+    /*this.filterMarket = navParams.get('filter_market');
     this.filterDistrict = navParams.get('filter_district');
-    this.filter_crops = navParams.get('filter_crops');
+    this.filter_crops = navParams.get('filter_crops');*/
     this.crop_id=navParams.get('crop_id');
-
-
-    console.log(this.filter_crops);
-    this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-    });
-
-     this.loading.present();
 
     storage.get('userData').then((userlogin) => {
       this.getMandiDetails();
@@ -56,10 +48,10 @@ export class MandiDetailsPage {
      console.log('ionViewDidLoad MandiDetailsPage');
   }
    getMandiDetails(){
-    console.log('-----'+this.filterMarket);
-
-    console.log('-----'+this.filter_crops)
-
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+    this.loading.present();
     var DistrictId = ( typeof this.filterDistrict != 'undefined' )?this.filterDistrict:0;
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
@@ -68,14 +60,6 @@ export class MandiDetailsPage {
       this.mandiData= res;
       this.loading.dismiss();
     });
-    // this.mandi.mandiRates(marketId,filter_crops).map(res => res.json()).subscribe((res) => {
-    //     this.mandiData= res;
-    //     this.loading.dismiss();
-    //     console.log(this.mandiData);
-    //   }, (err) => {
-    //     this.loading.dismiss();
-    //     console.log(err);
-    //   });
 
   }
 
@@ -83,9 +67,11 @@ export class MandiDetailsPage {
     let modal = this.modalCtrl.create('FilterModelPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
-      console.log(popoverData)
       if (popoverData.data!="") {
-          this.navCtrl.push(MandiDetailsPage,{filter_district:popoverData.filter_district,filter_market:popoverData.filter_market});
+        this.filterDistrict = popoverData.filter_district;
+        this.filterMarket = popoverData.filter_market;
+        this.getMandiDetails();
+        //this.navCtrl.push(MandiDetailsPage,{filter_district:popoverData.filter_district,filter_market:popoverData.filter_market});
       }
     });
   }
@@ -95,7 +81,10 @@ export class MandiDetailsPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        this.navCtrl.push(MandiDetailsPage,{filter_crops:popoverData.filter_crops});
+        this.filter_crops = popoverData.filter_crops;
+        console.log(this.filter_crops);
+        this.getMandiDetails();
+        //this.navCtrl.push(MandiDetailsPage,{filter_crops:popoverData.filter_crops});
       }
     });
   }

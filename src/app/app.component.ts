@@ -190,9 +190,7 @@ platform.ready().then(() => {
             toast.present();
           }
     
-     
-
-  }
+ 
 
   ionViewDidLoad() {
     this.platform.ready().then(() => {
@@ -241,11 +239,11 @@ platform.ready().then(() => {
   }
 
   setLanguage(lang){
-    console.log(lang);
     this.storage.set('userLang',lang);
     this.userLanguage = lang;
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
+    window.location.reload(true);
     this.nav.setRoot('TabsPage', {}, {
       animate: true,
       direction: 'forward'

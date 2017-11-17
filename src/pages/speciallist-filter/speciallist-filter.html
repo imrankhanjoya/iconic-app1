@@ -22,7 +22,7 @@
 
 <ion-item>
   <ion-label>{{'SELECT_SPECIALIST_CATEGORY'| translate}}</ion-label>
-  <ion-select formControlName="SpeciaList" multiple="true">
+  <ion-select formControlName="SpeciaList" >
     <ion-option *ngFor="let catData of catDatas.data;" value={{catData.slug}}>{{catData.cat_name}}</ion-option>
   </ion-select>
 </ion-item>

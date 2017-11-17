@@ -32,14 +32,6 @@ export class MarketPage {
     public market:MarketproProvider,public callProvider:CallProvider,
     public modalCtrl:ModalController,
     public viewCtrl:ViewController) {
-    this.productbrand=navParams.get('productbrand');
-    this.product_cat=navParams.get('product_cat');
-    this.sortby=navParams.get('sortby');
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-      this.loading.present();
-      this.cat_id = 0;
   }
 
 
@@ -49,8 +41,12 @@ export class MarketPage {
   }
 
 
-  getmarkets(cat_id,productbrand,sortby){
-    this.market.productlistview(cat_id,productbrand,sortby).then((res)=>{
+  getmarkets(){
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+      this.loading.present();
+      this.market.productlistview(this.product_cat,this.productbrand,this.sortby).then((res)=>{
       this.productDatas.data = res.data;
       this.productDatas.msg = res.msg;
       this.productDatas.status = res.status;
@@ -82,8 +78,10 @@ export class MarketPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-          this.getmarkets(product_cat:popoverData.data.product_cat,sortby:popoverData.data.sortby,productbrand:popoverData.data.productbrand);
-          this.navCtrl.pop();
+          this.product_cat = popoverData.data.product_cat;
+          this.productbrand = popoverData.data.productbrand;
+          this.sortby = popoverData.data.sortby;
+          this.getmarkets();
         //this.navCtrl.push(MarketPage,{product_cat:popoverData.data.product_cat,sortby:popoverData.data.sortby,productbrand:popoverData.data.productbrand, fromFilter:true}); 
       }
     });

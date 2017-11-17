@@ -16,47 +16,43 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: 'market-filter.html',
 })
 export class MarketFilterPage {
-	public filterMarket : FormGroup;
-	public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-	  public brandDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-	  constructor(public navCtrl: NavController,
-				public navParams: NavParams,
-				public viewCtrl:ViewController,
-				public marketpro:MarketproProvider,
-    		private formBuilder: FormBuilder) {
+  	public filterMarket : FormGroup;
+  	public catDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  	  public brandDatas: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  	  constructor(public navCtrl: NavController,
+  				public navParams: NavParams,
+  				public viewCtrl:ViewController,
+  				public marketpro:MarketproProvider,
+      		private formBuilder: FormBuilder) {
 
-			  	this.filterMarket = this.formBuilder.group({
-		        product_cat: [''],
-		        productbrand: [''],
-            sortby: ['']
-        });
-            
-	}
+  			  	this.filterMarket = this.formBuilder.group({
+  		        product_cat: [''],
+  		        productbrand: [''],
+              sortby: ['']
+          });
+              
+  	}
    
 
-  ionViewDidLoad() {
-  	this.getCategory();
-  	this.getbrand();
-    console.log('ionViewDidLoad CatBrandPage');
-  }
-   getCategory(){
-    this.marketpro.productcat().then((res)=>{
-      this.catDatas.data = res.data;
-      this.catDatas.msg = res.msg;
-      this.catDatas.status = res.status;
-         console.log(this.catDatas);
-
-    });
-  }
-   getbrand(){
-    this.marketpro.brandcat().then((res)=>{
-      this.brandDatas.data = res.data;
-      this.brandDatas.msg = res.msg;
-      this.brandDatas.status = res.status;
-         console.log(this.brandDatas);
-
-    });
-  }
+    ionViewDidLoad() {
+    	this.getCategory();
+    	this.getbrand();
+      console.log('ionViewDidLoad CatBrandPage');
+    }
+     getCategory(){
+      this.marketpro.productcat().then((res)=>{
+        this.catDatas.data = res.data;
+        this.catDatas.msg = res.msg;
+        this.catDatas.status = res.status;
+      });
+    }
+     getbrand(){
+      this.marketpro.brandcat().then((res)=>{
+        this.brandDatas.data = res.data;
+        this.brandDatas.msg = res.msg;
+        this.brandDatas.status = res.status;
+      });
+    }
    dismiss(){
         let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
@@ -65,10 +61,8 @@ export class MarketFilterPage {
 
 
     filterMarketForm(){
-        let data = { 'data': this.filterMarket.value };
-        this.viewCtrl.dismiss(data);
-
-        
+      let data = { 'data': this.filterMarket.value };
+      this.viewCtrl.dismiss(data);
     }
 
 

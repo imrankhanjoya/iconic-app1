@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
 
 /**
@@ -15,10 +15,13 @@ import { AnnouncementproProvider } from '../../providers/announcementpro/announc
   templateUrl: 'announcement.html',
 })
 export class AnnouncementPage {
-
+  public loading :any;
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public Announce:AnnouncementproProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public Announce:AnnouncementproProvider,public loadingCtrl:LoadingController) {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -28,10 +31,11 @@ export class AnnouncementPage {
 
   getannouncement(){
     this.Announce.announcementList(20).then((res)=>{
-        this.announceList.data = res.data;
-        this.announceList.msg = res.msg;
-        this.announceList.status = res.status;
-      });
+      this.announceList.data = res.data;
+      this.announceList.msg = res.msg;
+      this.announceList.status = res.status;
+      this.loading.dismiss();
+    });
     // this.Announce.announcementList(20).map(res => res.json()).subscribe((res) => {
       
     //     this.announceList.data = res.data;

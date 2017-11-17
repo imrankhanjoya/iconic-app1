@@ -26,7 +26,7 @@ export class CardsPage {
   }
 
   get_expert(){
-    this.experts.Experts_list('blogs',10).then((res)=>{
+    this.experts.Experts_list('blogs',10,20).then((res)=>{
       this.expertdata = res;
       this.loading.dismiss();
 
@@ -41,24 +41,31 @@ export class CardsPage {
   }
 
   get_cat_expert(category_id){
-    this.experts.Experts_Cat_list('blogs',10,category_id).map(res => res.json()).subscribe((res) => {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+
+     this.loading.present();
+    this.experts.Experts_Cat_list('blogs',20,category_id).map(res => res.json()).subscribe((res) => {
         this.expertdata = res;
         console.log(this.expertdata);
+        this.loading.dismiss();
       }, (err) => {
         // Unable to log in
         console.log(err);
+        this.loading.dismiss();
       });
   }
 
  
-     openFilter(){
+  openFilter(){
     let modal = this.modalCtrl.create('SpeciallistFilterPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
-      console.log(popoverData)
       if (popoverData.data!="") {
-        console.log("kkj"+this.popoverData);
-        this.navCtrl.push(CardsPage,{speciatist:popoverData.data,fromFilter:true}); 
+        this.get_cat_expert(popoverData.data);
+        //console.log("kkj"+this.popoverData);
+        //this.navCtrl.push(CardsPage,{speciatist:popoverData.data,fromFilter:true}); 
       }
     });
   }

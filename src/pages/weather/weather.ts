@@ -41,7 +41,7 @@ export class WeatherPage {
               public viewCtrl:ViewController
               ) {
 
-              this.tehsilId = navParams.get('filter_tehsil');
+              //this.tehsilId = navParams.get('filter_tehsil');
                 this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
@@ -66,13 +66,12 @@ export class WeatherPage {
       });
   }
 
- weatherdetail(tehsil){
+ weatherdetail(tehsil,filter='no'){
 
       this.NowTimeT = new Date();
       console.log('this is current time'+this.NowTime);
 
-        if (this.navParams.get('fromFilter')) {
-          this.tehsilId = this.navParams.get('filter_tehsil');
+        if (filter=='filter_data') {
           this.resetcard = true
         }
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
@@ -151,7 +150,17 @@ export class WeatherPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-        this.navCtrl.push(WeatherPage,{filter_tehsil:popoverData.data, fromFilter:true}); 
+        this.loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+        this.loading.present();
+        this.tehsilId = popoverData.data;
+        this.weatherdetail(popoverData.data,'filter_data');
+        this.weatherfivedays(popoverData.data);
+       // this.navCtrl.push(WeatherPage,{filter_tehsil:popoverData.data, fromFilter:true})..then(() => {
+        /*const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);*/
+ // });; 
       }
     });
   }
