@@ -382,6 +382,7 @@ public top = 0;
 showBar(){
   console.log("Sayooo naara");
   document.querySelector(".tabbar").classList.add('show-tabbar');
+  document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
   document.querySelector(".tabbar").classList.remove('bottmTabHide');
   document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
   if(this.onBording){
