@@ -478,10 +478,10 @@
           <p>{{ 'KM' | translate:{km: userKm} }}</p>
       </ion-col>
       <ion-col col-4 align-items-left>
-          <button right ion-button small class="button"  (click)="gotoMap(geoLoc.lat,geoLoc.lng)" >{{'SEE_MORE' | translate}}</button>
+          <button right ion-button small class="button"  (click)="gotoAgroCenter()" >{{'SEE_MORE' | translate}}</button>
       </ion-col>
       <ion-col col-3 align-items-right>
-          <button right ion-button small class="button"  (click)="gotoAgroCenter()" >{{'HOME_GOTO_LUCTION' | translate}}</button>
+          <button right ion-button small class="button" (click)="gotoMap(geoLoc.lat,geoLoc.lng)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-grid>

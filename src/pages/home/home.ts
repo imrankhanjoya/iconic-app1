@@ -399,6 +399,8 @@ showBar(){
       if (this.startVisbol==false) {
         this.startVisbol=true;
         document.querySelector(".tabbar").classList.add('show-tabbar');
+        document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
         document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
         // if(this.onBording){
@@ -421,6 +423,7 @@ showBar(){
           document.querySelector(".tabbar").classList.add('bottmTabHide');
           document.querySelector(".tabbar").classList.remove('show-tabbar');
           document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+          document.querySelectorAll(".tabbar")[0].style.marginBottom = '-70px';
 
 
           // if(this.onBording){
