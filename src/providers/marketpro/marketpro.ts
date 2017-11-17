@@ -19,7 +19,6 @@ export class MarketproProvider {
 	}
     productlist(dataLimit) {
 
-
   		 var paramCond ={limit:dataLimit,lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{
 	      this.api.getCache('v1/product/all', paramCond).then((productlistData)=>{
