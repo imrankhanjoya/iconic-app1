@@ -13,7 +13,9 @@
   "TAB1_TITLE": "तत्वों",
   "TAB2_TITLE": "खोज",
   "TAB3_TITLE": "सेटिंग",
-
+  "IN_STOCK": "स्टॉक में",
+  "OUT_OF_STOCK": "स्टॉक ख़त्म",
+  "COMING_SOON": "जल्द आ रहा है",
   "MAP_TITLE": "नक्शा",
 
   "TUTORIAL_SKIP_BUTTON": "छोड़ें",

@@ -101,6 +101,12 @@ page-market-view {
           transform: none;
         }
       }
+      .out_stock{
+      	color:#FF0000;
+      }
+       .coming_soon{
+      	color:#FFFF00 ;
+      }
       .textGoingBack {
         animation: textClose 1s;
         transition-duration: 1s;

@@ -12,9 +12,10 @@
   "TAB1_TITLE": "Elements",
   "TAB2_TITLE": "Search",
   "TAB3_TITLE": "Settings",
-
   "MAP_TITLE": "Map",
-
+  "IN_STOCK": "In Stock",
+  "OUT_OF_STOCK": "Out of Stock",
+  "COMING_SOON": "Coming Soon",
   "TUTORIAL_SKIP_BUTTON": "Skip",
   "TUTORIAL_CONTINUE_BUTTON": "Continue",
 
