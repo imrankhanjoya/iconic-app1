@@ -56,7 +56,7 @@ export class MyApp {
   rootPage = FirstRunPage;
   public username : any;
   public display_name : any;
-  public profile_picture : 'assets/img/appicon.png';
+  public profile_picture : '/assets/img/appicon.png';
   public userLanguage:any;
   @ViewChild(Nav) nav: Nav;
 

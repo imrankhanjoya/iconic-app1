@@ -46,6 +46,7 @@ export class MarketPage {
         content: 'Please wait...'
     });
       this.loading.present();
+      
       this.market.productlistview(this.product_cat,this.productbrand,this.sortby).then((res)=>{
       this.productDatas.data = res.data;
       this.productDatas.msg = res.msg;

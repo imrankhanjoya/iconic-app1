@@ -146,7 +146,7 @@
   "PER_QUINTAL":"Per Quintal",
   "RS_PER_QUINTAL":"₹ Per Quintal",
   "SEE_MORE":"See More",
-  "GO_TO_MANDI":"go to mandi",
+  "GO_TO_MANDI":"Go to Mandi",
   "SPECIALIST":"Specialist",
   "Search": "Search",
   "SEARCH_TITLE": "Search",
@@ -226,7 +226,7 @@
   "OTHER": "others",
   "EDIT_PROFILE": "Edit Profile",
   "CHANGE_PASSWORD": "Change Password",
-  "SEVA_KENDAR": "Seva Kendar",
+  "SEVA_KENDAR": "Seva Kendra",
   "SHOWING_RESULT_FOR": "Showing Results for",
   "SELECT_RANGE_CHOUPAL": "Select Range",
   "KRISHI_JANKARI":"Agri Info",
@@ -244,7 +244,7 @@
   "SORT_BY": "Sort By",
   "VERIETY": "Variety",
   "QUANTITY": "Quantity",
-  "EXCEPT_PRICE": "Except Price",
+  "EXCEPT_PRICE": "Expected Price",
   "E_TRADING_FORM": "Thanks for form fill. Agribolo will call you soon"
 
 

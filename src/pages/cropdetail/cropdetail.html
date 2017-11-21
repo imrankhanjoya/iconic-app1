@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title>{{cropdetail.name}}</ion-title>
-      <ion-buttons end>
+      <ion-buttons *ngIf="cropdetail.total_mandi > 0" end>
       <div (click)="getMandiData()" >
         <a >{{'GO_TO_MANDI' | translate}}</a>
     </div>
@@ -82,13 +82,13 @@
 					<div>
 						<div class="smallTitle fontBold paddingTop"  innerHtml="{{Varity.improved_varieties}}"></div>
 
-						<div class="headline fontBold paddingTop ">Avergae Yield</div>
+						<div class="headline fontBold paddingTop ">Average Yield</div>
 						<div class="headline"  innerHtml="{{Varity.average_yield}}"></div>
 
 						<div class="headline fontBold paddingTop ">Maturity Period</div>
 						<div class="headline">{{Varity.maturity_period}} Days</div>
 
-						<div class="headline fontBold paddingTop ">Characterists</div>
+						<div class="headline fontBold paddingTop ">Characteristics</div>
 						<div class="headline colorGrey" innerHtml="{{Varity.characteristics}}"></div>
 
 						<div class="headline fontBold paddingTop ">Special Features</div>
