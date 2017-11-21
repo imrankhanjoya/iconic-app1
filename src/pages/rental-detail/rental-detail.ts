@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController,LoadingController, ViewController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 import { Storage } from '@ionic/storage';
 
@@ -26,7 +26,11 @@ export class RentalDetailPage {
   public textGotoBack:any;
   public buttonOnCloseCSS:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl:ModalController,public rentals:RentalsProvider,public loadingCtrl: LoadingController, public storage:Storage ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modalCtrl:ModalController,public rentals:RentalsProvider,
+    public loadingCtrl: LoadingController, public storage:Storage ,
+    public viewCtrl:ViewController) {
+
     this.rentalid=navParams.get('rid');
     this.textSlide='';
     this.buttonOnCloseCSS='';
@@ -46,6 +50,19 @@ export class RentalDetailPage {
   	 this.getRental_detail();
     console.log('ionViewDidLoad RentalDetailPage');
   }
+  openFilter(){
+    let modal = this.modalCtrl.create('RentalFilterPage');
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+      }
+    });
+  }
+  
+
+
    getRental_detail(){
     this.rentals.Rental_Detail(this.rentalid).map(res => res.json()).subscribe((res) => {
       
