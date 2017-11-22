@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController,Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HomePage } from '../home/home';
 import { KrishProvider } from '../../providers/krish/krish';
 
 
@@ -37,6 +38,10 @@ export class KrishCenterPage {
      this.getkrish();
      console.log('ionViewDidLoad KrishCenterPage');
   }
+   back(){
+  // this.navCtrl.pop('HomePage');  
+   this.navCtrl.setRoot(HomePage);
+   }
 
   getkrish(lat:any,long:any){
     console.log('Run getkrish API');
