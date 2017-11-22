@@ -14,6 +14,8 @@
   "TAB3_TITLE": "Settings",
   "MAP_TITLE": "Map",
   "IN_STOCK": "In Stock",
+  "RENTAL_IN":"Rent In"
+  "RENTAL_OUT":"Rent Out"
   "OUT_OF_STOCK": "Out of Stock",
   "COMING_SOON": "Coming Soon",
   "TUTORIAL_SKIP_BUTTON": "Skip",

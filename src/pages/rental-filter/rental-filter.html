@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{'RENTAL_FILTER' | translate}}</ion-title>
+    <ion-title>{{'RENTAL_CONTACTS' | translate}}</ion-title>
      <ion-buttons end>
       <button ion-button icon-only class="headericon" (click)="dismiss()">
         <ion-icon ios="ios-close" md="md-close" class="colorGreen paddingRightdisplayOneFont"></ion-icon>
@@ -15,10 +15,10 @@
     </ion-buttons>
     <ion-segment class="themeColor" [(ngModel)]="Crop">
       <ion-segment-button class="themeColor" value="General">
-        Rentin
+        {{'RENTAL_IN' | translate}}
       </ion-segment-button>
       <ion-segment-button value="Rentout">
-       Rentout
+        {{'RENTAL_OUT' | translate}}
         </ion-segment-button>
     </ion-segment>
   </ion-navbar>
@@ -41,7 +41,7 @@
           <ion-input formControlName="type"  type="hidden" value="rentin"></ion-input>
           <ion-input formControlName="expected_price"  type="hidden" value=""></ion-input>
           <ion-item class="separator colorGrey"  >
-              <ion-label> {{'NAME' | translate}}</ion-label>
+              <ion-label class="inpu" stacked> {{'NAME' | translate}}</ion-label>
              <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
          <ion-item  class="separator colorGrey">
@@ -112,15 +112,15 @@
         </div>
           <ion-input formControlName="type"  type="hidden" value="rentout"></ion-input> 
           <ion-item class="separator colorGrey"  >
-            <ion-label> {{'NAME' | translate}}</ion-label>
+            <ion-label class="inpu" stacked> {{'NAME' | translate}}</ion-label>
             <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
           <ion-item class="separator colorGrey"  >
-              <ion-label> {{'PRODUCT_NAME' | translate}}</ion-label>
+              <ion-label class="inpu" stacked> {{'PRODUCT_NAME' | translate}}</ion-label>
              <ion-input formControlName="product"  type="text"></ion-input>
           </ion-item>
           <ion-item class="separator colorGrey"  >
-              <ion-label> {{'EXCEPT_PRICE' | translate}}</ion-label>
+              <ion-label class="inpu" stacked> {{'EXCEPT_PRICE' | translate}}</ion-label>
              <ion-input formControlName="expected_price"  type="text"></ion-input>
           </ion-item>
          <ion-item  class="separator colorGrey">
