@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NewsProvider } from '../../providers/news/news';
+import { HomePage } from '../home/home';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 /**
@@ -25,6 +26,10 @@ export class NewsPage {
   	this.getNews();
     console.log('ionViewDidLoad NewsPage');
   }
+   back(){
+  // this.navCtrl.pop('HomePage');  
+   this.navCtrl.setRoot(HomePage);
+   }
    getNews(){
 
     this.NewsProvider.homeNews(20).then((res)=>{

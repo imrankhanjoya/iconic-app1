@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController  } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { LoadingController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 import { CallProvider } from '../../providers/call/call';
 
 /**
@@ -39,6 +40,7 @@ export class MarketPage {
     this.getmarkets(this.product_cat,this.productbrand,this.sortby);
     console.log('ionViewDidLoad MarketPage');
   }
+  
 
 
   getmarkets(){
@@ -67,12 +69,18 @@ export class MarketPage {
     //   });
   }
 
+
   makeCall(){
     
   }
+
   gotoMarketViewPage(product_id){
     this.navCtrl.push('MarketViewPage',{id:product_id});
   }
+  back(){
+  // this.navCtrl.pop('HomePage');  
+   this.navCtrl.setRoot(HomePage);
+   }
   openFilter(){
     let modal = this.modalCtrl.create('MarketFilterPage');
     modal.present();
@@ -87,4 +95,5 @@ export class MarketPage {
       }
     });
   }
+
 }
