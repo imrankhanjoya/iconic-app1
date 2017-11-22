@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams,ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
+import { RentalsProvider } from '../../providers/rentals/rentals';
 
 
 /**
@@ -24,10 +25,11 @@ export class RentalFilterPage {
     public districtList: any;
     public tehsilList: any;
     public loading:any;
+    public pageTitle:any;
     Crop: string = "General";
     
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
+  constructor(public navCtrl: NavController,public toastCtrl: ToastController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
   	private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider) {
 
         this.storage.get('userData').then((val) => {
@@ -39,7 +41,7 @@ export class RentalFilterPage {
             product: [''],
             type: [''],
             expected_price: [''],
-            farmer_name: ['', Validators.required],
+            farmer_name: [this.userData.display_name, Validators.required],
             date_from: ['', Validators.required],
             to_date: [''],
             time_from: [''],
@@ -57,6 +59,19 @@ export class RentalFilterPage {
         //this.getvarieties_etriding() ;
       });
               
+  }
+   presentToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'middle'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   ionViewDidLoad() {
@@ -92,8 +107,12 @@ export class RentalFilterPage {
   }
 
   filterRentalForm(){
-    let data = { 'data': this.RentalMarket.value };
-    this.viewCtrl.dismiss(data);
+      console.log('rental contact data is here');
+      console.log(this.RentalMarket.value);
+      this.rentals.Contact(this.RentalMarket.value);
+      let data = { 'data': '' };
+      this.viewCtrl.dismiss(data); 
+      this.presentToast('your order generate successfully');
   }
 
 }

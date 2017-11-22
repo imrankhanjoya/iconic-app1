@@ -55,4 +55,38 @@ export class RentalsProvider {
     return seq;
   }
 
+  Contact(data) {
+
+    let body = new FormData();
+        body.append('user_id',this.api.userData.ID);
+        body.append('product',data.product);
+        body.append('type',data.type);
+        body.append('expected_price',data.expected_price);
+        body.append('farmer_name',data.farmer_name);
+        body.append('date_from',data.date_from);
+        body.append('to_date',data.to_date);
+        body.append('time_from',data.time_from);
+        body.append('to_time',data.to_time);
+        body.append('duration',data.duration);
+        body.append('user_state_id',data.user_state_id);
+        body.append('user_district_id',data.user_district_id);
+        body.append('user_tahsil_id',data.user_tahsil_id);
+        body.append('address',data.address);
+    let seq = this.api.post('v1/rental/contact',body).share();
+
+      seq
+        .map(res => res.json())
+        .subscribe(res => {
+          // If the API returned a successful response, mark the user as logged in
+          if (res.status == 'success') {
+            console.log(res);
+          } else {
+          }
+        }, err => {
+          console.error('ERROR', err);
+        });
+
+      return seq;
+  }
+
 }
