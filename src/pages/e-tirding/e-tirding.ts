@@ -25,15 +25,15 @@ export class ETirdingPage {
     public changemarket : FormGroup;
     public districtList: any;
     public districtList: any;
- 	public tehsilList: any;
- 	public stateList: any;
- 	public userdetail:any;
- 	public ustateid:any;
- 	public udid:any;
- 	public utid:any;
- 	public varieties_List:any;
- 	public cropList:any;
- 	public pageTitle:any;
+   	public tehsilList: any;
+   	public stateList: any;
+   	public userdetail:any;
+   	public ustateid:any;
+   	public udid:any;
+   	public utid:any;
+   	public varieties_List:any;
+   	public cropList:any;
+   	public pageTitle:any;
   	currentItems: any = [];
 
   constructor(public navCtrl: NavController, 

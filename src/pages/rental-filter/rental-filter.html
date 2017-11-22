@@ -19,7 +19,7 @@
 
 
 <ion-content padding>
- <form  [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
+ <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
       <ion-card>
 
        <div>
@@ -27,30 +27,55 @@
             > {{'RENTAL_CONTACTS' | translate}}</div>
         </div>
        
+           <ion-item class="separator colorGrey"  >
+              <ion-label> {{'NAME' | translate}}</ion-label>
+             <ion-input formControlName="farmer_name"  type="text"></ion-input>
+          </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_ADD' | translate}}</ion-label>
-              <ion-datetime formControlName="Date_from" displayFormat="YY-MM-DD	HH:mm " pickerFormat=" YY MMM DDDD HH:mm"  [(ngModel)]="myDate"></ion-datetime>
+              <ion-datetime formControlName="date_from" displayFormat="YY-MM-DD" pickerFormat=" YY MMM DDDD"  [(ngModel)]="myDate"></ion-datetime>
          </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_ADD1' | translate}}</ion-label>
-              <ion-datetime formControlName="to_Date" displayFormat="YY-MM-DD  HH:mm " pickerFormat=" YY MMM DDDD HH:mm"  [(ngModel)]="todate"></ion-datetime>
+              <ion-datetime formControlName="to_date" displayFormat="YY-MM-DD" pickerFormat=" YY MMM DDDD"  [(ngModel)]="todate"></ion-datetime>
+         </ion-item>
+         <ion-item  class="separator colorGrey">
+           <ion-label> {{'TIME_ADD' | translate}}</ion-label>
+              <ion-datetime formControlName="time_from" displayFormat="HH:mm" pickerFormat="HH:mm"  [(ngModel)]="myDate"></ion-datetime>
+         </ion-item>
+         <ion-item  class="separator colorGrey">
+           <ion-label> {{'TIME_TO' | translate}}</ion-label>
+              <ion-datetime formControlName="to_time" displayFormat="HH:mm" pickerFormat="HH:mm"  [(ngModel)]="todate"></ion-datetime>
          </ion-item>
           <ion-item class="separator colorGrey"  >
-              <ion-label> {{'AVERAGE' | translate}}</ion-label>
-            <ion-select formControlName="AVERAGE" multiple="true">
-               <ion-option   value="gkggkk">ggkggk</ion-option>
-            </ion-select>
-          </ion-item>
-           <ion-item class="separator colorGrey"  >
               <ion-label> {{'DURATION' | translate}}</ion-label>
-            <ion-select formControlName="DURATION" multiple="true">
-               <ion-option   value="gkggkk">ggkggk</ion-option>
+            <ion-select formControlName="duration" >
+               <ion-option   value="hourly">Hourly</ion-option>
+               <ion-option   value="daily">Daily</ion-option>
             </ion-select>
           </ion-item>
-           <ion-item class="separator colorGrey"  >
-              <ion-label> {{'ADDRESS' | translate}}</ion-label>
-             <ion-input formControlName="Address"  type="text"></ion-input>
-          </ion-item>
+       <ion-item class="separator">
+      <ion-label class="colorGrey">{{'SELECT_LOCTION_STATE' | translate}}</ion-label>
+        <ion-select   formControlName="user_state_id" #user_state_id (ionChange)="onStateSelect(user_state_id.value)">
+          <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="separator">
+        <ion-label class="colorGrey">{{'SELECT_LOCTION_DISTRICT' | translate}}</ion-label>
+        <ion-select  formControlName="user_district_id" #user_district_id (ionChange)="onDistrictSelect(user_district_id.value)">
+          <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="separator" >
+      <ion-label class="colorGrey">{{'SELECT_LOCTION_TEHSIL' | translate}}</ion-label>
+        <ion-select   formControlName="user_tahsil_id" >
+          <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}>{{tehsil.tehsil_name}}</ion-option>
+        </ion-select>
+     </ion-item>
+      <ion-item>
+    <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
+    <ion-input formControlName="address" type="text"></ion-input>
+  </ion-item>
             <div  class="p_button margin-top" style="float: right">
                 <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
             </div>
