@@ -14,13 +14,24 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+  <ion-segment class="themeColor" [(ngModel)]="Rent">
+    <ion-segment-button class="themeColor" value="Rentin">
+      {{'CROP_DETAIL_GENRAL' | translate}}
+    </ion-segment-button>
+    <ion-segment-button value="Rentout">
+     {{'CROP_DETAIL_DEASEASE' | translate}}
+      </ion-segment-button>
+  </ion-segment>
 
 </ion-header>
 
 
 <ion-content padding>
- <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
-      <ion-card>
+  <div [ngSwitch]="Rent">
+
+    <!---------Rentin  Section-------->
+    <ion-card  *ngSwitchCase="'Rentin'">
+      <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
 
        <div>
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
@@ -73,18 +84,90 @@
         </ion-select>
      </ion-item>
       <ion-item>
-    <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
-    <ion-input formControlName="address" type="text"></ion-input>
-  </ion-item>
-            <div  class="p_button margin-top" style="float: right">
-                <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
-            </div>
-            
-            <div  class="p_button" style="float: right">
-              <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SEARCH_CAT' | translate}}</button>
-          </div>
-          </ion-card>
+        <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
+        <ion-input formControlName="address" type="text"></ion-input>
+      </ion-item>
+        <div  class="p_button margin-top" style="float: right">
+            <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
+        </div>
+        
+        <div  class="p_button" style="float: right">
+          <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SEARCH_CAT' | translate}}</button>
+      </div>
+      </form>
+    </ion-card>
 
-  </form>
+    <!---------Rentout  Section-------->
+    <ion-card  *ngSwitchCase="'Rentout'">
+      <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
 
+       <div>
+            <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
+            > {{'RENTAL_CONTACTS' | translate}}</div>
+        </div>
+       
+           <ion-item class="separator colorGrey"  >
+              <ion-label> {{'NAME' | translate}}</ion-label>
+             <ion-input formControlName="farmer_name"  type="text"></ion-input>
+          </ion-item>
+          <ion-item class="separator colorGrey"  >
+            <ion-label> {{'NAME' | translate}}</ion-label>
+            <ion-input formControlName="farmer_name"  type="text"></ion-input>
+          </ion-item>
+         <ion-item  class="separator colorGrey">
+           <ion-label> {{'DATA_ADD' | translate}}</ion-label>
+              <ion-datetime formControlName="date_from" displayFormat="YY-MM-DD" pickerFormat=" YY MMM DDDD"  [(ngModel)]="myDate"></ion-datetime>
+         </ion-item>
+         <ion-item  class="separator colorGrey">
+           <ion-label> {{'DATA_ADD1' | translate}}</ion-label>
+              <ion-datetime formControlName="to_date" displayFormat="YY-MM-DD" pickerFormat=" YY MMM DDDD"  [(ngModel)]="todate"></ion-datetime>
+         </ion-item>
+         <ion-item  class="separator colorGrey">
+           <ion-label> {{'TIME_ADD' | translate}}</ion-label>
+              <ion-datetime formControlName="time_from" displayFormat="HH:mm" pickerFormat="HH:mm"  [(ngModel)]="myDate"></ion-datetime>
+         </ion-item>
+         <ion-item  class="separator colorGrey">
+           <ion-label> {{'TIME_TO' | translate}}</ion-label>
+              <ion-datetime formControlName="to_time" displayFormat="HH:mm" pickerFormat="HH:mm"  [(ngModel)]="todate"></ion-datetime>
+         </ion-item>
+          <ion-item class="separator colorGrey"  >
+              <ion-label> {{'DURATION' | translate}}</ion-label>
+            <ion-select formControlName="duration" >
+               <ion-option   value="hourly">Hourly</ion-option>
+               <ion-option   value="daily">Daily</ion-option>
+            </ion-select>
+          </ion-item>
+       <ion-item class="separator">
+      <ion-label class="colorGrey">{{'SELECT_LOCTION_STATE' | translate}}</ion-label>
+        <ion-select   formControlName="user_state_id" #user_state_id (ionChange)="onStateSelect(user_state_id.value)">
+          <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="separator">
+        <ion-label class="colorGrey">{{'SELECT_LOCTION_DISTRICT' | translate}}</ion-label>
+        <ion-select  formControlName="user_district_id" #user_district_id (ionChange)="onDistrictSelect(user_district_id.value)">
+          <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="separator" >
+      <ion-label class="colorGrey">{{'SELECT_LOCTION_TEHSIL' | translate}}</ion-label>
+        <ion-select   formControlName="user_tahsil_id" >
+          <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}>{{tehsil.tehsil_name}}</ion-option>
+        </ion-select>
+     </ion-item>
+      <ion-item>
+        <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
+        <ion-input formControlName="address" type="text"></ion-input>
+      </ion-item>
+        <div  class="p_button margin-top" style="float: right">
+            <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
+        </div>
+        
+        <div  class="p_button" style="float: right">
+          <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SEARCH_CAT' | translate}}</button>
+      </div>
+      </form>
+    </ion-card>
+
+  </div>
 </ion-content>

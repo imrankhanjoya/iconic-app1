@@ -24,6 +24,8 @@ export class RentalFilterPage {
     public districtList: any;
     public tehsilList: any;
     public loading:any;
+    public Rent:  'Rentin';
+    
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
   	private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider) {

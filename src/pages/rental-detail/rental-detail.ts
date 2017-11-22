@@ -43,7 +43,7 @@ export class RentalDetailPage {
     });
 
      this.loading.present();
-      }  
+  }  
 
 
   ionViewDidLoad() {
@@ -66,7 +66,7 @@ export class RentalDetailPage {
    getRental_detail(){
     this.rentals.Rental_Detail(this.rentalid).map(res => res.json()).subscribe((res) => {
       
-        this.Rental_detaildata = res;
+        //this.Rental_detaildata = res;
         this.Rental_detaildata.data = res.data;
         this.Rental_detaildata.msg = res.msg;
         this.Rental_detaildata.status = res.status;

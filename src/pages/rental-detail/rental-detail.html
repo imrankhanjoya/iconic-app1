@@ -12,27 +12,127 @@
 </ion-header>
 
 <ion-content>
+  <ion-row *ngIf="Rental_detaildata.status==true">
+    <ion-col col-4>
+      <img class="paddingLeft paddingTop" src="{{Rental_detaildata.data[0].image}}"/>
+    </ion-col>
+    <ion-col col-8>
+      <div class="smallTitle fontBold paddingTop paddingLeft colorGrey">    {{Rental_detaildata.data[0].title}}
+      </div>
+      <!-- <div class="paddingLeft colorGrey"  >
+          {{Rental_detaildata[0].brand}}
+        </div> -->
+        <div class="paddingLeft colorGreen" >
+          {{Rental_detaildata.data[0].created_at}}
+        </div>
 
-  <ion-card>
-    <img  class="newsLargeImage roundImage fixImage" src="{{Rental_detaildata.data.attachments}}"/>
-    <div class="pClass smallTitle fontBold colorGrey">{{Rental_detaildata.data.title}}</div>
-    <span class="headline" innerHtml="{{Rental_detaildata.data.content}}"></span>
-     <div  class="p_button" >
-              <button class="p_1" ion-button type (click)="openFilter()" >{{'RENTAL_CONTACTS' | translate}}</button>
-          </div>
-  </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row  justify-content-center>
+    <div class="paddingTop" >
+      <a style="text-decoration: none;" class="buttonClass"  (click)="openFilter()">
+      {{'VALUE_ON_REQUEST' | translate}}
+      </a>
+
+    </div>
+  </ion-row>
+<ion-row>
+  <div class="fullWidth separator">
+    <div class="paddingLeft colorGrey">
+      <ul *ngIf="Rental_detaildata.status==true">
+        <li  >{{Rental_detaildata.data[0].description}}</li>
+      </ul>
+    </div>
+  </div>
+</ion-row>
+<ion-row *ngIf="Rental_detaildata.status==true">
+  <ion-row >
+    <div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Other Detail</div>
+  </ion-row >
+  <ion-row  *ngIf="Rental_detaildata.data[0].address!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Address
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].address}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row  *ngIf="Rental_detaildata.data[0].quantity!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Quantity
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].quantity}}
+    </ion-col>
+  </ion-row>
 
 
-<!-- <div col-12 style="position: fixed; top:80%">
-    <a href="tel:18001200800" >
+  <ion-row  *ngIf="Rental_detaildata.data[0].price!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Price
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].price}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row  *ngIf="Rental_detaildata.data[0].date_to!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Date to
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].date_to}}
+    </ion-col>
+  </ion-row>
+
+  <ion-row  *ngIf="Rental_detaildata.data[0].date_from!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Date From
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].date_from}}
+    </ion-col>
+  </ion-row>
+  
+  <ion-row  *ngIf="Rental_detaildata.data[0].time_to!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Time To
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].time_to}}
+    </ion-col>
+  </ion-row>
+  
+  <ion-row  *ngIf="Rental_detaildata.data[0].time_from!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+     Time From
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].time_from}}
+    </ion-col>
+  </ion-row>
+  
+  <ion-row  *ngIf="Rental_detaildata.data[0].units!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Duration
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].units}}
+    </ion-col>
+  </ion-row>
+</ion-row>
+  <div col-12 style="position: fixed; top:80%">
+    <a href="tel:18001200800">
     <button (click)="mackCall()" ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:10px;">
       <ion-icon name="call" class="displayOneFont" style="padding-left: 55px; padding-right:5px"></ion-icon>
       <div  class="{{textSlide}} smallTitle" style="opacity: 0;">
         CLICK TO CALL
     </div>
-    </button>
-    </a>
-  </div> -->
+     </button>
+     </a>
+  </div>
 </ion-content>
 
 
