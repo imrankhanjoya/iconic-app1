@@ -24,7 +24,7 @@ export class RentalFilterPage {
     public districtList: any;
     public tehsilList: any;
     public loading:any;
-    public Rent:  'Rentin';
+    Crop: string = "General";
     
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
@@ -36,12 +36,15 @@ export class RentalFilterPage {
           //Change Profile Details
           this.RentalMarket = this.formBuilder.group({
             user_id: [this.userData.ID],
+            product: [''],
+            type: [''],
+            expected_price: [''],
             farmer_name: ['', Validators.required],
             date_from: ['', Validators.required],
-            to_date: ['', Validators.required],
-            time_from: ['', ],
-            to_time: ['', ],
-            duration: ['', Validators.required],
+            to_date: [''],
+            time_from: [''],
+            to_time: [''],
+            duration: ['daily', Validators.required],
             user_state_id: [this.userData._user_state, Validators.required],
             user_district_id: [this.userData._user_district, Validators.required],
             user_tahsil_id: [this.userData._user_tehsil, Validators.required],

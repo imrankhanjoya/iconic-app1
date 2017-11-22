@@ -13,32 +13,34 @@
         <ion-icon ios="ios-close" md="md-close" class="colorGreen paddingRightdisplayOneFont"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-navbar>
-  <ion-segment class="themeColor" [(ngModel)]="Rent">
-    <ion-segment-button class="themeColor" value="Rentin">
-      {{'CROP_DETAIL_GENRAL' | translate}}
-    </ion-segment-button>
-    <ion-segment-button value="Rentout">
-     {{'CROP_DETAIL_DEASEASE' | translate}}
+    <ion-segment class="themeColor" [(ngModel)]="Crop">
+      <ion-segment-button class="themeColor" value="General">
+        Rentin
       </ion-segment-button>
-  </ion-segment>
+      <ion-segment-button value="Rentout">
+       Rentout
+        </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <div [ngSwitch]="Rent">
+  <div [ngSwitch]="Crop">
 
-    <!---------Rentin  Section-------->
-    <ion-card  *ngSwitchCase="'Rentin'">
+    <!---------Generale  Section-------->
+      <ion-card  *ngSwitchCase="'General'">
       <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
 
        <div>
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
             > {{'RENTAL_CONTACTS' | translate}}</div>
         </div>
-       
-           <ion-item class="separator colorGrey"  >
+          <ion-input formControlName="product"  type="hidden"></ion-input>
+          <ion-input formControlName="type"  type="hidden" value="rentin"></ion-input>
+          <ion-input formControlName="expected_price"  type="hidden" value=""></ion-input>
+          <ion-item class="separator colorGrey"  >
               <ion-label> {{'NAME' | translate}}</ion-label>
              <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
@@ -61,8 +63,8 @@
           <ion-item class="separator colorGrey"  >
               <ion-label> {{'DURATION' | translate}}</ion-label>
             <ion-select formControlName="duration" >
-               <ion-option   value="hourly">Hourly</ion-option>
-               <ion-option   value="daily">Daily</ion-option>
+               <ion-option  value="hourly">Hourly</ion-option>
+               <ion-option  value="daily">Daily</ion-option>
             </ion-select>
           </ion-item>
        <ion-item class="separator">
@@ -97,6 +99,9 @@
       </form>
     </ion-card>
 
+
+
+
     <!---------Rentout  Section-------->
     <ion-card  *ngSwitchCase="'Rentout'">
       <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
@@ -105,14 +110,18 @@
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
             > {{'RENTAL_CONTACTS' | translate}}</div>
         </div>
-       
-           <ion-item class="separator colorGrey"  >
-              <ion-label> {{'NAME' | translate}}</ion-label>
-             <ion-input formControlName="farmer_name"  type="text"></ion-input>
-          </ion-item>
+          <ion-input formControlName="type"  type="hidden" value="rentout"></ion-input> 
           <ion-item class="separator colorGrey"  >
             <ion-label> {{'NAME' | translate}}</ion-label>
             <ion-input formControlName="farmer_name"  type="text"></ion-input>
+          </ion-item>
+          <ion-item class="separator colorGrey"  >
+              <ion-label> {{'PRODUCT_NAME' | translate}}</ion-label>
+             <ion-input formControlName="product"  type="text"></ion-input>
+          </ion-item>
+          <ion-item class="separator colorGrey"  >
+              <ion-label> {{'EXCEPT_PRICE' | translate}}</ion-label>
+             <ion-input formControlName="expected_price"  type="text"></ion-input>
           </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_ADD' | translate}}</ion-label>
