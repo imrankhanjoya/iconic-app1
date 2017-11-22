@@ -40,7 +40,7 @@ export class KrishCenterPage {
   }
    back(){
   // this.navCtrl.pop('HomePage');  
-   this.navCtrl.setRoot(HomePage);
+   this.navCtrl.push(HomePage);
    }
 
   getkrish(lat:any,long:any){

@@ -79,7 +79,7 @@ export class MarketPage {
   }
   back(){
   // this.navCtrl.pop('HomePage');  
-   this.navCtrl.setRoot(HomePage);
+   this.navCtrl.push(HomePage);
    }
   openFilter(){
     let modal = this.modalCtrl.create('MarketFilterPage');
