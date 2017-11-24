@@ -4,6 +4,8 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 import { RentalsProvider } from '../../providers/rentals/rentals';
+import { SearchProvider } from '../../providers/search/search';
+
 
 
 /**
@@ -24,14 +26,19 @@ export class RentalFilterPage {
     public stateList: any;
     public districtList: any;
     public tehsilList: any;
+    public items:any;
     public loading:any;
     public pageTitle:any;
     Crop: string = "General";
+    Rental_Listdata: any = [];
+
+  // public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+
     
 
   constructor(public navCtrl: NavController,public toastCtrl: ToastController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
-  	private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider) {
-
+  	private formBuilder: FormBuilder,public viewCtrl:ViewController,public searchProvider:SearchProvider,public loc:CityStateProvider) {
+ 
         this.storage.get('userData').then((val) => {
           this.userData = val;
           this.pageTitle = 'onstorageload';
@@ -76,6 +83,44 @@ export class RentalFilterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RentalFilterPage');
+  }
+   getItems(ev) {
+    console.log('dfhhghjjhk');
+    let val = ev.target.value;
+    if (!val || !val.trim()) {
+      this.Rental_Listdata = [];
+      return;
+    }
+    console.log(val);
+    this.searchProvider.find(val).then((res)=>{
+
+      console.log(res.data.response.docs);
+      this.currentItems = res.data.response.docs;
+
+    });
+  }
+   openItem(data) {
+    console.log(data);
+    if (data=='products') {
+      console.log('im a ');
+      var newstr=data.toStrproductsing().replace('20000',"");
+     // this.navCtrl.push('MarketViewPage',{id:newstr});
+    }
+  }
+     getRental(){
+    this.rentals.Rental_list().map(res => res.json()).subscribe((res) => {
+      
+        this.Rental_Listdata = res;
+        this.Rental_Listdata.msg = res.msg;
+        this.Rental_Listdata.status = res.status;
+         this.loading.dismiss();
+
+        console.log(this.Rental_Listdata);
+      }, (err) => {
+        // Unable to log in
+        console.log(err);
+      });
+
   }
    onStateSelect(stateid) {
      var districtId = this.RentalMarket.value.user_state_id;

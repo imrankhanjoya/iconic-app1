@@ -115,13 +115,19 @@
             <ion-label class="inpu" stacked> {{'NAME' | translate}}</ion-label>
             <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
+            <ion-item class="separator colorGrey"  >
+           <ion-label class="inpu" stacked > {{'PRODUCT_NAME' | translate}}</ion-label>
+            <ion-searchbar  formControlName="product"  type="text"  (ionInput)="getItems($event)" placeholder="{{'SEARCH_PLACEHOLDER' 
+                            | translate }}"></ion-searchbar>
+        <ion-list>
+        <button ion-item *ngFor=" let data of Rental_Listdata.data " (click)="openItem(data)">
+      <p>{{data}}</p>
+      </button>
+      </ion-list>
+       </ion-item>
           <ion-item class="separator colorGrey"  >
-              <ion-label class="inpu" stacked> {{'PRODUCT_NAME' | translate}}</ion-label>
-             <ion-input formControlName="product"  type="text"></ion-input>
-          </ion-item>
-          <ion-item class="separator colorGrey"  >
-              <ion-label class="inpu" stacked> {{'EXCEPT_PRICE' | translate}}</ion-label>
-             <ion-input formControlName="expected_price"  type="text"></ion-input>
+            <ion-label class="inpu" stacked> {{'EXCEPT_PRICE' | translate}}</ion-label>
+            <ion-input formControlName="expected_price"  type="text"></ion-input>
           </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_FROM' | translate}}</ion-label>
