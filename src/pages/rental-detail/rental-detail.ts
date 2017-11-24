@@ -50,8 +50,8 @@ export class RentalDetailPage {
   	 this.getRental_detail();
     console.log('ionViewDidLoad RentalDetailPage');
   }
-  openFilter(){
-    let modal = this.modalCtrl.create('RentalFilterPage');
+  openFilter(product_name){
+    let modal = this.modalCtrl.create('RentalFilterPage',{product_name:product_name, fromFilter:true});
     modal.present();
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)

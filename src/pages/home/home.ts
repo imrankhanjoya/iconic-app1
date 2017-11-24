@@ -1,6 +1,7 @@
 import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
@@ -61,15 +62,16 @@ export class HomePage {
   public userId:any;
   public tehsil:any;
   public NowTime:any;
+  public toggleMenuText:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
 
-  constructor(public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
+  constructor(public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
-    
+    this.toggleMenuText="more";
     this.rotateClass="";
       //this.topMenu = 'toolbarClosed';
       this.loading = this.loadingCtrl.create({
@@ -117,6 +119,13 @@ export class HomePage {
     
     });
     
+
+
+    //For tab Scroll
+    this.startVisbol=true;
+    document.querySelector(".tabbar").classList.add('show-tabbar');
+    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+    document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
   }
 
   toggleMenu(){
@@ -124,13 +133,15 @@ export class HomePage {
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarOpen";
       this.topMenu ="toolbarOpen";
+      this.toggleMenuText="less";
       
     }else{
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
       this.topMenu = "toolbarClosed";
-      
+      this.toggleMenuText="more";
+    
     }
 
   }
@@ -403,7 +414,7 @@ showBar(){
         document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
 
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
-        document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
+        document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
         // if(this.onBording){
         //   document.querySelector(".barCustomAct").classList.add('showTopBar');
         //   document.querySelector(".barCustomAct").classList.remove('topBar');

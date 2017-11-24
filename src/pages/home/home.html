@@ -38,7 +38,8 @@
     </ion-col>
     <ion-col #tongl_id class="toolbarCol opacityGone">
       <img (click)="toggleMenu()" class="{{rotateClass}}" src="assets/img/agri bolo icon/hdpi/Group 37.png">
-      {{'LESS' | translate }}
+      <span  *ngIf="toggleMenuText=='less'">{{'LESS' | translate }}</span>
+      <span   *ngIf="toggleMenuText=='more'">{{'MORE' | translate }}</span>
     </ion-col>
 
   </ion-row>

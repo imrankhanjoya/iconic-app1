@@ -6,6 +6,7 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 
 
+
 /**
  * Generated class for the RentalFilterPage page.
  *
@@ -25,20 +26,21 @@ export class RentalFilterPage {
     public districtList: any;
     public tehsilList: any;
     public loading:any;
+    public product_name:any;
     public pageTitle:any;
     Crop: string = "General";
     
 
   constructor(public navCtrl: NavController,public toastCtrl: ToastController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
   	private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider) {
-
+        this.product_name=navParams.get('product_name');
+        console.log('pname'+this.product_name);
         this.storage.get('userData').then((val) => {
           this.userData = val;
           this.pageTitle = 'onstorageload';
-          //Change Profile Details
           this.RentalMarket = this.formBuilder.group({
             user_id: [this.userData.ID],
-            product: [''],
+            product: [this.product_name, Validators.required],
             type: [''],
             expected_price: [''],
             farmer_name: [this.userData.display_name, Validators.required],
@@ -52,7 +54,7 @@ export class RentalFilterPage {
             user_tahsil_id: [this.userData._user_tehsil, Validators.required],
             address: ['', Validators.required]
           });
-
+        this.getRentalList();
         this.getAllState();
         this.onStateSelect(this.userData._user_state);
         this.onDistrictSelect(this.userData._user_district);
@@ -76,43 +78,47 @@ export class RentalFilterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RentalFilterPage');
+  }   
+
+  getRentalList(){
+    this.rentals.Rental_list().map(res => res.json()).subscribe((res) => {
+    console.log(res.data);
+    this.rentallists = res.data;
+      }, (err) => {
+        console.log(err);
+      });
   }
-   onStateSelect(stateid) {
-     var districtId = this.RentalMarket.value.user_state_id;
+
+  onStateSelect(stateid) {
+    var districtId = this.RentalMarket.value.user_state_id;
     this.loc.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
       
     });
-   
   }
+
   onDistrictSelect(districtId){
     this.loc.getTehsil(this.lang,districtId).then((res)=>{
             this.tehsilList=res.data;
-           // this.loading.dismiss();
         });
    
   }
-   getAllState() {
+  getAllState() {
     this.loc.getState(this.lang).then((res)=>{
-          this.stateList=res.data;
-
-      }); 
-  
-  //  this.loading.dismiss();
+      this.stateList=res.data;
+    }); 
   }
 
- dismiss(){
-      let data = { 'data': '' };
-      this.viewCtrl.dismiss(data);
+  dismiss(){
+    let data = { 'data': '' };
+    this.viewCtrl.dismiss(data);
   }
 
   filterRentalForm(){
-      console.log('rental contact data is here');
-      console.log(this.RentalMarket.value);
-      this.rentals.Contact(this.RentalMarket.value);
-      let data = { 'data': '' };
-      this.viewCtrl.dismiss(data); 
-      this.presentToast('your order generate successfully');
+    this.rentals.Contact(this.RentalMarket.value);
+    let data = { 'data': '' };
+    this.viewCtrl.dismiss(data); 
+    this.presentToast('your order generate successfully');
   }
 
 }

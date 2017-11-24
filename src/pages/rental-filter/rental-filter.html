@@ -37,12 +37,17 @@
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
             > {{'RENTAL_CONTACTS' | translate}}</div>
         </div>
-          <ion-input formControlName="product"  type="hidden"></ion-input>
           <ion-input formControlName="type"  type="hidden" value="rentin"></ion-input>
           <ion-input formControlName="expected_price"  type="hidden" value=""></ion-input>
           <ion-item class="separator colorGrey"  >
               <ion-label class="inpu" stacked> {{'NAME' | translate}}</ion-label>
              <ion-input formControlName="farmer_name"  type="text"></ion-input>
+          </ion-item>
+          <ion-item class="separator">
+            <ion-label class="colorGrey">{{'PRODUCT_NAME' | translate}}</ion-label>
+            <ion-select  formControlName="product" >
+              <ion-option *ngFor="let rental of rentallists" value="{{rental.id}}" >{{rental.title}}</ion-option>
+            </ion-select>
           </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_FROM' | translate}}</ion-label>
@@ -115,13 +120,15 @@
             <ion-label class="inpu" stacked> {{'NAME' | translate}}</ion-label>
             <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
-          <ion-item class="separator colorGrey"  >
-              <ion-label class="inpu" stacked> {{'PRODUCT_NAME' | translate}}</ion-label>
-             <ion-input formControlName="product"  type="text"></ion-input>
+          <ion-item class="separator">
+            <ion-label class="colorGrey">{{'PRODUCT_NAME' | translate}}</ion-label>
+            <ion-select  formControlName="product" >
+              <ion-option *ngFor="let rental of rentallists" value="{{rental.id}}" >{{rental.title}}</ion-option>
+            </ion-select>
           </ion-item>
           <ion-item class="separator colorGrey"  >
               <ion-label class="inpu" stacked> {{'EXCEPT_PRICE' | translate}}</ion-label>
-             <ion-input formControlName="expected_price"  type="text"></ion-input>
+             <ion-input formControlName="expected_price"  type="number"></ion-input>
           </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_FROM' | translate}}</ion-label>

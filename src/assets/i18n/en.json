@@ -14,8 +14,8 @@
   "TAB3_TITLE": "Settings",
   "MAP_TITLE": "Map",
   "IN_STOCK": "In Stock",
-  "RENTAL_IN":"Rent In"
-  "RENTAL_OUT":"Rent Out"
+  "RENTAL_IN":"Rent In",
+  "RENTAL_OUT":"Rent Out",
   "OUT_OF_STOCK": "Out of Stock",
   "COMING_SOON": "Coming Soon",
   "TUTORIAL_SKIP_BUTTON": "Skip",
@@ -140,6 +140,7 @@
   "AGRICULTURAL_SERVICES":"Agro Services",
   "AGRICULTURAL_CENTER":"Agro Services",
   "LESS":"Less",
+  "MORE":"More",
   "MANAGED":"Managed",
   "VIDEO":"Video",
   "MARKET":"Market",
@@ -207,7 +208,7 @@
   "SELECT_PRODUCT_CATEGORY": "Select Product Category",
   "AGRO_SERVICES": "Agro Services",
   "GET_MORE_INSIGHT": "GET More Insights",
-  "ASK_EXPERT_SUBTILE": "Get Expert Advice on your Crops",
+  "ASK_EXPERT_SUBTILE": "Expert Advice on Crops",
   "CROP": "CROP KNOWLEDGE BASE",
   "HORTICULTURE": "Horticulture",
   "FILTER_CROP": "Please Select Mandi",

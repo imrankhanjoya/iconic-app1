@@ -23,7 +23,7 @@
               <ion-row class=" boxAlignLeft " *ngIf="data.uid!=userId" >
                 
                 <div class="backgroundColorLightGreen formatBubbleLeft paddingTop ">  
-                <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}},{{data.uid}},{{userId}}</div>
+                <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}}</div>
                 
                   <div style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
                 </div>
