@@ -94,12 +94,11 @@
         <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
         <ion-input formControlName="address" type="text"></ion-input>
       </ion-item>
-        <div  class="p_button margin-top" style="float: right">
-            <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
+      <div  >
+        <div style="float: right;" class="p_1 sarchicon"   (click)="dismiss()" >{{'CANCEL' | translate}}</div>
+        <div  style="float: right;margin-right:10px;">
+          <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SUBMIT' | translate}}</button>
         </div>
-        
-        <div  class="p_button" style="float: right">
-          <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SEARCH_CAT' | translate}}</button>
       </div>
       </form>
     </ion-card>
@@ -175,12 +174,11 @@
         <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
         <ion-input formControlName="address" type="text"></ion-input>
       </ion-item>
-        <div  class="p_button margin-top" style="float: right">
-            <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
+      <div  >
+        <div style="float: right;" class="p_1 sarchicon"   (click)="dismiss()" >{{'CANCEL' | translate}}</div>
+        <div  style="float: right;margin-right:10px;">
+          <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SUBMIT' | translate}}</button>
         </div>
-        
-        <div  class="p_button" style="float: right">
-          <button class="p_1" ion-button type="submit" [disabled]="!RentalMarket.valid">{{'SEARCH_CAT' | translate}}</button>
       </div>
       </form>
     </ion-card>

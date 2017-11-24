@@ -47,13 +47,13 @@
                <ion-option value='buying_price desc'>Price - High to Low</ion-option>
             </ion-select>
           </ion-item>
-            <div  class="p_button margin-top" style="float: right">
-                <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
-            </div>
-            
-            <div  class="p_button" style="float: right">
-              <button class="p_1" ion-button type="submit" [disabled]="!filterMarket.valid">{{'SEARCH_CAT' | translate}}</button>
-          </div>
+            <div  >
+          <div style="float: right;" class="p_1 sarchicon"   (click)="dismiss()" >{{'CANCEL' | translate}}</div>
+        
+        <div  style="float: right;margin-right:10px;">
+          <button class="p_1" ion-button type="submit" [disabled]="!filterMarketForm.valid">{{'SEARCH_CAT' | translate}}</button>
+      </div>
+      </div>
           </ion-card>
 
   </form>
