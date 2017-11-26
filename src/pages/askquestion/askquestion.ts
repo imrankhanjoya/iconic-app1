@@ -74,6 +74,7 @@ export class AskquestionPage {
           this.viewCtrl.dismiss();
           this.presentToast('Questions added successfully');
           this.navCtrl.push('QuestionlistPage');
+
           console.log(this.askquestionsData.data);
         }
       }, (err) => {
@@ -86,6 +87,7 @@ export class AskquestionPage {
   
   goToUsrask(){
  	 this.getaskquestions();
+
   }
   addImg(){
     let popover = this.popoverCtrl.create('UploadImagePage');

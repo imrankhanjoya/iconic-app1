@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,ViewController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
+import { AskquestionPage } from '../askquestion/askquestion';
+
 
 /**
  * Generated class for the QuestionlistPage page.
@@ -16,7 +18,7 @@ import { QuestionsProvider } from '../../providers/questions/questions';
   })
   export class QuestionlistPage {
     public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-    constructor(public navCtrl: NavController, public navParams: NavParams,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
+    constructor(public navCtrl: NavController,public viewCtrl: ViewController,public navParams: NavParams,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
      this.loading = this.loadingCtrl.create({
          content: 'Please wait...'
         });
@@ -50,8 +52,12 @@ import { QuestionsProvider } from '../../providers/questions/questions';
 
   }
   gotoAskquestion(){
-    this.navCtrl.push('AskquestionPage');
-  } 
+   // this.navCtrl.push('AskquestionPage');
+ this.navCtrl.push('AskquestionPage').then(() => {
+      const index = this.viewCtrl.index;
+      this.navCtrl.remove(index);
+    });  
+} 
   gotoViewquestion(Qid){
     console.log(Qid);
     this.navCtrl.push('QuitionviewPage',{QuitionID:Qid});
