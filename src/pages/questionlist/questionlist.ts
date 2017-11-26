@@ -55,7 +55,7 @@ import { AskquestionPage } from '../askquestion/askquestion';
    // this.navCtrl.push('AskquestionPage');
  this.navCtrl.push('AskquestionPage').then(() => {
       const index = this.viewCtrl.index;
-      this.navCtrl.remove(index);
+      //this.navCtrl.remove(index);
     });  
 } 
   gotoViewquestion(Qid){

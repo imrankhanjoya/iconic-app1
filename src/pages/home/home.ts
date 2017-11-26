@@ -18,6 +18,8 @@ import { TabProvider } from '../../providers/tab/tab';
 import { WeatherPage } from '../weather/weather';
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
+import { User } from '../../providers/providers';
+import { FCM } from '@ionic-native/fcm';
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 /**
@@ -62,11 +64,12 @@ export class HomePage {
   public userId:any;
   public tehsil:any;
   public NowTime:any;
+  public token:any;
   public toggleMenuText:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
 
-  constructor(public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
+  constructor(private fcm: FCM,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
@@ -92,6 +95,9 @@ export class HomePage {
       }
         this.lastBack = Date.now();
        });
+
+      
+      //this.updatetoken(1234);
 
   }
 
@@ -128,6 +134,10 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
+        //Update Token
+        fcm.getToken(function(token){
+            this.updatetoken(token,this.userId);
+        });
       }
       
     
@@ -549,7 +559,17 @@ async changeClass(count): Promise<string> {
       };
   }
 
- 
+
+
+
+updatetoken(token,user_id){
+
+    this.user.UpdateToken(token,user_id).map(res => res.json()).subscribe((resp) => {
+          
+
+     }, (err) => {
+    });
+  }
 
   playVideo(videoid:any){
     console.log('videoid  : '+videoid);
@@ -587,3 +607,7 @@ async changeClass(count): Promise<string> {
 //--------------- chat end ----------
 
 }
+
+
+
+

@@ -371,4 +371,29 @@ export class User {
   _loggedIn(resp) {
     this._user = resp.user;
   }
+   
+  /**
+   * Update Profile
+   */
+   UpdateToken(token){
+     let body = new FormData();
+     body.append('user_id', user_id);
+     body.append('token', token);
+
+     let seq = this.api.post('v1/user/update-token', body).share();
+
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
+
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
+
+     return seq;
+   }
 }

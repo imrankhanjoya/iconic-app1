@@ -44,36 +44,12 @@
 	        <ion-label  floating>{{'DESCRIPTION' | translate}}</ion-label>
 	        <ion-textarea formControlName="description">{{formdata.message}}</ion-textarea>
 	    </ion-item>
-	    <!-- <ion-item class="separator colorGrey">
-	        <ion-label>{{'SELECT_LOCTION_STATE' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}</ion-label>
-	        <ion-select   formControlName="user_state_id" (ionChange)="onStateSelect()">
-	          <ion-option *ngFor="let state of stateList" value={{state.id}}>{{state.state_name}}</ion-option>
-	        </ion-select>
-	    </ion-item>
-	    <ion-item class="separator colorGrey">
-	        <ion-label>
-	        {{'SELECT_LOCTION_DISTRICT' | translate}} {{'SELECT_LOCTION_SELECT' | translate}}
-	        </ion-label>
-	        <ion-select class="selectBox"  formControlName="user_district_id" (ionChange)="onDistrictSelect()" >
-	          <ion-option *ngFor="let district of districtList" value={{district.id}}>{{district.district_name}}</ion-option>
-	        </ion-select>
-	    </ion-item>
-	    <ion-item class="colorGrey">
-	      	<ion-label>{{'SELECT_LOCTION_TEHSIL' | translate}}</ion-label>
-	        <ion-select class="selectBox"  formControlName="user_tahsil_id" >
-	          <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}>
-	              {{tehsil.tehsil_name}}</ion-option>
-	        </ion-select>
-	    </ion-item> -->
-      	<div>
-            <div  class="p_button" style="float: right">
-                <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
-            </div>
-            
-            <div  class="p_button" style="float: right">
-              <button class="p_1" ion-button type="submit" [disabled]="!priceRequest.valid">{{'PRICE_REQUEST' | translate}}</button>
-          </div>
-      	</div>
+	    <div>
+	        <div style="float: right;" class="p_1 sarchicon"   (click)="dismiss()" >{{'CANCEL' | translate}}</div>
+	        <div  style="float: right;margin-right:10px;">
+	          <button class="p_1" ion-button type="submit" [disabled]="!priceRequest.valid">{{'PRICE_REQUEST' | translate}}</button>
+	        </div>
+	    </div>
     </ion-card>
   </form>
 </ion-content>

@@ -73,8 +73,10 @@ export class AskquestionPage {
 
           this.viewCtrl.dismiss();
           this.presentToast('Questions added successfully');
-          this.navCtrl.push('QuestionlistPage');
-
+          this.navCtrl.push('QuestionlistPage').then(() => {
+      const index = this.viewCtrl.index;
+      this.navCtrl.remove(index);
+    });  ;
           console.log(this.askquestionsData.data);
         }
       }, (err) => {
@@ -87,7 +89,6 @@ export class AskquestionPage {
   
   goToUsrask(){
  	 this.getaskquestions();
-
   }
   addImg(){
     let popover = this.popoverCtrl.create('UploadImagePage');

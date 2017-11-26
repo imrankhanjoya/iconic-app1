@@ -125,6 +125,9 @@
               <ion-option *ngFor="let rental of rentallists" value="{{rental.id}}" >{{rental.title}}</ion-option>
             </ion-select>
           </ion-item>
+        <!--   <ion-item class="separator">
+          <input type="text" (click)="stopProcess()" (keypress)="onKeyPress($event)" />
+          </ion-item> -->
           <ion-item class="separator colorGrey"  >
               <ion-label class="inpu" stacked> {{'EXCEPT_PRICE' | translate}}</ion-label>
              <ion-input formControlName="expected_price"  type="number"></ion-input>

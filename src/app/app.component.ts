@@ -6,6 +6,8 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
+import { AskquestionPage } from '../pages/askquestion/askquestion';
+
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
 import { CacheService } from "ionic-cache";
@@ -156,42 +158,42 @@ platform.ready().then(() => {
 
           }
 
-          showAlert() {
-          this.alert = this.alertCtrl.create({
-            title: 'Exit?',
-            message: 'Do you want to exit the app?',
-            buttons: [
-              {
-                text: 'Cancel',
-                role: 'cancel',
-                handler: () => {
-                  this.alert =null;
-                }
-              },
-              {
-                text: 'Exit',
-                handler: () => {
-                  this.platform.exitApp();
-                }
-              }
-            ]
-          });
-          alert.present();
-        }
+        //   showAlert() {
+        //   this.alert = this.alertCtrl.create({
+        //     title: 'Exit?',
+        //     message: 'Do you want to exit the app?',
+        //     buttons: [
+        //       {
+        //         text: 'Cancel',
+        //         role: 'cancel',
+        //         handler: () => {
+        //           this.alert =null;
+        //         }
+        //       },
+        //       {
+        //         text: 'Exit',
+        //         handler: () => {
+        //           this.platform.exitApp();
+        //         }
+        //       }
+        //     ]
+        //   });
+        //   alert.present();
+        // }
 
-          showToast() {
-            let toast = this.toastCtrl.create({
-              message: 'Press Again to exit',
-              duration: 2000,
-              position: 'bottom'
-            });
+          // showToast() {
+          //   let toast = this.toastCtrl.create({
+          //     message: 'Press Again to exit',
+          //     duration: 2000,
+          //     position: 'bottom'
+          //   });
 
-            toast.onDidDismiss(() => {
-              console.log('Dismissed toast');
-            });
+          //   toast.onDidDismiss(() => {
+          //     console.log('Dismissed toast');
+          //   });
 
-            toast.present();
-          }
+          //   toast.present();
+          // }
     
 
 
