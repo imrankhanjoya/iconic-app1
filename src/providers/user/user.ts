@@ -375,11 +375,11 @@ export class User {
   /**
    * Update Profile
    */
-   UpdateToken(token){
+   UpdateToken(token,user_id){
      let body = new FormData();
      body.append('user_id', user_id);
      body.append('token', token);
-
+      
      let seq = this.api.post('v1/user/update-token', body).share();
 
      seq

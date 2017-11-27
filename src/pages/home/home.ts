@@ -134,14 +134,18 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        //Update Token
-        fcm.getToken(function(token){
+        this.storage.get('updated_token').then((token) => {
+          if (token) {
+            console.log('token found sucessfully---'+token+'-------');
             this.updatetoken(token,this.userId);
+          }
+          console.log('token found sucessfully- NOt--'+token+'-------');
         });
-      }
-      
+      } 
     
     });
+
+
     
 
 
@@ -563,15 +567,9 @@ async changeClass(count): Promise<string> {
       };
   }
 
-
-
-
-updatetoken(token,user_id){
-
-    this.user.UpdateToken(token,user_id).map(res => res.json()).subscribe((resp) => {
-          
-
-     }, (err) => {
+  updatetoken(token,user_id){
+       // console.log('videoid');
+    this.user.UpdateToken(token,user_id).map(res => res.json()).subscribe((resp) => {}, (err) => {
     });
   }
 

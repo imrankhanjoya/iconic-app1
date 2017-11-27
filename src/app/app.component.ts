@@ -102,9 +102,10 @@ export class MyApp {
         this.profile_picture = userlogin.profile_picture;
       });
       fcm.subscribeToTopic('marketing');
-
+      his.storage.set('updated_token','121210000212');
       fcm.getToken(function(token){
           console.log('--getToken--'+token);
+          this.storage.set('updated_token',token);
       });
 
       fcm.onNotification().subscribe(data=>{
@@ -117,7 +118,7 @@ export class MyApp {
       });
 
       fcm.onTokenRefresh(function(token){
-          console.log('--onTokenRefresh--'+token);
+          this.storage.set('token',token);
       });
 
     });
