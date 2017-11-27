@@ -75,7 +75,7 @@ export class HomePage {
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
     this.toggleMenuText="more";
-    this.rotateClass="";
+    this.rotateClass="rotateimage1";
       //this.topMenu = 'toolbarClosed';
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -149,18 +149,21 @@ export class HomePage {
     this.startVisbol=true;
     document.querySelector(".tabbar").classList.add('show-tabbar');
     document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+    document.querySelectorAll(".scroll-content")[0].style.marginBottom = '0px';
     document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+    document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
+    document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
   }
 
   toggleMenu(){
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
-      this.rotateClass="rotateimage1";
+      this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarOpen";
       this.topMenu ="toolbarOpen";
       this.toggleMenuText="less";
       
     }else{
-      this.rotateClass="rotateimage2";
+      this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
       this.topMenu = "toolbarClosed";
@@ -459,6 +462,7 @@ showBar(){
           document.querySelector(".tabbar").classList.add('bottmTabHide');
           document.querySelector(".tabbar").classList.remove('show-tabbar');
           document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+          document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
           document.querySelectorAll(".tabbar")[0].style.marginBottom = '-70px';
 
 
