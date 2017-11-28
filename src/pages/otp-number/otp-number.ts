@@ -118,4 +118,8 @@ export class OtpNumberPage {
       console.log('--unsuccess')  
     });
   }
+
+  LoginPage(){
+    this.navCtrl.push('LoginPage');
+  }
 }
