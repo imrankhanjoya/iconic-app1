@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController,ViewController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { AskquestionPage } from '../askquestion/askquestion';
+import { HomePage } from '../home/home';
 
 
 /**
@@ -53,11 +54,12 @@ import { AskquestionPage } from '../askquestion/askquestion';
   }
   gotoAskquestion(){
    // this.navCtrl.push('AskquestionPage');
- this.navCtrl.push('AskquestionPage').then(() => {
-      const index = this.viewCtrl.index;
-      //this.navCtrl.remove(index);
-    });  
+ this.navCtrl.push('AskquestionPage');
 } 
+ back(){
+  // this.navCtrl.pop('HomePage');  
+   this.navCtrl.push(HomePage);
+   }
   gotoViewquestion(Qid){
     console.log(Qid);
     this.navCtrl.push('QuitionviewPage',{QuitionID:Qid});

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp';
 import { IonicStorageModule, Storage } from '@ionic/storage';
+import { QuestionlistPage } from '../questionlist/questionlist';
 
 /**
  * Generated class for the QuitionviewPage page.
@@ -45,6 +46,11 @@ export class QuitionviewPage {
       });
 
   } 
+   back(){
+  // this.navCtrl.pop('HomePage');  
+   this.navCtrl.push(QuestionlistPage);
+   } 
+
   gotoAnswerquestion(Qid){
     this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
   }

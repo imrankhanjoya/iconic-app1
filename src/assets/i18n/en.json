@@ -83,7 +83,7 @@
   "VERIFY_TYPE_OTP": "Enter your 4 digit OTP Registered for Mobile Verification?",
   "INVALID_OTP": "Please Enter Valid OTP!",
   "DUPLICATE_MOBILENUMBER": "Mobile Number Already Registered. Please Login!.",
-
+  "DUPLICATE": "If Your Have  Already account . Please Login!.",
   "SING_UP_VERY_GOOD": "Very Good",
   "SING_UP_PASSWORD": "Please enter your Name and Password for more service?",
   "SING_UP_NAME_REQUIRED": "Name is required",

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, ToastController } 
 import { QuitionanswerpProvider } from '../../providers/quitionanswerp/quitionanswerp';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicStorageModule, Storage } from '@ionic/storage';
+
 /**
  * Generated class for the QuitionanswerPage page.
  *
@@ -56,8 +57,8 @@ export class QuitionanswerPage {
   	ionViewDidLoad() {
       //alert('this.data.msg');
     	console.log('ionViewDidLoad QuitionanswerPage');
-  	}   
-
+  	}  
+    
   	submitanswer(){
       
    		 console.log('ionViewDidLoad '+this.answer.value.description);
