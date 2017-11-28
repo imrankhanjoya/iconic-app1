@@ -148,4 +148,8 @@ page-weather {
     word-wrap: normal;
     word-spacing: normal;
     }
+
+    .swiper-container{
+        overflow-y: auto !important;
+    }
 }

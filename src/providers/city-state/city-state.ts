@@ -144,4 +144,32 @@ export class CityStateProvider {
      //   });
      // return seq;
     }
+
+    
+ 
+
+  GroupCrop(lang){
+
+    var paramCond ={lang:this.api.userLanguage};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/crops/crop-group', paramCond).then((sendCropData)=>{
+          resolve(sendCropData);
+        });  
+      });
+
+    // let seq = this.api.get('v1/crops/all',paramCond).share();
+
+    // seq
+    // .map(res => res.json())
+    // .subscribe(res => {
+    //  // If the API returned a successful response, mark the user as logged in
+    //  if (res.status == 'success') {
+    //   console.log(res);
+    //  }
+    // }, err => {
+    //  console.error('ERROR', err);
+    // });
+
+    // return seq;
+  }
 }

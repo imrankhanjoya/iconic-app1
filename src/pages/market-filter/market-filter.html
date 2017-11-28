@@ -33,11 +33,6 @@
                <ion-option  *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
             </ion-select>
           </ion-item>
-          <ion-item class="separator colorGrey"  style="display: none">
-            <ion-select formControlName="productbrand" multiple="true">
-               <ion-option  *ngFor="let brandData of brandDatas.data; let i=index " value={{brandData.value}}>{{brandData.value}}</ion-option>
-            </ion-select>
-          </ion-item>
           <ion-item class="separator colorGrey">
             <ion-label>{{'SORT_BY' | translate}}</ion-label>
             <ion-select formControlName="sortby" >
@@ -51,7 +46,7 @@
           <div style="float: right;" class="p_1 sarchicon"   (click)="dismiss()" >{{'CANCEL' | translate}}</div>
         
         <div  style="float: right;margin-right:10px;">
-          <button class="p_1" ion-button type="submit" [disabled]="!filterMarketForm.valid">{{'SEARCH_CAT' | translate}}</button>
+          <button class="p_1" ion-button type="submit" [disabled]="!filterMarket.valid">{{'SEARCH_CAT' | translate}}</button>
       </div>
       </div>
           </ion-card>

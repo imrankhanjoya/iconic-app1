@@ -90,7 +90,7 @@
           <ion-option *ngFor="let tehsil of tehsilList" value={{tehsil.id}}>{{tehsil.tehsil_name}}</ion-option>
         </ion-select>
      </ion-item>
-      <ion-item>
+      <ion-item class="separator">
         <ion-label  class="inpu" stacked>{{'ADDRESS'| translate}}</ion-label>
         <ion-input formControlName="address" type="text"></ion-input>
       </ion-item>

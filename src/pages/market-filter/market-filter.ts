@@ -27,7 +27,6 @@ export class MarketFilterPage {
 
   			  	this.filterMarket = this.formBuilder.group({
   		        product_cat: [''],
-  		        productbrand: [''],
               sortby: ['']
           });
               
@@ -36,7 +35,6 @@ export class MarketFilterPage {
 
     ionViewDidLoad() {
     	this.getCategory();
-    	this.getbrand();
       console.log('ionViewDidLoad CatBrandPage');
     }
      getCategory(){

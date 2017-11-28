@@ -64,6 +64,9 @@ export class MandiDetailsPage {
   }
 
   openFilter(){
+    this.toolbarClass="toolbarClosed";
+    this.topMenu ="toolbarOpen";
+    this.topMenu = "toolbarClosed";
     let modal = this.modalCtrl.create('FilterModelPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
@@ -76,6 +79,9 @@ export class MandiDetailsPage {
     });
   }
   openCropFilter(){
+    this.toolbarClass="toolbarClosed";
+    this.topMenu ="toolbarOpen";
+    this.topMenu = "toolbarClosed";
     let modal = this.modalCtrl.create('FilterCropsPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
