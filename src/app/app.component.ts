@@ -102,7 +102,7 @@ export class MyApp {
         this.profile_picture = userlogin.profile_picture;
       });
       fcm.subscribeToTopic('marketing');
-      his.storage.set('updated_token','121210000212');
+      //his.storage.set('updated_token','121210000212');
       fcm.getToken(function(token){
           console.log('--getToken--'+token);
           this.storage.set('updated_token',token);
@@ -249,6 +249,7 @@ platform.ready().then(() => {
     this.storage.set('userLang',lang);
     this.userLanguage = lang;
     this.translate.setDefaultLang(lang);
+    window.location.reload();
     this.translate.use(lang);
     this.nav.setRoot('TabsPage', {}, {
       animate: true,

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, ViewController, PopoverController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { HomePage } from '../home/home';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { User } from '../../providers/providers';
 
@@ -54,6 +55,10 @@ export class ItemCreatePage {
   ionViewDidLoad() {
 
   }
+   back(){
+  // this.navCtrl.pop('HomePage');  
+   this.navCtrl.push(HomePage);
+   }
 
   getPicture() {
     if (Camera['installed']()) {

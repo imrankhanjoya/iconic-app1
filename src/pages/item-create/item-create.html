@@ -2,11 +2,13 @@
 
 
 
-<ion-navbar>
-        <button ion-button menuToggle class="menufontcolor">
-        <ion-icon name="menu" ></ion-icon>
-        </button>
-        <ion-title>{{'Profile' | translate}}</ion-title>
+<ion-navbar hideBackButton="true">
+  <div>
+
+       <ion-icon style="float: left"  class="back_icon" name="ios-arrow-round-back" (click)="back()"></ion-icon>
+        <ion-title class="title_haed">{{'Profile' | translate}}</ion-title>
+       </div>
+        
   </ion-navbar>
 </ion-header>
 
