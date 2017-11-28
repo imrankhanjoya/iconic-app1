@@ -7,7 +7,6 @@ import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { AskquestionPage } from '../pages/askquestion/askquestion';
-
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
 import { CacheService } from "ionic-cache";
@@ -102,7 +101,7 @@ export class MyApp {
         this.profile_picture = userlogin.profile_picture;
       });
       fcm.subscribeToTopic('marketing');
-      //his.storage.set('updated_token','121210000212');
+      //this.storage.set('updated_token','islamsolnkey');
       fcm.getToken(function(token){
           console.log('--getToken--'+token);
           this.storage.set('updated_token',token);
@@ -112,13 +111,13 @@ export class MyApp {
         if(data.wasTapped){
           console.log("Received in background");
         } else {
-          console.
-          log("Received in foreground");
+          console.log("Received in foreground");
         };
       });
 
       fcm.onTokenRefresh(function(token){
-          this.storage.set('token',token);
+          console.log('--getTokenRefresh--'+token);
+          this.storage.set('updated_token',token);
       });
 
     });
