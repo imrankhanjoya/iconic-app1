@@ -73,10 +73,7 @@ export class AskquestionPage {
 
           this.viewCtrl.dismiss();
           this.presentToast('Questions added successfully');
-          this.navCtrl.push('QuestionlistPage').then(() => {
-      const index = this.viewCtrl.index;
-      this.navCtrl.remove(index);
-    });  ;
+          this.navCtrl.push('QuestionlistPage');
           console.log(this.askquestionsData.data);
         }
       }, (err) => {

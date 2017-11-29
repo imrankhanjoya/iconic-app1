@@ -57,6 +57,9 @@ export class ForgatePasswordMobileNumberPage {
       this.sendPasswordOtpAPI();
     });
   }
+   LoginPage(){
+    this.navCtrl.push('LoginPage');
+  }
   sendPasswordOtpAPI(){
     let loading = this.loadingCtrl.create({
             content: 'Please wait...'

@@ -82,20 +82,7 @@ export class HomePage {
       });
       this.loading.present();
       
-      platform.registerBackButtonAction(() => {
-          const overlay = this.app._appRoot._overlayPortal.getActive();
-          const nav = this.app.getActiveNav();
-
-            if(overlay && overlay.dismiss) {
-             overlay.dismiss();
-         } else if(nav.canGoBack()){
-           nav.pop();
-         } else if(Date.now() - this.lastBack > 500) {
-            this.platform.exitApp();
-      }
-        this.lastBack = Date.now();
-       });
-
+    
       
       //this.updatetoken(1234);
 
