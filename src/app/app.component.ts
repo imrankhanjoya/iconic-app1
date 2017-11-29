@@ -19,7 +19,7 @@ import { CacheService } from "ionic-cache";
 
     <ion-content style="background-color:white">
     <ion-row class="MenuHeader circle-pic" justify-content-center align-items-center>
-      <img class="profilePic"  src="{{profile_picture}}" style="max-width:30%">
+      <img class="profilePic"  src="/assets/img/appicon.png" style="max-width:30%">
       
     </ion-row>
     <ion-row class="MenuHeader" justify-content-center align-items-center>
@@ -220,6 +220,7 @@ platform.ready().then(() => {
   
   logout() {
        this.storage.set('userData','');
+       this.storage.set('userLang','');
         this.nav.setRoot('WelcomePage');
          console.log("here");
   }
