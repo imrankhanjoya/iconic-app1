@@ -121,7 +121,7 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        this.storage.get('updated_token').then((token) => {
+        storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
             this.updatetoken(token,this.userId);
@@ -140,7 +140,7 @@ export class HomePage {
     this.startVisbol=true;
     document.querySelector(".tabbar").classList.add('show-tabbar');
     document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-    document.querySelectorAll(".scroll-content")[0].style.marginBottom = '0px';
+    document.querySelectorAll(".scrollhide .scroll-content").style.marginBottom = '150px';
     document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
     document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
     document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
@@ -432,7 +432,10 @@ showBar(){
         document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
 
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
+        document.querySelectorAll(".scroll-content")[0].style.marginBottom = '0px';
         document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+        document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
+        document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
         // if(this.onBording){
         //   document.querySelector(".barCustomAct").classList.add('showTopBar');
         //   document.querySelector(".barCustomAct").classList.remove('topBar');

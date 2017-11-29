@@ -23,7 +23,7 @@
 </ion-row>
 
 
-<ion-scroll scrollY="true" style="width: 100%; height: 60%; background: #ffffff">
+<ion-scroll scrollY="true" style="width: 100%; height: 50%; background: #ffffff">
 <ion-row >
   <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
   
@@ -33,6 +33,8 @@
       <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
       </ion-item>
   </div>
+</ion-row>
+</ion-row>
   <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
         
   
