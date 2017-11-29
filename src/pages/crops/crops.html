@@ -22,24 +22,26 @@
   </ion-col>
 </ion-row>
 
-<ion-scroll scrollY="true" style="width: 100%; height: 40%;">
+
+<ion-scroll scrollY="true" style="width: 100%; height: 60%; background: #ffffff">
 <ion-row >
-  <ion-col *ngFor="let item of cropList ; let i = index" col-4 class="mainClass" >
-
-    <ion-row *ngIf="item.crop_type == 'Kharif' && shoPage == 'Kharif'">
-      <ion-col >
-        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)" class="checkbox"></ion-checkbox>
-
-        <div class="titleName titleFont" >{{item.name}}</div>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'">
-      <ion-col >
-        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false"(click)="addValue(i,j)" class="checkbox"></ion-checkbox>
-        <div class="titleName titleFont" >{{item.name}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-col>
+  <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
+  
+      <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'"  class="mainClass">
+        
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+      </ion-item>
+  </div>
+  <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
+        
+  
+      <ion-item no-lines class="titlename" *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'" class="mainClass">
+        <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
+        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+      </ion-item>
+  </div>
+  
 </ion-row>
 </ion-scroll>
 
