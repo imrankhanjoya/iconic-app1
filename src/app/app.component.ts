@@ -6,10 +6,10 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
-import { AskquestionPage } from '../pages/askquestion/askquestion';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
 import { CacheService } from "ionic-cache";
+import { Api } from '../providers/api/api';
 
 //import { Storage } from '@ionic/storage';
 
@@ -76,7 +76,7 @@ export class MyApp {
 
   constructor(private translate: TranslateService, public platform: Platform, settings: Settings,
     private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
-    private fcm: FCM,public cacheService: CacheService) {
+    private fcm: FCM,public cacheService: CacheService,public api:Api) {
 
     cacheService.setDefaultTTL(60 * 60); //set default cache TTL for 1 hour
         
@@ -209,8 +209,8 @@ platform.ready().then(() => {
   initTranslate(userLang) {
 
     // Set the default language for translation strings, and the current language.
-    this.translate.setDefaultLang('en');
-    this.translate.setDefaultLang('hi');
+    //this.translate.setDefaultLang('en');
+    //this.translate.setDefaultLang('hi');
     console.log('User Lang set : '+userLang)
     this.translate.use(userLang); // Set your language here
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
@@ -248,10 +248,11 @@ platform.ready().then(() => {
     console.log(lang);
     this.storage.set('userLang',lang);
     this.userLanguage = lang;
-    this.translate.setDefaultLang(lang);
-    window.location.reload();
+   // this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    this.nav.setRoot('TabsPage', {}, {
+    //window.location.reload();
+    this.api.changelang(lang);
+    this.nav.setRoot('TutorialPage', {}, {
       animate: true,
       direction: 'forward'
     });

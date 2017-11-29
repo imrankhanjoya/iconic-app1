@@ -121,7 +121,7 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        storage.get('updated_token').then((token) => {
+        this.storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
             this.updatetoken(token,this.userId);
