@@ -35,7 +35,13 @@ export class KrishCenterPage {
 
 
   ionViewDidLoad() {
-     this.getkrish();
+      this.geolocation.getCurrentPosition().then((resp) => {
+       console.log(resp);
+       this.getkrish(resp.coords.latitude,resp.coords.longitude);
+    }).catch((error) => {
+      console.log('Error getting location', error);
+
+    });
      console.log('ionViewDidLoad KrishCenterPage');
   }
    back(){
@@ -43,10 +49,9 @@ export class KrishCenterPage {
    this.navCtrl.push(HomePage);
    }
 
-  getkrish(lat:any,long:any){
-    console.log('Run getkrish API');
-
-    this.krish.kendraList().then((res)=>{
+  getkrish(lat,long){
+    console.log('Run getkrish API with : '+lat+"  :  "+long);
+    this.krish.kendraList(lat,long).then((res)=>{
       this.kendraData.data = res.data;
       this.kendraData.msg = res.msg;
       this.kendraData.status = res.status;

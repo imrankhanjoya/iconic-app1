@@ -39,12 +39,12 @@ export class KrishProvider {
   }
 
 
-  kendraList() {
+  kendraList(latitude,longitude) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
       //ang=en_US&lat=23&long=34
       
 
-    var paramCond ={lat:this.api.userLoction.latitude,long:this.api.userLoction.longitude,lang:'en_US'};
+    var paramCond ={lat:latitude,long:longitude,lang:'en_US'};
     return new Promise((resolve)=>{
       this.api.getCache('v1/krishi/nearby-loc', paramCond).then((kendraListData)=>{
         resolve(kendraListData);

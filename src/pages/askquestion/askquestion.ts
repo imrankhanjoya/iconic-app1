@@ -40,8 +40,9 @@ export class AskquestionPage {
             presentToast(message) {
               let toast = this.toastCtrl.create({
                 message: message,
-                duration: 1000,
-                position: 'middle'
+                position: 'middle',
+                //dismissOnPageChange:true,
+                showCloseButton:true
               });
 
               toast.onDidDismiss(() => {

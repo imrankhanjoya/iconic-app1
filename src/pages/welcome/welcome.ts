@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
+import { Events } from 'ionic-angular';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -17,12 +18,15 @@ import { TranslateService } from '@ngx-translate/core';
 export class WelcomePage {
 
   constructor(
+    public events: Events,
             private translate: TranslateService,
             public navCtrl: NavController,
             private storage: Storage,
             private toastCtrl: ToastController
-          ) { }
+          ) {
+           }
     setLanguage(lang) {
+      this.events.publish('user:created', "000000000000", lang);
       this.storage.set('userLang',lang);
       this.initTranslate(lang);
       this.navCtrl.push('LoginPage');

@@ -71,7 +71,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
    presentToast(message) {
     let toast = this.toastCtrl.create({
       message: message,
-      duration: 3000,
+      showCloseButton:true,
       position: 'middle'
     });
 

@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
+import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
 
 
@@ -88,7 +89,11 @@ export class LoginPage {
      if(resp.status==true){
        this.storage.set('userData',resp.data);
        this.presentToast(this.WELCOME_BACK + resp.data.display_name);
-       this.navCtrl.push(MainPage);
+       // this.navCtrl.setRoot(MainPage);
+       this.navCtrl.push(HomePage).then(() => {
+          const index = this.viewCtrl.index;
+          this.navCtrl.remove(index);
+        });
       }else{
         this.errorMsg = true;
         this.presentToast(this.LOGIN_USER_INVALID);

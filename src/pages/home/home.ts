@@ -2,7 +2,7 @@ import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@ang
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -68,24 +68,43 @@ export class HomePage {
   public toggleMenuText:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
-
+  public alert:any;
   constructor(private fcm: FCM,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
+    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController) {
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
-      //this.topMenu = 'toolbarClosed';
+      
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
       this.loading.present();
-      
-    
-      
+      // let view = this.navCtrl.getActive();
+      //            console.log("  current Page  :  " + view);
+      // platform.ready().then(() => {
+
+      //         platform.registerBackButtonAction(() => {
+      //            let view = this.navCtrl.getActive();
+      //            console.log("  current Page  :  " + view);
+      //            if (this.navCtrl.canGoBack()) {
+      //               if(this.alert){ 
+      //                 this.alert.dismiss();
+      //                 this.alert =null;     
+      //               }else{
+      //                 this.exitConfrom();
+      //               }
+      //             }else {
+      //               this.navCtrl.pop({});
+      //             }
+      //         });
+      //       });
       //this.updatetoken(1234);
 
+  }
+  backButtonAction(){
+   console.log('=-=-=-=-=-=-=-=-=-'); 
   }
 
   ionViewDidLoad() {

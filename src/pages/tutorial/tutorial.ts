@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, MenuController, NavController, Platform } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, Platform, NavParams } from 'ionic-angular';
 import { MainPage } from '../pages';
 import { Storage } from '@ionic/storage';
 
@@ -22,9 +22,9 @@ export class TutorialPage {
   dir: string = 'ltr';
 
   constructor(public navCtrl: NavController, public menu: MenuController,public translate: TranslateService,
-    public platform: Platform,public storage:Storage) {
+    public platform: Platform,public storage:Storage, public navParams: NavParams) {
     this.dir = platform.dir();
-    
+    console.log('----- : '+navParams.get("data"));
     setTimeout(()=>{
       this.platform.ready().then((readySource) => {
           

@@ -83,7 +83,7 @@ export class ETirdingPage {
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: message,
-      duration: 2000,
+      showCloseButton:true,
       position: 'middle'
     });
 
