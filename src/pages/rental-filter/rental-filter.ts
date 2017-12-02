@@ -32,6 +32,7 @@ export class RentalFilterPage {
     public pageTitle:any;
     Crop: string = "General";
     Rental_Listdata: any = [];
+    date_from: String = new Date().toISOString();
 
   // public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
 
@@ -42,6 +43,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
         this.product_name=navParams.get('product_name');
         console.log('pname'+this.product_name);
         this.storage.get('userData').then((val) => {
+          this.NowTimeT = new Date();
           this.userData = val;
           this.pageTitle = 'onstorageload';
           this.RentalMarket = this.formBuilder.group({
@@ -50,7 +52,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
             type: [''],
             expected_price: [''],
             farmer_name: [this.userData.display_name, Validators.required],
-            date_from: ['', Validators.required],
+            date_from: [this.NowTimeT, Validators.required],
             to_date: [''],
             time_from: [''],
             to_time: [''],
@@ -83,6 +85,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
   }
 
   ionViewDidLoad() {
+    this.NowTimeT = new Date();
     console.log('ionViewDidLoad RentalFilterPage');
   }   
 

@@ -36,7 +36,7 @@ export class AskquestionPage {
                 });
              
           }
-
+          
             presentToast(message) {
               let toast = this.toastCtrl.create({
                 message: message,
@@ -45,12 +45,12 @@ export class AskquestionPage {
                 showCloseButton:true
               });
 
-              toast.onDidDismiss(() => {
-                console.log('Dismissed toast');
-              });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
 
-              toast.present();
-            }
+    toast.present();
+  }
 
   ionViewDidLoad() {
     //this.getaskquestions();

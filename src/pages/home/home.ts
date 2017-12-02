@@ -320,127 +320,148 @@ export class HomePage {
   }
 
   getannouncement(){
-
-
-    this.Announce.announcementList(1).then((res)=>{
-        console.log(this.announceList);
+   this.Announce.announcementList(1).then((res)=>{
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;
     });
-    // this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
-      
-    //     this.announceList.data = res.data;
-    //     this.announceList.msg = res.msg;
-    //     this.announceList.status = res.status;
-    //     console.log('Add for Announcement');
-    //     console.log(this.announceList.data[0].title);
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
   }
   
 
   gotoAskquestion(){
     this.navCtrl.push('QuestionlistPage');
   }
-gotoAgriinfo(){
+  gotoAgriinfo(){
     this.navCtrl.push('AgriInfoPage');
   }
 
   gotoWebView(URL){
     this.iab.create(URL, '_blank', 'location=yes');
-
   }
+
   gotoWeatherPage(){
     this.navCtrl.push(WeatherPage);
   }
+
   gotoservicesPage(){
     this.navCtrl.push('ServicesPage');
   }
+
   goToExpertDetial(id){
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
+
   gotomandiDetail(){
     this.navCtrl.push(MandiDetailsPage);
   }
+
   gotoNewsPage(){
     this.navCtrl.push('NewsPage');
   }
+
   gotoMarketPage(){
     this.navCtrl.push('MarketPage');
   }
+
   gotoMarketViewPage(product_id){
     this.navCtrl.push('MarketViewPage',{id:product_id});
   }
+
   gotoVedio(){
     this.navCtrl.push('VideoPage');
   }
+
   gotoRentals(){
     this.navCtrl.push('RentalsPage');
   }
-  gotoAnounsePage(){
-    this.navCtrl.push('AnnouncementPage');
+
+  gotoAnounsePage(type,type_value){
+    console.log(type+'  ------ '+type_value);
+    if (type=='product') {
+      this.navCtrl.push('MarketViewPage',{id:type_value});
+    }
+    if (type=='crop') {
+      this.navCtrl.push('CropdetailPage',{crop_id:type_value});
+    }
+    if (type=='rental') {
+      this.navCtrl.push('RentalsPage',{crop_id:type_value});
+    }
+    if (type=='blogs') {
+      this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
+    }
+    if (type=='news') {
+      this.navCtrl.push(WeatherPage);
+    }
+    if (type=='weather') {
+      this.navCtrl.push(WeatherPage);
+    }
   }
+
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 
   }
+
   goToSetting(){
    this.navCtrl.push('SettingsPage'); 
   }
+
   goToCrops(){
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
-   goToKharif(){
+
+  goToKharif(){
    this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
   }
-   goToRabi(){
+
+  goToRabi(){
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
+
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
+
   gotoWallet(){
     this.navCtrl.push('WalletPage');
   }
+
   gotoRentalsPage(id){
     //console.log(id);
     this.navCtrl.push('RentalDetailPage',{rid:id});
   }
+
   SearchPage(){
     //console.log(id);
     this.navCtrl.push('SearchPage');
   }
+
   gotoAgroCenter(){
     //console.log(id);
     this.navCtrl.push('KrishCenterPage');
   }
 
   //----------------------Hader Animiation Start------
-public isRun1=true;
-public isRun2=false;
-public isRun3=false;
-public isCount=true;
-public oneForSize:any;
-public startVisbol=true;
-public bottom = 0;
-public top = 0;
+  public isRun1=true;
+  public isRun2=false;
+  public isRun3=false;
+  public isCount=true;
+  public oneForSize:any;
+  public startVisbol=true;
+  public bottom = 0;
+  public top = 0;
 
-showBar(){
-  console.log("Sayooo naara");
-  document.querySelector(".tabbar").classList.add('show-tabbar');
-  document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-  document.querySelector(".tabbar").classList.remove('bottmTabHide');
-  document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
-  if(this.onBording){
-    // document.querySelector(".barCustomAct").classList.add('showTopBar');
-    // document.querySelector(".barCustomAct").classList.remove('topBar');
-    // document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
+  showBar(){
+    console.log("Sayooo naara");
+    document.querySelector(".tabbar").classList.add('show-tabbar');
+    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+    document.querySelector(".tabbar").classList.remove('bottmTabHide');
+    document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
+    if(this.onBording){
+      // document.querySelector(".barCustomAct").classList.add('showTopBar');
+      // document.querySelector(".barCustomAct").classList.remove('topBar');
+      // document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
+    }
   }
-
-  
-}
   onScroll(ev){
     //console.log(ev);
 
@@ -498,7 +519,7 @@ showBar(){
     }
 
 
-     var start = 0;
+    var start = 0;
     
     if(this.isCount){
       this.isCount=false

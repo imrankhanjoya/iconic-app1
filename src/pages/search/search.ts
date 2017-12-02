@@ -60,9 +60,6 @@ export class SearchPage {
       console.log('im a questions'+newstr);
       this.navCtrl.push('QuitionviewPage',{QuitionID:newstr});
     }
-    /*this.navCtrl.push('ItemDetailPage', {
-      item: item
-    });*/
   }
 
 }
