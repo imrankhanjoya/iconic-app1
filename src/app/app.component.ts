@@ -1,15 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { Config, Nav, Platform, AlertController } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
-import { AskquestionPage } from '../pages/askquestion/askquestion';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { FCM } from '@ionic-native/fcm';
 import { CacheService } from "ionic-cache";
+import { Api } from '../providers/api/api';
+import { Events } from 'ionic-angular';
 
 //import { Storage } from '@ionic/storage';
 
@@ -19,7 +20,7 @@ import { CacheService } from "ionic-cache";
 
     <ion-content style="background-color:white">
     <ion-row class="MenuHeader circle-pic" justify-content-center align-items-center>
-      <img class="profilePic"  src="/assets/img/appicon.png" style="max-width:30%">
+      <img class="profilePic"  src="assets/img/appicon.png" style="max-width:30%">
       
     </ion-row>
     <ion-row class="MenuHeader" justify-content-center align-items-center>
@@ -73,11 +74,17 @@ export class MyApp {
 
 
   ]
-
-  constructor(private translate: TranslateService, public platform: Platform, settings: Settings,
+  public alert:any;
+  constructor(public events: Events,private translate: TranslateService, public platform: Platform, settings: Settings,
     private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
-    private fcm: FCM,public cacheService: CacheService) {
+    public fcm: FCM,public cacheService: CacheService,public api:Api,public alertCtrl: AlertController) {
+    console.log("=-=-=-=-=-MyApp=-=-=-=-");
 
+    events.subscribe('user:created', (user, userLang) => {
+      // user and time are the same arguments passed in `events.publish(user, time)`
+      this.userLanguage = userLang;
+      console.log('Welcome   ------', user, 'at', userLang);
+    });
     cacheService.setDefaultTTL(60 * 60); //set default cache TTL for 1 hour
         
     this.platform.ready().then((readySource) => {
@@ -86,11 +93,11 @@ export class MyApp {
       this.storage.get('userLang').then((userLang) => {
           console.log(userLang);
           if(userLang){
-            this.userLanguage = userLang;
+            //this.userLanguage = userLang;
             this.initTranslate(userLang);
           }else{
             this.initTranslate('hi');
-            this.userLanguage = 'hi';
+            //this.userLanguage = 'hi';
           }
 
        });
@@ -100,101 +107,29 @@ export class MyApp {
 
         this.profile_picture = userlogin.profile_picture;
       });
+     
       fcm.subscribeToTopic('marketing');
       //this.storage.set('updated_token','islamsolnkey');
       fcm.getToken(function(token){
           console.log('--getToken--'+token);
-          this.storage.set('updated_token',token);
+          storage.set('updated_token',token);
       });
 
       fcm.onNotification().subscribe(data=>{
         if(data.wasTapped){
-          console.log("Received in background");
+          console.log("Received in background---");
         } else {
-          console.log("Received in foreground");
+          console.log("Received in foreground-----");
         };
       });
 
       fcm.onTokenRefresh(function(token){
           console.log('--getTokenRefresh--'+token);
-          this.storage.set('updated_token',token);
+          storage.set('updated_token',token);
       });
 
     });
-
-platform.ready().then(() => {
-              // Okay, so the platform is ready and our plugins are available.
-              // Here you can do any higher level native things you might need
-
-              platform.registerBackButtonAction(() => {
-
-
-                //uncomment this and comment code below to to show toast and exit app
-                // if (this.backButtonPressedOnceToExit) {
-                //   this.platform.exitApp();
-                // } else if (this.nav.canGoBack()) {
-                //   this.nav.pop({});
-                // } else {
-                //   this.showToast();
-                //   this.backButtonPressedOnceToExit = true;
-                //   setTimeout(() => {
-
-                //     this.backButtonPressedOnceToExit = false;
-                //   },2000)
-                // }
-
-                if(this.nav.canGoBack()){
-                  this.nav.pop();
-                }else{
-                  if(this.alert){ 
-                    this.alert.dismiss();
-                    this.alert =null;     
-                  }else{
-                    this.showAlert();
-                   }
-                }
-              });
-            });
-
-          }
-
-        //   showAlert() {
-        //   this.alert = this.alertCtrl.create({
-        //     title: 'Exit?',
-        //     message: 'Do you want to exit the app?',
-        //     buttons: [
-        //       {
-        //         text: 'Cancel',
-        //         role: 'cancel',
-        //         handler: () => {
-        //           this.alert =null;
-        //         }
-        //       },
-        //       {
-        //         text: 'Exit',
-        //         handler: () => {
-        //           this.platform.exitApp();
-        //         }
-        //       }
-        //     ]
-        //   });
-        //   alert.present();
-        // }
-
-          // showToast() {
-          //   let toast = this.toastCtrl.create({
-          //     message: 'Press Again to exit',
-          //     duration: 2000,
-          //     position: 'bottom'
-          //   });
-
-          //   toast.onDidDismiss(() => {
-          //     console.log('Dismissed toast');
-          //   });
-
-          //   toast.present();
-          // }
-    
+  }
 
 
   ionViewDidLoad() {
@@ -206,12 +141,14 @@ platform.ready().then(() => {
     });
   }
 
+
   initTranslate(userLang) {
 
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');
     this.translate.setDefaultLang('hi');
     console.log('User Lang set : '+userLang)
+    this.userLanguage = userLang;
     this.translate.use(userLang); // Set your language here
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
@@ -219,8 +156,9 @@ platform.ready().then(() => {
   } 
   
   logout() {
-       this.storage.set('userData','');
-       this.storage.set('userLang','');
+       // this.storage.set('userData','');
+       // this.storage.set('userLang','');
+       this.storage.clear();
         this.nav.setRoot('WelcomePage');
          console.log("here");
   }
@@ -230,28 +168,29 @@ platform.ready().then(() => {
     // we wouldn't want the back button to show in this scenario
     // console.log(page);
     if(page.component=='AboutPage' && this.userLanguage=='hi'){
-       this.nav.setRoot('AboutHindiPage');
+       this.nav.push('AboutHindiPage');
     }else if(page.component=='PrivacyPage' && this.userLanguage=='hi'){    
-       this.nav.setRoot('PrivacyHindiPage');
+       this.nav.push('PrivacyHindiPage');
     }else{
-       this.nav.setRoot(page.component);
+       this.nav.push(page.component);
     }
   }
   openPageWithP(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
      console.log(page);
-    this.nav.setRoot('SettingsPage',{pTitle:page});
+    this.nav.push('SettingsPage',{pTitle:page});
   }
 
   setLanguage(lang){
     console.log(lang);
     this.storage.set('userLang',lang);
     this.userLanguage = lang;
-    this.translate.setDefaultLang(lang);
-    window.location.reload();
+   this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    this.nav.setRoot('TabsPage', {}, {
+    //window.location.reload();
+    this.api.changelang(lang);
+    this.nav.setRoot('TutorialPage', {}, {
       animate: true,
       direction: 'forward'
     });

@@ -46,6 +46,15 @@ export class Api {
         console.log('Error getting location', error);
       });
   }
+  changelang(lang){
+
+        console.log(lang);
+        if(lang=='hi'){
+          this.userLanguage = 'hi_IN';
+        }else{
+          this.userLanguage = 'en_US';
+        }    
+  }
   get(endpoint: string, params?: any, options?: RequestOptions) {
     if (!options) {
       options = new RequestOptions();

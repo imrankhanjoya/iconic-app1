@@ -50,6 +50,38 @@
   <ion-row >
     <div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Other Detail</div>
   </ion-row >
+  <ion-row  *ngIf="Rental_detaildata.data[0].model_name!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Model Name
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].model_name}}
+    </ion-col>
+  </ion-row>
+  <ion-row  *ngIf="Rental_detaildata.data[0].engine_type!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Engine Type
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].engine_type}}
+    </ion-col>
+  </ion-row>
+  <ion-row  *ngIf="Rental_detaildata.data[0].weight_kg!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Wieght(KG)
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].weight_kg}}
+    </ion-col>
+  </ion-row>
+  <ion-row  *ngIf="Rental_detaildata.data[0].working_width!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+      Working Width
+    </ion-col>
+    <ion-col col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].working_width}}
+    </ion-col>
+  </ion-row>
   <ion-row  *ngIf="Rental_detaildata.data[0].address!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
       Address

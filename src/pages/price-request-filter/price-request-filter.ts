@@ -36,7 +36,7 @@ export class PriceRequestFilterPage {
    presentToast(message) {
               let toast = this.toastCtrl.create({
                 message: message,
-                duration: 3000,
+                showCloseButton:true,
                 position: 'middle'
               });
 

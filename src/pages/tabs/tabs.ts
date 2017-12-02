@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, Platform, AlertController } from 'ionic-angular';
 
 import { Tab1Root } from '../pages';
 import { Tab2Root } from '../pages';
@@ -16,6 +16,7 @@ import { NewsPage } from '../../pages/news/news';
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
+  @ViewChild('myTabs') tabRef: Tabs;
   tab1Root: any = HomePage;
   tab2Root: any = Tab2Root;
   tab3Root: any = Tab3Root;
@@ -28,8 +29,11 @@ export class TabsPage {
   tab4Title = " ";
   tab5Title = " ";
 
+  public selectedTabTitle:any;
+  public selectedTabIndex:0;
 
-  constructor(private translate: TranslateService,public navCtrl: NavController) {
+  constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
+    public alertCtrl: AlertController) {
 
     this.translate.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
@@ -41,6 +45,26 @@ export class TabsPage {
     });
 
 
+    // platform.ready().then(() => {
+
+    //           platform.registerBackButtonAction(() => {
+    //              let view = this.navCtrl.getActive();
+    //              console.log("  current Page  :  " + view);
+    //              if (this.navCtrl.canGoBack()&&selectedTabIndex==0) {
+    //                 if(this.alert){ 
+    //                   this.alert.dismiss();
+    //                   this.alert =null;     
+    //                 }else{
+    //                   this.exitConfrom();
+    //                 }
+    //               }else {
+    //                 this.navCtrl.pop({});
+    //               }
+    //           });
+    //         });
+
+    //   let selectedTab = this.tabRef.getSelected();
+    // console.log(selectedTab.index + ' - ' + selectedTab.tabTitle);
     
   }
 
@@ -48,8 +72,32 @@ export class TabsPage {
   gotoChoupal(){
     this.navCtrl.push('ChoupalPage');
   }
-
-
-
-  
+  onTabsChange(){
+    let selectedTab = this.tabRef.getSelected();
+    this.selectedTabTitle=selectedTab.tabTitle;
+    this.selectedTabIndex=selectedTab.index;
+    console.log(selectedTab.index + ' - ' + selectedTab.tabTitle);
+  }
+  exitConfrom() {
+      this.alert = this.alertCtrl.create({
+        title: 'Exit?',
+        message: 'Do you want to exit the app?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              this.alert =null;
+            }
+          },
+          {
+            text: 'Exit',
+            handler: () => {
+              this.platform.exitApp();
+            }
+          }
+        ]
+      });
+      this.alert.present();
+    }
 }

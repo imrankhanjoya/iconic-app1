@@ -34,7 +34,7 @@
 	    </ion-item>
 	    <ion-item class="separator colorGrey">
 	        <ion-label  floating>{{'LOGIN_PHONE_NUMBER' | translate}}</ion-label>
-        	<ion-input formControlName="phoneNumber" value="{{formdata.user_login}}" type="text" ng-required></ion-input>
+        	<ion-input formControlName="phoneNumber" value="{{formdata.user_login}}" type="number"  min="10" max="12" ng-required></ion-input>
 	    </ion-item>
 	    <!-- <ion-item class="separator colorGrey">
 	        <ion-label  floating>{{'PRODUCT_NAME' | translate}}</ion-label>

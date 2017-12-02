@@ -36,20 +36,21 @@ export class AskquestionPage {
                 });
              
           }
-
+          
             presentToast(message) {
               let toast = this.toastCtrl.create({
                 message: message,
-                duration: 1000,
-                position: 'middle'
+                position: 'middle',
+                //dismissOnPageChange:true,
+                showCloseButton:true
               });
 
-              toast.onDidDismiss(() => {
-                console.log('Dismissed toast');
-              });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
 
-              toast.present();
-            }
+    toast.present();
+  }
 
   ionViewDidLoad() {
     //this.getaskquestions();

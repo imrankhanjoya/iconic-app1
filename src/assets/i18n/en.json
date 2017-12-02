@@ -44,7 +44,7 @@
   "LANGUAGE_CHOOSED": "Your Current Language is English",
   "SETTINGS_UPDATE_PROFILE":"Update Profile",
   "SETTINGS_CHANGE_CROPS": "Change the Crop",
-  "SETTINGS_CHANGE_LOCATION": "Change of Placeें",
+  "SETTINGS_CHANGE_LOCATION": "Change of Place",
   "CHANGE_LOCTION_PLEASE": "Please Change Your Location for Mandi Prices",
   "SETTINGS_PROFILE_BUTTON": "Update Profile",
   "Profile": "Profile",
@@ -66,6 +66,8 @@
   "OTP_NUMBER_SEND_OTP": "Send OTP",
   "OTP_SEND": "OTP Sent. Please Check Your Mobile's Message.",
   "VERIFY_OTP": "OTP Verified Successfully!",
+  "LOCATION_UPDATA_SUCCESSFULLY": "Location Update Successfully",
+  "CROP_UPDATA_SUCCESSFULLY": "Crop Update Successfully",
   "PASSWORD_NOT_VALID": "password required minimum 5 character",
 
   "MENU":"Very Good",
@@ -82,8 +84,8 @@
   "VERIFY_THANKS": "Thanks a lot",
   "VERIFY_TYPE_OTP": "Enter your 4 digit OTP Registered for Mobile Verification?",
   "INVALID_OTP": "Please Enter Valid OTP!",
-  "DUPLICATE_MOBILENUMBER": "Mobile Number Already Registered. Please Login!.",
-  "DUPLICATE": "If Your Have  Already account . Please Login!.",
+  "DUPLICATE_MOBILENUMBER": "Mobile Number Already Registered. Please Login!",
+  "DUPLICATE": "You have  Already Account. Please Login!",
   "SING_UP_VERY_GOOD": "Very Good",
   "SING_UP_PASSWORD": "Please enter your Name and Password for more service?",
   "SING_UP_NAME_REQUIRED": "Name is required",
@@ -104,7 +106,7 @@
   "LOGIN_PHONE_NUMBER": "Phone Number",
   "LOGIN_PHONE_NUMBER_VALID": "Enter valid Mobile Number",
   "LOGIN_PASSWORD_REQUIRED": "Password is required",
-  "LOGIN_USER_INVALID": "Invalid Username or Password!",
+  "LOGIN_USER_INVALID": "Invalid Username/Password!",
   "LOGIN_NEW_USER_SING_UP": "Are you a new Consumer? Sign Up",
 
    "LOADING":"Please Wait",
@@ -155,7 +157,7 @@
   "Search": "Search",
   "SEARCH_TITLE": "Search",
   "PTI_AND_UPDATE":"PTI and Updates",
-  "VALUE_ON_REQUEST":"Value on Request",
+  "VALUE_ON_REQUEST":"Price on Request",
   "HELLO":"AgriBolo",
   "BY_CALLING":"Call",
   "SEARCH_THE_WAY":"Get Direction",
@@ -201,7 +203,7 @@
   "TIPS_INDIAN_FARMER":"Agribolo: Agriculture on Finger Tips of Indian Farmers",
   "SUTRA":"Sutra: Do this to save your Crop with Heavy Rain",
   "SEARCH_PLACEHOLDER": "Find the List of Items, e.g. \"Donald Duck\"",
-  "LOGIN_ERROR":"The Username or Password is incorrect",
+  "LOGIN_ERROR":"Username/Password is incorrect",
   "FORGOT_PASSWORD": "Forgot Password?",
   "RESET_PASSWORD_TITLE": "Create New Password",
   "RESET_PASSWORD_SUBTITLE":"Please enter New Password",
@@ -219,6 +221,7 @@
   "LANDHOLDING_SIZE_UNIT": "Landingholding Size Unit",
   "LANDHOLDING_SIZE": "Landholding Size",
   "LOCATION_FILTER_TITLE": "Please Choose the Location to see weather Details",
+  "LOCATION_FILTER_TITLE_MANDI": "Please Choose the Location to see Mandi Details",
   "CURRENTLY_SELECTED_LOCATION": "Showing Results for",
   "CHANGE_LOCATION": "Change Location",
   "PRODUCT_NAME": "Product Name",
@@ -257,7 +260,8 @@
   "QUANTITY": "Quantity",
   "EXCEPT_PRICE": "Expected Price",
   "E_TRADING_FORM": "Thanks for form fill. Agribolo will call you soon",
-  "SUBMIT": "Submit"
+  "SUBMIT": "Submit",
+  "PASSWORD_CHANGED": "Password Changed Successfully"
 
 
 

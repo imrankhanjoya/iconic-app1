@@ -433,7 +433,7 @@ showBar(){
   onScroll(ev){
     //console.log(ev);
 
-    if (ev.deltaY < -1) {
+    if (ev.directionY =="up") {
       if (this.startVisbol==false) {
         this.startVisbol=true;
         document.querySelector(".tabbar").classList.add('show-tabbar');
@@ -441,7 +441,7 @@ showBar(){
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
         
       }
-    } else if(ev.deltaY >= 0){
+    } else if(ev.directionY =="down"){
      
      if(this.startVisbol==true){
           this.startVisbol=false;
@@ -584,7 +584,4 @@ async changeClass(count): Promise<string> {
 //--------------- chat end ----------
 
 }
-
-
-
 

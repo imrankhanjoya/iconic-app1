@@ -1,6 +1,7 @@
 {
   "BACK_BUTTON_TEXT": "विशेषज्ञ",
   "SELECT_LANGUAGE":"भाषा चुनिए",
+
   "NAME": "नाम",
   "News": "समाचार",
   "EMAIL": "ई-मेल",
@@ -21,7 +22,8 @@
   "MAP_TITLE": "नक्शा",
   "TUTORIAL_SKIP_BUTTON": "छोड़ें",
   "TUTORIAL_CONTINUE_BUTTON": "जारी रखें",
-
+  "LOCATION_UPDATA_SUCCESSFULLY": "स्थान अपडेट सफलतापूर्वक",
+  "CROP_UPDATA_SUCCESSFULLY": "फसल  अपडेट सफलतापूर्वक",
   "TUTORIAL_SLIDE1_TITLE": "आयनिक सुपर स्टार्टर में आपका स्वागत है",
   "TUTORIAL_SLIDE1_DESCRIPTION": "<B> आयनिक सुपर स्टार्टर </ b> एक पूर्वनिर्मित पृष्ठों और सर्वोत्तम प्रथाओं के साथ पूरी तरह से चित्रित Ionic स्टार्टर है।",
 
@@ -222,6 +224,7 @@
   "LANDHOLDING_SIZE_UNIT": "जमीन का आकार इकाई",
   "LANDHOLDING_SIZE": "भू-आकार का आकार",
   "LOCATION_FILTER_TITLE": "कृपया मौसम विवरण देखने के लिए स्थान चुनें",
+  "LOCATION_FILTER_TITLE_MANDI": "कृपया मंडी विवरण देखने के लिए स्थान चुनें",
   "CURRENTLY_SELECTED_LOCATION": "आपका स्थान है",
   "CHANGE_LOCATION": "स्थान बदलें",
   "PRODUCT_NAME": "उत्पाद का नाम",
@@ -260,6 +263,7 @@
   "QUANTITY": "मात्रा",
   "EXCEPT_PRICE": "कीमत की उम्मीद",
   "E_TRADING_FORM": "फ़ॉर्म भरने के लिए धन्यवाद! ागरीबोलो आपको जल्दी कॉल करेगा",
-  "SUBMIT": "जमा करें"
+  "SUBMIT": "जमा करें",
+  "PASSWORD_CHANGED": "पासवर्ड सफलतापूर्वक बदला गया"
 }
 

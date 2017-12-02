@@ -51,6 +51,8 @@ export class ItemCreatePage {
       this.isReadyToSave = this.form.valid;
     });
   }
+   
+
 
   ionViewDidLoad() {
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController,ToastController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -48,12 +48,18 @@ export class SettingsPage {
           public user: User,
           public navParams: NavParams,
           private formBuilder: FormBuilder,
-          public translate: TranslateService,
+          public translateService: TranslateService,
           public loadingCtrl: LoadingController,
           public storage:Storage,
           public viewCtrl: ViewController,
+           private toastCtrl: ToastController,
           public cityStateProvider:CityStateProvider
           ) {
+          this.translateService.get('LOCATION_UPDATA_SUCCESSFULLY').subscribe((value) => {
+          this.LOCATION_UPDATA_SUCCESSFULLY = value;
+           });
+          
+
             this.profile_picture = 'assets/img/appicon.png';
             this.storage.get('userData').then((val) => {
               this.phoneNumber = val.user_login; 
@@ -93,6 +99,20 @@ export class SettingsPage {
           this.loading.present();
           this.getAllState();
     }
+     presentToast(message) {
+              let toast = this.toastCtrl.create({
+                message: message,
+                position: 'middle',
+                //dismissOnPageChange:true,
+                showCloseButton:true
+              });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
+  }
   ionViewDidLoad() {
     
   }
@@ -133,6 +153,7 @@ export class SettingsPage {
     this.user.UpdateLocation(this.user_id,statearray,districtarray,tehsilarray).map(res => res.json()).subscribe((resp) => {
             this.storage.set('userData',resp.data);if (resp.status==true) {
               this.passresError='Change Location Sucessfully';
+              this.presentToast(this.LOCATION_UPDATA_SUCCESSFULLY);
               this.navCtrl.push('ItemCreatePage');
             }
           this.loading.dismiss();
@@ -182,6 +203,7 @@ export class SettingsPage {
   onStateSelect(stateid) {
     this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
+
       
     });
     // this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {

@@ -26,7 +26,7 @@
 
     <ion-card class="image-card"  *ngFor=" let data of Rental_Listdata.data, let i = index ">
       <div class="row" (click)="RentalsPage(data.id)" >
-        <img  src="{{data.image}}" class="newsLargeImage roundImage fixImage"/>
+        <img  src="{{data.image}}" class=" roundImage fixImage"/>
         <div class="alignCenter paddingTop colorGrey newsLargeTitle">{{data.title}}</div>
         <div class="alignCenter">
           <button ion-button clear class="labelGreen">{{'SEE_DETAIL' | translate}}</button>
