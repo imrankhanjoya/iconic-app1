@@ -17,8 +17,10 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'news.html',
 })
 export class NewsPage {
+  public id:any;
   public newsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public NewsProvider: NewsProvider, private iab: InAppBrowser) {
+    this.id=navParams.get('id');
   }
 
 
@@ -32,7 +34,7 @@ export class NewsPage {
    }
    getNews(){
 
-    this.NewsProvider.homeNews(20).then((res)=>{
+    this.NewsProvider.homeNews(5,this.id).then((res)=>{
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;

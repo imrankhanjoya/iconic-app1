@@ -75,26 +75,20 @@
 
   <!-------Welcome Promoe------>
 
-  <ion-card class="dialogYellow backgroundColorYellow" *ngIf="announceList.status==true">
+  <ion-card class="dialogYellow backgroundColorYellow" >
     <ion-grid >
       <ion-row>
         <ion-col col-3 >
-          <ion-thumbnail item-start >
-         <img src="assets/img/promo_icon.png" >
-         </ion-thumbnail>
-            </ion-col>
+            <ion-thumbnail item-start >
+              <img src="assets/img/promo_icon.png" >
+            </ion-thumbnail>
+        </ion-col>
         <ion-col  col-9>
-        <ion-row >
-        <div class="smallTitle">
-          {{'HELLO' | translate}} {{userDisplayName}}
-        </div>
-        </ion-row>
-        <ion-row>
-          <div class="Headline colorBlack fontNormal">
-            {{announceList.data[0].title}}
+          <ion-row >
+          <div class="smallTitle">
+            {{'HELLO' | translate}} {{userDisplayName}}
           </div>
-        </ion-row>
-
+          </ion-row>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -317,8 +311,7 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-
-    <div class="readMore titleFont" (click)="gotoAnounsePage(announceList.data[0].type,announceList.data[0].type_value)">{{'SEE_MORE' | translate}}</div>
+    <div *ngIf="announceList.data[0].type_value!='' || announceList.data[0].type_value!='NULL'" class="readMore titleFont" (click)="gotoAnounsePage(announceList.data[0].type,announceList.data[0].type_value)">{{'SEE_MORE' | translate}}</div>
   </ion-card>
 
  

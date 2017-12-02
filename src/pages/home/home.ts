@@ -264,7 +264,7 @@ export class HomePage {
   }
 
   getNews(){
-    this.news.homeNews(3).then((res)=>{
+    this.news.homeNews(3,0).then((res)=>{
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
@@ -398,22 +398,23 @@ export class HomePage {
 
   gotoAnounsePage(type,type_value){
     console.log(type+'  ------ '+type_value);
-    if (type=='product') {
+    if (type=='product' && type_value!='NULL') {
       this.navCtrl.push('MarketViewPage',{id:type_value});
     }
-    if (type=='crop') {
+    if (type=='crop' && type_value!='NULL') {
       this.navCtrl.push('CropdetailPage',{crop_id:type_value});
     }
-    if (type=='rental') {
-      this.navCtrl.push('RentalsPage',{crop_id:type_value});
+    if (type=='rental' && type_value!='NULL') {
+      this.navCtrl.push('RentalDetailPage',{rid:type_value});
     }
-    if (type=='blogs') {
+    if (type=='blogs' && type_value!='NULL') {
       this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
     }
-    if (type=='news') {
-      this.navCtrl.push(WeatherPage);
+    if (type=='news' && type_value!='NULL') {
+      this.navCtrl.push('NewsPage',{id:type_value});
     }
     if (type=='weather') {
+      //alert('dddd');
       this.navCtrl.push(WeatherPage);
     }
   }
