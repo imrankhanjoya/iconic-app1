@@ -66,6 +66,8 @@
   "OTP_NUMBER_SEND_OTP": "Send OTP",
   "OTP_SEND": "OTP Sent. Please Check Your Mobile's Message.",
   "VERIFY_OTP": "OTP Verified Successfully!",
+  "LOCATION_UPDATA_SUCCESSFULLY": "Location Update Successfully",
+  "CROP_UPDATA_SUCCESSFULLY": "Crop Update Successfully",
   "PASSWORD_NOT_VALID": "password required minimum 5 character",
 
   "MENU":"Very Good",

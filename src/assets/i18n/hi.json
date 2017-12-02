@@ -1,6 +1,7 @@
 {
   "BACK_BUTTON_TEXT": "विशेषज्ञ",
   "SELECT_LANGUAGE":"भाषा चुनिए",
+
   "NAME": "नाम",
   "News": "समाचार",
   "EMAIL": "ई-मेल",
@@ -21,7 +22,8 @@
   "MAP_TITLE": "नक्शा",
   "TUTORIAL_SKIP_BUTTON": "छोड़ें",
   "TUTORIAL_CONTINUE_BUTTON": "जारी रखें",
-
+  "LOCATION_UPDATA_SUCCESSFULLY": "स्थान अपडेट सफलतापूर्वक",
+  "CROP_UPDATA_SUCCESSFULLY": "फसल  अपडेट सफलतापूर्वक",
   "TUTORIAL_SLIDE1_TITLE": "आयनिक सुपर स्टार्टर में आपका स्वागत है",
   "TUTORIAL_SLIDE1_DESCRIPTION": "<B> आयनिक सुपर स्टार्टर </ b> एक पूर्वनिर्मित पृष्ठों और सर्वोत्तम प्रथाओं के साथ पूरी तरह से चित्रित Ionic स्टार्टर है।",
 

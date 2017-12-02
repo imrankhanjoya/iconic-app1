@@ -22,6 +22,10 @@ page-rentals {
     height:auto;
 
     }
+    .image_fix{
+        width:100%!important;
+       height: 177px;
+    }
 
 
     .wallet img{
@@ -36,8 +40,8 @@ page-rentals {
     left: 0;
     }
     .fixImage{
-    max-height: 70%;
-    max-width: 100%;
+      max-height: 200px;
+     max-width: 100%;
     }
 }
   

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
+import { IonicPage, NavController, NavParams, LoadingController, ViewController,ToastController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -39,11 +41,15 @@ export class CropsuodatePage {
   		public storage:Storage,
       	public loadingCtrl: LoadingController,
       	public cityStateProvider:CityStateProvider,
-         private viewCtrl: ViewController,public user: User
-      	) 
+         private viewCtrl: ViewController,public user: User,
+          private toastCtrl: ToastController,
+          public translateService: TranslateService) 
   		{      
   			  this.loading = this.loadingCtrl.create({
         	   content: 'Please wait...'
+          });
+           this.translateService.get('CROP_UPDATA_SUCCESSFULLY').subscribe((value) => {
+          this.CROP_UPDATA_SUCCESSFULLY = value;
           });
 
           this.shoPage='Kharif';
@@ -62,6 +68,20 @@ export class CropsuodatePage {
         // }
         console.log(this.userCropIdList);
       });
+  }
+   presentToast(message) {
+              let toast = this.toastCtrl.create({
+                message: message,
+                position: 'middle',
+                //dismissOnPageChange:true,
+                showCloseButton:true
+              });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   ionViewDidLoad() {
@@ -156,6 +176,7 @@ export class CropsuodatePage {
           this.userdata.crops = resp.data;
           console.log(this.userdata);
           this.storage.set('userData',this.userdata);
+          this.presentToast(this.CROP_UPDATA_SUCCESSFULLY);
           this.navCtrl.push('ItemCreatePage');
 	      }else{
 	        alert(resp.msg);
