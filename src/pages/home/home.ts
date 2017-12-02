@@ -2,7 +2,7 @@ import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@ang
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -68,66 +68,26 @@ export class HomePage {
   public toggleMenuText:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
-  public alert:any;
+
   constructor(private fcm: FCM,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController) {
+    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
-      
+      //this.topMenu = 'toolbarClosed';
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });
       this.loading.present();
-      let view = this.navCtrl.getActive();
-                 console.log("  current Page  :  " + view);
-      platform.ready().then(() => {
-
-              platform.registerBackButtonAction(() => {
-                 let view = this.navCtrl.getActive();
-                 console.log("  current Page  :  " + view);
-                 if (view.name=="HomePage") {
-                    if(this.alert){ 
-                      this.alert.dismiss();
-                      this.alert =null;     
-                    }else{
-                      this.exitConfrom();
-                    }
-                  }else {
-                    this.navCtrl.pop({});
-                  }
-              });
-            });
+      
+    
+      
       //this.updatetoken(1234);
 
   }
-  backButtonAction(){
-   console.log('=-=-=-=-=-=-=-=-=-'); 
-  }
-  exitConfrom() {
-      this.alert = this.alertCtrl.create({
-        title: 'Exit?',
-        message: 'Do you want to exit the app?',
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              this.alert =null;
-            }
-          },
-          {
-            text: 'Exit',
-            handler: () => {
-              this.platform.exitApp();
-            }
-          }
-        ]
-      });
-      this.alert.present();
-    }
+
   ionViewDidLoad() {
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
@@ -161,7 +121,7 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        this.storage.get('updated_token').then((token) => {
+        storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
             this.updatetoken(token,this.userId);
@@ -178,12 +138,14 @@ export class HomePage {
 
     //For tab Scroll
     this.startVisbol=true;
-    // document.querySelector(".tabbar").classList.add('show-tabbar');
-    // document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-    // document.querySelectorAll(".scrollhide .scroll-content").style.marginBottom = '150px';
-    // document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-    // document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
-    // document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
+    document.querySelector(".tabbar").classList.add('show-tabbar');
+    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+    let scroll = document.querySelectorAll('.scroll-content');
+          if (scroll !== null) {
+              Object.keys(scroll).map((key) => {
+                  scroll[key].style.marginBottom = '0px';
+              });
+          }
   }
 
   toggleMenu(){
@@ -264,7 +226,7 @@ export class HomePage {
   }
 
   getNews(){
-    this.news.homeNews(3,0).then((res)=>{
+    this.news.homeNews(3).then((res)=>{
         this.newsData.data = res.data;
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
@@ -341,228 +303,168 @@ export class HomePage {
   }
 
   getannouncement(){
-   this.Announce.announcementList(1).then((res)=>{
+
+
+    this.Announce.announcementList(1).then((res)=>{
+        console.log(this.announceList);
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;
     });
+    // this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
+      
+    //     this.announceList.data = res.data;
+    //     this.announceList.msg = res.msg;
+    //     this.announceList.status = res.status;
+    //     console.log('Add for Announcement');
+    //     console.log(this.announceList.data[0].title);
+    //   }, (err) => {
+    //     // Unable to log in
+    //     console.log(err);
+    //   });
   }
   
 
   gotoAskquestion(){
     this.navCtrl.push('QuestionlistPage');
   }
-  gotoAgriinfo(){
+gotoAgriinfo(){
     this.navCtrl.push('AgriInfoPage');
   }
 
   gotoWebView(URL){
     this.iab.create(URL, '_blank', 'location=yes');
-  }
 
+  }
   gotoWeatherPage(){
     this.navCtrl.push(WeatherPage);
   }
-
   gotoservicesPage(){
     this.navCtrl.push('ServicesPage');
   }
-
   goToExpertDetial(id){
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
-
   gotomandiDetail(){
     this.navCtrl.push(MandiDetailsPage);
   }
-
   gotoNewsPage(){
     this.navCtrl.push('NewsPage');
   }
-
   gotoMarketPage(){
     this.navCtrl.push('MarketPage');
   }
-
   gotoMarketViewPage(product_id){
     this.navCtrl.push('MarketViewPage',{id:product_id});
   }
-
   gotoVedio(){
     this.navCtrl.push('VideoPage');
   }
-
   gotoRentals(){
     this.navCtrl.push('RentalsPage');
   }
-
-  gotoAnounsePage(type,type_value){
-    console.log(type+'  ------ '+type_value);
-    if (type=='product' && type_value!='NULL') {
-      this.navCtrl.push('MarketViewPage',{id:type_value});
-    }
-    if (type=='crop' && type_value!='NULL') {
-      this.navCtrl.push('CropdetailPage',{crop_id:type_value});
-    }
-    if (type=='rental' && type_value!='NULL') {
-      this.navCtrl.push('RentalDetailPage',{rid:type_value});
-    }
-    if (type=='blogs' && type_value!='NULL') {
-      this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
-    }
-    if (type=='news' && type_value!='NULL') {
-      this.navCtrl.push('NewsPage',{id:type_value});
-    }
-    if (type=='weather') {
-      //alert('dddd');
-      this.navCtrl.push(WeatherPage);
-    }
+  gotoAnounsePage(){
+    this.navCtrl.push('AnnouncementPage');
   }
-
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 
   }
-
   goToSetting(){
    this.navCtrl.push('SettingsPage'); 
   }
-
   goToCrops(){
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
-
-  goToKharif(){
+   goToKharif(){
    this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
   }
-
-  goToRabi(){
+   goToRabi(){
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
-
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
-
   gotoWallet(){
     this.navCtrl.push('WalletPage');
   }
-
   gotoRentalsPage(id){
     //console.log(id);
     this.navCtrl.push('RentalDetailPage',{rid:id});
   }
-
   SearchPage(){
     //console.log(id);
     this.navCtrl.push('SearchPage');
   }
-
   gotoAgroCenter(){
     //console.log(id);
     this.navCtrl.push('KrishCenterPage');
   }
 
   //----------------------Hader Animiation Start------
-  public isRun1=true;
-  public isRun2=false;
-  public isRun3=false;
-  public isCount=true;
-  public oneForSize:any;
-  public startVisbol=true;
-  public bottom = 0;
-  public top = 0;
+public isRun1=true;
+public isRun2=false;
+public isRun3=false;
+public isCount=true;
+public oneForSize:any;
+public startVisbol=true;
+public bottom = 0;
+public top = 0;
 
-  showBar(){
-    console.log("Sayooo naara");
-    document.querySelector(".tabbar").classList.add('show-tabbar');
-    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-    document.querySelector(".tabbar").classList.remove('bottmTabHide');
-    
-    let scroll = document.querySelectorAll('.scroll-content');
-     if (scroll !== null) {
-         Object.keys(scroll).map((key) => {
-             scroll[key].style.marginBottom = this.bottom;
-         });
-     }
-    if(this.onBording){
-      // document.querySelector(".barCustomAct").classList.add('showTopBar');
-      // document.querySelector(".barCustomAct").classList.remove('topBar');
-      // document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
-    }
+showBar(){
+  console.log("Sayooo naara");
+  document.querySelector(".tabbar").classList.add('show-tabbar');
+  document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+  document.querySelector(".tabbar").classList.remove('bottmTabHide');
+  document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
+  let scroll = document.querySelectorAll('.scroll-content');
+  if (scroll !== null) {
+      Object.keys(scroll).map((key) => {
+          scroll[key].style.marginBottom = this.bottom;
+      });
   }
+  if(this.onBording){
+    // document.querySelector(".barCustomAct").classList.add('showTopBar');
+    // document.querySelector(".barCustomAct").classList.remove('topBar');
+    // document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
+  }
+
+  
+}
   onScroll(ev){
     //console.log(ev);
 
-    if (ev.deltaY < -1) {
+    if (ev.directionY =="up") {
       if (this.startVisbol==false) {
         this.startVisbol=true;
         document.querySelector(".tabbar").classList.add('show-tabbar');
-        // document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-
+        document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
-        let scroll = document.querySelectorAll('.scroll-content');
-         if (scroll !== null) {
-             Object.keys(scroll).map((key) => {
-                 scroll[key].style.marginBottom = this.bottom;
-             });
-         }
-        // document.querySelectorAll(".scroll-content")[0].style.marginBottom = '0px';
-        // document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-        // document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
-        // document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
-        // if(this.onBording){
-        //   document.querySelector(".barCustomAct").classList.add('showTopBar');
-        //   document.querySelector(".barCustomAct").classList.remove('topBar');
-        //   if(this.top!=0){
-        //     console.log("Updating top "+this.top);
-        //     document.querySelectorAll(".scroll-content")[1].style.marginTop = this.top;
-        //   }
-        // }
-
-
-
         
       }
-    } else if(ev.deltaY >= 0){
+    } else if(ev.directionY =="down"){
      
      if(this.startVisbol==true){
           this.startVisbol=false;
           document.querySelector(".tabbar").classList.add('bottmTabHide');
-          document.querySelector(".tabbar").classList.add('bottmTabHide');
           document.querySelector(".tabbar").classList.remove('show-tabbar');
-
           let scroll = document.querySelectorAll('.scroll-content');
-           if (scroll !== null) {
-               Object.keys(scroll).map((key) => {
-                   scroll[key].style.marginBottom = '0px';
-               });
-           }
-
-          // document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-          // document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
-          // document.querySelectorAll(".tabbar")[0].style.marginBottom = '-70px';
-
-
-          // if(this.onBording){
-          //   if(this.top==0){
-          //     console.log(this.top);
-          //     this.top = document.querySelectorAll(".scroll-content")[1].style.marginTop;              
-          //   }
-          //   document.querySelector(".barCustomAct").classList.add('topBar');
-          //   document.querySelector(".barCustomAct").classList.remove('showTopBar');
-          //   document.querySelectorAll(".scroll-content")[1].style.marginTop = '0px';
-          // }
+          if (scroll !== null) {
+              Object.keys(scroll).map((key) => {
+                  scroll[key].style.marginBottom = '0px';
+              });
+          }
+          
         
 
           if(this.bottom==0){
-            this.bottom =document.querySelectorAll(".scroll-content")[1].style.marginBottom;
+            this.bottom = document.querySelectorAll(".scroll-content")[1].style.marginBottom;
             
           }
       }
     }
 
 
-    var start = 0;
+     var start = 0;
     
     if(this.isCount){
       this.isCount=false
@@ -682,7 +584,4 @@ async changeClass(count): Promise<string> {
 //--------------- chat end ----------
 
 }
-
-
-
 

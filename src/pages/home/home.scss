@@ -43,7 +43,7 @@ page-home {
 
     }
       .specil_card{
-      width: 100% !important;
+      width: 96% !important;
       height:184px;  
       }
       .specil_image{
@@ -449,6 +449,18 @@ page-home {
             display: none;
             opacity: 0;
             }
+      }
+      .headercolor{
+            height: 64px !important;
+          padding: 6px;
+
+      }
+      .home_title{
+      text-align: left !important;
+       padding-left: 0%;
+      padding-top: 0%;
+        height: 20px;
+
       }
 
 
