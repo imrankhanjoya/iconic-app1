@@ -31,6 +31,25 @@ page-home {
       width: 50%;
 
       }
+      .card_tile{
+      width:100% !important;
+      height:30%;
+      }
+      .title{
+      text-align: center!important;
+     padding-left: 4%; 
+      padding-top: 5%;
+      height: 75px;
+
+    }
+      .specil_card{
+      width: 100% !important;
+      height:184px;  
+      }
+      .specil_image{
+      width: 100%!important;
+       height: 100%;
+      }
       
       .showAll{
       margin-top: 5%;
@@ -265,7 +284,7 @@ page-home {
             margin:auto;
       }
       .see-title-box{
-            height: 240px;
+          height: 223px;
             text-align: center;
             padding-top:45% 
       }

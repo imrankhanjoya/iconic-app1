@@ -339,7 +339,7 @@
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card (click)="gotoMarketViewPage(productData.id)">
         <img class="produtimage" src="{{productData.feature_image}}"/>
-        <div class="sarsTitle colorGrey Headline">{{productData.name}}</div>
+        <div class="title colorGrey Headline">{{productData.name}}</div>
         <div class="detailSar colorGreen smallTitle" > 
          <a style="text-decoration: none;">
          {{'SEE_DETAIL' | translate}}
@@ -375,8 +375,8 @@
    <ion-slides  [slidesPerView]="'1.1'" >
 
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="image-card" (click)=" goToExpertDetial(expert.id)" >
-                <img src="{{expert.attachments}}" >
+              <ion-card class="specil_card" (click)=" goToExpertDetial(expert.id)" >
+                <img  class="specil_image" src="{{expert.attachments}}" >
                 <div class="card-title-box">
                 <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
                 <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
@@ -387,7 +387,7 @@
 
           </ion-slide>
           <ion-slide  >
-              <ion-card>
+              <ion-card class="specil_card">
                 <div class="see-title-box-blog">
                 <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
                 </div>
