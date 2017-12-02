@@ -57,16 +57,8 @@
 </ion-row>
 <ion-row *ngIf="ProductViewData.status==true">
 	<ion-row >
-		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Specifications</div>
+		<div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">{{'SPECIFICATIONS' | translate}}</div>
 	</ion-row >
-	<ion-row class="fullWidth paddingLeft paddingRight">
-		<ion-col col-5 class="marketViewGridTitle">
-			Selling Price
-		</ion-col>
-		<ion-col col-7 class="marketViewGridContent">
-			{{ProductViewData.data.buying_price}}
-		</ion-col>
-	</ion-row>
 	<ion-row *ngFor="let ProductDetail of ProductViewData.data.alldetail, let i = index " class="fullWidth paddingLeft paddingRight">
 		<ion-col col-5 class="marketViewGridTitle">
 			{{ProductDetail.label}}
@@ -81,7 +73,7 @@
 		<button (click)="mackCall()" ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:10px;">
 	  	<ion-icon name="call" class="displayOneFont" style="padding-left: 55px; padding-right:5px"></ion-icon>
 	  	<div  class="{{textSlide}} smallTitle" style="opacity: 0;">
-	  		CLICK TO CALL
+	  		{{'CLICK_TO_CALL' | translate}}
 		</div>
 	   </button>
 	   </a>

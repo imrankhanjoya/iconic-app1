@@ -18,7 +18,12 @@
 	<ion-grid>
 	    <ion-row>
 	      <ion-col class="cardHeader">
-	          <div class="headerClass smallTitle">{{croptype}}</div>
+	          <div *ngIf="croptype=='Kharif'" class="headerClass smallTitle">{{'KHARIF' | translate}}</div>
+
+	          <div *ngIf="croptype=='Rabi'" class="headerClass smallTitle">{{'RABI' | translate}}</div>
+
+	          <div *ngIf="croptype=='Horticulture'" class="headerClass smallTitle">{{'HORTICULTURE' | translate}}</div>
+
 	      </ion-col>
 	    </ion-row>
 	</ion-grid>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, PopoverController, ViewController, 
   LoadingController,ToastController} from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
@@ -28,9 +29,17 @@ export class AskquestionPage {
               public QuestionsProvider: QuestionsProvider, public camera:Camera,
               public storage:Storage, public popoverCtrl: PopoverController,
               private toastCtrl: ToastController,
-              public loadingCtrl:LoadingController
+              public loadingCtrl:LoadingController,
+              public translateService: TranslateService
               ) {
-
+              this.translateService.get('QUATION_ERROR').subscribe((value) => {
+                this.QUATION_ERROR = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
+              this.translateService.get('QUATION_ADDED').subscribe((value) => {
+                this.QUATION_ADDED = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
                 this.storage.get('userData').then((val) => {
                   this.user_id = val.ID; 
                 });
@@ -69,11 +78,11 @@ export class AskquestionPage {
          this.loading.dismiss();
 
         if (res.status==false) {
-            this.presentToast('Please Enter Question');
+            this.presentToast(this.QUATION_ERROR);
         }else{
 
           this.viewCtrl.dismiss();
-          this.presentToast('Questions added successfully');
+          this.presentToast(this.QUATION_ADDED);
           this.navCtrl.push('QuestionlistPage');
           console.log(this.askquestionsData.data);
         }

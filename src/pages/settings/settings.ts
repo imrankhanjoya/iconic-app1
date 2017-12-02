@@ -93,6 +93,16 @@ export class SettingsPage {
 
             });
 
+            this.translateService.get('PROFILE_UPDATE').subscribe((value) => {
+                this.PROFILE_UPDATE = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
+
+              this.translateService.get('CHANGE_YOUR_PASSWORD').subscribe((value) => {
+                this.CHANGE_YOUR_PASSWORD = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
+
           this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
           });
@@ -129,7 +139,7 @@ export class SettingsPage {
               this.storage.set('userData',resp.data);
               this.loading.dismiss();
               this.viewCtrl.dismiss();
-              alert('Profile Update Sucessfully.');
+              this.presentToast(this.PROFILE_UPDATE);
               this.navCtrl.push('ItemCreatePage');
             }else {
               this.loading.dismiss();
@@ -185,6 +195,7 @@ export class SettingsPage {
         this.user.ChangePassword(this.phoneNumber,this.changepassformdata.newpass,this.changepassformdata.oldpass).map(res => res.json()).subscribe((resp) => {
             if (resp.status==true) {
               this.passresError='Password Reset Sucessfully';
+              this.presentToast(this.CHANGE_YOUR_PASSWORD);
               this.viewCtrl.dismiss();
             }else{
               this.passresError=resp.msg;

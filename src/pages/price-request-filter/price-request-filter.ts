@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, ViewController,LoadingController,ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
@@ -24,7 +25,8 @@ export class PriceRequestFilterPage {
 	public priceRequest : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider, private toastCtrl: ToastController
+    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider, private toastCtrl: ToastController,
+    public translateService: TranslateService
     ) {
       this.formdata=navParams.get('formdata');
     	this.priceRequest = this.formBuilder.group({
@@ -32,6 +34,10 @@ export class PriceRequestFilterPage {
 	          display_name: [this.formdata.display_name, Validators.required],
             description: [this.formdata.message, Validators.required]
         });
+         this.translateService.get('PRICE_REQUEST_SUCCESS').subscribe((value) => {
+                this.PRICE_REQUEST_SUCCESS = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
   }
    presentToast(message) {
               let toast = this.toastCtrl.create({
@@ -60,7 +66,7 @@ export class PriceRequestFilterPage {
       this.contactus.ProductSend(this.formdata);
       let data = { 'data': '' };
       this.viewCtrl.dismiss(data); 
-      this.presentToast('your order generate successfully');
+      this.presentToast(this.PRICE_REQUEST_SUCCESS);
      
 
   }

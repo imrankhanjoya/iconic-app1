@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ViewController, NavParams,ToastController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
@@ -39,7 +40,7 @@ export class RentalFilterPage {
     
 
   constructor(public navCtrl: NavController,public toastCtrl: ToastController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
-private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider) {
+private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider,public translateService: TranslateService) {
         this.product_name=navParams.get('product_name');
         console.log('pname'+this.product_name);
         this.storage.get('userData').then((val) => {
@@ -52,7 +53,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
             type: [''],
             expected_price: [''],
             farmer_name: [this.userData.display_name, Validators.required],
-            date_from: [this.NowTimeT, Validators.required],
+            date_from: ['', Validators.required],
             to_date: [''],
             time_from: [''],
             to_time: [''],
@@ -68,7 +69,10 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
         this.onDistrictSelect(this.userData._user_district);
         //this.getvarieties_etriding() ;
       });
-              
+      this.translateService.get('RENTAL_REQUEST_SUCCESS').subscribe((value) => {
+                this.RENTAL_REQUEST_SUCCESS = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });        
   }
    presentToast(message) {
     let toast = this.toastCtrl.create({
@@ -165,7 +169,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
     this.rentals.Contact(this.RentalMarket.value);
     let data = { 'data': '' };
     this.viewCtrl.dismiss(data); 
-    this.presentToast('your order generate successfully');
+    this.presentToast(this.RENTAL_REQUEST_SUCCESS);
   }
 
 }

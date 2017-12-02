@@ -48,11 +48,11 @@
 </ion-row>
 <ion-row *ngIf="Rental_detaildata.status==true">
   <ion-row >
-    <div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">Other Detail</div>
+    <div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">{{'SPECIFICATIONS' | translate}}</div>
   </ion-row >
   <ion-row  *ngIf="Rental_detaildata.data[0].model_name!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Model Name
+      {{'MODEL_NAME' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].model_name}}
@@ -60,7 +60,7 @@
   </ion-row>
   <ion-row  *ngIf="Rental_detaildata.data[0].engine_type!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Engine Type
+      {{'ENGINE_TYPE' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].engine_type}}
@@ -68,7 +68,7 @@
   </ion-row>
   <ion-row  *ngIf="Rental_detaildata.data[0].weight_kg!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Wieght(KG)
+      {{'WIEGHT' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].weight_kg}}
@@ -76,7 +76,7 @@
   </ion-row>
   <ion-row  *ngIf="Rental_detaildata.data[0].working_width!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Working Width
+      {{'WORKING_WIDTH' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].working_width}}
@@ -84,7 +84,7 @@
   </ion-row>
   <ion-row  *ngIf="Rental_detaildata.data[0].address!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Address
+      {{'ADDRES' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].address}}
@@ -93,7 +93,7 @@
 
   <ion-row  *ngIf="Rental_detaildata.data[0].quantity!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Quantity
+      {{'QUANTITY' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].quantity}}
@@ -103,55 +103,58 @@
 
   <ion-row  *ngIf="Rental_detaildata.data[0].price!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Price
+      {{'PRICE' | translate}}
     </ion-col>
     <ion-col col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].price}}
     </ion-col>
   </ion-row>
 
-  <ion-row  *ngIf="Rental_detaildata.data[0].date_to!=''" class="fullWidth paddingLeft paddingRight">
+<ion-row  *ngIf="Rental_detaildata.data[0].date_from!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Date to
-    </ion-col>
-    <ion-col  col-7 class="marketViewGridContent">
-      {{Rental_detaildata.data[0].date_to}}
-    </ion-col>
-  </ion-row>
-
-  <ion-row  *ngIf="Rental_detaildata.data[0].date_from!=''" class="fullWidth paddingLeft paddingRight">
-    <ion-col col-5 class="marketViewGridTitle">
-      Date From
+      {{'DATE_FROME' | translate}}
     </ion-col>
     <ion-col  col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].date_from}}
     </ion-col>
   </ion-row>
+
+  <ion-row  *ngIf="Rental_detaildata.data[0].date_to!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+     {{'DATE_TO' | translate}}
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].date_to}}
+    </ion-col>
+  </ion-row>
   
+   <ion-row  *ngIf="Rental_detaildata.data[0].time_from!=''" class="fullWidth paddingLeft paddingRight">
+    <ion-col col-5 class="marketViewGridTitle">
+     {{'TIME_FROM' | translate}}
+    </ion-col>
+    <ion-col  col-7 class="marketViewGridContent">
+      {{Rental_detaildata.data[0].time_from}} 
+    </ion-col>
+  </ion-row>
+
   <ion-row  *ngIf="Rental_detaildata.data[0].time_to!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Time To
+      {{'TIME_TO' | translate}}
     </ion-col>
     <ion-col  col-7 class="marketViewGridContent">
       {{Rental_detaildata.data[0].time_to}}
     </ion-col>
   </ion-row>
   
-  <ion-row  *ngIf="Rental_detaildata.data[0].time_from!=''" class="fullWidth paddingLeft paddingRight">
-    <ion-col col-5 class="marketViewGridTitle">
-     Time From
-    </ion-col>
-    <ion-col  col-7 class="marketViewGridContent">
-      {{Rental_detaildata.data[0].time_from}}
-    </ion-col>
-  </ion-row>
-  
   <ion-row  *ngIf="Rental_detaildata.data[0].units!=''" class="fullWidth paddingLeft paddingRight">
     <ion-col col-5 class="marketViewGridTitle">
-      Duration
+      {{'DURATION' | translate}}
     </ion-col>
-    <ion-col  col-7 class="marketViewGridContent">
-      {{Rental_detaildata.data[0].units}}
+    <ion-col *ngIf="Rental_detaildata.data[0].units =='daily'" col-7 class="marketViewGridContent">
+      {{'DAILY' | translate}}
+    </ion-col>
+    <ion-col *ngIf="Rental_detaildata.data[0].units =='hourly'" col-7 class="marketViewGridContent">
+      {{'HOURLY' | translate}}
     </ion-col>
   </ion-row>
 </ion-row>
