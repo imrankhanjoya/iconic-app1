@@ -178,12 +178,12 @@ export class HomePage {
 
     //For tab Scroll
     this.startVisbol=true;
-    document.querySelector(".tabbar").classList.add('show-tabbar');
-    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-    document.querySelectorAll(".scrollhide .scroll-content").style.marginBottom = '150px';
-    document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-    document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
-    document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
+    // document.querySelector(".tabbar").classList.add('show-tabbar');
+    // document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+    // document.querySelectorAll(".scrollhide .scroll-content").style.marginBottom = '150px';
+    // document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+    // document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
+    // document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
   }
 
   toggleMenu(){
@@ -476,7 +476,13 @@ export class HomePage {
     document.querySelector(".tabbar").classList.add('show-tabbar');
     document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
     document.querySelector(".tabbar").classList.remove('bottmTabHide');
-    document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
+    
+    let scroll = document.querySelectorAll('.scroll-content');
+     if (scroll !== null) {
+         Object.keys(scroll).map((key) => {
+             scroll[key].style.marginBottom = this.bottom;
+         });
+     }
     if(this.onBording){
       // document.querySelector(".barCustomAct").classList.add('showTopBar');
       // document.querySelector(".barCustomAct").classList.remove('topBar');
@@ -490,13 +496,19 @@ export class HomePage {
       if (this.startVisbol==false) {
         this.startVisbol=true;
         document.querySelector(".tabbar").classList.add('show-tabbar');
-        document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+        // document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
 
         document.querySelector(".tabbar").classList.remove('bottmTabHide');
-        document.querySelectorAll(".scroll-content")[0].style.marginBottom = '0px';
-        document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-        document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
-        document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
+        let scroll = document.querySelectorAll('.scroll-content');
+         if (scroll !== null) {
+             Object.keys(scroll).map((key) => {
+                 scroll[key].style.marginBottom = this.bottom;
+             });
+         }
+        // document.querySelectorAll(".scroll-content")[0].style.marginBottom = '0px';
+        // document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+        // document.querySelectorAll(".scroll-content")[2].style.marginBottom = '0px';
+        // document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
         // if(this.onBording){
         //   document.querySelector(".barCustomAct").classList.add('showTopBar');
         //   document.querySelector(".barCustomAct").classList.remove('topBar');
@@ -515,10 +527,19 @@ export class HomePage {
      if(this.startVisbol==true){
           this.startVisbol=false;
           document.querySelector(".tabbar").classList.add('bottmTabHide');
+          document.querySelector(".tabbar").classList.add('bottmTabHide');
           document.querySelector(".tabbar").classList.remove('show-tabbar');
-          document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
-          document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
-          document.querySelectorAll(".tabbar")[0].style.marginBottom = '-70px';
+
+          let scroll = document.querySelectorAll('.scroll-content');
+           if (scroll !== null) {
+               Object.keys(scroll).map((key) => {
+                   scroll[key].style.marginBottom = '0px';
+               });
+           }
+
+          // document.querySelectorAll(".scroll-content")[1].style.marginBottom = '0px';
+          // document.querySelectorAll(".scroll-content")[3].style.marginBottom = '0px';
+          // document.querySelectorAll(".tabbar")[0].style.marginBottom = '-70px';
 
 
           // if(this.onBording){
