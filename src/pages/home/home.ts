@@ -81,32 +81,53 @@ export class HomePage {
         content: 'Please wait...'
       });
       this.loading.present();
-      // let view = this.navCtrl.getActive();
-      //            console.log("  current Page  :  " + view);
-      // platform.ready().then(() => {
+      let view = this.navCtrl.getActive();
+                 console.log("  current Page  :  " + view);
+      platform.ready().then(() => {
 
-      //         platform.registerBackButtonAction(() => {
-      //            let view = this.navCtrl.getActive();
-      //            console.log("  current Page  :  " + view);
-      //            if (this.navCtrl.canGoBack()) {
-      //               if(this.alert){ 
-      //                 this.alert.dismiss();
-      //                 this.alert =null;     
-      //               }else{
-      //                 this.exitConfrom();
-      //               }
-      //             }else {
-      //               this.navCtrl.pop({});
-      //             }
-      //         });
-      //       });
+              platform.registerBackButtonAction(() => {
+                 let view = this.navCtrl.getActive();
+                 console.log("  current Page  :  " + view);
+                 if (view.name=="HomePage") {
+                    if(this.alert){ 
+                      this.alert.dismiss();
+                      this.alert =null;     
+                    }else{
+                      this.exitConfrom();
+                    }
+                  }else {
+                    this.navCtrl.pop({});
+                  }
+              });
+            });
       //this.updatetoken(1234);
 
   }
   backButtonAction(){
    console.log('=-=-=-=-=-=-=-=-=-'); 
   }
-
+  exitConfrom() {
+      this.alert = this.alertCtrl.create({
+        title: 'Exit?',
+        message: 'Do you want to exit the app?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              this.alert =null;
+            }
+          },
+          {
+            text: 'Exit',
+            handler: () => {
+              this.platform.exitApp();
+            }
+          }
+        ]
+      });
+      this.alert.present();
+    }
   ionViewDidLoad() {
     this.storage.get('haderAnimition').then((data) => {
         if (data) {

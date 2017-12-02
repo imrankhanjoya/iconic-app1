@@ -45,23 +45,23 @@ export class TabsPage {
     });
 
 
-    platform.ready().then(() => {
+    // platform.ready().then(() => {
 
-              platform.registerBackButtonAction(() => {
-                 let view = this.navCtrl.getActive();
-                 console.log("  current Page  :  " + view);
-                 if (this.navCtrl.canGoBack()&&selectedTabIndex==0) {
-                    if(this.alert){ 
-                      this.alert.dismiss();
-                      this.alert =null;     
-                    }else{
-                      this.exitConfrom();
-                    }
-                  }else {
-                    this.navCtrl.pop({});
-                  }
-              });
-            });
+    //           platform.registerBackButtonAction(() => {
+    //              let view = this.navCtrl.getActive();
+    //              console.log("  current Page  :  " + view);
+    //              if (this.navCtrl.canGoBack()&&selectedTabIndex==0) {
+    //                 if(this.alert){ 
+    //                   this.alert.dismiss();
+    //                   this.alert =null;     
+    //                 }else{
+    //                   this.exitConfrom();
+    //                 }
+    //               }else {
+    //                 this.navCtrl.pop({});
+    //               }
+    //           });
+    //         });
 
     //   let selectedTab = this.tabRef.getSelected();
     // console.log(selectedTab.index + ' - ' + selectedTab.tabTitle);

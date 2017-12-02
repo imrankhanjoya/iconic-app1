@@ -156,8 +156,9 @@ export class MyApp {
   } 
   
   logout() {
-       this.storage.set('userData','');
-       this.storage.set('userLang','');
+       // this.storage.set('userData','');
+       // this.storage.set('userLang','');
+       this.storage.clear();
         this.nav.setRoot('WelcomePage');
          console.log("here");
   }
