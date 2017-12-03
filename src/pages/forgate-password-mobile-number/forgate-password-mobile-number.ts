@@ -36,11 +36,10 @@ export class ForgatePasswordMobileNumberPage {
       this.phoneNumberError = false;
     }
     if(sendForm){
-      //this.navCtrl.push('ForgatePasswordPage');
-      this.sendPasswordOtpAPI();
+      this.cheakSmsPermission();
     }
   }
-  /*cheakSmsPermission(){
+  cheakSmsPermission(){
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.RECEIVE_SMS).then(()=>{
       console.log('checkPermission Pass');
       this.smsRequestPermission();
@@ -48,7 +47,7 @@ export class ForgatePasswordMobileNumberPage {
       console.log('checkPermission Fail');
       this.smsRequestPermission();
     }); 
-  }*/
+  }
   smsRequestPermission(){
     this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.RECEIVE_SMS).then(() =>{
       console.log('requestPermission pass');
@@ -62,7 +61,6 @@ export class ForgatePasswordMobileNumberPage {
     this.navCtrl.push('LoginPage');
   }
   sendPasswordOtpAPI(){
-    
     let loading = this.loadingCtrl.create({
             content: 'Please wait...'
           });
@@ -70,8 +68,7 @@ export class ForgatePasswordMobileNumberPage {
         this.user.sendPasswordOtp(this.RegisterData.phoneNumber,this.name).map(res => res.json()).subscribe((resp) => {
         if(resp.status === true){
           console.log(resp.status);
-          this.storage.set('userPhone', this.RegisterData.phoneNumber);
-          this.navCtrl.push('ForgatePasswordPage');
+          this.navCtrl.push('ForgateVerifyNumberPage',{phoneNumber:this.RegisterData.phoneNumber});
           loading.dismiss();
         }else{
           alert(resp.msg)

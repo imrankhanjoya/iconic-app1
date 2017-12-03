@@ -25,7 +25,7 @@ export class ForgateVerifyNumberPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,
     public storage:Storage,public platform:Platform) {
   this.phoneNumber=navParams.get('phoneNumber');
-    /*if (platform.is('android')) {
+    if (platform.is('android')) {
       SmsReceiver.startReception(({messageBody, originatingAddress}) => {
           var n = originatingAddress.search('AGRBLO');
           if (n=='-1') {
@@ -44,14 +44,14 @@ export class ForgateVerifyNumberPage {
         console.log("Error while receiving messages")
       });
     }
-  }*/
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForgateVerifyNumberPage');
   }
   verifyNumber(){
 
-    /*var sendForm = true;
+    var sendForm = true;
     if(this.RegisterData.verifyOtpfirst.length<1){
         alert('Enter OTP');
         sendForm = false;
@@ -67,7 +67,7 @@ export class ForgateVerifyNumberPage {
     if(this.RegisterData.verifyOtpFourth.length<1){
         alert('Enter OTP');
         sendForm = false;
-    }*/
+    }
 
     if(sendForm){
         this.verifyNumberAPI();
