@@ -111,4 +111,7 @@ export class ForgateVerifyNumberPage {
          console.log('--unsuccess');
        });
   }
+  LoginPage(){
+  this.navCtrl.push('LoginPage');
+}
 }

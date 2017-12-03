@@ -24,11 +24,16 @@ export class ForgatePasswordPage {
 	public phoneNumberError:any;
 	RegisterData = {password:'', confirmPassword:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public translateService: TranslateService) {
   	 this.storage.get('userPhone').then((val) => {
     this.phoneNumber = val; 
     console.log(this.phoneNumber);
   });
+
+         this.translateService.get('CHANGE_YOUR_PASSWORD').subscribe((value) => {
+                this.CHANGE_YOUR_PASSWORD = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
   	//userPhonethis.phoneNumber=navParams.get('phoneNumber');
   }
 
@@ -57,6 +62,7 @@ export class ForgatePasswordPage {
       	//console.log('passsss')
 		this.user.ResetPassword(this.phoneNumber,this.RegisterData.password).map(res => res.json()).subscribe((resp) => {
 		    console.log(resp.status);
+        alert(this.CHANGE_YOUR_PASSWORD);
 			this.navCtrl.push('LoginPage');
 		 }, (err) => {
 		this.navCtrl.push('LoginPage');
@@ -64,5 +70,7 @@ export class ForgatePasswordPage {
     }
 
   }
-
+LoginPage(){
+  this.navCtrl.push('LoginPage');
+}
 }
