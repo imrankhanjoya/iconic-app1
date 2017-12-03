@@ -2,7 +2,7 @@ import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@ang
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -68,12 +68,12 @@ export class HomePage {
   public toggleMenuText:any;
   public onBording:boolean=false;
   public isHeaderAnimition=true;
-
+  public alert:any;
   constructor(private fcm: FCM,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController) {
+    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController) {
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
       //this.topMenu = 'toolbarClosed';
@@ -81,12 +81,51 @@ export class HomePage {
         content: 'Please wait...'
       });
       this.loading.present();
-      
-    
-      
+      let view = this.navCtrl.getActive();
+                 console.log("  current Page  :  " + view);
+      platform.ready().then(() => {
+
+              platform.registerBackButtonAction(() => {
+                 let view = this.navCtrl.getActive();
+                 console.log("  current Page  :  " + view);
+                 if (view.name=="HomePage") {
+                    if(this.alert){ 
+                      this.alert.dismiss();
+                      this.alert =null;     
+                    }else{
+                      this.exitConfrom();
+                    }
+                  }else {
+                    this.navCtrl.pop({});
+                  }
+              });
+            });
       //this.updatetoken(1234);
 
   }
+
+   exitConfrom() {
+      this.alert = this.alertCtrl.create({
+        title: 'Exit?',
+        message: 'Do you want to exit the app?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              this.alert =null;
+            }
+          },
+          {
+            text: 'Exit',
+            handler: () => {
+              this.platform.exitApp();
+            }
+          }
+        ]
+      });
+      this.alert.present();
+    }
 
   ionViewDidLoad() {
     this.storage.get('haderAnimition').then((data) => {
@@ -121,7 +160,7 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        storage.get('updated_token').then((token) => {
+        this.storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
             this.updatetoken(token,this.userId);
