@@ -75,7 +75,7 @@ export class WeatherPage {
           this.resetcard = true
         }
         var tehsil = ( typeof this.tehsilId != 'undefined' )?this.tehsilId:tehsil;
-        this.wheaterdetailall.data:any;
+        this.wheaterdetailall.data='';
         this.weather.weatherdetail(tehsil).then((res)=>{
             console.log(res);
             this.wheaterdetailall.data = res.data;
@@ -93,9 +93,9 @@ export class WeatherPage {
       if (this.navParams.get('fromFilter')) {
           location = this.navParams.get('filter_tehsil');
       }
-      this.weatherfiveday.data:any;
-      this.hours:any;
-      this.hourlyTmp:any;
+      this.weatherfiveday.data='';
+      this.hours=[];
+      this.hourlyTmp=[];
       this.weather.weatherfivedays(location).then((res)=>{
         console.log(res);
         this.weatherfiveday.data = res.data;
