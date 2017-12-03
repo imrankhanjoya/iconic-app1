@@ -101,6 +101,7 @@ export class MyApp {
           }
 
        });
+      storage.set('notificationData','');
       storage.get('userData').then((userlogin) => {
 
         this.display_name = userlogin.display_name;
@@ -116,8 +117,17 @@ export class MyApp {
       });
 
       fcm.onNotification().subscribe(data=>{
+           console.log("Received in background-----="+JSON.stringify(data));
         if(data.wasTapped){
+          storage.set('notificationData',data);
           console.log("Received in background---");
+        } else {
+          console.log("Received in foreground-----");
+        };
+      });
+      fcm.onNotificationReceived(function(data){
+        if(data.wasTapped){
+          console.log("Received in +++++---");
         } else {
           console.log("Received in foreground-----");
         };

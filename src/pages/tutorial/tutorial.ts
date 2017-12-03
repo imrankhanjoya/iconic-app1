@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, Platform, NavParams } from 'ionic-angular';
 import { MainPage } from '../pages';
 import { Storage } from '@ionic/storage';
+import { WeatherPage } from '../weather/weather';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -32,9 +33,19 @@ export class TutorialPage {
               console.log(userlogin);
               if (userlogin) {
                 this.navCtrl.setRoot(MainPage, {}, {
-                  animate: true,
-                  direction: 'forward'
-                });
+                          animate: true,
+                          direction: 'forward'
+                        });
+                // storage.get('notificationData').then((notiData) => {
+                //     if (notiData) {
+                //         this.gotoAnounsePage(notiData.type,notiData.type_value);
+                //       }else {
+                //        this.navCtrl.setRoot(MainPage, {}, {
+                //           animate: true,
+                //           direction: 'forward'
+                //         }); 
+                //       }
+                // });
               }else if(!userlogin){
                 this.navCtrl.setRoot('WelcomePage', {}, {
                   animate: true,
@@ -70,5 +81,45 @@ export class TutorialPage {
     this.menu.enable(true);
   }
 
+  gotoAnounsePage(type,type_value){
+    console.log(type+'  ------ '+type_value);
+    if (type=='product') {
+      this.navCtrl.push('MarketViewPage',{id:type_value}).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+                    
+    }
+    if (type=='crop') {
+      this.navCtrl.push('CropdetailPage',{crop_id:type_value}).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+    }
+    if (type=='rental') {
+      this.navCtrl.push('RentalsPage',{crop_id:type_value}).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+    }
+    if (type=='blogs') {
+      this.navCtrl.push('ExpertsDetailPage',{id:type_value}).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+    }
+    if (type=='news') {
+     this.navCtrl.push(WeatherPage).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+    }
+    if (type=='weather') {
+      this.navCtrl.push(WeatherPage).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+    }
+  }
 
 }

@@ -301,13 +301,15 @@
   <ion-card class="dialog" *ngIf="announceList.status==true" >
     <ion-grid >
       <ion-row>
-        <ion-col col-3 >
-          <ion-thumbnail item-start class="avatar">
-         <img src="assets/img/watering_can.png" >
-         </ion-thumbnail>
-            </ion-col>
-        <ion-col class="smallTitle" col-9>
-          {{announceList.data[0].title}}
+        <ion-col col-12>
+          <ion-col col-2 style="float: left">
+            <ion-thumbnail item-start class="avatar">
+           <img src="assets/img/watering_can.png" >
+           </ion-thumbnail>
+              </ion-col>
+          <ion-col class="smallTitle" col-9>
+            {{announceList.data[0].title}}
+          </ion-col>
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController,Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,Platform,AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../home/home';
 import { KrishProvider } from '../../providers/krish/krish';
@@ -24,9 +24,10 @@ export class KrishCenterPage {
   public geoLoc:{lat:any,lng:any} = {lat:23,lng:24};
 
   public loading:any;
-
+  public alert:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
-    public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform) {
+    public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
+    public alertCtrl: AlertController) {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
@@ -36,10 +37,12 @@ export class KrishCenterPage {
 
   ionViewDidLoad() {
       this.geolocation.getCurrentPosition().then((resp) => {
-       console.log(resp);
+       console.log(resp.coords.latitude+" : "+resp.coords.longitude);
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
     }).catch((error) => {
-      console.log('Error getting location', error);
+      console.log('Error getting location----', error);
+      this.locationAlert();
+      this.getkrish(0.00,.00);
 
     });
      console.log('ionViewDidLoad KrishCenterPage');
@@ -72,4 +75,20 @@ export class KrishCenterPage {
   makeCall(){
    
   }
+  locationAlert() {
+      this.alert = this.alertCtrl.create({
+        title: 'Note',
+        message: 'Your Location is Off ?',
+        buttons: [
+          {
+            text: 'Ok',
+            role: 'cancel',
+            handler: () => {
+              this.alert =null;
+            }
+          }
+        ]
+      });
+      this.alert.present();
+    }
 }

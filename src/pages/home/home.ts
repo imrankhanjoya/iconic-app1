@@ -29,6 +29,7 @@ import { FCM } from '@ionic-native/fcm';
  * Ionic pages and navigation.
  */
 
+declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
@@ -81,6 +82,12 @@ export class HomePage {
         content: 'Please wait...'
       });
       this.loading.present();
+      storage.get('notificationData').then((notiData) => {
+        if (notiData) {
+            this.loading.dismiss();
+            this.gotoAnounsePage(notiData.type,notiData.type_value);
+          }
+        });
       let view = this.navCtrl.getActive();
                  console.log("  current Page  :  " + view);
       platform.ready().then(() => {
@@ -128,6 +135,12 @@ export class HomePage {
     }
 
   ionViewDidLoad() {
+       dataLayer.push({
+        'screenPath': 'about',
+        'screenName': 'About Us'
+      });
+    dataLayer.push({'event': 'TestEvent'});
+
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
           this.isHeaderAnimition=false;
@@ -454,7 +467,7 @@ gotoAgriinfo(){
       this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
     }
     if (type=='news') {
-     this.navCtrl.push(WeatherPage);
+     this.navCtrl.push('NewsPage',{id:type_value});
     }
     if (type=='weather') {
       this.navCtrl.push(WeatherPage);
