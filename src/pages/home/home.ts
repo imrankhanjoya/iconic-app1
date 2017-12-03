@@ -402,9 +402,9 @@ gotoAgriinfo(){
   gotoRentals(){
     this.navCtrl.push('RentalsPage');
   }
-  gotoAnounsePage(){
+  /*gotoAnounsePage(){
     this.navCtrl.push('AnnouncementPage');
-  }
+  }*/
   goToBlogPage(){
    this.navCtrl.push('CardsPage'); 
   }
@@ -437,6 +437,28 @@ gotoAgriinfo(){
   gotoAgroCenter(){
     //console.log(id);
     this.navCtrl.push('KrishCenterPage');
+  }
+
+   gotoAnounsePage(type,type_value){
+    console.log(type+'  ------ '+type_value);
+    if (type=='product') {
+      this.navCtrl.push('MarketViewPage',{id:type_value});
+    }
+    if (type=='crop') {
+      this.navCtrl.push('CropdetailPage',{crop_id:type_value});
+    }
+    if (type=='rental') {
+      this.navCtrl.push('RentalsPage',{crop_id:type_value});
+    }
+    if (type=='blogs') {
+      this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
+    }
+    if (type=='news') {
+     this.navCtrl.push(WeatherPage);
+    }
+    if (type=='weather') {
+      this.navCtrl.push(WeatherPage);
+    }
   }
 
   //----------------------Hader Animiation Start------
