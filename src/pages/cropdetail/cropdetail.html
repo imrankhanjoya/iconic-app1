@@ -14,21 +14,21 @@
     </div>
     </ion-buttons>
   </ion-navbar>
-	<ion-segment class="themeColor" [(ngModel)]="Crop">
-		<ion-segment-button class="themeColor" value="General">
+	<ion-segment  [(ngModel)]="Crop">
+		<ion-segment-button style="background-color: #101c00 !important;"  value="General">
 		  {{'CROP_DETAIL_GENRAL' | translate}}
 		</ion-segment-button>
-    <ion-segment-button value="Desease">
+	    <ion-segment-button style="background-color: #101c00 !important;" value="Desease">
 		 {{'CROP_DETAIL_DEASEASE' | translate}}
    		</ion-segment-button>
-      <ion-segment-button value="Insect">
-  		  {{'CROP_DETAIL_INSECT' | translate}}
-  		</ion-segment-button>
-      <ion-segment-button value="Varities">
-        {{'CROP_DETAIL_VERIETIES' | translate}}
-      </ion-segment-button>
-		<ion-segment-button value="Water">
-      {{'CROP_DETAIL_WATER' | translate}}
+	      <ion-segment-button style="background-color: #101c00 !important;" value="Insect">
+	  		  {{'CROP_DETAIL_INSECT' | translate}}
+	  		</ion-segment-button>
+	      <ion-segment-button style="background-color: #101c00 !important;" value="Varities">
+	        {{'CROP_DETAIL_VERIETIES' | translate}}
+	      </ion-segment-button>
+			<ion-segment-button style="background-color: #101c00 !important;" value="Water">
+	      {{'CROP_DETAIL_WATER' | translate}}
 		</ion-segment-button>
 	</ion-segment>
 </ion-header>
