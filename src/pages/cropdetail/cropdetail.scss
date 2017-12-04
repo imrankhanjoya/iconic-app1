@@ -1,48 +1,62 @@
 .page-cropdetail {
     .cropimage{
-    height: fit-content;
-    margin: auto;
+        height: fit-content;
+        margin: auto;
     }
 
 
     .allContent {
-    padding: 5px;
-    padding-top: 10px;
-    line-height: 20%;
-    margin-top: 10px;
+        padding: 5px;
+        padding-top: 10px;
+        line-height: 20%;
+        margin-top: 10px;
     }
     .fontBold {
-    font-weight: bold;
-    font-size: 27px;
+        font-weight: bold;
+        font-size: 27px;
     }
 
     .sarsTitle{
-    text-align: left;
-    padding-left: 4%;
-    padding-top: 5%;
-    text-align: left;
-    height: 84px;
+        text-align: left;
+        padding-left: 4%;
+        padding-top: 5%;
+        text-align: left;
+        height: 84px;
     }
     .card-md{
-    margin:0px;
+        margin:0px;
     }
     .swiper-slide {
-    overflow-y: scroll;
-    display: block;
-    
-
+        overflow-y: scroll;
+        display: block;
     }
     .pClass{
-    padding-right: 5%;
-    padding-top: 5%;
-    padding-bottom: 2%;
+        padding-right: 5%;
+        padding-top: 5%;
+        padding-bottom: 2%;
     }
     .pContent p{
-    margin:5px;
-    line-height: 1.5;
+        margin:5px;
+        line-height: 1.5;
     }
-    .themeColor{
-    background-color: #101C00;
+    .segment-md .segment-button{
+        color: #ffffff;
+        background-color:#101c00 !important; 
+    }
+    ion-segment-button.segment-button {
+        background-color: #101c00 !important;
+    }
+    ion-toolbar.scrollable-segments {
+        ion-segment {
+          display: block;
+          overflow-x: scroll;
+          white-space: nowrap;
+
+          ion-segment-button.segment-button {
+            display: inline-block;
+            width: auto;
+          }
+        }
     }
 }
 

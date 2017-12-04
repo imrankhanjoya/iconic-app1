@@ -25,24 +25,38 @@ export class KrishCenterPage {
 
   public loading:any;
   public alert:any;
+  public isGetLocation:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
     public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
     public alertCtrl: AlertController) {
+
+    this.isGetLocation=true;
+
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     this.loading.present();
+    setTimeout(()=>{
+        if (this.isGetLocation) {
+          this.locationAlert();
+          this.getkrish(26.957740,75.745459);
+        }
+      },5000);
   }
 
 
   ionViewDidLoad() {
       this.geolocation.getCurrentPosition().then((resp) => {
        console.log(resp.coords.latitude+" : "+resp.coords.longitude);
-       this.getkrish(resp.coords.latitude,resp.coords.longitude);
+       if (!this.isGetLocation) {
+          this.getkrish(resp.coords.latitude,resp.coords.longitude);
+       }
     }).catch((error) => {
       console.log('Error getting location----', error);
-      this.locationAlert();
-      this.getkrish(0.00,.00);
+      if (!this.isGetLocation) {
+          this.locationAlert();
+          this.getkrish(26.957740,75.745459);
+        }
 
     });
      console.log('ionViewDidLoad KrishCenterPage');
@@ -53,6 +67,7 @@ export class KrishCenterPage {
    }
 
   getkrish(lat,long){
+    this.isGetLocation=false;
     console.log('Run getkrish API with : '+lat+"  :  "+long);
     this.krish.kendraList(lat,long).then((res)=>{
       this.kendraData.data = res.data;
