@@ -317,5 +317,6 @@
   "NEWEST_FIRST":"नवीनतम पहले",
   "POPULARITY":"लोकप्रियता",
   "PRICE_LOW_TO_HIGH":"कीमतों का उतार - चढ़ाव",
-  "PRICE_HIGH_TO_LOW":"कीमतों का चढ़ाव - उतार"
+  "PRICE_HIGH_TO_LOW":"कीमतों का चढ़ाव - उतार",
+  "WEEKLY_FORCAST":"मौसम पूर्वानुमान"
 }
