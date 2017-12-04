@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController,Platform,AlertCo
 import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../home/home';
 import { KrishProvider } from '../../providers/krish/krish';
+import { Events } from 'ionic-angular';
 
 
 
@@ -26,52 +27,63 @@ export class KrishCenterPage {
   public loading:any;
   public alert:any;
   public isGetLocation:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
+  public geolocation:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation1: Geolocation,
     public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,public events: Events) {
 
-    this.isGetLocation=true;
-
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...'
-    });
-    this.loading.present();
-    setTimeout(()=>{
-        if (this.isGetLocation) {
-          this.locationAlert();
-          this.getkrish(26.957740,75.745459);
-        }
-      },10000);
+    
+    events.subscribe('update:page', () => {
+      this.geolocation=geolocation1;
+          this.isGetLocation=true;
+          this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+          });
+          this.loading.present();
+          this.getLocation();
+          this.startTimer();
+        });
   }
 
 
   ionViewDidLoad() {
-    //   this.geolocation.getCurrentPosition().then((resp) => {
-    //    console.log(resp.coords.latitude+" : "+resp.coords.longitude);
-    //    if (!this.isGetLocation) {
-    //       this.getkrish(resp.coords.latitude,resp.coords.longitude);
-    //    }
-    // }).catch((error) => {
-    //   console.log('Error getting location----', error);
-    //   if (!this.isGetLocation) {
-    //       this.locationAlert();
-    //       this.getkrish(26.957740,75.745459);
-    //     }
-
-    // });
-    let watch = this.geolocation.watchPosition();
-      watch.subscribe((data) => {
-          watch.unsubscribe();
-          console.log(data.coords.latitude+" --:-- "+data.coords.longitude);
-          if (!this.isGetLocation) {
-            this.getkrish(data.coords.latitude,data.coords.longitude);
-          }
-      });
-      
-      // To stop notifications
       
      console.log('ionViewDidLoad KrishCenterPage');
   }
+
+    getLocation(){
+
+      var watchID = navigator.geolocation.watchPosition((resp)=>{
+        console.log('=========='+JSON.stringify(resp));
+      },
+      (resp)=>{
+          console.log('-------------');
+      },
+      { enableHighAccuracy: false,timeout: 15000,maximumAge:60000 });
+
+      this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 15000, enableHighAccuracy: false }).then((resp) => {
+          console.log(resp.coords.latitude+" --:-----// "+resp.coords.longitude+"==========="+this.isGetLocation);
+            console.log("===chal bhai mil gai location--");
+            if (this.isGetLocation) {
+             this.getkrish(resp.coords.latitude,resp.coords.longitude);
+           }
+       }).catch((error) => {
+         console.log('Error getting location----'+error);
+         if (this.isGetLocation) {
+             this.locationAlert();
+             this.getkrish(26.957740,75.745459);
+           }
+
+       });
+    }
+    startTimer(){
+      setTimeout(()=>{
+        if (this.isGetLocation) {
+          this.locationAlert();
+          this.getkrish(26.957740,75.745459);
+        }
+      },10007);
+    }
    back(){
   // this.navCtrl.pop('HomePage');  
    this.navCtrl.push(HomePage);

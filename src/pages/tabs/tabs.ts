@@ -9,6 +9,7 @@ import { Tab4Root } from '../pages';
 import { Tab5Root } from '../pages';
 import { HomePage } from '../../pages/home/home';
 import { NewsPage } from '../../pages/news/news';
+import { Events } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -33,7 +34,7 @@ export class TabsPage {
   public selectedTabIndex:0;
 
   constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,public events: Events) {
 
     this.translate.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
@@ -77,6 +78,10 @@ export class TabsPage {
     this.selectedTabTitle=selectedTab.tabTitle;
     this.selectedTabIndex=selectedTab.index;
     console.log(selectedTab.index + ' - ' + selectedTab.tabTitle);
+    if (selectedTab.index==1) {
+      this.events.publish('update:page');
+    }
+
   }
   exitConfrom() {
       this.alert = this.alertCtrl.create({
