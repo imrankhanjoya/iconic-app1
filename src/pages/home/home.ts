@@ -202,15 +202,6 @@ export class HomePage {
 
     //For tab Scroll
     this.startVisbol=true;
-    document.querySelector(".tabbar").classList.add('show-tabbar');
-    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-    document.querySelector(".tabbar").classList.remove('bottmTabHide');
-    let scroll = document.querySelectorAll('.scroll-content');
-          if (scroll !== null) {
-              Object.keys(scroll).map((key) => {
-                  scroll[key].style.marginBottom = '20px';
-              });
-          }
   }
 
   toggleMenu(){
