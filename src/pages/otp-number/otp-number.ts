@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, AlertController,LoadingController, ToastController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
@@ -29,6 +30,7 @@ export class OtpNumberPage {
               public toastCtrl: ToastController, 
               public navParams: NavParams,
               public user: User,
+              public events: Events,
               public storage:Storage,
               public alertCtrl: AlertController,
               public loadingCtrl: LoadingController,
@@ -67,6 +69,13 @@ export class OtpNumberPage {
 
   sendOtp(){
     var sendForm = true;
+    dataLayer.push({
+       'appEventCategory': 'Onboarding',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Signup - Phone NUmber'
+    });
+     dataLayer.push({'event': 'appEvent'});
+     
     if(this.RegisterData.phoneNumber.length<10){
       this.phoneNumberError = true;
       this.presentToast(this.validnumber);
