@@ -24,6 +24,7 @@ export class MandiDetailsPage {
   public filterMarket:any;
   public filterDistrict:any;
   public filter_crops:any;
+  public tehsilId:any;
 
   public topMenu:string='';
   
@@ -39,7 +40,8 @@ export class MandiDetailsPage {
     this.crop_id=navParams.get('crop_id');
 
     storage.get('userData').then((userlogin) => {
-      this.getMandiDetails();
+      this.tehsilId=userlogin._user_tehsil;
+      this.getMandiDetails(this.tehsilId);
     });
   }
 
@@ -47,7 +49,7 @@ export class MandiDetailsPage {
      
      console.log('ionViewDidLoad MandiDetailsPage');
   }
-   getMandiDetails(){
+   getMandiDetails(tehsilId){
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
@@ -56,7 +58,7 @@ export class MandiDetailsPage {
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
     var crop_id = ( typeof this.crop_id != 'undefined' )?this.crop_id:0;
-    this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id).then((res)=>{
+    this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id,tehsilId).then((res)=>{
       this.mandiData= res;
       this.loading.dismiss();
     });
