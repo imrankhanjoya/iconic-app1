@@ -12,6 +12,7 @@ import { CacheService } from "ionic-cache";
 import { Api } from '../providers/api/api';
 import { Events } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MainPage } from '../pages/pages';
 
 
 //import { Storage } from '@ionic/storage';
@@ -82,9 +83,10 @@ export class MyApp {
     public fcm: FCM,public cacheService: CacheService,public api:Api,public alertCtrl: AlertController,
     public splashScreen: SplashScreen,public modalCtrl: ModalController) {
     console.log("=-=-=-=-=-MyApp=-=-=-=-");
-    let splash = modalCtrl.create('TutorialPage');
-    splash.present();
-    
+    //this.nav.setRoot('TutorialPage');
+    // let splash = modalCtrl.create('TutorialPage');
+    // splash.present();
+
     this.initializeApp();
     events.subscribe('user:created', (user, userLang) => {
       // user and time are the same arguments passed in `events.publish(user, time)`
@@ -149,6 +151,7 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.nav.setRoot('TutorialPage');
       // do whatever you need to do here.
       // setTimeout(() => {
       //   this.splashScreen.hide();
@@ -163,6 +166,28 @@ export class MyApp {
       this.statusBar.styleDefault();
 
     });
+    this.platform.ready().then(() => {
+          //this.viewCtrl.dismiss();
+          this.storage.get('userData').then((userlogin) => {
+              console.log(userlogin);
+              if (userlogin) {
+                this.nav.setRoot(MainPage);
+                // storage.get('notificationData').then((notiData) => {
+                //     if (notiData) {
+                //         this.gotoAnounsePage(notiData.type,notiData.type_value);
+                //       }else {
+                //        this.navCtrl.setRoot(MainPage, {}, {
+                //           animate: true,
+                //           direction: 'forward'
+                //         }); 
+                //       }
+                // });
+              }else if(!userlogin){
+                this.nav.setRoot('WelcomePage');
+              }
+              
+           });
+      });
   }
 
 
@@ -233,8 +258,16 @@ export class MyApp {
           // No match
         })
         */
-
-
+          // this.viewCtrl.dismiss();
+          // this.storage.get('userData').then((userlogin) => {
+          //     console.log(userlogin);
+          //     if (userlogin) {
+          //       this.navCtrl.setRoot(MainPage);
+          //     }else if(!userlogin){
+          //       this.navCtrl.setRoot('WelcomePage');
+          //     }
+              
+          //  });
         // Convenience to route with a given nav
         this.deeplinks.routeWithNavController(this.nav, {
           '/agribolo/': HomePage,
