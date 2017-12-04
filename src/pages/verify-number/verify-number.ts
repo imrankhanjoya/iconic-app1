@@ -103,6 +103,12 @@ export class VerifyNumberPage {
     verifyNumber(){
 
       var sendForm = true;
+      dataLayer.push({
+       'appEventCategory': 'Onboarding',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Signup - Verify OTP'
+     });
+     dataLayer.push({'event': 'appEvent'});
       if(this.RegisterData.verifyOtpfirst.length<1 || this.RegisterData.verifyOtpSecond.length<1 || this.RegisterData.verifyOtpThired.length<1 || this.RegisterData.verifyOtpFourth.length<1){
           this.presentToast(this.VERIFY_TYPE_OTP);
           sendForm = false;

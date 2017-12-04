@@ -66,7 +66,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Home', component: HomePage},
+    { title: 'Home', component: 'HomePage'},
     { title: 'Profile', component: 'ItemCreatePage'},
     { title: 'Privacy & Policy', component: 'PrivacyPage' },
     { title: 'About Us', component: 'AboutPage'},
@@ -220,6 +220,8 @@ export class MyApp {
        this.nav.push('AboutHindiPage');
     }else if(page.component=='PrivacyPage' && this.userLanguage=='hi'){    
        this.nav.push('PrivacyHindiPage');
+    }else if(page.component=='HomePage'){
+      this.nav.setRoot(MainPage);
     }else{
        this.nav.push(page.component);
     }
