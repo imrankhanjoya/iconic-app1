@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, MenuController, NavController, Platform, NavParams } from 'ionic-angular';
+import { IonicPage, MenuController, NavController, Platform, NavParams ,ViewController} from 'ionic-angular';
 import { MainPage } from '../pages';
 import { Storage } from '@ionic/storage';
 import { WeatherPage } from '../weather/weather';
 
 import { TranslateService } from '@ngx-translate/core';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 export interface Slide {
   title: string;
@@ -23,13 +25,37 @@ export class TutorialPage {
   dir: string = 'ltr';
 
   constructor(public navCtrl: NavController, public menu: MenuController,public translate: TranslateService,
-    public platform: Platform,public storage:Storage, public navParams: NavParams) {
+    public platform: Platform,public storage:Storage, public navParams: NavParams,public viewCtrl:ViewController,
+    public splashScreen: SplashScreen) {
     this.dir = platform.dir();
     console.log('----- : '+navParams.get("data"));
-    setTimeout(()=>{
+    // setTimeout(()=>{
+      
+    //   },3000);
+
+
+  }
+
+  startApp() {
+    this.navCtrl.setRoot('WelcomePage', {}, {
+      animate: true,
+      direction: 'forward'
+    });
+  }
+
+  onSlideChangeStart(slider) {
+    this.showSkip = !slider.isEnd();
+  }
+
+  ionViewDidEnter() {
+    // the root left menu should be disabled on the tutorial page
+    this.menu.enable(false);
+    this.splashScreen.hide();
+ 
+    setTimeout(() => {
       this.platform.ready().then((readySource) => {
-          
-          storage.get('userData').then((userlogin) => {
+          this.viewCtrl.dismiss();
+          this.storage.get('userData').then((userlogin) => {
               console.log(userlogin);
               if (userlogin) {
                 this.navCtrl.setRoot(MainPage, {}, {
@@ -55,25 +81,7 @@ export class TutorialPage {
               
            });
       });
-      },3000);
-
-
-  }
-
-  startApp() {
-    this.navCtrl.setRoot('WelcomePage', {}, {
-      animate: true,
-      direction: 'forward'
-    });
-  }
-
-  onSlideChangeStart(slider) {
-    this.showSkip = !slider.isEnd();
-  }
-
-  ionViewDidEnter() {
-    // the root left menu should be disabled on the tutorial page
-    this.menu.enable(false);
+    }, 500);
   }
 
   ionViewWillLeave() {

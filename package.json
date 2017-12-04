@@ -31,7 +31,7 @@
         "@ionic-native/google-maps": "3.12.1",
         "@ionic-native/in-app-browser": "^4.3.0",
         "@ionic-native/native-geocoder": "^4.3.1",
-        "@ionic-native/splash-screen": "3.12.1",
+        "@ionic-native/splash-screen": "^4.4.2",
         "@ionic-native/status-bar": "3.12.1",
         "@ionic-native/toast": "^4.3.3",
         "@ionic/storage": "^2.0.1",
@@ -77,7 +77,6 @@
             "cordova-plugin-geolocation": {},
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-device": {},
-            "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
             "ionic-plugin-keyboard": {},
@@ -105,7 +104,8 @@
                 "DEEPLINK_5_HOST": " "
             },
             "cordova-plugin-fcm": {},
-            "cordova-plugin-x-toast": {}
+            "cordova-plugin-x-toast": {},
+            "cordova-plugin-splashscreen": {}
         },
         "platforms": [
             "android"

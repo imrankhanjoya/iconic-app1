@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform, AlertController } from 'ionic-angular';
+import { Config, Nav, Platform, AlertController,ModalController } from 'ionic-angular';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 import { Storage } from '@ionic/storage';
@@ -11,6 +11,8 @@ import { FCM } from '@ionic-native/fcm';
 import { CacheService } from "ionic-cache";
 import { Api } from '../providers/api/api';
 import { Events } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 
 //import { Storage } from '@ionic/storage';
 
@@ -77,9 +79,13 @@ export class MyApp {
   public alert:any;
   constructor(public events: Events,private translate: TranslateService, public platform: Platform, settings: Settings,
     private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
-    public fcm: FCM,public cacheService: CacheService,public api:Api,public alertCtrl: AlertController) {
+    public fcm: FCM,public cacheService: CacheService,public api:Api,public alertCtrl: AlertController,
+    public splashScreen: SplashScreen,public modalCtrl: ModalController) {
     console.log("=-=-=-=-=-MyApp=-=-=-=-");
-
+    let splash = modalCtrl.create('TutorialPage');
+    splash.present();
+    
+    this.initializeApp();
     events.subscribe('user:created', (user, userLang) => {
       // user and time are the same arguments passed in `events.publish(user, time)`
       this.userLanguage = userLang;
@@ -141,6 +147,14 @@ export class MyApp {
     });
   }
 
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // do whatever you need to do here.
+      // setTimeout(() => {
+      //   this.splashScreen.hide();
+      // }, 100);
+    });
+  }
 
   ionViewDidLoad() {
     this.platform.ready().then(() => {

@@ -57,6 +57,7 @@ import { CacheModule } from "ionic-cache";
 import { SearchProvider } from '../providers/search/search';
 import { ETirdingProvider } from '../providers/e-tirding/e-tirding';
 import { EtradingProvider } from '../providers/etrading/etrading';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 
 // The translate loader needs to know where to load i18n files
@@ -115,7 +116,7 @@ export function provideSettings(storage: Storage) {
     User,
     GoogleMaps,
     Geolocation,
-    
+    SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
