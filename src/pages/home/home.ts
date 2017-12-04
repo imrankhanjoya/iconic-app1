@@ -146,13 +146,6 @@ export class HomePage {
     //   });
     // dataLayer.push({'event': 'TestEvent'});
 
-    dataLayer.push({
-       'appEventCategory': 'about',
-       'appEventAction': 'click',
-       'appEventLabel': 'about button'
-     });
-     dataLayer.push({'event': 'appEvent'});
-
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
           this.isHeaderAnimition=false;
