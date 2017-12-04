@@ -133,6 +133,24 @@
 
     <ion-grid>
     <ion-row class="weatherfoter">
+      <ion-col col-6>
+      <ion-col col-6>
+      <span class="weatherAdv">Powered by</span>
+      </ion-col>
+      
+      <ion-col col-6>
+        <img class="bulb-icon" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="your image">
+      </ion-col>
+      </ion-col>
+      <ion-col col-6 class="sources">
+      <a href="https://www.accuweather.com/" style="float: right; padding: 11px 15px 11px 15px; color: #fff; background-color: #649305;display: inline-block; text-decoration: none;">Weekly Forecast<!-- {{'WEEKLY_FORCAST' | translate}} <ion-icon name="skip-forward"></ion-icon>--></a>
+      <!-- <div class="right Headline colorBlack" >{{'SEE_MORE' | translate}}</div> -->
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+    <ion-row class="weatherfoter">
       <ion-col col-1>
         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
@@ -301,16 +319,14 @@
   <ion-card class="dialog" *ngIf="announceList.status==true" >
     <ion-grid >
       <ion-row>
-        <ion-col col-12>
-          <ion-col col-2 style="float: left">
+          <ion-col col-3 >
             <ion-thumbnail item-start class="avatar">
-           <img src="assets/img/watering_can.png" >
-           </ion-thumbnail>
-              </ion-col>
+              <img src="assets/img/watering_can.png" >
+              </ion-thumbnail>
+            </ion-col>
           <ion-col class="smallTitle" col-9>
             {{announceList.data[0].title}}
           </ion-col>
-        </ion-col>
       </ion-row>
     </ion-grid>
     <div *ngIf="announceList.data[0].type_value!='' || announceList.data[0].type_value!='NULL'" class="readMore titleFont" (click)="gotoAnounsePage(announceList.data[0].type,announceList.data[0].type_value)">{{'SEE_MORE' | translate}}</div>

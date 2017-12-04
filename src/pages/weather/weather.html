@@ -23,7 +23,7 @@
       <button ion-button clear class="floatRight" (click)="openFilter()">{{'CHANGE_LOCATION' | translate}}</button>
     </div>
   </ion-card>
-  <ion-slides  class="mainCard1" parallax="true" #mySlider (ionSlideDidChange)="onSlideChanged()" [slidesPerView]="'1.08'">
+  <ion-slides  class="mainCard1" parallax="true" #mySlider  [slidesPerView]="'1.08'">
   <ion-slide  class="ionslides "  *ngFor="let wheaterdetail of wheaterdetailall.data;">
       <ion-card class="fullCard"  *ngIf="wheaterdetailall.status==true" >
         <ion-row>
