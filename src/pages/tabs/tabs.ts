@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, Platform, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, Platform, AlertController,LoadingController } from 'ionic-angular';
 
 import { Tab1Root } from '../pages';
 import { Tab2Root } from '../pages';
@@ -10,6 +10,7 @@ import { Tab5Root } from '../pages';
 import { HomePage } from '../../pages/home/home';
 import { NewsPage } from '../../pages/news/news';
 import { Events } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -34,7 +35,8 @@ export class TabsPage {
   public selectedTabIndex:0;
 
   constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
-    public alertCtrl: AlertController,public events: Events) {
+    public alertCtrl: AlertController,public events: Events,private geolocation: Geolocation,
+    public loadingCtrl:LoadingController) {
 
     this.translate.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
@@ -73,14 +75,31 @@ export class TabsPage {
   gotoChoupal(){
     this.navCtrl.push('ChoupalPage');
   }
+  gotoSava(){
+    this.rotateClass="rotateimage1";
+      //this.topMenu = 'toolbarClosed';
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
+    this.geolocation.getCurrentPosition().then((resp) => {
+       this.navCtrl.push('KrishCenterPage');
+       this.loading.dismiss();
+    }).catch((error) => {
+      console.log('Error getting location', error);
+      alert("Plase trun on yours phone GPS?");
+      this.loading.dismiss();
+    });
+  }
   onTabsChange(){
     let selectedTab = this.tabRef.getSelected();
     this.selectedTabTitle=selectedTab.tabTitle;
     this.selectedTabIndex=selectedTab.index;
     console.log(selectedTab.index + ' - ' + selectedTab.tabTitle);
-    if (selectedTab.index==1) {
-      this.events.publish('update:page');
-    }
+    // if (selectedTab.index==1) {
+    //   // this.events.publish('update:page');
+    //   this.navCtrl.push('KrishCenterPage');
+    // }
 
   }
   exitConfrom() {

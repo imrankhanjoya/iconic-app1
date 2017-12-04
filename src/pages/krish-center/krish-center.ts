@@ -27,28 +27,22 @@ export class KrishCenterPage {
   public loading:any;
   public alert:any;
   public isGetLocation:any;
-  public geolocation:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation1: Geolocation,
+  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
     public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
     public alertCtrl: AlertController,public events: Events) {
-
-    
-    events.subscribe('update:page', () => {
-      this.geolocation=geolocation1;
-          this.isGetLocation=true;
-          this.loading = this.loadingCtrl.create({
+    this.isGetLocation=true;
+    this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
           });
           this.loading.present();
-          this.getLocation();
-          this.startTimer();
-        });
+    
   }
 
 
   ionViewDidLoad() {
-      
      console.log('ionViewDidLoad KrishCenterPage');
+     this.getLocation();
+     this.startTimer();
   }
 
     getLocation(){

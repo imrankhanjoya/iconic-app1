@@ -55,10 +55,10 @@ import { MainPage } from '../pages/pages';
     </ion-content>
 
   </ion-menu>
-  <ion-nav #content [root]="rootPage"></ion-nav>`
+  <ion-nav #content [root]="MyApp"></ion-nav>`
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+  // rootPage = FirstRunPage;
   public username : any;
   public display_name : any;
   public profile_picture : '/assets/img/appicon.png';
@@ -87,7 +87,7 @@ export class MyApp {
     // let splash = modalCtrl.create('TutorialPage');
     // splash.present();
 
-    this.initializeApp();
+    // this.initializeApp();
     events.subscribe('user:created', (user, userLang) => {
       // user and time are the same arguments passed in `events.publish(user, time)`
       this.userLanguage = userLang;
@@ -116,7 +116,29 @@ export class MyApp {
 
         this.profile_picture = userlogin.profile_picture;
       });
-     
+       this.platform.ready().then(() => {
+            //this.viewCtrl.dismiss();
+            this.storage.get('userData').then((userlogin) => {
+                console.log(userlogin);
+                if (userlogin) {
+                  console.log('-----'+userlogin);
+                  this.nav.setRoot(MainPage);
+                  // storage.get('notificationData').then((notiData) => {
+                  //     if (notiData) {
+                  //         this.gotoAnounsePage(notiData.type,notiData.type_value);
+                  //       }else {
+                  //        this.navCtrl.setRoot(MainPage, {}, {
+                  //           animate: true,
+                  //           direction: 'forward'
+                  //         }); 
+                  //       }
+                  // });
+                }else if(!userlogin){
+                  this.nav.setRoot('WelcomePage');
+                }
+                
+             });
+        });
       fcm.subscribeToTopic('marketing');
       //this.storage.set('updated_token','islamsolnkey');
       fcm.getToken(function(token){
@@ -147,11 +169,12 @@ export class MyApp {
       });
 
     });
+    this.splashScreen.hide();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.nav.setRoot('TutorialPage');
+      //this.nav.setRoot('TutorialPage');
       // do whatever you need to do here.
       // setTimeout(() => {
       //   this.splashScreen.hide();
@@ -166,28 +189,7 @@ export class MyApp {
       this.statusBar.styleDefault();
 
     });
-    this.platform.ready().then(() => {
-          //this.viewCtrl.dismiss();
-          this.storage.get('userData').then((userlogin) => {
-              console.log(userlogin);
-              if (userlogin) {
-                this.nav.setRoot(MainPage);
-                // storage.get('notificationData').then((notiData) => {
-                //     if (notiData) {
-                //         this.gotoAnounsePage(notiData.type,notiData.type_value);
-                //       }else {
-                //        this.navCtrl.setRoot(MainPage, {}, {
-                //           animate: true,
-                //           direction: 'forward'
-                //         }); 
-                //       }
-                // });
-              }else if(!userlogin){
-                this.nav.setRoot('WelcomePage');
-              }
-              
-           });
-      });
+
   }
 
 

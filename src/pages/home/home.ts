@@ -20,6 +20,7 @@ import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
 import { User } from '../../providers/providers';
 import { FCM } from '@ionic-native/fcm';
+import { SplashScreen } from '@ionic-native/splash-screen';
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 /**
@@ -75,7 +76,7 @@ export class HomePage {
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
-    public viewCtrl:ViewController) {
+    public viewCtrl:ViewController,public splashScreen:SplashScreen) {
 
     //--------homepage----------
     this.toggleMenuText="more";
@@ -140,6 +141,7 @@ export class HomePage {
     }
 
   ionViewDidLoad() {
+    this.splashScreen.hide();
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
           this.isHeaderAnimition=false;
