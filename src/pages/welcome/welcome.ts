@@ -28,6 +28,23 @@ export class WelcomePage {
            }
     setLanguage(lang) {
       this.events.publish('user:created', "000000000000", lang);
+      if(lang =='hi'){
+      dataLayer.push({
+       'appEventCategory': 'Onboarding',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Language - Hindi'
+     });
+     dataLayer.push({'event': 'appEvent'});
+   }
+   if(lang =='en'){
+    dataLayer.push({
+       'appEventCategory': 'Onboarding',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Language - English'
+     });
+     dataLayer.push({'event': 'appEvent'});
+   }
+
       // this.storage.set('userLang',lang);
       // this.initTranslate(lang);
       console.log(lang);
@@ -38,7 +55,8 @@ export class WelcomePage {
       //window.location.reload();
       this.api.changelang(lang);
       this.navCtrl.push('LoginPage');
-    }
+   }
+
 
     initTranslate(lang) {
       // Set the default language for translation strings, and the current language.

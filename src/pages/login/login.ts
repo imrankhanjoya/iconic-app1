@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 import { HomePage } from '../home/home';
@@ -22,7 +23,7 @@ export class LoginPage {
     private loginErrorString: string;
     RegisterData = {user_name:'', userPassword:''};
 
-  constructor(public navCtrl: NavController,public storage:Storage,
+  constructor(public events: Events,public navCtrl: NavController,public storage:Storage,
     public user: User,public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public translateService: TranslateService) {
@@ -99,8 +100,21 @@ export class LoginPage {
       loading.dismiss();
     });
    }
+
+   dataLayer.push({
+       'appEventCategory': 'Onboarding',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Signup - Phone NUmber'
+     });
+     dataLayer.push({'event': 'appEvent'});
   }
   singUp(){
+  dataLayer.push({
+       'appEventCategory': 'Onboarding',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'New User'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('OtpNumberPage');
   }
   gotoForgatPassword(){
