@@ -16,7 +16,7 @@
 <ion-content padding>
 <ion-grid>
       <ion-row>
-      <ion-col class="krishisevayen-cardHeader">
+      <ion-col class="krish_Header">
           <div class="headerClass">{{'CROP'| translate}}</div>
       </ion-col>
     </ion-row>
@@ -25,8 +25,8 @@
             
 
               <ion-slide >
-                <ion-card class="image-card" (click)="goToKharif()">
-                  <img src="assets/img/Kharif.jpeg" >
+                <ion-card class="specil_card" (click)="goToKharif()">
+                  <img  class="specil_image" src="assets/img/Kharif.jpeg" >
                   <div class="krishisevayen-title-box">
                   <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'KHARIF'| translate}}</div>
                   <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
@@ -34,8 +34,8 @@
                 </ion-card>
               </ion-slide>
               <ion-slide >
-                <ion-card class="image-card" (click)="goToRabi()">
-                  <img src="assets/img/Rabi_crop.JPG">
+                <ion-card class="specil_card" (click)="goToRabi()">
+                  <img  class="specil_image" src="assets/img/Rabi_crop.JPG">
                   <div class="krishisevayen-title-box">
                   <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'RABI'| translate}}</div>
                   <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
@@ -43,8 +43,8 @@
                 </ion-card>
               </ion-slide>
               <ion-slide>
-              <ion-card class="image-card" (click)="goToHorticulture()" >
-                <img src="assets/img/horticulture.jpeg" >
+              <ion-card class="specil_card" (click)="goToHorticulture()" >
+                <img  class="specil_image" src="assets/img/horticulture.jpeg" >
                 <div class="krishisevayen-title-box">
                 <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'HORTICULTURE'| translate}}</div>
                 <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
@@ -57,29 +57,29 @@
 
   <ion-grid>
       <ion-row>
-      <ion-col class="cardHeader">
+      <ion-col class="krish_Header">
           <div class="headerClass">{{'SPECIALIST'| translate}}</div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-   <ion-slides  [slidesPerView]="'1.1'" >
+   <ion-slides  [slidesPerView]="'1.05'" >
 
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="image-card  " (click)=" goToExpertDetial(expert.id)" >
-                <img src="{{expert.attachments}}" >
+              <ion-card class="specil_card " (click)=" goToExpertDetial(expert.id)" >
+                <img  class="specil_image" src="{{expert.attachments}}" >
                 <div class="card-title-box">
-                <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
+                <div class="card-title fontBold smallTitle fontShadow margin-top">{{expert.title}}</div>
                 <div class="card-subtitle fontBold captionFont ">{{expert.date}}</div>
 
-                <button ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
+                <button style="margin-top: 10px;" ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
                 </div>
               </ion-card>
           </ion-slide>
           <ion-slide class="slideItem ">
-      <ion-card class="image-card">
-          <div class="see-title-box">
-          <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
+      <ion-card class="specil_card">
+          <div class="see-title-box1">
+          <button style="margin-top:5px;" ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
           </div>
       </ion-card>
     </ion-slide>
@@ -90,14 +90,14 @@
 
     <ion-grid>
       <ion-row>
-      <ion-col class="krishisevayen-cardHeader">
+      <ion-col class="krish_Header">
           <div class="headerClass">{{'ASK_THE_EXPERT'| translate}}</div>
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid >
 
-    <ion-card class="image-card" (click)="gotoAskquestion()" >
-      <img src="assets/img/askquestion.jpg" >
+    <ion-card class="agri-card" (click)="gotoAskquestion()" >
+      <img   class="agri_image" src="assets/img/askquestion.jpg" >
       <div class="krishisevayen-title-box">
       <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
       <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>

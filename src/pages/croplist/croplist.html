@@ -30,7 +30,7 @@
 	<ion-row>
 
 	      	<ion-card   class="produtimage" (click)="gotocropdetail(crops.id)" *ngFor="let crops of cropList.data;">
-	        	<img  src="{{crops.image}}"/>
+	        	<img class="ion_card_img"  src="{{crops.image}}"/>
 	        	<div class="sarsTitle colorGrey Headline alignCenter paddingTop">{{crops.name}}</div>
 	      	</ion-card>
 

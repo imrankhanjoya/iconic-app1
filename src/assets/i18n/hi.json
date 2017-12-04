@@ -318,5 +318,6 @@
   "POPULARITY":"लोकप्रियता",
   "PRICE_LOW_TO_HIGH":"कीमतों का उतार - चढ़ाव",
   "PRICE_HIGH_TO_LOW":"कीमतों का चढ़ाव - उतार",
-  "WEEKLY_FORCAST":"मौसम पूर्वानुमान"
+  "WEEKLY_FORCAST":"मौसम पूर्वानुमान",
+  "NO_MARKET_MANDI":"इस बाजार के लिए कोई डेटा नहीं मिला"
 }

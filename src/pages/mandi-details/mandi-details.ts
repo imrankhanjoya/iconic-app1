@@ -4,6 +4,7 @@ import { ModalController, ViewController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { Storage } from '@ionic/storage';
 import { FilterModelPage } from '../filter-model/filter-model';
+import { TranslateService } from '@ngx-translate/core';
 
 
 /**
@@ -31,8 +32,13 @@ export class MandiDetailsPage {
   public toolbarClass:any;
 
   constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
-    public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController) {
+    public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController,public translateService: TranslateService) {
 
+
+      this.translateService.get('NO_MARKET_MANDI').subscribe((value) => {
+        this.NO_MARKET_MANDI = value;
+        console.log(this.validnumber+'tesrtinnng');
+      });
     
     /*this.filterMarket = navParams.get('filter_market');
     this.filterDistrict = navParams.get('filter_district');
@@ -59,8 +65,15 @@ export class MandiDetailsPage {
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
     var crop_id = ( typeof this.crop_id != 'undefined' )?this.crop_id:0;
     this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id,tehsilId).then((res)=>{
-      this.mandiData= res;
-      this.loading.dismiss();
+      
+      if (res.data=='') {
+        this.loading.dismiss();
+        alert(this.NO_MARKET_MANDI);
+      }
+      if (res.data!='') {
+        this.mandiData= res;
+        this.loading.dismiss();
+      }
     });
 
   }
