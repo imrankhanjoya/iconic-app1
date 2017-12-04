@@ -24,6 +24,9 @@ page-tabs {
 			animation-duration:500ms;
 
 		}
+		.bottmTabHide .tab-button{
+			display: none;
+		}
 		@keyframes infrontAnimation {
 			0% {
 			bottom:0px;

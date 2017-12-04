@@ -320,7 +320,6 @@ export class HomePage {
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
         this.kendraHome.data = res.data[0];
-        
         this.geoLoc.lat = res.data[0].lat;
         this.geoLoc.lng = res.data[0].longe;
         this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
