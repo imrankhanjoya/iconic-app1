@@ -140,12 +140,6 @@ export class HomePage {
     }
 
   ionViewDidLoad() {
-    //    dataLayer.push({
-    //     'screenPath': 'about',
-    //     'screenName': 'About Us'
-    //   });
-    // dataLayer.push({'event': 'TestEvent'});
-
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
           this.isHeaderAnimition=false;
@@ -386,6 +380,12 @@ gotoAgriinfo(){
 
   }
   gotoWeatherPage(){
+  dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Weather Card'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push(WeatherPage);
   }
   gotoservicesPage(){

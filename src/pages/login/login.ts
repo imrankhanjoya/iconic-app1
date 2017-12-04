@@ -102,9 +102,9 @@ export class LoginPage {
    }
 
    dataLayer.push({
-       'appEventCategory': 'Onboarding',
+       'appEventCategory': 'Login',
        'appEventAction': 'Submit',
-       'appEventLabel': 'Signup - Phone NUmber'
+       'appEventLabel': 'Submit - Login'
      });
      dataLayer.push({'event': 'appEvent'});
   }
