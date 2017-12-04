@@ -89,11 +89,7 @@ export class LoginPage {
      if(resp.status==true){
        this.storage.set('userData',resp.data);
        this.presentToast(this.WELCOME_BACK + resp.data.display_name);
-       // this.navCtrl.setRoot(MainPage);
-       this.navCtrl.push(HomePage).then(() => {
-          const index = this.viewCtrl.index;
-          this.navCtrl.remove(index);
-        });
+       this.navCtrl.setRoot(MainPage);
       }else{
         this.errorMsg = true;
         this.presentToast(this.LOGIN_USER_INVALID);

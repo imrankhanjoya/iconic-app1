@@ -2,7 +2,7 @@ import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@ang
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController,ViewController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -74,7 +74,10 @@ export class HomePage {
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController) {
+    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
+    public viewCtrl:ViewController) {
+
+    //--------homepage----------
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
       //this.topMenu = 'toolbarClosed';
@@ -104,6 +107,8 @@ export class HomePage {
                     }
                   }else {
                     this.navCtrl.pop({});
+                    // const index = this.viewCtrl.index;
+                    // this.navCtrl.remove(index);
                   }
               });
             });
@@ -135,11 +140,18 @@ export class HomePage {
     }
 
   ionViewDidLoad() {
-       dataLayer.push({
-        'screenPath': 'about',
-        'screenName': 'About Us'
-      });
-    dataLayer.push({'event': 'TestEvent'});
+    //    dataLayer.push({
+    //     'screenPath': 'about',
+    //     'screenName': 'About Us'
+    //   });
+    // dataLayer.push({'event': 'TestEvent'});
+
+    dataLayer.push({
+       'appEventCategory': 'about',
+       'appEventAction': 'click',
+       'appEventLabel': 'about button'
+     });
+     dataLayer.push({'event': 'appEvent'});
 
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
@@ -190,14 +202,6 @@ export class HomePage {
 
     //For tab Scroll
     this.startVisbol=true;
-    document.querySelector(".tabbar").classList.add('show-tabbar');
-    document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-    let scroll = document.querySelectorAll('.scroll-content');
-          if (scroll !== null) {
-              Object.keys(scroll).map((key) => {
-                  scroll[key].style.marginBottom = '0px';
-              });
-          }
   }
 
   toggleMenu(){
