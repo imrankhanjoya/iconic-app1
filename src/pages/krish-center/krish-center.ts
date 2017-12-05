@@ -55,7 +55,7 @@ export class KrishCenterPage {
       },
       { enableHighAccuracy: false,timeout: 15000,maximumAge:60000 });
 
-      this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 15000, enableHighAccuracy: false }).then((resp) => {
+      this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 15000, enableHighAccuracy: true }).then((resp) => {
           console.log(resp.coords.latitude+" --:-----// "+resp.coords.longitude+"==========="+this.isGetLocation);
             console.log("===chal bhai mil gai location--");
             if (this.isGetLocation) {

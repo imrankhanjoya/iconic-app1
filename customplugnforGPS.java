@@ -31,8 +31,6 @@ public class AppVersion extends CordovaPlugin {
         String isGPS="false";
         if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
           isGPS="false";
-          this.cordova.getActivity().startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 200);
-
         }else {
           isGPS="true";
         }
@@ -41,9 +39,10 @@ public class AppVersion extends CordovaPlugin {
         return true;
       }
       if (action.equals("getVersionNumber")) {
+        this.cordova.getActivity().startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 200);
         PackageManager packageManager = this.cordova.getActivity().getPackageManager();
         callbackContext.success(packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0).versionName);
-      return true;
+        return true;
       }
       if (action.equals("getVersionCode")) {
         PackageManager packageManager = this.cordova.getActivity().getPackageManager();

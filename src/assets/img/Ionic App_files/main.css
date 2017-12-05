@@ -15039,11 +15039,11 @@ ion-menu ion-backdrop {
   touch-action: manipulation;
 }
 
-.menu-content-open ion-pane,
+/*.menu-content-open ion-pane,
 .menu-content-open ion-content,
 .menu-content-open .toolbar {
-  pointer-events: none;
-}
+  
+}*/
 
 @media (max-width: 340px) {
   .menu-inner {
