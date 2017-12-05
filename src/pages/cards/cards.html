@@ -18,7 +18,7 @@
 <ion-content>
 
   <div *ngIf="expertdata.status">
-    <ion-card *ngFor="let data of expertdata.data; let i=index " class="card card-md" (click)="goToExpertDetial(expertdata.data[i].id)">
+    <ion-card *ngFor="let data of items; let i=index " class="card card-md" (click)="goToExpertDetial(items[i].id)">
       <div>
       <img  src="{{data.attachments}}" />
       <div padding-top padding-left class="blogTitile">{{data.title}}</div>
@@ -31,5 +31,13 @@
         </div>
       </div>
   </ion-card>
+  </div>
+  <div *ngIf="datatypes != 'catss'" >
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="{{'LOADING_MORE_DATA' | translate}}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
   </div>
 </ion-content>

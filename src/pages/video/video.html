@@ -44,7 +44,7 @@
 
 
 
-<ion-grid style="padding: 0px;" *ngFor="let data of videolistData.data; let i=index "  >
+<ion-grid style="padding: 0px;" *ngFor="let data of items; let i=index "  >
 
 
  <ion-card *ngIf=" i == 0 " class="card card-md" (click)="gotoWebView(newsData.data[i].link)">
@@ -72,4 +72,12 @@
    </ion-row>
   </ion-card>
 </ion-grid>
+  <div *ngIf="datatypes != 'catss'" >
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="{{'LOADING_MORE_DATA' | translate}}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  </div>
 </ion-content>

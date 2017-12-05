@@ -18,7 +18,7 @@
 
 <ion-content>
 <ion-card>
-  <ion-list *ngFor="let data of questionsDatalist.data;let i=index ">
+  <ion-list *ngFor="let data of items;let i=index ">
     <ion-item (click)="gotoViewquestion(data.id)">
       <ion-row  >
         <ion-col col-12>
@@ -33,12 +33,14 @@
       </ion-row>
 
     </ion-item>
-    <div class="ans"></div>
   </ion-list>
-
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="{{'LOADING_MORE_DATA' | translate}}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-card>
-
-
 </ion-content>
 <ion-footer>
     <div class="block">

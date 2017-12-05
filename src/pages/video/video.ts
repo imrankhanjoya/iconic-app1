@@ -19,7 +19,9 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
   templateUrl: 'video.html',
 })
 export class VideoPage {
-
+  public items:any = [];
+  public datatypes:any;
+  private page:number=1;
   public videolistData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public VideoProvider: VideoProvider,
     private iab: InAppBrowser,public loadingCtrl: LoadingController) {
@@ -37,10 +39,11 @@ export class VideoPage {
         content: 'Please wait...'
       });
       loading.present();
-    this.VideoProvider.video_list().map(res => res.json()).subscribe((res) => {
+    this.VideoProvider.video_list(this.page).map(res => res.json()).subscribe((res) => {
       	this.videolistData=res;
-        // this.videolistDatamsg = res.msg;
-        // this.videolistDatastatus = res.status;
+        for(let person of this.videolistData.data) {
+          this.items.push(person);
+        }
         console.log(this.videolistData);
         loading.dismiss();
       }, (err) => {
@@ -50,14 +53,16 @@ export class VideoPage {
 
   }
   videoByCat(cat_slug){
+    this.datatypes = 'catss';
     let loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      loading.present();
+      content: 'Please wait...'
+    });
+    loading.present();
     this.VideoProvider.videoByCat(cat_slug).map(res => res.json()).subscribe((res) => {
         this.videolistData=res;
         // this.videolistDatamsg = res.msg;
         // this.videolistDatastatus = res.status;
+        this.items = this.videolistData.data
         loading.dismiss();
         console.log(this.videolistData);
       }, (err) => {
@@ -79,5 +84,23 @@ export class VideoPage {
   gotoWebView(URL){
     this.iab.create(URL, '_blank', 'location=yes');
 
+  }
+
+  doInfinite(infiniteScroll:any) {
+     console.log('doInfinite, start is currently '+this.start);
+     this.page+=1;
+     console.log('page  '+this.page);
+     
+    this.VideoProvider.video_list(this.page).map(res => res.json()).subscribe((res) => {      
+        if (res.status==true) {
+        for(let person of res.data) {
+          this.items.push(person);
+        }
+      }
+      infiniteScroll.complete();
+      console.log(this.items);
+
+    });
+     
   }
 }

@@ -18,6 +18,8 @@ import { HomePage } from '../home/home';
     templateUrl: 'questionlist.html',
   })
   export class QuestionlistPage {
+    public items:any = [];
+    private page:number=0;
     public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
     constructor(public navCtrl: NavController,public viewCtrl: ViewController,public navParams: NavParams,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
      this.loading = this.loadingCtrl.create({
@@ -33,10 +35,13 @@ import { HomePage } from '../home/home';
   }
   getquestions(){
 
-    this.QuestionsProvider.questionList().then((res)=>{
+    this.QuestionsProvider.questionList(this.page).then((res)=>{
       this.questionsDatalist.data = res.data;
         this.questionsDatalist.msg = res.msg;
         this.questionsDatalist.status = res.status;
+        for(let person of this.questionsDatalist.data) {
+          this.items.push(person);
+        }
         this.loading.dismiss();
     });
     
@@ -53,16 +58,36 @@ import { HomePage } from '../home/home';
 
   }
   gotoAskquestion(){
-   // this.navCtrl.push('AskquestionPage');
- this.navCtrl.push('AskquestionPage');
-} 
- back(){
-  // this.navCtrl.pop('HomePage');  
-   this.navCtrl.push(HomePage);
-   }
+     // this.navCtrl.push('AskquestionPage');
+   this.navCtrl.push('AskquestionPage');
+  } 
+  back(){
+    // this.navCtrl.pop('HomePage');  
+    this.navCtrl.push(HomePage);
+  }
   gotoViewquestion(Qid){
     console.log(Qid);
     this.navCtrl.push('QuitionviewPage',{QuitionID:Qid});
-  }   
+  } 
+
+  //Loader Question List
+  doInfinite(infiniteScroll:any) {
+     console.log('doInfinite, start is currently '+this.start);
+     this.page+=1;
+     console.log('page  '+this.page);
+     
+    this.QuestionsProvider.questionList(this.page).then((res)=>{
+      this.questionsDatalist.data = res.data;
+        this.questionsDatalist.msg = res.msg;
+        this.questionsDatalist.status = res.status;
+        if (res.status==true) {
+          for(let person of this.questionsDatalist.data) {
+            this.items.push(person);
+          }
+        }
+        infiniteScroll.complete();
+        console.log(this.items);
+    });
+  }  
 
 }

@@ -17,11 +17,11 @@ export class QuestionsProvider {
   constructor(public http: Http, public api: Api) {
     console.log('Hello QuestionsProvider Provider');
   }
-   questionList() {
+   questionList(page) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
      var dTime = new Date();
      var msec = dTime.getMilliseconds();
-  	 var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage,ctime:msec};
+  	 var paramCond ={page:page,user_id:this.api.userData.ID,lang:this.api.userLanguage,ctime:msec};
     return new Promise((resolve)=>{
       this.api.getCache('v1/question/all', paramCond).then((questionListData)=>{
         console.log('----------'+JSON.stringify(questionListData));

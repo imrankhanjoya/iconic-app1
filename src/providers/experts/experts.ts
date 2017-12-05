@@ -16,10 +16,10 @@ export class ExpertsProvider {
   constructor(public http: Http, public api: Api) {
     console.log('Hello ExpertsProvider Provider');
   }
-   Experts_list(post_type='blogs',limit=3) {
+   Experts_list(post_type='blogs',limit=3,page=0) {
     //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
     
-    var paramCond ={post_type:post_type,lang:this.api.userLanguage,limit:limit};
+    var paramCond ={post_type:post_type,lang:this.api.userLanguage,limit:limit,page:page};
     return new Promise((resolve)=>{
       this.api.getCache('v1/wp/all', paramCond).then((Experts_listData)=>{
         resolve(Experts_listData);
@@ -44,7 +44,7 @@ export class ExpertsProvider {
 
     // return seq;
   }
-   Experts_Cat_list(post_type='blogs',limit=3,slug) {
+  Experts_Cat_list(post_type='blogs',limit=3,slug) {
     //?lang=en_US&json=get_category_posts&post_type=agri_video&limit=20&slug=seeds
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
     var paramCond ={post_type:post_type,lang:this.api.userLanguage,limit:limit,slug:slug};

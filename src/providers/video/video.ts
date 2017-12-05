@@ -17,9 +17,9 @@ export class VideoProvider {
   constructor(public http: Http, public api: Api) {
     console.log('Hello VideoProvider Provider');
   }
-   video_list() {
+   video_list(page) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	var paramCond ={post_type:'agri_video',lang:this.api.userLanguage};
+  	var paramCond ={post_type:'agri_video',page:page,lang:this.api.userLanguage};
     let seq = this.api.get('v1/wp/all', paramCond).share();
 
     seq
