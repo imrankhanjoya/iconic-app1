@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController,LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
+import { Events } from 'ionic-angular';
+
 
 //import { ModalController, ViewController,LoadingController } from 'ionic-angular';
 
@@ -30,6 +32,7 @@ export class FilterCropsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
+    public events: Events,
     public viewCtrl:ViewController) {
       this.cropList    = [];
       this.filterCrops = [];
@@ -76,6 +79,11 @@ export class FilterCropsPage {
         } 
      }
     gotoFilter(){
+       dataLayer.push({
+       'appEventCategory': 'mandi',
+       'appEventAction': 'Submit',
+       'appEventLabel': ' Filter - crop'
+     });
       this.filterCrops=[];
     console.log(this.cropList);
     for (var i = 0; i < this.cropList.length; i++) {

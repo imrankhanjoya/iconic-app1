@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { CropsProvider } from '../../providers/crops/crops';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the CroplistPage page.
@@ -18,7 +19,7 @@ export class CroplistPage {
 	public croptype:any;
 	public cropList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams,public cropsProvider:CropsProvider,public loadingCtrl: LoadingController) {
+  	constructor(public navCtrl: NavController,  public events: Events,public navParams: NavParams,public cropsProvider:CropsProvider,public loadingCtrl: LoadingController) {
   		this.croptype=navParams.get('croptype');
   	}
 
@@ -41,7 +42,12 @@ export class CroplistPage {
 		// });
 		console.log('ionViewDidLoad CropslistPage');
   	}
-	gotocropdetail(crop_id){
+	gotocropdetail(crop_id,name){
+		 dataLayer.push({
+       'appEventCategory': 'Crops',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Crop - '+name
+     });
 	  	//console.log(crop_id+'send fro list on goto function');
 	    this.navCtrl.push('CropdetailPage',{crop_id:crop_id});
 	}

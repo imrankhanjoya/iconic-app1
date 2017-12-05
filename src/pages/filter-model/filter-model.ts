@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ModalController, ViewController,LoadingController } from 'ionic-angular';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Events } from 'ionic-angular';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
 
 /**
@@ -30,7 +31,7 @@ export class FilterModelPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,
     public cityStateProvider:CityStateProvider,public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,public events: Events
     ) {
         //Change Profile Details
         this.changemarket = this.formBuilder.group({
@@ -83,6 +84,12 @@ export class FilterModelPage {
     }
 
     filterLocaltionForm(){
+         dataLayer.push({
+       'appEventCategory': 'mandi',
+       'appEventAction': 'Submit',
+       'appEventLabel': ' Filter - Location'
+     });
+     dataLayer.push({'event': 'appEvent'});
         let data = { 'filter_district': this.changemarket.value.user_district_id,'filter_market': this.changemarket.value.user_market_id };
         this.viewCtrl.dismiss(data);
         //console.log(this.changemarket.value.user_market_id);

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-ang
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { CropsProvider } from '../../providers/crops/crops';
 import { MandiDetailsPage } from '../mandi-details/mandi-details';
+import { Events } from 'ionic-angular';
+
 
 /**
  * Generated class for the CropdetailPage page.
@@ -21,6 +23,7 @@ export class CropdetailPage {
 	public cropdetail: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
 	Crop: string = "General";
   	constructor(public navCtrl: NavController, public navParams: NavParams,
+  		 public events: Events,
   		public cropsProvider:CropsProvider,public loadingCtrl: LoadingController,
   		 public mandi:MandiProvider){
   		this.id=navParams.get('crop_id');
@@ -33,8 +36,9 @@ export class CropdetailPage {
 		content: 'Please wait...'
 		});
 		loading.present();
+
 		this.cropsProvider.sendCropDetail(this.id).then((res)=>{
-      	this.cropdetail=res.data;
+      	this.cropdetail=res.data;	
 			console.log(this.cropdetail);
 			console.log(this.cropdetail.id+'send for crop detail');
 			loading.dismiss();
@@ -42,7 +46,21 @@ export class CropdetailPage {
 		
 		console.log('ionViewDidLoad CropslistPage');
   	}
-  	 getMandiData(){
+  	get_events(events){
+  		 dataLayer.push({
+       'appEventCategory': 'Crops',
+       'appEventAction': 'Clicked',
+       'appEventLabel': events,
+     });
+     dataLayer.push({'event': 'appEvent'});
+  	}
+  	 getMandiData(name){
+  	 	 dataLayer.push({
+       'appEventCategory': 'Crops',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Visit Mandi '+name
+     });
+     dataLayer.push({'event': 'appEvent'});
   	 	this.navCtrl.push(MandiDetailsPage,{crop_id:this.cropdetail.id});
 }
 

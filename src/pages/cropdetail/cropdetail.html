@@ -9,25 +9,25 @@
   <ion-navbar>
     <ion-title>{{cropdetail.name}}</ion-title>
       <ion-buttons *ngIf="cropdetail.total_mandi > 0" end>
-      <div (click)="getMandiData()" >
+      <div (click)="getMandiData(cropdetail.name)" >
         <a >{{'GO_TO_MANDI' | translate}}</a>
     </div>
     </ion-buttons>
   </ion-navbar>
 	<ion-segment  [(ngModel)]="Crop">
-		<ion-segment-button style="background-color: #101c00 !important;"  value="General">
+		<ion-segment-button style="background-color: #101c00 !important;"  value="General"(click)="get_events('Overview')">
 		  {{'CROP_DETAIL_GENRAL' | translate}}
 		</ion-segment-button>
-	    <ion-segment-button style="background-color: #101c00 !important;" value="Desease">
+	    <ion-segment-button style="background-color: #101c00 !important;" value="Desease" (click)="get_events('Desease')">
 		 {{'CROP_DETAIL_DEASEASE' | translate}}
    		</ion-segment-button>
-	      <ion-segment-button style="background-color: #101c00 !important;" value="Insect">
+	      <ion-segment-button style="background-color: #101c00 !important;" value="Insect"(click)="get_events('Insect')">
 	  		  {{'CROP_DETAIL_INSECT' | translate}}
 	  		</ion-segment-button>
-	      <ion-segment-button style="background-color: #101c00 !important;" value="Varities">
+	      <ion-segment-button style="background-color: #101c00 !important;" value="Varities"(click)="get_events('Varities')">
 	        {{'CROP_DETAIL_VERIETIES' | translate}}
 	      </ion-segment-button>
-			<ion-segment-button style="background-color: #101c00 !important;" value="Water">
+			<ion-segment-button style="background-color: #101c00 !important;" value="Water"(click)="get_events('WaterMngement')">
 	      {{'CROP_DETAIL_WATER' | translate}}
 		</ion-segment-button>
 	</ion-segment>
@@ -38,7 +38,7 @@
 	<div [ngSwitch]="Crop">
 
 		<!---------Generale  Section-------->
-	    <ion-card  *ngSwitchCase="'General'">
+	    <ion-card  *ngSwitchCase="'General'" >
 	    	<img class="cropimage" src="{{cropdetail.image}}"/>
 		    <div class="allContent" >
 			    <div class=" displayOneFont fontBold colorGrey pClass">
@@ -55,7 +55,7 @@
 	  	</ion-card>
 
 
-	  	<div *ngSwitchCase="'Desease'">
+	  	<div *ngSwitchCase="'Desease'" >
 	  		<ion-row  *ngFor="let Deseas of cropdetail.Desease;">
 			<div >
 		    	<img class="cropimage paddingTop alignCenter" src="{{Deseas.picture}}"/>
@@ -135,7 +135,5 @@
 			</div>
 		</ion-row>
 	  	</div>
-
-
 	</div>
 </ion-content>

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ModalController, ViewController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
+
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { Storage } from '@ionic/storage';
 import { FilterModelPage } from '../filter-model/filter-model';
@@ -26,12 +28,12 @@ export class MandiDetailsPage {
   public filterDistrict:any;
   public filter_crops:any;
   public tehsilId:any;
-
   public topMenu:string='';
   
   public toolbarClass:any;
 
-  constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
+  constructor(public storage:Storage, public events: Events,
+public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController,public translateService: TranslateService) {
 
       this.loading = this.loadingCtrl.create({
@@ -79,7 +81,13 @@ export class MandiDetailsPage {
   }
 
   openFilter(){
-    this.toolbarClass="toolbarClosed";
+     dataLayer.push({
+       'appEventCategory': 'mandi',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Filter - Change Location'
+     });
+     dataLayer.push({'event': 'appEvent'});
+      this.toolbarClass="toolbarClosed";
     this.topMenu ="toolbarOpen";
     this.topMenu = "toolbarClosed";
     let modal = this.modalCtrl.create('FilterModelPage');
@@ -94,6 +102,13 @@ export class MandiDetailsPage {
     });
   }
   openCropFilter(){
+     dataLayer.push({
+       'appEventCategory': 'mandi',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Filter - Change Crop'
+     });
+     dataLayer.push({'event': 'appEvent'});
+  
     this.toolbarClass="toolbarClosed";
     this.topMenu ="toolbarOpen";
     this.topMenu = "toolbarClosed";
@@ -112,6 +127,14 @@ export class MandiDetailsPage {
   
  
   showFilter(){
+     dataLayer.push({
+       'appEventCategory': 'mandi',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Filter'
+     });
+     dataLayer.push({'event': 'appEvent'});
+  
+
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
       
       this.toolbarClass="toolbarOpen";
