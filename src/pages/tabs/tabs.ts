@@ -11,6 +11,8 @@ import { HomePage } from '../../pages/home/home';
 import { NewsPage } from '../../pages/news/news';
 import { Events } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Device } from '@ionic-native/device';
+import { AppVersion } from '@ionic-native/app-version';
 
 @IonicPage()
 @Component({
@@ -36,7 +38,7 @@ export class TabsPage {
 
   constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
     public alertCtrl: AlertController,public events: Events,private geolocation: Geolocation,
-    public loadingCtrl:LoadingController) {
+    public loadingCtrl:LoadingController,public device: Device,public appVersion: AppVersion) {
 
     this.translate.get(['Home', 'Krishi Center', 'News', 'Choupal', 'Market' ]).subscribe(values => {
       this.tab1Title = values['Home'];
@@ -76,20 +78,34 @@ export class TabsPage {
     this.navCtrl.push('ChoupalPage');
   }
   gotoSava(){
-    this.rotateClass="rotateimage1";
-      //this.topMenu = 'toolbarClosed';
-      this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      this.loading.present();
-    this.geolocation.getCurrentPosition().then((resp) => {
-       this.navCtrl.push('KrishCenterPage');
-       this.loading.dismiss();
-    }).catch((error) => {
-      console.log('Error getting location', error);
-      alert("Plase trun on yours phone GPS?");
-      this.loading.dismiss();
-    });
+
+
+    //this is function Check GPS on or off
+    this.appVersion.getPackageName(function (version) {
+                    if (version=="true") {
+                        this.navCtrl.push('KrishCenterPage');
+                    }else{
+                        this.gpsAlert();
+                    }
+                });
+
+    // this.navCtrl.push('KrishCenterPage');
+
+
+    // this.rotateClass="rotateimage1";
+    //   //this.topMenu = 'toolbarClosed';
+    //   this.loading = this.loadingCtrl.create({
+    //     content: 'Please wait...'
+    //   });
+    //   this.loading.present();
+    // this.geolocation.getCurrentPosition().then((resp) => {
+    //    this.navCtrl.push('KrishCenterPage');
+    //    this.loading.dismiss();
+    // }).catch((error) => {
+    //   console.log('Error getting location', error);
+    //   alert("Plase trun on yours phone GPS?");
+    //   this.loading.dismiss();
+    // });
   }
   onTabsChange(){
     let selectedTab = this.tabRef.getSelected();
@@ -102,10 +118,10 @@ export class TabsPage {
     // }
 
   }
-  exitConfrom() {
+  gpsAlert() {
       this.alert = this.alertCtrl.create({
-        title: 'Exit?',
-        message: 'Do you want to exit the app?',
+        title: 'GPS',
+        message: 'Your Phones GPS is off.',
         buttons: [
           {
             text: 'Cancel',
@@ -115,9 +131,13 @@ export class TabsPage {
             }
           },
           {
-            text: 'Exit',
+            text: 'Settings',
             handler: () => {
-              this.platform.exitApp();
+
+              //this is function go to  GPS setting
+              this.appVersion.getVersionNumber(function (version) {
+                              
+                          });
             }
           }
         ]

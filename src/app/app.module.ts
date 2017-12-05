@@ -58,6 +58,10 @@ import { SearchProvider } from '../providers/search/search';
 import { ETirdingProvider } from '../providers/e-tirding/e-tirding';
 import { EtradingProvider } from '../providers/etrading/etrading';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Device } from '@ionic-native/device';
+import { AppVersion } from '@ionic-native/app-version';
+
+
 
 
 // The translate loader needs to know where to load i18n files
@@ -157,7 +161,8 @@ export function provideSettings(storage: Storage) {
     SearchProvider,
     ETirdingProvider,
     EtradingProvider,
-
+    Device,
+    AppVersion,
   ]
 })
 export class AppModule { }
