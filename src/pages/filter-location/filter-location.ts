@@ -4,6 +4,8 @@ import { ModalController, ViewController,LoadingController } from 'ionic-angular
 import { CityStateProvider } from '../../providers/city-state/city-state';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { WeatherPage } from '../weather/weather';
+import { Events } from 'ionic-angular';
+
 
 /**
  * Generated class for the FilterLocationPage page.
@@ -28,7 +30,7 @@ export class FilterLocationPage {
 
 	constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,
     public cityStateProvider:CityStateProvider,public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,public events: Events
     ) {
         //Change Profile Details
         this.changelocation = this.formBuilder.group({
@@ -48,6 +50,12 @@ export class FilterLocationPage {
     }
 
     filterLocaltionForm(){
+         dataLayer.push({
+       'appEventCategory': 'Weather',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Reset Filter'
+     });
+     dataLayer.push({'event': 'appEvent'});
         let data = { 'data': this.changelocation.value.user_teshsil_id };
         this.viewCtrl.dismiss(data);
         console.log(this.changelocation.value.user_teshsil_id);
@@ -91,6 +99,12 @@ export class FilterLocationPage {
     }
 
     dismiss(){
+         dataLayer.push({
+       'appEventCategory': 'Weather',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Cancel Filter'
+     });
+     dataLayer.push({'event': 'appEvent'});
         let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }

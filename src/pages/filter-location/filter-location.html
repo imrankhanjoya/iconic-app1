@@ -48,18 +48,13 @@
               {{tehsil.tehsil_name}}</ion-option>
         </ion-select>
       </ion-item>
-      <div>
-            <div  class="p_button" style="float: right">
-                <button class="p_1" ion-button  (click)="dismiss()" clear>{{'CANCEL' | translate}}</button>
-            </div>
-            
-            <div  class="p_button" style="float: right">
-              <button class="p_1" ion-button type="submit" [disabled]="!changelocation.valid">Submit</button>
-          </div>
-
-            
+       <div  >
+       
+        <div  style="float: right;margin-right:10px;">
+          <button class="p_1" ion-button type="submit" [disabled]="!changelocation.valid">{{'SUBMIT' | translate}}</button>
+        </div>
       </div>
-
+    
     </ion-card>
   </form>
 

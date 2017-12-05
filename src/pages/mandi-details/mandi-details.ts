@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { ModalController, ViewController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
-
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { Storage } from '@ionic/storage';
 import { FilterModelPage } from '../filter-model/filter-model';

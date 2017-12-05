@@ -96,6 +96,13 @@ export class FilterModelPage {
         //this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
     }
     dismiss(){
+             dataLayer.push({
+           'appEventCategory': 'mandi',
+           'appEventAction': 'Filter',
+           'appEventLabel': ' Cancel Filter'
+         });
+         dataLayer.push({'event': 'appEvent'});
+
         let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }

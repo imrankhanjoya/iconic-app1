@@ -48,6 +48,13 @@ export class FilterCropsPage {
       console.log('ionViewDidLoad FilterCropsPage');
     }
     dismiss(){
+      dataLayer.push({
+       'appEventCategory': 'mandi',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Cancel Filter'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
         let data = { 'data': '' };
         this.viewCtrl.dismiss(data);
     }

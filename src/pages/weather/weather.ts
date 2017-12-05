@@ -2,6 +2,7 @@ import { Component ,ViewChild} from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { WeatherProvider } from '../../providers/weather/weather';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 import { IonicPage, NavController, NavParams, LoadingController,ModalController, ViewController } from 'ionic-angular';
 import { Slides } from 'ionic-angular';
 
@@ -38,6 +39,7 @@ export class WeatherPage {
               public storage:Storage,
               public weather:WeatherProvider,
               public modalCtrl:ModalController,
+              public events: Events,
               public viewCtrl:ViewController
               ) {
 
@@ -147,7 +149,23 @@ export class WeatherPage {
   slideChanged(index){
     console.log('---------');
   }
+  slides(tehsil_name){
+     dataLayer.push({
+       'appEventCategory': 'Weather',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Scrolled -'+tehsil_name
+     });
+     dataLayer.push({'event': 'appEvent'});
+
+  }
   openFilter(){
+     dataLayer.push({
+       'appEventCategory': 'Weather',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Changed Location'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
     let modal = this.modalCtrl.create('FilterLocationPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
