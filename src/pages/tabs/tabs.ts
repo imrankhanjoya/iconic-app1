@@ -81,7 +81,7 @@ export class TabsPage {
 
 
     //this is function Check GPS on or off
-    this.appVersion.getPackageName(function (version) {
+    this.appVersion.getPackageName((version)=>{
                     if (version=="true") {
                         this.navCtrl.push('KrishCenterPage');
                     }else{
