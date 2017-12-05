@@ -34,6 +34,10 @@ export class MandiDetailsPage {
   constructor(public storage:Storage,public navCtrl: NavController, public navParams: NavParams,public mandi:MandiProvider,
     public loadingCtrl: LoadingController,public modalCtrl:ModalController,public viewCtrl:ViewController,public translateService: TranslateService) {
 
+      this.loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+      });
+      this.loading.present();
 
       this.translateService.get('NO_MARKET_MANDI').subscribe((value) => {
         this.NO_MARKET_MANDI = value;
@@ -56,10 +60,6 @@ export class MandiDetailsPage {
      console.log('ionViewDidLoad MandiDetailsPage');
   }
    getMandiDetails(tehsilId){
-    this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-    });
-    this.loading.present();
     var DistrictId = ( typeof this.filterDistrict != 'undefined' )?this.filterDistrict:0;
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;

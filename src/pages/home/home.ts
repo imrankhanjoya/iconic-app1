@@ -174,6 +174,7 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
+        this.getMandiDetails(this.tehsil)
         this.storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
@@ -653,7 +654,22 @@ async changeClass(count): Promise<string> {
   public lineChartLegend:boolean = false;
   public lineChartType:string = 'line';
  
-  
+ 
+
+//-------------Get Mandi Data For Cache-------------//
+
+getMandiDetails(tehsilId){
+    var DistrictId = ( typeof this.filterDistrict != 'undefined' )?this.filterDistrict:0;
+    var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
+    var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
+    var crop_id = ( typeof this.crop_id != 'undefined' )?this.crop_id:0;
+    this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id,tehsilId).then((res)=>{
+      console.log('mandi data get succesfully');
+    });
+}
+
+//-------------End Get Mandi Data For Cache-------------//
+
 //--------------- chat end ----------
 
 }
