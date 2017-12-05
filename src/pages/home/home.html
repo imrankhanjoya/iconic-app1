@@ -24,11 +24,11 @@
 <div class="barCustomAct">
   <ion-grid  class="gridView gridDesign top">
   <ion-row class="gridRow">
-    <ion-col class="toolbarCol" (click)="gotoWeatherPage()">
+    <ion-col class="toolbarCol" (click)="gotoWeatherPage('menu')">
       <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
       {{ 'WEATHER' | translate }}
     </ion-col>
-    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiDetail()">
+    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiDetail('menu')">
       <img class="{{maindiIconClass}}" src="assets/img/agri bolo icon/hdpi/Group 21.png" >
       {{'MANDI' | translate }}
     </ion-col>
@@ -50,11 +50,11 @@
         <img src="assets/img/agri bolo icon/hdpi/karshi.PNG">
           {{'KRISHI_JANKARI' | translate }}
       </ion-col>
-      <ion-col class="toolbarCol"(click)="gotoVedio()">
+      <ion-col class="toolbarCol"(click)="gotoVedio('menu')">
         <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
         {{'VIDEO' | translate }}
       </ion-col>
-      <ion-col class="toolbarCol" (click)="gotoAskquestion()">
+      <ion-col class="toolbarCol" (click)="gotoAskquestion('menu')">
         <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
         {{'ASK_THE_EXPERT' | translate }}
       </ion-col>
@@ -106,7 +106,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage()">
+  <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage('card')">
     <ion-row>
       <ion-col col-6 class="colCandigare">
           {{NowTime | date:'dd MMMM yyyy hh:mm a'}}          
@@ -242,7 +242,7 @@
      <ion-col>
 
       <div class="alignCenter">
-        <button ion-button  class="buttonGreen"  (click)="gotomandiDetail()">{{'SEE_MORE' | translate}}</button>
+        <button ion-button  class="buttonGreen"  (click)="gotomandiDetail('card')">{{'SEE_MORE' | translate}}</button>
     </div>
 
     </ion-col>
@@ -271,7 +271,7 @@
 
 
                 <ion-slide>
-              <ion-card class="image-card" (click)="gotoAskquestion()" >
+              <ion-card class="image-card" (click)="gotoAskquestion('card')" >
                 <img src="assets/img/askquestion.jpg" >
                 <div class="krishisevayen-title-box">
                 <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
@@ -348,7 +348,7 @@
 
   <ion-slides [slidesPerView]="'auto'">
     <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
-      <ion-card (click)="gotoMarketViewPage(productData.id)">
+      <ion-card (click)="gotoMarketViewPage(productData.id,productData.name,productData.sku)">
         <img class="produtimage" src="{{productData.feature_image}}"/>
         <div class="title colorGrey Headline">{{productData.name}}</div>
         <div class="detailSar colorGreen smallTitle" > 
@@ -386,7 +386,7 @@
    <ion-slides  [slidesPerView]="'1.1'" >
 
         <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="specil_card" (click)=" goToExpertDetial(expert.id)" >
+              <ion-card class="specil_card" (click)="goToExpertDetial(expert.id,expert.title)" >
                 <img  class="specil_image" src="{{expert.attachments}}" >
                 <div class="card-title-box">
                 <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
@@ -427,14 +427,9 @@
     </div>
   </ion-row>
   <div class="alignCenter">
-      <button ion-button  class="buttonGreen"  (click)="gotoVedio()">{{'SEE_MORE' | translate}}</button>
+      <button ion-button  class="buttonGreen"  (click)="gotoVedio('card')">{{'SEE_MORE' | translate}}</button>
     </div>
   <img class='playIcon' (click)="playVideo('Moin-yDG7Ss')" src="assets/img/play-button.svg">  
-  <div>
-    
-
-  </div>
-
 
   </ion-card >
 
@@ -448,13 +443,13 @@
   </ion-grid>
 
   <ion-card>
-      <div class="row separator" *ngIf="newsData.status==true" (click)="gotoWebView(newsData.data[0].link)">
+      <div class="row separator" *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].link,newsData.data[0].title)">
       <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
       <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
       <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
     </div>
   <ion-grid >
-    <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="gotoWebView(newsData.data[i].link)">
+    <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="openNews(newsData.data[i].link,news.title)">
       <ion-col col-3 *ngIf="i > 0 ">
         <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
       </ion-col>

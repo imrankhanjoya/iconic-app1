@@ -196,12 +196,26 @@ export class HomePage {
 
   toggleMenu(){
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
+    dataLayer.push({
+       'appEventCategory': 'Top Menu',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'View More'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
       this.rotateClass="rotateimage2";
       this.toolbarClass="toolbarOpen";
       this.topMenu ="toolbarOpen";
       this.toggleMenuText="less";
       
     }else{
+       dataLayer.push({
+       'appEventCategory': 'Top Menu',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'View Less'
+        });
+       dataLayer.push({'event': 'appEvent'});
+
       this.rotateClass="rotateimage1";
       this.toolbarClass="toolbarClosed";
       this.topMenu ="toolbarOpen";
@@ -370,46 +384,161 @@ export class HomePage {
   }
   
 
-  gotoAskquestion(){
-    this.navCtrl.push('QuestionlistPage');
+  gotoAskquestion(numbr){
+    if(numbr == 'menu'){
+      dataLayer.push({
+           'appEventCategory': 'Top Menu',
+           'appEventAction': 'Clicked',
+           'appEventLabel': 'Ask Expert'
+         });
+         dataLayer.push({'event': 'appEvent'});
+        this.navCtrl.push('QuestionlistPage');
+      }
+    if(numbr == 'card'){
+      dataLayer.push({
+           'appEventCategory': 'Home',
+           'appEventAction': 'Clicked',
+           'appEventLabel': 'Krishi Sevayen - Ask the Expert'
+         });
+         dataLayer.push({'event': 'appEvent'});
+        this.navCtrl.push('QuestionlistPage');
+      }
   }
 gotoAgriinfo(){
+    dataLayer.push({
+       'appEventCategory': 'Top Menu',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Krishi Jankari'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('AgriInfoPage');
   }
 
-  gotoWebView(URL){
+  gotoWebView(URL,title){
     this.iab.create(URL, '_blank', 'location=yes');
 
   }
-  gotoWeatherPage(){
+
+  openNews(URL,title){
+     this.gotoWebView(URL,title);
+     dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'News - '+title
+     });
+     dataLayer.push({'event': 'appEvent'});
+  }
+
+  gotoWeatherPage(numbr){
+  if(numbr == 'menu'){
   dataLayer.push({
+       'appEventCategory': 'Top Menu',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Weather'
+     });
+     dataLayer.push({'event': 'appEvent'});
+    this.navCtrl.push(WeatherPage);
+      }
+
+   if(numbr == 'card'){
+    dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Weather Card'
      });
      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push(WeatherPage);
+      }
+         
   }
   gotoservicesPage(){
+  dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Krishi Sevayen'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ServicesPage');
   }
-  goToExpertDetial(id){
+  goToExpertDetial(id,title){
+   dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Expert - '+title
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
-  gotomandiDetail(){
+  gotomandiDetail(numbr){
+  if(numbr == 'menu'){
+   dataLayer.push({
+       'appEventCategory': 'Top Menu',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Mandi'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push(MandiDetailsPage);
+    }
+
+    if(numbr == 'card'){
+   dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Mandi - View More'
+     });
+     dataLayer.push({'event': 'appEvent'});
+    this.navCtrl.push(MandiDetailsPage);
+    }
+
   }
   gotoNewsPage(){
+    dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'News - View More'
+      });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('NewsPage');
   }
   gotoMarketPage(){
+   dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Market - View More'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('MarketPage');
   }
-  gotoMarketViewPage(product_id){
+  gotoMarketViewPage(product_id,name,sku){
+  dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Market - sku: '+sku+'~~~name: '+name
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('MarketViewPage',{id:product_id});
   }
-  gotoVedio(){
+  gotoVedio(numbr){
+    if(numbr == 'menu'){
+     dataLayer.push({
+       'appEventCategory': 'Top Menu',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Video'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('VideoPage');
+    }
+
+    if(numbr == 'card'){
+     dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Video - View More'
+     });
+     dataLayer.push({'event': 'appEvent'});
+    this.navCtrl.push('VideoPage');
+    }
+
   }
   gotoRentals(){
     this.navCtrl.push('RentalsPage');
@@ -418,6 +547,12 @@ gotoAgriinfo(){
     this.navCtrl.push('AnnouncementPage');
   }*/
   goToBlogPage(){
+  dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Expert - View More'
+     });
+     dataLayer.push({'event': 'appEvent'});
    this.navCtrl.push('CardsPage'); 
   }
   goToSetting(){
@@ -427,12 +562,30 @@ gotoAgriinfo(){
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
    goToKharif(){
+   dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Krishi Sevayen - Kharif'
+     });
+     dataLayer.push({'event': 'appEvent'});
    this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
   }
    goToRabi(){
+   dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Krishi Sevayen - Rabi'
+     });
+     dataLayer.push({'event': 'appEvent'});
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
   goToHorticulture(){
+  dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Krishi Sevayen - Horticulture'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
   gotoWallet(){
@@ -444,14 +597,32 @@ gotoAgriinfo(){
   }
   SearchPage(){
     //console.log(id);
+    dataLayer.push({
+       'appEventCategory': 'Top Nav',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Search'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('SearchPage');
   }
   gotoAgroCenter(){
     //console.log(id);
+    dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Seva Kendra - View More'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('KrishCenterPage');
   }
 
    gotoAnounsePage(type,type_value){
+   dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Green Card - '+type+'~'+type_value 
+     });
+   dataLayer.push({'event': 'appEvent'});
     console.log(type+'  ------ '+type_value);
     if (type=='product') {
       this.navCtrl.push('MarketViewPage',{id:type_value});
@@ -608,7 +779,13 @@ async changeClass(count): Promise<string> {
 //----------------------Hader Animiation End------
 
 
-  gotoMap(latitude,longitude){
+gotoMap(latitude,longitude){
+    dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Seva Kendra - View Direction'
+     });
+     dataLayer.push({'event': 'appEvent'});
     console.log(latitude+'---'+longitude+'----');
    if (this.platform.is('android')) {
       //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
@@ -623,6 +800,12 @@ async changeClass(count): Promise<string> {
   }
 
   playVideo(videoid:any){
+    dataLayer.push({
+       'appEventCategory': 'Home',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Video - https://www.youtube.com/watch?v='+videoid
+     });
+     dataLayer.push({'event': 'appEvent'});
     console.log('videoid  : '+videoid);
     this.gotoWebView('https://www.youtube.com/watch?v='+videoid);
     //this.youtube.openVideo(videoid);
