@@ -87,7 +87,9 @@ export class HomePage {
       });
       this.loading.present();
       storage.get('notificationData').then((notiData) => {
+          console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
         if (notiData) {
+            storage.set('notificationData', '');
             this.loading.dismiss();
             this.gotoAnounsePage(notiData.type,notiData.type_value);
           }

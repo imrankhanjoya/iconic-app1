@@ -116,6 +116,19 @@ export class MyApp {
 
         this.profile_picture = userlogin.profile_picture;
       });
+        if (this.platform.is('cordova')) {
+          fcm.onNotification().subscribe(data=>{
+             console.log("Received in background-----="+JSON.stringify(data));
+            if(data.wasTapped){
+              storage.set('notificationData',data);
+              console.log("Received in background---");
+            } else {
+              console.log("Received in foreground-----");
+            };
+          });
+        }
+        
+
        this.platform.ready().then(() => {
             //this.viewCtrl.dismiss();
             this.storage.get('userData').then((userlogin) => {
@@ -139,35 +152,33 @@ export class MyApp {
                 
              });
         });
-      fcm.subscribeToTopic('marketing');
-      //this.storage.set('updated_token','islamsolnkey');
-      fcm.getToken(function(token){
-          console.log('--getToken--'+token);
-          storage.set('updated_token',token);
-      });
+       if (this.platform.is('cordova')) {
+          fcm.subscribeToTopic('marketing');
+          //this.storage.set('updated_token','islamsolnkey');
+          fcm.getToken(function(token){
+              console.log('--getToken--'+token);
+              storage.set('updated_token',token);
+          });
 
-      fcm.onNotification().subscribe(data=>{
-           console.log("Received in background-----="+JSON.stringify(data));
-        if(data.wasTapped){
-          storage.set('notificationData',data);
-          console.log("Received in background---");
-        } else {
-          console.log("Received in foreground-----");
-        };
-      });
-      fcm.onNotificationReceived(function(data){
-        if(data.wasTapped){
-          console.log("Received in +++++---");
-        } else {
-          console.log("Received in foreground-----");
-        };
-      });
+          
+          fcm.onNotificationReceived(function(data){
+            if(data.wasTapped){
+              console.log("Received in +++++---");
+            } else {
+              console.log("Received in foreground-----");
+            };
+          });
 
-      fcm.onTokenRefresh(function(token){
-          console.log('--getTokenRefresh--'+token);
-          storage.set('updated_token',token);
-      });
+          fcm.onTokenRefresh(function(token){
+              console.log('--getTokenRefresh--'+token);
+              storage.set('updated_token',token);
+          });
+        }  
 
+    });
+    storage.get('notificationData').then(function (noData) {
+      storage.set('notificationData', noData);
+                  console.log("     notificationData       :       "+noData);
     });
     this.splashScreen.hide();
   }
