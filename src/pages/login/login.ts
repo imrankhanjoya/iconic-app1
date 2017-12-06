@@ -49,7 +49,9 @@ export class LoginPage {
     });
 
   }
-  
+  ionViewDidLoad() {
+    console.log("--------Login Page-----------");
+  }
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: message,
