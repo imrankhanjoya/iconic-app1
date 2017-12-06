@@ -1,4 +1,4 @@
-geimport { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { CropsProvider } from '../../providers/crops/crops';
