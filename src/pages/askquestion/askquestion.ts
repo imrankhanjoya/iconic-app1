@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, PopoverController, ViewController,
   LoadingController,ToastController} from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
 /**
@@ -27,6 +28,7 @@ export class AskquestionPage {
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public QuestionsProvider: QuestionsProvider, public camera:Camera,
+              public events: Events,
               public storage:Storage, public popoverCtrl: PopoverController,
               private toastCtrl: ToastController,
               public loadingCtrl:LoadingController,
@@ -95,9 +97,21 @@ export class AskquestionPage {
 
   
   goToUsrask(){
+      dataLayer.push({
+         'appEventCategory': 'Ask Expert',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'New Question'
+       });
+     dataLayer.push({'event': 'appEvent'});
  	 this.getaskquestions();
   }
   addImg(){
+       dataLayer.push({
+         'appEventCategory': 'Ask Expert',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Add Image'
+       });
+     dataLayer.push({'event': 'appEvent'});
     let popover = this.popoverCtrl.create('UploadImagePage');
      popover.present({
      });

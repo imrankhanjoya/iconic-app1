@@ -317,5 +317,7 @@
   "PRICE_HIGH_TO_LOW":"Price - High to Low",
   "WEEKLY_FORCAST":"Weather Forecast",
   "NO_MARKET_MANDI":"No data found for this Market!",
-  "LOADING_MORE_DATA":"Loading more data..."
+  "LOADING_MORE_DATA":"Loading more data...",
+  "ANSWER":"Answer",
+  "ADDED_ANSWER":"Answer added successfully"
 }
