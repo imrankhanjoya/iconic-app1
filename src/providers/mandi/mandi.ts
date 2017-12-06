@@ -49,35 +49,14 @@ export class MandiProvider {
     // return seq;
   }
 
-   usermandi(userId,geoLoc) {
-
-
+   usermandi(userId,tehsil_id) {
       //http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-      
-      var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,long:geoLoc.lng,lang:this.api.userLanguage};
+      var paramCond ={page:0,user_id:userId,tehsil_id:tehsil_id,lang:this.api.userLanguage};
       return new Promise((resolve)=>{
         this.api.getCache('v1/mandi/user-mandi', paramCond).then((usermandiData)=>{
           resolve(usermandiData);
         });  
       });
-
-    // var paramCond ={page:0,user_id:userId,lat:geoLoc.lat,lang:geoLoc.lng};
-    // let seq = this.api.get('v1/mandi/user-mandi', paramCond).share();
-
-
-    // seq
-    //   .map(res => res.json())
-    //   .subscribe(res => {
-    //     // If the API returned a successful response, mark the user as logged in
-    //     if (res.status == 'success') {
-    //       console.log(res);
-    //     } else {
-    //     }
-    //   }, err => {
-    //     console.error('ERROR', err);
-    //   });
-
-    // return seq;
   }
 
   commudity(lang) {

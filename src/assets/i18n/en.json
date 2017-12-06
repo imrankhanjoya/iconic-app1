@@ -234,7 +234,7 @@
   "OTHER": "others",
   "EDIT_PROFILE": "Edit Profile",
   "CHANGE_PASSWORD": "Change Password",
-  "SEVA_KENDAR": "Seva Kdr",
+  "SEVA_KENDAR": "Seva Kendra",
   "SHOWING_RESULT_FOR": "Showing Results for",
   "SELECT_RANGE_CHOUPAL": "Select Range",
   "KRISHI_JANKARI":"Agri Info",
@@ -319,5 +319,6 @@
   "NO_MARKET_MANDI":"No data found for this Market!",
   "LOADING_MORE_DATA":"Loading more data...",
   "ANSWER":"Answer",
-  "ADDED_ANSWER":"Answer added successfully"
+  "ADDED_ANSWER":"Answer added successfully",
+  "SEVA_KENDAR_FOOTER": "Seva Kdr",
 }
