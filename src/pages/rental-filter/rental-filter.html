@@ -14,10 +14,11 @@
       </button>
     </ion-buttons>
     <ion-segment class="themeColor" [(ngModel)]="Crop">
-      <ion-segment-button class="themeColor" value="General">
+      <ion-segment-button class="themeColor" value="General"
+      (click)="get_events('Renta_in')">
         {{'RENTAL_IN' | translate}}
       </ion-segment-button>
-      <ion-segment-button value="Rentout">
+      <ion-segment-button value="Rentout"(click)="get_events('Rent_out')">
         {{'RENTAL_OUT' | translate}}
         </ion-segment-button>
     </ion-segment>
@@ -31,7 +32,7 @@
 
     <!---------Generale  Section-------->
       <ion-card  *ngSwitchCase="'General'">
-      <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
+      <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm('Rent_in',product_name)">
 
        <div>
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
@@ -108,7 +109,7 @@
 
     <!---------Rentout  Section-------->
     <ion-card  *ngSwitchCase="'Rentout'">
-      <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm()">
+      <form  *ngIf="pageTitle=='onstorageload'" [formGroup]="RentalMarket" (ngSubmit)="filterRentalForm('Rent_out',product_name)">
 
        <div>
             <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCente"
