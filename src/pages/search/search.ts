@@ -61,7 +61,9 @@ export class SearchPage {
       this.navCtrl.push('QuitionviewPage',{QuitionID:newstr});
     }
     if (item=='rental') {
-      this.navCtrl.push('RentalsPage',{crop_id:type_value});
+      var newstr=id.toString().replace('80000',"");
+      console.log('im a questions'+newstr);
+      this.navCtrl.push('RentalsPage',{crop_id:newstr});
     }
   }
 
