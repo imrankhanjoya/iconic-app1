@@ -60,6 +60,11 @@ export class SearchPage {
       console.log('im a questions'+newstr);
       this.navCtrl.push('QuitionviewPage',{QuitionID:newstr});
     }
+    if (item=='rental') {
+      var newstr=id.toString().replace('80000',"");
+      console.log('im a questions'+newstr);
+      this.navCtrl.push('RentalsPage',{crop_id:newstr});
+    }
   }
 
 }

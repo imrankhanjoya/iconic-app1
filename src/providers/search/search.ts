@@ -19,13 +19,12 @@ export class SearchProvider {
 
 
   find(keyword){
-		var paramCond ={keyword:keyword};
+    var paramCond ={keyword:keyword,lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{
 	      this.api.getCache('v1/search/find', paramCond).then((searchItem)=>{
 	        resolve(searchItem);
 	      });  
-	    });
-		
+	    });		
   }
 
 

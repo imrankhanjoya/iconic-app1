@@ -109,7 +109,7 @@
   <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage('card')">
     <ion-row>
       <ion-col col-6 class="colCandigare">
-          {{NowTime | date:'dd MMMM yyyy h:mm a'}}          
+          {{NowTime | date:'dd MMMM yyyy hh:mm a'}}          
           <div class="main">
               <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
               <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
@@ -124,7 +124,7 @@
 
       <ion-row padding-left >
         <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
-          <p>{{data.DateTime | date:'h a'}} </p>
+          <p>{{data.DateTime | date:'HH a'}} </p>
           <img src="{{data.WeatherIconsSmall}}" alt="your image" class="icon">
           <p>{{data.tempratureValue}}˚{{data.tempratureUnit}}</p>
         </ion-col>
@@ -221,20 +221,20 @@
   </ion-grid>
   <ion-grid>
   <ion-row padding-top class="weatherfoter">
-    <ion-col col-2>
+    <ion-col  *ngIf="mandidata1!=''" col-2>
       <img src="{{mandidata1.crop_image}}" class="grapImage"/>
 
     </ion-col>
-    <ion-col col-4 class="sepRight">
+    <ion-col  *ngIf="mandidata1!=''" col-4 class="sepRight">
       <div class="SmallerMandiTitle">{{mandidata1.commodity_name}}</div>
       <div class="SmallerMandiPrice">₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</div>
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
     </ion-col>
 
-    <ion-col col-2>
+    <ion-col  *ngIf="mandidata2!=''" col-2>
       <img src="{{mandidata2.crop_image}}" class="grapImage"/>
     </ion-col>
-    <ion-col col-4>
+    <ion-col  *ngIf="mandidata2!=''" col-4>
       <div class="SmallerMandiTitle">{{mandidata2.commodity_name}}</div>
       <div class="SmallerMandiPrice">₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</div>
       <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>

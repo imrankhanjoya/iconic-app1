@@ -261,30 +261,22 @@ export class HomePage {
   
 
   getMandiData(){
-    this.mandi.usermandi(this.userId,this.geoLoc).then((res)=>{
+    this.mandi.usermandi(this.userId,this.tehsil).then((res)=>{
         this.mandidata= res.data[0] ;
         this.mandidata.graph_months=this.mandidata.graph_months;
         this.mandidata.graph_price=this.mandidata.graph_price;
-        this.mandidata1= res.data[1];
-        this.mandidata2= res.data[2];
+        this.mandidata1 = '';this.mandidata2='';
+        if (res.data[2]) {
+          this.mandidata1= res.data[1];
+        }
+        console.log('this.mandidata1');
+        console.log(this.mandidata1);
+        if (res.data[2]) {
+          this.mandidata2= res.data[2];
+        }
         this.mandidata.status=true;
         this.loading.dismiss();
-
     });
-
-    // this.mandi.usermandi(this.userId,this.geoLoc).map(res => res.json()).subscribe((res) => {
-    //     this.mandidata= res.data[0] ;
-    //     this.mandidata.graph_months=this.mandidata.graph_months;
-    //     this.mandidata.graph_price=this.mandidata.graph_price;
-        
-    //     this.mandidata1= res.data[1];
-    //     this.mandidata2= res.data[2];
-    //     this.mandidata.status=true;
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
-
   }
 
   getNews(){
@@ -293,18 +285,6 @@ export class HomePage {
         this.newsData.msg = res.msg;
         this.newsData.status = res.status;
     });
-
-    // this.news.homeNews(3).map(res => res.json()).subscribe((res) => {
-      
-    //     this.newsData.data = res.data;
-    //     this.newsData.msg = res.msg;
-    //     this.newsData.status = res.status;
-        
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
-
   }
 
   getmarkets(){
@@ -315,22 +295,8 @@ export class HomePage {
         this.productHome.status = res.status;
         console.log(this.productHome.data);
         this.loading.dismiss();
-
     });
     console.log('getmarkets');
-
-    // this.market.productlist(5).map(res => res.json()).subscribe((res) => {
-      
-    //     this.productHome.data = res.data;
-    //     this.productHome.msg = res.msg;
-    //     this.productHome.status = res.status;
-    //     console.log('market data start');
-    //     console.log(this.productHome);
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
-
   }
 
   getkrish(lat:any,long:any){
@@ -342,47 +308,16 @@ export class HomePage {
         this.geoLoc.lat = res.data[0].lat;
         this.geoLoc.lng = res.data[0].longe;
         this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
-    
     });
-    // this.krish.kendraList(lat,long).map(res => res.json()).subscribe((res) => {
-      
-    //     this.kendraData.data = res.data;
-    //     this.kendraData.msg = res.msg;
-    //     this.kendraData.status = res.status;
-    //     this.kendraHome.data = res.data.results[0];
-        
-    //     console.log(res['data']);
-    //     console.log(res['data'].results);
-    //     this.geoLoc.lat = res.data.results[0].geometry.location.lat;
-    //     this.geoLoc.lng = res.data.results[0].geometry.location.lng;
-    //     this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
-    //     console.log(this.userKm);
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
   }
 
   getannouncement(){
-
-
     this.Announce.announcementList(1).then((res)=>{
         console.log(this.announceList);
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;
     });
-    // this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
-      
-    //     this.announceList.data = res.data;
-    //     this.announceList.msg = res.msg;
-    //     this.announceList.status = res.status;
-    //     console.log('Add for Announcement');
-    //     console.log(this.announceList.data[0].title);
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
   }
   
 
@@ -406,7 +341,7 @@ export class HomePage {
         this.navCtrl.push('QuestionlistPage');
       }
   }
-gotoAgriinfo(){
+  gotoAgriinfo(){
     dataLayer.push({
        'appEventCategory': 'Top Menu',
        'appEventAction': 'Clicked',
@@ -418,7 +353,6 @@ gotoAgriinfo(){
 
   gotoWebView(URL,title){
     this.iab.create(URL, '_blank', 'location=yes');
-
   }
 
   openNews(URL,title){
@@ -432,62 +366,63 @@ gotoAgriinfo(){
   }
 
   gotoWeatherPage(numbr){
-  if(numbr == 'menu'){
-  dataLayer.push({
-       'appEventCategory': 'Top Menu',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Weather'
-     });
-     dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push(WeatherPage);
-      }
-
-   if(numbr == 'card'){
-    dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Weather Card'
-     });
-     dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push(WeatherPage);
-      }
-         
+    if(numbr == 'menu'){
+      dataLayer.push({
+         'appEventCategory': 'Top Menu',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Weather'
+       });
+      dataLayer.push({'event': 'appEvent'});
+      this.navCtrl.push(WeatherPage);
+    }
+    if(numbr == 'card'){
+      dataLayer.push({
+        'appEventCategory': 'Home',
+        'appEventAction': 'Clicked',
+        'appEventLabel': 'Weather Card'
+      });
+      dataLayer.push({'event': 'appEvent'});
+      this.navCtrl.push(WeatherPage);
+    }         
   }
+
   gotoservicesPage(){
-  dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Krishi Sevayen'
-     });
-     dataLayer.push({'event': 'appEvent'});
+    dataLayer.push({
+      'appEventCategory': 'Home',
+      'appEventAction': 'Clicked',
+      'appEventLabel': 'Krishi Sevayen'
+    });
+    dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ServicesPage');
   }
+
   goToExpertDetial(id,title){
-   dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Expert - '+title
-     });
+    dataLayer.push({
+      'appEventCategory': 'Home',
+      'appEventAction': 'Clicked',
+      'appEventLabel': 'Expert - '+title
+    });
      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
+
   gotomandiDetail(numbr){
-  if(numbr == 'menu'){
-   dataLayer.push({
-       'appEventCategory': 'Top Menu',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Mandi'
-     });
-     dataLayer.push({'event': 'appEvent'});
+    if(numbr == 'menu'){
+      dataLayer.push({
+         'appEventCategory': 'Top Menu',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Mandi'
+      });
+    dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push(MandiDetailsPage);
     }
 
     if(numbr == 'card'){
-   dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Mandi - View More'
-     });
+      dataLayer.push({
+        'appEventCategory': 'Home',
+        'appEventAction': 'Clicked',
+        'appEventLabel': 'Mandi - View More'
+      });
      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push(MandiDetailsPage);
     }
