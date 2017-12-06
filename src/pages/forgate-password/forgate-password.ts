@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 import { IonicPage, NavController, NavParams ,AlertController,LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 
@@ -24,7 +25,7 @@ export class ForgatePasswordPage {
 	public phoneNumberError:any;
 	RegisterData = {password:'', confirmPassword:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public translateService: TranslateService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public events: Events,public translateService: TranslateService) {
   	 this.storage.get('userPhone').then((val) => {
     this.phoneNumber = val; 
     console.log(this.phoneNumber);
@@ -42,6 +43,12 @@ export class ForgatePasswordPage {
   }
 
   ResetPassword(){
+     dataLayer.push({
+         'appEventCategory': 'Forgot Password',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'New Password'
+       });
+     dataLayer.push({'event': 'appEvent'});
     var sendForm = true;
     if(this.RegisterData.password.length<6){
         this.passError = true;

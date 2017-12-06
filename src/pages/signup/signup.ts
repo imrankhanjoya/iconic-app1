@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 
@@ -22,6 +22,7 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController,
     public user: User,
+    public events: Events,
     public toastCtrl: ToastController,
     public translateService: TranslateService,public storage:Storage,
     public cityStateProvider:CityStateProvider) {
@@ -29,6 +30,12 @@ export class SignupPage {
     }
 
   doSignup() {
+   dataLayer.push({
+         'appEventCategory': 'Onboarding',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'Signup - Name'
+       });
+     dataLayer.push({'event': 'appEvent'});
     var sendForm = true;
     if(this.RegisterData.userName.length<5){
       this.UserNameError = true;

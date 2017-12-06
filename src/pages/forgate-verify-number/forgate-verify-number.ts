@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams,LoadingController,Platform } from 'ionic-angular';
+import { IonicPage, NavController, 
+NavParams,LoadingController,Platform } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
@@ -22,7 +24,7 @@ export class ForgateVerifyNumberPage {
     public otp:any;
    RegisterData = {verifyOtpfirst:'',verifyOtpSecond:'',verifyOtpThired:'',verifyOtpFourth:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public events: Events,public loadingCtrl: LoadingController,
     public storage:Storage,public platform:Platform) {
   this.phoneNumber=navParams.get('phoneNumber');
     if (platform.is('android')) {
@@ -50,7 +52,12 @@ export class ForgateVerifyNumberPage {
     console.log('ionViewDidLoad ForgateVerifyNumberPage');
   }
   verifyNumber(){
-
+ dataLayer.push({
+         'appEventCategory': 'Forgot Password',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'Submit - Verity OTP'
+       });
+     dataLayer.push({'event': 'appEvent'});
     var sendForm = true;
     if(this.RegisterData.verifyOtpfirst.length<1){
         alert('Enter OTP');

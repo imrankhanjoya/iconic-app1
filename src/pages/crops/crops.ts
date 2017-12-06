@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { CityStateProvider } from '../../providers/city-state/city-state';
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 
@@ -43,6 +44,7 @@ export class CropsPage {
    public loading:any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
+    public events: Events,
       public cityStateProvider:CityStateProvider,public storage:Storage,
       public loadingCtrl: LoadingController,public user: User) {
 
@@ -111,6 +113,12 @@ export class CropsPage {
     }
   }
   selected(){
+     dataLayer.push({
+         'appEventCategory': 'Onboarding',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'Signup - Crops'
+       });
+     dataLayer.push({'event': 'appEvent'});
   //  this.loading.present();
     console.log(this.cropList);
     var isSelect=0;

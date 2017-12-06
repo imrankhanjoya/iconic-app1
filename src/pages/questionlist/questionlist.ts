@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController,ViewController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
+import { Events } from 'ionic-angular';
 import { AskquestionPage } from '../askquestion/askquestion';
 import { HomePage } from '../home/home';
 
@@ -21,7 +22,8 @@ import { HomePage } from '../home/home';
     public items:any = [];
     private page:number=0;
     public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-    constructor(public navCtrl: NavController,public viewCtrl: ViewController,public navParams: NavParams,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
+    constructor(public navCtrl: NavController,public viewCtrl: ViewController,public navParams: NavParams,
+    public events: Events,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
      this.loading = this.loadingCtrl.create({
          content: 'Please wait...'
         });
@@ -58,6 +60,12 @@ import { HomePage } from '../home/home';
 
   }
   gotoAskquestion(){
+      dataLayer.push({
+         'appEventCategory': 'Ask Expert',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Ask Question'
+       });
+     dataLayer.push({'event': 'appEvent'});
      // this.navCtrl.push('AskquestionPage');
    this.navCtrl.push('AskquestionPage');
   } 

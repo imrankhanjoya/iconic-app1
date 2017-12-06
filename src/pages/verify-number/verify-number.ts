@@ -101,8 +101,7 @@ export class VerifyNumberPage {
     this.navCtrl.push('SignupPage');
     }
     verifyNumber(){
-
-      var sendForm = true;
+    var sendForm = true;
       dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Submit',

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { QuitionanswerpProvider } from '../../providers/quitionanswerp/quitionanswerp';
+import { TranslateService } from '@ngx-translate/core';
+import { Events } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 
@@ -27,6 +29,8 @@ export class QuitionanswerPage {
                   public questionanswer: QuitionanswerpProvider,
                   public formBuilder:FormBuilder,
                   public storage:Storage,
+                  public events: Events,
+                  public translateService: TranslateService,
                   public viewCtrl: ViewController,
                   private toastCtrl: ToastController
                 ) {
@@ -34,6 +38,10 @@ export class QuitionanswerPage {
                 this.storage.get('userData').then((val) => {
                   this.user_id = val.ID; 
                 });
+                this.translateService.get('ADDED_ANSWER').subscribe((value) => {
+                this.ADDED_ANSWER = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
 
                   this.answer = this.formBuilder.group({
                       description: ['', Validators.required]
@@ -42,7 +50,7 @@ export class QuitionanswerPage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'Answer added successfully',
+      message: this.ADDED_ANSWER,
       duration: 1000,
       position: 'middle'
     });
@@ -60,7 +68,12 @@ export class QuitionanswerPage {
   	}  
     
   	submitanswer(){
-      
+       dataLayer.push({
+         'appEventCategory': 'Ask Expert',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'Submit Answer'
+       });
+     dataLayer.push({'event': 'appEvent'});
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
           this.presentToast();

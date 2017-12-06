@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { QuestionlistPage } from '../questionlist/questionlist';
@@ -21,7 +22,8 @@ export class QuitionviewPage {
 	public user_id:any;
 	public questionviewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   	constructor(public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,
-      public questionview:QuitionviewpProvider,public storage:Storage) {
+      public questionview:QuitionviewpProvider,
+              public events: Events,public storage:Storage) {
   		this.qid=navParams.get('QuitionID');
       
   }
@@ -52,6 +54,12 @@ export class QuitionviewPage {
    } 
 
   gotoAnswerquestion(Qid){
+     dataLayer.push({
+         'appEventCategory': 'Ask Expert',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Add Answer'
+       });
+      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
   }
 

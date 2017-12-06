@@ -2,6 +2,7 @@
   import { IonicPage, NavController, NavParams,AlertController, LoadingController } from 'ionic-angular';
   import { CityStateProvider } from '../../providers/city-state/city-state';
   import { Storage } from '@ionic/storage';
+  import { Events } from 'ionic-angular';
   import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
   import { Geolocation } from '@ionic-native/geolocation';
 
@@ -33,6 +34,7 @@
     public loading:any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,public storage:Storage,
+    public events: Events,
       public alertCtrl: AlertController,public cityStateProvider:CityStateProvider,private nativeGeocoder: NativeGeocoder,
       private geolocation: Geolocation,public loadingCtrl: LoadingController) {
       this. storage.get('userLang').then((val) => {
@@ -131,6 +133,12 @@
 
 
   onTehsilListSelect(userTehsilList){
+   dataLayer.push({
+         'appEventCategory': 'Onboarding',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'Signup - Location'
+       });
+     dataLayer.push({'event': 'appEvent'});
     var array = userTehsilList.split('~');
     this.storage.set('userDictrictId',array[0]);
     this.storage.set('userDictrict',array[1]);

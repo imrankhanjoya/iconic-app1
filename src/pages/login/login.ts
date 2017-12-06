@@ -118,6 +118,12 @@ export class LoginPage {
     this.navCtrl.push('OtpNumberPage');
   }
   gotoForgatPassword(){
+  dataLayer.push({
+       'appEventCategory': 'Login',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Forgot Password'
+     });
+     dataLayer.push({'event': 'appEvent'});
   this.navCtrl.push('ForgatePasswordMobileNumberPage');
   }
 }

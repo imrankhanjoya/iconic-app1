@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams ,AlertController,LoadingController } from 'ionic-angular';
 import { User } from '../../providers/providers';
+import { Events } from 'ionic-angular';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 /**
  * Generated class for the ForgatePasswordMobileNumberPage page.
@@ -18,7 +19,7 @@ export class ForgatePasswordMobileNumberPage {
   RegisterData = {phoneNumber:''}
   public name='agribolo';
   public phoneNumberError:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,  public alertCtrl: AlertController,
+  constructor(public navCtrl: NavController, public events: Events,public navParams: NavParams,public user: User,  public alertCtrl: AlertController,
     public loadingCtrl: LoadingController, private androidPermissions: AndroidPermissions) {
   }
 
@@ -26,8 +27,12 @@ export class ForgatePasswordMobileNumberPage {
     console.log('ionViewDidLoad ForgatePasswordMobileNumberPage');
   }
   sendOtp(){
-
-
+     dataLayer.push({
+         'appEventCategory': 'Forgot Password',
+         'appEventAction': 'Submit',
+         'appEventLabel': 'Phone Number'
+       });
+     dataLayer.push({'event': 'appEvent'});
     var sendForm = true;
     if(this.RegisterData.phoneNumber.length<10){
       this.phoneNumberError = true;
