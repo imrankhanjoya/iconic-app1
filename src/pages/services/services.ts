@@ -2,6 +2,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, ViewController  } from 'ionic-angular';
 import { KrishProvider } from '../../providers/krish/krish';
+import { Events } from 'ionic-angular';
+
 
 /**
  * Generated class for the ServicesPage page.
@@ -19,12 +21,20 @@ export class ServicesPage {
 	public krishDataList:any;
   public krishData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public KrishProvider: KrishProvider,
+   public KrishProvider: KrishProvider,
    public modalCtrl:ModalController,
-    public viewCtrl:ViewController){
+   public events: Events,
+   public viewCtrl:ViewController){
     
   }
   openFilter(){
+    dataLayer.push({
+       'appEventCategory': 'Agro Services',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Agro Services -  E-Trading'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
     let modal = this.modalCtrl.create('ETirdingPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
@@ -42,9 +52,23 @@ export class ServicesPage {
   }
  
    gotoRental(){
+    dataLayer.push({
+       'appEventCategory': 'Agro Services',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Agro Services - Rental'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
     this.navCtrl.push('RentalsPage');
   }
  gotoMarketPage(){
+  dataLayer.push({
+        'appEventCategory': 'Agro Services',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Agro Services - Market'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
     this.navCtrl.push('MarketPage');
   }
   gotoMarket(){

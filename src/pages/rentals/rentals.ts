@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the RentalsPage page.
@@ -18,7 +19,8 @@ export class RentalsPage {
   public items:any = [];
   private page:number=0;
   public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public rentals:RentalsProvider,public loadingCtrl:LoadingController ) 
+  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,
+public rentals:RentalsProvider,public loadingCtrl:LoadingController ) 
   {
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -45,7 +47,13 @@ export class RentalsPage {
     });
   }
 
-  RentalsPage(id){
+  RentalsPage(id,title){
+    dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Rental Contact-'+id+'~'+title
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('RentalDetailPage',{rid:id});
   }
   
