@@ -48,7 +48,7 @@ export class KrishCenterPage {
   getLocation(){
 
     
-    this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 8000, enableHighAccuracy: true }).then((resp) => {
+    this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 3000, enableHighAccuracy: true }).then((resp) => {
         console.log(resp.coords.latitude+" --:-----// "+resp.coords.longitude+"==========="+this.isGetLocation);
           console.log("===chal bhai mil gai location--");
           if (this.isGetLocation) {
@@ -70,11 +70,11 @@ export class KrishCenterPage {
         this.locationAlert();
         this.getkrish(26.957740,75.745459);
       }
-    },10000);
+    },5000);
   }
   back(){
-    // this.navCtrl.pop('HomePage');  
-    this.navCtrl.push(HomePage);
+    this.navCtrl.pop();  
+    // this.navCtrl.push(HomePage);
   }
 
   getkrish(lat,long){

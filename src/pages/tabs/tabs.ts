@@ -121,7 +121,7 @@ export class TabsPage {
   gpsAlert() {
       this.alert = this.alertCtrl.create({
         title: 'GPS',
-        message: 'Your Phones GPS is off.',
+        message: 'Your Phones GPS is turnd off.',
         buttons: [
           {
             text: 'Cancel',
