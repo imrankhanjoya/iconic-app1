@@ -15,6 +15,8 @@ import { RentalsProvider } from '../../providers/rentals/rentals';
   templateUrl: 'rentals.html',
 })
 export class RentalsPage {
+  public items:any = [];
+  private page:number=0;
   public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,public rentals:RentalsProvider,public loadingCtrl:LoadingController ) 
   {
@@ -29,23 +31,39 @@ export class RentalsPage {
     this.getRental();
     console.log('ionViewDidLoad RentalsPage');
   }
-   getRental(){
-    this.rentals.Rental_list().map(res => res.json()).subscribe((res) => {
-      
-        this.Rental_Listdata = res;
-        this.Rental_Listdata.msg = res.msg;
-        this.Rental_Listdata.status = res.status;
-         this.loading.dismiss();
 
-        console.log(this.Rental_Listdata);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
-
+  getRental(){
+    this.rentals.Rental_list(this.page,10).then((res)=>{
+      this.Rental_Listdata = res;
+      this.Rental_Listdata.msg = res.msg;
+      this.Rental_Listdata.status = res.status;
+      console.log(res);
+      for(let person of res.data) {
+        this.items.push(person);
+      }
+      this.loading.dismiss();
+    });
   }
-   RentalsPage(id){
+
+  RentalsPage(id){
     this.navCtrl.push('RentalDetailPage',{rid:id});
   }
+  
+  //Loader Question List
+  doInfinite(infiniteScroll:any) {
+     console.log('doInfinite, start is currently '+this.start);
+     this.page+=1;
+     console.log('page  '+this.page);
+    this.rentals.Rental_list(this.page,10).then((res)=>{
+      this.Rental_Listdata = res;
+      this.Rental_Listdata.msg = res.msg;
+      this.Rental_Listdata.status = res.status;
+      for(let person of this.Rental_Listdata.data) {
+        this.items.push(person);
+      }
+      infiniteScroll.complete();
+        console.log(this.items);
+    });
+  } 
 
 }

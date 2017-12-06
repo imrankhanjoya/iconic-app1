@@ -26,7 +26,7 @@ export class CardsPage {
   }
 
   get_expert(){
-    this.experts.Experts_list('blogs',5,this.page).then((res)=>{
+    this.experts.Experts_list('blogs',10,this.page).then((res)=>{
       this.expertdata = res;
       for(let person of this.expertdata.data) {
         this.items.push(person);

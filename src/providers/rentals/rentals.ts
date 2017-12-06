@@ -15,26 +15,18 @@ export class RentalsProvider {
   constructor(public http: Http, public api: Api) {
     console.log('Hello RentalsProvider Provider');
   }
-   Rental_list() {
-  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-  	var paramCond ={post_type:'rentals',lang:this.api.userLanguage};
-    let seq = this.api.get('v1/rental/all', paramCond).share();
 
-    seq
-      .map(res => res.json())
-      .subscribe(res => {
-        // If the API returned a successful response, mark the user as logged in
-        if (res.status == 'success') {
-          console.log(res);
-        } else {
-        }
-      }, err => {
-        console.error('ERROR', err);
-      });
 
-    return seq;
+  Rental_list(page,limit,id) {
+    var paramCond ={page:page,id:id,limit:limit,lang:this.api.userLanguage,'changetest':1};
+    return new Promise((resolve)=>{
+      this.api.getCache('v1/rental/all', paramCond).then((rentaldata)=>{
+        resolve(rentaldata);
+      });  
+    });
   }
-   Rental_Detail(rentalid) {
+
+  Rental_Detail(rentalid) {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
   	console.log(rentalid+'my ost detail by noser');
   	var paramCond ={id:rentalid ,lang:this.api.userLanguage};
