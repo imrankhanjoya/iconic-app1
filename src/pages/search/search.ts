@@ -60,7 +60,7 @@ export class SearchPage {
       console.log('im a questions'+newstr);
       this.navCtrl.push('QuitionviewPage',{QuitionID:newstr});
     }
-    if (type=='rental') {
+    if (item=='rental') {
       this.navCtrl.push('RentalsPage',{crop_id:type_value});
     }
   }
