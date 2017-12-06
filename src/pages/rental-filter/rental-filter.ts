@@ -91,15 +91,22 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
   ionViewDidLoad() {
     this.NowTimeT = new Date();
     console.log('ionViewDidLoad RentalFilterPage');
-  }   
-
+  }  
+  get_events(events){
+       dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'Clicked',
+       'appEventLabel': events
+     });
+     dataLayer.push({'event': 'appEvent'});
+    } 
+  
   getRentalList(){
-    this.rentals.Rental_list().map(res => res.json()).subscribe((res) => {
-    console.log(res.data);
-    this.rentallists = res.data;
-      }, (err) => {
-        console.log(err);
-      });
+    this.rentals.Rental_list(this.page,10).then((res)=>{
+      this.rentallists = res.data;
+      this.rentallists.msg = res.msg;
+      this.rentallists.status = res.status;
+    });
   }
 
    getItems(ev) {
@@ -125,20 +132,12 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
      // this.navCtrl.push('MarketViewPage',{id:newstr});
     }
   }
-     getRental(){
-    this.rentals.Rental_list().map(res => res.json()).subscribe((res) => {
-      
-        this.Rental_Listdata = res;
-        this.Rental_Listdata.msg = res.msg;
-        this.Rental_Listdata.status = res.status;
-         this.loading.dismiss();
-
-        console.log(this.Rental_Listdata);
-      }, (err) => {
-        // Unable to log in
-        console.log(err);
-      });
-
+     getRentalList(){
+    this.rentals.Rental_list(this.page,10).then((res)=>{
+      this.rentallists = res.data;
+      this.rentallists.msg = res.msg;
+      this.rentallists.status = res.status;
+    });
   }
    onStateSelect(stateid) {
      var districtId = this.RentalMarket.value.user_state_id;
@@ -161,12 +160,35 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
   }
 
   dismiss(){
+      dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'cancel',
+       'appEventLabel': 'Rent filter cancel'
+     });
+     dataLayer.push({'event': 'appEvent'});
     let data = { 'data': '' };
     this.viewCtrl.dismiss(data);
   }
 
-  filterRentalForm(){
+  filterRentalForm(rant,product_name){
+    if (rant=='Rent_in') {
+    dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Rent In Submit'+product_name
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.rentals.Contact(this.RentalMarket.value);
+    }
+     if (rant=='Rent_out') {
+    dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'Submit',
+       'appEventLabel': 'Rent Out Submit-'+product_name
+     });
+     dataLayer.push({'event': 'appEvent'});
+    this.rentals.Contact(this.RentalMarket.value);
+    }
     let data = { 'data': '' };
     this.viewCtrl.dismiss(data); 
     this.presentToast(this.RENTAL_REQUEST_SUCCESS);

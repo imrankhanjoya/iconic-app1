@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController,LoadingController, ViewController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
+
 
 /**
  * Generated class for the RentalDetailPage page.
@@ -28,8 +30,8 @@ export class RentalDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl:ModalController,public rentals:RentalsProvider,
-    public loadingCtrl: LoadingController, public storage:Storage ,
-    public viewCtrl:ViewController) {
+    public events: Events,public loadingCtrl: LoadingController, 
+    public storage:Storage , public viewCtrl:ViewController) {
 
     this.rentalid=navParams.get('rid');
     this.textSlide='';
@@ -51,6 +53,11 @@ export class RentalDetailPage {
     console.log('ionViewDidLoad RentalDetailPage');
   }
   openFilter(product_name){
+     dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'filter',
+       'appEventLabel': ' Rental Contact-'+product_name
+     });
     let modal = this.modalCtrl.create('RentalFilterPage',{product_name:product_name, fromFilter:true});
     modal.present();
     modal.onDidDismiss((popoverData) => {
