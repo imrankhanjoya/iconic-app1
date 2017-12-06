@@ -48,11 +48,11 @@ export class QuitionanswerPage {
                   });
 	}
 
-  presentToast() {
+  presentToast(message) {
     let toast = this.toastCtrl.create({
-      message: this.ADDED_ANSWER,
-      duration: 1000,
-      position: 'middle'
+      message: message,
+      position: 'middle',
+      showCloseButton:true
     });
 
     toast.onDidDismiss(() => {
@@ -76,7 +76,7 @@ export class QuitionanswerPage {
      dataLayer.push({'event': 'appEvent'});
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
-          this.presentToast();
+          this.presentToast(this.ADDED_ANSWER);
         	this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid});
       }, (err) => {
         // Unable to log in
