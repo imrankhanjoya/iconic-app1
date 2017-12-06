@@ -45,43 +45,37 @@ export class KrishCenterPage {
      this.startTimer();
   }
 
-    getLocation(){
+  getLocation(){
 
-      var watchID = navigator.geolocation.watchPosition((resp)=>{
-        console.log('=========='+JSON.stringify(resp));
-      },
-      (resp)=>{
-          console.log('-------------');
-      },
-      { enableHighAccuracy: false,timeout: 15000,maximumAge:60000 });
+    
+    this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 8000, enableHighAccuracy: true }).then((resp) => {
+        console.log(resp.coords.latitude+" --:-----// "+resp.coords.longitude+"==========="+this.isGetLocation);
+          console.log("===chal bhai mil gai location--");
+          if (this.isGetLocation) {
+           this.getkrish(resp.coords.latitude,resp.coords.longitude);
+         }
+     }).catch((error) => {
+       console.log('Error getting location----'+error);
+       if (this.isGetLocation) {
+           this.locationAlert();
+           this.getkrish(26.957740,75.745459);
+         }
 
-      this.geolocation.getCurrentPosition({ maximumAge: 60000, timeout: 15000, enableHighAccuracy: true }).then((resp) => {
-          console.log(resp.coords.latitude+" --:-----// "+resp.coords.longitude+"==========="+this.isGetLocation);
-            console.log("===chal bhai mil gai location--");
-            if (this.isGetLocation) {
-             this.getkrish(resp.coords.latitude,resp.coords.longitude);
-           }
-       }).catch((error) => {
-         console.log('Error getting location----'+error);
-         if (this.isGetLocation) {
-             this.locationAlert();
-             this.getkrish(26.957740,75.745459);
-           }
+     });
+  }
 
-       });
-    }
-    startTimer(){
-      setTimeout(()=>{
-        if (this.isGetLocation) {
-          this.locationAlert();
-          this.getkrish(26.957740,75.745459);
-        }
-      },10007);
-    }
-   back(){
-  // this.navCtrl.pop('HomePage');  
-   this.navCtrl.push(HomePage);
-   }
+  startTimer(){
+    setTimeout(()=>{
+      if (this.isGetLocation) {
+        this.locationAlert();
+        this.getkrish(26.957740,75.745459);
+      }
+    },10000);
+  }
+  back(){
+    // this.navCtrl.pop('HomePage');  
+    this.navCtrl.push(HomePage);
+  }
 
   getkrish(lat,long){
     this.isGetLocation=false;
