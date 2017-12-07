@@ -124,7 +124,7 @@
 
       <ion-row padding-left >
         <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
-          <p>{{data.DateTime | date:'HH a'}} </p>
+          <p>{{data.DateTime | date:'h a'}} </p>
           <img src="{{data.WeatherIconsSmall}}" alt="your image" class="icon">
           <p>{{data.tempratureValue}}˚{{data.tempratureUnit}}</p>
         </ion-col>

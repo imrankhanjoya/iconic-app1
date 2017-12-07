@@ -35,6 +35,7 @@ export class TabsPage {
 
   public selectedTabTitle:any;
   public selectedTabIndex:0;
+  public GPSAlert:any;
 
   constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
     public alertCtrl: AlertController,public events: Events,private geolocation: Geolocation,
@@ -49,7 +50,9 @@ export class TabsPage {
 
     });
 
-
+    this.translateService.get('GPS_ALERT').subscribe((value) => {
+      this.GPSAlert = value;
+    });
     // platform.ready().then(() => {
 
     //           platform.registerBackButtonAction(() => {
@@ -121,7 +124,7 @@ export class TabsPage {
   gpsAlert() {
       this.alert = this.alertCtrl.create({
         title: 'GPS',
-        message: 'Your Phones GPS is turnd off.',
+        message: this.GPSAlert,
         buttons: [
           {
             text: 'Cancel',

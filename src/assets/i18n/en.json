@@ -234,7 +234,7 @@
   "OTHER": "others",
   "EDIT_PROFILE": "Edit Profile",
   "CHANGE_PASSWORD": "Change Password",
-  "SEVA_KENDAR": "Seva Kdr",
+  "SEVA_KENDAR": "Seva Kendra",
   "SHOWING_RESULT_FOR": "Showing Results for",
   "SELECT_RANGE_CHOUPAL": "Select Range",
   "KRISHI_JANKARI":"Agri Info",
@@ -320,5 +320,8 @@
   "LOADING_MORE_DATA":"Loading more data...",
   "ANSWER":"Answer",
   "ADDED_ANSWER":"Answer added successfully",
-  "SEVA_KENDAR_FOOTER": "Seva Kdr"
+  "SEVA_KENDAR_FOOTER": "Seva Kdr",
+  "EXIT_ALERT": "Do you want to exit the app?",
+  "GPS_ALERT": "Your Phones GPS is turnd off.",
+  "HOME_YELLOW_CARD": "Welcome to AgriBolo, a unique user experience with personalized content curated just for you"
 }

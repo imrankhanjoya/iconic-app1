@@ -71,6 +71,7 @@ export class HomePage {
   public onBording:boolean=false;
   public isHeaderAnimition=true;
   public alert:any;
+  public exitAlertMess:any;
   constructor(private fcm: FCM,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
@@ -79,6 +80,9 @@ export class HomePage {
     public viewCtrl:ViewController,public splashScreen:SplashScreen) {
 
     //--------homepage----------
+    this.translateService.get('EXIT_ALERT').subscribe((value) => {
+      this.exitAlertMess = value;
+    });
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
       //this.topMenu = 'toolbarClosed';
@@ -121,8 +125,8 @@ export class HomePage {
 
    exitConfrom() {
       this.alert = this.alertCtrl.create({
-        title: 'Exit?',
-        message: 'Do you want to exit the app?',
+        title: '',
+        message: this.exitAlertMess,
         buttons: [
           {
             text: 'Cancel',
