@@ -48,7 +48,7 @@ import { CroptyeProvider } from '../providers/croptye/croptye';
 import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
-import { Firebase } from '@ionic-native/firebase';
+
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { ContactusProvider } from '../providers/contactus/contactus';
 import { WalletProvider } from '../providers/wallet/wallet';
@@ -153,7 +153,7 @@ export function provideSettings(storage: Storage) {
     CroptyeProvider,
     CallProvider,
     TabProvider,
-    Firebase,
+    
     Deeplinks,
     ContactusProvider,
     WalletProvider,

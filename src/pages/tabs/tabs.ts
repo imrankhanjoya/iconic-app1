@@ -50,7 +50,7 @@ export class TabsPage {
 
     });
 
-    this.translateService.get('GPS_ALERT').subscribe((value) => {
+    this.translate.get('GPS_ALERT').subscribe((value) => {
       this.GPSAlert = value;
     });
     // platform.ready().then(() => {
@@ -82,15 +82,16 @@ export class TabsPage {
   }
   gotoSava(){
 
+    this.navCtrl.push('KrishCenterPage');
 
     //this is function Check GPS on or off
-    this.appVersion.getPackageName((version)=>{
-                    if (version=="true") {
-                        this.navCtrl.push('KrishCenterPage');
-                    }else{
-                        this.gpsAlert();
-                    }
-                });
+    // this.appVersion.getPackageName((version)=>{
+    //                 if (version=="true") {
+    //                     this.navCtrl.push('KrishCenterPage');
+    //                 }else{
+    //                     this.gpsAlert();
+    //                 }
+    //             });
 
     // this.navCtrl.push('KrishCenterPage');
 

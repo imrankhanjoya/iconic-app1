@@ -158,7 +158,7 @@
   "SEARCH_TITLE": "Search",
   "PTI_AND_UPDATE":"PTI and Updates",
   "VALUE_ON_REQUEST":"Price on Request",
-  "HELLO":"AgriBolo",
+  "HELLO":"Hello",
   "BY_CALLING":"Call",
   "SEARCH_THE_WAY":"Get Direction",
   "CHOPAL":"Choupal",
@@ -323,5 +323,5 @@
   "SEVA_KENDAR_FOOTER": "Seva Kdr",
   "EXIT_ALERT": "Do you want to exit the app?",
   "GPS_ALERT": "Your Phones GPS is turnd off.",
-  "HOME_YELLOW_CARD": "Welcome to AgriBolo, a unique user experience with personalized content curated just for you"
+  "HOME_YELLOW_CARD": "A unique user experience with personalized content curated just for you"
 }
