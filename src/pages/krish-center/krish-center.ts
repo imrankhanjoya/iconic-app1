@@ -91,6 +91,8 @@ export class KrishCenterPage {
 
   }
 
+
+
   gotoMap(latitude,longitude,name){
     console.log(latitude+'---'+longitude+'----'+name);
    if (this.platform.is('android')) {
