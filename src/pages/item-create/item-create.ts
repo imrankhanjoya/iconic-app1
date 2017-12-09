@@ -58,8 +58,8 @@ export class ItemCreatePage {
 
   }
    back(){
-    this.navCtrl.pop();  
-   // this.navCtrl.push(HomePage);
+    //this.navCtrl.pop();  
+    this.navCtrl.push(HomePage);
    }
 
   getPicture() {

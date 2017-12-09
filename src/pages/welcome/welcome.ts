@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import { Events } from 'ionic-angular';
@@ -23,17 +23,17 @@ export class WelcomePage {
             private translate: TranslateService,
             public navCtrl: NavController,
             private storage: Storage,
-            private toastCtrl: ToastController,public api:Api
+            public api:Api
           ) {
            }
     setLanguage(lang) {
-      this.events.publish('user:created', "000000000000", lang);
-      if(lang =='hi'){
+    this.events.publish('user:created', "000000000000", lang);
+    if(lang =='hi'){
       dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Submit',
        'appEventLabel': 'Language - Hindi'
-     });
+    });
      dataLayer.push({'event': 'appEvent'});
    }
    if(lang =='en'){
@@ -49,7 +49,7 @@ export class WelcomePage {
       // this.initTranslate(lang);
       console.log(lang);
       this.storage.set('userLang',lang);
-      this.userLanguage = lang;
+      //this.userLanguage = lang;
       this.translate.setDefaultLang(lang);
       this.translate.use(lang);
       //window.location.reload();

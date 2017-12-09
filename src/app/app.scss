@@ -262,6 +262,15 @@
 	padding-right: 5%;
 
 }
+.tabs-md .tab-button-icon {
+    color: #d8d8d8;
+}
+
+
+ion-header ion-icon.back-button-icon.icon {
+    color: #649305;
+}
+
 /*previously chandigare*/
 
 .elementTitle{
@@ -365,7 +374,7 @@
 	border-radius: 5px;
 	border-width: 1px;
 	width: 95%;
-	height: fit-content;
+  max-height: 200px;
 	padding-top:5px;
 }
 .newsLargeTitle{

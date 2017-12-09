@@ -6,30 +6,31 @@
 -->
 <ion-header>
  <ion-navbar color="fulldark">
- <div>
-    
-    <ion-title class="title_haed">{{'SEVA_KENDAR' | translate}}</ion-title>
+   <div>
+       <ion-title class="title_haed">{{'SEVA_KENDAR' | translate}}</ion-title>
   </div>
-    
-
-  </ion-navbar>
+</ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
 <ion-card  *ngFor="let data of kendraHome.data;let i=index ">
 <ion-grid>
   <ion-row>
     <div class="Headline  colorGrey blockPaddingBottom">{{data.kisan_kendra_firm}} </div>
-   
   </ion-row>
   <ion-row>
-         <ion-col col-1><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
-</ion-col>
-<ion-col col-11>
-    <div class="titleFont blockPaddingBottom" >{{data.complete_address}}, {{data.location}}, {{data.district}} , {{data.zone}}
-    <div class="GreyFont" >( {{ data.distance }})</div></div>
-    </ion-col>
+         <ion-col (click)="gotoMap(data.lat,data.longe,data.kisan_kendra_firm)" col-1>
+         <ion-icon ios="ios-pin" md="md-pin"></ion-icon></ion-col>
+          <ion-col col-11>
+            <div class="titleFont card-title" >
+              <b>{{data.agribolo}}</b>
+            </div>
+            <div class="titleFont blockPaddingBottom" >
+              {{data.complete_address}}, {{data.location}}, {{data.district}} , {{data.zone}}
+            </div>
+            <div class="titleFont card-title" >
+            Distance:({{ data.distance }})
+            </div>
+          </ion-col>
  
   </ion-row>
   <ion-row>

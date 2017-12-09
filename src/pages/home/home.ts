@@ -1,4 +1,4 @@
-import { Component, ViewChild ,ElementRef, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, ViewChild ,ElementRef, Renderer2 } from '@angular/core';
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -56,6 +56,7 @@ export class HomePage {
   public wheaterHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
+  public usertopcard: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public rotateClass:any;
@@ -93,8 +94,8 @@ export class HomePage {
       storage.get('notificationData').then((notiData) => {
           console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
         if (notiData) {
-            storage.set('notificationData', '');
             this.loading.dismiss();
+            storage.set('notificationData', '');
             this.gotoAnounsePage(notiData.type,notiData.type_value);
           }
         });
@@ -177,10 +178,13 @@ export class HomePage {
         this.getMandiData();
         this.getweather(this.tehsil);
         this.getmarkets();
+        this.getUserTopCard();
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        this.getMandiDetails(this.tehsil)
+        this.getMandiDetails(this.tehsil);
+        this.mandi.mandiRates('0','0','0','0',this.tehsil);
+        this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
@@ -233,23 +237,10 @@ export class HomePage {
   }
   
   get_expert(){
-
     this.experts.Experts_list().then((res)=>{
         this.expertdata = res;
     });
-
-    // this.experts.Experts_list().map(res => res.json()).subscribe((res) => {
-      
-    //     this.expertdata = res;
-    //     console.log(this.expertdata);
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
-
   }
-
-
 
   getweather(tehsil){
     this.NowTime = new Date();
@@ -259,7 +250,6 @@ export class HomePage {
         this.wheaterHome.msg = res.msg;
         this.wheaterHome.status = res.status;
         this.loading.dismiss();
-
     });
   }
   
@@ -323,7 +313,17 @@ export class HomePage {
         this.announceList.status = res.status;
     });
   }
-  
+
+
+
+  getUserTopCard(){
+    this.Announce.apiusertopcard().then((res)=>{
+        this.usertopcard.data = res.data;
+        this.usertopcard.msg = res.msg;
+        this.usertopcard.status = res.status;
+        console.log('this,usertopcard');console.log(this.usertopcard.data.title);
+    });
+  } 
 
   gotoAskquestion(numbr){
     if(numbr == 'menu'){
@@ -345,6 +345,7 @@ export class HomePage {
         this.navCtrl.push('QuestionlistPage');
       }
   }
+
   gotoAgriinfo(){
     dataLayer.push({
        'appEventCategory': 'Top Menu',
@@ -432,6 +433,7 @@ export class HomePage {
     }
 
   }
+
   gotoNewsPage(){
     dataLayer.push({
        'appEventCategory': 'Home',
@@ -441,6 +443,7 @@ export class HomePage {
      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('NewsPage');
   }
+
   gotoMarketPage(){
    dataLayer.push({
        'appEventCategory': 'Home',
@@ -450,6 +453,7 @@ export class HomePage {
      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('MarketPage');
   }
+
   gotoMarketViewPage(product_id,name,sku){
   dataLayer.push({
        'appEventCategory': 'Home',
@@ -459,6 +463,7 @@ export class HomePage {
      dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('MarketViewPage',{id:product_id});
   }
+
   gotoVedio(numbr){
     if(numbr == 'menu'){
      dataLayer.push({

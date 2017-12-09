@@ -25,7 +25,16 @@ export class AnnouncementproProvider {
 			resolve(announcementList);
 			});  
 		});
-	  	
+	}
+	apiusertopcard() {
+		var dTime = new Date();
+	  	var msec = dTime.getMilliseconds();
+	  	var paramCond ={ctime:msec,lang:this.api.userLanguage};
+		return new Promise((resolve)=>{
+			this.api.getCache('v1/announcement/user-top-card', paramCond).then((apiusertopcard)=>{
+			resolve(apiusertopcard);
+			});  
+		});
 	}
 
 }

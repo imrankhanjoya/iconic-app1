@@ -9,7 +9,7 @@
 <img src="assets/img/agri bolo icon/hdpi/wallet.png">
 </button>
 </ion-buttons> -->
-<ion-title class="home_title">{{'HELLO' | translate}}</ion-title>
+<ion-title class="home_title">{{'HELLO' | translate}}, {{userDisplayName}}</ion-title>
 <!-- <ion-buttons end>
 <button ion-button icon-only class="headericon" (click)="gotoAnounsePage()">
   <img src="assets/img/agri bolo icon/hdpi/notification.png">
@@ -75,7 +75,7 @@
 
   <!-------Welcome Promoe------>
 
-  <ion-card class="dialogYellow backgroundColorYellow" >
+  <ion-card *ngIf="usertopcard.status==true" class="dialogYellow backgroundColorYellow" >
     <ion-grid >
       <ion-row>
         <ion-col col-3 >
@@ -86,10 +86,9 @@
         <ion-col  col-9>
           <ion-row >
           <div class="smallTitle">
-            {{'HELLO' | translate}} {{userDisplayName}}
-            <div style="font-weight: 300">{{'HOME_YELLOW_CARD' | translate}}</div>
-            <!-- {{'HELLO' | translate}} {{userDisplayName}} -->
+            {{usertopcard.data.title}}
           </div>
+            <div style="font-weight: 300">{{usertopcard.data.message}}</div>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -101,7 +100,7 @@
 
 <!-----------------Weather section-->
    <ion-grid>
-      <ion-row>
+      <ion-row   *ngIf="wheaterHome.status==true">
       <ion-col class="cardHeader">
           <div class="headerClass">{{ 'WEATHER' | translate }}</div>
       </ion-col>
@@ -172,7 +171,7 @@
 
 
   <ion-grid>
-      <ion-row>
+      <ion-row  *ngIf="mandidata.status==true" >
       <ion-col class="cardHeader">
           <div class="headerClass">{{ 'MANDI' | translate }}</div>
       </ion-col>
@@ -221,6 +220,7 @@
   </ion-row>
 
   </ion-grid>
+
   <ion-grid>
   <ion-row padding-top class="weatherfoter">
     <ion-col  *ngIf="mandidata1!=''" col-2>
@@ -425,7 +425,8 @@
   <ion-card class="vedioCard"  style="height:400px">
   <ion-row >
     <img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
-    <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">Agribolo : Agriculture on the finger tips of Indian farmer
+    <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">
+    {{'TIPS_INDIAN_FARMER'| translate}}
     </div>
   </ion-row>
   <div class="alignCenter">
@@ -445,7 +446,7 @@
   </ion-grid>
 
   <ion-card>
-      <div class="row separator" *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].link,newsData.data[0].title)">
+      <div *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].link,newsData.data[0].title)">
       <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
       <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
       <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
