@@ -65,6 +65,9 @@ export class MarketViewPage {
         console.log('market data start');
         console.log(this.ProductViewData.data.detail);
         loading.dismiss();
+        if (res.status!=true) {
+            this.navCtrl.push('MarketPage');
+        }
         setTimeout(() => {
           this.startAnimitio();
         }, 1000);

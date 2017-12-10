@@ -38,10 +38,12 @@ export class CropdetailPage {
 		loading.present();
 
 		this.cropsProvider.sendCropDetail(this.id).then((res)=>{
-      	this.cropdetail=res.data;	
-			console.log(this.cropdetail);
-			console.log(this.cropdetail.id+'send for crop detail');
+      this.cropdetail=res.data; 
+      this.cropdetailstatus=res.status;	
 			loading.dismiss();
+        if (res.status!=true) {
+            this.navCtrl.push('CroplistPage',{croptype:'Kharif'});
+        }
 	    });
 		
 		console.log('ionViewDidLoad CropslistPage');

@@ -183,7 +183,7 @@ export class HomePage {
         this.get_expert();
         this.getannouncement();
         this.getMandiDetails(this.tehsil);
-        this.mandi.mandiRates('0','0','0','0',this.tehsil);
+        this.getMandiDetails(this.tehsil);
         this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
           if (token) {

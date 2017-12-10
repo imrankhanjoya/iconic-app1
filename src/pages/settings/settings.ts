@@ -214,24 +214,14 @@ export class SettingsPage {
   onStateSelect(stateid) {
     this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
-
-      
+      this.tehsilList=[];
     });
-    // this.cityStateProvider.getDistrict(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
-    //     this.districtList=resp.data;
-    //     //console.log(this.districtList);
-    //     //  this.loading.dismiss();
-    //   }); 
   }
   onDistrictSelect(districtId){
     this.cityStateProvider.getTehsil(this.lang,districtId).then((res)=>{
             this.tehsilList=res.data;
             this.loading.dismiss();
-        });
-    // this.cityStateProvider.getTehsil(this.lang,array[0]).map(res => res.json()).subscribe((resp) => {
-    //   this.tehsilList=resp.data;
-      //this.loading.dismiss();
-    //}); 
+        }); 
   }
   
   getAllState() {

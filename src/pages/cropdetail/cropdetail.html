@@ -123,7 +123,8 @@
 
 				<div class="paddingLeft" >
 					<div>
-						<div *ngIf="waters.districts.length > 0" class="headline fontBold paddingTop">{{'SOWING_TIME' | translate}}: {{waters.sowing_time}}</div>
+						<div *ngIf="waters.districts.length > 0" class="headline fontBold paddingTop">{{'SOWING_TIME' | translate}}: 
+						<div class="headline" innerHtml="{{waters.sowing_time}}"></div></div>
 
 						<div *ngIf="waters.districts.length > 1" class="headline fontBold paddingTop ">{{'DISTRICTS' | translate}}: {{waters.districts.length}}</div>
 
