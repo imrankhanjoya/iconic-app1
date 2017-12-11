@@ -58,6 +58,9 @@ export class MarketViewPage {
        content: 'Please wait...'
      });
      loading.present();
+     setTimeout(() => {
+          loading.dismiss();
+        }, 2000);
      this.market.ProductView(this.id).then((res)=>{
         this.ProductViewData.data = res.data;
         this.ProductViewData.msg = res.msg; 
