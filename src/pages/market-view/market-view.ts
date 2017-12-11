@@ -27,7 +27,7 @@ export class MarketViewPage {
   public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
   public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(
-      navCtrl: NavController,
+      public navCtrl: NavController,
       public navParams: NavParams,
         public market:MarketproProvider,
         public callProvider:CallProvider,

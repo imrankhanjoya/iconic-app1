@@ -63,7 +63,7 @@ export class SearchPage {
     if (item=='rental') {
       var newstr=id.toString().replace('80000',"");
       console.log('im a questions'+newstr);
-      this.navCtrl.push('RentalsPage',{crop_id:newstr});
+      this.navCtrl.push('RentalDetailPage',{rid:newstr});
     }
   }
 
