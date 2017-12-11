@@ -66,14 +66,12 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
     var crop_id = ( typeof this.crop_id != 'undefined' )?this.crop_id:0;
     this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id,tehsilId).then((res)=>{
-      
+      this.loading.dismiss();
       if (res.data=='') {
-        this.loading.dismiss();
         alert(this.NO_MARKET_MANDI);
       }
       if (res.data!='') {
         this.mandiData= res;
-        this.loading.dismiss();
       }
     });
 
@@ -93,6 +91,10 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
     modal.present();
     modal.onDidDismiss((popoverData) => {
       if (popoverData.data!="") {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        this.loading.present();
         this.filterDistrict = popoverData.filter_district;
         this.filterMarket = popoverData.filter_market;
         this.getMandiDetails();
@@ -116,6 +118,10 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        this.loading.present();
         this.filter_crops = popoverData.filter_crops;
         console.log(this.filter_crops);
         this.getMandiDetails();
