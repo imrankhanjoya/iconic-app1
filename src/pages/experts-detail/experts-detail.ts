@@ -35,6 +35,9 @@ export class ExpertsDetailPage {
     this.experts.Experts_detail(this.expertid).map(res => res.json()).subscribe((res) => {
       
         this.expertdetail = res;
+        if (res.status!=true) {
+          this.navCtrl.push('CardsPage');
+        }
         console.log(this.expertdetail);
         this.loading.dismiss();
       }, (err) => {
