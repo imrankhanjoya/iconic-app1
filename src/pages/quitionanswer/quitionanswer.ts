@@ -54,7 +54,12 @@ export class QuitionanswerPage {
     let alert = this.alertCtrl.create({
       title: '',
       subTitle: message,
-      buttons: [this.OK]
+      buttons: [{
+              text: this.OK,
+              handler: () => {
+                this.back();
+              }
+            }]
     });
     alert.present();
   }
@@ -74,12 +79,17 @@ export class QuitionanswerPage {
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
           this.presentAlert(this.ADDED_ANSWER);
-        	this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid});
       }, (err) => {
         // Unable to log in
         console.log(err);
       });
 
+  }
+  back(){
+    const index = this.viewCtrl.index;
+    this.navCtrl.push('QuitionviewPage',{QuitionID:this.qid}).then(() => {
+      this.navCtrl.remove(index);
+    });
   }
 
 }

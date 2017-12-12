@@ -56,7 +56,12 @@ export class AskquestionPage {
     let alert = this.alertCtrl.create({
       title: '',
       subTitle: message,
-      buttons: [this.OK]
+      buttons: [{
+              text: this.OK,
+              handler: () => {
+                this.back();
+              }
+            }]
     });
     alert.present();
   }
@@ -81,9 +86,8 @@ export class AskquestionPage {
             this.presentAlert(this.QUATION_ERROR);
         }else{
 
-          this.viewCtrl.dismiss();
+          // this.viewCtrl.dismiss();
           this.presentAlert(this.QUATION_ADDED);
-          this.navCtrl.push('QuestionlistPage');
           console.log(this.askquestionsData.data);
         }
       }, (err) => {
@@ -93,7 +97,12 @@ export class AskquestionPage {
 
   }
 
-  
+  back(){
+    const index = this.viewCtrl.index;
+    this.navCtrl.push('QuestionlistPage').then(() => {
+      this.navCtrl.remove(index);
+    });
+  }  
   goToUsrask(){
       dataLayer.push({
          'appEventCategory': 'Ask Expert',
