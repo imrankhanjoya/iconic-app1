@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController,LoadingController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController,LoadingController, ViewController, AlertController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 
 /**
@@ -28,10 +29,20 @@ export class RentalDetailPage {
   public textGotoBack:any;
   public buttonOnCloseCSS:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public translateService: TranslateService,private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl:ModalController,public rentals:RentalsProvider,
     public events: Events,public loadingCtrl: LoadingController, 
     public storage:Storage , public viewCtrl:ViewController) {
+
+    this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
+      this.CANCEL_BUTTON= value;
+    });
+    this.translateService.get('CALL').subscribe((value) => {
+      this.CALL= value;
+    });
+    this.translateService.get('CALL_TOLLFREE').subscribe((value) => {
+      this.CALL_TOLLFREE= value;
+    });
 
     this.rentalid=navParams.get('rid');
     this.textSlide='';
@@ -52,6 +63,31 @@ export class RentalDetailPage {
   	 this.getRental_detail();
     console.log('ionViewDidLoad RentalDetailPage');
   }
+
+  presentConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm purchase',
+      message: this.CALL_TOLLFREE,
+      buttons: [
+        {
+          text: this.CANCEL_BUTTON,
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clikkkcked');
+          }
+        },
+        {
+          text: this.CALL,
+          handler: () => {
+            window.location.href = "tel:18001200800";
+            console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
   openFilter(product_name){
      dataLayer.push({
        'appEventCategory': 'Rental',
@@ -93,6 +129,7 @@ export class RentalDetailPage {
   }
 
   mackCall(){
+    this.presentConfirm();
     console.log('-----------------------------');
   }
   startAnimitio(){

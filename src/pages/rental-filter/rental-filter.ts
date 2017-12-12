@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ViewController, NavParams,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams, AlertController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -39,7 +39,7 @@ export class RentalFilterPage {
 
     
 
-  constructor(public navCtrl: NavController,public toastCtrl: ToastController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
+  constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
 private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider,public translateService: TranslateService) {
         this.product_name=navParams.get('product_name');
         console.log('pname'+this.product_name);
@@ -70,22 +70,22 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
         //this.getvarieties_etriding() ;
       });
       this.translateService.get('RENTAL_REQUEST_SUCCESS').subscribe((value) => {
-                this.RENTAL_REQUEST_SUCCESS = value;
-                console.log(this.validnumber+'tesrtinnng');
-              });        
+        this.RENTAL_REQUEST_SUCCESS = value;
+        console.log(this.validnumber+'tesrtinnng');
+      }); 
+
+      this.translateService.get('OK').subscribe((value) => {
+        this.OK= value;
+      });       
   }
-   presentToast(message) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      showCloseButton:true,
-      position: 'middle'
-    });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
     });
-
-    toast.present();
+    alert.present();
   }
 
   ionViewDidLoad() {
@@ -191,7 +191,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
     }
     let data = { 'data': '' };
     this.viewCtrl.dismiss(data); 
-    this.presentToast(this.RENTAL_REQUEST_SUCCESS);
+    this.presentAlert(this.RENTAL_REQUEST_SUCCESS);
   }
 
 }

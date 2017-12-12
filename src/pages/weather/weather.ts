@@ -43,13 +43,12 @@ export class WeatherPage {
               public viewCtrl:ViewController
               ) {
 
-              //this.tehsilId = navParams.get('filter_tehsil');
-                this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-    });
-
-     this.loading.present();
-      }  
+            //this.tehsilId = navParams.get('filter_tehsil');
+            this.loading = this.loadingCtrl.create({
+              content: 'Please wait...'
+            });
+            this.loading.present();
+          }  
     
 
   ionViewDidLoad() {

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams, LoadingController, ViewController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController,ToastController, AlertController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
 import { User } from '../../providers/providers';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -53,7 +53,8 @@ export class SettingsPage {
           public storage:Storage,
           public viewCtrl: ViewController,
            private toastCtrl: ToastController,
-          public cityStateProvider:CityStateProvider
+          public cityStateProvider:CityStateProvider,
+          public alertCtrl: AlertController
           ) {
           this.translateService.get('LOCATION_UPDATA_SUCCESSFULLY').subscribe((value) => {
           this.LOCATION_UPDATA_SUCCESSFULLY = value;
@@ -98,6 +99,14 @@ export class SettingsPage {
                 console.log(this.validnumber+'tesrtinnng');
               });
 
+            this.translateService.get('OK').subscribe((value) => {
+                this.OK= value;
+              });
+
+            this.translateService.get('DONE_BUTTON').subscribe((value) => {
+                this.DONE_BUTTON = value;
+              });
+
               this.translateService.get('CHANGE_YOUR_PASSWORD').subscribe((value) => {
                 this.CHANGE_YOUR_PASSWORD = value;
                 console.log(this.validnumber+'tesrtinnng');
@@ -107,15 +116,14 @@ export class SettingsPage {
             content: 'Please wait...'
           });
           this.loading.present();
-          this.getAllState();
     }
      presentToast(message) {
-              let toast = this.toastCtrl.create({
-                message: message,
-                position: 'middle',
-                //dismissOnPageChange:true,
-                showCloseButton:true
-              });
+      let toast = this.toastCtrl.create({
+        message: message,
+        position: 'middle',
+        //dismissOnPageChange:true,
+        showCloseButton:true
+      });
 
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
@@ -126,6 +134,15 @@ export class SettingsPage {
   ionViewDidLoad() {
     
   }
+
+    presentAlert(message) {
+      let alert = this.alertCtrl.create({
+        title: '',
+        subTitle: message,
+        buttons: [this.OK]
+      });
+      alert.present();
+    }
 
   changeprofileform(){
     this.loading = this.loadingCtrl.create({
@@ -139,8 +156,8 @@ export class SettingsPage {
               this.storage.set('userData',resp.data);
               this.loading.dismiss();
               this.viewCtrl.dismiss();
-              this.presentToast(this.PROFILE_UPDATE);
-              this.navCtrl.push('ItemCreatePage');
+              this.presentAlert(this.PROFILE_UPDATE);
+              //this.navCtrl.push('ItemCreatePage');
             }else {
               this.loading.dismiss();
             }
@@ -163,7 +180,7 @@ export class SettingsPage {
     this.user.UpdateLocation(this.user_id,statearray,districtarray,tehsilarray).map(res => res.json()).subscribe((resp) => {
             this.storage.set('userData',resp.data);if (resp.status==true) {
               this.passresError='Change Location Sucessfully';
-              this.presentToast(this.LOCATION_UPDATA_SUCCESSFULLY);
+              this.presentAlert(this.LOCATION_UPDATA_SUCCESSFULLY);
               this.navCtrl.push('ItemCreatePage');
             }
           this.loading.dismiss();
@@ -195,7 +212,7 @@ export class SettingsPage {
         this.user.ChangePassword(this.phoneNumber,this.changepassformdata.newpass,this.changepassformdata.oldpass).map(res => res.json()).subscribe((resp) => {
             if (resp.status==true) {
               this.passresError='Password Reset Sucessfully';
-              this.presentToast(this.CHANGE_YOUR_PASSWORD);
+              this.presentAlert(this.CHANGE_YOUR_PASSWORD);
               this.viewCtrl.dismiss();
             }else{
               this.passresError=resp.msg;

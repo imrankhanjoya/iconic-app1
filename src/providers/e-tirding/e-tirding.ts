@@ -17,12 +17,13 @@ export class ETirdingProvider {
   }
 
   crop_etirding(data){
+      console.log(data);
      let body = new FormData();
      body.append('lang', this.api.userLanguage);
      body.append('user_id',data.user_id);
      body.append('crop',data.etrading_crop);
      body.append('varieties',data.etrading_varieties);
-     body.append('expect_price', data.etrading_prices);
+     body.append('expect_price', data.etrading_prices+' ' +data.etrading_price_unit);
      body.append('quality', data.etrading_quantity +' ' +data.etrading_quantity_unit);
      body.append('address', data.etrading_address);
      body.append('state', data.user_state_id);

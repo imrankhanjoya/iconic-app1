@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
@@ -23,7 +23,6 @@ export class SignupPage {
   constructor(public navCtrl: NavController,
     public user: User,
     public events: Events,
-    public toastCtrl: ToastController,
     public translateService: TranslateService,public storage:Storage,
     public cityStateProvider:CityStateProvider) {
 
@@ -67,18 +66,6 @@ export class SignupPage {
       this.navCtrl.push('SelectLocationPage');
 
     }
-    // this.user.signup(this.phoneNumber,this.password,this.user_name,this.lang,this.user_email).map(res => res.json()).subscribe((resp) => {
-    //   if(resp.status === true){
-    //     this.storage.set('password',this.password);
-    //     this.navCtrl.push('SelectLocationPage');
-    //     console.log(resp.status);
-    //   }else{
-    //    this.navCtrl.push('SelectLocationPage');
-    //     console.log(resp.status);
-    //  }
-    //  }, (err) => {
-    // //  this.navCtrl.push('LoginPage');
-    // });
 
   }
   
