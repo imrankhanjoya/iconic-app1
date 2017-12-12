@@ -4,7 +4,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../home/home';
 import { KrishProvider } from '../../providers/krish/krish';
 import { Events } from 'ionic-angular';
-
+import { TranslateService } from '@ngx-translate/core';
 
 
 /**
@@ -27,9 +27,24 @@ export class KrishCenterPage {
   public loading:any;
   public alert:any;
   public isGetLocation:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
+  constructor(public translateService: TranslateService,public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation,
     public krish:KrishProvider,public loadingCtrl: LoadingController,public platform:Platform,
     public alertCtrl: AlertController,public events: Events) {
+
+    this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
+      this.CANCEL_BUTTON= value;
+    });
+    this.translateService.get('CALL').subscribe((value) => {
+      this.CALL= value;
+    });
+    this.translateService.get('SEARCH_THE_WAY').subscribe((value) => {
+      this.SEARCH_THE_WAY= value;
+    });
+    this.translateService.get('SEARCH_THE_WAY_ALERT').subscribe((value) => {
+      this.SEARCH_THE_WAY_ALERT= value;
+    });
+
+
     this.isGetLocation=true;
     this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
@@ -94,11 +109,32 @@ export class KrishCenterPage {
 
 
   gotoMap(latitude,longitude,name){
-    console.log(latitude+'---'+longitude+'----'+name);
-   if (this.platform.is('android')) {
-      //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
-        window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(' + name + ')', '_system');
-      };
+
+    let alert = this.alertCtrl.create({
+      title: '',
+      message: this.SEARCH_THE_WAY_ALERT,
+      buttons: [
+        {
+          text: this.CANCEL_BUTTON,
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clikkkcked');
+          }
+        },
+        {
+          text: this.SEARCH_THE_WAY,
+          handler: () => {
+            console.log(latitude+'---'+longitude+'----'+name);
+           if (this.platform.is('android')) {
+              //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
+                window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(' + name + ')', '_system');
+              };
+            console.log('Buy clicked');
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   makeCall(){
    

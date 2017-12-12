@@ -27,7 +27,7 @@ export class CropdetailPage {
   		public cropsProvider:CropsProvider,public loadingCtrl: LoadingController,
   		 public mandi:MandiProvider){
   		this.id=navParams.get('crop_id');
-  		//this.id=navParams.get('crop_id');
+  		this.notification=navParams.get('notification');
 
   	}
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, PopoverController, ViewController, 
-  LoadingController,ToastController} from 'ionic-angular';
+  LoadingController, AlertController} from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
@@ -24,13 +24,13 @@ export class AskquestionPage {
   private base64Image :any;
   public  questionaddData = {user_id:'',title:'',description:'',privacy:'',Attachments:''};
 	public askquestionsData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController,
+  constructor(public alertCtrl: AlertController,
+              public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public QuestionsProvider: QuestionsProvider, public camera:Camera,
               public events: Events,
               public storage:Storage, public popoverCtrl: PopoverController,
-              private toastCtrl: ToastController,
               public loadingCtrl:LoadingController,
               public translateService: TranslateService
               ) {
@@ -42,25 +42,23 @@ export class AskquestionPage {
                 this.QUATION_ADDED = value;
                 console.log(this.validnumber+'tesrtinnng');
               });
+              this.translateService.get('OK').subscribe((value) => {
+                this.OK = value;
+              });
                 this.storage.get('userData').then((val) => {
                   this.user_id = val.ID; 
                 });
              
           }
-          
-            presentToast(message) {
-              let toast = this.toastCtrl.create({
-                message: message,
-                position: 'middle',
-                //dismissOnPageChange:true,
-                showCloseButton:true
-              });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
     });
-
-    toast.present();
+    alert.present();
   }
 
   ionViewDidLoad() {
@@ -80,11 +78,11 @@ export class AskquestionPage {
          this.loading.dismiss();
 
         if (res.status==false) {
-            this.presentToast(this.QUATION_ERROR);
+            this.presentAlert(this.QUATION_ERROR);
         }else{
 
           this.viewCtrl.dismiss();
-          this.presentToast(this.QUATION_ADDED);
+          this.presentAlert(this.QUATION_ADDED);
           this.navCtrl.push('QuestionlistPage');
           console.log(this.askquestionsData.data);
         }

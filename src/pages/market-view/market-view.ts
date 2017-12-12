@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController, ModalController, ViewController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController, ModalController, ViewController, AlertController } from 'ionic-angular';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { CallProvider } from '../../providers/call/call';
 import { ContactusProvider } from '../../providers/contactus/contactus';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the MarketViewPage page.
@@ -27,6 +28,8 @@ export class MarketViewPage {
   public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
   public ProductViewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(
+      private alertCtrl: AlertController,
+      public translateService: TranslateService,
       public navCtrl: NavController,
       public navParams: NavParams,
         public market:MarketproProvider,
@@ -39,6 +42,15 @@ export class MarketViewPage {
         this.textSlide='';
         this.buttonOnCloseCSS='';
 
+          this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
+            this.CANCEL_BUTTON= value;
+          });
+          this.translateService.get('CALL').subscribe((value) => {
+            this.CALL= value;
+          });
+          this.translateService.get('CALL_TOLLFREE').subscribe((value) => {
+            this.CALL_TOLLFREE= value;
+          });
         
 			  this.id=navParams.get('id');
 			   console.log('Market View ID '+this.id);
@@ -75,24 +87,36 @@ export class MarketViewPage {
           this.startAnimitio();
         }, 1000);
       });
-    // this.market.ProductView(this.id).map(res => res.json()).subscribe((res) => {
-        
-    //     this.ProductViewData.data = res.data;
-    //     this.ProductViewData.msg = res.msg;
-    //     this.ProductViewData.status = res.status;
-    //     console.log('market data start');
-    //     console.log(this.ProductViewData.data.detail);
-    //     loading.dismiss();
-    //   }, (err) => {
-    //     // Unable to log in
-    //     loading.dismiss();
-    //     console.log(err);
-    //   });
   }
 
+
+  presentConfirm() {
+      let alert = this.alertCtrl.create({
+        title: '',
+        message: this.CALL_TOLLFREE,
+        buttons: [
+          {
+            text: this.CANCEL_BUTTON,
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: this.CALL,
+            handler: () => {
+              window.location.href = "tel:18001200800";
+              this.contactus.Send(this.ContactSendData);
+              this.callProvider.makeCall();
+            }
+          }
+        ]
+      });
+      alert.present();
+      }
+
   mackCall(){
-    this.contactus.Send(this.ContactSendData);
-    this.callProvider.makeCall();
+    this.presentConfirm();
   }
 
   openFilter(){
@@ -111,9 +135,9 @@ export class MarketViewPage {
       }
     });
   }
-  mackCall(){
+  /*mackCall(){
     console.log('-----------------------------');
-  }
+  }*/
   startAnimitio(){
       this.buttonOnCloseCSS="buttonOnClose";
       this.aniName="openCallButton";

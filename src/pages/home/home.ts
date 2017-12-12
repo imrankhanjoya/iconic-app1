@@ -80,6 +80,7 @@ export class HomePage {
     public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
     public viewCtrl:ViewController,public splashScreen:SplashScreen) {
 
+
     //--------homepage----------
     this.translateService.get('EXIT_ALERT').subscribe((value) => {
       this.exitAlertMess = value;
@@ -182,7 +183,6 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        this.getMandiDetails(this.tehsil);
         this.getMandiDetails(this.tehsil);
         this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
@@ -321,7 +321,6 @@ export class HomePage {
         this.usertopcard.data = res.data;
         this.usertopcard.msg = res.msg;
         this.usertopcard.status = res.status;
-        console.log('this,usertopcard');console.log(this.usertopcard.data.title);
     });
   } 
 

@@ -108,6 +108,7 @@ export class OtpNumberPage {
           this.sendOptApiCall();
         });
   }
+  
   sendOptApiCall(){
       let loading = this.loadingCtrl.create({
           content: 'Please wait...'

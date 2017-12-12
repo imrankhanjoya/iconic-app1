@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
@@ -23,10 +23,15 @@ export class LoginPage {
     private loginErrorString: string;
     RegisterData = {user_name:'', userPassword:''};
 
-  constructor(public events: Events,public navCtrl: NavController,public storage:Storage,
-    public user: User,public loadingCtrl: LoadingController,
+  constructor(public alertCtrl: AlertController,
+    public events: Events,
+    public navCtrl: NavController,
+    public storage:Storage,
+    public user: User,
+    public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    public translateService: TranslateService) {
+    public translateService: TranslateService
+    ) {
 
     this.translateService.get('LOGIN_ERROR').subscribe((value) => {
       this.loginErrorString = value;
@@ -52,6 +57,8 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log("--------Login Page-----------");
   }
+
+
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: message,
@@ -66,11 +73,22 @@ export class LoginPage {
     toast.present();
   }
 
+
+
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
+    });
+    alert.present();
+  }
+
   doLogin(){
     var sendForm = true;
     if(this.RegisterData.user_name.length<10){
       this.userMobilNoError = true;
-      this.presentToast(this.LOGIN_PHONE_NUMBER_VALID);
+      //this.presentToast(this.LOGIN_PHONE_NUMBER_VALID);
       sendForm = false;
     }else{
       this.userMobilNoError = false;
@@ -78,7 +96,7 @@ export class LoginPage {
     if(this.RegisterData.userPassword.length<3){
         this.presentToast(this.UserPassError);
         this.UserPassError = true;
-        this.presentToast(this.LOGIN_PASSWORD_REQUIRED);
+        //this.presentToast(this.LOGIN_PASSWORD_REQUIRED);
         sendForm = false;
     }else{
         this.UserPassError = false;
@@ -95,7 +113,7 @@ export class LoginPage {
        this.navCtrl.setRoot(MainPage);
       }else{
         this.errorMsg = true;
-        this.presentToast(this.LOGIN_USER_INVALID);
+        //this.presentAlert(this.LOGIN_USER_INVALID);
       }
       loading.dismiss();
      }, (err) => {

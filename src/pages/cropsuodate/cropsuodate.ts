@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { IonicPage, NavController, NavParams, LoadingController, ViewController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, ViewController, AlertController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -36,13 +36,14 @@ export class CropsuodatePage {
    public user_id:any;
    public userdata:any;
    public userCropIdList:['','',''];
-  	constructor(public navCtrl: NavController, 
+  	constructor(public alertCtrl: AlertController,
+          public navCtrl: NavController, 
   		public navParams: NavParams,
   		public storage:Storage,
       	public loadingCtrl: LoadingController,
       	public cityStateProvider:CityStateProvider,
-         private viewCtrl: ViewController,public user: User,
-          private toastCtrl: ToastController,
+         private viewCtrl: ViewController,
+         public user: User,
           public translateService: TranslateService) 
   		{      
   			  this.loading = this.loadingCtrl.create({
@@ -50,6 +51,9 @@ export class CropsuodatePage {
           });
            this.translateService.get('CROP_UPDATA_SUCCESSFULLY').subscribe((value) => {
           this.CROP_UPDATA_SUCCESSFULLY = value;
+          });
+           this.translateService.get('OK').subscribe((value) => {
+          this.OK = value;
           });
 
           this.shoPage='Kharif';
@@ -69,20 +73,16 @@ export class CropsuodatePage {
         console.log(this.userCropIdList);
       });
   }
-   presentToast(message) {
-              let toast = this.toastCtrl.create({
-                message: message,
-                position: 'middle',
-                //dismissOnPageChange:true,
-                showCloseButton:true
-              });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
     });
-
-    toast.present();
+    alert.present();
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CropsuodatePage');
@@ -176,7 +176,7 @@ export class CropsuodatePage {
           this.userdata.crops = resp.data;
           console.log(this.userdata);
           this.storage.set('userData',this.userdata);
-          this.presentToast(this.CROP_UPDATA_SUCCESSFULLY);
+          this.presentAlert(this.CROP_UPDATA_SUCCESSFULLY);
           this.navCtrl.push('ItemCreatePage');
 	      }else{
 	        alert(resp.msg);

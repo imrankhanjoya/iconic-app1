@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController, ViewController,LoadingController, ToastController } from 'ionic-angular';
+import { ModalController, ViewController,LoadingController, AlertController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { EtradingProvider } from '../../providers/etrading/etrading';
@@ -36,9 +36,9 @@ export class ETirdingPage {
    	public pageTitle:any;
   	currentItems: any = [];
 
-  constructor(public navCtrl: NavController, 
+  constructor(public alertCtrl: AlertController,
+          public navCtrl: NavController, 
   				public navParams: NavParams,
-          public toastCtrl: ToastController,
   				public viewCtrl:ViewController, 
   				private formBuilder: FormBuilder,
   	 			public EtradingProvider:EtradingProvider,
@@ -49,6 +49,11 @@ export class ETirdingPage {
 
       this.translateService.get('E_TRADING_FORM').subscribe((value) => {
         this.E_TRADING_FORM = value;
+        console.log(this.validnumber+'tesrtinnng');
+      });
+
+      this.translateService.get('OK').subscribe((value) => {
+        this.OK = value;
         console.log(this.validnumber+'tesrtinnng');
       });
 
@@ -64,7 +69,8 @@ export class ETirdingPage {
 		            etrading_prices: ['', Validators.required],
 		            etrading_address: ['', Validators.required],
                 etrading_quantity: ['', Validators.required],
-		            etrading_quantity_unit: ['', Validators.required],
+                etrading_quantity_unit: ['', Validators.required],
+                //etrading_price_unit: ['', Validators.required],
 		            user_state_id: [this.userData._user_state, Validators.required],
 		            user_district_id: [this.userData._user_district, Validators.required],
 		            user_tahsil_id: [this.userData._user_tehsil, Validators.required]
@@ -79,19 +85,14 @@ export class ETirdingPage {
         });
     
   }
-  
-  presentToast(message) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      showCloseButton:true,
-      position: 'middle'
-    });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
     });
-
-    toast.present();
+    alert.present();
   }
 
   ionViewDidLoad() {
@@ -124,7 +125,7 @@ export class ETirdingPage {
   filterLocaltionForm(){
   	console.log(this.changemarket.value);
     this.EtradingProvider.trading_send(this.changemarket.value);
-      this.presentToast(this.E_TRADING_FORM);
+      this.presentAlert(this.E_TRADING_FORM);
       let data = { 'data': '' };
       this.viewCtrl.dismiss(data); 
     }

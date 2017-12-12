@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController, ViewController,LoadingController,ToastController } from 'ionic-angular';
+import { ModalController, ViewController,LoadingController,AlertController  } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { ContactusProvider } from '../../providers/contactus/contactus';
@@ -25,8 +25,8 @@ export class PriceRequestFilterPage {
 	public priceRequest : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider, private toastCtrl: ToastController,
-    public translateService: TranslateService
+    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider,
+    public translateService: TranslateService,public alertCtrl: AlertController
     ) {
       this.formdata=navParams.get('formdata');
     	this.priceRequest = this.formBuilder.group({
@@ -34,24 +34,23 @@ export class PriceRequestFilterPage {
 	          display_name: [this.formdata.display_name, Validators.required],
             description: [this.formdata.message, Validators.required]
         });
-         this.translateService.get('PRICE_REQUEST_SUCCESS').subscribe((value) => {
-                this.PRICE_REQUEST_SUCCESS = value;
-                console.log(this.validnumber+'tesrtinnng');
-              });
+       this.translateService.get('PRICE_REQUEST_SUCCESS').subscribe((value) => {
+          this.PRICE_REQUEST_SUCCESS = value;
+        });
+
+        this.translateService.get('OK').subscribe((value) => {
+          this.OK= value;
+        });
   }
-   presentToast(message) {
-              let toast = this.toastCtrl.create({
-                message: message,
-                showCloseButton:true,
-                position: 'middle'
-              });
 
-              toast.onDidDismiss(() => {
-                console.log('Dismissed toast');
-              });
-
-              toast.present();
-            }
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
+    });
+    alert.present();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PriceRequestFilterPage');
@@ -66,7 +65,7 @@ export class PriceRequestFilterPage {
       this.contactus.ProductSend(this.formdata);
       let data = { 'data': '' };
       this.viewCtrl.dismiss(data); 
-      this.presentToast(this.PRICE_REQUEST_SUCCESS);
+      this.presentAlert(this.PRICE_REQUEST_SUCCESS);
      
 
   }
