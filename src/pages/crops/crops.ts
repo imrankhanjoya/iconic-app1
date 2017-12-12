@@ -43,10 +43,13 @@ export class CropsPage {
    public userLong:any;
    public loading:any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,
-    public events: Events,
-      public cityStateProvider:CityStateProvider,public storage:Storage,
-      public loadingCtrl: LoadingController,public user: User) {
+    constructor(public navCtrl: NavController, 
+      public navParams: NavParams,
+      public events: Events,
+      public cityStateProvider:CityStateProvider,
+      public storage:Storage,
+      public loadingCtrl: LoadingController,
+      public user: User) {
 
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -72,14 +75,6 @@ export class CropsPage {
       console.log(this.cropList);
       this.loading.dismiss();
     }); 
-    
-    // this.cityStateProvider.sendCrop(this.lang).map(res => res.json()).subscribe((resp) => {
-    //   this.cropList=resp.data;
-    //   console.log(this.cropList);
-    //   this.loading.dismiss();
-    // }, (err) => {
-    //   this.loading.dismiss();
-    // });
   }
 
 
