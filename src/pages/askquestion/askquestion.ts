@@ -86,7 +86,7 @@ export class AskquestionPage {
             this.presentAlert(this.QUATION_ERROR);
         }else{
 
-          this.viewCtrl.dismiss();
+          // this.viewCtrl.dismiss();
           this.presentAlert(this.QUATION_ADDED);
           console.log(this.askquestionsData.data);
         }
