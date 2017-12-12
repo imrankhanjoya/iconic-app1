@@ -60,6 +60,7 @@ export class HomePage {
   public usertopcard: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
+  public userCropIdList:string='';
   public rotateClass:any;
   public toolbarClass:any;
   public maindiIconClass:any;
@@ -175,6 +176,20 @@ export class HomePage {
     }).catch((error) => {
       console.log('Error getting location', error);
     });
+
+
+
+      this.storage.get('userData').then((val) => { 
+        this.user_id = val.ID;
+        this.userdata = val;  
+        //this.crops=val.crops;
+        //alert(val.crops.length);
+        for (var i = 0; i < val.crops.length; i++) {
+          console.log(val.crops[i].id)
+          this.userCropIdList += val.crops[i].id;
+        }
+      });
+
     this.storage.get('userData').then((userdata) => {
       if (userdata) {
         console.log(userdata);
@@ -260,7 +275,7 @@ export class HomePage {
   
 
   getMandiData(){
-    this.mandi.usermandi(this.userId,this.tehsil).then((res)=>{
+    this.mandi.usermandi(this.userId,this.tehsil,this.userCropIdList).then((res)=>{
         this.mandidata= res.data[0] ;
         this.mandidata.graph_months=this.mandidata.graph_months;
         this.mandidata.graph_price=this.mandidata.graph_price;

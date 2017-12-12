@@ -29,8 +29,8 @@ export class MandiProvider {
       });
   }
 
-   usermandi(userId,tehsil_id) {
-      var paramCond ={page:0,user_id:userId,tehsil_id:tehsil_id,lang:this.api.userLanguage};
+   usermandi(userId,tehsil_id,cropurllist) {
+      var paramCond ={page:0,user_id:userId,tehsil_id:tehsil_id,lang:this.api.userLanguage,cropurllist:cropurllist};
       return new Promise((resolve)=>{
         this.api.getCache('v1/mandi/user-mandi', paramCond).then((usermandiData)=>{
           resolve(usermandiData);

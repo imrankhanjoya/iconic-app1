@@ -97,26 +97,24 @@
   </ion-grid >
 
  <ion-slides  class="slides" [slidesPerView]="'1.05'" >
-            
-
-              <ion-slide >
-                  <ion-card class="agri-card" (click)="gotoAskquestion()" >
-                    <img   class="agri_image" src="assets/img/askquestion.jpg" >
-                    <div class="krishisevayen-title-box">
-                    <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
-                    <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
-                    </div>
-                  </ion-card>
-              </ion-slide>
-              <ion-slide >
-                <ion-card class="specil_card" (click)="goToChoupal()">
-                  <img  class="specil_image" src="assets/img/choupla.jpg">
-                  <div class="krishisevayen-title-box">
-                  <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CHOPAL'| translate}}</div>
-                  <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-                  </div>
-                </ion-card>
-              </ion-slide>
+    <ion-slide >
+        <ion-card class="agri-card" (click)="gotoAskquestion()" >
+          <img   class="agri_image" src="assets/img/askquestion.jpg"  style="height: 180px;">
+          <div class="krishisevayen-title-box">
+          <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
+          <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
+          </div>
+        </ion-card>
+    </ion-slide>
+    <ion-slide >
+      <ion-card class="specil_card" (click)="goToChoupal()">
+        <img  class="specil_image" src="assets/img/choupla.jpg">
+        <div class="krishisevayen-title-box">
+        <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CHOPAL'| translate}}</div>
+        <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+        </div>
+      </ion-card>
+    </ion-slide>
    </ion-slides>
     <ion-grid>
       <ion-row>

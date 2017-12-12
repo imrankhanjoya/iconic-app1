@@ -60,19 +60,16 @@ export class ItemCreatePage {
 
 
 
-ionViewDidLoad() {
-
-}
-   back(){
-    //this.navCtrl.pop();  
-    // this.navCtrl.push(HomePage);
+  ionViewDidLoad() {}
+  
+  back(){
     let view = this.navCtrl.getActive();
                  console.log("  current Page  :  " + view.name);
     this.navCtrl.setRoot(MainPage, {}, {
-                          animate: true,
-                          direction: 'forward'
-                        });
-   }
+        animate: true,
+        direction: 'forward'
+      });
+  }
 
   getPicture() {
     if (Camera['installed']()) {
