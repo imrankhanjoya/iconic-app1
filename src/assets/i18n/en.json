@@ -331,5 +331,6 @@
   "OK": "Okay",
   "CALL": "Call",
   "CALL_TOLLFREE": "Initiating call on Agribolo Toll Free Number 1800-1200-800",
-  "SUBMIT_CONFIRM": "Are you want to submit this form.?"
+  "SUBMIT_CONFIRM": "Are you want to submit this form.?",
+  "REGISTER_SUCESS": "Are you want to submit this form.?"
 }

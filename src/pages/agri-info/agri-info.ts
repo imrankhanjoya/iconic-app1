@@ -54,6 +54,9 @@ export class AgriInfoPage {
    goToRabi(){
    this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
   }
+   goToChoupal(){
+    this.navCtrl.push('ChoupalPage');
+  }
   goToHorticulture(){
     this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
   }
