@@ -23,6 +23,7 @@ export class ForgatePasswordPage {
 	public passError : any;
 	public passConpError : any;
 	public phoneNumberError:any;
+  public OK:any;
 	RegisterData = {password:'', confirmPassword:''}
 
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public events: Events,public translateService: TranslateService) {
@@ -33,6 +34,10 @@ export class ForgatePasswordPage {
 
          this.translateService.get('CHANGE_YOUR_PASSWORD').subscribe((value) => {
                 this.CHANGE_YOUR_PASSWORD = value;
+                console.log(this.validnumber+'tesrtinnng');
+              });
+         this.translateService.get('OK').subscribe((value) => {
+                this.OK = value;
                 console.log(this.validnumber+'tesrtinnng');
               });
   	//userPhonethis.phoneNumber=navParams.get('phoneNumber');

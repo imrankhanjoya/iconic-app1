@@ -21,6 +21,7 @@ import { Storage } from '@ionic/storage';
 import { User } from '../../providers/providers';
 import { FCM } from '@ionic-native/fcm';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MainPage } from '../pages';
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 /**
@@ -115,9 +116,13 @@ export class HomePage {
                       this.exitConfrom();
                     }
                   }else {
-                    this.navCtrl.pop({});
                     // const index = this.viewCtrl.index;
                     // this.navCtrl.remove(index);
+                    if(view.name=="ItemCreatePage"){
+                        this.navCtrl.setRoot(MainPage);
+                    }else{
+                        this.navCtrl.pop();
+                    }
                   }
               });
             });

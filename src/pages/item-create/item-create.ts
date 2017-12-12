@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, ViewController, PopoverController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController,Platform, PopoverController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { User } from '../../providers/providers';
+import { MainPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -23,7 +24,7 @@ export class ItemCreatePage {
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder,
     public camera: Camera,public storage:Storage, public popoverCtrl: PopoverController,public user: User,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,public platform:Platform) {
 
     if (this.base64Image=='') {
         this.base64Image='assets/img/appicon.png';
@@ -50,16 +51,27 @@ export class ItemCreatePage {
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
     });
-  }
-   
+    platform.ready().then(() => {
+      platform.registerBackButtonAction(() => {
+          this.back();
+      });
+    });
+}
 
 
-  ionViewDidLoad() {
 
-  }
+ionViewDidLoad() {
+
+}
    back(){
     //this.navCtrl.pop();  
-    this.navCtrl.push(HomePage);
+    // this.navCtrl.push(HomePage);
+    let view = this.navCtrl.getActive();
+                 console.log("  current Page  :  " + view.name);
+    this.navCtrl.setRoot(MainPage, {}, {
+                          animate: true,
+                          direction: 'forward'
+                        });
    }
 
   getPicture() {

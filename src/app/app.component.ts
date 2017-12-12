@@ -235,6 +235,8 @@ export class MyApp {
        this.nav.push('PrivacyHindiPage');
     }else if(page.component=='HomePage'){
       this.nav.setRoot(MainPage);
+    }else if(page.component=='ItemCreatePage'){
+      this.nav.setRoot('ItemCreatePage');
     }else{
        this.nav.push(page.component);
     }
