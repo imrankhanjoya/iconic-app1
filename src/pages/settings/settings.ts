@@ -231,7 +231,7 @@ export class SettingsPage {
   onStateSelect(stateid) {
     this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
-      this.tehsilList=[];
+      //this.tehsilList=[];
     });
   }
   onDistrictSelect(districtId){
@@ -244,9 +244,9 @@ export class SettingsPage {
   getAllState() {
 
     this.cityStateProvider.getState(this.lang).then((res)=>{
-          this.stateList=res.data;
+        this.stateList=res.data;
 
-      }); 
+    }); 
     
     // this.cityStateProvider.getState(this.lang).map(res => res.json()).subscribe((resp) => {
     //   this.stateList=resp.data;
