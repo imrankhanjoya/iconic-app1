@@ -25,7 +25,7 @@ export class ForgatePasswordPage {
 	public phoneNumberError:any;
 	RegisterData = {password:'', confirmPassword:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public events: Events,public translateService: TranslateService) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public events: Events,public translateService: TranslateService) {
   	 this.storage.get('userPhone').then((val) => {
     this.phoneNumber = val; 
     console.log(this.phoneNumber);
@@ -40,6 +40,15 @@ export class ForgatePasswordPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ForgatePasswordPage');
+  }
+
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
+    });
+    alert.present();
   }
 
   ResetPassword(){
@@ -69,7 +78,7 @@ export class ForgatePasswordPage {
       	//console.log('passsss')
 		this.user.ResetPassword(this.phoneNumber,this.RegisterData.password).map(res => res.json()).subscribe((resp) => {
 		    console.log(resp.status);
-        alert(this.CHANGE_YOUR_PASSWORD);
+        this.presentAlert(this.CHANGE_YOUR_PASSWORD);
 			this.navCtrl.push('LoginPage');
 		 }, (err) => {
 		this.navCtrl.push('LoginPage');
