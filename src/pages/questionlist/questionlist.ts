@@ -67,15 +67,21 @@ import { HomePage } from '../home/home';
        });
      dataLayer.push({'event': 'appEvent'});
      // this.navCtrl.push('AskquestionPage');
-   this.navCtrl.push('AskquestionPage');
+   this.navCtrl.push('AskquestionPage').then(() => {
+      const index = this.viewCtrl.index;
+      this.navCtrl.remove(index);
+    });
   } 
   back(){
     // this.navCtrl.pop('HomePage');  
-    this.navCtrl.push(HomePage);
+    this.navCtrl.pop();
   }
   gotoViewquestion(Qid){
     console.log(Qid);
-    this.navCtrl.push('QuitionviewPage',{QuitionID:Qid});
+    this.navCtrl.push('QuitionviewPage',{QuitionID:Qid}).then(() => {
+      const index = this.viewCtrl.index;
+      this.navCtrl.remove(index);
+    });
   } 
 
   //Loader Question List

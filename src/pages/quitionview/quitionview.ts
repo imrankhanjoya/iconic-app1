@@ -49,8 +49,12 @@ export class QuitionviewPage {
 
   } 
    back(){
-  // this.navCtrl.pop('HomePage');  
-   this.navCtrl.push(QuestionlistPage);
+    // this.navCtrl.pop('HomePage');  
+    //this.navCtrl.push(QuestionlistPage);
+    const index = this.viewCtrl.index;
+    this.navCtrl.push('QuestionlistPage').then(() => {
+      this.navCtrl.remove(index);
+    });
    } 
 
   gotoAnswerquestion(Qid){
@@ -60,7 +64,9 @@ export class QuitionviewPage {
          'appEventLabel': 'Add Answer'
        });
       dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid});
-  }
-
+      const index = this.viewCtrl.index;
+      this.navCtrl.push('QuitionanswerPage',{QuitionID:Qid}).then(() => {
+        this.navCtrl.remove(index);
+      });
+    }  
 }
