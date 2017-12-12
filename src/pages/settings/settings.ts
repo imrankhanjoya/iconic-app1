@@ -89,6 +89,7 @@ export class SettingsPage {
                 user_district_id: [this.userData._user_district, Validators.required],
                 user_tahsil_id: [this.userData._user_tehsil, Validators.required]
               });
+              this.getAllState();
               this.onStateSelect(this.userData._user_state);
               this.onDistrictSelect(this.userData._user_district);
 
@@ -231,7 +232,7 @@ export class SettingsPage {
   onStateSelect(stateid) {
     this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
-      //this.tehsilList=[];
+      this.tehsilList=[];
     });
   }
   onDistrictSelect(districtId){
