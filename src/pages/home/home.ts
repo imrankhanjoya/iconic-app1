@@ -155,6 +155,7 @@ export class HomePage {
     }
 
   ionViewDidLoad() {
+    
     this.splashScreen.hide();
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
@@ -165,13 +166,10 @@ export class HomePage {
       });
    
     this.geolocation.getCurrentPosition().then((resp) => {
-       console.log(resp);
-       //this.storage.set('userLoction',resp.coords);
        this.geoLoc.lat = resp.coords.latitude;
        this.geoLoc.lng = resp.coords.longitude;
        this.storage.set('userLoction.latitude',resp.coords.latitude);
        this.storage.set('userLoction.longitude',resp.coords.longitude);
-
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
     }).catch((error) => {
       console.log('Error getting location', error);
@@ -314,14 +312,13 @@ export class HomePage {
   }
 
   getkrish(lat:any,long:any){
-    this.krish.kendraList(lat,long).then((res)=>{
+    this.krish.NearestKendra(lat,long).then((res)=>{
         this.kendraData.data = res.data;
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
-        this.kendraHome.data = res.data[0];
-        this.geoLoc.lat = res.data[0].lat;
-        this.geoLoc.lng = res.data[0].longe;
-        this.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
+        console.log('geoLoc');
+        console.log(this.kendraData);
+        //is.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
     });
   }
 

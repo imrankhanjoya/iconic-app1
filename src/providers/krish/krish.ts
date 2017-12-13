@@ -18,6 +18,7 @@ export class KrishProvider {
   constructor(public http: Http, public api: Api) {
     console.log('Hello KrishProvider Provider');
   }
+  
   krishList() {
   		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
   	 var paramCond ={post_type:'services',lang:this.api.userLanguage};
@@ -42,16 +43,16 @@ export class KrishProvider {
   kendraList(latitude,longitude) {
     var paramCond ={lat:latitude,long:longitude,lang:'en_US'};
     return new Promise((resolve)=>{
-      this.api.getCache('v1/krishi/nearby-loc', paramCond).then((kendraListData)=>{
-        resolve(kendraListData);
-      });  
+    this.api.getCache('v1/krishi/nearby-loc', paramCond).then((kendraListData)=>{
+      resolve(kendraListData);
+    });  
     });
   }
 
   NearestKendra(latitude,longitude) {
     var paramCond ={lat:latitude,long:longitude,lang:'en_US'};
     return new Promise((resolve)=>{
-      this.api.getCache('v1/krishi/nearby-loc', paramCond).then((kendraListData)=>{
+      this.api.getCache('v1/krishi/nearest-loc', paramCond).then((kendraListData)=>{
         resolve(kendraListData);
       });  
     });

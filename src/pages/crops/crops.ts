@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the CropsPage page.
@@ -43,13 +44,25 @@ export class CropsPage {
    public userLong:any;
    public loading:any;
 
-    constructor(public navCtrl: NavController, 
+    constructor(public translateService: TranslateService,
+      public alertCtrl: AlertController,
+      public navCtrl: NavController, 
       public navParams: NavParams,
       public events: Events,
       public cityStateProvider:CityStateProvider,
       public storage:Storage,
       public loadingCtrl: LoadingController,
       public user: User) {
+
+      this.translateService.get('OK').subscribe((value) => {
+        this.OK= value;
+      });
+      this.translateService.get('REGISTER_SUCESS').subscribe((value) => {
+        this.REGISTER_SUCESS= value;
+      });
+      this.translateService.get('MINIMUM_CROPS').subscribe((value) => {
+        this.MINIMUM_CROPS= value;
+      });
 
       this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -65,6 +78,15 @@ export class CropsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CropsPage');
     this.getUserData();
+  }
+
+  presentAlert(message) {
+    let alert = this.alertCtrl.create({
+      title: '',
+      subTitle: message,
+      buttons: [this.OK]
+    });
+    alert.present();
   }
 
   getCrops() {
@@ -128,7 +150,7 @@ export class CropsPage {
       }
       if (i==this.cropList.length-1) {
         if (isSelect<3) {
-          alert('Select Minimum 3')
+          this.presentAlert(this.MINIMUM_CROPS);
         }else {
           this.userRigister(selectedCrops);
           //lag,long,mobile,name,password,language,state,district,village,crops,vegetables
@@ -152,10 +174,12 @@ export class CropsPage {
       loading.dismiss();
      if(resp.status==true){
        this.storage.set('userData',resp.data);
+       this.presentAlert(this.REGISTER_SUCESS);
        this.navCtrl.push('LoginPage');
       }else{
         console.log(resp.status);
-        alert(resp.msg);
+        this.presentAlert(resp.msg);
+        //alert(resp.msg);
       }
      }, (err) => {
       loading.dismiss();

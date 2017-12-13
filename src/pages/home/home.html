@@ -75,7 +75,7 @@
 
   <!-------Welcome Promoe------>
 
-  <ion-card *ngIf="usertopcard.status==true" class="dialogYellow backgroundColorYellow" >
+  <ion-card class="dialogYellow backgroundColorYellow" >
     <ion-grid >
       <ion-row>
         <ion-col col-3 >
@@ -86,9 +86,9 @@
         <ion-col  col-9>
           <ion-row >
           <div class="smallTitle">
-            {{usertopcard.data.title}}
+            {{ 'HELLO' | translate }}, {{userDisplayName}}
           </div>
-            <div style="font-weight: 300">{{usertopcard.data.message}}</div>
+            <div *ngIf="usertopcard.status==true"  style="font-weight: 300">{{usertopcard.data.message}}</div>
           </ion-row>
         </ion-col>
       </ion-row>
@@ -481,18 +481,18 @@
 
 
   <ion-card >
-  <img src="https://maps.googleapis.com/maps/api/staticmap?center={{geoLoc.lat}},{{geoLoc.lng}}&zoom=16&size=400x400&markers=color:green%7Clabel:k%7C{{geoLoc.lat}},{{geoLoc.lng}}&key=AIzaSyDyovCt6Vv3pefuZ0JdQC9caXFg3NNf2R0" (click)="gotoMap(geoLoc.lat,geoLoc.lng)">
+  <img src="{{kendraData.data.map_image}}" (click)="gotoMap(geoLoc.lat,geoLoc.lng)">
 
   <ion-grid>
       <ion-row>
       <ion-col col-5>
-          <p>{{ 'KM' | translate:{km: userKm} }}</p>
+          <p>{{ 'KM' | translate:{km: kendraData.data.distance} }}</p>
       </ion-col>
       <ion-col col-4 align-items-left>
           <button right ion-button small class="button"  (click)="gotoAgroCenter()" >{{'SEE_MORE' | translate}}</button>
       </ion-col>
       <ion-col col-3 align-items-right>
-          <button right ion-button small class="button" (click)="gotoMap(geoLoc.lat,geoLoc.lng)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
+          <button right ion-button small class="button" (click)="gotoMap(kendraData.data.lat,kendraData.data.lng)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
       </ion-col>
     </ion-row>
   </ion-grid>

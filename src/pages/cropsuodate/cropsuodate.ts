@@ -55,6 +55,9 @@ export class CropsuodatePage {
            this.translateService.get('OK').subscribe((value) => {
           this.OK = value;
           });
+           this.translateService.get('MINIMUM_CROPS').subscribe((value) => {
+          this.MINIMUM_CROPS = value;
+          });
 
           this.shoPage='Kharif';
           this.skipDataList = [];
@@ -154,7 +157,7 @@ export class CropsuodatePage {
       }
       if (i==this.cropList.length-1) {
         if (isSelect<3) {
-          alert('Select Minimum 3')
+          this.presentAlert(this.MINIMUM_CROPS);
         }else {
           this.CropUpdate(selectedCrops);
         }
@@ -179,6 +182,7 @@ export class CropsuodatePage {
           this.presentAlert(this.CROP_UPDATA_SUCCESSFULLY);
           this.navCtrl.push('ItemCreatePage');
 	      }else{
+          this.presentAlert(resp.msg);
 	        alert(resp.msg);
 	      }
 	     }, (err) => {
