@@ -31,7 +31,7 @@ export class RentalFilterPage {
     public loading:any;
     public product_name:any;
     public pageTitle:any;
-    Crop: string = "General";
+    Crop: string = "Rentout";
     Rental_Listdata: any = [];
     date_from: String = new Date().toISOString();
 

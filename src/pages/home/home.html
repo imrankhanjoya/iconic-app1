@@ -1,505 +1,484 @@
-
 <ion-header no-border (click)="showBar()" >
-<ion-toolbar class="headercolor">
-<button ion-button menuToggle class="menufontcolor">
-<ion-icon name="menu" ></ion-icon>
-</button>
-<!-- <ion-buttons end>
-<button ion-button icon-only class="headericon" (click)="gotoWallet()">
-<img src="assets/img/agri bolo icon/hdpi/wallet.png">
-</button>
-</ion-buttons> -->
-<ion-title class="home_title">{{ 'SITE_TITLE' | translate }}</ion-title>
-<!-- <ion-buttons end>
-<button ion-button icon-only class="headericon" (click)="gotoAnounsePage()">
-  <img src="assets/img/agri bolo icon/hdpi/notification.png">
-</button>
-</ion-buttons> -->
-<ion-buttons end>
-<button ion-button icon-only class="headericon" (click)="SearchPage()">
-  <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
-</button>
-</ion-buttons>
-</ion-toolbar>
-<div class="barCustomAct">
-  <ion-grid  class="gridView gridDesign top">
-  <ion-row class="gridRow">
-    <ion-col class="toolbarCol" (click)="gotoWeatherPage('menu')">
-      <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
-      {{ 'WEATHER' | translate }}
-    </ion-col>
-    <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiDetail('menu')">
-      <img class="{{maindiIconClass}}" src="assets/img/agri bolo icon/hdpi/Group 21.png" >
-      {{'MANDI' | translate }}
-    </ion-col>
-    <ion-col #karsi_id class="toolbarCol opacityGone" (click)="gotoservicesPage()">
-      <img src="assets/img/agri bolo icon/hdpi/rishi sevna.png">
-      {{'AGRICULTURAL_SERVICES' | translate }}
-    </ion-col>
-    <ion-col #tongl_id class="toolbarCol opacityGone">
-      <img (click)="toggleMenu()" class="{{rotateClass}}" src="assets/img/agri bolo icon/hdpi/Group 37.png">
-      <span  *ngIf="toggleMenuText=='less'">{{'LESS' | translate }}</span>
-      <span   *ngIf="toggleMenuText=='more'">{{'MORE' | translate }}</span>
-    </ion-col>
-
-  </ion-row>
-  <div class="{{toolbarClass}}" *ngIf="topMenu">
-  <ion-row class="gridRow" >
-
-      <ion-col class="toolbarCol" (click)="gotoAgriinfo()">
-        <img src="assets/img/agri bolo icon/hdpi/karshi.PNG">
-          {{'KRISHI_JANKARI' | translate }}
-      </ion-col>
-      <ion-col class="toolbarCol"(click)="gotoVedio('menu')">
-        <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
-        {{'VIDEO' | translate }}
-      </ion-col>
-      <ion-col class="toolbarCol" (click)="gotoAskquestion('menu')">
-        <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
-        {{'ASK_THE_EXPERT' | translate }}
-      </ion-col>
-      <ion-col class="toolbarCol">
-
-      </ion-col>
-
-  </ion-row>
-  </div>
-  </ion-grid>
-</div>
+   <ion-toolbar class="headercolor">
+      <button ion-button menuToggle class="menufontcolor">
+         <ion-icon name="menu" ></ion-icon>
+      </button>
+      <!-- <ion-buttons end>
+         <button ion-button icon-only class="headericon" (click)="gotoWallet()">
+         <img src="assets/img/agri bolo icon/hdpi/wallet.png">
+         </button>
+         </ion-buttons> -->
+      <ion-title class="home_title">{{ 'SITE_TITLE' | translate }}</ion-title>
+      <!-- <ion-buttons end>
+         <button ion-button icon-only class="headericon" (click)="gotoAnounsePage()">
+           <img src="assets/img/agri bolo icon/hdpi/notification.png">
+         </button>
+         </ion-buttons> -->
+      <ion-buttons end>
+         <button ion-button icon-only class="headericon" (click)="SearchPage()">
+         <img src="assets/img/agri bolo icon/hdpi/Fill 31 + Fill 32 + Fill 33.png">
+         </button>
+      </ion-buttons>
+   </ion-toolbar>
+   <div class="barCustomAct">
+      <ion-grid  class="gridView gridDesign top">
+         <ion-row class="gridRow">
+            <ion-col class="toolbarCol" (click)="gotoWeatherPage('menu')">
+               <img src="assets/img/agri bolo icon/hdpi/Group 39.png">
+               {{ 'WEATHER' | translate }}
+            </ion-col>
+            <ion-col #man_id  class="toolbarCol opacityGone"  (click)="gotomandiDetail('menu')">
+            <img class="{{maindiIconClass}}" src="assets/img/agri bolo icon/hdpi/Group 21.png" >
+            {{'MANDI' | translate }}
+            </ion-col>
+            <ion-col #karsi_id class="toolbarCol opacityGone" (click)="gotoservicesPage()">
+            <img src="assets/img/agri bolo icon/hdpi/rishi sevna.png">
+            {{'AGRICULTURAL_SERVICES' | translate }}
+            </ion-col>
+            <ion-col #tongl_id class="toolbarCol opacityGone">
+               <img (click)="toggleMenu()" class="{{rotateClass}}" src="assets/img/agri bolo icon/hdpi/Group 37.png">
+               <span  *ngIf="toggleMenuText=='less'">{{'LESS' | translate }}</span>
+               <span   *ngIf="toggleMenuText=='more'">{{'MORE' | translate }}</span>
+            </ion-col>
+         </ion-row>
+         <div class="{{toolbarClass}}" *ngIf="topMenu">
+            <ion-row class="gridRow" >
+               <ion-col class="toolbarCol" (click)="gotoAgriinfo()">
+                  <img src="assets/img/agri bolo icon/hdpi/karshi.PNG">
+                  {{'KRISHI_JANKARI' | translate }}
+               </ion-col>
+               <ion-col class="toolbarCol"(click)="gotoVedio('menu')">
+                  <img src="assets/img/agri bolo icon/hdpi/Group 35.png" >
+                  {{'VIDEO' | translate }}
+               </ion-col>
+               <ion-col class="toolbarCol" (click)="gotoAskquestion('menu')">
+                  <img src="assets/img/agri bolo icon/hdpi/Group 31.png">
+                  {{'ASK_THE_EXPERT' | translate }}
+               </ion-col>
+               <ion-col class="toolbarCol">
+               </ion-col>
+            </ion-row>
+         </div>
+      </ion-grid>
+   </div>
 </ion-header>
-
-
 <ion-content class="scrollhide" #contentRef (ionScroll)="onScroll($event)" (click)="showBar()">
-
-
-
-  <!-------Welcome Promoe------>
-
-  <ion-card class="dialogYellow backgroundColorYellow" >
-    <ion-grid >
+<!-------Yellow Card Welcome Promoe------>
+<ion-card class="dialogYellow backgroundColorYellow" >
+   <ion-grid >
       <ion-row>
-        <ion-col col-3 >
+         <ion-col col-3 >
             <ion-thumbnail item-start >
-              <img src="assets/img/promo_icon.png" >
+               <img src="assets/img/promo_icon.png" >
             </ion-thumbnail>
-        </ion-col>
-        <ion-col  col-9>
-          <ion-row >
-          <div class="smallTitle">
-            {{ 'HELLO' | translate }}, {{userDisplayName}}
-          </div>
-            <div *ngIf="usertopcard.status==true"  style="font-weight: 300">{{usertopcard.data.message}}</div>
-          </ion-row>
-        </ion-col>
+         </ion-col>
+         <ion-col  col-9>
+            <ion-row >
+               <div class="smallTitle">
+                  {{ 'HELLO' | translate }}, {{userDisplayName}}
+               </div>
+               <div *ngIf="usertopcard.status==true"  style="font-weight: 300">{{usertopcard.data.message}}</div>
+            </ion-row>
+         </ion-col>
       </ion-row>
-    </ion-grid>
-
-  </ion-card>
-
-
-
+   </ion-grid>
+</ion-card>
 <!-----------------Weather section-->
-   <ion-grid>
-      <ion-row   *ngIf="wheaterHome.status==true">
+<ion-grid>
+   <ion-row   *ngIf="wheaterHome.status==true">
       <ion-col class="cardHeader">
-          <div class="headerClass">{{ 'WEATHER' | translate }}</div>
+         <div class="headerClass">{{ 'WEATHER' | translate }}</div>
       </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage('card')">
-    <ion-row>
-      <ion-col col-6 class="colCandigare">
-          {{NowTime | date:'dd MMMM yyyy hh:mm a'}}          
-          <div class="main">
-              <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
-              <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
-              <div class="elementTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
-          </div>
+   </ion-row>
+</ion-grid>
+<ion-card *ngIf="wheaterHome.status==true" (click)="gotoWeatherPage('card')">
+<ion-row>
+   <ion-col col-6 class="colCandigare">
+      {{NowTime | date:'dd MMMM yyyy hh:mm a'}}          
+      <div class="main">
+         <div class="elementTitle">{{wheaterHome.data.tehsil_name}}</div>
+         <p class="weathertitle">{{wheaterHome.data.WeatherData[0].tempratureValue}}˚{{wheaterHome.data.WeatherData[0].tempratureUnit}}</p>
+         <div class="elementTitle">{{wheaterHome.data.WeatherData[0].IconPhrase}}</div>
+      </div>
+   </ion-col>
+   <ion-col col-6 class="imageCol">
+      <img  src="{{wheaterHome.data.WeatherData[0].WeatherIconsBig}}"/>
+   </ion-col>
+</ion-row>
+<ion-grid>
+   <ion-row padding-left >
+      <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
+         <p>{{data.DateTime | date:'h a'}} </p>
+         <img src="{{data.WeatherIconsSmall}}" alt="your image" class="icon">
+         <p>{{data.tempratureValue}}˚{{data.tempratureUnit}}</p>
       </ion-col>
-      <ion-col col-6 class="imageCol">
-          <img  src="{{wheaterHome.data.WeatherData[0].WeatherIconsBig}}"/>
-      </ion-col>
-    </ion-row>
-    <ion-grid>
-
-      <ion-row padding-left >
-        <ion-col col-2 *ngFor="let data of wheaterHome.data.WeatherData;"  class="day-content">
-          <p>{{data.DateTime | date:'h a'}} </p>
-          <img src="{{data.WeatherIconsSmall}}" alt="your image" class="icon">
-          <p>{{data.tempratureValue}}˚{{data.tempratureUnit}}</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid>
-    <ion-row class="weatherfoter">
-      <ion-col col-6>
-      
-      <ion-col col-6>
-        <img class="bulb-icon" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="your image">
-      </ion-col>
-      <ion-col col-6>
-      <span class="weatherAdv">Powered by</span>
-      </ion-col>
-      </ion-col>
-      <ion-col col-6 class="sources">
-      <a href="https://www.accuweather.com/" style="float: right; padding: 11px 15px 11px 15px; color: #649305; background-color:  #fff;display: inline-block; text-decoration: none;margin-top:10px;">Weekly Forecast<!-- {{'WEEKLY_FORCAST' | translate}} <ion-icon name="skip-forward"></ion-icon>--></a>
-      <!-- <div class="right Headline colorBlack" >{{'SEE_MORE' | translate}}</div> -->
-      </ion-col>
-    </ion-row>
-    </ion-grid>
-
-    <ion-grid>
-    <ion-row class="weatherfoter">
+   </ion-row>
+</ion-grid>
+<ion-grid  *ngIf="weatherfiveday.status==true">
+   <ion-row class="weatherfoter">
       <ion-col col-1>
-        <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
+         <img class="bulb-icon" src="assets/img/agri bolo icon/hdpi/idea.png" alt="your image">
       </ion-col>
       <ion-col col-11 class="sources">
-      <div class="Headline colorBlack" >{{'SUTRA' | translate}}</div>
+         <div class="Headline colorBlack" >
+          {{'WEATHER_SUTRA' | translate}} : {{weatherfiveday.data.headline.Text}}<!-- {{'SUTRA' | translate}} -->
+         </div>
       </ion-col>
-    </ion-row>
-    </ion-grid>
-
-
-  </ion-card>
-<!----End Weather Section-->
-
-<!----Start Mandi Section-->
-
-
-
-
-  <ion-grid>
-      <ion-row  *ngIf="mandidata.status==true" >
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{ 'MANDI' | translate }}</div>
+   </ion-row>
+</ion-grid>
+<ion-grid>
+   <ion-row class="weatherfoter">
+      <ion-col col-6>
+         <ion-col col-6>
+            <img class="bulb-icon" src="https://vortex.accuweather.com/adc2010/images/slate/AccuWeather_LogoOrange.svg" alt="your image">
+         </ion-col>
+         <ion-col col-6>
+            <span class="weatherAdv">Powered by</span>
+         </ion-col>
       </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-
-
-
-  <ion-card *ngIf="mandidata.status==true" >
-    <ion-grid  >
-  <ion-row>
-    <ion-col col-3 >
-
-      <img src="{{mandidata.crop_image}}" class="grapImage"/>
-    </ion-col>
-    <ion-col col-9>
-      <div>
-        <div class="MandiTitle">{{mandidata.commodity_name}}</div>
-
-      </div>
-
-      <div class="MandiPrice">₹{{mandidata.max_price}}-{{mandidata.min_price}}</div>
-      <ion-row class="MandiUnit">
-      <div >{{'PER_QUINTAL' | translate}} | {{mandidata.arrival_date}}</div>
-      </ion-row>
-    </ion-col>
-
-  </ion-row>
-  <ion-row>
-    <ion-col>
-    
-    <canvas *ngIf="mandidata.graph_price" baseChart style="width:100%; height: 100%; overflow: hidden; border: none;"
-                [datasets]="[{data: mandidata.graph_price}]"
-                [labels]="mandidata.graph_months"
-                [options]="lineChartOptions"
-                [colors]="lineChartColors"
-                [legend]="lineChartLegend"
-                [chartType]="lineChartType">
-                  
-                </canvas>
-    </ion-col>
-    <!-- <iframe style="width: 100%; height: 200px; overflow: hidden; border: none;" src="http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/mandi-map&market_id=792&commodity_id=230"></iframe> -->
-
-  </ion-row>
-
-  </ion-grid>
-
-  <ion-grid>
-  <ion-row padding-top class="weatherfoter">
-    <ion-col  *ngIf="mandidata1!=''" col-2>
-      <img src="{{mandidata1.crop_image}}" class="grapImage"/>
-
-    </ion-col>
-    <ion-col  *ngIf="mandidata1!=''" col-4 class="sepRight">
-      <div class="SmallerMandiTitle">{{mandidata1.commodity_name}}</div>
-      <div class="SmallerMandiPrice">₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</div>
-      <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
-    </ion-col>
-
-    <ion-col  *ngIf="mandidata2!=''" col-2>
-      <img src="{{mandidata2.crop_image}}" class="grapImage"/>
-    </ion-col>
-    <ion-col  *ngIf="mandidata2!=''" col-4>
-      <div class="SmallerMandiTitle">{{mandidata2.commodity_name}}</div>
-      <div class="SmallerMandiPrice">₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</div>
-      <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
-    </ion-col>
-     <ion-col>
-
-      <div class="alignCenter">
-        <button ion-button  class="buttonGreen"  (click)="gotomandiDetail('card')">{{'SEE_MORE' | translate}}</button>
-    </div>
-
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-  </ion-row>
-
-  </ion-grid>
-  </ion-card>
-
- 
- <!---*******
-        Krishi Sevayen Section
-                        ******-->
-
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="krishisevayen-cardHeader">
-          <div class="headerClass">{{'KRISHI_JANKARI'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-   <ion-slides  [slidesPerView]="'1.05'" >
-
-
-                <ion-slide>
-              <ion-card class="image-card" (click)="gotoAskquestion('card')" >
-                <img src="assets/img/askquestion.jpg" style="height: 180px;" >
-                <div class="krishisevayen-title-box">
-                <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
-                <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
-
-                </div>
-            
-              </ion-card>
-              </ion-slide>
-              <ion-slide >
-                <ion-card class="image-card" (click)="goToKharif()">
-                  <img src="assets/img/Kharif.jpeg" >
-                  <div class="krishisevayen-title-box">
-                  <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'KHARIF'| translate}}</div>
-                  <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-                  </div>
-                </ion-card>
-              </ion-slide>
-              <ion-slide >
-                <ion-card class="image-card" (click)="goToRabi()">
-                  <img src="assets/img/Rabi_crop.JPG">
-                  <div class="krishisevayen-title-box">
-                  <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'RABI'| translate}}</div>
-                  <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-                  </div>
-                </ion-card>
-              </ion-slide>
-              <ion-slide>
-              <ion-card class="image-card" (click)="goToHorticulture()" >
-                <img src="assets/img/horticulture.jpeg" >
-                <div class="krishisevayen-title-box">
-                <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'HORTICULTURE'| translate}}</div>
-                <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-
-                </div>
-              </ion-card>
-
-              </ion-slide>
-
-   </ion-slides>
-
-
-
-
-  <ion-card class="dialog" *ngIf="announceList.status==true" >
-    <ion-grid >
-      <ion-row>
-          <ion-col col-3 >
-            <ion-thumbnail item-start class="avatar">
-              <img src="assets/img/watering_can.png" >
-              </ion-thumbnail>
-            </ion-col>
-          <ion-col class="smallTitle" col-9>
-            {{announceList.data[0].title}}
-          </ion-col>
-      </ion-row>
-    </ion-grid>
-    <div *ngIf="announceList.data[0].type_value!='' || announceList.data[0].type_value!='NULL'" class="readMore titleFont" (click)="gotoAnounsePage(announceList.data[0].type,announceList.data[0].type_value)">{{'SEE_MORE' | translate}}</div>
-  </ion-card>
-
- 
-
-<!------Start Product Sectoipn---->
-
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{'MARKET'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-  <ion-slides [slidesPerView]="'auto'">
-    <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
-      <ion-card (click)="gotoMarketViewPage(productData.id,productData.name,productData.sku)">
-        <img class="produtimage" src="{{productData.feature_image}}"/>
-        <div class="title colorGrey Headline">{{productData.name}}</div>
-        <div class="detailSar colorGreen smallTitle" > 
-         <a style="text-decoration: none;">
-         {{'SEE_DETAIL' | translate}}
+      <ion-col col-6 class="sources">
+         <a href="https://www.accuweather.com/" style="float: right; padding: 11px 15px 11px 15px; color: #649305; background-color:  #fff;display: inline-block; text-decoration: none;margin-top:10px;">
+            Weekly Forecast<!-- {{'WEEKLY_FORCAST' | translate}} <ion-icon name="skip-forward"></ion-icon>-->
          </a>
-        </div>
-      </ion-card>
-    </ion-slide>
-    <ion-slide class="slideItem ">
-      <ion-card>
-          <div class="see-title-box">
-          <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
-          </div>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-
-  <!-------END Product Sectopn------>
-
-
-<!---*******
-        Experts/Blog Section
-                        ******-->
-
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{'SPECIALIST'| translate}}</div>
+         <!-- <div class="right Headline colorBlack" >{{'SEE_MORE' | translate}}</div> -->
       </ion-col>
-    </ion-row>
+   </ion-row>
+</ion-grid>
+</ion-card>
+<!----End Weather Section-->
+<!----Start Mandi Section-->
+<ion-grid>
+   <ion-row  *ngIf="mandidata.status==true" >
+      <ion-col class="cardHeader">
+         <div class="headerClass">{{ 'MANDI' | translate }}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-card *ngIf="mandidata.status==true" >
+   <ion-grid  >
+      <ion-row>
+         <ion-col col-3 >
+            <img src="{{mandidata.crop_image}}" class="grapImage"/>
+         </ion-col>
+         <ion-col col-9>
+            <div>
+               <div class="MandiTitle">{{mandidata.commodity_name}}</div>
+            </div>
+            <div class="MandiPrice">₹{{mandidata.max_price}}-{{mandidata.min_price}}</div>
+            <ion-row class="MandiUnit">
+               <div >{{'PER_QUINTAL' | translate}} | {{mandidata.arrival_date}}</div>
+            </ion-row>
+         </ion-col>
+      </ion-row>
+      <ion-row>
+         <ion-col>
+            <canvas *ngIf="mandidata.graph_price" baseChart style="width:100%; height: 100%; overflow: hidden; border: none;"
+            [datasets]="[{data: mandidata.graph_price}]"
+            [labels]="mandidata.graph_months"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType">
+            </canvas>
+         </ion-col>
+         <!-- <iframe style="width: 100%; height: 200px; overflow: hidden; border: none;" src="http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/mandi-map&market_id=792&commodity_id=230"></iframe> -->
+      </ion-row>
+   </ion-grid>
+   <ion-grid>
+      <ion-row padding-top class="weatherfoter">
+         <ion-col  *ngIf="mandidata1!=''" col-2>
+            <img src="{{mandidata1.crop_image}}" class="grapImage"/>
+         </ion-col>
+         <ion-col  *ngIf="mandidata1!=''" col-4 class="sepRight">
+            <div class="SmallerMandiTitle">{{mandidata1.commodity_name}}</div>
+            <div class="SmallerMandiPrice">₹{{mandidata1.max_price}}-{{mandidata1.min_price}}</div>
+            <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
+         </ion-col>
+         <ion-col  *ngIf="mandidata2!=''" col-2>
+            <img src="{{mandidata2.crop_image}}" class="grapImage"/>
+         </ion-col>
+         <ion-col  *ngIf="mandidata2!=''" col-4>
+            <div class="SmallerMandiTitle">{{mandidata2.commodity_name}}</div>
+            <div class="SmallerMandiPrice">₹{{mandidata2.max_price}}-{{mandidata2.min_price}}</div>
+            <div class="SmallerMandiUnit">{{'PER_QUINTAL' | translate}}</div>
+         </ion-col>
+         <ion-col>
+            <div class="alignCenter">
+               <button ion-button  class="buttonGreen"  (click)="gotomandiDetail('card')">{{'SEE_MORE' | translate}}</button>
+            </div>
+         </ion-col>
+      </ion-row>
+      <ion-row>
+      </ion-row>
+   </ion-grid>
+</ion-card>
+
+
+
+<!---*******Krishi Savaye Agro Service Section******-->
+<ion-grid>
+   <ion-row>
+      <ion-col class="krishisevayen-cardHeader">
+         <div class="headerClass">{{'AGRICULTURAL_SERVICES'| translate}}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-slides  [slidesPerView]="'1.05'" >
+   <ion-slide>
+      <ion-card class="image-card" (click)="gotoMarketPage('card')" >
+         <img src="assets/img/market.jpeg" style="height: 180px;" >
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'MARKET_AGRI_INFO'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide >
+      <ion-card class="image-card" (click)="gotoRental()">
+         <img src="assets/img/rental_new.jpg" >
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'RENTAL'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide >
+      <ion-card class="image-card" (click)="openFilter()">
+         <img src="assets/img/e-triding.jpeg">
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'E-TRADIND'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+</ion-slides>
+
+
+
+<!---*******Krishi Jannkari Section******-->
+<ion-grid>
+   <ion-row>
+      <ion-col class="krishisevayen-cardHeader">
+         <div class="headerClass">{{'CROP'| translate}}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+
+
+<ion-slides  [slidesPerView]="'1.05'" >
+   <ion-slide >
+      <ion-card class="image-card" (click)="goToKharif()">
+         <img src="assets/img/Kharif.jpeg" >
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'KHARIF'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide >
+      <ion-card class="image-card" (click)="goToRabi()">
+         <img src="assets/img/Rabi_crop.JPG">
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'RABI'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide>
+      <ion-card class="image-card" (click)="goToHorticulture()" >
+         <img src="assets/img/horticulture.jpeg" >
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'HORTICULTURE'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+</ion-slides>
+
+
+<!--------Krishi Jaankari------>
+  <ion-grid>
+     <ion-row>
+        <ion-col class="krishisevayen-cardHeader">
+           <div class="headerClass">{{'KRISHI_ADVISORY'| translate}}</div>
+        </ion-col>
+     </ion-row>
   </ion-grid>
-
-   <ion-slides  [slidesPerView]="'1.1'" >
-
-        <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="specil_card" (click)="goToExpertDetial(expert.id,expert.title)" >
-                <img  class="specil_image" src="{{expert.attachments}}" >
-                <div class="card-title-box">
-                <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
-                <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
-
-                <button ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
-                </div>
-              </ion-card>
-
-          </ion-slide>
-          <ion-slide  >
-              <ion-card class="specil_card">
-                <div class="see-title-box-blog">
-                <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
-                </div>
-              </ion-card>
-          </ion-slide>
-
+   <ion-slides  class="slides" [slidesPerView]="'1.05'" >
+      <ion-slide >
+        <ion-card class="image-card" (click)="gotoAskquestion()">
+           <img src="assets/img/askquestion.jpg">
+           <div class="krishisevayen-title-box">
+              <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
+              <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
+           </div>
+        </ion-card>
+      </ion-slide>
+      <ion-slide >
+        <ion-card class="image-card" (click)="goToChoupal()">
+           <img src="assets/img/choupla.jpg">
+           <div class="krishisevayen-title-box">
+              <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CHOPAL'| translate}}</div>
+              <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+           </div>
+        </ion-card>
+      </ion-slide>
    </ion-slides>
 
 
-<!---*******
-        Video Section
-                        ******-->
 
-  <ion-grid>
+<!----------Announcement Section-------->
+<ion-card class="dialog" *ngIf="announceList.status==true" >
+   <ion-grid >
       <ion-row>
-      <ion-col class="cardHeader">
-          <div class="headerClass">{{'VIDEO'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+         <ion-col col-3 >
+            <ion-thumbnail item-start class="avatar">
+               <img src="assets/img/watering_can.png" >
+            </ion-thumbnail>
+         </ion-col>
+         <ion-col class="smallTitle" col-9>
+            {{announceList.data[0].title}}
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <div *ngIf="announceList.data[0].type_value!='' || announceList.data[0].type_value!='NULL'" class="readMore titleFont" (click)="gotoAnounsePage(announceList.data[0].type,announceList.data[0].type_value)">{{'SEE_MORE' | translate}}</div>
+</ion-card>
 
-  <ion-card class="vedioCard"  style="height:400px">
-  <ion-row >
-    <img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
-    <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">
-    {{'TIPS_INDIAN_FARMER'| translate}}
-    </div>
-  </ion-row>
-  <div class="alignCenter">
+
+
+<!------Start Product MarketSectoin---->
+<ion-grid>
+   <ion-row>
+      <ion-col class="cardHeader">
+         <div class="headerClass">{{'MARKET'| translate}}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-slides [slidesPerView]="'auto'">
+   <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
+      <ion-card (click)="gotoMarketViewPage(productData.id,productData.name,productData.sku)">
+         <img class="produtimage" src="{{productData.feature_image}}"/>
+         <div class="title colorGrey Headline">{{productData.name}}</div>
+         <div class="detailSar colorGreen smallTitle" > 
+            <a style="text-decoration: none;">
+            {{'SEE_DETAIL' | translate}}
+            </a>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide class="slideItem ">
+      <ion-card>
+         <div class="see-title-box">
+            <button ion-button color="light" (click)="gotoMarketPage()" outline>{{'SEE_MORE'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+</ion-slides>
+<!-------END Product Sectopn------>
+
+
+<!---*******Experts/Blog Section******-->
+<ion-grid>
+   <ion-row>
+      <ion-col class="cardHeader">
+         <div class="headerClass">{{'SPECIALIST'| translate}}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-slides  [slidesPerView]="'1.1'" >
+   <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
+      <ion-card class="specil_card" (click)="goToExpertDetial(expert.id,expert.title)" >
+         <img  class="specil_image" src="{{expert.attachments}}" >
+         <div class="card-title-box">
+            <div class="card-title fontBold smallTitle fontShadow">{{expert.title}}</div>
+            <div class="card-subtitle fontBold captionFont">{{expert.date}}</div>
+            <button ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide  >
+      <ion-card class="specil_card">
+         <div class="see-title-box-blog">
+            <button ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+</ion-slides>
+
+
+<!---******* Video Section******-->
+<ion-grid>
+   <ion-row>
+      <ion-col class="cardHeader">
+         <div class="headerClass">{{'VIDEO'| translate}}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-card class="vedioCard"  style="height:400px">
+   <ion-row >
+      <img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
+      <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">
+         {{'TIPS_INDIAN_FARMER'| translate}}
+      </div>
+   </ion-row>
+   <div class="alignCenter">
       <button ion-button  class="buttonGreen"  (click)="gotoVedio('card')">{{'SEE_MORE' | translate}}</button>
-    </div>
-  <img class='playIcon' (click)="playVideo('Moin-yDG7Ss')" src="assets/img/play-button.svg">  
+   </div>
+   <img class='playIcon' (click)="playVideo('Moin-yDG7Ss')" src="assets/img/play-button.svg">  
+</ion-card >
 
-  </ion-card >
 
 
-  <ion-grid>
-      <ion-row>
+<!--------News------>
+<ion-grid>
+   <ion-row>
       <ion-col class="cardHeader">
-          <div class="headerClass">{{'NEWS'| translate}}</div>
+         <div class="headerClass">{{'NEWS'| translate}}</div>
       </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-card>
-      <div *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].link,newsData.data[0].title)">
-      <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
-      <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
-      <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
-    </div>
-  <ion-grid >
-    <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="openNews(newsData.data[i].link,news.title)">
+   </ion-row>
+</ion-grid>
+<ion-card>
+   <div *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].link,newsData.data[0].title)">
+   <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
+   <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
+   <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
+   </div>
+   <ion-grid >
+      <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="openNews(newsData.data[i].link,news.title)">
       <ion-col col-3 *ngIf="i > 0 ">
-        <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
+         <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
       </ion-col>
       <ion-col col-9 class="newsSmallBlock" *ngIf="i > 0 ">
-        <div >{{news.title}}</div>
-        <div class="newsSmallPTI">{{'PTI_AND_UPDATE' | translate}}  : Jun 12, 2017, 05:44PM IST</div>
+         <div >{{news.title}}</div>
+         <div class="newsSmallPTI">{{'PTI_AND_UPDATE' | translate}}  : Jun 12, 2017, 05:44PM IST</div>
       </ion-col>
-    </ion-row>
-
-    <div class="alignCenter">
-      <button ion-button  class="buttonGreen"  (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </button>
-    </div>
-
-
-
-  </ion-grid>
-  </ion-card>
-
-  <ion-grid>
-      <ion-row>
+      </ion-row>
+      <div class="alignCenter">
+         <button ion-button  class="buttonGreen"  (click)="gotoNewsPage()">{{'SEE_MORE' | translate}} </button>
+      </div>
+   </ion-grid>
+</ion-card>
+<ion-grid  *ngIf="kendraData.status==true">
+   <ion-row>
       <ion-col class="cardHeader">
-          <div class="headerClass">{{'SEVA_KENDAR'| translate}}</div>
+         <div class="headerClass">{{'SEVA_KENDAR'| translate}}</div>
       </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-  <ion-card >
-  <img src="{{kendraData.data.map_image}}" (click)="gotoMap(geoLoc.lat,geoLoc.lng)">
-
-  <ion-grid>
+   </ion-row>
+</ion-grid>
+<ion-card  *ngIf="kendraData.status==true">
+   <img src="{{kendraData.data.map_image}}" (click)="gotoMap(kendraData.data.lat,kendraData.data.longe)">
+   <ion-grid>
       <ion-row>
-      <ion-col col-5>
-          <p>{{ 'KM' | translate:{km: kendraData.data.distance} }}</p>
-      </ion-col>
-      <ion-col col-4 align-items-left>
-          <button right ion-button small class="button"  (click)="gotoAgroCenter()" >{{'SEE_MORE' | translate}}</button>
-      </ion-col>
-      <ion-col col-3 align-items-right>
-          <button right ion-button small class="button" (click)="gotoMap(kendraData.data.lat,kendraData.data.lng)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-
-  </ion-card >
-
-
+         <ion-col col-5>
+            <p>{{ 'KM' | translate:{km: kendraData.data.distance} }}</p>
+         </ion-col>
+         <ion-col col-4 align-items-left>
+            <button right ion-button small class="button"  (click)="gotoAgroCenter()" >{{'SEE_MORE' | translate}}</button>
+         </ion-col>
+         <ion-col col-3 align-items-right>
+            <button right ion-button small class="button" (click)="gotoMap(kendraData.data.lat,kendraData.data.longe)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+</ion-card >
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-tabs #myTabs (ionChange)="onTabsChange()">
   <ion-tab [root]="tab1Root" tabTitle="{{'TABS_HOME' | translate}}" tabIcon="home"></ion-tab>
-  <ion-tab (ionSelect)="gotoSava()" tabTitle="{{'SEVA_KENDAR_FOOTER' | translate}}" tabIcon="md-analytics"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="{{'NEWS' | translate}}" tabIcon="ios-globe"></ion-tab>
-  <ion-tab  (ionSelect)="gotoChoupal()"  tabTitle="{{'CHOPAL' | translate}}" tabIcon="ios-contacts"></ion-tab>
   <ion-tab [root]="tab5Root" tabTitle="{{'MARKET' | translate}}" tabIcon="ios-cart"></ion-tab>
+  <ion-tab  (ionSelect)="gotoChoupal()"  tabTitle="{{'CHOPAL' | translate}}" tabIcon="ios-contacts"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="{{'NEWS' | translate}}" tabIcon="ios-globe"></ion-tab>
+  <ion-tab (ionSelect)="gotoSava()" tabTitle="{{'SEVA_KENDAR_FOOTER' | translate}}" tabIcon="md-analytics"></ion-tab>
 </ion-tabs>

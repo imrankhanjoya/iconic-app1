@@ -24,24 +24,24 @@
       +91 {{userlogin.user_login}}
     </ion-col>
   </ion-row>
-  <ion-row class="separator paddingTop paddingBottom paddingRight">
+  <ion-row class="separator paddingTop paddingBottom paddingRight"  (click)="openPageWithP('changelocation')">
     <ion-col class="colText"><ion-icon name="compass" class="paddingRight colorGrey"></ion-icon>
       {{userlogin.tehsil_name}}, <!-- {{userlogin.userDictName}}, --> {{userlogin.state_name}}
     </ion-col>
-    <ion-col class="colText" col-1  (click)="openPageWithP('changelocation')">
+    <ion-col class="colText" col-1 >
        <ion-icon name="ios-create-outline" ></ion-icon>
     </ion-col>
   </ion-row>
   <ion-row class="separator paddingTop paddingBottom paddingRight">
     <ion-col class="colText" col-2 ><img  src="assets/img/agri bolo icon/hdpi/plant.png" class="paddingRight">
     </ion-col>
-    <ion-col col-9 *ngIf="userlogin.crop_count > 2">
+    <ion-col col-9 *ngIf="userlogin.crop_count > 2"  (click)="editcrops()">
       <span >{{userlogin.crops[0].name}}, {{userlogin.crops[1].name}} {{'AND' | translate}} {{userlogin.crop_count-2}} {{'OTHER' | translate}}</span> 
     </ion-col>
     <ion-col col-9 *ngIf="userlogin.crop_count <= 2">
       <span *ngFor="let crop of userlogin.crops">{{crop.name}} </span> 
     </ion-col>
-    <ion-col class="colText" col-1  (click)="editcrops()">
+    <ion-col class="colText" col-1 >
        <ion-icon name="ios-create-outline" ></ion-icon>
     </ion-col>
   </ion-row>

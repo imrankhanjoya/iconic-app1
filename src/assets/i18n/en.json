@@ -148,7 +148,7 @@
   "MARKET":"AgriMart",
   "E-TRADIND":"E-trading",
   "RENTAL":"Rental",
-  "ASK_THE_EXPERT":"Ask the Expert",
+  "ASK_THE_EXPERT":"Ask Expert",
   "PER_QUINTAL":"Per Quintal",
   "RS_PER_QUINTAL":"₹ Per Quintal",
   "SEE_MORE":"See More",
@@ -158,7 +158,7 @@
   "SEARCH_TITLE": "Search",
   "PTI_AND_UPDATE":"PTI and Updates",
   "VALUE_ON_REQUEST":"Price on Request",
-  "HELLO":"Hello",
+  "HELLO":"Welcome",
   "BY_CALLING":"Call",
   "SEARCH_THE_WAY":"Get Direction",
   "SEARCH_THE_WAY_ALERT":"Get Direction on Map",
@@ -182,7 +182,7 @@
   "WEATHER_PRESSURE":"Pressure",
   "WEATHER_UV":"UV",
   "WEATHER_SUNRISE_SUNSET":"Sunrise Sunset",
-  "WEATHER_SUTRA":"Formula",
+  "WEATHER_SUTRA":"Tips",
   "WEATHER_FILL_LIKES":"Feels Like",
   "QUESTION_ANSWER_TITLE":"Question and Answer",
   "QUESTION_POST_QUESTION":"Submit your Question",
@@ -334,5 +334,6 @@
   "SUBMIT_CONFIRM": "Are you want to submit this form.?",
   "SITE_TITLE": "AgriBolo",
   "MINIMUM_CROPS": "Please select minimum 3 crops",
-  "REGISTER_SUCESS": "Congratulations! You have successfully signed up. Please login to continue."
+  "REGISTER_SUCESS": "Congratulations! You have successfully signed up. Please login to continue.",
+  "KRISHI_ADVISORY": "Agri Advisory"
 }

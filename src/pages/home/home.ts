@@ -2,7 +2,7 @@ import { Component, ViewChild ,ElementRef, Renderer2 } from '@angular/core';
 import { Content } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform, LoadingController, AlertController, ModalController, ViewController } from 'ionic-angular';
 import { MandiProvider } from '../../providers/mandi/mandi';
 import { NewsProvider } from '../../providers/news/news';
 import { WeatherProvider } from '../../providers/weather/weather';
@@ -58,6 +58,7 @@ export class HomePage {
   public productHome: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public usertopcard: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
+  public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public userCropIdList:string='';
@@ -80,7 +81,7 @@ export class HomePage {
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
-    public viewCtrl:ViewController,public splashScreen:SplashScreen) {
+    public viewCtrl:ViewController,public splashScreen:SplashScreen,public modalCtrl:ModalController) {
 
 
     //--------homepage----------
@@ -201,8 +202,9 @@ export class HomePage {
         this.getNews();
         this.get_expert();
         this.getannouncement();
-        this.getMandiDetails(this.tehsil);
-        this.weather.weatherdetail(this.tehsil);
+        this.weatherfivedays(this.tehsil);
+        //this.getMandiDetails(this.tehsil);
+        //this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
           if (token) {
             console.log('token found sucessfully---'+token+'-------');
@@ -270,7 +272,20 @@ export class HomePage {
         this.loading.dismiss();
     });
   }
-  
+
+
+  /*********Weather 5 days*********/
+  weatherfivedays(location:any){
+
+      this.weather.weatherfivedays(location).then((res)=>{
+        console.log(res);
+        this.weatherfiveday.data = res.data;
+        this.weatherfiveday.msg = res.msg;
+        this.weatherfiveday.status = res.status;
+      });
+  }
+
+
 
   getMandiData(){
     this.mandi.usermandi(this.userId,this.tehsil,this.userCropIdList).then((res)=>{
@@ -298,6 +313,8 @@ export class HomePage {
         this.newsData.status = res.status;
     });
   }
+
+
 
   getmarkets(){
     console.log('getmarkets');
@@ -341,6 +358,22 @@ export class HomePage {
     });
   } 
 
+  gotoRental(){
+    dataLayer.push({
+       'appEventCategory': 'Agro Services',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Agro Services - Rental'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
+    this.navCtrl.push('RentalsPage');
+  }
+
+
+  goToChoupal(){
+    this.navCtrl.push('ChoupalPage');
+  }
+
   gotoAskquestion(numbr){
     if(numbr == 'menu'){
       dataLayer.push({
@@ -374,6 +407,25 @@ export class HomePage {
 
   gotoWebView(URL,title){
     this.iab.create(URL, '_blank', 'location=yes');
+  }
+
+
+  openFilter(){
+    dataLayer.push({
+       'appEventCategory': 'Agro Services',
+       'appEventAction': 'Filter',
+       'appEventLabel': ' Agro Services -  E-Trading'
+     });
+     dataLayer.push({'event': 'appEvent'});
+
+    let modal = this.modalCtrl.create('ETirdingPage');
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+      }
+    });
   }
 
   openNews(URL,title){

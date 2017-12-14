@@ -1,146 +1,134 @@
 <!--
-  Generated template for the AgriInfoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>{{'KRISHI_JANKARI'| translate}}</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-<ion-grid>
-      <ion-row>
-      <ion-col class="krish_Header">
-          <div class="headerClass">{{'CROP'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-   <ion-slides  class="slides" [slidesPerView]="'1.05'" >
-            
-
-              <ion-slide >
-                <ion-card class="specil_card" (click)="goToKharif()">
-                  <img  class="specil_image" src="assets/img/Kharif.jpeg" >
-                  <div class="krishisevayen-title-box">
-                  <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'KHARIF'| translate}}</div>
-                  <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-                  </div>
-                </ion-card>
-              </ion-slide>
-              <ion-slide >
-                <ion-card class="specil_card" (click)="goToRabi()">
-                  <img  class="specil_image" src="assets/img/Rabi_crop.JPG">
-                  <div class="krishisevayen-title-box">
-                  <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'RABI'| translate}}</div>
-                  <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-                  </div>
-                </ion-card>
-              </ion-slide>
-              <ion-slide>
-              <ion-card class="specil_card" (click)="goToHorticulture()" >
-                <img  class="specil_image" src="assets/img/horticulture.jpeg" >
-                <div class="krishisevayen-title-box">
-                <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'HORTICULTURE'| translate}}</div>
-                <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-
-                </div>
-              </ion-card>
-              </ion-slide>
-   </ion-slides>
+   Generated template for the AgriInfoPage page.
    
-
-  <ion-grid>
-      <ion-row>
-      <ion-col class="krish_Header">
-          <div class="headerClass">{{'SPECIALIST'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-   <ion-slides  [slidesPerView]="'1.05'" >
-
-        <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
-              <ion-card class="specil_card " (click)=" goToExpertDetial(expert.id)" >
-                <img  class="specil_image" src="{{expert.attachments}}" >
-                <div class="card-title-box">
-                <div class="card-title fontBold smallTitle fontShadow margin-top">{{expert.title}}</div>
-                <div class="card-subtitle fontBold captionFont ">{{expert.date}}</div>
-
-                <button style="margin-top: 10px;" ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
-                </div>
-              </ion-card>
-          </ion-slide>
-          <ion-slide class="slideItem ">
-      <ion-card class="specil_card">
-          <div class="see-title-box1">
-          <button style="margin-top:5px;" ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
-          </div>
-      </ion-card>
-    </ion-slide>
-
-        
-
-   </ion-slides>
-
+   See http://ionicframework.com/docs/components/#navigation for more info on
+   Ionic pages and navigation.
+   -->
+<ion-header>
+   <ion-navbar>
+      <ion-title>{{'KRISHI_JANKARI'| translate}}</ion-title>
+   </ion-navbar>
+</ion-header>
+<!-- Crop Slider -->
+<ion-content padding>
    <ion-grid>
       <ion-row>
-      <ion-col class="krish_Header">
-          <div class="headerClass">{{'KRISHI_JANKARI'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid >
-
- <ion-slides  class="slides" [slidesPerView]="'1.05'" >
-    <ion-slide >
-        <ion-card class="agri-card" (click)="gotoAskquestion()" >
-          <img   class="agri_image" src="assets/img/askquestion.jpg"  style="height: 180px;">
-          <div class="krishisevayen-title-box">
-          <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
-          <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
-          </div>
-        </ion-card>
-    </ion-slide>
-    <ion-slide >
-      <ion-card class="specil_card" (click)="goToChoupal()">
-        <img  class="specil_image" src="assets/img/choupla.jpg">
-        <div class="krishisevayen-title-box">
-        <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CHOPAL'| translate}}</div>
-        <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-        </div>
-      </ion-card>
-    </ion-slide>
+         <ion-col class="krish_Header">
+            <div class="headerClass">{{'CROP'| translate}}</div>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <ion-slides  class="slides" [slidesPerView]="'1.05'" >
+      <ion-slide >
+         <ion-card class="specil_card" (click)="goToKharif()">
+            <img  class="specil_image" src="assets/img/Kharif.jpeg" >
+            <div class="krishisevayen-title-box">
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'KHARIF'| translate}}</div>
+               <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+      <ion-slide >
+         <ion-card class="specil_card" (click)="goToRabi()">
+            <img  class="specil_image" src="assets/img/Rabi_crop.JPG">
+            <div class="krishisevayen-title-box">
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'RABI'| translate}}</div>
+               <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+      <ion-slide>
+         <ion-card class="specil_card" (click)="goToHorticulture()" >
+            <img  class="specil_image" src="assets/img/horticulture.jpeg" >
+            <div class="krishisevayen-title-box">
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'HORTICULTURE'| translate}}</div>
+               <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
    </ion-slides>
-    <ion-grid>
+   <!-- Crop Slider -->
+
+
+   
+   <ion-grid>
       <ion-row>
-      <ion-col class="krishisevayen-cardHeader">
-          <div class="headerClass">{{'VIDEO'| translate}}</div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+         <ion-col class="krish_Header">
+            <div class="headerClass">{{'SPECIALIST'| translate}}</div>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <ion-slides  [slidesPerView]="'1.05'" >
+      <ion-slide   *ngFor=" let expert of expertdata.data, let i = index " >
+         <ion-card class="specil_card " (click)=" goToExpertDetial(expert.id)" >
+            <img  class="specil_image" src="{{expert.attachments}}" >
+            <div class="card-title-box">
+               <div class="card-title fontBold smallTitle fontShadow margin-top">{{expert.title}}</div>
+               <div class="card-subtitle fontBold captionFont ">{{expert.date}}</div>
+               <button style="margin-top: 10px;" ion-button color="light"  outline>{{'SEE_MORE'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+      <ion-slide class="slideItem ">
+         <ion-card class="specil_card">
+            <div class="see-title-box1">
+               <button style="margin-top:5px;" ion-button color="light" (click)="goToBlogPage()" outline>{{'SEE_MORE'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+   </ion-slides>
 
-  <ion-card class="vedioCard"  style="height:400px">
-  <ion-row >
-    <img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
-    <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">
-    {{'TIPS_INDIAN_FARMER'| translate}}
-    </div>
-  </ion-row>
-  <div class="alignCenter">
-      <button ion-button  class="buttonGreen"  (click)="gotoVedio()">{{'SEE_MORE' | translate}}</button>
-    </div>
-  <img class='playIcon' (click)="playVideo('Moin-yDG7Ss')" src="assets/img/play-button.svg">  
-  <div>
-    
 
-  </div>
+   <!--------Krishi Jaankari------>
+   <ion-grid>
+      <ion-row>
+         <ion-col class="krish_Header">
+            <div class="headerClass">{{'KRISHI_ADVISORY'| translate}}</div>
+         </ion-col>
+      </ion-row>
+   </ion-grid >
+   <ion-slides  class="slides" [slidesPerView]="'1.05'" >
+      <ion-slide >
+         <ion-card class="agri-card" (click)="gotoAskquestion()" >
+            <img   class="agri_image" src="assets/img/askquestion.jpg"  style="height: 180px;">
+            <div class="krishisevayen-title-box">
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
+               <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+      <ion-slide >
+         <ion-card class="specil_card" (click)="goToChoupal()">
+            <img  class="specil_image" src="assets/img/choupla.jpg">
+            <div class="krishisevayen-title-box">
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CHOPAL'| translate}}</div>
+               <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+   </ion-slides>
 
 
-  </ion-card >
-
+   <!--------Video Section------>
+   <ion-grid>
+      <ion-row>
+         <ion-col class="krishisevayen-cardHeader">
+            <div class="headerClass">{{'VIDEO'| translate}}</div>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <ion-card class="vedioCard"  style="height:400px">
+      <ion-row >
+         <img class="roundImage fitImage" src="https://img.youtube.com/vi/Moin-yDG7Ss/0.jpg" >
+         <div class="paddingTop paddingLeft paddingBottom newsLargeTitle">
+            {{'TIPS_INDIAN_FARMER'| translate}}
+         </div>
+      </ion-row>
+      <div class="alignCenter">
+         <button ion-button  class="buttonGreen"  (click)="gotoVedio()">{{'SEE_MORE' | translate}}</button>
+      </div>
+      <img class='playIcon' (click)="playVideo('Moin-yDG7Ss')" src="assets/img/play-button.svg">  
+      <div>
+      </div>
+   </ion-card >
 </ion-content>
