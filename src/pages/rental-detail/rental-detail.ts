@@ -88,13 +88,13 @@ export class RentalDetailPage {
     alert.present();
   }
 
-  openFilter(product_name){
+  openFilter(product_name,formtype){
      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'filter',
        'appEventLabel': ' Rental Contact-'+product_name
      });
-    let modal = this.modalCtrl.create('RentalFilterPage',{product_name:product_name, fromFilter:true});
+    let modal = this.modalCtrl.create('RentalFilterPage',{product_name:product_name,formtype:formtype, fromFilter:true});
     modal.present();
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)

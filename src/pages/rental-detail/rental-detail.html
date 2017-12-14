@@ -30,9 +30,15 @@
   </ion-row>
 
   <ion-row  justify-content-center>
-    <div class="paddingTop" >
-      <a style="text-decoration: none;" class="buttonClass"  (click)="openFilter(Rental_detaildata.data[0].id)">
-      {{'RENTAL_CONTACTS' | translate}}
+    <div class="paddingTop"  >
+      <a style="text-decoration: none;margin-right:40px; width: 30%;" class="buttonClass"  (click)="openFilter(Rental_detaildata.data[0].id,'General')">
+      {{'RENTAL_IN' | translate}}
+      </a>
+
+    </div>
+    <div class="paddingTop"  >
+      <a style="text-decoration: none;margin-left:20px;" class="buttonClass"  (click)="openFilter(Rental_detaildata.data[0].id,'Rentout')">
+      {{'RENTAL_OUT' | translate}}
       </a>
 
     </div>

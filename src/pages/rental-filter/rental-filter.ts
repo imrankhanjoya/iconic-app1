@@ -31,7 +31,7 @@ export class RentalFilterPage {
     public loading:any;
     public product_name:any;
     public pageTitle:any;
-    Crop: string = "Rentout";
+    Crop: string = "General";
     Rental_Listdata: any = [];
     date_from: String = new Date().toISOString();
 
@@ -42,6 +42,8 @@ export class RentalFilterPage {
   constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public storage:Storage,public rentals:RentalsProvider,
 private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityStateProvider,public translateService: TranslateService) {
         this.product_name=navParams.get('product_name');
+        this.Crop = navParams.get('formtype');
+        console.log('pname'+this.Crop);
         console.log('pname'+this.product_name);
         this.storage.get('userData').then((val) => {
           this.NowTimeT = new Date();
