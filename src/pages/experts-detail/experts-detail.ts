@@ -32,10 +32,10 @@ export class ExpertsDetailPage {
     this.translateService.get('CALL_TOLLFREE').subscribe((value) => {
       this.CALL_TOLLFREE= value;
     });
-    
+
     this.textSlide='';
     this.buttonOnCloseCSS='';
-    
+
     this.expertid=navParams.get('id');
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -56,6 +56,10 @@ export class ExpertsDetailPage {
         }
         console.log(this.expertdetail);
         this.loading.dismiss();
+         setTimeout(() => {
+         this.startAnimitio();
+       }, 1000);
+      
       }, (err) => {
         this.loading.dismiss();
         console.log(err);
