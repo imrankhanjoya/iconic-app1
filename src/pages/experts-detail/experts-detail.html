@@ -18,5 +18,16 @@
         <div class="block" *ngIf="expertdetail.type=='services'">
         <button ion-button block>{{'EXPRET_CONTECT' | translate}}</button>
         </div>
+
   </ion-card>
+   <div col-12 style="position: fixed; top:80%">
+    <a  (click)="mackCall()" >
+    <button ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:10px;">
+      <ion-icon name="call" class="displayOneFont" style="padding-left: 55px; padding-right:15px"></ion-icon>
+      <div  class="{{textSlide}} smallTitle" style="opacity: 0;">
+        {{'CLICK_TO_CALL' | translate}}
+    </div>
+     </button>
+     </a>
+  </div>
 </ion-content>
