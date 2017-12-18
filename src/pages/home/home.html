@@ -259,13 +259,22 @@
 <ion-grid>
    <ion-row>
       <ion-col class="krishisevayen-cardHeader">
-         <div class="headerClass">{{'CROP'| translate}}</div>
+         <div class="headerClass">{{'KRISHI_JANKARI'| translate}}</div>
       </ion-col>
    </ion-row>
 </ion-grid>
 
 
 <ion-slides  [slidesPerView]="'1.05'" >
+  <ion-slide >
+    <ion-card class="image-card" (click)="gotoAskquestion()">
+       <img src="assets/img/askquestion.jpg">
+       <div class="krishisevayen-title-box">
+          <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'ASK_THE_EXPERT'| translate}}</div>
+          <button ion-button >{{'ASK_EXPERT_SUBTILE'| translate}}</button>
+       </div>
+    </ion-card>
+  </ion-slide>
    <ion-slide >
       <ion-card class="image-card" (click)="goToKharif()">
          <img src="assets/img/Kharif.jpeg" >
@@ -297,7 +306,7 @@
 
 
 <!--------Krishi Jaankari------>
-  <ion-grid>
+ <!--  <ion-grid>
      <ion-row>
         <ion-col class="krishisevayen-cardHeader">
            <div class="headerClass">{{'KRISHI_ADVISORY'| translate}}</div>
@@ -324,7 +333,7 @@
         </ion-card>
       </ion-slide>
    </ion-slides>
-
+ -->
 
 
 <!----------Announcement Section-------->

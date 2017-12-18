@@ -20,14 +20,15 @@ export class AgriInfoPage {
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,  public experts:ExpertsProvider,private iab: InAppBrowser,
     public loadingCtrl: LoadingController){
-     this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-    });
-
-     this.loading.present();
-      }  
+  }  
 
   ionViewDidLoad() {
+
+      this.loading = this.loadingCtrl.create({
+          content: 'Please wait...'
+      });
+
+     this.loading.present();
     this.get_expert();
     console.log('ionViewDidLoad AgriInfoPage');
   }

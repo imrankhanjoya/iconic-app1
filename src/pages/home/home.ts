@@ -382,8 +382,7 @@ export class HomePage {
            'appEventLabel': 'Ask Expert'
          });
          dataLayer.push({'event': 'appEvent'});
-        this.navCtrl.push('QuestionlistPage');
-      }
+    }
     if(numbr == 'card'){
       dataLayer.push({
            'appEventCategory': 'Home',
@@ -391,8 +390,8 @@ export class HomePage {
            'appEventLabel': 'Krishi Sevayen - Ask the Expert'
          });
          dataLayer.push({'event': 'appEvent'});
-        this.navCtrl.push('QuestionlistPage');
-      }
+    }
+    this.navCtrl.push('QuestionlistPage');
   }
 
   gotoAgriinfo(){
