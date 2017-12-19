@@ -121,9 +121,9 @@ export class CityStateProvider {
         // return seq;
     }
 
-  sendCrop(lang){
+  sendCrop(lang,croptype){
 
-    var paramCond ={lang:this.api.userLanguage};
+    var paramCond ={lang:this.api.userLanguage,croptype:croptype};
     return new Promise((resolve)=>{
       this.api.getCache('v1/crops/all', paramCond).then((sendCropData)=>{
           resolve(sendCropData);

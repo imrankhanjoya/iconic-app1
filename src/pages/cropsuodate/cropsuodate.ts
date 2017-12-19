@@ -21,8 +21,10 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
 export class CropsuodatePage {
   	public lang:any;
   public cropList:any;
-   public kharifImage='cropselected.png';
+   public kharifImage='cropunselected.png';
+   public VazitabImage='grapes.svg';
    public hortiImage='fruitunselected.png';
+
 
    public ionicNamedColor: string = '#101c00';
    public tump:boolean = true;
@@ -64,6 +66,8 @@ export class CropsuodatePage {
       this. storage.get('userLang').then((val) => {
         this.lang=val;
         this.getCrops();
+        this.getFruit();
+        this.getVegetable();
       });
       this.storage.get('userData').then((val) => { 
         this.user_id = val.ID;
@@ -112,6 +116,27 @@ export class CropsuodatePage {
     //   this.loading.dismiss();
     // });
   }
+
+  getFruit(){
+    this.loading.present();
+    this.cityStateProvider.sendCrop(this.lang,'Fruit').then((res)=>{
+      this.crops=res.data;
+      console.log('this.crops');
+      console.log(this.crops);
+      this.loading.dismiss();;
+    });
+  }
+
+  getVegetable(){
+    this.loading.present();
+    this.cityStateProvider.sendCrop(this.lang,'Vegetable').then((res)=>{
+      this.crops=res.data;
+      console.log('this.crops');
+      console.log(this.crops);
+      this.loading.dismiss();;
+    });
+  }
+
   addValue(e) {
     this.skipDataList.push({key: e});
     console.log(this.cropList);
@@ -131,12 +156,25 @@ export class CropsuodatePage {
       this.buttonColor = '#101c00';
       this.peon='#dbdbdb';
       this.kharifImage = 'cropunselected.png';
+     this.VazitabImage = 'grapes.svg';
+      this.hortiImage='fruitselected.png';
+
+
       this.hortiImage='fruitselected.png';
     }else if(this.shoPage=='Kharif'){
       this.tump=true;
       this.buttonColor = '#dbdbdb';
       this.peon='#101c00';
       this.kharifImage = 'cropselected.png';
+      this.VazitabImage = 'grapes.svg';
+      this.hortiImage='fruitunselected.png';
+    }
+    else if(this.shoPage=='Vazitable'){
+      this.tump=true;
+      this.buttonColor = '#dbdbdb';
+      this.peon='#101c00';
+      this.kharifImage = 'cropselected.png';
+      this.VazitabImage = 'grapes.svg';
       this.hortiImage='fruitunselected.png';
 
     }
