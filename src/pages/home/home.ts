@@ -560,101 +560,102 @@ export class HomePage {
     this.navCtrl.push('AnnouncementPage');
   }*/
   goToBlogPage(){
-  dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Expert - View More'
-     });
-     dataLayer.push({'event': 'appEvent'});
-   this.navCtrl.push('CardsPage'); 
-  }
-  goToSetting(){
-   this.navCtrl.push('SettingsPage'); 
-  }
-  goToCrops(){
-   this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
-  }
-   goToKharif(){
-   dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Krishi Sevayen - Kharif'
-     });
-     dataLayer.push({'event': 'appEvent'});
-   this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
-  }
-   goToRabi(){
-   dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Krishi Sevayen - Rabi'
-     });
-     dataLayer.push({'event': 'appEvent'});
-   this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
-  }
-  goToHorticulture(){
-  dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Krishi Sevayen - Horticulture'
-     });
-     dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
-  }
-  gotoWallet(){
-    this.navCtrl.push('WalletPage');
-  }
-  gotoRentalsPage(id){
-    //console.log(id);
-    this.navCtrl.push('RentalDetailPage',{rid:id});
-  }
-  SearchPage(){
-    //console.log(id);
     dataLayer.push({
-       'appEventCategory': 'Top Nav',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Search'
-     });
-     dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('SearchPage');
-  }
-  gotoAgroCenter(){
-    //console.log(id);
-    dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Seva Kendra - View More'
-     });
-     dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('KrishCenterPage');
-  }
+         'appEventCategory': 'Home',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Expert - View More'
+       });
+       dataLayer.push({'event': 'appEvent'});
+     this.navCtrl.push('CardsPage'); 
+    }
+    goToSetting(){
+     this.navCtrl.push('SettingsPage'); 
+    }
 
-   gotoAnounsePage(type,type_value){
-   dataLayer.push({
-       'appEventCategory': 'Home',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Green Card - '+type+'~'+type_value 
-     });
-   dataLayer.push({'event': 'appEvent'});
-    console.log(type+'  ------ '+type_value);
-    if (type=='product') {
-      this.navCtrl.push('MarketViewPage',{id:type_value});
+    goToCrops(croptype){
+     this.navCtrl.push('CroplistPage',{croptype:croptype}); 
     }
-    if (type=='crop') {
-      this.navCtrl.push('CropdetailPage',{crop_id:type_value});
+     goToKharif(){
+     dataLayer.push({
+         'appEventCategory': 'Home',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Krishi Sevayen - Kharif'
+       });
+       dataLayer.push({'event': 'appEvent'});
+     this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
     }
-    if (type=='rental') {
-      this.navCtrl.push('RentalsPage',{crop_id:type_value});
+     goToRabi(){
+     dataLayer.push({
+         'appEventCategory': 'Home',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Krishi Sevayen - Rabi'
+       });
+       dataLayer.push({'event': 'appEvent'});
+     this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
     }
-    if (type=='blogs') {
-      this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
+    goToHorticulture(){
+    dataLayer.push({
+         'appEventCategory': 'Home',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Krishi Sevayen - Horticulture'
+       });
+       dataLayer.push({'event': 'appEvent'});
+      this.navCtrl.push('CroplistPage',{croptype:'Horticulture'});
     }
-    if (type=='news') {
-     this.navCtrl.push('NewsPage',{id:type_value});
+    gotoWallet(){
+      this.navCtrl.push('WalletPage');
     }
-    if (type=='weather') {
-      this.navCtrl.push(WeatherPage);
+    gotoRentalsPage(id){
+      //console.log(id);
+      this.navCtrl.push('RentalDetailPage',{rid:id});
     }
+    SearchPage(){
+      //console.log(id);
+      dataLayer.push({
+         'appEventCategory': 'Top Nav',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Search'
+       });
+       dataLayer.push({'event': 'appEvent'});
+      this.navCtrl.push('SearchPage');
+    }
+    gotoAgroCenter(){
+      //console.log(id);
+      dataLayer.push({
+         'appEventCategory': 'Home',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Seva Kendra - View More'
+       });
+       dataLayer.push({'event': 'appEvent'});
+      this.navCtrl.push('KrishCenterPage');
+    }
+
+     gotoAnounsePage(type,type_value){
+     dataLayer.push({
+         'appEventCategory': 'Home',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Green Card - '+type+'~'+type_value 
+       });
+     dataLayer.push({'event': 'appEvent'});
+      console.log(type+'  ------ '+type_value);
+      if (type=='product') {
+        this.navCtrl.push('MarketViewPage',{id:type_value});
+      }
+      if (type=='crop') {
+        this.navCtrl.push('CropdetailPage',{crop_id:type_value});
+      }
+      if (type=='rental') {
+        this.navCtrl.push('RentalsPage',{crop_id:type_value});
+      }
+      if (type=='blogs') {
+        this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
+      }
+      if (type=='news') {
+       this.navCtrl.push('NewsPage',{id:type_value});
+      }
+      if (type=='weather') {
+        this.navCtrl.push(WeatherPage);
+      }
   }
 
   //----------------------Hader Animiation Start------

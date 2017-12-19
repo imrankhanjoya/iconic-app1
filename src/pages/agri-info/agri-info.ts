@@ -46,8 +46,9 @@ export class AgriInfoPage {
   goToExpertDetial(id){
     this.navCtrl.push('ExpertsDetailPage',{id:id}); 
   }
-   goToCrops(){
-   this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
+
+  goToCrops(croptype){
+   this.navCtrl.push('CroplistPage',{croptype:croptype}); 
   }
    goToKharif(){
    this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 

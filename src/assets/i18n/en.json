@@ -125,7 +125,7 @@
    "ADDRESS": "My Current Location",
 
    "CROPS_TITLE": "Please select your Crop type",
-   "CROPS_FRUITE": "Fruit",
+   "CROPS_FRUITE": "Fruits",
    "CROPS_VEGETABLE": "Vegetables",
   "ITEM_CREATE_TITLE": "New Item",
   "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
@@ -242,6 +242,8 @@
   "CROP": "Crop ",
   "RABI": "Rabi ",
   "KHARIF": "Kharif",
+  "FRUIT": "Fruit",
+  "VEGETABLE": "Vegetable",
   "AVERAGE": "Average",
   "DATA_FROM": "Date From ",
   "DATA_TO": "To Date",

@@ -38,10 +38,19 @@
          </ion-card>
       </ion-slide>
       <ion-slide>
-         <ion-card class="specil_card" (click)="goToHorticulture()" >
+         <ion-card class="specil_card" (click)="goToCrops('Vegetable')" >
             <img  class="specil_image" src="assets/img/horticulture.jpeg" >
             <div class="krishisevayen-title-box">
-               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'HORTICULTURE'| translate}}</div>
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CROPS_VEGETABLE'| translate}}</div>
+               <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+            </div>
+         </ion-card>
+      </ion-slide>
+      <ion-slide>
+         <ion-card class="specil_card" (click)="goToCrops('Fruit')" >
+            <img  class="specil_image" src="assets/img/fruit.jpeg" >
+            <div class="krishisevayen-title-box">
+               <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'CROPS_FRUITE'| translate}}</div>
                <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
             </div>
          </ion-card>

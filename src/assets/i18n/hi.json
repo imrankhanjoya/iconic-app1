@@ -219,6 +219,8 @@
   "RABI": "रबी ",
   "KHARIF": "खरीफ",
   "HORTICULTURE": "बागवानी",
+  "FRUIT": "फल",
+  "VEGETABLE": "सब्जियां",
   "DISPLAY_NAME": "प्रदर्शित होने वाला नाम",
   "IRRIGATION_TYPE": "सिंचाई प्रकार",
   "IRRIGATION_SOURCE": "सिंचाई स्रोत",
