@@ -21,9 +21,9 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
 export class CropsuodatePage {
   	public lang:any;
   public cropList:any;
-   public kharifImage='cropunselected.png';
-   public VazitabImage='grapes.svg';
-   public hortiImage='fruitunselected.png';
+   public kharifImage='corn.svg';
+   public VazitabImage='carrot.svg';
+   public hortiImage='grapes.svg';
 
 
    public ionicNamedColor: string = '#101c00';
@@ -153,29 +153,26 @@ export class CropsuodatePage {
     console.log(this.tump);
     if(this.tump && this.shoPage=='Horticulture'){
       this.tump=false;
-      this.buttonColor = '#101c00';
+      this.buttonColor = '#f1f4ed';
       this.peon='#dbdbdb';
-      this.kharifImage = 'cropunselected.png';
-     this.VazitabImage = 'grapes.svg';
-      this.hortiImage='fruitselected.png';
-
-
-      this.hortiImage='fruitselected.png';
+      this.kharifImage = 'corn.svg';
+     this.VazitabImage = 'carrot.svg';
+      this.hortiImage='grapes.svg';
     }else if(this.shoPage=='Kharif'){
       this.tump=true;
-      this.buttonColor = '#dbdbdb';
+      this.buttonColor = '#f1f4ed';
       this.peon='#101c00';
-      this.kharifImage = 'cropselected.png';
-      this.VazitabImage = 'grapes.svg';
-      this.hortiImage='fruitunselected.png';
+      this.kharifImage = 'corn.svg';
+      this.VazitabImage = 'carrot.svg';
+      this.hortiImage='grapes.svg';
     }
     else if(this.shoPage=='Vazitable'){
       this.tump=true;
-      this.buttonColor = '#dbdbdb';
+      this.buttonColor = '#f1f4ed';
       this.peon='#101c00';
-      this.kharifImage = 'cropselected.png';
-      this.VazitabImage = 'grapes.svg';
-      this.hortiImage='fruitunselected.png';
+      this.kharifImage = 'corn.svg';
+      this.VazitabImage = 'carrot.svg';
+      this.hortiImage='grapes.svg';
 
     }
   }
