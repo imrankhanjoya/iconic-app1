@@ -20,12 +20,10 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
 })
 export class CropsuodatePage {
   	public lang:any;
-  public cropList:any;
-   public kharifImage='corn.svg';
-   public VazitabImage='carrot.svg';
-   public hortiImage='grapes.svg';
-
-
+   public cropList:any;
+   public kharifImage='unselectseed.png';
+   public VazitabImage = 'unselectvegetable.png';
+   public hortiImage='unselectgrapes.png';
    public ionicNamedColor: string = '#101c00';
    public tump:boolean = true;
    public temp:boolean = true;
@@ -66,8 +64,6 @@ export class CropsuodatePage {
       this. storage.get('userLang').then((val) => {
         this.lang=val;
         this.getCrops();
-        this.getFruit();
-        this.getVegetable();
       });
       this.storage.get('userData').then((val) => { 
         this.user_id = val.ID;
@@ -117,26 +113,6 @@ export class CropsuodatePage {
     // });
   }
 
-  getFruit(){
-    this.loading.present();
-    this.cityStateProvider.sendCrop(this.lang,'Fruit').then((res)=>{
-      this.crops=res.data;
-      console.log('this.crops');
-      console.log(this.crops);
-      this.loading.dismiss();;
-    });
-  }
-
-  getVegetable(){
-    this.loading.present();
-    this.cityStateProvider.sendCrop(this.lang,'Vegetable').then((res)=>{
-      this.crops=res.data;
-      console.log('this.crops');
-      console.log(this.crops);
-      this.loading.dismiss();;
-    });
-  }
-
   addValue(e) {
     this.skipDataList.push({key: e});
     console.log(this.cropList);
@@ -154,25 +130,25 @@ export class CropsuodatePage {
     if(this.tump && this.shoPage=='Horticulture'){
       this.tump=false;
       this.buttonColor = '#f1f4ed';
-      this.peon='#dbdbdb';
-      this.kharifImage = 'corn.svg';
-     this.VazitabImage = 'carrot.svg';
-      this.hortiImage='grapes.svg';
+      this.peon='#649305';
+      this.kharifImage = 'unselectseed.png';
+      this.VazitabImage = 'unselectvegetable.png';
+      this.hortiImage='selectgrapes.png';
     }else if(this.shoPage=='Kharif'){
       this.tump=true;
       this.buttonColor = '#f1f4ed';
       this.peon='#101c00';
-      this.kharifImage = 'corn.svg';
-      this.VazitabImage = 'carrot.svg';
-      this.hortiImage='grapes.svg';
+      this.kharifImage = 'selectseed.png';
+      this.VazitabImage = 'unselectvegetable.png';
+      this.hortiImage='unselectgrapes.png';
     }
-    else if(this.shoPage=='Vazitable'){
+    else if(this.shoPage=='Vezetables'){
       this.tump=true;
       this.buttonColor = '#f1f4ed';
       this.peon='#101c00';
-      this.kharifImage = 'corn.svg';
-      this.VazitabImage = 'carrot.svg';
-      this.hortiImage='grapes.svg';
+      this.kharifImage = 'unselectseed.png';
+      this.VazitabImage = 'selectvegetable.png';
+      this.hortiImage='unselectgrapes.png';
 
     }
   }

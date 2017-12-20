@@ -21,9 +21,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class CropsPage {
   public lang:any;
   public cropList:any;
-   public kharifImage='cropselected.png';
-   public hortiImage='fruitunselected.png';
-
+    public kharifImage='unselectseed.png';
+   public VazitabImage = 'unselectvegetable.png';
+   public hortiImage='unselectgrapes.png';
    public ionicNamedColor: string = '#101c00';
    public tump:boolean = true;
    public temp:boolean = true;
@@ -31,6 +31,9 @@ export class CropsPage {
    peon:string =  '#101c00';
    public shoPage:any;
    public skipDataList: Array<Object>;
+  public userCropIdList:['','',''];
+   public skipDataList: Array<Object>;
+   public userKharif:any;
    public userPhone:any;
    public userOTP:any;
    public userName:any;
@@ -74,6 +77,17 @@ export class CropsPage {
       this.lang=val;
       this.getCrops();
       });
+       this.storage.get('userData').then((val) => { 
+        this.user_id = val.ID;
+        this.userdata = val;  
+        this.userCropIdList=val.crops;
+        // for (var i = 0; i < val.crops.length; i++) {
+        //   console.log(val.crops[i].id)
+        //   this.userCropIdList.push(val.crops[i].id);
+        // }
+        console.log(this.userCropIdList);
+      });
+  
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad CropsPage');
@@ -116,16 +130,26 @@ export class CropsPage {
     console.log(this.tump);
     if(this.tump && this.shoPage=='Horticulture'){
       this.tump=false;
-      this.buttonColor = '#101c00';
-      this.peon='#dbdbdb';
-      this.kharifImage = 'cropunselected.png';
-      this.hortiImage='fruitselected.png';
+      this.buttonColor = '#f1f4ed';
+      this.peon='#649305';
+      this.kharifImage = 'unselectseed.png';
+      this.VazitabImage = 'unselectvegetable.png';
+      this.hortiImage='selectgrapes.png';
     }else if(this.shoPage=='Kharif'){
       this.tump=true;
-      this.buttonColor = '#dbdbdb';
+      this.buttonColor = '#f1f4ed';
       this.peon='#101c00';
-      this.kharifImage = 'cropselected.png';
-      this.hortiImage='fruitunselected.png';
+      this.kharifImage = 'selectseed.png';
+      this.VazitabImage = 'unselectvegetable.png';
+      this.hortiImage='unselectgrapes.png';
+    }
+    else if(this.shoPage=='Vezetables'){
+      this.tump=true;
+      this.buttonColor = '#f1f4ed';
+      this.peon='#101c00';
+      this.kharifImage = 'unselectseed.png';
+      this.VazitabImage = 'selectvegetable.png';
+      this.hortiImage='unselectgrapes.png';
 
     }
   }

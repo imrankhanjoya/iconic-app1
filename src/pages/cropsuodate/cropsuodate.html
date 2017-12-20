@@ -14,19 +14,19 @@
   <ion-segment [(ngModel)]="Crop"  >
           <ion-segment-button value="Kharif" (click)="addEvent('Kharif');" style="height: 10.2rem!important;" >
            <img class="dimen" src="assets/img/{{kharifImage}}"/>
-            <div class="displayOneFont alignCenter colorGreen"> {{'VEDIO_SEEDS' | translate}}</div>
+            <div class="displayOneFontSize alignCenter colorGreen"> {{'VEDIO_SEEDS' | translate}}</div>
           </ion-segment-button>
           <ion-segment-button value="Horticulture" (click)="addEvent('Horticulture');" style="height: 10.2rem!important;">
           <div>
           <img   class="dimen" src="assets/img/{{hortiImage}}" />
-          <div class="displayOneFont alignCenter colorGreen">{{'CROPS_FRUITE' | translate}}</div>
+          <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_FRUITE' | translate}}</div>
 
           </div>
           </ion-segment-button>
-          <ion-segment-button value="Vazitables"(click)="addEvent('Vazitables');" style="height: 10.2rem!important;" >
+          <ion-segment-button value="Vezetables"(click)="addEvent('Vezetables');" style="height: 10.2rem!important;" >
           <div>
            <img   class="dimen" src="assets/img/{{VazitabImage}}" />
-           <div class="displayOneFont alignCenter colorGreen">{{'CROPS_VEGETABLE' | translate}}</div>
+           <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_VEGETABLE' | translate}}</div>
             </div>
           </ion-segment-button>
       </ion-segment>
@@ -37,34 +37,32 @@
     <!---------Generale  Section-------->
       <ion-card  *ngSwitchCase="'Kharif'" >
        <ion-row >
-      <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
-  
-      <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'"  class="mainClass">
-        
+      <div *ngFor="let item of cropList ; let i = index "   style="padding: 0px;width: 50%;">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'" class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
   </div>
   </ion-row >
       </ion-card>
   <ion-card  *ngSwitchCase="'Horticulture'" >
-      <ion-row >
-    <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
-     <ion-item no-lines class="titlename" *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'" class="mainClass">
-        <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
-        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+           <ion-row >
+      <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Fruit' && i != 1) && shoPage == 'Horticulture'"  class="mainClass"> 
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
-        </div>
-        </ion-row >
+  </div>
+  </ion-row >
       </ion-card>
-    <ion-card  *ngSwitchCase="'Vazitable'" >
-    <ion-row >
-    <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
-      <ion-item no-lines class="titlename" *ngIf="item.crop_type == 'Vazitable' && shoPage == 'Vazitable'" class="mainClass">
-        <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
-        <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+    <ion-card  *ngSwitchCase="'Vezetables'" >
+      <ion-row >
+    <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Vegetable' && i != 1) && shoPage == 'Vezetables'"  class="mainClass"> 
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
-      </div>
+    </div>
   </ion-row >
       </ion-card>
     </div>

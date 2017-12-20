@@ -7,44 +7,71 @@
 
 
 
-<ion-content scroll="false">
-<h1 class="title"> {{'CROPS_TITLE' | translate}}</h1>
-<ion-row >
-  <ion-col  class="paddingLeft" col-6 (click)="addEvent('Kharif');" >
-    <img class="dimen" src="assets/img/{{kharifImage}}"/>
- 
-    <div class="displayOneFont alignCenter"> {{'VEDIO_SEEDS' | translate}}</div>
- 
-  </ion-col>
-  <ion-col class="paddingLeft" col-6 (click)="addEvent('Horticulture');">
-    <img   class="dimen" src="assets/img/{{hortiImage}}" />
-     <div class="displayOneFont alignCenter">{{'CROPS_FRUITE' | translate}}</div>
-  </ion-col>
-</ion-row>
+<ion-header>
 
+  <ion-navbar>
+    <ion-title>{{'CROP_LIST' | translate}}</ion-title>
+  </ion-navbar>
+  <div class="title paddingTop paddingRight paddingLeft paddingBottom smallTitle fontBold"> {{'CROPS_TITLE' | translate}}</div>
 
-<ion-scroll scrollY="true" style="width: 100%; height: 50%; background: #ffffff">
-<ion-row >
-  <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
-  
-      <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'"  class="mainClass">
+  <ion-segment [(ngModel)]="Crop"  >
+          <ion-segment-button value="Kharif" (click)="addEvent('Kharif');" style="height: 10.2rem!important;" >
+           <img class="dimen" src="assets/img/{{kharifImage}}"/>
+            <div class="displayOneFontSize alignCenter colorGreen"> {{'VEDIO_SEEDS' | translate}}</div>
+          </ion-segment-button>
+          <ion-segment-button value="Horticulture" (click)="addEvent('Horticulture');" style="height: 10.2rem!important;">
+          <div>
+          <img   class="dimen" src="assets/img/{{hortiImage}}" />
+          <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_FRUITE' | translate}}</div>
+
+          </div>
+          </ion-segment-button>
+          <ion-segment-button value="Vezetables"(click)="addEvent('Vezetables');" style="height: 10.2rem!important;" >
+          <div>
+           <img   class="dimen" src="assets/img/{{VazitabImage}}" />
+           <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_VEGETABLE' | translate}}</div>
+            </div>
+          </ion-segment-button>
+      </ion-segment>
+</ion-header>
+<ion-content overflow-scroll="true">
+<div [ngSwitch]="Crop">
+
+    <!---------Generale  Section-------->
+      <ion-card  *ngSwitchCase="'Kharif'" >
+       <ion-row >
+      <div *ngFor="let item of cropList ; let i = index "   style="padding: 0px;width: 50%;">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'" class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
   </div>
-</ion-row>
-<ion-row>
-  <div *ngFor="let item of cropList ; let i = index " class="minWidth" style="padding: 0px">
-        
-  
-      <ion-item no-lines *ngIf="item.crop_type == 'Horticulture' && shoPage == 'Horticulture'" class="titlename mainClass">
-          <ion-label class="titleName titleFont ">{{item.name}}</ion-label>
-          <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j)"></ion-checkbox>
+  </ion-row >
+      </ion-card>
+  <ion-card  *ngSwitchCase="'Horticulture'" >
+           <ion-row >
+      <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Fruit' && i != 1) && shoPage == 'Horticulture'"  class="mainClass"> 
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
   </div>
-  
-</ion-row>
-</ion-scroll>
+  </ion-row >
+      </ion-card>
+    <ion-card  *ngSwitchCase="'Vezetables'" >
+      <ion-row >
+    <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Vegetable') && shoPage == 'Vezetables'"  class="mainClass"> 
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      </ion-item>
+    </div>
+  </ion-row >
+      </ion-card>
+    </div>
 
-<button (click)="selected()" ion-button block class="button">{{'SING_UP_GOOD' | translate}}</button>
 </ion-content>
+<ion-footer class="paddingFooterButton">
+<button (click)="selected()" ion-button block >{{'SING_UP_GOOD' | translate}}</button>  
+</ion-footer>
+
