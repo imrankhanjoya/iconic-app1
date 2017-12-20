@@ -159,4 +159,8 @@ export class VerifyNumberPage {
            console.log('--unsuccess');
          });
   }
+
+  LoginPage(){
+    this.navCtrl.push('LoginPage');
+  }
 }
