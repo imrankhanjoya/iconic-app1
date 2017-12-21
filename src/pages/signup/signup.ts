@@ -68,6 +68,9 @@ export class SignupPage {
     }
 
   }
+  LoginPage(){
+    this.navCtrl.push('LoginPage');
+  }
   
 
 }
