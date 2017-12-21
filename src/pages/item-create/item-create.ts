@@ -34,7 +34,7 @@ export class ItemCreatePage {
       this.userId = userlogin.ID;
       this.userlogin = userlogin;
       this.base64Image = userlogin.profile_picture;
-      console.log('userlogin');
+      console.log(userlogin);
       console.log(userlogin);
       console.log('userlogin');
     });
@@ -129,6 +129,7 @@ export class ItemCreatePage {
     
   }
   editcrops() {
+    console.log('=========data:image/jpeg;base64,');
     this.navCtrl.push('CropsuodatePage');
   }
   uploadeImg(){

@@ -5,7 +5,7 @@
 <ion-navbar hideBackButton="true">
   <div>
 
-       <ion-icon style="float: left"  class="back_icon" name="ios-arrow-round-back" (click)="back()"></ion-icon>
+       <ion-icon style="float: left; color: #649305;"  class="back_icon" name="ios-arrow-round-back" (click)="back()"></ion-icon>
         <ion-title class="title_haed">{{'Profile' | translate}}</ion-title>
        </div>
         
@@ -32,10 +32,10 @@
        <ion-icon name="ios-create-outline" ></ion-icon>
     </ion-col>
   </ion-row>
-  <ion-row class="separator paddingTop paddingBottom paddingRight">
+  <ion-row class="separator paddingTop paddingBottom paddingRight"   (click)="editcrops()">
     <ion-col class="colText" col-2 ><img  src="assets/img/agri bolo icon/hdpi/plant.png" class="paddingRight">
     </ion-col>
-    <ion-col col-9 *ngIf="userlogin.crop_count > 2"  (click)="editcrops()">
+    <ion-col col-9 *ngIf="userlogin.crop_count > 2">
       <span >{{userlogin.crops[0].name}}, {{userlogin.crops[1].name}} {{'AND' | translate}} {{userlogin.crop_count-2}} {{'OTHER' | translate}}</span> 
     </ion-col>
     <ion-col col-9 *ngIf="userlogin.crop_count <= 2">
