@@ -5,6 +5,10 @@ page-rentals {
     padding-top: 5%;
 
     }
+   .item_mdimg {
+    width: 125px !important;
+    height: 85px;
+}
     .detailSar{
     text-align: center;
     padding-left: 4%;
@@ -26,7 +30,17 @@ page-rentals {
         width:100%!important;
        height: 177px;
     }
+    .alignCenter1{
+    width: 57%;
+    margin-top: 10px;
 
+      }
+      .newsLargeTitle1{
+    font-size: 1.6rem;
+    color: #4a4b4c;
+    float:left;
+    line-height:100%
+}
 
     .wallet img{
     height: 100%;
@@ -43,5 +57,9 @@ page-rentals {
       max-height: 200px;
      max-width: 100%;
     }
+    .labelGreen1{
+    color:#649305 !important;
+    margin-top:30px;
+}
 }
   

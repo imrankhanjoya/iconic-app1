@@ -18,18 +18,30 @@
   </ion-item> -->
 
 </ion-header>
-
+ 
 
 <ion-content>
   <ion-grid >
     <ion-card class="image-card"  *ngFor=" let data of items, let i = index ">
-      <div class="row" (click)="RentalsPage(data.id,data.title)" >
+      <div class="row"  >
+      <ion-thumbnail item-start class="item_mdimg roundImage fixImage ">
+        <img src="{{data.image}}">
+      </ion-thumbnail>
+        <div style="margin-bottom:10px;" class="alignCenter1 paddingTop colorGrey newsLargeTitle" >{{data.title}}</div>
+         <div style="width: 100%">
+          <button (click)="RentalsPage(data.id,data.title)" style="float: left" ion-button clear class="labelGreen1">{{'SEE_DETAIL' | translate}}</button>
+          <button (click)="mackCall()" style="float: right" ion-button clear class="labelGreen1">{{'SEE_CALL' | translate}}</button>
+      </div>
+       <!--  <ion-thumbnail item-start>
         <img  src="{{data.image}}" class=" roundImage fixImage"/>
+        </ion-thumbnail>
         <div class="alignCenter paddingTop colorGrey newsLargeTitle">{{data.title}}</div>
         <div class="alignCenter">
           <button ion-button clear class="labelGreen">{{'SEE_DETAIL' | translate}}</button>
-        </div>
+        </div> -->
       </div>
+     
+
     </ion-card>
   </ion-grid>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

@@ -224,15 +224,7 @@
    </ion-row>
 </ion-grid>
 <ion-slides  [slidesPerView]="'1.05'" >
-   <ion-slide>
-      <ion-card class="image-card" (click)="gotoMarketPage('card')" >
-         <img src="assets/img/market.jpeg" style="height: 180px;" >
-         <div class="krishisevayen-title-box">
-            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'MARKET_AGRI_INFO'| translate}}</div>
-            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
-         </div>
-      </ion-card>
-   </ion-slide>
+   
    <ion-slide >
       <ion-card class="image-card" (click)="gotoRental()">
          <img src="assets/img/rental_new.jpg" >
@@ -247,6 +239,15 @@
          <img src="assets/img/e-triding.jpeg">
          <div class="krishisevayen-title-box">
             <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'E-TRADIND'| translate}}</div>
+            <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide>
+      <ion-card class="image-card" (click)="gotoMarketPage('card')" >
+         <img src="assets/img/market.jpeg" style="height: 180px;" >
+         <div class="krishisevayen-title-box">
+            <div class="krishisevayen-title fontBold displayThreeFont fontShadow alignCenter">{{'MARKET_AGRI_INFO'| translate}}</div>
             <button ion-button >{{'GET_MORE_INSIGHT'| translate}}</button>
          </div>
       </ion-card>
