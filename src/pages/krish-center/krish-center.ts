@@ -72,7 +72,7 @@ export class KrishCenterPage {
      }).catch((error) => {
        console.log('Error getting location----'+error);
        if (this.isGetLocation) {
-           this.locationAlert();
+           // this.locationAlert();
            this.getkrish(26.957740,75.745459);
          }
 
