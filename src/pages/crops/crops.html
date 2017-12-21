@@ -15,24 +15,28 @@
   <div class="title paddingTop paddingRight paddingLeft paddingBottom smallTitle fontBold"> {{'CROPS_TITLE' | translate}}</div>
 
   <ion-segment [(ngModel)]="Crop"  >
-          <ion-segment-button value="Kharif" (click)="addEvent('Kharif');" style="height: 10.2rem!important;" >
-           <img class="dimen" src="assets/img/{{kharifImage}}"/>
-            <div class="displayOneFontSize alignCenter colorGreen"> {{'VEDIO_SEEDS' | translate}}</div>
-          </ion-segment-button>
-          <ion-segment-button value="Horticulture" (click)="addEvent('Horticulture');" style="height: 10.2rem!important;">
-          <div>
-          <img   class="dimen" src="assets/img/{{hortiImage}}" />
-          <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_FRUITE' | translate}}</div>
+     <ion-segment-button value="Kharif" (click)="addEvent('Kharif');" style="height: 10.2rem!important; border-bottom-style: none;" >
+        <div class="displayOneFontSize alignCenter colorGreen"> {{'VEDIO_SEEDS' | translate}}</div>
+       <img class="dimen" src="assets/img/{{kharifImage}}"/>
+      </ion-segment-button>
 
-          </div>
-          </ion-segment-button>
-          <ion-segment-button value="Vezetables"(click)="addEvent('Vezetables');" style="height: 10.2rem!important;" >
-          <div>
-           <img   class="dimen" src="assets/img/{{VazitabImage}}" />
-           <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_VEGETABLE' | translate}}</div>
-            </div>
-          </ion-segment-button>
-      </ion-segment>
+
+      <ion-segment-button value="Horticulture" (click)="addEvent('Horticulture');" style="height: 10.2rem!important; border-bottom-style: none;">
+      <div>
+      <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_FRUITE' | translate}}</div>
+      <img   class="dimen" src="assets/img/{{hortiImage}}" />
+
+      </div>
+      </ion-segment-button>
+
+
+      <ion-segment-button value="Vezetables"(click)="addEvent('Vezetables');" style="height: 10.2rem!important; border-bottom-style: none;" >
+      <div>
+       <div class="displayOneFontSize alignCenter colorGreen">{{'CROPS_VEGETABLE' | translate}}</div>
+       <img   class="dimen" src="assets/img/{{VazitabImage}}" />
+        </div>
+      </ion-segment-button>
+    </ion-segment>
 </ion-header>
 <ion-content overflow-scroll="true">
 <div [ngSwitch]="Crop">

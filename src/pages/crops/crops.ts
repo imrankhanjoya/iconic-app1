@@ -19,9 +19,10 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'crops.html',
 })
 export class CropsPage {
+  Crop: string = "Kharif";
   public lang:any;
   public cropList:any;
-    public kharifImage='unselectseed.png';
+    public kharifImage='selectseed.png';
    public VazitabImage = 'unselectvegetable.png';
    public hortiImage='unselectgrapes.png';
    public ionicNamedColor: string = '#101c00';

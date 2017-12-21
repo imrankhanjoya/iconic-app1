@@ -19,9 +19,10 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
   templateUrl: 'cropsuodate.html',
 })
 export class CropsuodatePage {
-  	public lang:any;
+  Crop: string = "Kharif";
+  public lang:any;
    public cropList:any;
-   public kharifImage='unselectseed.png';
+   public kharifImage='selectseed.png';
    public VazitabImage = 'unselectvegetable.png';
    public hortiImage='unselectgrapes.png';
    public ionicNamedColor: string = '#101c00';
