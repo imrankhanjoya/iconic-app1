@@ -57,6 +57,8 @@
    <!---------Vezetables  Section-------->  
     <ion-card  *ngSwitchCase="'Vezetables'" >
       <ion-row >
+        
+    <div class="minWidth" style="padding: 0px"></div>
     <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
       <ion-item no-lines *ngIf="(item.crop_type == 'Vegetable') && shoPage == 'Vezetables'"  class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
@@ -69,6 +71,8 @@
    <!---------Horticulture  Section-------->   
   <ion-card  *ngSwitchCase="'Horticulture'" >
            <ion-row >
+
+       <div class="minWidth" style="padding: 0px"></div>
       <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
       <ion-item no-lines *ngIf="(item.crop_type == 'Fruit' && i != 1) && shoPage == 'Horticulture'"  class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>

@@ -15,7 +15,7 @@
 
 <!---------Change Password------>
 <ion-card>
-<img class="circle-pic" src="{{profile_picture}}">
+<img (click)="uploadeImg()" class="circle-pic" src="{{profile_picture}}">
       <p class="Name"> <!-- {{userlogin.display_name}} --></p>
      <div class="error" style="color: red">
           {{passresError}}
@@ -77,7 +77,7 @@
           <ion-select  formControlName="user_irrigation_type"  ng-required>
             <ion-option value="Flood irrigation">{{'FLOOD_IRRIGATION' | translate}}</ion-option>
             <ion-option value="Surface irrigation">{{'SURFACE_IRRIGATION' | translate}}</ion-option>
-            <ion-option value="Sprinkler irrigation" selected="true" >{{'SPRINKLER_IRRIGATION' | translate}}</ion-option>
+            <ion-option value="Sprinkler irrigation"  selected="true" >{{'SPRINKLER_IRRIGATION' | translate}}</ion-option>
             <ion-option value="Drip irrigation">{{'DRIP_IRRIGATION' | translate}}</ion-option>
             <ion-option value="Furrow irrigation" >{{'FURROW_IRRIGATION' | translate}}</ion-option>
           </ion-select>
@@ -115,6 +115,8 @@
       <div  class="p_button">
           <button class="p_1" type="submit"  [disabled]="!changeprofile.valid">{{'SETTINGS_UPDATE_PROFILE' | translate}}</button>
         </div>
+     
+
 
         
   </form>

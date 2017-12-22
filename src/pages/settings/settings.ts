@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams, LoadingController, ViewController,ToastController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,PopoverController, ViewController,ToastController, AlertController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
 import { User } from '../../providers/providers';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 
 /**
@@ -54,7 +55,9 @@ export class SettingsPage {
           public viewCtrl: ViewController,
            private toastCtrl: ToastController,
           public cityStateProvider:CityStateProvider,
-          public alertCtrl: AlertController
+          public alertCtrl: AlertController,
+          public camera: Camera,
+          public popoverCtrl: PopoverController
           ) {
           this.translateService.get('LOCATION_UPDATA_SUCCESSFULLY').subscribe((value) => {
           this.LOCATION_UPDATA_SUCCESSFULLY = value;
@@ -144,6 +147,81 @@ export class SettingsPage {
       });
       alert.present();
     }
+    getPicture() {
+    if (Camera['installed']()) {
+      this.camera.getPicture({
+        destinationType: this.camera.DestinationType.DATA_URL,
+        targetWidth: 96,
+        targetHeight: 96
+      }).then((data) => {
+        this.form.patchValue({ 'profilePic': 'data:image/jpg;base64,' + data });
+      }, (err) => {
+        alert('Unable to take photo');
+      })
+    } else {
+      this.fileInput.nativeElement.click();
+    }
+  }
+
+  processWebImage(event) {
+    let reader = new FileReader();
+    reader.onload = (readerEvent) => {
+
+      let imageData = (readerEvent.target as any).result;
+      this.form.patchValue({ 'profilePic': imageData });
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  getProfileImageStyle() {
+    return 'url(' + this.form.controls['profilePic'].value + ')'
+  }
+
+     uploadeImg(){
+    let popover = this.popoverCtrl.create('UploadImagePage');
+     popover.present({
+     });
+     popover.onDidDismiss((popoverData) => {
+      console.log(popoverData);
+        if(popoverData=='camera'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.CAMERA,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              this.base64Image = 'data:image/jpeg;base64,'+imageData;
+              console.log('=========data:image/jpeg;base64,'+imageData);
+             this.updateProImg(imageData);
+             }, (err) => {
+              console.log(err);
+            });
+        }
+        if(popoverData=='gallery'){
+            this.camera.getPicture({
+             sourceType: this.camera.PictureSourceType.SAVEDPHOTOALBUM,
+             destinationType: this.camera.DestinationType.DATA_URL
+            }).then((imageData) => {
+              this.base64Image = 'data:image/jpeg;base64,'+imageData;
+              console.log('=========data:image/jpeg;base64,'+imageData);
+             this.updateProImg(imageData);
+             }, (err) => {
+              console.log(err);
+            });
+        }
+     });
+  }
+  updateProImg(image){
+    let loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+     });
+     loading.present();
+     this.user.userUpdateProImg(this.userId,image).map(res => res.json()).subscribe((resp) => {
+      this.storage.set('userData',resp.data);
+      loading.dismiss();
+     }, (err) => {
+      loading.dismiss();
+    });
+   }
 
   changeprofileform(){
     this.loading = this.loadingCtrl.create({
@@ -253,4 +331,6 @@ export class SettingsPage {
     this.loading.dismiss();
     // });
   }
+
+  
 }
