@@ -53,6 +53,10 @@ export class TabsPage {
     this.translate.get('GPS_ALERT').subscribe((value) => {
       this.GPSAlert = value;
     });
+
+    this.translate.get('CANCEL_BUTTON').subscribe((value) => {
+      this.CANCEL_BUTTON = value;
+    });
     // platform.ready().then(() => {
 
     //           platform.registerBackButtonAction(() => {
@@ -128,14 +132,14 @@ export class TabsPage {
         message: this.GPSAlert,
         buttons: [
           {
-            text: 'Cancel',
+            text: this.CANCEL_BUTTON,
             role: 'cancel',
             handler: () => {
               this.alert =null;
             }
           },
           {
-            text: 'Settings',
+            text: 'Turn on GPS Location',
             handler: () => {
 
               //this is function go to  GPS setting

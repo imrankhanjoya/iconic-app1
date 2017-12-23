@@ -66,7 +66,7 @@ export class RentalDetailPage {
 
   presentConfirm() {
     let alert = this.alertCtrl.create({
-      title: 'Confirm purchase',
+      title: '',
       message: this.CALL_TOLLFREE,
       buttons: [
         {
