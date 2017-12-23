@@ -59,7 +59,7 @@ export class RentalsPage {
         {
           text: this.CANCEL_BUTTON,
           role: 'cancel',
-          handler: () => {
+          hansdler: () => {
             console.log('Cancel clikkkcked');
           }
         },

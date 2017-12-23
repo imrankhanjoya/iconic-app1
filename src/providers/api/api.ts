@@ -14,7 +14,7 @@ import "rxjs/add/operator/share";
 export class Api {
   //url: string = 'http://205.147.100.82/agriboloapiv2/api/web/index.php?r=';
   //url: string = 'http://localhost/project/agriboloapiv2/api/web/index.php?r=';
-  url: string = 'http://api.agribolo.com/index.php?r=';
+  url: string = 'https://api.agribolo.com/index.php?r=';
   public userData : {ID:string, display_name:string, sID:string, token:string, user_activation_key:string,
   user_email:string, user_login:string, user_nicename:string, user_registered:string, user_status:string,
   user_url:string}={ID:'0', display_name:'', sID:'', token:'', user_activation_key:'', user_email:'',
