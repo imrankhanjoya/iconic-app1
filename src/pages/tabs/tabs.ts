@@ -47,6 +47,13 @@ export class TabsPage {
       this.tab3Title = values['News'];
       this.tab4Title = values['Choupal'];
       this.tab5Title = values['Market'];
+      this.appVersion.getPackageName((version)=>{
+        if (version=="true") {
+            //this.navCtrl.push('KrishCenterPage');
+        }else{
+            this.gpsAlert();
+        }
+      });
 
     });
 

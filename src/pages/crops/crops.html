@@ -38,6 +38,7 @@
       </ion-segment-button>
     </ion-segment>
 </ion-header>
+
 <ion-content overflow-scroll="true">
 <div [ngSwitch]="Crop">
 
@@ -47,31 +48,37 @@
       <div *ngFor="let item of cropList ; let i = index "   style="padding: 0px;width: 50%;">
       <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'" class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      <ion-checkbox (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
   </div>
   </ion-row >
       </ion-card>
-  <ion-card  *ngSwitchCase="'Horticulture'" >
-           <ion-row >
-            <div class="minWidth" style="padding: 0px"></div>
-      <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
-      <ion-item no-lines *ngIf="(item.crop_type == 'Fruit' && i != 1) && shoPage == 'Horticulture'"  class="mainClass"> 
-      <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
-      </ion-item>
-  </div>
-  </ion-row >
-      </ion-card>
+
+   <!---------Vezetables  Section-------->  
     <ion-card  *ngSwitchCase="'Vezetables'" >
       <ion-row >
-       <div class="minWidth" style="padding: 0px"></div>
+        
+    <div class="minWidth" style="padding: 0px"></div>
     <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
       <ion-item no-lines *ngIf="(item.crop_type == 'Vegetable') && shoPage == 'Vezetables'"  class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox [checked]=" item.sub_type == 'true' ? true : false" (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      <ion-checkbox (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
     </div>
+  </ion-row >
+      </ion-card>
+
+   <!---------Horticulture  Section-------->   
+  <ion-card  *ngSwitchCase="'Horticulture'" >
+           <ion-row >
+
+       <div class="minWidth" style="padding: 0px"></div>
+      <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
+      <ion-item no-lines *ngIf="(item.crop_type == 'Fruit' && i != 1) && shoPage == 'Horticulture'"  class="mainClass"> 
+      <ion-label class="titleFont ">{{item.name}}</ion-label>
+      <ion-checkbox (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      </ion-item>
+  </div>
   </ion-row >
       </ion-card>
     </div>

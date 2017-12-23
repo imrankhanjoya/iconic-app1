@@ -494,7 +494,7 @@
    </ion-row>
 </ion-grid>
 <ion-card  *ngIf="kendraData.status==true">
-   <img src="{{kendraData.data.map_image}}" (click)="gotoMap(kendraData.data.lat,kendraData.data.longe)">
+   <img src="{{kendraData.data.map_image}}" (click)="gotoMap(kendraData.data.lat,kendraData.data.longe,kendraData.data.kisan_kendra_firm)">
    <ion-grid>
       <ion-row>
          <ion-col col-5>
@@ -504,7 +504,7 @@
             <button right ion-button small class="button"  (click)="gotoAgroCenter()" >{{'SEE_MORE' | translate}}</button>
          </ion-col>
          <ion-col col-3 align-items-right>
-            <button ion-button small class="button" (click)="gotoMap(kendraData.data.lat,kendraData.data.longe)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
+            <button ion-button small class="button" (click)="gotoMap(kendraData.data.lat,kendraData.data.longe,kendraData.data.kisan_kendra_firm)"  >{{'HOME_GOTO_LUCTION' | translate}}</button>
          </ion-col>
       </ion-row>
    </ion-grid>

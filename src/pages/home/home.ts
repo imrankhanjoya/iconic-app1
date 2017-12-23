@@ -671,16 +671,15 @@ public top = 0;
 showBar(){
   console.log("Sayooo naara");
   
-  // document.querySelector(".tabbar").classList.add('show-tabbar');
-  // document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
-  // document.querySelector(".tabbar").classList.remove('bottmTabHide');
-  // document.querySelectorAll(".scroll-content")[1].style.marginBottom = this.bottom;
-  // let scroll = document.querySelectorAll('.scroll-content');
-  // if (scroll !== null) {
-  //     Object.keys(scroll).map((key) => {
-  //         scroll[key].style.marginBottom = this.bottom;
-  //     });
-  // }
+        this.startVisbol=false;
+          document.querySelector(".tabbar").classList.add('bottmTabHide');
+          document.querySelector(".tabbar").classList.remove('show-tabbar');
+          let scroll = document.querySelectorAll('.scroll-content');
+          if (scroll !== null) {
+              Object.keys(scroll).map((key) => {
+                  scroll[key].style.marginBottom = '0px';
+              });
+        }
   if(this.onBording){
     // document.querySelector(".barCustomAct").classList.add('showTopBar');
     // document.querySelector(".barCustomAct").classList.remove('topBar');
@@ -793,7 +792,7 @@ async changeClass(count): Promise<string> {
 //----------------------Hader Animiation End------
 
 
-gotoMap(latitude,longitude){
+gotoMap(latitude,longitude,name){
     dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
@@ -803,7 +802,7 @@ gotoMap(latitude,longitude){
     console.log(latitude+'---'+longitude+'----');
    if (this.platform.is('android')) {
       //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
-        window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(no)', '_system');
+          window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(' + name + ')', '_system');
       };
   }
 
