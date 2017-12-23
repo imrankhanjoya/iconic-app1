@@ -25,7 +25,7 @@
       <ion-row>
          <ion-col col-3 >
             <ion-thumbnail item-start class="avatar">
-               <img src="assets/img/watering_can.png" >
+               <img src="assets/img/rentalround.png" >
             </ion-thumbnail>
          </ion-col>
          <ion-col class="smallTitle1" col-9>
@@ -43,10 +43,13 @@
         <div class="alignCenter1 paddingTop colorGrey newsLargeTitle" >{{data.title}}
         <button (click)="RentalsPage(data.id,data.title)" ion-button clear style="margin-top: 15px;" class="labelGreen" >{{'SEE_DETAIL' | translate}}</button></div>
         
-         <div style="width: 100%">
+         <div style="width: 50%">
             <button style="float: left;" ion-button clear class="labelGreen1" 
             (click)="openFilter(data.id,'General')">{{'RENTAL_IN' | translate}}</button>
-          <button (click)="mackCall()" style="float: right;" ion-button clear class="labelGreen1">{{'SEE_CALL' | translate}}</button>
+      </div> 
+      <div style="width: 50%">
+          <button (click)="mackCall()"  ion-button clear class="labelGreen1">
+          <ion-icon name="call" class="displayOne"></ion-icon> {{'SEE_CALL' | translate}}</button>
       </div>
        <!--  <ion-thumbnail item-start>
         <img  src="{{data.image}}" class=" roundImage fixImage"/>
