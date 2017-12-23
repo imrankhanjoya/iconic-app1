@@ -53,9 +53,16 @@ export class NewsPage {
       });
 
   }
-  gotoWebView(URL){
-    console.log("baran"+URL);
-    var ref = this.iab.create(URL, '_blank', 'location=yes');
+  gotoWebView(id,URL,type){
+    console.log('ddddddid');
+    console.log(type);
+    if (type=='web') {
+      console.log("baran"+URL);
+      var ref = this.iab.create(URL, '_blank', 'location=yes');
+    }else{
+      console.log("kkkbaran"+URL);
+      this.navCtrl.push('NewsdetailPage',{id:id});
+    }
 
   } 
 

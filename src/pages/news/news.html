@@ -12,11 +12,11 @@
 
 
 <ion-content>
- <ion-card *ngFor="let data of items; let i=index " class="card card-md" (click)="gotoWebView(newsData.data[i].link)">
-      <div >
+ <ion-card *ngFor="let data of items; let i=index " class="card card-md">
+      <div  (click)="gotoWebView(data.id,data.link,data.type)">
       <img  src="{{data.image}}" class="newsLargeImage"/>
-      <div padding-top padding-left class="newsLargeTitle">{{data.title}}</div>
-      <div padding-left class="newsSmallPTI" >{{ 'PTI_AND_UPDATE' | translate }} : {{data.created}} </div>
+      <ion-col col-12 padding-top padding-left class="fontBold newsLargeTitle">{{data.title}}</ion-col>
+      <ion-col col-12 padding-left class="newsSmallPTI" >{{ 'PTI_AND_UPDATE' | translate }} : {{data.created}} </ion-col>
     </div>
   </ion-card>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

@@ -427,14 +427,22 @@ export class HomePage {
     });
   }
 
-  openNews(URL,title){
-     this.gotoWebView(URL,title);
+  openNews(id,URL,type,title){
+     //this.gotoWebView(URL,title);
      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'News - '+title
      });
      dataLayer.push({'event': 'appEvent'});
+    if (type=='web') {
+      console.log("baran"+URL);
+      this.iab.create(URL, '_blank', 'location=yes');
+      //var ref = this.iab.create(URL, '_blank', 'location=yes');
+    }else{
+      console.log("kkkbaran"+URL);
+      this.navCtrl.push('NewsdetailPage',{id:id});
+    }
   }
 
   gotoWeatherPage(numbr){
@@ -680,6 +688,7 @@ showBar(){
                   scroll[key].style.marginBottom = '0px';
               });
         }
+ 
   if(this.onBording){
     // document.querySelector(".barCustomAct").classList.add('showTopBar');
     // document.querySelector(".barCustomAct").classList.remove('topBar');

@@ -115,7 +115,7 @@
 
    "SELECT_LOCTION": "स्थान चुने",
    "SELECT_LOCTION_PLEASE": "कृपया अपने स्थान का चयन करें क्योंकि हम आपकी कृषि के लिए मदद कर रहे हैं",
-   "SELECT_LOCTION_SELECT": "चुनते हैें",
+   "SELECT_LOCTION_SELECT": "चुनिये हैें",
    "SELECT_LOCTION_STATE": "राज्य",
    "SELECT_LOCTION_TEHSIL": "तहसील",
    "SELECT_LOCTION_DISTRICT": "जिला",
@@ -146,6 +146,7 @@
   "MANAGED":"प्रबंधित",
   "VIDEO":"वीडियो",
   "MARKET":"एग्रीमार्ट",
+  "MARKETNEW":"बाजार",
   "E-TRADIND":"ई व्यापार",
   "RENTAL":"किराया",
   "ASK_THE_EXPERT":"विशेषज्ञ राय",
