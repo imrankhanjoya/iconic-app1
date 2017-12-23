@@ -19,18 +19,34 @@
 
 </ion-header>
  
-
 <ion-content>
+<ion-card class="dialog1"  >
+   <ion-grid >
+      <ion-row>
+         <ion-col col-3 >
+            <ion-thumbnail item-start class="avatar">
+               <img src="assets/img/watering_can.png" >
+            </ion-thumbnail>
+         </ion-col>
+         <ion-col class="smallTitle1" col-9>
+            {{'SEE_NEWTITLE' | translate}}
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   </ion-card>
   <ion-grid >
     <ion-card class="image-card"  *ngFor=" let data of items, let i = index ">
       <div class="row"  >
       <ion-thumbnail item-start class="item_mdimg roundImage fixImage ">
         <img src="{{data.image}}">
       </ion-thumbnail>
-        <div style="margin-bottom:10px;" class="alignCenter1 paddingTop colorGrey newsLargeTitle" >{{data.title}}</div>
+        <div class="alignCenter1 paddingTop colorGrey newsLargeTitle" >{{data.title}}
+        <button (click)="RentalsPage(data.id,data.title)" ion-button clear style="margin-top: 15px;" class="labelGreen" >{{'SEE_DETAIL' | translate}}</button></div>
+        
          <div style="width: 100%">
-          <button (click)="RentalsPage(data.id,data.title)" style="float: left" ion-button clear class="labelGreen1">{{'SEE_DETAIL' | translate}}</button>
-          <button (click)="mackCall()" style="float: right" ion-button clear class="labelGreen1">{{'SEE_CALL' | translate}}</button>
+            <button style="float: left;" ion-button clear class="labelGreen1" 
+            (click)="openFilter(data.id,'General')">{{'RENTAL_IN' | translate}}</button>
+          <button (click)="mackCall()" style="float: right;" ion-button clear class="labelGreen1">{{'SEE_CALL' | translate}}</button>
       </div>
        <!--  <ion-thumbnail item-start>
         <img  src="{{data.image}}" class=" roundImage fixImage"/>

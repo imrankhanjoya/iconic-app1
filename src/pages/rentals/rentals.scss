@@ -5,6 +5,23 @@ page-rentals {
     padding-top: 5%;
 
     }
+    .smallTitle1{
+    font-size:1.5rem;
+  //margin-right:25%;
+    //equivalent to 29px
+} .dialog1{
+      color: white;
+      background-color: #0cb665;
+      font-weight: bold;
+      font-size: 2rem;
+      padding: 2%;
+      }
+      .avatar{
+      background: url('assets/img/agri bolo icon/hdpi/Oval.png') no-repeat;
+      background-size: cover;
+      background-color: yellow;
+      border-radius: 50%;
+      }
    .item_mdimg {
     width: 125px !important;
     height: 85px;
@@ -59,7 +76,7 @@ page-rentals {
     }
     .labelGreen1{
     color:#649305 !important;
-    margin-top:30px;
+    margin-top:17px;
 }
 }
   

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController,ModalController, NavParams,LoadingController,AlertController } from 'ionic-angular';
 import { RentalsProvider } from '../../providers/rentals/rentals';
 import { Events } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -22,7 +22,10 @@ export class RentalsPage {
   private page:number=0;
   public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor( public translateService: TranslateService,public navCtrl: NavController, public navParams: NavParams,public events: Events,
-public rentals:RentalsProvider,private alertCtrl: AlertController,public loadingCtrl:LoadingController ) 
+  public rentals:RentalsProvider,
+  public modalCtrl:ModalController,
+  private alertCtrl: AlertController,
+  public loadingCtrl:LoadingController ) 
   {
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -112,5 +115,21 @@ public rentals:RentalsProvider,private alertCtrl: AlertController,public loading
         console.log(this.items);
     });
   } 
+  openFilter(product_name,formtype){
+     dataLayer.push({
+       'appEventCategory': 'Rental',
+       'appEventAction': 'filter',
+       'appEventLabel': ' Rental Contact-'+product_name
+     });
+    let modal = this.modalCtrl.create('RentalFilterPage',{product_name:product_name,formtype:formtype, fromFilter:true});
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+        //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+      }
+    });
+  }
+  
 
 }
