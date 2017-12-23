@@ -43,9 +43,6 @@
 			    <div class=" displayOneFont fontBold colorGrey pClass">
 			    	{{cropdetail.name}}
 			    </div>
-			    <div class="titleFont">
-			    	({{cropdetail.crop_type}})
-			    </div>
 				<div  *ngFor="let AllDetails of cropdetail.AllDetail;"  >
 					<div class="headline paddingTop fontBold" >{{AllDetails.key}}</div>
 					<div class="pContent headline"  innerHtml="{{AllDetails.value}}"></div>
