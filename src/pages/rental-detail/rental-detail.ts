@@ -20,7 +20,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class RentalDetailPage {
 
-  public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
+  public ContactSendData:{user_id:number,ID:number,contact_id:string,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:0,ID:0,contact_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
   public Rental_detaildata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public rentalid:any;
 
@@ -28,6 +28,9 @@ export class RentalDetailPage {
   public textSlide:any;
   public textGotoBack:any;
   public buttonOnCloseCSS:any;
+  public CANCEL_BUTTON:any;
+  public CALL_TOLLFREE:any;
+  public CALL:any;
 
   constructor(public translateService: TranslateService,private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl:ModalController,public rentals:RentalsProvider,

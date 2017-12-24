@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController,ViewController, NavParams } from 'ionic-angular';
-import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ExpertsProvider } from '../../providers/experts/experts';
 
@@ -44,16 +43,14 @@ export class SpeciallistFilterPage {
      getspeciallist(){
       this.experts.Cat_list('8').map(res => res.json()).subscribe((res) => {
       this.catDatas.data = res.data;
-      this.catDatas.msg = res.msg;
       this.catDatas.status = res.status;
-         console.log(this.catDatas);
 
     });
   }
 
 
     filterMarketForm(){
-        let data = { 'data': this.SpeciaList.value };
+        let data = { 'data': this.speciatist.value };
         this.viewCtrl.dismiss(data);
         
     }

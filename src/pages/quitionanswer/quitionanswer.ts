@@ -19,7 +19,10 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
   templateUrl: 'quitionanswer.html',
 })
 export class QuitionanswerPage {
-	public qid:any;
+  public qid:any;
+  public ADDED_ANSWER:any;
+  public user_id:any;
+	public OK:any;
   public answer : FormGroup;
   public  answerformData = {user_id:'',title:'',description:''};
 	public answerData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};

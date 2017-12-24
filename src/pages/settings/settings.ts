@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController,PopoverController, ViewController,ToastController, AlertController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
 import { User } from '../../providers/providers';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 import { CityStateProvider } from '../../providers/city-state/city-state';
 
 /**
@@ -40,6 +40,13 @@ export class SettingsPage {
   public loading:any;
   public passresError:any;
   public changeprofiledata:any;
+  public OK:any;
+  public PROFILE_UPDATE:any;
+  public DONE_BUTTON:any;
+  public CHANGE_YOUR_PASSWORD:any;
+  public LOCATION_UPDATA_SUCCESSFULLY:any;
+  public userId:any;
+  public base64Image:any;
   public changepassformdata = {oldpass:'',newpass:'',confirmpass:''};
   public changelocationformdata = {user_state_id:'',user_district_id:'',user_tahsil_id:''};
   public loc:{state:string,district:string} = {state:'',district:''};
@@ -100,7 +107,6 @@ export class SettingsPage {
 
             this.translateService.get('PROFILE_UPDATE').subscribe((value) => {
                 this.PROFILE_UPDATE = value;
-                console.log(this.validnumber+'tesrtinnng');
               });
 
             this.translateService.get('OK').subscribe((value) => {
@@ -113,7 +119,6 @@ export class SettingsPage {
 
               this.translateService.get('CHANGE_YOUR_PASSWORD').subscribe((value) => {
                 this.CHANGE_YOUR_PASSWORD = value;
-                console.log(this.validnumber+'tesrtinnng');
               });
 
           this.loading = this.loadingCtrl.create({

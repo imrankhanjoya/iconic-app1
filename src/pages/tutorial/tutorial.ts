@@ -52,16 +52,15 @@ export class TutorialPage {
     this.menu.enable(false);
     this.splashScreen.hide();
  
-    setTimeout(() => {
+    //setTimeout(() => {
       this.platform.ready().then((readySource) => {
           this.viewCtrl.dismiss();
           this.storage.get('userData').then((userlogin) => {
-              console.log(userlogin);
               if (userlogin) {
                 this.navCtrl.setRoot(MainPage, {}, {
-                          animate: true,
-                          direction: 'forward'
-                        });
+                  animate: true,
+                  direction: 'forward'
+                });
                 // storage.get('notificationData').then((notiData) => {
                 //     if (notiData) {
                 //         this.gotoAnounsePage(notiData.type,notiData.type_value);
@@ -81,7 +80,7 @@ export class TutorialPage {
               
            });
       });
-    }, 500);
+    //});
   }
 
   ionViewWillLeave() {

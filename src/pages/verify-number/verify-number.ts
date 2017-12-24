@@ -22,6 +22,9 @@ export class VerifyNumberPage {
 
   public phoneNumber:any;
   public otp:any;
+  public VERIFY_OTP:any;
+  public VERIFY_TYPE_OTP:any;
+  public INVALID_OTP:any;
   constructor(public navCtrl: NavController,
     public toastCtrl: ToastController,
     public navParams: NavParams,public user: User,
@@ -31,11 +34,12 @@ export class VerifyNumberPage {
     public translateService: TranslateService) {
       this.translateService.get('VERIFY_TYPE_OTP').subscribe((value) => {
         this.VERIFY_TYPE_OTP = value;
-        console.log(this.validnumber+'tesrtinnng');
+      });
+      this.translateService.get('VERIFY_OTP').subscribe((value) => {
+        this.VERIFY_OTP = value;
       });
       this.translateService.get('INVALID_OTP').subscribe((value) => {
         this.INVALID_OTP = value;
-        console.log(this.validnumber+'tesrtinnng');
       });
     this.phoneNumber=navParams.get('phoneNumber');
     /*if (platform.is('android')) {

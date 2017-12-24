@@ -27,10 +27,8 @@ export class SearchPage {
       this.currentItems = [];
       return;
     }
-    console.log(val);
     this.searchProvider.find(val).then((res)=>{
 
-      console.log(res.data.response.docs);
       this.currentItems = res.data.response.docs;
 
     });

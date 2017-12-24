@@ -60,7 +60,6 @@ import { MainPage } from '../pages/pages';
 export class MyApp {
   // rootPage = FirstRunPage;
   public username : any;
-  public display_name : any;
   public profile_picture : '/assets/img/appicon.png';
   public userLanguage:any;
   @ViewChild(Nav) nav: Nav;
@@ -78,11 +77,12 @@ export class MyApp {
 
   ]
   public alert:any;
+  public display_name : any;
   constructor(public events: Events,private translate: TranslateService, public platform: Platform, settings: Settings,
     private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
     public fcm: FCM,public cacheService: CacheService,public api:Api,public alertCtrl: AlertController,
     public splashScreen: SplashScreen,public modalCtrl: ModalController) {
-    console.log("=-=-=-=-=-MyApp=-=-=-=-");
+    //console.log("=-=-=-=-=-MyApp=-=-=-=-");
     //this.nav.setRoot('TutorialPage');
     // let splash = modalCtrl.create('TutorialPage');
     // splash.present();
@@ -91,7 +91,7 @@ export class MyApp {
     events.subscribe('user:created', (user, userLang) => {
       // user and time are the same arguments passed in `events.publish(user, time)`
       this.userLanguage = userLang;
-      console.log('Welcome   ------', user, 'at', userLang);
+      //console.log('Welcome   ------', user, 'at', userLang);
     });
     cacheService.setDefaultTTL(60 * 60); //set default cache TTL for 1 hour
         
@@ -99,7 +99,7 @@ export class MyApp {
 
         //fcm.unsubscribeFromTopic('---------------marketing');
       this.storage.get('userLang').then((userLang) => {
-          console.log(userLang);
+          //console.log(userLang);
           if(userLang){
             //this.userLanguage = userLang;
             this.initTranslate(userLang);
@@ -118,12 +118,12 @@ export class MyApp {
       });
         if (this.platform.is('cordova')) {
           fcm.onNotification().subscribe(data=>{
-             console.log("Received in background-----="+JSON.stringify(data));
+             //console.log("Received in background-----="+JSON.stringify(data));
             if(data.wasTapped){
               storage.set('notificationData',data);
-              console.log("Received in background---");
+              //console.log("Received in background---");
             } else {
-              console.log("Received in foreground-----");
+              //console.log("Received in foreground-----");
             };
           });
         }
@@ -132,9 +132,9 @@ export class MyApp {
        this.platform.ready().then(() => {
             //this.viewCtrl.dismiss();
             this.storage.get('userData').then((userlogin) => {
-                console.log(userlogin);
+                //console.log(userlogin);
                 if (userlogin) {
-                  console.log('-----'+userlogin);
+                  //console.log('-----'+userlogin);
                   this.nav.setRoot(MainPage);
                   // storage.get('notificationData').then((notiData) => {
                   //     if (notiData) {
@@ -156,21 +156,21 @@ export class MyApp {
           fcm.subscribeToTopic('marketing');
           //this.storage.set('updated_token','islamsolnkey');
           fcm.getToken(function(token){
-              console.log('--getToken--'+token);
+              //console.log('--getToken--'+token);
               storage.set('updated_token',token);
           });
 
           
           fcm.onNotificationReceived(function(data){
             if(data.wasTapped){
-              console.log("Received in +++++---");
+              //console.log("Received in +++++---");
             } else {
-              console.log("Received in foreground-----");
+              //console.log("Received in foreground-----");
             };
           });
 
           fcm.onTokenRefresh(function(token){
-              console.log('--getTokenRefresh--'+token);
+              //console.log('--getTokenRefresh--'+token);
               storage.set('updated_token',token);
           });
         }  
@@ -178,7 +178,7 @@ export class MyApp {
     });
     storage.get('notificationData').then(function (noData) {
       storage.set('notificationData', noData);
-                  console.log("     notificationData       :       "+noData);
+                  //console.log("     notificationData       :       "+noData);
     });
     this.splashScreen.hide();
   }
@@ -209,7 +209,7 @@ export class MyApp {
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');
     this.translate.setDefaultLang('hi');
-    console.log('User Lang set : '+userLang)
+    //console.log('User Lang set : '+userLang)
     this.userLanguage = userLang;
     this.translate.use(userLang); // Set your language here
     this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
@@ -222,7 +222,7 @@ export class MyApp {
        // this.storage.set('userLang','');
        this.storage.clear();
         this.nav.setRoot('WelcomePage');
-         console.log("here");
+        //console.log("here");
   }
 
   openPage(page) {
@@ -244,12 +244,12 @@ export class MyApp {
   openPageWithP(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-     console.log(page);
+     //console.log(page);
     this.nav.push('SettingsPage',{pTitle:page});
   }
 
   setLanguage(lang){
-    console.log(lang);
+    //console.log(lang);
     this.storage.set('userLang',lang);
     this.userLanguage = lang;
    this.translate.setDefaultLang(lang);
@@ -290,9 +290,9 @@ export class MyApp {
           '/agribolo/': HomePage,
           '/contact-us': HomePage
         }).subscribe((match) => {
-          console.log('Successfully routed', match);
+          //console.log('Successfully routed', match);
         }, (nomatch) => {
-          console.warn('Unmatched Route', nomatch);
+          //console.warn('Unmatched Route', nomatch);
         });
       });
   }

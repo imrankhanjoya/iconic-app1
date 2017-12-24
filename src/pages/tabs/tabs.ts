@@ -36,6 +36,7 @@ export class TabsPage {
   public selectedTabTitle:any;
   public selectedTabIndex:0;
   public GPSAlert:any;
+  public CANCEL_BUTTON:any;
 
   constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
     public alertCtrl: AlertController,public events: Events,private geolocation: Geolocation,
@@ -126,7 +127,6 @@ export class TabsPage {
     let selectedTab = this.tabRef.getSelected();
     this.selectedTabTitle=selectedTab.tabTitle;
     this.selectedTabIndex=selectedTab.index;
-    console.log(selectedTab.index + ' - ' + selectedTab.tabTitle);
     // if (selectedTab.index==1) {
     //   // this.events.publish('update:page');
     //   this.navCtrl.push('KrishCenterPage');
@@ -134,7 +134,7 @@ export class TabsPage {
 
   }
   gpsAlert() {
-      this.alert = this.alertCtrl.create({
+      let alert = this.alertCtrl.create({
         title: 'GPS',
         message: this.GPSAlert,
         buttons: [
@@ -142,7 +142,7 @@ export class TabsPage {
             text: this.CANCEL_BUTTON,
             role: 'cancel',
             handler: () => {
-              this.alert =null;
+              //this.alert = null;
             }
           },
           {

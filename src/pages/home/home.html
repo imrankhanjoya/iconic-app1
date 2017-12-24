@@ -466,13 +466,13 @@
    </ion-row>
 </ion-grid>
 <ion-card>
-   <div *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].link,newsData.data[0].title)">
+   <div *ngIf="newsData.status==true" (click)="openNews(newsData.data[0].id,newsData.data[0].link,newsData.data[0].type,newsData.data[0].title)">
    <img  src="{{newsData.data[0].image}}" class="newsLargeImage"/>
    <div padding-top padding-left class="newsLargeTitle">{{newsData.data[0].title}}</div>
-   <div padding-left class="newsLargePTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
+   <div padding-left class="newsSmallPTI">{{'PTI_AND_UPDATE' | translate}} : {{newsData.data[0].created}}</div>
    </div>
    <ion-grid >
-      <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="openNews(newsData.data[i].link,news.title)">
+      <ion-row padding-top class="separator" *ngFor=" let news of newsData.data, let i = index "  (click)="openNews(newsData.data[i].id,newsData.data[i].link,newsData.data[i].type,newsData.data[i].title)">
       <ion-col col-3 *ngIf="i > 0 ">
          <img class = "newsSmallImage roundImage" src="{{news.image}}" width="200px" />
       </ion-col>

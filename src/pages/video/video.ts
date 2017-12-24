@@ -87,7 +87,6 @@ export class VideoPage {
   }
 
   doInfinite(infiniteScroll:any) {
-     console.log('doInfinite, start is currently '+this.start);
      this.page+=1;
      console.log('page  '+this.page);
      

@@ -19,7 +19,6 @@ import { WeatherPage } from '../weather/weather';
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
 import { User } from '../../providers/providers';
-import { FCM } from '@ionic-native/fcm';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MainPage } from '../pages';
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
@@ -76,7 +75,7 @@ export class HomePage {
   public isHeaderAnimition=true;
   public alert:any;
   public exitAlertMess:any;
-  constructor(private fcm: FCM,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
+  constructor(public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
@@ -731,7 +730,7 @@ showBar(){
     }
 
 
-     var start = 0;
+     //var start = 0;
     
     if(this.isCount){
       this.isCount=false

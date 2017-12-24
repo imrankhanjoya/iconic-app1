@@ -31,8 +31,13 @@ export class RentalFilterPage {
     public loading:any;
     public product_name:any;
     public pageTitle:any;
+    public RENTAL_REQUEST_SUCCESS:any;
+    public OK:any;
+    public NowTimeT:any;
+    public currentItems:any;
     Crop: string = "General";
     Rental_Listdata: any = [];
+    userData: any = [];
     date_from: String = new Date().toISOString();
 
   // public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
@@ -73,7 +78,6 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
       });
       this.translateService.get('RENTAL_REQUEST_SUCCESS').subscribe((value) => {
         this.RENTAL_REQUEST_SUCCESS = value;
-        console.log(this.validnumber+'tesrtinnng');
       }); 
 
       this.translateService.get('OK').subscribe((value) => {
@@ -104,59 +108,26 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
     } 
   
   getRentalList(){
-    this.rentals.Rental_list(this.page,10).then((res)=>{
+    this.rentals.Rental_list('',100,'').then((res)=>{
       this.rentallists = res.data;
-      this.rentallists.msg = res.msg;
-      this.rentallists.status = res.status;
-    });
-  }
-
-   getItems(ev) {
-    console.log('dfhhghjjhk');
-    let val = ev.target.value;
-    if (!val || !val.trim()) {
-      this.Rental_Listdata = [];
-      return;
-    }
-    console.log(val);
-    this.searchProvider.find(val).then((res)=>{
-
-      console.log(res.data.response.docs);
-      this.currentItems = res.data.response.docs;
-
-    });
-  }
-   openItem(data) {
-    console.log(data);
-    if (data=='products') {
-      console.log('im a ');
-      var newstr=data.toStrproductsing().replace('20000',"");
-     // this.navCtrl.push('MarketViewPage',{id:newstr});
-    }
-  }
-     getRentalList(){
-    this.rentals.Rental_list(this.page,10).then((res)=>{
-      this.rentallists = res.data;
-      this.rentallists.msg = res.msg;
       this.rentallists.status = res.status;
     });
   }
    onStateSelect(stateid) {
-     var districtId = this.RentalMarket.value.user_state_id;
-    this.loc.getDistrict(this.lang,stateid).then((res)=>{
+    this.loc.getDistrict('',stateid).then((res)=>{
       this.districtList=res.data;
       
     });
   }
 
   onDistrictSelect(districtId){
-    this.loc.getTehsil(this.lang,districtId).then((res)=>{
+    this.loc.getTehsil('',districtId).then((res)=>{
             this.tehsilList=res.data;
         });
    
   }
   getAllState() {
-    this.loc.getState(this.lang).then((res)=>{
+    this.loc.getState('').then((res)=>{
       this.stateList=res.data;
     }); 
   }

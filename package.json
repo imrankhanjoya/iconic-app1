@@ -28,7 +28,6 @@
         "@ionic-native/deeplinks": "^4.3.2",
         "@ionic-native/device": "^4.4.2",
         "@ionic-native/fcm": "^4.3.2",
-        "@ionic-native/firebase": "^4.3.2",
         "@ionic-native/geolocation": "^4.3.0",
         "@ionic-native/google-maps": "3.12.1",
         "@ionic-native/in-app-browser": "^4.3.0",
@@ -48,7 +47,6 @@
         "cordova-plugin-compat": "^1.2.0",
         "cordova-plugin-device": "^1.1.7",
         "cordova-plugin-fcm": "^2.1.2",
-        "cordova-plugin-firebase": "^0.1.24",
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-inappbrowser": "^1.7.2",
         "cordova-plugin-nativegeocoder": "^2.0.4",
@@ -85,7 +83,6 @@
             "ionic-plugin-keyboard": {},
             "cordova-plugin-camera": {},
             "cordova-plugin-nativegeocoder": {},
-            "cordova-plugin-firebase": {},
             "cordova-plugin-sms-receiver": {},
             "cordova-plugin-android-permissions": {},
             "ionic-plugin-deeplinks": {

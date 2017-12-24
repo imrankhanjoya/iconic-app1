@@ -29,9 +29,12 @@ export class WeatherPage {
   public filterLocation:any;
   public weatherInfo:any;
   public NowTimeT:any;
-
-	public wheaterdetailall: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
-  public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
+  public res:any;
+  public resetcard:any;
+  public state_name:any;
+  public tehsil_name:any;
+	public wheaterdetailall: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public weatherfiveday: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   	constructor(
               public navCtrl: NavController,
               public navParams: NavParams,
@@ -70,8 +73,6 @@ export class WeatherPage {
  weatherdetail(tehsil,filter='no'){
 
       this.NowTimeT = new Date();
-      console.log('this is current time'+this.NowTime);
-
         if (filter=='filter_data') {
           this.resetcard = true
         }
@@ -83,8 +84,7 @@ export class WeatherPage {
             this.wheaterdetailall.msg = res.msg;
             this.wheaterdetailall.status = res.status;
             this.weatherInfo=this.wheaterdetailall.data;
-            this.tehsilId=res.data;
-             this.loading.dismiss();
+            this.loading.dismiss();
 
         }); 
       

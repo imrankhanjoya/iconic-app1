@@ -15,7 +15,7 @@ export class CityStateProvider {
   constructor(public http: Http,public api:Api) {
     console.log('Hello CityStateProvider Provider');
   }
-  getState(lang) {
+  getState(lang='') {
     var paramCond ={lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/location/state', paramCond).then((getStateData)=>{
@@ -24,7 +24,7 @@ export class CityStateProvider {
     });
   }
 
-  getMandiState(lang) {
+  getMandiState(lang='') {
     var paramCond ={lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/location/mandi-state', paramCond).then((getStateData)=>{
@@ -33,7 +33,7 @@ export class CityStateProvider {
     });
   }
 
-  getMandiDistrict(lang,stateId) {
+  getMandiDistrict(lang='',stateId) {
     var paramCond ={lang:this.api.userLanguage,district_state:stateId};
     return new Promise((resolve)=>{
       this.api.getCache('v1/location/mandi-districts', paramCond).then((getDistrictData)=>{
@@ -42,7 +42,7 @@ export class CityStateProvider {
     });
   }
 
-  getDistrict(lang,stateId) {
+  getDistrict(lang='',stateId) {
     var paramCond ={lang:this.api.userLanguage,district_state:stateId};
     return new Promise((resolve)=>{
       this.api.getCache('v1/location/districts', paramCond).then((getDistrictData)=>{
@@ -68,7 +68,7 @@ export class CityStateProvider {
     // return seq;
   }
 
-  getTehsil(lang,districtid) {
+  getTehsil(lang='',districtid) {
      var paramCond ={lang:this.api.userLanguage,districtid:districtid};
      return new Promise((resolve)=>{
         this.api.getCache('v1/location/tehsil', paramCond).then((getTehsilData)=>{
@@ -94,7 +94,7 @@ export class CityStateProvider {
   }
 
 
-  getMarket(lang,districtId) {
+  getMarket(lang='',districtId) {
 
         var paramCond ={lang:this.api.userLanguage,district_state:districtId};
 
@@ -121,7 +121,7 @@ export class CityStateProvider {
         // return seq;
     }
 
-  sendCrop(lang,croptype){
+  sendCrop(lang='',croptype){
 
     var paramCond ={lang:this.api.userLanguage,croptype:croptype};
     return new Promise((resolve)=>{
@@ -148,7 +148,7 @@ export class CityStateProvider {
     
  
 
-  GroupCrop(lang){
+  GroupCrop(lang=''){
 
     var paramCond ={lang:this.api.userLanguage};
     return new Promise((resolve)=>{

@@ -19,18 +19,17 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class RentalsPage {
   public items:any = [];
+  public CANCEL_BUTTON:any;
+  public CALL:any;
+  public loading:any;
+  public CALL_TOLLFREE:any;
   private page:number=0;
-  public Rental_Listdata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor( public translateService: TranslateService,public navCtrl: NavController, public navParams: NavParams,public events: Events,
   public rentals:RentalsProvider,
   public modalCtrl:ModalController,
   private alertCtrl: AlertController,
   public loadingCtrl:LoadingController ) 
   {
-    this.loading = this.loadingCtrl.create({
-        content: 'Please wait...'
-      });
-      this.loading.present();
 
        this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
       this.CANCEL_BUTTON= value;
@@ -44,6 +43,10 @@ export class RentalsPage {
   }
 
   ionViewDidLoad() {
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
     this.getRental();
     console.log('ionViewDidLoad RentalsPage');
   }
@@ -53,7 +56,7 @@ export class RentalsPage {
   }
   presentConfirm() {
     let alert = this.alertCtrl.create({
-      title: 'Confirm purchase',
+      title: ' ',
       message: this.CALL_TOLLFREE,
       buttons: [
         {
@@ -77,10 +80,7 @@ export class RentalsPage {
 
 
   getRental(){
-    this.rentals.Rental_list(this.page,10).then((res)=>{
-      this.Rental_Listdata = res;
-      this.Rental_Listdata.msg = res.msg;
-      this.Rental_Listdata.status = res.status;
+    this.rentals.Rental_list(this.page,10,'').then((res)=>{
       console.log(res);
       for(let person of res.data) {
         this.items.push(person);
@@ -101,14 +101,10 @@ export class RentalsPage {
   
   //Loader Question List
   doInfinite(infiniteScroll:any) {
-     console.log('doInfinite, start is currently '+this.start);
      this.page+=1;
      console.log('page  '+this.page);
-    this.rentals.Rental_list(this.page,10).then((res)=>{
-      this.Rental_Listdata = res;
-      this.Rental_Listdata.msg = res.msg;
-      this.Rental_Listdata.status = res.status;
-      for(let person of this.Rental_Listdata.data) {
+    this.rentals.Rental_list(this.page,10,'').then((res)=>{
+      for(let person of res.data) {
         this.items.push(person);
       }
       infiniteScroll.complete();

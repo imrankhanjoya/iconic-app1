@@ -47,7 +47,7 @@ export class WelcomePage {
 
       // this.storage.set('userLang',lang);
       // this.initTranslate(lang);
-      console.log(lang);
+      //console.log(lang);
       this.storage.set('userLang',lang);
       //this.userLanguage = lang;
       this.translate.setDefaultLang(lang);
