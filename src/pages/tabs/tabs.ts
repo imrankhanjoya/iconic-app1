@@ -134,7 +134,7 @@ export class TabsPage {
 
   }
   gpsAlert() {
-      let alert = this.alertCtrl.create({
+      this.alert = this.alertCtrl.create({
         title: 'GPS',
         message: this.GPSAlert,
         buttons: [
