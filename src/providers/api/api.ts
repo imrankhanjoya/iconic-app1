@@ -48,12 +48,21 @@ export class Api {
   }
   changelang(lang){
 
-        console.log(lang);
-        if(lang=='hi'){
-          this.userLanguage = 'hi_IN';
-        }else{
-          this.userLanguage = 'en_US';
-        }    
+      if(lang=='hi'){
+        this.userLanguage = 'hi_IN';
+      }else{
+        this.userLanguage = 'en_US';
+      }
+      var dTime = new Date();
+      var msec = dTime.getMilliseconds();
+      console.log('testing lang chnga'+this.userLanguage);
+      var paramCond ={user_id:this.userData.ID,lang:this.userLanguage,sec:msec};
+      return new Promise((resolve)=>{
+        console.log(';hello everyonehhhhhhhhhhhhhhhhhhhhhh');
+        this.getCache('v1/user/update-lang', paramCond).then((krish_centerlist)=>{
+          resolve(krish_centerlist);
+        });   
+       });   
   }
   get(endpoint: string, params?: any, options?: RequestOptions) {
     if (!options) {

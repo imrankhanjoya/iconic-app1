@@ -28,6 +28,9 @@ export class CroplistPage {
 		content: 'Please wait...'
 		});
 		loading.present();
+	      setTimeout(() => {
+	        loading.dismiss();
+	      }, 6000);
 		this.cropsProvider.sendCropGroupType('hi_IN',this.croptype).then((res)=>{
             this.cropList=res;
 				console.log(this.cropList);

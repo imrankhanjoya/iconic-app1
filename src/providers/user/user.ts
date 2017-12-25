@@ -82,10 +82,10 @@ export class User {
    }
 
   login(username,password) {
-  let body = new FormData();
-  body.append('lang', this.api.userLanguage);
-  body.append('username', username);
-  body.append('password', password);
+    let body = new FormData();
+    body.append('lang', this.api.userLanguage);
+    body.append('username', username);
+    body.append('password', password);
     let seq = this.api.post('v1/user/login', body).share();
     seq
       .map(res => res.json())

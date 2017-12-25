@@ -48,6 +48,9 @@ export class MarketPage {
         content: 'Please wait...'
     });
       this.loading.present();
+      setTimeout(() => {
+        loading.dismiss();
+      }, 6000);
       
       this.market.productlistview(this.product_cat,this.productbrand,this.sortby).then((res)=>{
       this.productDatas.data = res.data;

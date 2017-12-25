@@ -47,6 +47,9 @@ export class RentalsPage {
         content: 'Please wait...'
       });
       this.loading.present();
+      setTimeout(() => {
+        loading.dismiss();
+      }, 6000);
     this.getRental();
     console.log('ionViewDidLoad RentalsPage');
   }

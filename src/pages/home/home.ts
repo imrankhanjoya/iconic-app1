@@ -94,9 +94,9 @@ export class HomePage {
         content: 'Please wait...'
       });
       this.loading.present();
-      setTimeout(() => {
-        loading.dismiss();
-      }, 4000);
+     setTimeout(() => {
+          loading.dismiss();
+        }, 4000);
       storage.get('notificationData').then((notiData) => {
           console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
         if (notiData) {
@@ -655,7 +655,7 @@ export class HomePage {
         this.navCtrl.push('CropdetailPage',{crop_id:type_value});
       }
       if (type=='rental') {
-        this.navCtrl.push('RentalsPage',{crop_id:type_value});
+        this.navCtrl.push('RentalDetailPage',{rid:type_value});
       }
       if (type=='blogs') {
         this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
