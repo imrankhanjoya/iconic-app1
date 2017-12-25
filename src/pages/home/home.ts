@@ -94,6 +94,9 @@ export class HomePage {
         content: 'Please wait...'
       });
       this.loading.present();
+      setTimeout(() => {
+        loading.dismiss();
+      }, 4000);
       storage.get('notificationData').then((notiData) => {
           console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
         if (notiData) {

@@ -41,6 +41,9 @@ export class ExpertsDetailPage {
         content: 'Please wait...'
       });
      this.loading.present();
+     setTimeout(() => {
+          loading.dismiss();
+     }, 2000);
   }
 
   ionViewDidLoad() {

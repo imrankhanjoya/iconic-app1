@@ -104,7 +104,7 @@ export class TutorialPage {
       });
     }
     if (type=='rental') {
-      this.navCtrl.push('RentalsPage',{crop_id:type_value}).then(() => {
+      this.navCtrl.push('RentalDetailPage',{rid:type_value}).then(() => {
         const index = this.viewCtrl.index;
         this.navCtrl.remove(index);
       });

@@ -27,6 +27,9 @@ export class NewsPage {
         });
 
     this.loading.present();
+    setTimeout(() => {
+          loading.dismiss();
+    }, 3000);
     this.id=navParams.get('id');
   }
 

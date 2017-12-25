@@ -51,6 +51,9 @@ export class WeatherPage {
               content: 'Please wait...'
             });
             this.loading.present();
+             setTimeout(() => {
+                  loading.dismiss();
+                }, 2000);
           }  
     
 
