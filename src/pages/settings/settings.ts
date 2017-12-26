@@ -183,7 +183,7 @@ export class SettingsPage {
     return 'url(' + this.form.controls['profilePic'].value + ')'
   }
 
-     uploadeImg(){
+  uploadeImg(){
     let popover = this.popoverCtrl.create('UploadImagePage');
      popover.present({
      });
@@ -215,6 +215,7 @@ export class SettingsPage {
         }
      });
   }
+
   updateProImg(image){
     let loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -313,14 +314,23 @@ export class SettingsPage {
   }
    
   onStateSelect(stateid) {
+    let loadingSate = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+    loadingSate.present();
     this.cityStateProvider.getDistrict(this.lang,stateid).then((res)=>{
       this.districtList=res.data;
     });
+    loadingSate.dismiss();
   }
   onDistrictSelect(districtId){
+    let loadingDistrict = this.loadingCtrl.create({
+          content: 'Please wait...'
+        });
+    loadingDistrict.present();
     this.cityStateProvider.getTehsil(this.lang,districtId).then((res)=>{
             this.tehsilList=res.data;
-            this.loading.dismiss();
+            loadingDistrict.dismiss();
         }); 
   }
   

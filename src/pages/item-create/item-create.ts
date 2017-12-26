@@ -169,6 +169,7 @@ export class ItemCreatePage {
         content: 'Please wait...'
      });
      loading.present();
+     console.log('image upload by user testinngngngn');
      this.user.userUpdateProImg(this.userId,image).map(res => res.json()).subscribe((resp) => {
       this.storage.set('userData',resp.data);
       loading.dismiss();

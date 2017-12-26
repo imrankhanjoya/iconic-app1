@@ -37,6 +37,7 @@ export class TabsPage {
   public selectedTabIndex:0;
   public GPSAlert:any;
   public CANCEL_BUTTON:any;
+  public TURN_ON_GPS:any;
 
   constructor(private translate: TranslateService,public navCtrl: NavController,public platform:Platform,
     public alertCtrl: AlertController,public events: Events,private geolocation: Geolocation,
@@ -64,6 +65,10 @@ export class TabsPage {
 
     this.translate.get('CANCEL_BUTTON').subscribe((value) => {
       this.CANCEL_BUTTON = value;
+    });
+
+    this.translate.get('TURN_ON_GPS').subscribe((value) => {
+      this.TURN_ON_GPS = value;
     });
     // platform.ready().then(() => {
 
@@ -146,7 +151,7 @@ export class TabsPage {
             }
           },
           {
-            text: 'Turn on GPS Location',
+            text: this.TURN_ON_GPS,
             handler: () => {
 
               //this is function go to  GPS setting

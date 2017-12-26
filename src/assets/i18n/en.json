@@ -341,5 +341,8 @@
   "SITE_TITLE": "AgriBolo",
   "MINIMUM_CROPS": "Please select minimum 3 crops",
   "REGISTER_SUCESS": "Congratulations! You have successfully signed up. Please login to continue.",
-  "KRISHI_ADVISORY": "Agri Advisory"
+  "KRISHI_ADVISORY": "Agri Advisory",
+  "TURN_ON_GPS": "Turn on GPS Location",
+  "POWERED_BY": "Powered by",
+  "NO_MARKET_DISTRICT": "There is no Market for this District"
 }

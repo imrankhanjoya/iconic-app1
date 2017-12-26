@@ -64,12 +64,12 @@ export class CropsuodatePage {
           this.skipDataList = [];
       this. storage.get('userLang').then((val) => {
         this.lang=val;
-        this.getCrops();
       });
       this.storage.get('userData').then((val) => { 
         this.user_id = val.ID;
         this.userdata = val;  
         this.userCropIdList=val.crops;
+        this.getCrops();
         // for (var i = 0; i < val.crops.length; i++) {
         //   console.log(val.crops[i].id)
         //   this.userCropIdList.push(val.crops[i].id);
