@@ -42,7 +42,7 @@ export class ExpertsDetailPage {
       });
      this.loading.present();
      setTimeout(() => {
-          loading.dismiss();
+          this.loading.dismiss();
      }, 2000);
   }
 

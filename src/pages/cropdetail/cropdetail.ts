@@ -37,8 +37,8 @@ export class CropdetailPage {
 		});
 		loading.present();
     setTimeout(() => {
-        loading.dismiss();
-    }, 2000);
+        this.loading.dismiss();
+    }, 4000);
 
 		this.cropsProvider.sendCropDetail(this.id).then((res)=>{
       this.cropdetail=res.data; 

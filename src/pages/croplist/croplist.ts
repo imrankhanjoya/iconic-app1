@@ -29,7 +29,7 @@ export class CroplistPage {
 		});
 		loading.present();
 	      setTimeout(() => {
-	        loading.dismiss();
+	        this.loading.dismiss();
 	      }, 6000);
 		this.cropsProvider.sendCropGroupType('hi_IN',this.croptype).then((res)=>{
             this.cropList=res;

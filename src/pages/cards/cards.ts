@@ -21,8 +21,8 @@ export class CardsPage {
 
      this.loading.present();
       setTimeout(() => {
-        loading.dismiss();
-      }, 6000);
+        this.loading.dismiss();
+      }, 5000);
   }
   ionViewDidLoad() {
     this.get_expert(this.page);

@@ -52,8 +52,8 @@ export class WeatherPage {
             });
             this.loading.present();
              setTimeout(() => {
-                  loading.dismiss();
-                }, 2000);
+                  this.loading.dismiss();
+                }, 6000);
           }  
     
 

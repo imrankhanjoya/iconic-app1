@@ -95,7 +95,7 @@ export class HomePage {
       });
       this.loading.present();
      setTimeout(() => {
-          loading.dismiss();
+          this.loading.dismiss();
         }, 4000);
       storage.get('notificationData').then((notiData) => {
           console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);

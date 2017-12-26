@@ -1,89 +1,27 @@
 {
   "project_info": {
-    "project_number": "666346361279",
-    "firebase_url": "https://testproject-145019.firebaseio.com",
-    "project_id": "testproject-145019",
-    "storage_bucket": "testproject-145019.appspot.com"
+    "project_number": "412190290377",
+    "firebase_url": "https://agribolo-977e9.firebaseio.com",
+    "project_id": "agribolo-977e9",
+    "storage_bucket": "agribolo-977e9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:666346361279:android:2181f0571d668e8a",
+        "mobilesdk_app_id": "1:412190290377:android:66d0df27e0f81493",
         "android_client_info": {
-          "package_name": "com.simplysocial.legal.ipchindi"
+          "package_name": "com.agribolo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "666346361279-pjhcbr2c6sb7qo2d0htmf5e03df2lche.apps.googleusercontent.com",
+          "client_id": "412190290377-3759vc2qg1mosiuq3plnpgttgk6o6glr.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-xbcZMBGi3JPUHsokcb2SgF0OXpdjvtU"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:666346361279:android:d6de30c0d075abf1",
-        "android_client_info": {
-          "package_name": "com.simplysocial.legal"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "666346361279-pjhcbr2c6sb7qo2d0htmf5e03df2lche.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB-xbcZMBGi3JPUHsokcb2SgF0OXpdjvtU"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:666346361279:android:764d2cb7da3280eb",
-        "android_client_info": {
-          "package_name": "io.ionic.starter"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "666346361279-pjhcbr2c6sb7qo2d0htmf5e03df2lche.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB-xbcZMBGi3JPUHsokcb2SgF0OXpdjvtU"
+          "current_key": "AIzaSyACHOa0_sfkz6UJXJizoxN9bSU1oJ9X9s0"
         }
       ],
       "services": {

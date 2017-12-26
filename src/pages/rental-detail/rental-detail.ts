@@ -60,8 +60,8 @@ export class RentalDetailPage {
 
      this.loading.present();
       setTimeout(() => {
-        loading.dismiss();
-      }, 2000);
+        this.loading.dismiss();
+      }, 3000);
   }  
 
 
