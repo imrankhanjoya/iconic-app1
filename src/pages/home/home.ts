@@ -682,14 +682,23 @@ showBar(){
   console.log("Sayooo naara");
   
         this.startVisbol=false;
-          document.querySelector(".tabbar").classList.add('bottmTabHide');
-          document.querySelector(".tabbar").classList.remove('show-tabbar');
-          let scroll = document.querySelectorAll('.scroll-content');
-          if (scroll !== null) {
-              Object.keys(scroll).map((key) => {
-                  scroll[key].style.marginBottom = '0px';
-              });
-        }
+         document.querySelector(".tabbar").classList.add('show-tabbar');
+        document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
+        document.querySelector(".tabbar").classList.remove('bottmTabHide');
+        // setTimeout(() => {
+          
+        //   if(this.topMenu=='toolbarOpen'){
+
+        //   }else {
+        //     this.rotateClass="rotateimage1";
+        //     this.toolbarClass="toolbarClosed";
+        //     this.topMenu ="toolbarOpen";
+        //     this.topMenu = "toolbarClosed";
+        //     this.toggleMenuText="more";
+        //   }
+        // }, 2000);
+
+        
  
   if(this.onBording){
     // document.querySelector(".barCustomAct").classList.add('showTopBar');

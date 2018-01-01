@@ -70,6 +70,7 @@ export class ServicesPage {
      dataLayer.push({'event': 'appEvent'});
 
     this.navCtrl.push('MarketPage');
+    
   }
   gotoMarket(){
     this.navCtrl.push('MarketPage');
