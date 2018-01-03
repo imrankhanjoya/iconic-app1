@@ -24,7 +24,7 @@ export class LoginPage {
     RegisterData = {user_name:'', userPassword:''};
 
   constructor(public alertCtrl: AlertController,
-    public events: Events,
+    public event: Events,
     public navCtrl: NavController,
     public storage:Storage,
     public user: User,

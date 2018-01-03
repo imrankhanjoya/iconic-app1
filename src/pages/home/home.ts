@@ -79,7 +79,7 @@ export class HomePage {
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
-    public tabProvider:TabProvider,public events:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
+    public tabProvider:TabProvider,public event:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
     public viewCtrl:ViewController,public splashScreen:SplashScreen,public modalCtrl:ModalController) {
 
 
@@ -403,7 +403,7 @@ export class HomePage {
        'appEventLabel': 'Krishi Jankari'
      });
      dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('AgriInfoPage');
+    this.navCtrl.push('ProductPage');
   }
 
   gotoWebView(URL,title){

@@ -26,7 +26,7 @@ export class ForgatePasswordPage {
   public OK:any;
 	RegisterData = {password:'', confirmPassword:''}
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public events: Events,public translateService: TranslateService) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,public user: User,public loadingCtrl: LoadingController,public storage:Storage,public event: Events,public translateService: TranslateService) {
   	 this.storage.get('userPhone').then((val) => {
     this.phoneNumber = val; 
     console.log(this.phoneNumber);
