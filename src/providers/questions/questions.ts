@@ -43,7 +43,7 @@ export class QuestionsProvider {
     //   });
     // return seq;
   }
-   askquestion(user_id:any,questionaddData:any) {
+  askquestion(user_id:any,questionaddData:any) {
       console.log('questionaddData '+questionaddData);
       let body = new FormData();
       body.append('user_id', user_id);

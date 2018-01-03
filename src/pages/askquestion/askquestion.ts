@@ -29,7 +29,7 @@ export class AskquestionPage {
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public QuestionsProvider: QuestionsProvider, public camera:Camera,
-              public events: Events,
+              public event: Events,
               public storage:Storage, public popoverCtrl: PopoverController,
               public loadingCtrl:LoadingController,
               public translateService: TranslateService

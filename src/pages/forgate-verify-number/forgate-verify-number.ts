@@ -24,7 +24,7 @@ export class ForgateVerifyNumberPage {
     public otp:any;
    RegisterData = {verifyOtpfirst:'',verifyOtpSecond:'',verifyOtpThired:'',verifyOtpFourth:''}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public events: Events,public loadingCtrl: LoadingController,
+  constructor(public navCtrl: NavController, public navParams: NavParams,public user: User,public event: Events,public loadingCtrl: LoadingController,
     public storage:Storage,public platform:Platform) {
   this.phoneNumber=navParams.get('phoneNumber');
     if (platform.is('android')) {

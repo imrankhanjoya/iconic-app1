@@ -84,6 +84,8 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
        'appEventLabel': ' Filter - Change Location'
      });
      dataLayer.push({'event': 'appEvent'});
+
+
       this.toolbarClass="toolbarClosed";
     this.topMenu ="toolbarOpen";
     this.topMenu = "toolbarClosed";

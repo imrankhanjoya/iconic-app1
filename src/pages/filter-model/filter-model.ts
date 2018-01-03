@@ -33,6 +33,7 @@ export class FilterModelPage {
     constructor(public alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,
     public cityStateProvider:CityStateProvider,public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder,public events: Events,public translateService: TranslateService
+
     ) {
         //Change Profile Details
         this.changemarket = this.formBuilder.group({

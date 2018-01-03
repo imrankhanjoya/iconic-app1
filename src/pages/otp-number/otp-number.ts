@@ -30,7 +30,7 @@ export class OtpNumberPage {
               public toastCtrl: ToastController, 
               public navParams: NavParams,
               public user: User,
-              public events: Events,
+              public event: Events,
               public storage:Storage,
               public alertCtrl: AlertController,
               public loadingCtrl: LoadingController,

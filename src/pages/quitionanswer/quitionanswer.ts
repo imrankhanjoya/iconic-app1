@@ -32,7 +32,7 @@ export class QuitionanswerPage {
                   public questionanswer: QuitionanswerpProvider,
                   public formBuilder:FormBuilder,
                   public storage:Storage,
-                  public events: Events,
+                  public event: Events,
                   public translateService: TranslateService,
                   public viewCtrl: ViewController,
                 ) {
@@ -73,12 +73,14 @@ export class QuitionanswerPage {
   	}  
     
   	submitanswer(){
+      
        dataLayer.push({
          'appEventCategory': 'Ask Expert',
          'appEventAction': 'Submit',
          'appEventLabel': 'Submit Answer'
        });
      dataLayer.push({'event': 'appEvent'});
+
    		 console.log('ionViewDidLoad '+this.answer.value.description);
     	this.questionanswer.answerquestion(this.user_id,this.qid,this.answer.value).map(res => res.json()).subscribe((res) => {
           this.presentAlert(this.ADDED_ANSWER);

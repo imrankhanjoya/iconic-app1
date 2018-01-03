@@ -23,7 +23,7 @@ export class ServicesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
    public KrishProvider: KrishProvider,
    public modalCtrl:ModalController,
-   public events: Events,
+   public event: Events,
    public viewCtrl:ViewController){
     
   }

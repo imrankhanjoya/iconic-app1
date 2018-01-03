@@ -32,7 +32,7 @@ export class FilterCropsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
-    public events: Events,
+    public event: Events,
     public viewCtrl:ViewController) {
       this.cropList    = [];
       this.filterCrops = [];
@@ -49,7 +49,7 @@ export class FilterCropsPage {
     }
     dismiss(){
       dataLayer.push({
-       'appEventCategory': 'mandi',
+     'appEventCategory': 'mandi',
        'appEventAction': 'Filter',
        'appEventLabel': ' Cancel Filter'
      });

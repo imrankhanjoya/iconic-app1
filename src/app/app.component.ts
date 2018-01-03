@@ -163,7 +163,7 @@ export class MyApp {
           
           fcm.onNotificationReceived(function(data){
             if(data.wasTapped){
-              //console.log("Received in +++++---");
+              storage.set('notificationData',data);
             } else {
               //console.log("Received in foreground-----");
             };
@@ -218,11 +218,13 @@ export class MyApp {
   } 
   
   logout() {
-       // this.storage.set('userData','');
-       // this.storage.set('userLang','');
-       this.storage.clear();
-        this.nav.setRoot('WelcomePage');
-        //console.log("here");
+      this.storage.set('userData','');
+      this.storage.set('userLang','');
+      this.storage.clear();
+      this.nav.setRoot('TutorialPage', {}, {
+        animate: true,
+        direction: 'forward'
+      });
   }
 
   openPage(page) {
