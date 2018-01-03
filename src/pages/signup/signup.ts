@@ -22,7 +22,7 @@ export class SignupPage {
 
   constructor(public navCtrl: NavController,
     public user: User,
-    public events: Events,
+    public event: Events,
     public translateService: TranslateService,public storage:Storage,
     public cityStateProvider:CityStateProvider) {
 

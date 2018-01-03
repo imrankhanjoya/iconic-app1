@@ -23,7 +23,7 @@ import { HomePage } from '../home/home';
     private page:number=0;
     public questionsDatalist: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
     constructor(public navCtrl: NavController,public viewCtrl: ViewController,public navParams: NavParams,
-    public events: Events,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
+    public event: Events,public loadingCtrl: LoadingController,public QuestionsProvider: QuestionsProvider) {
      this.loading = this.loadingCtrl.create({
          content: 'Please wait...'
         });

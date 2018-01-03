@@ -23,7 +23,7 @@ export class QuitionviewPage {
 	public questionviewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   	constructor(public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,
       public questionview:QuitionviewpProvider,
-              public events: Events,public storage:Storage) {
+              public event: Events,public storage:Storage) {
   		this.qid=navParams.get('QuitionID');
       
   }
