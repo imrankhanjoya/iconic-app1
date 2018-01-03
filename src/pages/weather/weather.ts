@@ -42,7 +42,7 @@ export class WeatherPage {
               public storage:Storage,
               public weather:WeatherProvider,
               public modalCtrl:ModalController,
-              public events: Events,
+              public event: Events,
               public viewCtrl:ViewController
               ) {
 
