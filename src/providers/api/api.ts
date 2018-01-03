@@ -124,7 +124,7 @@ export class Api {
                           resolve(res);
                         }
                       }, err => {
-                        console.error('ERROR', err);
+                        console.log('ERROR', err);
                         resolve(err);
                       });  
                 }else{
