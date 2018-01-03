@@ -403,7 +403,7 @@ export class HomePage {
        'appEventLabel': 'Krishi Jankari'
      });
      dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('ProductPage');
+    this.navCtrl.push('AgriInfoPage');
   }
 
   gotoWebView(URL,title){
