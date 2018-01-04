@@ -11,6 +11,7 @@ import { CallProvider } from '../../providers/call/call';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array<Object>;
 
 @IonicPage()
 @Component({

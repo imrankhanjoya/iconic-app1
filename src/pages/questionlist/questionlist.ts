@@ -12,6 +12,7 @@ import { HomePage } from '../home/home';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array<Object>;
 
   @IonicPage()
   @Component({
