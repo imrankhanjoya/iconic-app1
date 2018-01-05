@@ -13,6 +13,8 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
  * to enable the user to customize settings for the app.
  *
  */
+ declare var dataLayer: Array<Object>;
+
 @IonicPage()
 @Component({
   selector: 'page-settings',

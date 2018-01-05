@@ -14,6 +14,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Device } from '@ionic-native/device';
 import { AppVersion } from '@ionic-native/app-version';
 
+ declare var dataLayer: Array<Object>;
+
 @IonicPage()
 @Component({
   selector: 'page-tabs',
