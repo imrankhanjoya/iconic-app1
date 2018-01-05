@@ -61,8 +61,9 @@ import { HomePage } from '../home/home';
 
   }
   gotoAskquestion(){
+      dataLayer : [];
       dataLayer.push({
-         'appEventCategory': 'Ask Expert',
+       'appEventCategory': 'Ask Expert',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Ask Question'
        });

@@ -104,8 +104,9 @@ export class AskquestionPage {
     });
   }  
   goToUsrask(){
+      dataLayer : [];
       dataLayer.push({
-         'appEventCategory': 'Ask Expert',
+       'appEventCategory': 'Ask Expert',
          'appEventAction': 'Submit',
          'appEventLabel': 'New Question'
        });
@@ -113,8 +114,9 @@ export class AskquestionPage {
  	 this.getaskquestions();
   }
   addImg(){
-       dataLayer.push({
-         'appEventCategory': 'Ask Expert',
+       dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Ask Expert',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Add Image'
        });

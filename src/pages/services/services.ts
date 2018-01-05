@@ -29,7 +29,8 @@ export class ServicesPage {
     
   }
   openFilter(){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Agro Services',
        'appEventAction': 'Filter',
        'appEventLabel': ' Agro Services -  E-Trading'
@@ -53,7 +54,8 @@ export class ServicesPage {
   }
  
    gotoRental(){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Agro Services',
        'appEventAction': 'Clicked',
        'appEventLabel': ' Agro Services - Rental'

@@ -57,8 +57,9 @@ export class ForgatePasswordPage {
   }
 
   ResetPassword(){
-     dataLayer.push({
-         'appEventCategory': 'Forgot Password',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Forgot Password',
          'appEventAction': 'Submit',
          'appEventLabel': 'New Password'
        });

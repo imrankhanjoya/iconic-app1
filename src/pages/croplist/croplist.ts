@@ -46,7 +46,8 @@ export class CroplistPage {
 		console.log('ionViewDidLoad CropslistPage');
   	}
 	gotocropdetail(crop_id,name){
-		 dataLayer.push({
+		 dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Crops',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Crop - '+name

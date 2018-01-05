@@ -52,7 +52,8 @@ export class CropdetailPage {
 		console.log('ionViewDidLoad CropslistPage');
   	}
   	get_events(events){
-  		 dataLayer.push({
+  		 dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Crops',
        'appEventAction': 'Clicked',
        'appEventLabel': events,
@@ -60,7 +61,8 @@ export class CropdetailPage {
      dataLayer.push({'event': 'appEvent'});
   	}
   	 getMandiData(name){
-  	 	 dataLayer.push({
+  	 	 dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Crops',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Visit Mandi '+name

@@ -60,8 +60,9 @@ export class QuitionviewPage {
    } 
 
   gotoAnswerquestion(Qid){
-     dataLayer.push({
-         'appEventCategory': 'Ask Expert',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Ask Expert',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Add Answer'
        });

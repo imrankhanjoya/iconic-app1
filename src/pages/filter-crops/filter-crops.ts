@@ -86,7 +86,8 @@ export class FilterCropsPage {
         } 
      }
     gotoFilter(){
-       dataLayer.push({
+       dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'mandi',
        'appEventAction': 'Submit',
        'appEventLabel': ' Filter - crop'

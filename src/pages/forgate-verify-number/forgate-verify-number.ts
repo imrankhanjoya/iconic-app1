@@ -52,8 +52,9 @@ export class ForgateVerifyNumberPage {
     console.log('ionViewDidLoad ForgateVerifyNumberPage');
   }
   verifyNumber(){
- dataLayer.push({
-         'appEventCategory': 'Forgot Password',
+ dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Forgot Password',
          'appEventAction': 'Submit',
          'appEventLabel': 'Submit - Verity OTP'
        });

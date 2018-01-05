@@ -95,7 +95,8 @@ export class RentalsPage {
   }
 
   RentalsPage(id,title){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'Clicked',
        'appEventLabel': ' Rental Contact-'+id+'~'+title
@@ -117,7 +118,8 @@ export class RentalsPage {
     });
   } 
   openFilter(product_name,formtype){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'filter',
        'appEventLabel': ' Rental Contact-'+product_name

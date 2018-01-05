@@ -155,8 +155,9 @@ export class CropsPage {
     }
   }
   selected(){
-     dataLayer.push({
-         'appEventCategory': 'Onboarding',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Onboarding',
          'appEventAction': 'Submit',
          'appEventLabel': 'Signup - Crops'
        });

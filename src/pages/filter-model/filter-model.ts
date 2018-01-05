@@ -101,7 +101,8 @@ export class FilterModelPage {
     }
 
     filterLocaltionForm(){
-         dataLayer.push({
+         dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'mandi',
        'appEventAction': 'Submit',
        'appEventLabel': ' Filter - Location'

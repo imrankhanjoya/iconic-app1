@@ -228,7 +228,8 @@ export class HomePage {
 
   toggleMenu(){
     if(this.topMenu=='toolbarClosed' || this.topMenu=='' ){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Top Menu',
        'appEventAction': 'Clicked',
        'appEventLabel': 'View More'
@@ -241,7 +242,8 @@ export class HomePage {
       this.toggleMenuText="less";
       
     }else{
-       dataLayer.push({
+       dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Top Menu',
        'appEventAction': 'Clicked',
        'appEventLabel': 'View Less'
@@ -361,7 +363,8 @@ export class HomePage {
   } 
 
   gotoRental(){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Agro Services',
        'appEventAction': 'Clicked',
        'appEventLabel': ' Agro Services - Rental'
@@ -397,7 +400,8 @@ export class HomePage {
   }
 
   gotoAgriinfo(){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Top Menu',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Krishi Jankari'
@@ -412,7 +416,8 @@ export class HomePage {
 
 
   openFilter(){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Agro Services',
        'appEventAction': 'Filter',
        'appEventLabel': ' Agro Services -  E-Trading'
@@ -431,7 +436,8 @@ export class HomePage {
 
   openNews(id,URL,type,title){
      //this.gotoWebView(URL,title);
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'News - '+title
@@ -449,8 +455,9 @@ export class HomePage {
 
   gotoWeatherPage(numbr){
     if(numbr == 'menu'){
+      dataLayer : [];
       dataLayer.push({
-         'appEventCategory': 'Top Menu',
+       'appEventCategory': 'Top Menu',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Weather'
        });
@@ -490,8 +497,10 @@ export class HomePage {
 
   gotomandiDetail(numbr){
     if(numbr == 'menu'){
+      dataLayer : [];
+      dataLayer : [];
       dataLayer.push({
-         'appEventCategory': 'Top Menu',
+       'appEventCategory': 'Top Menu',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Mandi'
       });
@@ -512,7 +521,8 @@ export class HomePage {
   }
 
   gotoNewsPage(){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'News - View More'
@@ -522,7 +532,8 @@ export class HomePage {
   }
 
   gotoMarketPage(){
-   dataLayer.push({
+   dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Market - View More'
@@ -532,7 +543,8 @@ export class HomePage {
   }
 
   gotoMarketViewPage(product_id,name,sku){
-  dataLayer.push({
+  dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Market - sku: '+sku+'~~~name: '+name
@@ -543,7 +555,8 @@ export class HomePage {
 
   gotoVedio(numbr){
     if(numbr == 'menu'){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Top Menu',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Video'
@@ -553,7 +566,8 @@ export class HomePage {
     }
 
     if(numbr == 'card'){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Video - View More'
@@ -570,8 +584,9 @@ export class HomePage {
     this.navCtrl.push('AnnouncementPage');
   }*/
   goToBlogPage(){
-    dataLayer.push({
-         'appEventCategory': 'Home',
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Home',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Expert - View More'
        });
@@ -586,8 +601,9 @@ export class HomePage {
      this.navCtrl.push('CroplistPage',{croptype:croptype}); 
     }
      goToKharif(){
-     dataLayer.push({
-         'appEventCategory': 'Home',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Home',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Krishi Sevayen - Kharif'
        });
@@ -595,8 +611,9 @@ export class HomePage {
      this.navCtrl.push('CroplistPage',{croptype:'Kharif'}); 
     }
      goToRabi(){
-     dataLayer.push({
-         'appEventCategory': 'Home',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Home',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Krishi Sevayen - Rabi'
        });
@@ -604,8 +621,9 @@ export class HomePage {
      this.navCtrl.push('CroplistPage',{croptype:'Rabi'}); 
     }
     goToHorticulture(){
-    dataLayer.push({
-         'appEventCategory': 'Home',
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Home',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Krishi Sevayen - Horticulture'
        });
@@ -621,8 +639,9 @@ export class HomePage {
     }
     SearchPage(){
       //console.log(id);
+      dataLayer : [];
       dataLayer.push({
-         'appEventCategory': 'Top Nav',
+       'appEventCategory': 'Top Nav',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Search'
        });
@@ -631,8 +650,9 @@ export class HomePage {
     }
     gotoAgroCenter(){
       //console.log(id);
+      dataLayer : [];
       dataLayer.push({
-         'appEventCategory': 'Home',
+       'appEventCategory': 'Home',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Seva Kendra - View More'
        });
@@ -641,8 +661,9 @@ export class HomePage {
     }
 
      gotoAnounsePage(type,type_value){
-     dataLayer.push({
-         'appEventCategory': 'Home',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Home',
          'appEventAction': 'Clicked',
          'appEventLabel': 'Green Card - '+type+'~'+type_value 
        });
@@ -813,7 +834,8 @@ async changeClass(count): Promise<string> {
 
 
 gotoMap(latitude,longitude,name){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Seva Kendra - View Direction'
@@ -833,7 +855,8 @@ gotoMap(latitude,longitude,name){
   }
 
   playVideo(videoid:any){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Home',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Video - https://www.youtube.com/watch?v='+videoid

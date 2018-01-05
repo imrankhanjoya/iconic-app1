@@ -106,6 +106,7 @@ export class VerifyNumberPage {
     }
     verifyNumber(){
     var sendForm = true;
+      dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Submit',

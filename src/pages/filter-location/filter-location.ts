@@ -50,7 +50,8 @@ export class FilterLocationPage {
     }
 
     filterLocaltionForm(){
-         dataLayer.push({
+         dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Weather',
        'appEventAction': 'Filter',
        'appEventLabel': ' Reset Filter'
@@ -101,7 +102,8 @@ export class FilterLocationPage {
     }
 
     dismiss(){
-         dataLayer.push({
+         dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Weather',
        'appEventAction': 'Filter',
        'appEventLabel': ' Cancel Filter'

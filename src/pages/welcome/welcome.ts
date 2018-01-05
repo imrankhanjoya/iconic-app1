@@ -29,6 +29,7 @@ export class WelcomePage {
     setLanguage(lang) {
     this.events.publish('user:created', "000000000000", lang);
     if(lang =='hi'){
+      dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Submit',
@@ -37,7 +38,8 @@ export class WelcomePage {
      dataLayer.push({'event': 'appEvent'});
    }
    if(lang =='en'){
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Submit',
        'appEventLabel': 'Language - English'

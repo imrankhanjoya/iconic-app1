@@ -75,8 +75,9 @@ export class QuitionanswerPage {
     
   	submitanswer(){
       
-       dataLayer.push({
-         'appEventCategory': 'Ask Expert',
+       dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Ask Expert',
          'appEventAction': 'Submit',
          'appEventLabel': 'Submit Answer'
        });

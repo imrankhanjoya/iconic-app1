@@ -100,7 +100,8 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
     console.log('ionViewDidLoad RentalFilterPage');
   }  
   get_events(events){
-       dataLayer.push({
+       dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'Clicked',
        'appEventLabel': events
@@ -134,6 +135,7 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
   }
 
   dismiss(){
+      dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'cancel',
@@ -146,7 +148,8 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
 
   filterRentalForm(rant,product_name){
     if (rant=='Rent_in') {
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'Submit',
        'appEventLabel': 'Rent In Submit'+product_name
@@ -155,7 +158,8 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
     this.rentals.Contact(this.RentalMarket.value);
     }
      if (rant=='Rent_out') {
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'Submit',
        'appEventLabel': 'Rent Out Submit-'+product_name

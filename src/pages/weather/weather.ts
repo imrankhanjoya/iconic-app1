@@ -153,7 +153,8 @@ export class WeatherPage {
     console.log('---------');
   }
   slides(tehsil_name){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Weather',
        'appEventAction': 'Filter',
        'appEventLabel': ' Scrolled -'+tehsil_name
@@ -162,7 +163,8 @@ export class WeatherPage {
 
   }
   openFilter(){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Weather',
        'appEventAction': 'Filter',
        'appEventLabel': ' Changed Location'

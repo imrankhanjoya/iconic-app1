@@ -133,8 +133,9 @@
 
 
   onTehsilListSelect(userTehsilList){
-   dataLayer.push({
-         'appEventCategory': 'Onboarding',
+   dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Onboarding',
          'appEventAction': 'Submit',
          'appEventLabel': 'Signup - Location'
        });

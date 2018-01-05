@@ -69,7 +69,8 @@ export class OtpNumberPage {
 
   sendOtp(){
     var sendForm = true;
-    dataLayer.push({
+    dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Submit',
        'appEventLabel': 'Signup - Phone NUmber'

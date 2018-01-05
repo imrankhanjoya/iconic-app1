@@ -79,7 +79,8 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
   }
 
   openFilter(){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'mandi',
        'appEventAction': 'Clicked',
        'appEventLabel': ' Filter - Change Location'
@@ -106,7 +107,8 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
     });
   }
   openCropFilter(){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'mandi',
        'appEventAction': 'Clicked',
        'appEventLabel': ' Filter - Change Crop'
@@ -135,7 +137,8 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
   
  
   showFilter(){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'mandi',
        'appEventAction': 'Clicked',
        'appEventLabel': ' Filter'

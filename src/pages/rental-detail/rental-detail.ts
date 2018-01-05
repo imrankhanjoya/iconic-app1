@@ -95,7 +95,8 @@ export class RentalDetailPage {
   }
 
   openFilter(product_name,formtype){
-     dataLayer.push({
+     dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'filter',
        'appEventLabel': ' Rental Contact-'+product_name

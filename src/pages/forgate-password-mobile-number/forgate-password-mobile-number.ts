@@ -27,8 +27,9 @@ export class ForgatePasswordMobileNumberPage {
     console.log('ionViewDidLoad ForgatePasswordMobileNumberPage');
   }
   sendOtp(){
-     dataLayer.push({
-         'appEventCategory': 'Forgot Password',
+     dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Forgot Password',
          'appEventAction': 'Submit',
          'appEventLabel': 'Phone Number'
        });

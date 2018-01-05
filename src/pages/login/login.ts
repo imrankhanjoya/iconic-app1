@@ -123,7 +123,8 @@ export class LoginPage {
     });
    }
 
-   dataLayer.push({
+   dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Login',
        'appEventAction': 'Submit',
        'appEventLabel': 'Submit - Login'
@@ -131,7 +132,8 @@ export class LoginPage {
      dataLayer.push({'event': 'appEvent'});
   }
   singUp(){
-  dataLayer.push({
+  dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Onboarding',
        'appEventAction': 'Clicked',
        'appEventLabel': 'New User'
@@ -140,7 +142,8 @@ export class LoginPage {
     this.navCtrl.push('OtpNumberPage');
   }
   gotoForgatPassword(){
-  dataLayer.push({
+  dataLayer : [];
+      dataLayer.push({
        'appEventCategory': 'Login',
        'appEventAction': 'Clicked',
        'appEventLabel': 'Forgot Password'
