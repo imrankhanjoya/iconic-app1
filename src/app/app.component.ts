@@ -23,7 +23,8 @@ import { MainPage } from '../pages/pages';
 
     <ion-content style="background-color:white">
     <ion-row class="MenuHeader circle-pic" justify-content-center align-items-center>
-      <img class="profilePic"  src="assets/img/appicon.png" style="max-width:30%">
+      <img class="profilePic"  src="/assets/img/appicon.png" style="text-align: center;
+    margin-left: auto;margin-right: auto;margin-top: 10%;border-radius: 50%;width: 100px;height: 100px;">
       
     </ion-row>
     <ion-row class="MenuHeader" justify-content-center align-items-center>
@@ -115,6 +116,30 @@ export class MyApp {
         this.display_name = userlogin.display_name;
 
         this.profile_picture = userlogin.profile_picture;
+      });
+
+      events.subscribe('user:userdata', (user, userDatas) => {
+        this.storage.set('userData',userDatas);
+        this.display_name = userDatas.display_name;
+        console.log('aaaaaaaaaaaaaasubscribe');
+        console.log(userDatas);
+      });
+
+      events.subscribe('user:login', (user, userlogin) => {
+        console.log('user login in app component');
+        fcm.getToken(function(token){
+          storage.set('updated_token',token);
+        });
+        fcm.onTokenRefresh(function(token){
+          storage.set('updated_token',token);
+        });
+      });
+
+      events.subscribe('user:userdatasetting', (user, userDatas) => {
+        this.storage.set('userData',userDatas);
+        this.display_name = userDatas.display_name;
+        console.log('aaaaaaaaaaaaaasubscribe');
+        console.log(userDatas);
       });
         if (this.platform.is('cordova')) {
           fcm.onNotification().subscribe(data=>{

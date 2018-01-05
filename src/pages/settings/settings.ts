@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 import { IonicPage, NavController, NavParams, LoadingController,PopoverController, ViewController,ToastController, AlertController } from 'ionic-angular';
 //import { Settings } from '../../providers/providers';
+import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Camera } from '@ionic-native/camera';
 import { CityStateProvider } from '../../providers/city-state/city-state';
@@ -54,6 +55,7 @@ export class SettingsPage {
   public loc:{state:string,district:string} = {state:'',district:''};
 
     constructor(
+          public event: Events,
           public navCtrl: NavController,
           public user: User,
           public navParams: NavParams,
@@ -225,6 +227,7 @@ export class SettingsPage {
      loading.present();
      this.user.userUpdateProImg(this.userId,image).map(res => res.json()).subscribe((resp) => {
       this.storage.set('userData',resp.data);
+      //this.event.publish('user:userdata', "000000000000123", resp.data);
       loading.dismiss();
      }, (err) => {
       loading.dismiss();
@@ -244,7 +247,7 @@ export class SettingsPage {
               this.loading.dismiss();
               this.viewCtrl.dismiss();
               this.presentAlert(this.PROFILE_UPDATE);
-              //this.navCtrl.push('ItemCreatePage');
+              this.event.publish('user:userdatasetting', "000000000000123", resp.data);
             }else {
               this.loading.dismiss();
             }
