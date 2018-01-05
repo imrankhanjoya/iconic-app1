@@ -12,6 +12,8 @@ import { QuestionlistPage } from '../questionlist/questionlist';
  * Ionic pages and navigation.
  */
 
+ declare var dataLayer: Array<Object>;
+
 @IonicPage()
 @Component({
   selector: 'page-quitionview',

@@ -13,6 +13,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
  * Ionic pages and navigation.
  */
 
+declare var dataLayer: Array;
+
 @IonicPage()
 @Component({
   selector: 'page-video',

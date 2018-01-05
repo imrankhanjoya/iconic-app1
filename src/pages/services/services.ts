@@ -11,6 +11,7 @@ import { Events } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
