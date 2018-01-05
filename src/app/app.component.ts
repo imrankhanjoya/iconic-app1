@@ -72,10 +72,6 @@ export class MyApp {
     { title: 'About Us', component: 'AboutPage'},
     //{ title: 'About Us', component: 'ModalPage'},
 
-
-
-
-
   ]
   public alert:any;
   public display_name : any;
@@ -122,11 +118,6 @@ export class MyApp {
         this.storage.set('userData',userDatas);
         this.display_name = userDatas.display_name;
         console.log('aaaaaaaaaaaaaasubscribe');
-        console.log(userDatas);
-      });
-
-      events.subscribe('user:login', (user, userlogin) => {
-        console.log('user login in app component');
         fcm.getToken(function(token){
           storage.set('updated_token',token);
         });
