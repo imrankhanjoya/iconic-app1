@@ -10,6 +10,7 @@ import { ExpertsProvider } from '../../providers/experts/experts';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
