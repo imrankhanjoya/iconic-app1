@@ -64,6 +64,11 @@ export class OtpNumberPage {
   }
 
   ionViewDidLoad() {
+  dataLayer : [];
+    dataLayer.push({
+      'screenName': 'OtpNumberPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     console.log('ionViewDidLoad OtpNumberPage');
   }
 

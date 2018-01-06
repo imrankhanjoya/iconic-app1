@@ -30,6 +30,7 @@ export class NewsdetailPage {
   }
 
   ionViewDidLoad() {
+  
   	this.getNews();
     console.log('ionViewDidLoad NewsdetailPage');
   }

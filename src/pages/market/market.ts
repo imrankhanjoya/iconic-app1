@@ -38,6 +38,11 @@ export class MarketPage {
 
 
   ionViewDidLoad() {
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'MarketPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     this.getmarkets(this.product_cat,this.productbrand,this.sortby);
     console.log('ionViewDidLoad MarketPage');
   }

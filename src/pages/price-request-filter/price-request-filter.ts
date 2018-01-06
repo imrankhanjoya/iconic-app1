@@ -13,6 +13,7 @@ import { CityStateProvider } from '../../providers/city-state/city-state';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
@@ -32,7 +33,7 @@ export class PriceRequestFilterPage {
     	this.priceRequest = this.formBuilder.group({
             phoneNumber: [this.formdata.user_login, Validators.required],
 	          display_name: [this.formdata.display_name, Validators.required],
-            description: [this.formdata.message, Validators.required]
+            description: ['', Validators.required]
         });
        this.translateService.get('PRICE_REQUEST_SUCCESS').subscribe((value) => {
           this.PRICE_REQUEST_SUCCESS = value;
@@ -53,6 +54,11 @@ export class PriceRequestFilterPage {
   }
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'PriceRequestFilterPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     console.log('ionViewDidLoad PriceRequestFilterPage');
   }
 
