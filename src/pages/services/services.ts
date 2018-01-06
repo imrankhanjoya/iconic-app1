@@ -50,6 +50,11 @@ export class ServicesPage {
 
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'ServicesPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     console.log('ionViewDidLoad ServicesPage');
   }
  
@@ -65,6 +70,7 @@ export class ServicesPage {
     this.navCtrl.push('RentalsPage');
   }
  gotoMarketPage(){
+     dataLayer : [];
   dataLayer.push({
         'appEventCategory': 'Agro Services',
        'appEventAction': 'Clicked',

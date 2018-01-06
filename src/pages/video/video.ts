@@ -32,6 +32,11 @@ export class VideoPage {
 
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'VideoPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
 
   	this.getvideo();
     console.log('ionViewDidLoad VideoPage');

@@ -59,6 +59,11 @@ export class WeatherPage {
     
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'WeatherPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
       console.log('ionViewDidLoad WeatherPage');
 
       this.storage.get('userData').then((userdata) => {

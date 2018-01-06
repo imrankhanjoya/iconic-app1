@@ -12,7 +12,7 @@ import { QuestionlistPage } from '../questionlist/questionlist';
  * Ionic pages and navigation.
  */
 
- declare var dataLayer: Array<Object>;
+ declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
@@ -31,6 +31,11 @@ export class QuitionviewPage {
   }
 
   ionViewDidLoad() {
+  dataLayer : [];
+    dataLayer.push({
+      'screenName': 'QuitionviewPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     console.log('ionViewDidLoad QuitionviewPage');
     this.storage.get('userData').then((val) => {
         this.user_id = val.ID; 

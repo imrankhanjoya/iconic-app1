@@ -69,6 +69,11 @@ export class QuitionanswerPage {
   }
 
   	ionViewDidLoad() {
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'QuitionanswerPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
       //alert('this.data.msg');
     	console.log('ionViewDidLoad QuitionanswerPage');
   	}  

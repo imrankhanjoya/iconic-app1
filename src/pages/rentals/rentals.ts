@@ -45,6 +45,11 @@ export class RentalsPage {
   }
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'RentalsPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
       });

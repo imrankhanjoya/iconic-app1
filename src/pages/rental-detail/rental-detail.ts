@@ -12,6 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
@@ -66,6 +67,11 @@ export class RentalDetailPage {
 
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'RentalDetailPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
   	 this.getRental_detail();
     console.log('ionViewDidLoad RentalDetailPage');
   }

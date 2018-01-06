@@ -15,7 +15,7 @@ import { RentalsProvider } from '../../providers/rentals/rentals';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-// declare var dataLayer: Array;
+  declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
@@ -96,6 +96,11 @@ private formBuilder: FormBuilder,public viewCtrl:ViewController,public loc:CityS
   }
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'RentalFilterPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     this.NowTimeT = new Date();
     console.log('ionViewDidLoad RentalFilterPage');
   }  
