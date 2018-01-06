@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ExpertsProvider } from '../../providers/experts/experts';
+import { Events } from 'ionic-angular';
 
 
 /**
@@ -20,11 +21,16 @@ declare var dataLayer: Array;
 export class AgriInfoPage {
   public expertdata:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   constructor(public navCtrl: NavController, public navParams: NavParams,  public experts:ExpertsProvider,private iab: InAppBrowser,
-    public loadingCtrl: LoadingController){
+    public loadingCtrl: LoadingController,public event:Events){
   }  
 
   ionViewDidLoad() {
-
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'AgriInfoPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
+  
       this.loading = this.loadingCtrl.create({
           content: 'Please wait...'
       });

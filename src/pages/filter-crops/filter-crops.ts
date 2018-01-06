@@ -44,10 +44,16 @@ export class FilterCropsPage {
     }
 
     ionViewDidLoad() {
+     dataLayer : [];
+    dataLayer.push({
+      'screenName': 'FilterCropsPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
       this.getCommudity();
       console.log('ionViewDidLoad FilterCropsPage');
     }
     dismiss(){
+      dataLayer : [];
       dataLayer.push({
      'appEventCategory': 'mandi',
        'appEventAction': 'Filter',

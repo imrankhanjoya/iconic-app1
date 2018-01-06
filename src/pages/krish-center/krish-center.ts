@@ -55,6 +55,11 @@ export class KrishCenterPage {
 
 
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'KrishCenterPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
      console.log('ionViewDidLoad KrishCenterPage');
      this.getLocation();
      this.startTimer();

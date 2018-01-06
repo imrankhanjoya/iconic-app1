@@ -43,6 +43,11 @@ export class FilterLocationPage {
     }
 
 	ionViewDidLoad() {
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'FilterLocationPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
         console.log('ionViewDidLoad FilterLocationPage');
     }
     ionViewWillUnload(){

@@ -158,7 +158,12 @@ export class HomePage {
     }
 
   ionViewDidLoad() {
-    
+      dataLayer : [];
+    dataLayer.push({
+      'screenName': 'homepage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
+  
     this.splashScreen.hide();
     this.storage.get('haderAnimition').then((data) => {
         if (data) {
@@ -381,6 +386,7 @@ export class HomePage {
 
   gotoAskquestion(numbr){
     if(numbr == 'menu'){
+     dataLayer : [];
       dataLayer.push({
            'appEventCategory': 'Top Menu',
            'appEventAction': 'Clicked',
@@ -389,6 +395,7 @@ export class HomePage {
          dataLayer.push({'event': 'appEvent'});
     }
     if(numbr == 'card'){
+      dataLayer : [];
       dataLayer.push({
            'appEventCategory': 'Home',
            'appEventAction': 'Clicked',
@@ -465,6 +472,7 @@ export class HomePage {
       this.navCtrl.push(WeatherPage);
     }
     if(numbr == 'card'){
+          dataLayer : [];
       dataLayer.push({
         'appEventCategory': 'Home',
         'appEventAction': 'Clicked',
@@ -476,6 +484,7 @@ export class HomePage {
   }
 
   gotoservicesPage(){
+        dataLayer : [];
     dataLayer.push({
       'appEventCategory': 'Home',
       'appEventAction': 'Clicked',
@@ -486,6 +495,7 @@ export class HomePage {
   }
 
   goToExpertDetial(id,title){
+   dataLayer : [];
     dataLayer.push({
       'appEventCategory': 'Home',
       'appEventAction': 'Clicked',
@@ -498,7 +508,6 @@ export class HomePage {
   gotomandiDetail(numbr){
     if(numbr == 'menu'){
       dataLayer : [];
-      dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Top Menu',
          'appEventAction': 'Clicked',
@@ -509,6 +518,7 @@ export class HomePage {
     }
 
     if(numbr == 'card'){
+      dataLayer : [];
       dataLayer.push({
         'appEventCategory': 'Home',
         'appEventAction': 'Clicked',

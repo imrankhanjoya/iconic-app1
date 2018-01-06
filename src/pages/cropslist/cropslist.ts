@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
 import { CropsProvider } from '../../providers/crops/crops';
+import { Events } from 'ionic-angular';
 
 
 /**
@@ -9,6 +10,7 @@ import { CropsProvider } from '../../providers/crops/crops';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array;
 
 @IonicPage()
 @Component({
@@ -19,12 +21,16 @@ export class CropslistPage {
   public cropList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public cropsProvider:CropsProvider,public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public cropsProvider:CropsProvider,public loadingCtrl: LoadingController, public event: Events) {
   
   }
 
   ionViewDidLoad() {
-
+  			 dataLayer : [];
+                dataLayer.push({
+                'screenName': 'PriceRequestFilterPage'
+           });
+             dataLayer.push({'event': 'appScreenView'});
 		let loading = this.loadingCtrl.create({
 		content: 'Please wait...'
 		});

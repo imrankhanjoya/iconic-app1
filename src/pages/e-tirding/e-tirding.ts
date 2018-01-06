@@ -96,6 +96,11 @@ export class ETirdingPage {
   }
 
   ionViewDidLoad() {
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'e-tirdingPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     console.log('ionViewDidLoad ETirdingPage');
   }
    onStateSelect(stateid) {

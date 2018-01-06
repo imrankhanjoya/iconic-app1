@@ -52,6 +52,11 @@ export class FilterModelPage {
     }
 
     ionViewDidLoad() {
+     dataLayer : [];
+    dataLayer.push({
+      'screenName': 'FilterModelPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
         console.log('ionViewDidLoad FilterModelPage');
     }
     
@@ -114,7 +119,8 @@ export class FilterModelPage {
         //this.navCtrl.push(MandiDetailsPage,{filter_market:this.changemarket.value.user_market_id});          
     }
     dismiss(){
-             dataLayer.push({
+        dataLayer : [];
+         dataLayer.push({
            'appEventCategory': 'mandi',
            'appEventAction': 'Filter',
            'appEventLabel': ' Cancel Filter'
