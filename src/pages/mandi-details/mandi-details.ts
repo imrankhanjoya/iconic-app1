@@ -58,7 +58,11 @@ public navCtrl: NavController, public navParams: NavParams,public mandi:MandiPro
   }
 
   ionViewDidLoad() {
-     
+     dataLayer : [];
+    dataLayer.push({
+      'screenName': 'MandiPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
      console.log('ionViewDidLoad MandiDetailsPage');
   }
    getMandiDetails(tehsilId){

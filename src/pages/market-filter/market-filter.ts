@@ -35,6 +35,11 @@ export class MarketFilterPage {
    
 
     ionViewDidLoad() {
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'MarketFilterPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     	this.getCategory();
       console.log('ionViewDidLoad CatBrandPage');
     }

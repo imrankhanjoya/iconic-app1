@@ -55,6 +55,11 @@ export class LoginPage {
 
   }
   ionViewDidLoad() {
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'LoginPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     console.log("--------Login Page-----------");
   }
 

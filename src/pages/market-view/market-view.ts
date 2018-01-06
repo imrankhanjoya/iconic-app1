@@ -60,6 +60,11 @@ export class MarketViewPage {
         });
     }
   ionViewDidLoad() {
+   dataLayer : [];
+    dataLayer.push({
+      'screenName': 'MarketViewPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     this.getProductView();
     console.log("page loaded MarketViewPage");
     
