@@ -694,6 +694,9 @@ export class HomePage {
       if (type=='news') {
        this.navCtrl.push('NewsPage',{id:type_value});
       }
+      if (type=='q') {
+       this.navCtrl.push('QuitionviewPage',{QuitionID:type_value})
+      }
       if (type=='weather') {
         this.navCtrl.push(WeatherPage);
       }
