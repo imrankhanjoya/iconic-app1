@@ -1,0 +1,228 @@
+<!--
+  Generated template for the ProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar>
+    <ion-title>product</ion-title>
+  </ion-navbar>
+     <ion-toolbar color="light" mode="md">
+
+   <ion-segment class="backnew"[(ngModel)]="Crop" >
+      
+          <ion-segment-button value="favourite" >
+            Home
+          </ion-segment-button>
+           <ion-segment-button value="fertilizers" >
+              catgrey1
+          </ion-segment-button>
+          <ion-segment-button value="seeds" >
+              catgrey2
+          </ion-segment-button>
+          <ion-segment-button value="pesticide" >
+              catgrey3
+          </ion-segment-button>
+      </ion-segment>  
+    </ion-toolbar>
+ 
+</ion-header>
+<ion-content >
+  <div [ngSwitch]="Crop">
+
+  <div *ngSwitchCase="'favourite'">
+
+<ion-slides class="newcard" [slidesPerView]="'1.05'" > 
+  <ion-slide class="img_slide" >
+      <img class="slide_img" src="assets/img/market.jpeg" > 
+  </ion-slide>
+   <ion-slide class="img_slide" >
+      <img class="slide_img" src="assets/img/e-triding.jpeg" > 
+  </ion-slide>
+    <ion-slide class="img_slide"   >
+      <img class="slide_img" src="assets/img/market.jpeg" > 
+  </ion-slide>
+</ion-slides>
+<!---*******Krishi Jannkari Section******-->
+<ion-grid>
+   <ion-row>
+      <ion-col class="krishisevayen-cardHeader">
+         <div class="headerClass">popular</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-slides style="height: 40%;" [slidesPerView]="'auto'">
+   <ion-slide class="slideItem"  >
+      <ion-card  (click)="gotoMarketPage()">
+         <img class="produtimages" src="assets/img/market.jpeg"/>
+         <div class="titleone colorGrey Headline">productData</div>
+         <div class="detailSar colorGreen Headline" > 
+            SEE_DETAIL
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide class="slideItem"  >
+      <ion-card >
+         <img class="produtimages" src="assets/img/market.jpeg"/>
+         <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+            SEE_DETAIL
+         </div>
+         
+      </ion-card>
+   </ion-slide>
+   <ion-slide class="slideItem"  >
+      <ion-card >
+         <img class="produtimages" src="assets/img/market.jpeg"/>
+         <div class="titleone colorGrey Headline">productData</div>
+         <div class="detailSar colorGreen Headline" > 
+            SEE_DETAIL
+         </div>
+      </ion-card>
+   </ion-slide>
+   <ion-slide class="slideItem ">
+      <ion-card>
+         <div class="see-title-box">
+            <button ion-button  (click)="gotoMarketPage()" outline>SEE_MORE</button>
+         </div>
+      </ion-card>
+   </ion-slide>
+</ion-slides>
+ <ion-grid>
+   <ion-row>
+      <ion-col class="krishisevayen-cardHeader">
+         <div class="headerClass">categrey product</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+   <ion-card style="margin-top: 8px;"  >
+       <h2 style="margin-top: 8px;margin-left: 10px;">product categrey</h2>
+     <ion-grid>
+     <ion-row  >
+    <ion-col col-6>
+       <div class="back">
+          <img class="produtimg" src="assets/img/p.png"/>
+        </div>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+         </ion-col>
+         <ion-col col-6>
+         <div class="back">
+          <img class="produtimg" src="assets/img/img.jpeg"/>
+          </div>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+         </ion-col>
+  </ion-row>
+   <ion-row  >
+    <ion-col col-6 >
+        <div class="back">
+          <img class="produtimg" src="assets/img/e-triding.jpeg"/>
+          </div>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+         </ion-col>
+         <ion-col col-6>
+          <div class="back">
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          </div>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+         </ion-col>
+  </ion-row>
+  </ion-grid>
+    <ion-row  >
+      <ion-col col-6>
+         <h2 style="margin-left: 10px;">see more</h2>
+      </ion-col>
+      <ion-col col-6>
+      <ion-icon class="arrow_icon" name="ios-arrow-forward-outline" (click)="gotoproductlist()" ></ion-icon>
+      </ion-col>
+    </ion-row>
+  
+ </ion-card>
+ </div>
+
+  <div *ngSwitchCase="'fertilizers'">
+ <ion-row  >
+    <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+     <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+     <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+     <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+
+ </div>
+  <div *ngSwitchCase="'seeds'">
+   <ion-row  >
+    <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+     <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+     <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+     <ion-col col-6 >
+        <ion-card >
+          <img class="produtimg" src="assets/img/images.jpeg"/>
+          <div class="titleone colorGrey Headline">productData</div>
+          <div class="detailSar colorGreen Headline" > 
+          SEE_DETAIL
+          </div>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+
+  </div>
+  </div>
+
+</ion-content>

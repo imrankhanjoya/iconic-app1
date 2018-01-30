@@ -1,0 +1,121 @@
+<!--
+  Generated template for the ProductlistviwePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>productlistviwe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-card  style="height: 100%;"  (click)="gotoproductlist()">
+  <div class=" paddingbutom_pro" >
+   <ion-row  style="height: 20%;">
+	<ion-col col-5>
+		<img style=" height: 100px;"  src="assets/img/img.jpeg"/>
+	</ion-col>
+	<ion-col col-7>
+		<div class="smallTitle fontBold paddingTop paddingLeft colorGrey paddingbutom_pro">ProductViewData</div>
+		<div class="paddingLeft colorGrey paddingbutom_pro Headline"  >
+	   		data brand
+	   	</div>
+	   	<div class="paddingLeft colorGreen paddingbutom_pro" >
+        IN_STOC
+	   	</div>
+
+	   <!-- 	<div *ngIf="ProductViewData.data.stock_status=='out_of_stock'"  class="paddingLeft out_stock" >
+        {{'OUT_OF_STOCK' | translate}}
+	   	</div> -->
+	   	<!-- 	<div *ngIf="ProductViewData.data.stock_status=='coming_soon'"  class="paddingLeft coming_soon " >
+        {{'COMING_SOON' | translate}}
+	   	</div> -->
+
+	</ion-col>
+</ion-row>
+</div>
+<div >
+  <ion-row>
+	<div class="separator" >
+		<div class="paddingLeft colorGrey paddingBottom Headline">
+			ProductAdvantages Like Ubuntu 12.10, Ubuntu 13.04 too has ‘additional drivers” missing from Unity HUD. You’ll find nothing when you search for additional drivers in Unity Dash. It’s bec
+		
+		</div>
+	</div>
+  </ion-row>
+  </div>
+<ion-row>
+	<div class="smallfont fontBold paddingTop paddingLeft colorGrey smallTitle paddingbutom_pro" >Pleas order now</div>
+		<div class="paddingLeft colorGrey paddingbutom_pro  Headline">
+			
+				ProductAdvantages Like Ubuntu 12.10, Ubuntu 13.04 too has ‘additional drivers” missing from Unity HUD. 
+	
+		</div>
+	</ion-row>
+		<ion-item>
+          <ion-label>Choose value</ion-label>
+     <ion-select [(ngModel)]="gender">
+       <ion-option value="f">1 kg</ion-option>
+       <ion-option value="m">2 kg</ion-option>
+        <ion-option value="j">3 kg</ion-option>
+        <ion-option value="k">4 kg</ion-option>
+     </ion-select>
+    </ion-item>
+    <ion-row >
+	<ion-col col-6>
+	    <ion-label  class="padding_Left folat"  >Choose value</ion-label>
+	</ion-col>
+	<ion-col col-6>	 
+	  <ion-row >
+	<ion-col col-4	>
+	 <ion-icon class=" folat1"  name="add" ></ion-icon>
+	 </ion-col>
+	 <ion-col col-4>
+	 <div>ghoo</div>
+	 </ion-col>
+	 	<ion-col col-4>
+       <ion-icon  class=" folat" name="remove" ></ion-icon>
+       </ion-col>
+       </ion-row>
+	</ion-col>
+  </ion-row>
+  <ion-row  class=" separator ">
+	<ion-col col-6>	
+	<div class="padding_Left"> 
+	       <button   ion-button type="submit">buy now</button>
+	       </div>
+	  </ion-col>
+	    <ion-col col-6>
+	  	  <div class=" sarchicon "  (click)="dismiss()" >add to cart </div>
+	  	  </ion-col>
+	  	  </ion-row>
+	  <div>
+	  	  	 <h2 style="padding-left: 5%;padding-top: 3%;padding-bottom: 2%;" >important part</h2>
+	 <ion-row  >
+	<ion-col col-6>	
+		  <div class="padding_Left" >this fuit</div>
+	  
+	</ion-col>
+	    <ion-col col-6>
+	  	  <div>add to cart this fuit  </div>
+	  	  </ion-col>
+	  	  </ion-row>
+	  	  </div>
+	  	  <div col-12 style="position: fixed; top:80%">
+		<a (click)="mackCall()" >
+		<button ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:20px;">
+	  	<ion-icon name="call" class="displayOneFont" style="padding-left: 55px; padding-right:15px"></ion-icon>
+	  	<div  class="{{textSlide}} smallTitle" style="opacity: 0;">
+	  		CLICK
+		</div>
+	   </button>
+	   </a>
+	</div>
+</ion-card>
+</ion-content>
+ 

@@ -1,0 +1,58 @@
+page-productlistviwe {
+  .red:before {
+    color: red;
+    }
+
+    .green:before {
+    color: green;
+    }
+
+    .flex_row {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row; 
+    flex-direction: row;
+    }
+    .sarchbar{
+    	width: 100% !important;
+	} 
+
+	.sarchicon{
+		 border-color: transparent !important;
+	    color: #649305;
+	    background-color: transparent;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    opacity: 1;
+	    margin-top: 10px;
+	}	
+	.p_1{
+	    width: 50% !important;
+	}
+	.p_2{
+	    width: 50% !important;
+	}
+	.padding_Left{
+	padding-left: 10%;
+}
+	.paddingbutom_pro{
+		padding-bottom: 5px;
+	}
+   .buttonOnClose{
+		height: 55px;
+		width: 55px;
+		left: 82%;
+		top: 80%;
+		border-radius: 30px;
+		float: right;
+	}
+	.openCallButton {		
+		animation-duration: 2s;
+		float: right;
+		border-radius: 30px;
+		animation: buttonOpen 1s ease-in-out;
+		animation-fill-mode: forwards;
+      }
+
+
+}
