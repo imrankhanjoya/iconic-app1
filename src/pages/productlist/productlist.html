@@ -14,60 +14,44 @@
 
 
 <ion-content padding>
-<ion-list>
-<ion-card>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img  src="assets/img/e-triding.jpeg">
-    </ion-thumbnail>
-        <h2>My Neighbor Totoro</h2>
+ <ion-card style="margin-top: 8px; " (click)="gotoproducttype()" >
+     <ion-grid >
+     <ion-row  class=" separator " >
+    <ion-col col-3 >
+       <div >
+          <img class="produtimg" src="assets/img/p.png"/>
+        </div>
+          <!-- <div class="sarsTitle1 colorGrey Headline">product</div> -->
+         </ion-col>
+         <ion-col col-7>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+         </ion-col>
+          <ion-col col-2>
+            <ion-icon class="back  " name="close"></ion-icon>
+            </ion-col>
+  </ion-row>
+    <ion-row  class=" separator " >
+    <ion-col col-3 >
+       <div >
+          <img class="produtimg" src="assets/img/p.png"/>
+        </div>
+          <!-- <div class="sarsTitle1 colorGrey Headline">product</div> -->
+         </ion-col>
+         <ion-col col-7>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+          <div class="sarsTitle1 colorGrey Headline">product</div>
+         </ion-col>
+          <ion-col col-2>
+            <ion-icon class="back separator " name="close"></ion-icon>
 
-  </ion-item>
-  </ion-card>
-  <ion-card>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img  src="assets/img/e-triding.jpeg">
-    </ion-thumbnail>
-    <h2>My Neighbor Totoro</h2>
-    
-  </ion-item>
-  </ion-card>
-  <ion-card>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img  src="assets/img/e-triding.jpeg">
-    </ion-thumbnail>
-    <h2>My Neighbor Totoro</h2>
-    
-  </ion-item>
-  </ion-card>
-  <ion-card>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img  src="assets/img/e-triding.jpeg">
-    </ion-thumbnail>
-    <h2>My Neighbor Totoro</h2>
-    
-  </ion-item>
-  </ion-card>
-  <ion-card>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img  src="assets/img/e-triding.jpeg">
-    </ion-thumbnail>
-    <h2>My Neighbor Totoro</h2>
-    
-  </ion-item>
-  </ion-card>
-  <ion-card>
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img  src="assets/img/e-triding.jpeg">
-    </ion-thumbnail>
-    <h2>My Neighbor Totoro</h2>
-    
-  </ion-item>
-  </ion-card>
-</ion-list>
+            </ion-col>
+  </ion-row>
+  
+  </ion-grid>
+  <div  class="p_button">
+    <button class="p_1 colorGreen buttonGreen"  (click)="doLogin()" >  SING_UP_GOOD </button>
+  </div>
+ </ion-card>
+
 </ion-content>

@@ -21,5 +21,9 @@ export class ProductlistPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductlistPage');
   }
+    gotoproducttype(){
+    this.navCtrl.push('ProducattypePage');
+  }
+
 
 }

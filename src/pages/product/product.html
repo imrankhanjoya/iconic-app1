@@ -55,7 +55,7 @@
 </ion-grid>
 <ion-slides style="height: 40%;" [slidesPerView]="'auto'">
    <ion-slide class="slideItem"  >
-      <ion-card  (click)="gotoMarketPage()">
+      <ion-card  (click)="gotoproductlist()" >
          <img class="produtimages" src="assets/img/market.jpeg"/>
          <div class="titleone colorGrey Headline">productData</div>
          <div class="detailSar colorGreen Headline" > 
@@ -63,7 +63,7 @@
          </div>
       </ion-card>
    </ion-slide>
-   <ion-slide class="slideItem"  >
+   <ion-slide class="slideItem" (click)="gotoMarketPage()" >
       <ion-card >
          <img class="produtimages" src="assets/img/market.jpeg"/>
          <div class="titleone colorGrey Headline">productData</div>

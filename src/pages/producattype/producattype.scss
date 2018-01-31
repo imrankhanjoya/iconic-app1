@@ -13,8 +13,8 @@ page-producattype {
           margin: auto;
     }
 	  .sarsTitle1{
-       text-align: center;
        width: 100%;
+       padding-left:10px;
        padding-top: 5%;
        font-style: oblique;
        display: inline-block;
@@ -22,5 +22,26 @@ page-producattype {
       .back{
          background-color: #d5dad5;
       }
+      .hader{
+      margin-top: 8px!important;
+      margin-left: 10px; 
+      text-align: center; 
+      margin-bottom: 10px;
+      }
+      .p_button{
+      width:100% !important;
+      margin:auto;
+      color:#5f8b05;
+      margin-top:20px;
+      padding-bottom: 10px;
+      text-align: center;
+    }
+    .p_1{
+         width: 75%!important;
+        height: 41px;
+        font-size: 15px;
+        color: #ffffff;
+    }
+
 
 }

@@ -25,6 +25,10 @@ export class ProductPage {
    gotoMarketPage(){
     this.navCtrl.push('ProductlistviwePage');
   }
+  gotoproductlist(){
+    this.navCtrl.push('ProductlistPage');
+  }
+
   
 
 }
