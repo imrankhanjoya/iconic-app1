@@ -18,14 +18,16 @@ export class AnnouncementproProvider {
   }
 
 	announcementList(limit) {
-	  		//http://205.147.100.82/agriboloapiv2/api/web/index.php?r=v1/mandi/all&page=2&state_id=12
-	  	var paramCond ={limit:limit,lang:this.api.userLanguage};
+		var dTime = new Date();
+	  	var msec = dTime.getMilliseconds();
+	  	var paramCond ={ctime:msec,limit:limit,lang:this.api.userLanguage,tehsil:this.api.userData._user_tehsil,state:this.api.userData._user_district,state:this.api.userData._user_state,user:this.api.userData.user_login};
 		return new Promise((resolve)=>{
-			this.api.getCache('v1/announcement/all', paramCond).then((announcementList)=>{
+			this.api.getCache('v1/announcement/notification-all', paramCond).then((announcementList)=>{
 			resolve(announcementList);
 			});  
 		});
 	}
+
 	apiusertopcard() {
 		var dTime = new Date();
 	  	var msec = dTime.getMilliseconds();

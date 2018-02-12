@@ -38,6 +38,9 @@ import { MainPage } from '../pages/pages';
         <button menuClose ion-item (click)="logout()" >
           {{'LOGOUT' | translate}}
         </button>
+        <button menuClose ion-item (click)="product()" >
+          Product
+        </button>
       </ion-list>
       
       <ion-row >
@@ -241,6 +244,10 @@ export class MyApp {
         animate: true,
         direction: 'forward'
       });
+  }
+
+  product(){
+    this.nav.push('ProductPage');
   }
 
   openPage(page) {

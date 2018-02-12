@@ -60,6 +60,7 @@ import { EtradingProvider } from '../providers/etrading/etrading';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Device } from '@ionic-native/device';
 import { AppVersion } from '@ionic-native/app-version';
+import { ProductproProvider } from '../providers/productpro/productpro';
 
 
 
@@ -163,6 +164,7 @@ export function provideSettings(storage: Storage) {
     EtradingProvider,
     Device,
     AppVersion,
+    ProductproProvider,
   ]
 })
 export class AppModule { }

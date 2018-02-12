@@ -36,16 +36,30 @@ export class AnnouncementPage {
       this.announceList.status = res.status;
       this.loading.dismiss();
     });
-    // this.Announce.announcementList(20).map(res => res.json()).subscribe((res) => {
-      
-    //     this.announceList.data = res.data;
-    //     this.announceList.msg = res.msg;
-    //     this.announceList.status = res.status;
-    //     console.log(res.data);
-    //   }, (err) => {
-    //     // Unable to log in
-    //     console.log(err);
-    //   });
+  }
+
+  gotoAnounsePage(type,type_value){
+      if (type=='product') {
+        this.navCtrl.push('MarketViewPage',{id:type_value});
+      }
+      if (type=='crop') {
+        this.navCtrl.push('CropdetailPage',{crop_id:type_value});
+      }
+      if (type=='rental') {
+        this.navCtrl.push('RentalDetailPage',{rid:type_value});
+      }
+      if (type=='blogs') {
+        this.navCtrl.push('ExpertsDetailPage',{id:type_value}); 
+      }
+      if (type=='news') {
+       this.navCtrl.push('NewsPage',{id:type_value});
+      }
+      if (type=='q') {
+       this.navCtrl.push('QuitionviewPage',{QuitionID:type_value})
+      }
+      if (type=='weather') {
+        this.navCtrl.push(WeatherPage);
+      }
   }
 
 }
