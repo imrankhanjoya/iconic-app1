@@ -11,9 +11,8 @@
   </ion-navbar>
      <ion-toolbar color="light" mode="md">
 
-   <ion-segment class="backnew"[(ngModel)]="Crop" >
-      
-          <ion-segment-button value="favourite" >
+   <ion-segment class="backnew"[(ngModel)]="Crop" >      
+          <ion-segment-button value="home" >
             Home
           </ion-segment-button>
            <ion-segment-button value="fertilizers" >
@@ -32,7 +31,7 @@
 <ion-content >
   <div [ngSwitch]="Crop">
 
-  <div *ngSwitchCase="'favourite'">
+  <div *ngSwitchCase="'home'">
 
 <ion-slides class="newcard" [slidesPerView]="'1.05'" > 
   <ion-slide class="img_slide" >
@@ -54,78 +53,36 @@
    </ion-row>
 </ion-grid>
 <ion-slides style="height: 40%;" [slidesPerView]="'auto'">
-   <ion-slide class="slideItem"  >
-      <ion-card  (click)="gotoproductlist()" >
-         <img class="produtimages" src="assets/img/market.jpeg"/>
-         <div class="titleone colorGrey Headline">productData</div>
+   <ion-slide *ngFor="let PopularProduct of PopularProducts.data;" class="slideItem"  >
+      <ion-card  (click)="gotoProductViewPage(PopularProduct.id)" >
+         <img class="produtimages" src="{{PopularProduct.feature_image}}"/>
+         <div class="titleone colorGrey Headline">{{PopularProduct.name}}</div>
          <div class="detailSar colorGreen Headline" > 
-            SEE_DETAIL
-         </div>
-      </ion-card>
-   </ion-slide>
-   <ion-slide class="slideItem" (click)="gotoMarketPage()" >
-      <ion-card >
-         <img class="produtimages" src="assets/img/market.jpeg"/>
-         <div class="titleone colorGrey Headline">productData</div>
-          <div class="detailSar colorGreen Headline" > 
-            SEE_DETAIL
-         </div>
-         
-      </ion-card>
-   </ion-slide>
-   <ion-slide class="slideItem"  >
-      <ion-card >
-         <img class="produtimages" src="assets/img/market.jpeg"/>
-         <div class="titleone colorGrey Headline">productData</div>
-         <div class="detailSar colorGreen Headline" > 
-            SEE_DETAIL
-         </div>
-      </ion-card>
-   </ion-slide>
-   <ion-slide class="slideItem ">
-      <ion-card>
-         <div class="see-title-box">
-            <button ion-button  (click)="gotoMarketPage()" outline>SEE_MORE</button>
+            See Detail
          </div>
       </ion-card>
    </ion-slide>
 </ion-slides>
+
+
+<!-------------Product Group By Cat---------->
+<div *ngFor="let GroupCatProduct of GroupCatProducts.data;" >
  <ion-grid>
    <ion-row>
       <ion-col class="krishisevayen-cardHeader">
-         <div class="headerClass">categrey product</div>
+         <div class="headerClass">{{GroupCatProduct.cat_name}}</div>
       </ion-col>
    </ion-row>
 </ion-grid>
    <ion-card style="margin-top: 8px;"  >
        <h2 style="margin-top: 8px;margin-left: 10px;">product categrey</h2>
      <ion-grid>
-     <ion-row  >
-    <ion-col col-6>
+  <ion-row   >
+    <ion-col *ngFor="let data of GroupCatProduct.categorydata;" col-6>
        <div class="back">
-          <img class="produtimg" src="assets/img/p.png"/>
+          <img class="produtimg" src="{{data.feature_image}}"/>
         </div>
-          <div class="sarsTitle1 colorGrey Headline">product</div>
-         </ion-col>
-         <ion-col col-6>
-         <div class="back">
-          <img class="produtimg" src="assets/img/img.jpeg"/>
-          </div>
-          <div class="sarsTitle1 colorGrey Headline">product</div>
-         </ion-col>
-  </ion-row>
-   <ion-row  >
-    <ion-col col-6 >
-        <div class="back">
-          <img class="produtimg" src="assets/img/e-triding.jpeg"/>
-          </div>
-          <div class="sarsTitle1 colorGrey Headline">product</div>
-         </ion-col>
-         <ion-col col-6>
-          <div class="back">
-          <img class="produtimg" src="assets/img/images.jpeg"/>
-          </div>
-          <div class="sarsTitle1 colorGrey Headline">product</div>
+          <div class="sarsTitle1 colorGrey Headline">{{data.cat_name}}</div>
          </ion-col>
   </ion-row>
   </ion-grid>
@@ -139,6 +96,7 @@
     </ion-row>
   
  </ion-card>
+</div>
  </div>
 
   <div *ngSwitchCase="'fertilizers'">

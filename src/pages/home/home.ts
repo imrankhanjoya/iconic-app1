@@ -98,7 +98,7 @@ export class HomePage {
           this.loading.dismiss();
         }, 4000);
       storage.get('notificationData').then((notiData) => {
-          console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
+        //console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
         if (notiData) {
             this.loading.dismiss();
             storage.set('notificationData', '');
@@ -106,12 +106,12 @@ export class HomePage {
           }
         });
       let view = this.navCtrl.getActive();
-                 console.log("  current Page  :  " + view);
+               //console.log("  current Page  :  " + view);
       platform.ready().then(() => {
 
               platform.registerBackButtonAction(() => {
                  let view = this.navCtrl.getActive();
-                 console.log("  current Page  :  " + view);
+               //console.log("  current Page  :  " + view);
                  if (view.name=="HomePage") {
                     if(this.alert){ 
                       this.alert.dismiss();
@@ -180,7 +180,7 @@ export class HomePage {
        this.storage.set('userLoction.longitude',resp.coords.longitude);
        this.getkrish(resp.coords.latitude,resp.coords.longitude);
     }).catch((error) => {
-      console.log('Error getting location', error);
+    //console.log('Error getting location', error);
     });
 
 
@@ -191,14 +191,14 @@ export class HomePage {
         //this.crops=val.crops;
         //alert(val.crops.length);
         for (var i = 0; i < val.crops.length; i++) {
-          console.log(val.crops[i].id)
+        //console.log(val.crops[i].id)
           this.userCropIdList += val.crops[i].id;
         }
       });
 
     this.storage.get('userData').then((userdata) => {
       if (userdata) {
-        console.log(userdata);
+      //console.log(userdata);
         this.userId=userdata.ID;
         this.userDisplayName=userdata.display_name;
         this.tehsil=userdata._user_tehsil;
@@ -214,10 +214,10 @@ export class HomePage {
         //this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
           if (token) {
-            console.log('token found sucessfully---'+token+'-------');
+          //console.log('token found sucessfully---'+token+'-------');
             this.updatetoken(token,this.userId);
           }
-          console.log('token found sucessfully- NOt--'+token+'-------');
+        //console.log('token found sucessfully- NOt--'+token+'-------');
         });
       } 
     
@@ -273,7 +273,7 @@ export class HomePage {
 
   getweather(tehsil){
     this.NowTime = new Date();
-    console.log('this is current tehsil'+tehsil);
+  //console.log('this is current tehsil'+tehsil);
     this.weather.weatheHourly(tehsil).then((res)=>{
         this.wheaterHome.data = res.data;
         this.wheaterHome.msg = res.msg;
@@ -287,7 +287,7 @@ export class HomePage {
   weatherfivedays(location:any){
 
       this.weather.weatherfivedays(location).then((res)=>{
-        console.log(res);
+      //console.log(res);
         this.weatherfiveday.data = res.data;
         this.weatherfiveday.msg = res.msg;
         this.weatherfiveday.status = res.status;
@@ -305,8 +305,8 @@ export class HomePage {
         if (res.data[2]) {
           this.mandidata1= res.data[1];
         }
-        console.log('this.mandidata1');
-        console.log(this.mandidata1);
+      //console.log('this.mandidata1');
+      //console.log(this.mandidata1);
         if (res.data[2]) {
           this.mandidata2= res.data[2];
         }
@@ -326,15 +326,15 @@ export class HomePage {
 
 
   getmarkets(){
-    console.log('getmarkets');
+  //console.log('getmarkets');
     this.market.productlist(5).then((res)=>{
         this.productHome.data = res.data;
         this.productHome.msg = res.msg;
         this.productHome.status = res.status;
-        console.log(this.productHome.data);
+      //console.log(this.productHome.data);
         this.loading.dismiss();
     });
-    console.log('getmarkets');
+  //console.log('getmarkets');
   }
 
   getkrish(lat:any,long:any){
@@ -342,15 +342,15 @@ export class HomePage {
         this.kendraData.data = res.data;
         this.kendraData.msg = res.msg;
         this.kendraData.status = res.status;
-        console.log('geoLoc');
-        console.log(this.kendraData);
+      //console.log('geoLoc');
+      //console.log(this.kendraData);
         //is.userKm = this.krish.getDistanceFromLatLonInKm(this.geoLoc.lat,this.geoLoc.lng,lat,long);
     });
   }
 
   getannouncement(){
     this.Announce.announcementList(1).then((res)=>{
-        console.log(this.announceList);
+      //console.log(this.announceList);
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
         this.announceList.status = res.status;
@@ -434,7 +434,7 @@ export class HomePage {
     let modal = this.modalCtrl.create('ETirdingPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
-      console.log(popoverData)
+    //console.log(popoverData)
       if (popoverData.data!="") {
         //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
       }
@@ -451,11 +451,11 @@ export class HomePage {
      });
      dataLayer.push({'event': 'appEvent'});
     if (type=='web') {
-      console.log("baran"+URL);
+    //console.log("baran"+URL);
       this.iab.create(URL, '_blank', 'location=yes');
       //var ref = this.iab.create(URL, '_blank', 'location=yes');
     }else{
-      console.log("kkkbaran"+URL);
+    //console.log("kkkbaran"+URL);
       this.navCtrl.push('NewsdetailPage',{id:id});
     }
   }
@@ -590,9 +590,10 @@ export class HomePage {
   gotoRentals(){
     this.navCtrl.push('RentalsPage');
   }
-  /*gotoAnounsePage(){
+  gotoNotificationPage(){
+    alert('test');
     this.navCtrl.push('AnnouncementPage');
-  }*/
+  }
   goToBlogPage(){
     dataLayer : [];
       dataLayer.push({
@@ -678,7 +679,7 @@ export class HomePage {
          'appEventLabel': 'Green Card - '+type+'~'+type_value 
        });
      dataLayer.push({'event': 'appEvent'});
-      console.log(type+'  ------ '+type_value);
+    //console.log(type+'  ------ '+type_value);
       if (type=='product') {
         this.navCtrl.push('MarketViewPage',{id:type_value});
       }
@@ -712,9 +713,7 @@ public startVisbol=true;
 public bottom = 0;
 public top = 0;
 
-showBar(){
-  console.log("Sayooo naara");
-  
+showBar(){  
         this.startVisbol=false;
          document.querySelector(".tabbar").classList.add('show-tabbar');
         document.querySelectorAll(".tabbar")[0].style.marginBottom = '0px';
@@ -854,7 +853,7 @@ gotoMap(latitude,longitude,name){
        'appEventLabel': 'Seva Kendra - View Direction'
      });
      dataLayer.push({'event': 'appEvent'});
-    console.log(latitude+'---'+longitude+'----');
+  //console.log(latitude+'---'+longitude+'----');
    if (this.platform.is('android')) {
       //  window.open('geo://' + position.coords.latitude + ',' + position.coords.longitude + '?q=' + this.location.latitude + ',' + this.location.longitude + '(' + this.location.name + ')', '_system');
           window.open('geo://' +latitude + ',' + longitude + '?q=' + latitude + ',' + longitude + '(' + name + ')', '_system');
@@ -875,7 +874,7 @@ gotoMap(latitude,longitude,name){
        'appEventLabel': 'Video - https://www.youtube.com/watch?v='+videoid
      });
      dataLayer.push({'event': 'appEvent'});
-    console.log('videoid  : '+videoid);
+  //console.log('videoid  : '+videoid);
     this.gotoWebView('https://www.youtube.com/watch?v='+videoid);
     //this.youtube.openVideo(videoid);
   }
@@ -909,14 +908,13 @@ gotoMap(latitude,longitude,name){
  
 
 //-------------Get Mandi Data For Cache-------------//
-
 getMandiDetails(tehsilId){
     var DistrictId = ( typeof this.filterDistrict != 'undefined' )?this.filterDistrict:0;
     var marketId = ( typeof this.filterMarket != 'undefined' )?this.filterMarket:0;
     var filter_crops = ( typeof this.filter_crops != 'undefined' )?this.filter_crops:0;
     var crop_id = ( typeof this.crop_id != 'undefined' )?this.crop_id:0;
     this.mandi.mandiRates(DistrictId,marketId,filter_crops,crop_id,tehsilId).then((res)=>{
-      console.log('mandi data get succesfully');
+    //console.log('mandi data get succesfully');
     });
 }
 

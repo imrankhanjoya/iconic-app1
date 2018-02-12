@@ -35,8 +35,8 @@ export class ProductPage {
     this.getGroupCatProduct();
   }
   
-  gotoProductViewPage(){
-    this.navCtrl.push('ProductlistviwePage');
+  gotoProductViewPage(id){
+    this.navCtrl.push('ProductlistviwePage',{id:id});
   }
 
   gotoproductlist(){
@@ -54,7 +54,7 @@ export class ProductPage {
   getPopularProduct(){ 
     setTimeout(() => {
       loading.dismiss();
-    }, 6000);     
+    });     
     this.productpro.PopularProduct().then((res)=>{
       this.PopularProducts.data = res.data;
       this.PopularProducts.msg = res.msg;

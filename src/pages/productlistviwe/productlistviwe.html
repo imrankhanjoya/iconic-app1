@@ -14,47 +14,43 @@
 
 
 <ion-content >
-  <ion-card  style="height: 100%;"  (click)="gotoproductlist()">
-  <div class=" paddingbutom_pro" >
-   <ion-row  style="height: 20%;">
-	<ion-col col-5>
-		<img style=" height: 100px;"  src="assets/img/img.jpeg"/>
-	</ion-col>
-	<ion-col col-7>
-		<div class="smallTitle fontBold paddingTop paddingLeft colorGrey paddingbutom_pro">ProductViewData</div>
-		<div class="paddingLeft colorGrey paddingbutom_pro Headline"  >
-	   		data brand
-	   	</div>
-	   	<div class="paddingLeft colorGreen paddingbutom_pro" >
-        IN_STOC
-	   	</div>
-
-	   <!-- 	<div *ngIf="ProductViewData.data.stock_status=='out_of_stock'"  class="paddingLeft out_stock" >
-        {{'OUT_OF_STOCK' | translate}}
-	   	</div> -->
-	   	<!-- 	<div *ngIf="ProductViewData.data.stock_status=='coming_soon'"  class="paddingLeft coming_soon " >
-        {{'COMING_SOON' | translate}}
-	   	</div> -->
-
-	</ion-col>
-</ion-row>
-</div>
-<div >
-  <ion-row>
+  <ion-card  *ngIf="ProductViewDatas.status==true" style="height: 100%;" >
+  	<div class=" paddingbutom_pro" >
+	   <ion-row  style="height: 20%;">
+			<ion-col col-5>
+				<img style=" height: 100px;"  src="{{ProductViewDatas.data.feature_image}}"/>
+			</ion-col>
+			<ion-col col-7>
+				<div class="smallTitle fontBold paddingTop paddingLeft colorGrey paddingbutom_pro">{{ProductViewDatas.data.name}}
+				</div>
+				<div class="paddingLeft colorGrey paddingbutom_pro Headline"  >
+					{{ProductViewDatas.data.brand}}
+			   	</div>
+			   	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'" class="paddingLeft colorGreen paddingbutom_pro" >
+		        {{'IN_STOCK' | translate}}
+			   	</div>
+			   	<div *ngIf="ProductViewDatas.data.stock_status=='out_of_stock'"  class="paddingLeft out_stock paddingbutom_pro" >
+		        {{'OUT_OF_STOCK' | translate}}
+			   	</div>
+			   	<div *ngIf="ProductViewDatas.data.stock_status=='coming_soon'"  class="paddingLeft coming_soon paddingbutom_pro" >
+		        {{'COMING_SOON' | translate}}
+			   	</div>
+			</ion-col>
+		</ion-row>
+	</div>
+  <ion-row  *ngIf="ProductViewDatas.status==true">
 	<div class="separator" >
 		<div class="paddingLeft colorGrey paddingBottom Headline">
-			ProductAdvantages Like Ubuntu 12.10, Ubuntu 13.04 too has ‘additional drivers” missing from Unity HUD. You’ll find nothing when you search for additional drivers in Unity Dash. It’s bec
-		
+			{{ProductViewDatas.data.description}}		
 		</div>
 	</div>
   </ion-row>
-  </div>
 <ion-row>
-	<div class="smallfont fontBold paddingTop paddingLeft colorGrey smallTitle paddingbutom_pro" >Pleas order now</div>
+	<div *ngIf="ProductViewDatas.status==true" class="smallfont fontBold paddingTop paddingLeft colorGrey smallTitle paddingbutom_pro" >Pleas order now</div>
 		<div class="paddingLeft colorGrey paddingbutom_pro  Headline">
-			
-				ProductAdvantages Like Ubuntu 12.10, Ubuntu 13.04 too has ‘additional drivers” missing from Unity HUD. 
-	
+			<ul >
+				<li *ngFor="let ProductAdvantages of ProductViewDatas.data.advantages, let i = index " >{{ProductAdvantages.value}}</li>
+			</ul>	
 		</div>
 	</ion-row>
 		<ion-item>
@@ -67,45 +63,40 @@
      </ion-select>
     </ion-item>
     <ion-row >
-	<ion-col col-6>
-	    <ion-label  class="padding_Left folat "  >Choose value</ion-label>
-	</ion-col>
-	<ion-col col-6>	 
-	  <ion-row >
-	<ion-col col-4	>
-	 <ion-icon class=" folat1"  name="add" ></ion-icon>
-	 </ion-col>
-	 <ion-col col-4>
-	 <div>ghoo</div>
-	 </ion-col>
-	 	<ion-col col-4>
-       <ion-icon  class=" folat" name="remove" ></ion-icon>
-       </ion-col>
-       </ion-row>
-	</ion-col>
-  </ion-row>
-  <ion-row  class=" separator ">
-	<ion-col col-6>	
-	<div class="padding_Left"> 
+		<ion-col col-6>
+		    <ion-label  class="padding_Left folat "  >Choose value</ion-label>
+		</ion-col>
+		<ion-col col-6>	 
+		  <ion-row >
+		<ion-col col-4	>
+		 <ion-icon class=" folat1"  name="add" ></ion-icon>
+		 </ion-col>
+		 <ion-col col-4>
+		 <div>1</div>
+		 </ion-col>
+		 	<ion-col col-4>
+	       <ion-icon  class=" folat" name="remove" ></ion-icon>
+	       </ion-col>
+	       </ion-row>
+		</ion-col>
+	</ion-row>
+  		<ion-row  class=" separator ">
+		<ion-col col-6>	
+		<div class="padding_Left"> 
 	       <button   ion-button type="submit">buy now</button>
 	       </div>
-	  </ion-col>
+	  	</ion-col>
 	    <ion-col col-6>
 	  	  <div class=" sarchicon "  (click)="dismiss()" >add to cart </div>
-	  	  </ion-col>
-	  	  </ion-row>
-	  <div>
-	  	  	 <h2 style="padding-left: 5%;padding-top: 3%;padding-bottom: 2%;" >important part</h2>
-	 <ion-row  >
-	<ion-col col-6>	
-		  <div class="padding_Left" >this fuit</div>
-	  
-	</ion-col>
-	    <ion-col col-6>
-	  	  <div>add to cart this fuit  </div>
-	  	  </ion-col>
-	  	  </ion-row>
-	  	  </div>
+	  	</ion-col>
+	</ion-row>
+	<h2 style="padding-left: 5%;padding-top: 3%;padding-bottom: 2%;" >
+	 	{{'SPECIFICATIONS' | translate}}
+	</h2>
+	<ion-row  *ngFor="let ProductDetail of ProductViewDatas.data.alldetail, let i = index ">
+	<ion-col col-6><div class="padding_Left" >{{ProductDetail.label}}</div></ion-col>
+	<ion-col col-6><div>{{ProductDetail.value}}</div></ion-col>
+	</ion-row>
 	  	  <div col-12 style="position: fixed; top:80%">
 		<a (click)="mackCall()" >
 		<button ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:20px;">
