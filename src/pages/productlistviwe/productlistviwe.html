@@ -16,17 +16,17 @@
 <ion-content >
   <ion-card  *ngIf="ProductViewDatas.status==true" style="height: 100%;" >
   	<div class=" paddingbutom_pro" >
-	   <ion-row  style="height: 20%;">
-			<ion-col col-5>
-				<img style=" height: 100px;"  src="{{ProductViewDatas.data.feature_image}}"/>
+	   <ion-row  style="height: 20%; ">
+			<ion-col col-4>
+				<img style=" max-height: 130px;"  src="{{ProductViewDatas.data.feature_image}}"/>
 			</ion-col>
 			<ion-col col-7>
-				<div class="smallTitle fontBold paddingTop paddingLeft colorGrey paddingbutom_pro">{{ProductViewDatas.data.name}}
+				<div class="smallTitle fontBold colorGrey paddingbutom_pro">{{ProductViewDatas.data.name}}
 				</div>
-				<div class="paddingLeft colorGrey paddingbutom_pro Headline"  >
+				<div class="colorGrey paddingbutom_pro Headline"  >
 					{{ProductViewDatas.data.brand}}
 			   	</div>
-			   	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'" class="paddingLeft colorGreen paddingbutom_pro" >
+			   	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'" class=" colorGreen paddingbutom_pro" >
 		        {{'IN_STOCK' | translate}}
 			   	</div>
 			   	<div *ngIf="ProductViewDatas.data.stock_status=='out_of_stock'"  class="paddingLeft out_stock paddingbutom_pro" >
@@ -41,20 +41,17 @@
   <ion-row  *ngIf="ProductViewDatas.status==true">
 	<div class="separator" >
 		<div class="paddingLeft colorGrey paddingBottom Headline">
-			{{ProductViewDatas.data.description}}		
+			{{ProductViewDatas.data.description}}	
 		</div>
 	</div>
   </ion-row>
 <ion-row>
-	<div *ngIf="ProductViewDatas.status==true" class="smallfont fontBold paddingTop paddingLeft colorGrey smallTitle paddingbutom_pro" >Pleas order now</div>
-		<div class="paddingLeft colorGrey paddingbutom_pro  Headline">
-			<ul >
-				<li *ngFor="let ProductAdvantages of ProductViewDatas.data.advantages, let i = index " >{{ProductAdvantages.value}}</li>
-			</ul>	
-		</div>
+	<div class="smallTitle fontBold colorGrey paddingbutom_pro paddingTop paddingLeft" >Place order now</div>
+	<div class="paddingLeft colorGrey Headline paddingTop" >Place your order now and speak with our customer representative for speedy delivery</div>
+		
 	</ion-row>
-		<ion-item>
-          <ion-label>Choose value</ion-label>
+		<ion-item class="paddingTop colorGrey">
+          <ion-label class="colorGrey floatLeft " >Choose value</ion-label>
      <ion-select [(ngModel)]="gender">
        <ion-option value="f">1 kg</ion-option>
        <ion-option value="m">2 kg</ion-option>
@@ -63,36 +60,36 @@
      </ion-select>
     </ion-item>
     <ion-row >
-		<ion-col col-6>
-		    <ion-label  class="padding_Left folat "  >Choose value</ion-label>
+		<ion-col col-4>
+		    <ion-label  class="padding_Left floatLeft "  >Choose value</ion-label>
 		</ion-col>
-		<ion-col col-6>	 
-		  <ion-row >
-		<ion-col col-4	>
-		 <ion-icon class=" folat1"  name="add" ></ion-icon>
+		<ion-col col-8>	 
+		  <ion-row class="paddingTop8px paddingLeft">
+		<ion-col col-1	>
+		 <ion-icon class=" floatRight"  name="add" ></ion-icon>
 		 </ion-col>
-		 <ion-col col-4>
-		 <div>1</div>
+		 <ion-col col-2>
+		 <div class="alignCenter">1</div>
 		 </ion-col>
-		 	<ion-col col-4>
-	       <ion-icon  class=" folat" name="remove" ></ion-icon>
+		 	<ion-col col-1>
+	       <ion-icon  class="floatLeft" name="remove" ></ion-icon>
 	       </ion-col>
 	       </ion-row>
 		</ion-col>
 	</ion-row>
   	<ion-row  class=" separator ">
-		<ion-col col-6>	
+		<ion-col col-5>	
 			<div class="padding_Left"> 
 	       		<button   ion-button type="submit">buy now</button>
 	       </div>
 	  	</ion-col>
-	    <ion-col col-6>
-	  	  	<div class=" sarchicon "  (click)="AddtoChart(ProductViewDatas.data.sku)" >add to cart </div>
+	    <ion-col col-7>
+	  	  	<div class=" colorGreen paddingTop paddingLeft"  (click)="AddtoChart(ProductViewDatas.data.sku)" >add to cart </div>
 	  	</ion-col>
 	</ion-row>
-	<h2 style="padding-left: 5%;padding-top: 3%;padding-bottom: 2%;" >
+	<div class="smallTitle fontBold colorGrey paddingbutom_pro paddingTop paddingLeft" >
 	 	{{'SPECIFICATIONS' | translate}}
-	</h2>
+	</div>
 	<ion-row  *ngFor="let ProductDetail of ProductViewDatas.data.alldetail, let i = index ">
 	<ion-col col-6><div class="padding_Left" >{{ProductDetail.label}}</div></ion-col>
 	<ion-col col-6><div>{{ProductDetail.value}}</div></ion-col>
