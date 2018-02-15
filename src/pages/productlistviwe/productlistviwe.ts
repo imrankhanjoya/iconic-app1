@@ -20,7 +20,8 @@ export class ProductlistviwePage {
   public id:any;
   public loading:any;
   public ProductViewDatas: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    this.id=navParams.get('id');
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    
+    this.id=navParams.get('id');
     console.log('this is product id'+this.id);
   }
 
@@ -40,12 +41,18 @@ export class ProductlistviwePage {
     i.quantity++;
   }
 
+  AddtoChart(sku){
+    this.productpro.AddtoChart(this.id,sku).map(res => res.json()).subscribe((res) => {
+      this.navCtrl.push('ProductlistPage');
+    });
+  }
+
   getProductView(){
      this.productpro.ProductView(this.id).then((res)=>{
         this.ProductViewDatas.data = res.data;
         this.ProductViewDatas.msg = res.msg; 
         this.ProductViewDatas.status = res.status;
-        console.log('market data start');
+        console.log('Order Data Start Here');
         console.log(this.ProductViewDatas);
         this.loading.dismiss();
         if (res.status!=true) {

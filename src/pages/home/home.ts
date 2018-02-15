@@ -384,6 +384,11 @@ export class HomePage {
     this.navCtrl.push('ChoupalPage');
   }
 
+
+  gotoOderList(){
+    this.navCtrl.push('ProducattypePage');
+  }
+
   gotoAskquestion(numbr){
     if(numbr == 'menu'){
      dataLayer : [];
