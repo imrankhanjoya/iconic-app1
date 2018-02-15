@@ -349,7 +349,7 @@ export class HomePage {
   }
 
   getannouncement(){
-    this.Announce.announcementList(1).then((res)=>{
+    this.Announce.announcementList(1).map(res => res.json()).subscribe((res) => {
       //console.log(this.announceList);
         this.announceList.data = res.data;
         this.announceList.msg = res.msg;
@@ -360,7 +360,7 @@ export class HomePage {
 
 
   getUserTopCard(){
-    this.Announce.apiusertopcard().then((res)=>{
+    this.Announce.apiusertopcard().map(res => res.json()).subscribe((res) => {
         this.usertopcard.data = res.data;
         this.usertopcard.msg = res.msg;
         this.usertopcard.status = res.status;

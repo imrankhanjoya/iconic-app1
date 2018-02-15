@@ -19,6 +19,22 @@ export class AnnouncementproProvider {
 
 	announcementList(limit) {	  
 		var paramCond ={limit:limit,lang:this.api.userLanguage,tehsil:this.api.userData._user_tehsil,state:this.api.userData._user_district,state:this.api.userData._user_state,user:this.api.userData.user_login};
+	    let seq = this.api.get('v1/announcement/all', paramCond).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+	    return seq;
+	}
+
+	NotificationtList(limit) {	  
+		var paramCond ={limit:limit,lang:this.api.userLanguage,tehsil:this.api.userData._user_tehsil,state:this.api.userData._user_district,state:this.api.userData._user_state,user:this.api.userData.user_login};
 	    let seq = this.api.get('v1/announcement/notification-all', paramCond).share();
 	    seq
 	      .map(res => res.json())
@@ -34,14 +50,19 @@ export class AnnouncementproProvider {
 	}
 
 	apiusertopcard() {
-		var dTime = new Date();
-	  	var msec = dTime.getMilliseconds();
-	  	var paramCond ={ctime:msec,lang:this.api.userLanguage};
-		return new Promise((resolve)=>{
-			this.api.getCache('v1/announcement/user-top-card', paramCond).then((apiusertopcard)=>{
-			resolve(apiusertopcard);
-			});  
-		});
+		var paramCond ={lang:this.api.userLanguage};
+	    let seq = this.api.get('v1/announcement/user-top-card', paramCond).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+	    return seq;
 	}
 
 }
