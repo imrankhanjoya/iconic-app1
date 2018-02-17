@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
 
@@ -24,7 +24,7 @@ export class ProductPage {
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public PopularProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
+  constructor(public modalCtrl:ModalController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
   }
 
   ionViewDidLoad() { 
@@ -58,7 +58,7 @@ export class ProductPage {
   getPopularProduct(){ 
     setTimeout(() => {
       this.loading.dismiss();
-    });     
+    },3000);     
     this.productpro.PopularProduct().then((res)=>{
       this.PopularProducts.data = res.data;
       this.PopularProducts.msg = res.msg;
@@ -77,8 +77,9 @@ export class ProductPage {
 
 
   GetParentCatProduct(cat_id,type){
-      if (type!='home') { this.Crop = cat_id;    
+      this.Crop = cat_id;  
       this.activetabs = type;
+      if (type!='home') { this.Crop = cat_id;  
         this.loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
@@ -91,5 +92,20 @@ export class ProductPage {
         });
     }
 
+  }
+
+  openFilter(){
+    let modal = this.modalCtrl.create('ProductFilterPage');
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      console.log(popoverData)
+      if (popoverData.data!="") {
+          this.product_cat = popoverData.data.product_cat;
+          this.productbrand = popoverData.data.productbrand;
+          this.sortby = popoverData.data.sortby;
+          //this.getmarkets();
+        this.navCtrl.push('ProductFilterPage'); 
+      }
+    });
   }
 }

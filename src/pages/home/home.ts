@@ -596,7 +596,7 @@ export class HomePage {
     this.navCtrl.push('RentalsPage');
   }
   gotoNotificationPage(){
-    alert('test');
+    //alert('test');
     this.navCtrl.push('AnnouncementPage');
   }
   goToBlogPage(){

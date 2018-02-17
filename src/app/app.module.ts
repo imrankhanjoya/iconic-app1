@@ -37,8 +37,6 @@ import { MandiDetailsPage } from '../pages/mandi-details/mandi-details';
 import { WeatherPage } from '../pages/weather/weather';
 
 //plugns..
-
-
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
@@ -48,7 +46,6 @@ import { CroptyeProvider } from '../providers/croptye/croptye';
 import { CallProvider } from '../providers/call/call';
 import { ChartsModule } from 'ng2-charts';
 import { TabProvider } from '../providers/tab/tab';
-
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { ContactusProvider } from '../providers/contactus/contactus';
 import { WalletProvider } from '../providers/wallet/wallet';
