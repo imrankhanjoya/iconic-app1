@@ -9,7 +9,7 @@
       <ion-title>productlist</ion-title>
    </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
    <ion-card style="margin-top: 8px; " *ngIf="ChartLists.status==true"  >
       <ion-grid >
          <ion-row  *ngFor="let ChartList of ChartLists.data, let i = index " class=" separator " >
@@ -18,17 +18,23 @@
                   <img class="produtimg" src="{{ChartList.feature_image}}"/>
                </div>
             </ion-col>
-            <ion-col col-7>
-               <div class="sarsTitle1 colorGrey Headline">{{ChartList.name}}</div>
-               <div class="sarsTitle1 colorGrey Headline">{{ChartList.brand}}</div>
+            <ion-col col-8>
+               <ion-row>
+                  <div class="sarsTitle1 colorGrey Headline">{{ChartList.name}}</div>
+               </ion-row>
+               <ion-row>
+                  <div class="sarsTitle1 colorGrey Headline">Quantity: </div>
+               </ion-row>
+               
+               
             </ion-col>
-            <ion-col col-2>
-               <ion-icon class="back  " name="close"  (click)="RemoveProduct(ChartList.id)"></ion-icon>
+            <ion-col col-1>
+               <ion-icon class="back align-items-center align-self-center " name="close" (click)="RemoveProduct(ChartList.id)"></ion-icon>
             </ion-col>
          </ion-row>
       </ion-grid>
       <div  class="p_button">
-        <button class="p_1 colorGreen buttonGreen"  (click)="gotoproductlist()" >  Explore More </button>
+        <button class="p_1 colorGreen buttonGreen"  (click)="gotoproductlist()" >  Place Order </button>
       </div>
    </ion-card>
 </ion-content>
