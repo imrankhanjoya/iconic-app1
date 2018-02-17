@@ -17,14 +17,18 @@ import { LoadingController } from 'ionic-angular';
 })
 export class ProductPage {
   Crop: string = "home";
+  public loading :any;
+  public activetabs :any;
   public ParentCats: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public GroupCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public PopularProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
   }
 
-  ionViewDidLoad() {    
+  ionViewDidLoad() { 
+    this.activetabs = 'home';   
     console.log('ionViewDidLoad ProductPage');
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -53,7 +57,7 @@ export class ProductPage {
 
   getPopularProduct(){ 
     setTimeout(() => {
-      loading.dismiss();
+      this.loading.dismiss();
     });     
     this.productpro.PopularProduct().then((res)=>{
       this.PopularProducts.data = res.data;
@@ -69,5 +73,23 @@ export class ProductPage {
       this.GroupCatProducts.msg = res.msg;
       this.GroupCatProducts.status = res.status;
     });
+  }
+
+
+  GetParentCatProduct(cat_id,type){
+      if (type!='home') { this.Crop = cat_id;    
+      this.activetabs = type;
+        this.loading = this.loadingCtrl.create({
+            content: 'Please wait...'
+        });
+        this.loading.present();
+        this.productpro.ParentCatProduct(cat_id).then((res)=>{
+          this.ChildCatProducts.data = res.data;
+          this.ChildCatProducts.msg = res.msg;
+          this.ChildCatProducts.status = res.status;
+          this.loading.dismiss();
+        });
+    }
+
   }
 }

@@ -19,8 +19,23 @@ import { TranslateService } from '@ngx-translate/core';
 export class ProductlistviwePage {
   public id:any;
   public loading:any;
+  public aniName:any;
+  public textSlide:any;
   public ProductViewDatas: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    
+  constructor(public translateService: TranslateService,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) { 
+      this.textSlide='';
+      this.buttonOnCloseCSS='';
+
+      this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
+        this.CANCEL_BUTTON= value;
+      });
+      this.translateService.get('CALL').subscribe((value) => {
+        this.CALL= value;
+      });
+      this.translateService.get('CALL_TOLLFREE').subscribe((value) => {
+        this.CALL_TOLLFREE= value;
+      });   
+
     this.id=navParams.get('id');
     console.log('this is product id'+this.id);
   }
@@ -58,7 +73,24 @@ export class ProductlistviwePage {
         if (res.status!=true) {
             this.navCtrl.push('MarketPage');
         }
+        setTimeout(() => {
+          this.startAnimitio();
+        }, 1000);
       });
+  }
+
+  
+  startAnimitio(){
+      this.buttonOnCloseCSS="buttonOnClose";
+      this.aniName="openCallButton";
+      this.textSlide="fadeInLeftMarket"
+      setTimeout(() => {
+        this.textSlide="textGoingBack"
+      }, 3000);
+
+      setTimeout(() => {
+        this.aniName="closeCallButton"
+      }, 4000);
   }
 
 }

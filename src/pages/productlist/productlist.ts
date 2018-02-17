@@ -32,9 +32,11 @@ export class ProductlistPage {
     this.loading.present();
     this.getChartList();
   }
+
   gotoproducttype(){
     this.navCtrl.push('ProducattypePage');
   }
+
   gotoproductlist(){
     this.navCtrl.push('MarketPage');
   }
@@ -51,5 +53,10 @@ export class ProductlistPage {
     });
   }
 
-
+  RemoveProduct(id){
+    console.log(id);
+    this.productpro.RemoveChart(id).then((res)=>{
+      this.getChartList();
+    });
+  }
 }

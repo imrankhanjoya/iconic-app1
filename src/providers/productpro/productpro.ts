@@ -42,11 +42,29 @@ export class ProductproProvider {
 	      });  
 	    });
   	}
+
+    ChildCatProduct(parent_id) {
+		var paramCond ={parent_id:parent_id,lang:this.api.userLanguage};
+	    return new Promise((resolve)=>{
+	      this.api.getCache('v1/products/child-cat-product', paramCond).then((productlistData)=>{
+	        resolve(productlistData);
+	      });  
+	    });
+  	}
+
+    ParentCatProduct(parent_id) {
+		var paramCond ={parent_id:parent_id,lang:this.api.userLanguage};
+	    return new Promise((resolve)=>{
+	      this.api.getCache('v1/products/parent-cat-product', paramCond).then((productlistData)=>{
+	        resolve(productlistData);
+	      });  
+	    });
+  	}
   	
     ProductView(id) {
 	  	var paramCond ={product_id:id,lang:this.api.userLanguage};
 	  	return new Promise((resolve)=>{
-      	this.api.getCache('v1/product/view', paramCond).then((ProductViewData)=>{
+      	this.api.getCache('v1/products/view', paramCond).then((ProductViewData)=>{
 	        resolve(ProductViewData);
 	      });  
 	    });
@@ -84,8 +102,8 @@ export class ProductproProvider {
 		let body = new FormData();
         body.append('user_id',this.api.userData.ID);
         body.append('pid',pid);
-        body.append('sku',pid);
-		let seq = this.api.post('/v1/products/add-chart&user_id=1&id=1',body).share();
+        body.append('sku',sku);
+		let seq = this.api.post('/v1/products/add-chart',body).share();
 	    seq
 	      .map(res => res.json())
 	      .subscribe(res => {
@@ -98,6 +116,15 @@ export class ProductproProvider {
 	      });
 
 	    return seq;
+	}
+
+	RemoveChart(id) {
+	  	var paramCond ={user_id:this.api.userData.ID,id:id};
+	  	return new Promise((resolve)=>{
+      	this.api.getCache('v1/products/remove-chart', paramCond).then((ProductViewData)=>{
+	        resolve(ProductViewData);
+	      });  
+	    });
 	}
 
 }
