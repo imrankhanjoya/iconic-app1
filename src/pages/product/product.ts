@@ -23,6 +23,7 @@ export class ProductPage {
   public GroupCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public PopularProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public PromoBanners: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   
   constructor(public modalCtrl:ModalController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
   }
@@ -34,6 +35,7 @@ export class ProductPage {
         content: 'Please wait...'
     });
     this.loading.present();
+    this.getPromoBanner();
     this.getParentCat();
     this.getPopularProduct();
     this.getGroupCatProduct();
@@ -52,6 +54,14 @@ export class ProductPage {
       this.ParentCats.data = res.data;
       this.ParentCats.msg = res.msg;
       this.ParentCats.status = res.status;
+    });
+  }
+  
+  getPromoBanner(){     
+    this.productpro.PromoBanner().then((res)=>{
+      this.PromoBanners.data = res.data;
+      this.PromoBanners.msg = res.msg;
+      this.PromoBanners.status = res.status;
     });
   }
 

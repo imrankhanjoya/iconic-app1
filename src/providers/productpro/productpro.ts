@@ -16,6 +16,15 @@ export class ProductproProvider {
     	console.log('Hello ProductproProvider Provider');
 	}
 
+    PromoBanner() {
+		var paramCond ={lang:this.api.userLanguage};
+	    return new Promise((resolve)=>{
+	      this.api.getCache('v1/products/promo-banner', paramCond).then((productlistData)=>{
+	        resolve(productlistData);
+	      });  
+	    });
+  	}
+
     ParentCat() {
 		var paramCond ={lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{

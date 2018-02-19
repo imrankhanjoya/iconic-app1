@@ -34,14 +34,8 @@
 <div *ngSwitchCase="'home'">
 
 <ion-slides class="newcard" [slidesPerView]="'1.05'" > 
-  <ion-slide class="img_slide" >
-      <img class="slide_img" src="assets/img/market.jpeg" > 
-  </ion-slide>
-   <ion-slide class="img_slide" >
-      <img class="slide_img" src="assets/img/e-triding.jpeg" > 
-  </ion-slide>
-    <ion-slide class="img_slide"   >
-      <img class="slide_img" src="assets/img/market.jpeg" > 
+  <ion-slide *ngFor="let PromoBanner of PromoBanners.data;" class="img_slide" >
+      <img class="slide_img" src="{{PromoBanner.image}}" > 
   </ion-slide>
 </ion-slides>
 <!---*******Krishi Jannkari Section******-->
@@ -54,7 +48,7 @@
 </ion-grid>
 
 <ion-slides [slidesPerView]="'auto'">
-   <ion-slide class="slideItem"  *ngFor="let productData of PopularProducts.data;" class="slideItem">
+   <ion-slide  *ngFor="let productData of PopularProducts.data;" class="slideItem">
       <ion-card (click)="gotoProductViewPage(productData.id)">
          <img class="produtimage" src="{{productData.feature_image}}"/>
          <div class="title colorGrey Headline">{{productData.name}}</div>

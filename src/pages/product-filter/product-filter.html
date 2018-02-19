@@ -33,7 +33,7 @@
                <ion-option  *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
             </ion-select>
           </ion-item>
-          <ion-item class="separator colorGrey">
+          <ion-item style="display: none;" class="separator colorGrey">
             <ion-label>{{'SORT_BY' | translate}}</ion-label>
             <ion-select formControlName="sortby" >
                <ion-option value='id desc'>{{'NEWEST_FIRST' | translate}}</ion-option>
