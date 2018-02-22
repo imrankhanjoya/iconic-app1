@@ -34,6 +34,15 @@ export class ProductproProvider {
 	    });
   	}
 
+    ChildCat(parent_id) {
+		var paramCond ={parent_id:parent_id,lang:this.api.userLanguage};
+	    return new Promise((resolve)=>{
+	      this.api.getCache('v1/products/child-cat', paramCond).then((productlistData)=>{
+	        resolve(productlistData);
+	      });  
+	    });
+  	}
+
     PopularProduct() {
 		var paramCond ={lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{
@@ -61,8 +70,8 @@ export class ProductproProvider {
 	    });
   	}
 
-    ParentCatProduct(parent_id) {
-		var paramCond ={parent_id:parent_id,lang:this.api.userLanguage};
+    ParentCatProduct(parent_id,category_id=0) {
+		var paramCond ={parent_id:parent_id,category_id:category_id,lang:this.api.userLanguage};
 	    return new Promise((resolve)=>{
 	      this.api.getCache('v1/products/parent-cat-product', paramCond).then((productlistData)=>{
 	        resolve(productlistData);
@@ -107,12 +116,35 @@ export class ProductproProvider {
 	    return seq;
 	}
 
-	AddtoChart(pid,sku) {
+	AddtoChart(pid,sku,quantity) {
 		let body = new FormData();
         body.append('user_id',this.api.userData.ID);
-        body.append('pid',pid);
+        body.append('product_id',pid);
         body.append('sku',sku);
+        body.append('quantity',quantity);
 		let seq = this.api.post('/v1/products/add-chart',body).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+
+	    return seq;
+	}
+
+	Order(pid,sku,quantity,amount) {
+		let body = new FormData();
+        body.append('user_id',this.api.userData.ID);
+        body.append('product_id',pid);
+        body.append('sku',sku);
+        body.append('quantity',quantity);
+        body.append('amount',amount);
+		let seq = this.api.post('/v1/products/single-order',body).share();
 	    seq
 	      .map(res => res.json())
 	      .subscribe(res => {

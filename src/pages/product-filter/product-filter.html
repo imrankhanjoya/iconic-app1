@@ -29,17 +29,14 @@
         </div>
          <ion-item  class="separator colorGrey">
            <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
-            <ion-select formControlName="product_cat" multiple="true" >
-               <ion-option  *ngFor="let catData of catDatas.data;" value={{catData.term_id}}>{{catData.cat_name}}</ion-option>
+            <ion-select formControlName="parent_cat" #parent_cat (ionChange)="getChildCats(parent_cat.value)">
+               <ion-option  *ngFor="let ParentCat of ParentCats.data;" value={{ParentCat.id}}>{{ParentCat.cat_name}}</ion-option>
             </ion-select>
           </ion-item>
-          <ion-item style="display: none;" class="separator colorGrey">
-            <ion-label>{{'SORT_BY' | translate}}</ion-label>
-            <ion-select formControlName="sortby" >
-               <ion-option value='id desc'>{{'NEWEST_FIRST' | translate}}</ion-option>
-               <ion-option value='status desc'>{{'POPULARITY' | translate}}</ion-option>
-               <ion-option value='buying_price asc'>{{'PRICE_LOW_TO_HIGH' | translate}}</ion-option>
-               <ion-option value='buying_price desc'>{{'PRICE_HIGH_TO_LOW' | translate}}</ion-option>
+         <ion-item  class="separator colorGrey">
+           <ion-label>{{'SELECT_PRODUCT_CATEGORY' | translate}}</ion-label>
+            <ion-select formControlName="child_cat" >
+               <ion-option  *ngFor="let ChildCat of ChildCats.data;" value={{ChildCat.id}}>{{ChildCat.cat_name}}</ion-option>
             </ion-select>
           </ion-item>
             <div  >

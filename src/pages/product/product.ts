@@ -64,6 +64,15 @@ export class ProductPage {
       this.PromoBanners.status = res.status;
     });
   }
+  
+  PromoClick(type,type_value){ 
+    if (type=='product') {
+      this.navCtrl.push('ProductlistviwePage',{id:type_value}); 
+    }
+    if (type=='category') {
+      this.GetParentCatProduct('','cat',type_value);
+    }
+  }
 
   getPopularProduct(){ 
     setTimeout(() => {
@@ -85,8 +94,7 @@ export class ProductPage {
     });
   }
 
-
-  GetParentCatProduct(cat_id,type){
+  GetParentCatProduct(cat_id,type,category_id){
       this.Crop = cat_id;  
       this.activetabs = type;
       if (type!='home') { this.Crop = cat_id;  
@@ -94,7 +102,7 @@ export class ProductPage {
             content: 'Please wait...'
         });
         this.loading.present();
-        this.productpro.ParentCatProduct(cat_id).then((res)=>{
+        this.productpro.ParentCatProduct(cat_id,category_id).then((res)=>{
           this.ChildCatProducts.data = res.data;
           this.ChildCatProducts.msg = res.msg;
           this.ChildCatProducts.status = res.status;
@@ -110,11 +118,10 @@ export class ProductPage {
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)
       if (popoverData.data!="") {
-          this.product_cat = popoverData.data.product_cat;
-          this.productbrand = popoverData.data.productbrand;
-          this.sortby = popoverData.data.sortby;
-          //this.getmarkets();
-        this.navCtrl.push('ProductFilterPage'); 
+          this.parent_cat = popoverData.data.parent_cat;
+          this.child_cat = popoverData.data.child_cat;
+          this.GetParentCatProduct(this.parent_cat,'cat',this.child_cat);
+          //this.navCtrl.push('ProductFilterPage'); 
       }
     });
   }

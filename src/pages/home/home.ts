@@ -10,6 +10,7 @@ import { KrishProvider } from '../../providers/krish/krish';
 import { ExpertsProvider } from '../../providers/experts/experts';
 import { Geolocation } from '@ionic-native/geolocation';
 import { MarketproProvider } from '../../providers/marketpro/marketpro';
+import { ProductproProvider } from '../../providers/productpro/productpro';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { AnnouncementproProvider } from '../../providers/announcementpro/announcementpro';
 import { CallProvider } from '../../providers/call/call';
@@ -58,6 +59,7 @@ export class HomePage {
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public usertopcard: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
+  public ParentCats:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
   public userCropIdList:string='';
@@ -77,7 +79,7 @@ export class HomePage {
   public exitAlertMess:any;
   constructor(public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
-    public experts:ExpertsProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
+    public experts:ExpertsProvider,public productpro:ProductproProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public event:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
     public viewCtrl:ViewController,public splashScreen:SplashScreen,public modalCtrl:ModalController) {
@@ -210,6 +212,7 @@ export class HomePage {
         this.get_expert();
         this.getannouncement();
         this.weatherfivedays(this.tehsil);
+        this.getParentCat();
         //this.getMandiDetails(this.tehsil);
         //this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
@@ -322,8 +325,14 @@ export class HomePage {
         this.newsData.status = res.status;
     });
   }
-
-
+  
+  getParentCat(){     
+    this.productpro.ParentCat().then((res)=>{
+      this.ParentCats.data = res.data;
+      this.ParentCats.msg = res.msg;
+      this.ParentCats.status = res.status;
+    });
+  }
 
   getmarkets(){
   //console.log('getmarkets');
@@ -554,7 +563,7 @@ export class HomePage {
        'appEventLabel': 'Market - View More'
      });
      dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('MarketPage');
+    this.navCtrl.push('ProductPage');
   }
 
   gotoMarketViewPage(product_id,name,sku){

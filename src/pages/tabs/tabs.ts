@@ -99,10 +99,11 @@ export class TabsPage {
   gotoChoupal(){
     this.navCtrl.push('ChoupalPage');
   }
+  gotoMarket(){
+    this.navCtrl.push('ProductPage');
+  }
   gotoSava(){
-
     // this.navCtrl.push('KrishCenterPage');
-
     //this is function Check GPS on or off
     this.appVersion.getPackageName((version)=>{
         if (version=="true") {

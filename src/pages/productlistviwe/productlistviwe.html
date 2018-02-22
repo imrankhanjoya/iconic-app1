@@ -7,15 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Product Detail</ion-title>
+    <ion-title>{{ProductViewDatas.data.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content >
-  <ion-card  *ngIf="ProductViewDatas.status==true" style="height: 100%;" >
-  	<div class=" paddingbutom_pro" >
+<ion-content padding>
 	   <ion-row  style="height: 20%; ">
 			<ion-col col-4>
 				<img style=" max-height: 130px;"  src="{{ProductViewDatas.data.feature_image}}"/>
@@ -37,42 +35,38 @@
 			   	</div>
 			</ion-col>
 		</ion-row>
-	</div>
   <ion-row  *ngIf="ProductViewDatas.status==true">
 	<div class="separator" >
-		<div class="paddingLeft colorGrey paddingBottom Headline">
+		<div class="paddingTop paddingLeft colorGrey paddingBottom Headline">
 			{{ProductViewDatas.data.description}}	
 		</div>
 	</div>
   </ion-row>
 <ion-row>
-	<div class="smallTitle fontBold colorGrey paddingbutom_pro paddingTop paddingLeft" >Place order now</div>
+	<div class="smallTitle fontBold colorGrey paddingbutom_pro paddingTop paddingLeft" >Place Order Now</div>
 	<div class="paddingLeft colorGrey Headline paddingTop" >Place your order now and speak with our customer representative for speedy delivery</div>
 		
 	</ion-row>
 		<ion-item class="paddingTop colorGrey">
-          <ion-label class="colorGrey floatLeft " >Choose value</ion-label>
-     <ion-select [(ngModel)]="gender">
-       <ion-option value="f">1 kg</ion-option>
-       <ion-option value="m">2 kg</ion-option>
-        <ion-option value="j">3 kg</ion-option>
-        <ion-option value="k">4 kg</ion-option>
-     </ion-select>
+        <ion-label class="colorGrey floatLeft ">{{'CHOOSE_WEIGHT' | translate}}</ion-label>
+	     <ion-select [(ngModel)]="sku" >
+	       <ion-option *ngFor="let skuall of ProductViewDatas.data.all_sku" value="{{skuall.sku}}">{{skuall.weight}}</ion-option>
+	     </ion-select>
     </ion-item>
     <ion-row >
 		<ion-col col-4>
-		    <ion-label  class="padding_Left floatLeft "  >Choose value</ion-label>
+		    <ion-label  class="padding_Left floatLeft "  >{{'CHOOSE_QUANTITY' | translate}}</ion-label>
 		</ion-col>
 		<ion-col col-8>	 
 		  <ion-row class="paddingTop8px paddingLeft">
-		<ion-col col-1	>
-		 <ion-icon class=" floatRight"  name="add" ></ion-icon>
+		<ion-col col-1	 *ngIf="quantity > 1" >
+		 <ion-icon class=" floatRight"  name="remove" (click)="min()"></ion-icon>
 		 </ion-col>
 		 <ion-col col-2>
-		 <div class="alignCenter">1</div>
+		 <div class="alignCenter">{{quantity}}</div>
 		 </ion-col>
 		 	<ion-col col-1>
-	       <ion-icon  class="floatLeft" name="remove" ></ion-icon>
+	       <ion-icon  class="floatLeft" name="add" (click)="add()"></ion-icon>
 	       </ion-col>
 	       </ion-row>
 		</ion-col>
@@ -80,30 +74,59 @@
   	<ion-row  class=" separator ">
 		<ion-col col-5>	
 			<div class="padding_Left"> 
-	       		<button   ion-button type="submit">buy now</button>
-	       </div>
+	       		<button   ion-button type="submit" (click)="OrderBuyConfirm(ProductViewDatas.data.sku)">
+	       			{{'BUY_NOW' | translate}}
+	       		</button>
+	       	</div>
 	  	</ion-col>
 	    <ion-col col-7>
-	  	  	<div class=" colorGreen paddingTop paddingLeft"  (click)="AddtoChart(ProductViewDatas.data.sku)" >add to cart </div>
+	  	  	<div class=" colorGreen paddingTop paddingLeft" (click)="AddtoChart(ProductViewDatas.data.sku)">{{'ADD_TO_CART' | translate}}</div>
 	  	</ion-col>
+	</ion-row>	
+	<ion-row *ngIf="ProductViewDatas.status==true">
+		<ion-row >
+			<div class="paddingLeft smallTitle fontBold colorGrey paddingTop paddingBottom">{{'SPECIFICATIONS' | translate}}</div>
+		</ion-row >
+		<ion-row *ngFor="let ProductDetail of ProductViewDatas.data.alldetail, let i = index " class="fullWidth paddingLeft ">
+			<ion-col col-5 class="marketViewGridTitle">
+				{{ProductDetail.label}}
+			</ion-col>
+			<ion-col col-7 class="marketViewGridContent">
+				{{ProductDetail.value}}
+			</ion-col>
+		</ion-row>
 	</ion-row>
-	<div class="smallTitle fontBold colorGrey paddingbutom_pro paddingTop paddingLeft" >
-	 	{{'SPECIFICATIONS' | translate}}
-	</div>
-	<ion-row  *ngFor="let ProductDetail of ProductViewDatas.data.alldetail, let i = index ">
-	<ion-col col-6><div class="padding_Left" >{{ProductDetail.label}}</div></ion-col>
-	<ion-col col-6><div>{{ProductDetail.value}}</div></ion-col>
-	</ion-row>
-	  	  <div col-12 style="position: fixed; top:80%">
+	<div col-12 style="position: fixed; top:80%;z-index: 999999;">
 		<a (click)="mackCall()" >
 		<button ion-button  class="{{aniName}} buttonOnClose buttonGreen"  style="margin-right:20px;">
 	  	<ion-icon name="call" class="displayOneFont" style="padding-left: 55px; padding-right:15px"></ion-icon>
 	  	<div  class="{{textSlide}} smallTitle" style="opacity: 0;">
-	  		CLICK
+	  		{{'CLICK_TO_CALL' | translate}}
 		</div>
 	   </button>
 	   </a>
 	</div>
-</ion-card>
+
+<!---*******Krishi Jannkari Section******-->
+<ion-grid>
+   <ion-row>
+      <ion-col class="krishisevayen-cardHeader">
+         <div class="headerClass">{{'RELATED_PRODUCTS' | translate}}</div>
+      </ion-col>
+   </ion-row>
+</ion-grid>
+<ion-slides [slidesPerView]="'auto'">
+   <ion-slide class="slideItem" *ngFor="let productData of ChildCatProducts.data;" >
+      <ion-card (click)="gotoProductViewPage(productData.id)">
+         <img class="produtimage" src="{{productData.feature_image}}"/>
+         <div class="title colorGrey Headline">{{productData.name}}</div>
+         <div class="detailSar colorGreen smallTitle" > 
+            <a style="text-decoration: none;">
+            {{'SEE_DETAIL' | translate}}
+            </a>
+         </div>
+      </ion-card>
+   </ion-slide>
+</ion-slides>
 </ion-content>
  

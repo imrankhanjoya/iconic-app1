@@ -347,5 +347,15 @@
   "TURN_ON_GPS": "GPS स्थान चालू करें",
   "POWERED_BY": "सौजन्य से",
   "NO_MARKET_DISTRICT": "इस जिले के लिए कोई बाजार नहीं है",
-  "SEVA_KENDAR_TITLE":"एग्रीबोलो किसान सेवा केंद्र।"
+  "SEVA_KENDAR_TITLE":"एग्रीबोलो किसान सेवा केंद्र।",
+  "VIEW_MORE_PRODUCTS":"अधिक उत्पादों को देखें",
+  "RELATED_PRODUCTS":"संबंधित उत्पाद",
+  "CHOOSE_WEIGHT":"वजन चुनें",
+  "CHOOSE_QUANTITY":"मात्रा चुनें",
+  "PLACE_ORDER":"ऑर्डर दें",
+  "ADD_TO_CART":"कार्ट में डालें",
+  "BUY_NOW":"खरीदें",
+  "VIEW":"दृश्य",
+  "ORDER_ALERT":"ऑर्डर दें",
+  "ORDER_ALERT_DESC":"अपने आदेश को अभी रखें और शीघ्र वितरण के लिए हमारे ग्राहक प्रतिनिधि से बात करें"
 }

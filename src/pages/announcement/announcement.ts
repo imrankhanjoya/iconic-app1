@@ -58,7 +58,7 @@ export class AnnouncementPage {
        this.navCtrl.push('QuitionviewPage',{QuitionID:type_value})
       }
       if (type=='weather') {
-        this.navCtrl.push(WeatherPage);
+        this.navCtrl.push('WeatherPage',{WeatherPage:type_value});
       }
   }
 

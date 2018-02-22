@@ -346,5 +346,15 @@
   "TURN_ON_GPS": "Turn on GPS Location",
   "POWERED_BY": "Powered by",
   "NO_MARKET_DISTRICT": "There is no Market for this District",
-  "SEVA_KENDAR_TITLE":"AgriBolo Kisan Seva Kendra."
+  "SEVA_KENDAR_TITLE":"AgriBolo Kisan Seva Kendra.",
+  "VIEW_MORE_PRODUCTS":"View More Products",
+  "RELATED_PRODUCTS":"Related Products",
+  "CHOOSE_WEIGHT":"Choose Weight",
+  "CHOOSE_QUANTITY":"Choose Weight",
+  "PLACE_ORDER":"Place Order",
+  "ADD_TO_CART":"Add to Cart",
+  "BUY_NOW":"BUY NOW",
+  "VIEW":"View",
+  "ORDER_ALERT":"Place Order Now",
+  "ORDER_ALERT_DESC":"Place your order now and speak with our customer representative for speedy delivery"
 }

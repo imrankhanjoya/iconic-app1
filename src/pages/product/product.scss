@@ -67,18 +67,24 @@ page-product {
     }
      .produtimg{
            padding-top: 5px;
-          max-height: 102px;
+          max-height: 120px;
           padding-bottom: 5px;
-          height: 90px;
+          height: 120px;
           max-width: 124px;
           margin: auto;
 	  } 
+    .produtimage {
+        max-height: 120px;
+        max-width: 120px;
+        margin: auto;
+    }
 	  .sarsTitle1{
        text-align: center;
        width: 100%;
        padding-top: 5%;
        font-style: oblique;
        display: inline-block;
+       height:45px;
       }
       .arrow_icon{
       	    float: right !important;
@@ -98,6 +104,22 @@ page-product {
         width: 100% !important;
         max-width: 96%;
         height: 158px;
+    }
+
+
+    .toolbar-content.toolbar-content-md {
+        width: auto;
+        overflow-x: scroll;
+    }
+    .segment-md .segment-button{
+        color: #ffffff;
+        background-color:#101c00 !important; 
+    }
+    ion-segment.backnew.segment.segment-md.ng-untouched.ng-pristine.ng-valid{ width:150% !important;}
+
+    .toolbar-content.toolbar-content-md {
+        width: auto;
+        overflow-x: scroll;
     }
     
 }

@@ -34,7 +34,7 @@ export class AnnouncementproProvider {
 	}
 
 	NotificationtList(limit) {	  
-		var paramCond ={limit:limit,lang:this.api.userLanguage,tehsil:this.api.userData._user_tehsil,state:this.api.userData._user_district,state:this.api.userData._user_state,user:this.api.userData.user_login};
+		var paramCond ={limit:limit,lang:this.api.userLanguage,tehsil:this.api.userData._user_tehsil,district:this.api.userData._user_district,state:this.api.userData._user_state,user:this.api.userData.user_login};
 	    let seq = this.api.get('v1/announcement/notification-all', paramCond).share();
 	    seq
 	      .map(res => res.json())
