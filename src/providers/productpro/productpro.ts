@@ -115,6 +115,23 @@ export class ProductproProvider {
 
 	    return seq;
 	}
+  
+	OrderList() {
+	  	var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
+	    let seq = this.api.get('v1/products/order-list', paramCond).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+	     console.log('get function for chatlist');
+	    return seq;
+	}
 
 	AddtoChart(pid,sku,quantity) {
 		let body = new FormData();
@@ -145,6 +162,24 @@ export class ProductproProvider {
         body.append('quantity',quantity);
         body.append('amount',amount);
 		let seq = this.api.post('/v1/products/single-order',body).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+
+	    return seq;
+	}
+
+	CartOrder() {
+		let body = new FormData();
+        body.append('user_id',this.api.userData.ID);
+		let seq = this.api.post('/v1/products/order-chart',body).share();
 	    seq
 	      .map(res => res.json())
 	      .subscribe(res => {

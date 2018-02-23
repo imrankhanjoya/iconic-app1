@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 
 /**
  * Generated class for the ProductlistPage page.
@@ -20,8 +21,17 @@ export class ProductlistPage {
   public loading:any;
 
   public ChartLists: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    
-    this.user_id=navParams.get('user_id');
+  constructor(private alertCtrl: AlertController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider,public translateService: TranslateService) {    
+    this.user_id=navParams.get('user_id'); 
+    this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
+      this.CANCEL_BUTTON= value;
+    });
+    this.translateService.get('ORDER_ALERT').subscribe((value) => {
+      this.ORDER_ALERT = value;
+    }); 
+    this.translateService.get('ORDER_ALERT_DESC').subscribe((value) => {
+      this.ORDER_ALERT_DESC= value;
+    }); 
   }
 
   ionViewDidLoad() {
@@ -42,7 +52,7 @@ export class ProductlistPage {
   }
 
   getChartList(){
-    this.productpro.ChartListsPro('add').map(res => res.json()).subscribe((res) => {
+      this.productpro.ChartListsPro('add').map(res => res.json()).subscribe((res) => {
       this.ChartLists.data = res.data;
       this.ChartLists.msg = res.msg; 
       this.ChartLists.status = res.status;
@@ -54,9 +64,41 @@ export class ProductlistPage {
   }
 
   RemoveProduct(id){
-    console.log(id);
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+    this.loading.present();
     this.productpro.RemoveChart(id).then((res)=>{
-      this.getChartList();
+    this.getChartList();
     });
   }
+
+  OrderpProduct(){
+    this.BuyConfirm();
+  }
+
+  BuyConfirm(sku) {
+    let alert = this.alertCtrl.create({
+      title: this.ORDER_ALERT,
+      message: this.ORDER_ALERT_DESC,
+      buttons: [
+        {
+          text: this.CANCEL_BUTTON,
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: this.ORDER_ALERT,
+          handler: () => {
+            this.productpro.CartOrder();
+            this.navCtrl.push('ProducattypePage');
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
 }

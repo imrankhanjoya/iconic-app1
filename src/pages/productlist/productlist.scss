@@ -16,8 +16,10 @@ page-productlist {
       }
       .back{
          text-align: center!important;
-          padding-top: 50%;
-      }.p_button{
+          padding-top: 200%;
+          font-size: 1.5em;
+      }
+      .p_button{
       width:100% !important;
       margin:auto;
       color:#5f8b05;
@@ -30,6 +32,10 @@ page-productlist {
         height: 41px;
         font-size: 15px;
         color: #ffffff;
+    }
+
+    ion-slides {
+        height: 50% !important;
     }
 
 

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ProductlistviwePage page.
@@ -24,7 +25,8 @@ export class ProductlistviwePage {
   public textSlide:any;
   public ProductViewDatas: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(private alertCtrl: AlertController,public translateService: TranslateService,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) { 
+  public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
+  constructor(public storage:Storage,private alertCtrl: AlertController,public translateService: TranslateService,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) { 
       this.textSlide='';
       this.buttonOnCloseCSS='';
 
@@ -43,7 +45,11 @@ export class ProductlistviwePage {
       this.translateService.get('ORDER_ALERT_DESC').subscribe((value) => {
         this.ORDER_ALERT_DESC= value;
       }); 
-      this.quantity = 1;  
+      this.quantity = 1; 
+
+      this.storage.get('userData').then((val) => { 
+        this.ContactSendData = val; 
+      });
 
     this.id=navParams.get('id');
     console.log('this is product id'+this.id);
@@ -58,7 +64,7 @@ export class ProductlistviwePage {
     this.getProductView();
   }
 
-  min (i) { this.quantity--; }
+  min (i) { if(this.quantity > 1) { this.quantity--; } }
 
   add (i) { this.quantity++; }
   
@@ -104,6 +110,22 @@ export class ProductlistviwePage {
         this.ChildCatProducts.status = res.status;
         console.log(res);
       });
+  }
+
+  openFilter(){
+    this.ContactSendData.contact_type = 'product';
+    this.ContactSendData.contact_id = this.ProductViewDatas.data.id;
+    this.ContactSendData.user_id = this.ContactSendData.ID;
+    this.ContactSendData.subject = this.ProductViewDatas.data.name;
+    this.ContactSendData.message = this.ProductViewDatas.data.slug;
+    this.ContactSendData.sku = this.ProductViewDatas.data.sku;
+    let modal = this.modalCtrl.create('PriceRequestFilterPage',{formdata:this.ContactSendData});
+    modal.present();
+    modal.onDidDismiss((popoverData) => {
+      if (popoverData.data!="") {
+        //this.navCtrl.push(WeatherPage,{formdata:popoverData.data, fromFilter:true}); 
+      }
+    });
   }
   
   startAnimitio(){

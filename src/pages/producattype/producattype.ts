@@ -18,7 +18,7 @@ import { LoadingController } from 'ionic-angular';
 export class ProducattypePage {
   public loading:any;
 
-  public ChartLists: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public OrderLists: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    
   }
 
@@ -28,18 +28,19 @@ export class ProducattypePage {
         content: 'Please wait...'
     });
     this.loading.present();
-    this.getChartList();
-  }
-  gotoproductlist(){
-    this.navCtrl.push('MarketPage');
+    this.getOrderList();
   }
 
-  getChartList(){
-    this.productpro.ChartListsPro('order').map(res => res.json()).subscribe((res) => {
+  gotoproductlist(){
+    this.navCtrl.push('ProductPage');
+  }
+
+  getOrderList(){
+    this.productpro.OrderList().map(res => res.json()).subscribe((res) => {
       console.log(res);
-      this.ChartLists.data = res.data;
-      this.ChartLists.msg = res.msg; 
-      this.ChartLists.status = res.status;
+      this.OrderLists.data = res.data;
+      this.OrderLists.msg = res.msg; 
+      this.OrderLists.status = res.status;
       this.loading.dismiss();
       if (res.status!=true) {
           this.navCtrl.push('MarketPage');

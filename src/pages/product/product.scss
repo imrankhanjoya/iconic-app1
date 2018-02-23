@@ -1,5 +1,5 @@
 page-product {
- .krishisevayen-cardHeader{
+      .krishisevayen-cardHeader{
             text-align: center;
             font-size: 2rem;
             border-bottom: 4px;
@@ -104,22 +104,6 @@ page-product {
         width: 100% !important;
         max-width: 96%;
         height: 158px;
-    }
-
-
-    .toolbar-content.toolbar-content-md {
-        width: auto;
-        overflow-x: scroll;
-    }
-    .segment-md .segment-button{
-        color: #ffffff;
-        background-color:#101c00 !important; 
-    }
-    ion-segment.backnew.segment.segment-md.ng-untouched.ng-pristine.ng-valid{ width:150% !important;}
-
-    .toolbar-content.toolbar-content-md {
-        width: auto;
-        overflow-x: scroll;
     }
     
 }

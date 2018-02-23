@@ -353,8 +353,15 @@
   "CHOOSE_QUANTITY":"Choose Weight",
   "PLACE_ORDER":"Place Order",
   "ADD_TO_CART":"Add to Cart",
+  "CART_LIST":"Product Cart List",
   "BUY_NOW":"BUY NOW",
+  "CONGRATULATION":"Congratulations",
   "VIEW":"View",
   "ORDER_ALERT":"Place Order Now",
-  "ORDER_ALERT_DESC":"Place your order now and speak with our customer representative for speedy delivery"
+  "ORDER_ALERT_DESC":"Place your order now and speak with our customer representative for speedy delivery",
+  "ORDER_MESSAGE1":"Your order is successfully placed. Our customer representative will call you shortly for confirmation for a speedy delivery! ",
+  "ORDER_MESSAGE2":"your order ID is  ",
+  "ORDER_MESSAGE_CALL":"Alternatively, call on our toll free number 18001200800 now ",
+  "ORDER_MESSAGE_SUMMARY":"Here is your order summary for your reference:",
+  "ORDER_LIST":"Order List"
 }
