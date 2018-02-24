@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController,ViewController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,ViewController, LoadingController, NavParams } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
@@ -21,6 +21,7 @@ export class ProductFilterPage {
   	public ParentCats: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   	  public ChildCats: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   	  constructor(
+          public loadingCtrl:LoadingController,
           public navCtrl: NavController,
   				public navParams: NavParams,
   				public viewCtrl:ViewController,
@@ -34,6 +35,13 @@ export class ProductFilterPage {
   	}
    
     ionViewDidLoad() {
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present();
+      setTimeout(() => {
+          this.loading.dismiss();
+        }, 4000);
       dataLayer : [];
       dataLayer.push({
         'screenName': 'MarketFilterPage'
@@ -48,14 +56,23 @@ export class ProductFilterPage {
         this.ParentCats.data = res.data;
         this.ParentCats.msg = res.msg;
         this.ParentCats.status = res.status;
+        this.loading.dismiss();
       });
     }
   
-    getChildCats(parent_id){     
+    getChildCats(parent_id){
+      this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+      });
+      this.loading.present(); 
+      setTimeout(() => {
+          this.loading.dismiss();
+      }, 3000); 
       this.productpro.ChildCat(parent_id).then((res)=>{
         this.ChildCats.data = res.data;
         this.ChildCats.msg = res.msg;
         this.ChildCats.status = res.status;
+        this.loading.dismiss();
       });
     }
 
