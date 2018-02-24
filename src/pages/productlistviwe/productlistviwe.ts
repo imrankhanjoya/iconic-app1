@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -26,7 +26,7 @@ export class ProductlistviwePage {
   public ProductViewDatas: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
-  constructor(public storage:Storage,private alertCtrl: AlertController,public translateService: TranslateService,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) { 
+  constructor(public modalCtrl:ModalController,public storage:Storage,private alertCtrl: AlertController,public translateService: TranslateService,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) { 
       this.textSlide='';
       this.buttonOnCloseCSS='';
 

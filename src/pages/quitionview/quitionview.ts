@@ -4,6 +4,7 @@ import { Events } from 'ionic-angular';
 import { QuitionviewpProvider } from '../../providers/quitionviewp/quitionviewp';
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { QuestionlistPage } from '../questionlist/questionlist';
+import { LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the QuitionviewPage page.
@@ -23,7 +24,7 @@ export class QuitionviewPage {
   public qid:any;
 	public user_id:any;
 	public questionviewData: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  	constructor(public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,
+  	constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public viewCtrl: ViewController,public navParams: NavParams,
       public questionview:QuitionviewpProvider,
               public event: Events,public storage:Storage) {
   		this.qid=navParams.get('QuitionID');
@@ -31,7 +32,11 @@ export class QuitionviewPage {
   }
 
   ionViewDidLoad() {
-  dataLayer : [];
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
+    this.loading.present();
+    dataLayer : [];
     dataLayer.push({
       'screenName': 'QuitionviewPage'
     });
@@ -48,9 +53,10 @@ export class QuitionviewPage {
         this.questionviewData.data = res.data;
         this.questionviewData.msg = res.msg;
         this.questionviewData.status = res.status;
-        console.log(this.questionviewData.data.QuestionAnswer);
+        console.log(this.questionviewData.data.QuestionAnswer);      
+        this.loading.dismiss();
       }, (err) => {
-        // Unable to log in
+        this.loading.dismiss();
         console.log(err);
       });
 

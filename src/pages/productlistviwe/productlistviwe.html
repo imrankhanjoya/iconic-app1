@@ -42,11 +42,11 @@
 		</div>
 	</div>
   </ion-row>
-<ion-row>
+<!-- <ion-row>
 	<div class="smallTitle fontBold colorBlack paddingbutom_pro paddingTop paddingLeft" >Place Order Now</div>
 	<div class="paddingLeft colorGrey Headline paddingTop" >Place your order now and speak with our customer representative for speedy delivery</div>
 		
-	</ion-row>	
+	</ion-row>	 -->
 	<ion-row >
 		<ion-col col-6>
         	<ion-label class="colorGrey floatLeft ">{{'CHOOSE_WEIGHT' | translate}}</ion-label>
@@ -114,14 +114,14 @@
 	</div>
 
 <!---*******Krishi Jannkari Section******-->
-<ion-grid>
+<ion-grid *ngIf="ChildCatProducts.data.length > 0" >
    <ion-row>
       <ion-col class="krishisevayen-cardHeader">
          <div class="headerClass">{{'RELATED_PRODUCTS' | translate}}</div>
       </ion-col>
    </ion-row>
 </ion-grid>
-<ion-slides [slidesPerView]="'auto'">
+<ion-slides  *ngIf="ChildCatProducts.data.length > 0" [slidesPerView]="'auto'">
    <ion-slide class="slideItem" *ngFor="let productData of ChildCatProducts.data;" >
       <ion-card (click)="gotoProductViewPage(productData.id)">
          <img class="produtimage" src="{{productData.feature_image}}"/>

@@ -78,11 +78,18 @@ export class ServicesPage {
      });
      dataLayer.push({'event': 'appEvent'});
 
-    this.navCtrl.push('MarketPage');
+    this.navCtrl.push('ProductPage');
     
   }
   gotoMarket(){
-    this.navCtrl.push('MarketPage');
+    dataLayer : [];
+    dataLayer.push({
+        'appEventCategory': 'Agro Services',
+       'appEventAction': 'Clicked',
+       'appEventLabel': ' Agro Services - Market'
+    });
+    dataLayer.push({'event': 'appEvent'});
+    this.navCtrl.push('ProductPage');
   }
    gotoservices_detailPage(){
     this.navCtrl.push('ServicDetalisPage');

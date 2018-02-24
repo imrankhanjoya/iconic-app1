@@ -125,4 +125,13 @@ export class ProductPage {
       }
     });
   }
+
+  gotoOderList(){
+    this.navCtrl.push('ProducattypePage');
+  }
+
+  gotoCartList(){
+      this.navCtrl.push('ProductlistPage');
+  }
+
 }

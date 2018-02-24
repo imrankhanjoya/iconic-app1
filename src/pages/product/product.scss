@@ -24,7 +24,7 @@ page-product {
             word-wrap: normal;
       }
         .slideItem{
-         width: 66%;
+         width: 55%;
 
       }
       .see-title-box{
@@ -101,9 +101,15 @@ page-product {
              width: 95% !important;
       }
       .slide_img{
-        width: 100% !important;
-        max-width: 96%;
-        height: 158px;
-    }
+          width: 100% !important;
+          max-width: 96%;
+          height: 158px;
+      }
+      .toolbar-content.toolbar-content-md {
+        overflow-x: scroll;
+      }
+      .backnew {
+          width: 200%;
+      }
     
 }

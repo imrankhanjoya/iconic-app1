@@ -42,9 +42,6 @@ export class ProducattypePage {
       this.OrderLists.msg = res.msg; 
       this.OrderLists.status = res.status;
       this.loading.dismiss();
-      if (res.status!=true) {
-          this.navCtrl.push('MarketPage');
-      }
     });
   }
 

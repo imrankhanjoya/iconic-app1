@@ -10,6 +10,9 @@
    </ion-navbar>
 </ion-header>
 <ion-content>
+  <ion-card *ngIf="ChartLists.status==false" padding>
+    <h1 class="hader">{{'EMPTY_CART' | translate}}!!!</h1>
+  </ion-card>
    <ion-card style="margin-top: 8px; " *ngIf="ChartLists.status==true"  >
       <ion-grid >
          <ion-row  *ngFor="let ChartList of ChartLists.data, let i = index " class=" separator " >

@@ -57,9 +57,6 @@ export class ProductlistPage {
       this.ChartLists.msg = res.msg; 
       this.ChartLists.status = res.status;
       this.loading.dismiss();
-      if (res.status!=true) {
-          this.navCtrl.push('MarketPage');
-      }
     });
   }
 

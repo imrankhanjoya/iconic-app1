@@ -14,42 +14,45 @@
 
 
 <ion-content>
-<ion-card class="paddingTop">        
-  <h1 class="hader">{{'CONGRATULATION' | translate}}!!!</h1>
-  <ion-row>
-      <div class="paddingLeft colorGrey paddingBottom paddingRight">
-        {{'ORDER_MESSAGE1' | translate}}
-      </div>
-      <div class="paddingLeft colorGrey paddingBottom paddingRight ">
-        {{'ORDER_MESSAGE_CALL' | translate}}   
-      </div>
-      <div class="paddingLeft colorGrey paddingBottom  paddingRight">
-         {{'ORDER_MESSAGE_SUMMARY' | translate}}      
-      </div>
-  </ion-row>
-  <div *ngIf="OrderLists.status==true">
-    <ion-card   *ngFor="let OrderList of OrderLists.data, let i = index " >
-      <ion-row>
-        <div class="paddingLeft paddingTop colorGrey paddingBottom paddingRight">
-          {{'ORDER_MESSAGE2' | translate}}{{OrderList.OrderId}}.
+  <ion-card *ngIf="OrderLists.status==false" padding>
+    <h1 class="hader">{{'EMPTY_ORDER' | translate}}!!!</h1>
+  </ion-card>
+  <ion-card *ngIf="OrderLists.status==true" class="paddingTop">        
+    <h1 class="hader">{{'CONGRATULATION' | translate}}!!!</h1>
+    <ion-row>
+        <div class="paddingLeft colorGrey paddingBottom paddingRight">
+          {{'ORDER_MESSAGE1' | translate}}
         </div>
-      </ion-row>
-      <ion-grid    *ngFor="let OrderProduct of OrderList.ordetail, let i = index " class=" separator " >
+        <div class="paddingLeft colorGrey paddingBottom paddingRight ">
+          {{'ORDER_MESSAGE_CALL' | translate}}   
+        </div>
+        <div class="paddingLeft colorGrey paddingBottom  paddingRight">
+           {{'ORDER_MESSAGE_SUMMARY' | translate}}      
+        </div>
+    </ion-row>
+    <div >
+      <ion-card   *ngFor="let OrderList of OrderLists.data, let i = index " >
         <ion-row>
-            <ion-col col-3 >
-               <div >
-                  <img class="produtimg" src="{{OrderProduct.feature_image}}"/>
-               </div>
-            </ion-col>
-            <ion-col col-9>
-               <div class="sarsTitle1 colorGrey Headline">{{OrderProduct.name}}</div>
-               <div class="sarsTitle1 colorGrey Headline">{{'QUANTITY' | translate}} : {{OrderProduct.Quantity}}</div>
-            </ion-col>
-         </ion-row>
-      </ion-grid>
-    </ion-card>
-  </div>
-</ion-card>
+          <div class="paddingLeft paddingTop colorGrey paddingBottom paddingRight">
+            {{'ORDER_MESSAGE2' | translate}}{{OrderList.OrderId}}.
+          </div>
+        </ion-row>
+        <ion-grid    *ngFor="let OrderProduct of OrderList.ordetail, let i = index " class=" separator " >
+          <ion-row>
+              <ion-col col-3 >
+                 <div >
+                    <img class="produtimg" src="{{OrderProduct.feature_image}}"/>
+                 </div>
+              </ion-col>
+              <ion-col col-9>
+                 <div class="sarsTitle1 colorGrey Headline">{{OrderProduct.name}}</div>
+                 <div class="sarsTitle1 colorGrey Headline">{{'QUANTITY' | translate}} : {{OrderProduct.Quantity}}</div>
+              </ion-col>
+           </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div>
+  </ion-card>
 </ion-content>
 <ion-footer>
     <div class="block">

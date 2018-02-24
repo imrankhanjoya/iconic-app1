@@ -8,6 +8,16 @@
   <ion-navbar>
     <ion-title>{{'MARKET_AGRI_INFO' | translate}}</ion-title>
     <ion-buttons end>
+       <button ion-button icon-only class="headericon" (click)="gotoOderList()">
+          <ion-icon name="appstore" style="color:#629104;font-size: 25px;"></ion-icon>
+       </button>
+    </ion-buttons>
+    <ion-buttons end>
+       <button ion-button icon-only class="headericon" (click)="gotoCartList()">
+          <ion-icon name="cart" style="color:#629104;font-size: 25px;"></ion-icon>
+       </button>
+    </ion-buttons>
+    <ion-buttons end>
       <button ion-button icon-only (click)="openFilter()" class="headericon" >
         <ion-icon name="md-options" class="colorGreen displayOneFont"></ion-icon>
       </button>

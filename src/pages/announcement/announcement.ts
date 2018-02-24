@@ -60,6 +60,9 @@ export class AnnouncementPage {
       if (type=='weather') {
         this.navCtrl.push('WeatherPage',{WeatherPage:type_value});
       }
+      if (type=='mandi') {
+        this.navCtrl.push(MandiPage);
+      }
   }
 
 }

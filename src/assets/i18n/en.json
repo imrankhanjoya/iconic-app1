@@ -363,5 +363,7 @@
   "ORDER_MESSAGE2":"your order ID is  ",
   "ORDER_MESSAGE_CALL":"Alternatively, call on our toll free number 18001200800 now ",
   "ORDER_MESSAGE_SUMMARY":"Here is your order summary for your reference:",
-  "ORDER_LIST":"Order List"
+  "ORDER_LIST":"Order List",
+  "EMPTY_ORDER":"You have not any order yet!",
+  "EMPTY_CART":"You have not any product in cart!"
 }

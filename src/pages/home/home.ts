@@ -336,11 +336,11 @@ export class HomePage {
 
   getmarkets(){
   //console.log('getmarkets');
-    this.market.productlist(5).then((res)=>{
+    this.productpro.PopularProduct(5).then((res)=>{
         this.productHome.data = res.data;
         this.productHome.msg = res.msg;
         this.productHome.status = res.status;
-      //console.log(this.productHome.data);
+        //console.log(this.productHome.data);
         this.loading.dismiss();
     });
   //console.log('getmarkets');
@@ -396,6 +396,10 @@ export class HomePage {
 
   gotoOderList(){
     this.navCtrl.push('ProducattypePage');
+  }
+
+  gotoCartList(){
+      this.navCtrl.push('ProductlistPage');
   }
 
   gotoAskquestion(numbr){
@@ -574,7 +578,7 @@ export class HomePage {
        'appEventLabel': 'Market - sku: '+sku+'~~~name: '+name
      });
      dataLayer.push({'event': 'appEvent'});
-    this.navCtrl.push('MarketViewPage',{id:product_id});
+    this.navCtrl.push('ProductlistviwePage',{id:product_id});
   }
 
   gotoVedio(numbr){
@@ -695,7 +699,7 @@ export class HomePage {
      dataLayer.push({'event': 'appEvent'});
     //console.log(type+'  ------ '+type_value);
       if (type=='product') {
-        this.navCtrl.push('MarketViewPage',{id:type_value});
+        this.navCtrl.push('ProductlistviwePage',{id:type_value});
       }
       if (type=='crop') {
         this.navCtrl.push('CropdetailPage',{crop_id:type_value});
@@ -714,6 +718,9 @@ export class HomePage {
       }
       if (type=='weather') {
         this.navCtrl.push(WeatherPage);
+      }
+      if (type=='mandi') {
+        this.navCtrl.push(MandiPage);
       }
   }
 
