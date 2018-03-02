@@ -365,5 +365,6 @@
   "ORDER_MESSAGE_SUMMARY":"Here is your order summary for your reference:",
   "ORDER_LIST":"Order List",
   "EMPTY_ORDER":"You have not any order yet!",
-  "EMPTY_CART":"You have not any product in cart!"
+  "EMPTY_CART":"You have not any product in cart!",
+  "RENTAL_NEW_REQ":"New Rental Request"
 }

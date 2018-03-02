@@ -4,6 +4,7 @@ import { ChoupalProvider } from '../../providers/choupal/choupal';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 /**
  * Generated class for the ChoupalPage page.
@@ -26,7 +27,7 @@ export class ChoupalPage {
   public filter_distance:any;
   public sendIcon: string ="assets/img/agri bolo icon/hdpi/senddis.png";
 	public choupaldata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
+  constructor(private photoViewer: PhotoViewer,public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
   public api:Api, public loadingCtrl: LoadingController, public popoverCtrl: PopoverController, public camera:Camera,
   public storage:Storage) {
 
@@ -38,6 +39,12 @@ export class ChoupalPage {
   ionViewDidLoad() {
     this.choupalget(this.filter_distance);
     console.log('ionViewDidLoad ChoupalPage');
+  }
+
+
+  showimage(url, title, options){
+    console.log(url);
+    this.photoViewer.show(url, title, {share: options});
   }
   scrollToBottom(scroll) {
     scroll.scrollTop = scroll.scrollHeight - scroll.clientHeight;

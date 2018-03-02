@@ -24,16 +24,20 @@
                 
                 <div class="backgroundColorLightGreen formatBubbleLeft paddingTop ">  
                 <div class="fontBold subHeadingFont colorGrey" *ngIf="data.uid!=userId" >{{data.display_name}}</div>
-                
-                  <div style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
+
+                  <div  *ngIf="data.image!='yes'" style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'">
+                  </div>
+                  <div  *ngIf="data.image=='yes'" (click)="showimage(data.message, '', true)" style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'">
+                  </div>
                 </div>
                   <div class="bubbleDateFormat textAlignLeft floatLeft colorGreen subHeadingFont">{{data.ago}}</div>
               </ion-row>
             </div>
             <div  class="paddingTop">
               <ion-row  class="boxAlignRight" style="width:100%;" *ngIf="data.uid==userId">
-                  <br>
-                  <div  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
+                  <br>                
+                  <div *ngIf="data.image!='yes'" style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
+                  <div *ngIf="data.image=='yes'" (click)="showimage(data.message, '', true)"  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
                   <div class="bubbleDateFormat floatRight colorGreen subHeadingFont">{{data.ago}}</div>
               </ion-row>
               </div>            

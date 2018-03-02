@@ -58,6 +58,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Device } from '@ionic-native/device';
 import { AppVersion } from '@ionic-native/app-version';
 import { ProductproProvider } from '../providers/productpro/productpro';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 
@@ -162,6 +163,7 @@ export function provideSettings(storage: Storage) {
     Device,
     AppVersion,
     ProductproProvider,
+    PhotoViewer,
   ]
 })
 export class AppModule { }
