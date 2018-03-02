@@ -47,13 +47,12 @@
 	<div class="paddingLeft colorGrey Headline paddingTop" >Place your order now and speak with our customer representative for speedy delivery</div>
 		
 	</ion-row>	 -->
-	<ion-row >
+	<ion-row *ngIf="ProductViewDatas.data.all_sku!=''"  >
 		<ion-col col-6>
         	<ion-label class="colorGrey floatLeft font20">{{'CHOOSE_WEIGHT' | translate}}</ion-label>
         </ion-col>	
 		<ion-col col-4>        	
-<!-- 			<ion-label class="colorGrey floatLeft ">{{ProductViewDatas.data.weight}}</ion-label>
- -->		    <ion-select [(ngModel)]="sku" >
+ 		    <ion-select #wieght (ionChange)="changesku(wieght.value)" >
 		       <ion-option value="{{ProductViewDatas.data.sku}}" selected="true">{{ProductViewDatas.data.weight}}</ion-option>
 		       <ion-option *ngFor="let skuall of ProductViewDatas.data.all_sku" value="{{skuall.sku}}">{{skuall.weight}}</ion-option>
 		    </ion-select>
@@ -69,7 +68,7 @@
 		 <ion-icon class=" floatRight"  name="remove" (click)="min()"></ion-icon>
 		 </ion-col>
 		 <ion-col col-2 style="border:1px solid grey">
-		 <div class="alignCenter font20">{{quantity}}</div>
+		 <div class="alignCenter font10">{{quantity}}</div>
 		 </ion-col>
 		 	<ion-col col-1>
 	       <ion-icon  class="floatLeft" name="add" (click)="add()"></ion-icon>

@@ -122,14 +122,14 @@ export class RentalsPage {
         console.log(this.items);
     });
   } 
-  openFilter(product_name,formtype){
+  openFilter(){
      dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Rental',
        'appEventAction': 'filter',
-       'appEventLabel': ' Rental Contact-'+product_name
+       'appEventLabel': ' Rental Contact New'
      });
-    let modal = this.modalCtrl.create('RentalFilterPage',{product_name:product_name,formtype:formtype, fromFilter:true});
+    let modal = this.modalCtrl.create('RentalFilterPage',{product_name:'',formtype:'General', fromFilter:true});
     modal.present();
     modal.onDidDismiss((popoverData) => {
       console.log(popoverData)

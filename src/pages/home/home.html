@@ -5,11 +5,13 @@
       </button>
       <ion-buttons end>
          <button ion-button icon-only class="headericon" (click)="gotoOderList()">
+            <span *ngIf="OrderCount.status==true" class="cartQuantity">{{OrderCount.data}}</span>
             <ion-icon name="appstore" style="color:#3d5c02;font-size: 25px;"></ion-icon>
          </button>
       </ion-buttons>
       <ion-buttons end>
          <button ion-button icon-only class="headericon" (click)="gotoCartList()">
+            <span *ngIf="ChartCount.status==true" class="cartQuantity">{{ChartCount.data}}</span>
             <ion-icon name="cart" style="color:#3d5c02;font-size: 25px;"></ion-icon>
          </button>
       </ion-buttons>

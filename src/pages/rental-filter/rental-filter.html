@@ -45,10 +45,11 @@
              <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
           <ion-item class="separator">
-            <ion-label class="colorGrey">{{'PRODUCT_NAME' | translate}}</ion-label>
-            <ion-select  formControlName="product" >
-              <ion-option *ngFor="let rental of rentallists" value="{{rental.id}}" >{{rental.title}}</ion-option>
+            <ion-label class="colorGrey">{{product_name}}{{'PRODUCT_NAME' | translate}}</ion-label>
+            <ion-select *ngIf="product_name!=''"  formControlName="product" >
+              <ion-option *ngFor="let rental of rentallists" value="{{rental.title}}" >{{rental.title}}</ion-option>
             </ion-select>
+            <ion-input  *ngIf="product_name==''" formControlName="product" type="text"></ion-input>
           </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_FROM' | translate}}</ion-label>
@@ -121,10 +122,11 @@
             <ion-input formControlName="farmer_name"  type="text"></ion-input>
           </ion-item>
           <ion-item class="separator">
-            <ion-label class="colorGrey">{{'PRODUCT_NAME' | translate}}</ion-label>
-            <ion-select  formControlName="product" >
-              <ion-option *ngFor="let rental of rentallists" value="{{rental.id}}" >{{rental.title}}</ion-option>
+            <ion-label class="colorGrey">{{product_name}}{{'PRODUCT_NAME' | translate}}</ion-label>
+            <ion-select *ngIf="product_name!=''"  formControlName="product" >
+              <ion-option *ngFor="let rental of rentallists" value="{{rental.title}}" >{{rental.title}}</ion-option>
             </ion-select>
+            <ion-input  *ngIf="product_name==''" formControlName="product" type="text"></ion-input>
           </ion-item>
         <!--   <ion-item class="separator">
           <input type="text" (click)="stopProcess()" (keypress)="onKeyPress($event)" />

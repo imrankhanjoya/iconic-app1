@@ -14,16 +14,20 @@
 
 
 <ion-content padding>
-<ion-card *ngFor="let announceData of announceList.data;">
-  <ion-list>
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="{{announceData.image}}" >
-      </ion-thumbnail>
-      <h2>{{announceData.title}}</h2>
-      <p>{{announceData.subtitle}} : {{announceData.create_at}} </p>
-      <button ion-button clear item-end  (click)="gotoAnounsePage(announceData.type,announceData.type_value)">{{'VIEW' | translate}}</button>
-    </ion-item>
-  </ion-list>
+<ion-card class="dialog" *ngFor="let announceData of announceList.data;" >
+   <ion-grid >
+      <ion-row>
+         <ion-col col-3 >
+            <ion-thumbnail item-start >
+               <img src="{{announceData.image}}" >
+            </ion-thumbnail>
+         </ion-col>
+         <ion-col class="smallTitle" col-9>
+            {{announceData.title}}
+          <p>{{announceData.subtitle}} : {{announceData.create_at}} </p>
+         </ion-col>
+      </ion-row>
+   </ion-grid>
+   <div (click)="gotoAnounsePage(announceData.type,announceData.type_value)" class="readMore titleFont" >{{'SEE_MORE' | translate}}</div>
 </ion-card>
 </ion-content>

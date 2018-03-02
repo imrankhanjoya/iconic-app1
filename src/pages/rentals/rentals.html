@@ -8,6 +8,11 @@
 
   <ion-navbar color="fulldark">
     <ion-title>{{'RENTAL_DETAIL_TITLE' | translate}}</ion-title>
+    <ion-buttons end>
+      <div (click)="openFilter()" >
+        <a >{{'RENTAL_NEW_REQ' | translate}}</a>
+      </div>
+    </ion-buttons>
   </ion-navbar>
 
   <!-- <ion-item>

@@ -24,6 +24,8 @@ export class ProductPage {
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public PopularProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public PromoBanners: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public ChartCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public OrderCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   
   constructor(public modalCtrl:ModalController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
   }
@@ -39,6 +41,8 @@ export class ProductPage {
     this.getParentCat();
     this.getPopularProduct();
     this.getGroupCatProduct();
+    this.getChartCount();
+    this.getOrderCount();
   }
   
   gotoProductViewPage(id){
@@ -123,6 +127,26 @@ export class ProductPage {
           this.GetParentCatProduct(this.parent_cat,'cat',this.child_cat);
           //this.navCtrl.push('ProductFilterPage'); 
       }
+    });
+  }
+
+  getChartCount(){
+      this.productpro.ChartCount().map(res => res.json()).subscribe((res) => {
+      this.ChartCount.data = res.data;
+      this.ChartCount.msg = res.msg; 
+      this.ChartCount.status = res.status;
+      console.log('ChartCount');
+      console.log(res);
+      this.loading.dismiss();
+    });
+  }
+
+  getOrderCount(){
+      this.productpro.OrderCount().map(res => res.json()).subscribe((res) => {
+      this.OrderCount.data = res.data;
+      this.OrderCount.msg = res.msg; 
+      this.OrderCount.status = res.status;
+      this.loading.dismiss();
     });
   }
 

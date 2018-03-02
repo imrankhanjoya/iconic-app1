@@ -21,6 +21,7 @@ export class ProductlistviwePage {
   public id:any;
   public loading:any;
   public quantity:any;
+  public selectsku:any;
   public aniName:any;
   public textSlide:any;
   public ProductViewDatas: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
@@ -67,19 +68,21 @@ export class ProductlistviwePage {
   min (i) { if(this.quantity > 1) { this.quantity--; } }
 
   add (i) { this.quantity++; }
+
+  changesku(selectsku){ console.log(selectsku); this.selectsku = selectsku; }
   
   gotoProductViewPage(id){
     this.navCtrl.push('ProductlistviwePage',{id:id});
   }
 
-  AddtoChart(sku){
-    this.productpro.AddtoChart(this.id,sku,this.quantity).map(res => res.json()).subscribe((res) => {
+  AddtoChart(){
+    this.productpro.AddtoChart(this.id,this.selectsku,this.quantity).map(res => res.json()).subscribe((res) => {
       this.navCtrl.push('ProductlistPage');
     });
   }
 
   Order(sku){
-    this.productpro.Order(this.id,sku,this.quantity,this.ProductViewDatas.data.unit_price_mrp).map(res => res.json()).subscribe((res) => {
+    this.productpro.Order(this.id,this.selectsku,this.quantity,this.ProductViewDatas.data.unit_price_mrp).map(res => res.json()).subscribe((res) => {
       this.navCtrl.push('ProducattypePage');
     });
   }
@@ -91,6 +94,7 @@ export class ProductlistviwePage {
         this.ProductViewDatas.status = res.status;
         console.log('Order Data Start Here');
         console.log(this.ProductViewDatas);
+        this.selectsku = res.data.sku;
         this.loading.dismiss();
         this.GetCatProduct(res.data.parent_id,res.data.category_id);
         if (res.status!=true) {

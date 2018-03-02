@@ -88,6 +88,40 @@ export class ProductproProvider {
 	    });
   	}
   	
+    ChartCount() {
+	  	var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
+	    let seq = this.api.get('v1/products/chart-count', paramCond).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+	     console.log('get function for chatlist');
+	    return seq;
+  	}
+  	
+    OrderCount() {
+	  	var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
+	    let seq = this.api.get('v1/products/order-count', paramCond).share();
+	    seq
+	      .map(res => res.json())
+	      .subscribe(res => {
+	        if (res.status == 'success') {
+	          console.log(res);
+	        } else {
+	        }
+	      }, err => {
+	        console.error('ERROR', err);
+	      });
+	     console.log('get function for chatlist');
+	    return seq;
+  	}
+  	
     ChartList() {
 	  	var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
 	  	return new Promise((resolve)=>{

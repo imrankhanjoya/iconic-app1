@@ -59,6 +59,9 @@ export class HomePage {
   public announceList: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public usertopcard: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
   public weatherfiveday: { status:string, msg: string,data: any } = {status:'false',msg: 'test',data:[]};
+  public ChartCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public ChartCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public OrderCount:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public ParentCats:{ status: string, msg: string,data: any } = {status:'false',msg: 'test',data:''};
   public geoLoc:{lat:any,lng:any} = {lat:26.957740,lng:75.745459};
   public topMenu:string='';
@@ -213,6 +216,8 @@ export class HomePage {
         this.getannouncement();
         this.weatherfivedays(this.tehsil);
         this.getParentCat();
+        this.getChartCount();
+        this.getOrderCount();
         //this.getMandiDetails(this.tehsil);
         //this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
@@ -939,6 +944,24 @@ getMandiDetails(tehsilId){
     });
 }
 
+
+  getChartCount(){
+      this.productpro.ChartCount().map(res => res.json()).subscribe((res) => {
+      this.ChartCount.data = res.data;
+      this.ChartCount.msg = res.msg; 
+      this.ChartCount.status = res.status;
+      this.loading.dismiss();
+    });
+  }
+
+  getOrderCount(){
+      this.productpro.OrderCount().map(res => res.json()).subscribe((res) => {
+      this.OrderCount.data = res.data;
+      this.OrderCount.msg = res.msg; 
+      this.OrderCount.status = res.status;
+      this.loading.dismiss();
+    });
+  }
 //-------------End Get Mandi Data For Cache-------------//
 
 //--------------- chat end ----------
