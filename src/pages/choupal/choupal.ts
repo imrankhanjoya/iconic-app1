@@ -44,7 +44,7 @@ export class ChoupalPage {
 
   showimage(url, title, options){
     console.log(url);
-    this.photoViewer.show(url, title, {share: options});
+    this.photoViewer.show(url, title, {share: true});
   }
   scrollToBottom(scroll) {
     scroll.scrollTop = scroll.scrollHeight - scroll.clientHeight;
