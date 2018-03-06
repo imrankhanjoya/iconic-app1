@@ -22,6 +22,7 @@ import { Storage } from '@ionic/storage';
 import { User } from '../../providers/providers';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MainPage } from '../pages';
+import { AppVersion } from '@ionic-native/app-version';
 // import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
 
 /**
@@ -76,21 +77,25 @@ export class HomePage {
   public NowTime:any;
   public token:any;
   public toggleMenuText:any;
-  public onBording:boolean=false;
+  public onBording:boolean=false;                                                                               
   public isHeaderAnimition=true;
   public alert:any;
-  public exitAlertMess:any;
-  constructor(public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
+  public exitAlertMess:any;                                                                                                                                                           
+  constructor(private appVersion: AppVersion,public user: User,public translateService:TranslateService,public platform:Platform,private geolocation: Geolocation,public navCtrl: NavController, public navParams: NavParams,
     public mandi:MandiProvider, public news:NewsProvider, public Announce:AnnouncementproProvider, public krish:KrishProvider, public weather:WeatherProvider, 
     public experts:ExpertsProvider,public productpro:ProductproProvider,public market:MarketproProvider, private iab: InAppBrowser,public api:Api,
     public storage:Storage,private rd: Renderer2,public callProvider:CallProvider,
     public tabProvider:TabProvider,public event:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
     public viewCtrl:ViewController,public splashScreen:SplashScreen,public modalCtrl:ModalController) {
 
+    this.CheckappVersion('111');
 
     //--------homepage----------
     this.translateService.get('EXIT_ALERT').subscribe((value) => {
       this.exitAlertMess = value;
+    });
+    this.translateService.get('VERSION_CHANGED').subscribe((value) => {
+      this.VERSION_CHANGED = value;
     });
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
@@ -122,7 +127,7 @@ export class HomePage {
                       this.alert.dismiss();
                       this.alert =null;     
                     }else{
-                      this.exitConfrom();
+                      this.exitConfrom(this.exitAlertMess);
                     }
                   }else {
                     // const index = this.viewCtrl.index;
@@ -139,10 +144,10 @@ export class HomePage {
 
   }
 
-   exitConfrom() {
+   exitConfrom(message) {
       this.alert = this.alertCtrl.create({
         title: '',
-        message: this.exitAlertMess,
+        message: message,
         buttons: [
           {
             text: 'Cancel',
@@ -218,6 +223,7 @@ export class HomePage {
         this.getParentCat();
         this.getChartCount();
         this.getOrderCount();
+        this.CheckappVersion('111');
         //this.getMandiDetails(this.tehsil);
         //this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
@@ -889,6 +895,15 @@ gotoMap(latitude,longitude,name){
   updatetoken(token,user_id){
        // console.log('videoid');
     this.user.UpdateToken(token,user_id).map(res => res.json()).subscribe((resp) => {}, (err) => {
+    });
+  }
+
+  CheckappVersion(appVersion){
+    console.log(this.CheckappVersion('111'));
+    this.user.CheckappVersion(appVersion).map(res => res.json()).subscribe((res) => {
+      if (res.status==false) {
+        this.exitConfrom(this.VERSION_CHANGED);
+      }
     });
   }
 
