@@ -20,7 +20,7 @@ export class ProductlistPage {
   public user_id:any;
   public loading:any;
 
-  public ChartLists: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+  public ChartLists: { status:boolean, msg: string,data: any } = {status:true,msg: 'test',data:''};
   constructor(private alertCtrl: AlertController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider,public translateService: TranslateService) {    
     this.user_id=navParams.get('user_id'); 
     this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
@@ -48,7 +48,7 @@ export class ProductlistPage {
   }
 
   gotoproductlist(){
-    this.navCtrl.push('MarketPage');
+    this.navCtrl.push('ProductPage');
   }
 
   getChartList(){

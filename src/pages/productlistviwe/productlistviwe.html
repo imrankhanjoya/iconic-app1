@@ -15,13 +15,19 @@
 
 <ion-content padding>
 	   <ion-row  style="height: 30%; ">
-			<ion-col col-4>
+			<ion-col *ngIf="ProductViewDatas.data.stock_status=='out_of_stock'" col-4>
+				<img style="min-height: 150px; max-height: 200px;opacity: 0.5;"  src="{{ProductViewDatas.data.feature_image}}"/>
+			</ion-col>
+			<ion-col *ngIf="ProductViewDatas.data.stock_status!='out_of_stock'" col-4>
 				<img style="min-height: 150px; max-height: 200px;"  src="{{ProductViewDatas.data.feature_image}}"/>
 			</ion-col>
 			<ion-col col-7>
 				<div class="smallTitle fontBold colorBlack paddingbutom_pro">{{ProductViewDatas.data.name}}
 				</div>
-			   	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'" class="paddingTop fontBold " >
+				<div class="smallTitle fontBold colorBlack paddingbutom_pro" style="color:#5f8b05">
+					₹{{ProductViewDatas.data.selling_price}}
+				</div>
+			   	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'" class="paddingTop fontBold in_stock" >
 		        {{'IN_STOCK' | translate}}
 			   	</div>
 			   	<div *ngIf="ProductViewDatas.data.stock_status=='out_of_stock'"  class="paddingTop out_stock " >
@@ -29,9 +35,6 @@
 			   	</div>
 			   	<div *ngIf="ProductViewDatas.data.stock_status=='coming_soon'"  class="paddingTop coming_soon " >
 		        {{'COMING_SOON' | translate}}
-			   	</div>
-			   	<div class="smallTitle paddingTop fontBold colorGreen" (click)="openFilter()">
-			        {{'VALUE_ON_REQUEST' | translate}}
 			   	</div>
 			</ion-col>
 		</ion-row>
@@ -47,13 +50,14 @@
 	<div class="paddingLeft colorGrey Headline paddingTop" >Place your order now and speak with our customer representative for speedy delivery</div>
 		
 	</ion-row>	 -->
+	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'">
 	<ion-row *ngIf="ProductViewDatas.data.all_sku!=''"  >
 		<ion-col col-6>
         	<ion-label class="colorGrey floatLeft font20">{{'CHOOSE_WEIGHT' | translate}}</ion-label>
         </ion-col>	
 		<ion-col col-4>        	
  		    <ion-select #wieght (ionChange)="changesku(wieght.value)" >
-		       <ion-option value="{{ProductViewDatas.data.sku}}" selected="true">{{ProductViewDatas.data.weight}}</ion-option>
+		       <ion-option value="{{ProductViewDatas.data.sku}}" selected="true">{{ProductViewDatas.data.weight}} {{ProductViewDatas.data.uom}}</ion-option>
 		       <ion-option *ngFor="let skuall of ProductViewDatas.data.all_sku" value="{{skuall.sku}}">{{skuall.weight}}</ion-option>
 		    </ion-select>
 	     </ion-col>
@@ -87,6 +91,15 @@
 	    <ion-col col-6>
 	  	  	<div class=" colorGreen paddingTop font20"  style="float: left;padding-top: 10px;" (click)="AddtoChart(ProductViewDatas.data.sku)">{{'ADD_TO_CART' | translate}}</div>
 	  	</ion-col>
+	</ion-row>
+	</div>
+	<ion-row  *ngIf="ProductViewDatas.data.stock_status=='out_of_stock'" justify-content-center>
+	   	<div class="paddingTop" >
+	   		<a style="text-decoration: none;" class="buttonClass"  (click)="openFilter()">
+        {{'NOTIFY_ME' | translate}}
+        </a>
+
+	   	</div>
 	</ion-row>	
 	<ion-row *ngIf="ProductViewDatas.status==true">
 		<ion-row >

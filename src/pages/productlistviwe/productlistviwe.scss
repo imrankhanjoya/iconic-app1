@@ -137,9 +137,15 @@ page-productlistviwe {
       }
       .out_stock{
       	color:#FF0000;
+      	font-size: 17px;
+      }
+      .in_stock{
+      	color:black;
+      	font-size: 17px;
       }
        .coming_soon{
       	color:#FFFF00 ;
+      	font-size: 17px;
       }
       .textGoingBack {
         animation: textClose 1s;
