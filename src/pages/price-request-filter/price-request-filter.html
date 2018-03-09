@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{'VALUE_ON_REQUEST' | translate}}</ion-title>
+    <ion-title>{{'NOTIFY_ME' | translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only class="headericon" (click)="dismiss()">
         <ion-icon ios="ios-close" md="md-close" class="colorGreen paddingRightdisplayOneFont"></ion-icon>
@@ -22,7 +22,7 @@
     <form  [formGroup]="priceRequest" (ngSubmit)="priceRequestForm()">
     <ion-card>
       <div>
-          <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCenter"> {{'VALUE_ON_REQUEST' | translate}}</div>
+          <div class="smallTitle colorGrey fontBold greySeparator paddingBottom paddingTop alignCenter"> {{'NOTIFY_ME' | translate}}</div>
       </div>
       	<ion-item>
             <div class="smallTitle colorGrey greySeparator paddingBottom"> {{'PRODUCT_NAME' | translate}} : {{formdata.subject}}</div>
@@ -47,7 +47,7 @@
 	    <div>
 	        <div style="float: right;" class="p_1 sarchicon"   (click)="dismiss()" >{{'CANCEL' | translate}}</div>
 	        <div  style="float: right;margin-right:10px;">
-	          <button class="p_1" ion-button type="submit" [disabled]="!priceRequest.valid">{{'PRICE_REQUEST' | translate}}</button>
+	          <button class="p_1" ion-button type="submit" [disabled]="!priceRequest.valid">{{'NOTIFY_ME' | translate}}</button>
 	        </div>
 	    </div>
     </ion-card>

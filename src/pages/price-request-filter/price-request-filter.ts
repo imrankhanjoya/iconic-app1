@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ModalController, ViewController,LoadingController,AlertController  } from 'ionic-angular';
+import { ViewController,AlertController  } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { MarketproProvider } from '../../providers/marketpro/marketpro';
 import { ContactusProvider } from '../../providers/contactus/contactus';
-import { CityStateProvider } from '../../providers/city-state/city-state';
 
 /**
  * Generated class for the PriceRequestFilterPage page.
@@ -25,15 +23,15 @@ export class PriceRequestFilterPage {
 	public loading:any;
 	public priceRequest : FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder,public cityStateProvider:CityStateProvider,public contactus: ContactusProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController,
+    private formBuilder: FormBuilder,public contactus: ContactusProvider,
     public translateService: TranslateService,public alertCtrl: AlertController
     ) {
       this.formdata=navParams.get('formdata');
     	this.priceRequest = this.formBuilder.group({
             phoneNumber: [this.formdata.user_login, Validators.required],
 	          display_name: [this.formdata.display_name, Validators.required],
-            description: ['', Validators.required]
+            description: [' ', Validators.required]
         });
        this.translateService.get('PRICE_REQUEST_SUCCESS').subscribe((value) => {
           this.PRICE_REQUEST_SUCCESS = value;

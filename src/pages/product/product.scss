@@ -1,6 +1,37 @@
 page-product {
+      .title.colorGrey.Headline {
+          padding: 3px;
+      }
+      .outofstockerror {
+          position: absolute;
+          top: 36%;
+          left: 37%;
+          transform: translate(-27%, -61%);
+          font-size: 24px;
+          color: red;
+          font-weight: 400;
+      }
+      .centeredcat {
+        position: absolute;
+        top: 36%;
+        left: 31%;
+        -webkit-transform: translate(-27%, -61%);
+        transform: translate(-19%, -61%);
+        font-size: 24px;
+        color: red;
+        font-weight: 400;
+      }
       .krishisevayen-cardHeader{
-            text-align: center;
+          
+      .centered {
+          position: absolute;
+          top: 36%;
+          left: 37%;
+          transform: translate(-27%, -61%);
+          font-size: 24px;
+          color: red;
+          font-weight: 400;
+      }  text-align: center;
             font-size: 2rem;
             border-bottom: 4px;
             border-bottom: 1px #d8d8d8 solid ;
@@ -32,11 +63,11 @@ page-product {
             text-align: center;
             padding-top:45% 
       }
-       .title{
-     padding-left: 4% !important; 
-      height: 50px;
-
-    }
+      .title {
+          padding-left: 4% !important;
+          height: 43px;
+          overflow: hidden;
+      }
      .titleone{
          padding-left: 9% !important;
          padding-top: 5%;

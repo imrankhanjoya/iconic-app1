@@ -88,7 +88,7 @@ export class HomePage {
     public tabProvider:TabProvider,public event:Events,public loadingCtrl:LoadingController,public alertCtrl: AlertController,
     public viewCtrl:ViewController,public splashScreen:SplashScreen,public modalCtrl:ModalController) {
 
-    this.CheckappVersion('111');
+    //this.CheckappVersion('111');
 
     //--------homepage----------
     this.translateService.get('EXIT_ALERT').subscribe((value) => {
@@ -899,7 +899,7 @@ gotoMap(latitude,longitude,name){
   }
 
   CheckappVersion(appVersion){
-    console.log(this.CheckappVersion('111'));
+    console.log(appVersion);
     this.user.CheckappVersion(appVersion).map(res => res.json()).subscribe((res) => {
       if (res.status==false) {
         this.exitConfrom(this.VERSION_CHANGED);

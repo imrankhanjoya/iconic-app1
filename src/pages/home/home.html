@@ -392,11 +392,17 @@
 <ion-slides [slidesPerView]="'auto'">
    <ion-slide class="slideItem"  *ngFor="let productData of productHome.data;">
       <ion-card (click)="gotoMarketViewPage(productData.id,productData.name,productData.sku)">
-         <img class="produtimage" src="{{productData.feature_image}}"/>
+          <div *ngIf="productData.stock_status=='out_of_stock'" class="outofstocksproduct">
+            <img class="produtimage" style="opacity: 0.5;" src="{{productData.feature_image}}"/>
+            <div class="outofstockerror">{{'OUT_OF_STOCK' | translate}}</div>
+          </div>
+          <div *ngIf="productData.stock_status!='out_of_stock'" >
+            <img class="produtimage" src="{{productData.feature_image}}"/>
+          </div>
          <div class="title colorGrey Headline">{{productData.name}}</div>
          <div class="detailSar colorGreen smallTitle" > 
             <a style="text-decoration: none;">
-            {{'SEE_DETAIL' | translate}}
+            ₹{{productData.selling_price}}
             </a>
          </div>
       </ion-card>

@@ -57,13 +57,17 @@
         <ion-slides [slidesPerView]="'auto'">
            <ion-slide class="slideItem" *ngFor="let productData of PopularProducts.data;" >
               <ion-card (click)="gotoProductViewPage(productData.id)">
-                 <img class="produtimage" src="{{productData.feature_image}}"/>
-                 <div class="title colorGrey Headline">{{productData.name}}</div>
-                 <div class="detailSar colorGreen smallTitle" > 
-                    <a style="text-decoration: none;">
-                    {{'SEE_DETAIL' | translate}}
-                    </a>
-                 </div>
+                <div *ngIf="productData.stock_status=='out_of_stock'" class="outofstocksproduct">
+                  <img class="produtimage" style="opacity: 0.5;" src="{{productData.feature_image}}"/>
+                  <div class="outofstockerror">{{'OUT_OF_STOCK' | translate}}</div>
+                </div>
+                <div *ngIf="productData.stock_status!='out_of_stock'" >
+                  <img class="produtimage" src="{{productData.feature_image}}"/>
+                </div>
+                <div class="title colorGrey Headline">{{productData.name}}</div>
+                <div class="detailSar colorGreen smallTitle" > 
+                    ₹{{productData.selling_price}}
+                </div>
               </ion-card>
            </ion-slide>
         </ion-slides>
@@ -102,10 +106,16 @@
     <ion-row *ngIf=" activetabs == 'cat' ">
       <ion-col  *ngFor=" let ChildCatProduct of ChildCatProducts.data, let i = index " col-6  style="padding: 0px">
         <ion-card  (click)="gotoProductViewPage(ChildCatProduct.id)" style="padding: 0px">
-          <img class="produtimage" src="{{ChildCatProduct.feature_image}}"/>
+          <div *ngIf="ChildCatProduct.stock_status=='out_of_stock'" class="outofstocksproduct">
+            <img class="produtimage" style="opacity: 0.5;" src="{{ChildCatProduct.feature_image}}"/>
+            <div class="centeredcat">{{'OUT_OF_STOCK' | translate}}</div>
+          </div>
+          <div *ngIf="ChildCatProduct.stock_status!='out_of_stock'" >
+            <img class="produtimage" src="{{ChildCatProduct.feature_image}}"/>
+          </div>
           <div class="title colorGrey Headline" style="text-align: center">{{ChildCatProduct.name}}</div>
          <div class="detailSar colorGreen Headline" > 
-            {{'SEE_DETAIL' | translate}}
+            ₹{{ChildCatProduct.selling_price}}
          </div>
         </ion-card>
       </ion-col>

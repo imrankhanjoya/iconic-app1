@@ -39,46 +39,46 @@ export class User {
 
 
    sendOtp(phoneNumber,name){
-   let body = new FormData();
-   body.append('phoneNumber', phoneNumber);
-   body.append('name', name);
+     let body = new FormData();
+     body.append('phoneNumber', phoneNumber);
+     body.append('name', name);
 
 
-   let seq = this.api.post('v1/user/varify-phone', body).share();
+     let seq = this.api.post('v1/user/varify-phone', body).share();
 
-   seq
-     .map(res => res.json())
-     .subscribe(res => {
-       // If the API returned a successful response, mark the user as logged in
-       if (res.status == 'success') {
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
 
-       } else {
-       }
-     }, err => {
-       console.error('ERROR', err);
-     });
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
 
-   return seq;
-   }
+      return seq;
+    }
 
    verifyNumber(phoneNumber,otp){
-   let body = new FormData();
-   body.append('phoneNumber', phoneNumber);
-   body.append('otp', otp);
-   let seq = this.api.post('v1/user/varify-phone', body).share();
-   seq
-     .map(res => res.json())
-     .subscribe(res => {
-       // If the API returned a successful response, mark the user as logged in
-       if (res.status == 'success') {
+     let body = new FormData();
+     body.append('phoneNumber', phoneNumber);
+     body.append('otp', otp);
+     let seq = this.api.post('v1/user/varify-phone', body).share();
+     seq
+       .map(res => res.json())
+       .subscribe(res => {
+         // If the API returned a successful response, mark the user as logged in
+         if (res.status == 'success') {
 
-       } else {
-       }
-     }, err => {
-       console.error('ERROR', err);
-     });
+         } else {
+         }
+       }, err => {
+         console.error('ERROR', err);
+       });
 
-   return seq;
+     return seq;
    }
 
   login(username,password) {
@@ -396,4 +396,21 @@ export class User {
 
      return seq;
    }
+    
+    CheckappVersion(Version) {
+      var paramCond ={version:Version};
+      let seq = this.api.get('v1/appversion/check-version', paramCond).share();
+      seq
+        .map(res => res.json())
+        .subscribe(res => {
+          if (res.status == 'success') {
+            console.log(res);
+          } else {
+          }
+        }, err => {
+          console.error('ERROR', err);
+        });
+       console.log('get function for chatlist');
+      return seq;
+    }
 }
