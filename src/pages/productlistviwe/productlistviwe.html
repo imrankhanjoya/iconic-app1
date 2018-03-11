@@ -16,7 +16,7 @@
 <ion-content padding>
 	   <ion-row  style="height: 30%; ">
 			<ion-col *ngIf="ProductViewDatas.data.stock_status=='out_of_stock'" col-4>
-				<img style="min-height: 150px; max-height: 200px;opacity: 0.5;"  src="{{ProductViewDatas.data.feature_image}}"/>
+				<img style="min-height: 150px; max-height: 150px;opacity: 0.5;"  src="{{ProductViewDatas.data.feature_image}}"/>
 			</ion-col>
 			<ion-col *ngIf="ProductViewDatas.data.stock_status!='out_of_stock'" col-4>
 				<img style="min-height: 150px; max-height: 200px;"  src="{{ProductViewDatas.data.feature_image}}"/>
@@ -58,7 +58,7 @@
 		<ion-col col-4>        	
  		    <ion-select #wieght (ionChange)="changesku(wieght.value)" >
 		       <ion-option value="{{ProductViewDatas.data.sku}}" selected="true">{{ProductViewDatas.data.weight}} {{ProductViewDatas.data.uom}}</ion-option>
-		       <ion-option *ngFor="let skuall of ProductViewDatas.data.all_sku" value="{{skuall.sku}}">{{skuall.weight}}</ion-option>
+		       <ion-option *ngFor="let skuall of ProductViewDatas.data.all_sku" value="{{skuall.sku}}">{{skuall.weight}} {{ProductViewDatas.data.uom}}</ion-option>
 		    </ion-select>
 	     </ion-col>
 	</ion-row>
@@ -140,7 +140,7 @@
          <div class="title colorGrey Headline">{{productData.name}}</div>
          <div class="detailSar colorGreen smallTitle" > 
             <a style="text-decoration: none;">
-            {{'SEE_DETAIL' | translate}}
+            	{{productData.selling_price}}
             </a>
          </div>
       </ion-card>
