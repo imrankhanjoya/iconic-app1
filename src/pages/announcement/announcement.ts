@@ -40,7 +40,7 @@ export class AnnouncementPage {
 
   gotoAnounsePage(type,type_value){
       if (type=='product') {
-        this.navCtrl.push('MarketViewPage',{id:type_value});
+        this.navCtrl.push('ProductPage',{id:type_value});
       }
       if (type=='crop') {
         this.navCtrl.push('CropdetailPage',{crop_id:type_value});
