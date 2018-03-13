@@ -28,7 +28,7 @@
                   <div  *ngIf="data.image!='yes'" style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'">
                   </div>
                   <div  *ngIf="data.image=='yes'" (click)="showimage(data.image_url, '', true)" style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubbleLeft paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'">
-                  </div>
+                  </div><div (click)="imagedwnld(data.image_url)" style="float: right"><ion-icon name="download"></ion-icon></div>
                 </div>
                   <div class="bubbleDateFormat textAlignLeft floatLeft colorGreen subHeadingFont">{{data.ago}}</div>
               </ion-row>
@@ -37,7 +37,8 @@
               <ion-row  class="boxAlignRight" style="width:100%;" *ngIf="data.uid==userId">
                   <br>                
                   <div *ngIf="data.image!='yes'" style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
-                  <div *ngIf="data.image=='yes'" (click)="showimage(data.image_url, '', true)"  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'"></div>
+                  <div *ngIf="data.image=='yes'" (click)="showimage(data.image_url, '', true)"  style="white-space:pre-wrap" class="backgroundColorLightGreen formatBubble paddingTop " [innerHTML] = "'<p>' + data.message + '</p>'">
+                  </div><div (click)="imagedwnld(data.image_url)"><ion-icon name="download"></ion-icon></div>
                   <div class="bubbleDateFormat floatRight colorGreen subHeadingFont">{{data.ago}}</div>
               </ion-row>
               </div>            

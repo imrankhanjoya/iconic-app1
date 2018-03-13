@@ -1,5 +1,5 @@
 import { Component,NgModule, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams , LoadingController, PopoverController, Scroll} from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,ToastController,  LoadingController, PopoverController, Scroll} from 'ionic-angular';
 import { ChoupalProvider } from '../../providers/choupal/choupal';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Api } from '../../providers/api/api';
@@ -28,7 +28,7 @@ export class ChoupalPage {
   public filter_distance:any;
   public sendIcon: string ="assets/img/agri bolo icon/hdpi/senddis.png";
 	public choupaldata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(private photoLibrary: PhotoLibrary,private photoViewer: PhotoViewer,public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
+  constructor(public toastCtrl: ToastController,private photoLibrary: PhotoLibrary,private photoViewer: PhotoViewer,public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
   public api:Api, public loadingCtrl: LoadingController, public popoverCtrl: PopoverController, public camera:Camera,
   public storage:Storage) {
 
@@ -46,15 +46,30 @@ export class ChoupalPage {
   showimage(url, title, options){
     console.log(url);
     this.photoViewer.show(url, title, {share: true});
-    this.imagedwnld(url);
+    //this.imagedwnld(url);
   }
 
   imagedwnld(url){
     //var url = 'http://admin.agribolo.com///media/choupal/0/1520329104.png'; // file or remote URL. url can also be dataURL, but giving it a file path is much faster
-    var album = 'agribolo';
+    var album = 'Agribolo';
+    //this.presentToast();
     this.photoLibrary.saveImage(url, album, (libraryItem)=> {
-
+      this.presentToast();
     }, (err)=> {});
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Download Sucessfully',
+      duration: 1000,
+      position: 'middle'
+    });
+
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+
+    toast.present();
   }
 
   scrollToBottom(scroll) {
