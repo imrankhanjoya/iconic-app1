@@ -40,18 +40,23 @@ export class ChoupalPage {
   ionViewDidLoad() {
     this.choupalget(this.filter_distance);
     console.log('ionViewDidLoad ChoupalPage');
-    var url = 'http://admin.agribolo.com///media/choupal/0/1520329104.png'; // file or remote URL. url can also be dataURL, but giving it a file path is much faster
-    var album = 'agribolo';
-    this.photoLibrary.saveImage(url, album, (libraryItem)=> {
-
-    }, (err)=> {});
   }
 
 
   showimage(url, title, options){
     console.log(url);
     this.photoViewer.show(url, title, {share: true});
+    this.imagedwnld(url);
   }
+
+  imagedwnld(url){
+    //var url = 'http://admin.agribolo.com///media/choupal/0/1520329104.png'; // file or remote URL. url can also be dataURL, but giving it a file path is much faster
+    var album = 'agribolo';
+    this.photoLibrary.saveImage(url, album, (libraryItem)=> {
+
+    }, (err)=> {});
+  }
+
   scrollToBottom(scroll) {
     scroll.scrollTop = scroll.scrollHeight - scroll.clientHeight;
   }
