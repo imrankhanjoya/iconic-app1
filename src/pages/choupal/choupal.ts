@@ -44,9 +44,7 @@ export class ChoupalPage {
     var album = 'agribolo';
     this.photoLibrary.saveImage(url, album, (libraryItem)=> {
 
-    }, (err)=> {
-      
-    });
+    }, (err)=> {});
   }
 
 

@@ -41,7 +41,7 @@ export class KrishProvider {
 
 
   kendraList(latitude,longitude) {
-    var paramCond ={lat:latitude,long:longitude,lang:'en_US'};
+    var paramCond ={lat:latitude,long:longitude,lang:this.api.userLanguage};
     return new Promise((resolve)=>{
     this.api.getCache('v1/krishi/nearby-loc', paramCond).then((kendraListData)=>{
       resolve(kendraListData);
@@ -50,7 +50,7 @@ export class KrishProvider {
   }
 
   NearestKendra(latitude,longitude) {
-    var paramCond ={lat:latitude,long:longitude,lang:'en_US'};
+    var paramCond ={lat:latitude,long:longitude,lang:this.api.userLanguage};
     return new Promise((resolve)=>{
       this.api.getCache('v1/krishi/nearest-loc', paramCond).then((kendraListData)=>{
         resolve(kendraListData);

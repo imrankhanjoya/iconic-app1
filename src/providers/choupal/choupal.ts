@@ -40,10 +40,10 @@ export class ChoupalProvider {
     return seq;
   }
   postChoupal(uid,message,image) {
-    var user_id = this.api.userData.ID;
+    //var user_id = this.api.userData.ID;
 
     let body = new FormData();
-    body.append('uid', user_id);
+    body.append('uid', uid);
     body.append('lat', this.userLatLong.latitude);
     body.append('longe', this.userLatLong.longitude);
     body.append('message', message);
