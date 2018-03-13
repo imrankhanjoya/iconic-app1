@@ -59,7 +59,7 @@ import { Device } from '@ionic-native/device';
 import { AppVersion } from '@ionic-native/app-version';
 import { ProductproProvider } from '../providers/productpro/productpro';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
-
+import { PhotoLibrary } from '@ionic-native/photo-library';
 
 
 
@@ -142,7 +142,7 @@ export function provideSettings(storage: Storage) {
     InAppBrowser,
     ExpertsProvider,
     RentalsProvider,
-    
+    PhotoLibrary,
     AnnouncementproProvider,
     Camera,
     AndroidPermissions,

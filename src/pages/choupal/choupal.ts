@@ -5,6 +5,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Api } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 
 /**
  * Generated class for the ChoupalPage page.
@@ -27,7 +28,7 @@ export class ChoupalPage {
   public filter_distance:any;
   public sendIcon: string ="assets/img/agri bolo icon/hdpi/senddis.png";
 	public choupaldata: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
-  constructor(private photoViewer: PhotoViewer,public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
+  constructor(private photoLibrary: PhotoLibrary,private photoViewer: PhotoViewer,public navCtrl: NavController, public navParams: NavParams,public ChoupalProvider:ChoupalProvider,
   public api:Api, public loadingCtrl: LoadingController, public popoverCtrl: PopoverController, public camera:Camera,
   public storage:Storage) {
 
@@ -39,6 +40,13 @@ export class ChoupalPage {
   ionViewDidLoad() {
     this.choupalget(this.filter_distance);
     console.log('ionViewDidLoad ChoupalPage');
+    var url = 'http://admin.agribolo.com///media/choupal/0/1520329104.png'; // file or remote URL. url can also be dataURL, but giving it a file path is much faster
+    var album = 'agribolo';
+    this.photoLibrary.saveImage(url, album, (libraryItem)=> {
+
+    }, (err)=> {
+      
+    });
   }
 
 
