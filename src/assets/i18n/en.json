@@ -350,7 +350,7 @@
   "VIEW_MORE_PRODUCTS":"View More Products",
   "RELATED_PRODUCTS":"Related Products",
   "CHOOSE_WEIGHT":"Choose Weight",
-  "CHOOSE_QUANTITY":"Choose Weight",
+  "CHOOSE_QUANTITY":"Choose Quantity",
   "PLACE_ORDER":"Place Order",
   "ADD_TO_CART":"Add to Cart",
   "CART_LIST":"Product Cart List",
@@ -368,5 +368,6 @@
   "EMPTY_CART":"You have not any product in cart!",
   "RENTAL_NEW_REQ":"New Rental Request",
   "VERSION_CHANGED":"app version change click update to change your app version",
-  "NOTIFY_ME":"Notify Me"
+  "NOTIFY_ME":"Notify Me",
+  "PRO_OFF":"off"
 }

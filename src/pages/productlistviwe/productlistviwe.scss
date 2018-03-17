@@ -1,6 +1,17 @@
 page-productlistviwe {
+  .offclass {
+      display: inline-block;
+      margin-left: 8px;
+      color: #388e3c;
+      font-size: 13px;
+      letter-spacing: -0.2px;
+      font-weight: 500;
+  }
 .font20{
 		font-size:20px;
+	}
+.font15{
+		font-size:15px;
 	}
 .font10{
 		font-size:10px;
@@ -177,7 +188,13 @@ page-productlistviwe {
 	}
 	.item-cover span.button-inner {
 	    border: 1px solid grey;
-	    height: 65%;
+	    height: 55%;
 	    width: 50%;
+	}
+	.subtext{
+	    text-decoration: line-through;
+	    display: inline-block;
+	    font-size: 16px;
+	    color: #878787;
 	}
 }
