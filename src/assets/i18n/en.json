@@ -369,5 +369,6 @@
   "RENTAL_NEW_REQ":"New Rental Request",
   "VERSION_CHANGED":"app version change click update to change your app version",
   "NOTIFY_ME":"Notify Me",
-  "PRO_OFF":"off"
+  "PRO_OFF":"off",
+  "UPDATE_NOW":"Update Now"
 }

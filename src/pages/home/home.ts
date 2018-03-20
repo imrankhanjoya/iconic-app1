@@ -74,6 +74,7 @@ export class HomePage {
   public userKm:any;
   public userId:any;
   public tehsil:any;
+  public btn:any;
   public NowTime:any;
   public token:any;
   public toggleMenuText:any;
@@ -96,6 +97,12 @@ export class HomePage {
     });
     this.translateService.get('VERSION_CHANGED').subscribe((value) => {
       this.VERSION_CHANGED = value;
+    });
+    this.translateService.get('UPDATE_NOW').subscribe((value) => {
+      this.UPDATE_NOW = value;
+    });
+    this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
+      this.CANCEL_BUTTON = value;
     });
     this.toggleMenuText="more";
     this.rotateClass="rotateimage1";
@@ -167,6 +174,29 @@ export class HomePage {
       this.alert.present();
     }
 
+   exitConfromVersion(message,btn) {
+      this.alert = this.alertCtrl.create({
+        title: '',
+        message: message,
+        buttons: [
+          {
+            text: btn,
+            role: 'cancel',
+            handler: () => {
+              this.alert =null;
+            }
+          },
+          {
+            text: this.UPDATE_NOW,
+            handler: () => {
+              this.iab.create('https://play.google.com/store/apps/details?id=com.agribolo&hl=en', '_blank', 'location=yes');
+            }
+          }
+        ]
+      });
+      this.alert.present();
+    }
+
   ionViewDidLoad() {
       dataLayer : [];
     dataLayer.push({
@@ -223,7 +253,7 @@ export class HomePage {
         this.getParentCat();
         this.getChartCount();
         this.getOrderCount();
-        this.CheckappVersion('111');
+        this.CheckappVersion(this.appVersion.getVersionCode());
         //this.getMandiDetails(this.tehsil);
         //this.weather.weatherdetail(this.tehsil);
         this.storage.get('updated_token').then((token) => {
@@ -901,8 +931,14 @@ gotoMap(latitude,longitude,name){
   CheckappVersion(appVersion){
     console.log(appVersion);
     this.user.CheckappVersion(appVersion).map(res => res.json()).subscribe((res) => {
+      console.log('Check Version');
+      console.log(res);
       if (res.status==false) {
-        this.exitConfrom(this.VERSION_CHANGED);
+        this.btn='';
+        if (res.data.forcestop=='no') {
+          this.btn = this.CANCEL_BUTTON;
+        }
+        this.exitConfromVersion(this.VERSION_CHANGED,this.btn);
       }
     });
   }
