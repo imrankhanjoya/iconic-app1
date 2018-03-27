@@ -110,6 +110,14 @@
 		<ion-row >
 			<div class="paddingLeft smallTitle fontBold colorBlack paddingTop paddingBottom">{{'SPECIFICATIONS' | translate}}</div>
 		</ion-row >
+		<ion-row *ngIf="ProductViewDatas.data.all_sku==''" class="fullWidth paddingLeft ">
+			<ion-col col-5 class="marketViewGridTitle">
+				{{'WIEGHT_P' | translate}}
+			</ion-col>
+			<ion-col col-7 class="marketViewGridContent">
+				{{ProductViewDatas.data.weight}} {{ProductViewDatas.data.uom}}
+			</ion-col>
+		</ion-row>
 		<ion-row *ngFor="let ProductDetail of ProductViewDatas.data.alldetail, let i = index " class="fullWidth paddingLeft ">
 			<ion-col col-5 class="marketViewGridTitle">
 				{{ProductDetail.label}}
