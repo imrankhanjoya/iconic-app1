@@ -368,8 +368,9 @@
   "EMPTY_ORDER":"You have not any order yet!",
   "EMPTY_CART":"You have not any product in cart!",
   "RENTAL_NEW_REQ":"New Rental Request",
-  "VERSION_CHANGED":"app version change click update to change your app version",
+  "VERSION_CHANGED":" AgriBolo experience gets better. Click update to download the new app",
   "NOTIFY_ME":"Notify Me",
   "PRO_OFF":"off",
-  "UPDATE_NOW":"Update Now"
+  "UPDATE_NOW":"Update"
+  
 }
