@@ -76,14 +76,22 @@ export class ProductlistviwePage {
   }
 
   AddtoChart(){
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
     this.productpro.AddtoChart(this.id,this.selectsku,this.quantity).map(res => res.json()).subscribe((res) => {
-      this.navCtrl.push('ProductlistPage');
+        this.loading.dismiss();
+        this.navCtrl.push('ProductlistPage');
     });
   }
 
   Order(sku){
+    this.loading = this.loadingCtrl.create({
+        content: 'Please wait...'
+    });
     this.productpro.Order(this.id,this.selectsku,this.quantity,this.ProductViewDatas.data.unit_price_mrp).map(res => res.json()).subscribe((res) => {
-      this.navCtrl.push('ProducattypePage');
+        this.loading.dismiss();
+        this.navCtrl.push('ProducattypePage');
     });
   }
 

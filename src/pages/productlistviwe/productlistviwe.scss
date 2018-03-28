@@ -1,4 +1,5 @@
 page-productlistviwe {
+	
   .offclass {
       display: inline-block;
       margin-left: 8px;
@@ -196,5 +197,14 @@ page-productlistviwe {
 	    display: inline-block;
 	    font-size: 16px;
 	    color: #878787;
+	}
+	.select-md {
+	    padding: 13px 0px 13px 5px;
+	}
+	ion-select {
+	    max-width: 55% !important;
+	}
+	.item-cover span.button-inner{
+		width:64% !important;
 	}
 }
