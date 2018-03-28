@@ -189,7 +189,7 @@ export class HomePage {
           {
             text: this.UPDATE_NOW,
             handler: () => {
-              this.iab.create('https://play.google.com/store/apps/details?id=com.agribolo&hl=en', '_blank', 'location=yes');
+              window.open('https://play.google.com/store/apps/details?id=com.agribolo&hl=en', '_blank', 'location=yes');
             }
           }
         ]
