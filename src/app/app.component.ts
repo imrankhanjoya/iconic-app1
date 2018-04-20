@@ -237,16 +237,17 @@ export class MyApp {
   
   logout() {
       this.storage.set('userLang','');
+      this.storage.set('userData','');
       this.storage.clear();
-      this.storage.set('userData','').then((userData) => {
+      //this.storage.clear().then((userData) => {
         console.log('Logout userData');
-        console.log(userData);
+        //console.log(userData);
         console.log('Logout userData');
         this.nav.setRoot('TutorialPage', {}, {
           animate: true,
           direction: 'forward'
         });
-      });
+      //});
   }
 
   product(){

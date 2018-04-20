@@ -5,6 +5,7 @@ import { Http, RequestOptions, URLSearchParams } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { CacheService } from "ionic-cache";
 import "rxjs/add/operator/share";
+import { Events } from 'ionic-angular';
 
 
 /**
@@ -22,8 +23,9 @@ export class Api {
   public userLoction : {longitude:number,latitude:number} = {longitude:23,latitude:24};
   public userLanguage :string = 'hi_IN';
 
-  constructor(private geolocation: Geolocation,public http: Http,public storage:Storage,public cache:CacheService) {
-    storage.get('userData').then((userdata) => {
+  constructor(public events: Events,private geolocation: Geolocation,public http: Http,public storage:Storage,public cache:CacheService) {
+    //storage.get('userData').then((userdata) => {
+    events.subscribe('user:userdata', (user, userdata) => {
         console.log('----userData--'+userdata);
         if (userdata) {
           console.log('----userdata get--');

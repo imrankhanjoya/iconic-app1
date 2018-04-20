@@ -118,6 +118,7 @@ export class LoginPage {
         console.log(userdata);
         console.log('userData Login');
          this.event.publish('user:userdata', "000000000123", resp.data);
+         this.event.publish('user:userdatalogin', "00sss0000000123", resp.data);
          //this.event.publish('user:login', "0000600000001211", resp.data);
          this.presentToast(this.WELCOME_BACK + resp.data.display_name);
          this.navCtrl.setRoot(MainPage);
