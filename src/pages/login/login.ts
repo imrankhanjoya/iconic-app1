@@ -113,11 +113,15 @@ export class LoginPage {
       loading.present();
      this.user.login(this.RegisterData.user_name,this.RegisterData.userPassword).map(res => res.json()).subscribe((resp) => {
      if(resp.status==true){
-       this.storage.set('userData',resp.data);
-       this.event.publish('user:userdata', "000000000123", resp.data);
-       //this.event.publish('user:login', "0000600000001211", resp.data);
-       this.presentToast(this.WELCOME_BACK + resp.data.display_name);
-       this.navCtrl.setRoot(MainPage);
+       this.storage.set('userData',resp.data).then((userdata) => {
+        console.log('userData Login');
+        console.log(userdata);
+        console.log('userData Login');
+         this.event.publish('user:userdata', "000000000123", resp.data);
+         //this.event.publish('user:login', "0000600000001211", resp.data);
+         this.presentToast(this.WELCOME_BACK + resp.data.display_name);
+         this.navCtrl.setRoot(MainPage);
+        });
       }else{
         this.errorMsg = true;
         //this.presentAlert(this.LOGIN_USER_INVALID);

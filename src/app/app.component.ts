@@ -115,14 +115,16 @@ export class MyApp {
       });
 
       events.subscribe('user:userdata', (user, userDatas) => {
-        this.storage.set('userData',userDatas);
-        this.display_name = userDatas.display_name;
-        console.log('aaaaaaaaaaaaaasubscribe');
-        fcm.getToken(function(token){
-          storage.set('updated_token',token);
-        });
-        fcm.onTokenRefresh(function(token){
-          storage.set('updated_token',token);
+        this.storage.set('userData',userDatas).then((userdata) => {
+          this.display_name = userDatas.display_name;
+          console.log('aaaaaaaaaaaaaasubscribe');
+          console.log(userDatas);
+          fcm.getToken(function(token){
+            storage.set('updated_token',token);
+          });
+          fcm.onTokenRefresh(function(token){
+            storage.set('updated_token',token);
+          });
         });
       });
 
@@ -234,12 +236,16 @@ export class MyApp {
   } 
   
   logout() {
-      this.storage.set('userData','');
       this.storage.set('userLang','');
       this.storage.clear();
-      this.nav.setRoot('TutorialPage', {}, {
-        animate: true,
-        direction: 'forward'
+      this.storage.set('userData','').then((userData) => {
+        console.log('Logout userData');
+        console.log(userData);
+        console.log('Logout userData');
+        this.nav.setRoot('TutorialPage', {}, {
+          animate: true,
+          direction: 'forward'
+        });
       });
   }
 
