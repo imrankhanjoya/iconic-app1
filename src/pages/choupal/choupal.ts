@@ -54,13 +54,13 @@ export class ChoupalPage {
     var album = 'Agribolo';
     //this.presentToast();
     this.photoLibrary.saveImage(url, album, (libraryItem)=> {
-      this.presentToast();
+      this.presentToast('Download Sucessfully');
     }, (err)=> {});
   }
 
-  presentToast() {
+  presentToast(msg) {
     let toast = this.toastCtrl.create({
-      message: 'Download Sucessfully',
+      message: msg,
       duration: 1000,
       position: 'middle'
     });
@@ -98,20 +98,21 @@ export class ChoupalPage {
         console.log(err);
       });
   }
- change(value){
-  
-  if(value.length>0){
-    console.log('-----'+value.length);
-    this.isSend=true;
-    this.sendIcon='assets/img/agri bolo icon/hdpi/senddis.png';
-  }else {
-    console.log('----++-'+value.length);
-    this.isSend=false;
-    this.sendIcon='assets/img/agri bolo icon/hdpi/send.png';
-  }
- }
 
- postCopal(){
+  change(value){
+  
+    if(value.length>0){
+      console.log('-----'+value.length);
+      this.isSend=true;
+      this.sendIcon='assets/img/agri bolo icon/hdpi/senddis.png';
+    }else {
+      console.log('----++-'+value.length);
+      this.isSend=false;
+      this.sendIcon='assets/img/agri bolo icon/hdpi/send.png';
+    }
+  }
+
+  postCopal(){
     if (this.isSend) {
       /*let loading = this.loadingCtrl.create({
         content: 'Please wait...'
@@ -147,6 +148,7 @@ export class ChoupalPage {
               console.log('=========data:image/jpeg;base64,'+imageData);
              this.selectedImg=imageData;
              this.isSend=true;
+            this.presentToast('Upload Sucessfully');
              this.postCopal();
              }, (err) => {
               console.log(err);
@@ -160,6 +162,7 @@ export class ChoupalPage {
               console.log('=========data:image/jpeg;base64,'+imageData);
               this.selectedImg=imageData;
               this.isSend=true;
+              this.presentToast('Upload Sucessfully');
              this.postCopal();
              }, (err) => {
               console.log(err);
@@ -167,6 +170,7 @@ export class ChoupalPage {
         }
      });
   }
+
   onChange(selectedData){
       this.choupalget(selectedData);
   }

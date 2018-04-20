@@ -22,7 +22,7 @@ export class CropsPage {
   Crop: string = "Kharif";
   public lang:any;
   public cropList:any;
-    public kharifImage='selectseed.png';
+  public kharifImage='selectseed.png';
    public VazitabImage = 'unselectvegetable.png';
    public hortiImage='unselectgrapes.png';
    public ionicNamedColor: string = '#101c00';
@@ -199,12 +199,14 @@ export class CropsPage {
       this.userStateId,this.userDictrictId,'village',JSON.stringify(selectedCrops),this.userTehsilId).map(res => res.json()).subscribe((resp) => {
       loading.dismiss();
      if(resp.status==true){
-       this.storage.set('userData',resp.data);
-       this.presentAlert(this.REGISTER_SUCESS);
-       this.navCtrl.push('LoginPage');
+        console.log('registered msg');
+        this.storage.set('userData',resp.data);
+        this.presentAlert(this.REGISTER_SUCESS);
+        this.navCtrl.push('LoginPage');
       }else{
-        console.log(resp.status);
-        this.presentAlert(resp.msg);
+        console.log('not registered msg');
+        console.log(resp.msg);
+        this.presentAlert('Retry');
         //alert(resp.msg);
       }
      }, (err) => {
