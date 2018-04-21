@@ -80,17 +80,25 @@ export class ProductlistPage {
       message: this.ORDER_ALERT_DESC,
       buttons: [
         {
+          text: this.ORDER_ALERT,
+          handler: () => {
+            this.loading = this.loadingCtrl.create({
+                content: 'Please wait...'
+            });
+            this.productpro.CartOrder().map(res => res.json()).subscribe((resp) => {
+              this.loading.dismiss();
+              this.navCtrl.push('ProducattypePage');
+            }, (err) => {
+              console.log('you have error');
+              console.log(err);
+            });
+          }
+        },
+        {
           text: this.CANCEL_BUTTON,
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
-          }
-        },
-        {
-          text: this.ORDER_ALERT,
-          handler: () => {
-            this.productpro.CartOrder();
-            this.navCtrl.push('ProducattypePage');
           }
         }
       ]
