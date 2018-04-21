@@ -25,7 +25,7 @@ export class Api {
 
   constructor(public events: Events,private geolocation: Geolocation,public http: Http,public storage:Storage,public cache:CacheService) {
     //storage.get('userData').then((userdata) => {
-    events.subscribe('user:userdata', (user, userdata) => {
+    events.subscribe('user:userdatalogin', (user, userdata) => {
         console.log('----userData--'+userdata);
         if (userdata) {
           console.log('----userdata get--');
@@ -48,6 +48,13 @@ export class Api {
         console.log('Error getting location', error);
       });
   }
+
+  getuserdata(){
+    return this.storage.get('userData').then((userdata) => {
+        return userdata;
+     });
+  }
+
   changelang(lang){
 
       if(lang=='hi'){
