@@ -85,6 +85,7 @@ export class ProductlistPage {
             this.loading = this.loadingCtrl.create({
                 content: 'Please wait...'
             });
+            this.loading.present();
             this.productpro.CartOrder().map(res => res.json()).subscribe((resp) => {
               this.loading.dismiss();
               this.navCtrl.push('ProducattypePage');

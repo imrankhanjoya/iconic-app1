@@ -79,6 +79,7 @@ export class ProductlistviwePage {
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
+    this.loading.present();
     this.productpro.AddtoChart(this.id,this.selectsku,this.quantity).map(res => res.json()).subscribe((res) => {
         this.loading.dismiss();
         this.navCtrl.push('ProductlistPage');
