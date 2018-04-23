@@ -107,6 +107,8 @@ export class ProductproProvider {
   	
     OrderCount() {
 	  	var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
+
+
 	    let seq = this.api.get('v1/products/order-count', paramCond).share();
 	    seq
 	      .map(res => res.json())
@@ -120,6 +122,7 @@ export class ProductproProvider {
 	      });
 	     console.log('get function for chatlist');
 	    return seq;
+
   	}
   	
     ChartList() {
@@ -151,6 +154,7 @@ export class ProductproProvider {
 	}
   
 	OrderList() {
+		console.log(this.api.userData);
 	  	var paramCond ={user_id:this.api.userData.ID,lang:this.api.userLanguage};
 	    let seq = this.api.get('v1/products/order-list', paramCond).share();
 	    seq
