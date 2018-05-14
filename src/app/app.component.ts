@@ -130,7 +130,7 @@ export class MyApp {
 
       events.subscribe('user:userdatasetting', (user, userDatas) => {
         this.storage.set('userData',userDatas);
-        this.events.publish('user:userdatalogin', "00sss0000000123", userlogin);
+        this.events.publish('user:userdatalogin+', "00sss0000000123", userlogin);
         console.log('userlogin');
         this.display_name = userDatas.display_name;
         console.log('aaaaaaaaaaaaaasubscribe');

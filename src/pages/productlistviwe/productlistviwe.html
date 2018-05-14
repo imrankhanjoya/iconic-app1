@@ -25,11 +25,11 @@
 				<div class="smallTitle fontBold colorBlack paddingbutom_pro" >{{ProductViewDatas.data.name}}				
 				</div>
 				<div class="smallTitle fontBold colorBlack paddingbutom_pro"  style="color:#5f8b05">
-					₹{{ProductViewDatas.data.unit_price_mrp}}
+					₹{{ProductViewDatas.data.unit_price_mrp_format}}
 				</div>
 				<ion-row>
 				<div class="smallTitle subtext paddingbutom_pro" >
-					₹{{ProductViewDatas.data.selling_price}}
+					₹{{ProductViewDatas.data.selling_price_format}}
 				</div><div class="offclass" style="color:#5f8b05;margin-left: 5px;">{{ProductViewDatas.data.offper}} {{'PRO_OFF' | translate}}</div>
 				</ion-row>
 			   	<div *ngIf="ProductViewDatas.data.stock_status=='in_stock'" class="paddingTop fontBold in_stock" >

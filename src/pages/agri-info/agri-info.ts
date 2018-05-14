@@ -13,6 +13,7 @@ import { Events } from 'ionic-angular';
  */
 declare var dataLayer: Array;
 
+
 @IonicPage()
 @Component({
   selector: 'page-agri-info',
@@ -23,6 +24,7 @@ export class AgriInfoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,  public experts:ExpertsProvider,private iab: InAppBrowser,
     public loadingCtrl: LoadingController,public event:Events){
   }  
+
 
   ionViewDidLoad() {
     dataLayer : [];

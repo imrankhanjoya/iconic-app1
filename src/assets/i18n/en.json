@@ -265,7 +265,7 @@
   "SORT_BY": "Sort By",
   "VERIETY": "Variety",
   "QUANTITY": "Quantity",
-  "EXCEPT_PRICE": "Expected Price",
+  "EXCEPT_PRICE": "Expected Price ( Per Quintal )",
   "E_TRADING_FORM": "Thanks for form fill. AgriBolo will call you soon",
   "SUBMIT": "Submit",
   "PASSWORD_CHANGED": "Password Changed Successfully",
@@ -365,12 +365,13 @@
   "ORDER_MESSAGE_CALL":"If you wish to contact us, call us on our toll-free number 18001200800.",
   "ORDER_MESSAGE_SUMMARY":"Here is your order summary for reference:",
   "ORDER_LIST":"Order List",
-  "EMPTY_ORDER":"You have not any order yet!",
+  "EMPTY_ORDER":"You have not placed any order.",
   "EMPTY_CART":"You do not have any product in the cart.",
   "RENTAL_NEW_REQ":"New Rental Request",
   "VERSION_CHANGED":"AgriBolo experience gets better. Click update to download the new app",
   "NOTIFY_ME":"Notify Me",
   "PRO_OFF":"off",
-  "UPDATE_NOW":"Update"
+  "UPDATE_NOW":"Update",
+  "TOTAL_ORDER_AMOUNT":"Total Amount"
   
 }

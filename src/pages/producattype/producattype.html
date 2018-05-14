@@ -37,7 +37,7 @@
             {{'ORDER_MESSAGE2' | translate}}{{OrderList.OrderId}}.
           </div>
         </ion-row>
-        <ion-grid    *ngFor="let OrderProduct of OrderList.ordetail, let i = index " class=" separator " >
+        <ion-grid *ngFor="let OrderProduct of OrderList.ordetail, let i = index " class="separator">
           <ion-row>
               <ion-col col-3 >
                  <div >
@@ -47,9 +47,15 @@
               <ion-col col-9>
                  <div class="sarsTitle1 colorGrey Headline">{{OrderProduct.name}}</div>
                  <div class="sarsTitle1 colorGrey Headline">{{'QUANTITY' | translate}} : {{OrderProduct.Quantity}}</div>
+                 <div class="sarsTitle1 colorGrey Headline">{{'TOTAL_ORDER_AMOUNT' | translate}} : ₹{{OrderProduct.total_amount}}</div>
               </ion-col>
            </ion-row>
         </ion-grid>
+        <ion-row style="border-top: 1px solid black;padding: 5px;">
+          <div style="width:100%;text-align: center;">
+            <b>{{'TOTAL_ORDER_AMOUNT' | translate}} : ₹{{OrderList.total_amount}}</b>
+          </div>
+        </ion-row>
       </ion-card>
     </div>
   </ion-card>

@@ -57,7 +57,7 @@
          </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_TO' | translate}}</ion-label>
-              <ion-datetime formControlName="to_date" displayFormat="DD MMMM YYYY" pickerFormat=" DD MMMM YYYY"  [(ngModel)]="to_date"></ion-datetime>
+              <ion-datetime formControlName="to_date" displayFormat="DD MMMM YYYY" min="{{date_from}}" pickerFormat=" DD MMMM YYYY"  [(ngModel)]="to_date"></ion-datetime>
          </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'TIME_FROM' | translate}}</ion-label>
@@ -141,7 +141,7 @@
          </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'DATA_TO' | translate}}</ion-label>
-              <ion-datetime formControlName="to_date" displayFormat="DD MMMM YYYY" pickerFormat="DD MMMM YYYY"  [(ngModel)]="to_date" value=""></ion-datetime>
+              <ion-datetime formControlName="to_date" displayFormat="DD MMMM YYYY" min="{{to_date}}" pickerFormat="DD MMMM YYYY"  [(ngModel)]="to_date" value=""></ion-datetime>
          </ion-item>
          <ion-item  class="separator colorGrey">
            <ion-label> {{'TIME_FROM' | translate}}</ion-label>
