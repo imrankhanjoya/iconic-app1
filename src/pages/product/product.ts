@@ -19,6 +19,9 @@ export class ProductPage {
   Crop: string = "home";
   public loading :any;
   public activetabs :any;
+  public catshowmore :any;
+  public catshowmorebtn :any;
+  public catshowmorepbtn :any;
   public ParentCats: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public GroupCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
@@ -28,6 +31,9 @@ export class ProductPage {
   public OrderCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   
   constructor(public modalCtrl:ModalController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
+    this.catshowmore='hide';
+    this.catshowmorebtn='show';
+    this.catshowmorepbtn='hide';
   }
 
   ionViewDidLoad() { 
@@ -156,6 +162,12 @@ export class ProductPage {
 
   gotoCartList(){
       this.navCtrl.push('ProductlistPage');
+  }
+
+  showallcat(){
+    this.catshowmore='show';
+    this.catshowmorebtn='hide';
+    this.catshowmorepbtn='show';
   }
 
 }

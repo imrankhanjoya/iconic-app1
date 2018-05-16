@@ -27,7 +27,11 @@ export class ProducattypePage {
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
+    
     this.loading.present();
+    setTimeout(() => {
+        loading.dismiss();
+      }, 6000);
     this.getOrderList();
   }
 

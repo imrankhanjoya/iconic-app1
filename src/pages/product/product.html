@@ -84,8 +84,13 @@
           <ion-card style="margin-top: 8px;"  >
             <ion-grid>
               <ion-row >
-                <ion-col *ngFor="let data of GroupCatProduct.categorydata;" col-6  style="padding: 0px">
-                  <ion-card (click)="GetParentCatProduct(GroupCatProduct.id,'cat',data.category_id)">
+                <ion-col *ngFor="let data of GroupCatProduct.categorydata, let i = index " col-6  style="padding: 0px" >
+                  <ion-card (click)="GetParentCatProduct(GroupCatProduct.id,'cat',data.category_id)"  *ngIf=" i <= 3 ">
+                    <img class="produtimg" src="{{data.feature_image}}"/>
+                    <div class="sarsTitle1 colorGrey Headline">{{data.cat_name}}</div>
+                  </ion-card>
+                  <ion-card (click)="GetParentCatProduct(GroupCatProduct.id,'cat',data.category_id)"  *ngIf=" i > 3 "  class="{{catshowmore}} card card-md">
+                    <style>#{{GroupCatProduct.id}}{display: none;}</style>
                     <img class="produtimg" src="{{data.feature_image}}"/>
                     <div class="sarsTitle1 colorGrey Headline">{{data.cat_name}}</div>
                   </ion-card>
@@ -93,9 +98,19 @@
               </ion-row>
             </ion-grid>
             <ion-row  >   
-              <ion-col col-12> 
+              <ion-col col-12 *ngIf="GroupCatProduct.countsubcat <= 4" > 
                 <div style="text-align: center;" > 
                   <button ion-button type="submit" (click)="GetParentCatProduct(GroupCatProduct.id,'cat','')">{{'VIEW_MORE_PRODUCTS'| translate}}</button>
+                </div>
+              </ion-col>   
+              <ion-col col-12 class="{{catshowmorepbtn}}"   *ngIf="GroupCatProduct.countsubcat > 4"> 
+                <div style="text-align: center;" > 
+                  <button ion-button type="submit" (click)="GetParentCatProduct(GroupCatProduct.id,'cat','')">{{'VIEW_MORE_PRODUCTS'| translate}}</button>
+                </div>
+              </ion-col> 
+              <ion-col col-12 class="{{catshowmorebtn}}"   *ngIf="GroupCatProduct.countsubcat > 4"> 
+                <div style="text-align: center;" > 
+                  <button ion-button type="submit" (click)="showallcat()">{{'SEE_MORE'| translate}}</button>
                 </div>
               </ion-col>
             </ion-row>
