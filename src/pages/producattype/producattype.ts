@@ -19,6 +19,7 @@ export class ProducattypePage {
   public loading:any;
 
   public OrderLists: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
+
   constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    
   }
 
