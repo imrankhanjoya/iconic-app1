@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-
+import { MainPage } from '../pages';
 import { Items } from '../../providers/providers';
 
 @IonicPage()
@@ -28,7 +28,7 @@ export class ItemDetailPage {
   }
 
   gotoprofile(){
-      this.navCtrl.push('ItemCreatePage');
+      this.navCtrl.setRoor(MainPage);
 
   }
 

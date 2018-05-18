@@ -13,6 +13,7 @@ import { Api } from '../providers/api/api';
 import { Events } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MainPage } from '../pages/pages';
+import { AppVersion } from '@ionic-native/app-version';
 
 
 //import { Storage } from '@ionic/storage';
@@ -75,7 +76,7 @@ export class MyApp {
   ]
   public alert:any;
   public display_name : any;
-  constructor(public events: Events,private translate: TranslateService, public platform: Platform, settings: Settings,
+  constructor(private appVersion: AppVersion,public events: Events,private translate: TranslateService, public platform: Platform, settings: Settings,
     private config: Config, private statusBar: StatusBar,public storage:Storage,public deeplinks:Deeplinks,
     public fcm: FCM,public cacheService: CacheService,public api:Api,public alertCtrl: AlertController,
     public splashScreen: SplashScreen,public modalCtrl: ModalController) {
@@ -268,7 +269,7 @@ export class MyApp {
     }else if(page.component=='HomePage'){
       this.nav.setRoot(MainPage);
     }else if(page.component=='ItemCreatePage'){
-      this.nav.setRoot('ItemCreatePage');
+      this.nav.push('ItemCreatePage');
     }else{
        this.nav.push(page.component);
     }
@@ -282,6 +283,15 @@ export class MyApp {
 
   setLanguage(lang){
     //console.log(lang);
+    if(lang =='en'){
+        this.appVersion.getAppName("----en",(version)=>{
+            
+        });
+      }
+    if(lang =='hi'){
+        this.appVersion.getAppName("----hi",(version)=>{    
+        });
+      }
     this.storage.set('userLang',lang);
     this.userLanguage = lang;
    this.translate.setDefaultLang(lang);

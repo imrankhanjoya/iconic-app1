@@ -122,29 +122,42 @@ export class HomePage {
             this.gotoAnounsePage(notiData.type,notiData.type_value);
           }
         });
+      storage.get('userLang').then((lanData) => {
+        //console.log("-=-=-=-notiData=-=-=-=-=-= : "+notiData);
+        if(lanData =='en'){
+            this.appVersion.getAppName("----en",(version)=>{
+                
+            });
+          }
+        if(lanData =='hi'){
+            this.appVersion.getAppName("----hi",(version)=>{    
+            });
+          }
+        });
+
       let view = this.navCtrl.getActive();
                //console.log("  current Page  :  " + view);
       platform.ready().then(() => {
 
               platform.registerBackButtonAction(() => {
-                 let view = this.navCtrl.getActive();
-               //console.log("  current Page  :  " + view);
-                 if (view.name=="HomePage") {
-                    if(this.alert){ 
-                      this.alert.dismiss();
-                      this.alert =null;     
-                    }else{
-                      this.exitConfrom(this.exitAlertMess);
-                    }
-                  }else {
-                    // const index = this.viewCtrl.index;
-                    // this.navCtrl.remove(index);
-                    if(view.name=="ItemCreatePage"){
-                        this.navCtrl.setRoot(MainPage);
-                    }else{
-                        this.navCtrl.pop();
-                    }
-                  }
+               //   let view = this.navCtrl.getActive();
+               // //console.log("  current Page  :  " + view);
+               //   if (view.name=="HomePage") {
+               //      if(this.alert){ 
+               //        this.alert.dismiss();
+               //        this.alert =null;     
+               //      }else{
+               //        this.exitConfrom(this.exitAlertMess);
+               //      }
+               //    }else {
+               //      // const index = this.viewCtrl.index;
+               //      // this.navCtrl.remove(index);
+               //      if(view.name=="ItemCreatePage"){
+               //          this.navCtrl.setRoot(MainPage);
+               //      }else{
+               //          this.navCtrl.pop();
+               //      }
+               //    }
               });
             });
       //this.updatetoken(1234);
