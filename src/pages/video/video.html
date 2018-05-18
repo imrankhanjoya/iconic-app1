@@ -14,21 +14,31 @@
     <ion-title>{{'VIDEO' | translate}}</ion-title>
   </ion-navbar>
 
-
-      <ion-segment  [(ngModel)]="Crop" >
+  <ion-toolbar color="light" mode="md">
+      <ion-segment class="backnew" [(ngModel)]="Crop" >
           <ion-segment-button value="favourite" (click)="videoByCat('favourite')">
             {{'VEDIO_FAVOURITE' | translate}}
           </ion-segment-button>
           <ion-segment-button value="fertilizers" (click)="videoByCat('fertilizers')">
               {{'VEDIO_FERTILIZERS' | translate}}
           </ion-segment-button>
-          <ion-segment-button value="seeds"  (click)="videoByCat('seeds')">
-             {{'VEDIO_SEEDS' | translate}}
+          <ion-segment-button value="field" (click)="videoByCat('field')">
+              {{'VEDIO_FIELD' | translate}}
+          </ion-segment-button>
+          <ion-segment-button value="irrigation-type" (click)="videoByCat('irrigation-type')">
+              {{'VEDIO_IRRIGATIONTYPE' | translate}}
+          </ion-segment-button>
+          <ion-segment-button value="new"  (click)="videoByCat('new')">
+             {{'VEDIO_NEW' | translate}}
           </ion-segment-button>
           <ion-segment-button value="pesticide" (click)="videoByCat('pesticide')">
             {{'VEDIO_PESTICIDE' | translate}}
           </ion-segment-button>
+          <ion-segment-button value="seeds"  (click)="videoByCat('seeds')">
+             {{'VEDIO_SEEDS' | translate}}
+          </ion-segment-button>
       </ion-segment>
+    </ion-toolbar>
 
 
 

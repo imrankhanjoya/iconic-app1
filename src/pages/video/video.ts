@@ -21,6 +21,7 @@ declare var dataLayer: Array;
   templateUrl: 'video.html',
 })
 export class VideoPage {
+  Crop: string = "favourite";
   public items:any = [];
   public datatypes:any;
   private page:number=1;

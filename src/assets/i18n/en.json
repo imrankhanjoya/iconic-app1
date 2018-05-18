@@ -200,7 +200,10 @@
   "RENTAL_MUTE_ONE_YEARS":"Mute for One Year",
   "VEDIO_FAVOURITE":"Favorites",
   "VEDIO_FERTILIZERS":"Fertilizer",
-  "VEDIO_SEEDS":" Crop",
+  "VEDIO_FIELD":"Field",
+  "VEDIO_IRRIGATIONTYPE":"Irrigation",
+  "VEDIO_NEW":"New",
+  "VEDIO_SEEDS":"Seeds",
   "VEDIO_PESTICIDE":"Pesticide",
   "TIPS_INDIAN_FARMER":"AgriBolo: Agriculture on Finger Tips of Indian Farmers",
   "SUTRA":"Sutra: Do this to save your Crop with Heavy Rain",
@@ -372,6 +375,8 @@
   "NOTIFY_ME":"Notify Me",
   "PRO_OFF":"off",
   "UPDATE_NOW":"Update",
-  "TOTAL_ORDER_AMOUNT":"Total Amount"
+  "TOTAL_ORDER_AMOUNT":"Total Amount",
+  "ORDER_AMOUNT":"Amount",
+  "ORDER_DATE":"Date"
   
 }
