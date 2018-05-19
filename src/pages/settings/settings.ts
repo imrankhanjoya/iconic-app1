@@ -8,6 +8,7 @@ import { Events } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { Camera } from '@ionic-native/camera';
 import { CityStateProvider } from '../../providers/city-state/city-state';
+import { MainPage } from '../pages';
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -271,7 +272,7 @@ export class SettingsPage {
             this.storage.set('userData',resp.data);if (resp.status==true) {
               this.passresError='Change Location Sucessfully';
               this.presentAlert(this.LOCATION_UPDATA_SUCCESSFULLY);
-              this.navCtrl.push('ItemCreatePage');
+              this.navCtrl.setRoot(MainPage);
             }
           this.loading.dismiss();
      }, (err) => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -21,7 +21,7 @@ export class ProductlistPage {
   public loading:any;
 
   public ChartLists: { status:boolean, msg: string,data: any } = {status:true,msg: 'test',data:''};
-  constructor(private alertCtrl: AlertController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider,public translateService: TranslateService) {    
+  constructor(private alertCtrl: AlertController,public loadingCtrl: LoadingController,public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams, public productpro: ProductproProvider,public translateService: TranslateService) {    
     this.user_id=navParams.get('user_id'); 
     this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
       this.CANCEL_BUTTON= value;
@@ -87,8 +87,13 @@ export class ProductlistPage {
             });
             this.loading.present();
             this.productpro.CartOrder().map(res => res.json()).subscribe((resp) => {
-              this.loading.dismiss();
-              this.navCtrl.push('ProducattypePage');
+            this.loading.dismiss();
+
+              const index = this.viewCtrl.index;
+              this.navCtrl.push('ProducattypePage').then(() => {
+              this.navCtrl.remove(index);});
+
+              // this.navCtrl.push('ProducattypePage');
             }, (err) => {
               console.log('you have error');
               console.log(err);

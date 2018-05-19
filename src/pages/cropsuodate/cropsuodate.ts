@@ -5,7 +5,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ViewController,
 import { User } from '../../providers/providers';
 import { Storage } from '@ionic/storage';
 import { CityStateProvider } from '../../providers/city-state/city-state';
-
+import { MainPage } from '../pages';
 /**
  * Generated class for the CropsuodatePage page.
  *
@@ -192,7 +192,7 @@ export class CropsuodatePage {
           console.log(this.userdata);
           this.storage.set('userData',this.userdata);
           this.presentAlert(this.CROP_UPDATA_SUCCESSFULLY);
-          this.navCtrl.push('ItemCreatePage');
+          this.navCtrl.setRoot(MainPage);
 	      }else{
           this.presentAlert(resp.msg);
 	        alert(resp.msg);
