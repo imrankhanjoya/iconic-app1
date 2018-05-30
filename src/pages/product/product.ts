@@ -144,6 +144,13 @@ export class ProductPage {
   }
 
   openFilter(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'openFilter'
+     });
+     dataLayer.push({'event': 'appEvent'});
     let modal = this.modalCtrl.create('ProductFilterPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
@@ -178,10 +185,24 @@ export class ProductPage {
   }
 
   gotoOderList(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Order List'
+     });
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ProducattypePage');
   }
 
   gotoCartList(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Cart List'
+     });
+     dataLayer.push({'event': 'appEvent'});
       this.navCtrl.push('ProductlistPage');
   }
 
