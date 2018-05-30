@@ -45,7 +45,7 @@
       <div *ngFor="let item of cropList ; let i = index "   style="padding: 0px;width: 50%;">
       <ion-item no-lines *ngIf="(item.crop_type == 'Kharif' || item.crop_type == 'Rabi') && shoPage == 'Kharif'" class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      <ion-checkbox checked="{{item.sub_type}}" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
   </div>
   </ion-row >
@@ -59,7 +59,7 @@
     <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
       <ion-item no-lines *ngIf="(item.crop_type == 'Vegetable') && shoPage == 'Vezetables'"  class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      <ion-checkbox checked="{{item.sub_type}}" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
     </div>
   </ion-row >
@@ -73,7 +73,7 @@
       <div *ngFor="let item of cropList ; let i = index "  class="minWidth" style="padding: 0px">
       <ion-item no-lines *ngIf="(item.crop_type == 'Fruit' && i != 1) && shoPage == 'Horticulture'"  class="mainClass"> 
       <ion-label class="titleFont ">{{item.name}}</ion-label>
-      <ion-checkbox (click)="addValue(i,j,Kharif)"></ion-checkbox>
+      <ion-checkbox checked="{{item.sub_type}}" (click)="addValue(i,j,Kharif)"></ion-checkbox>
       </ion-item>
   </div>
   </ion-row >

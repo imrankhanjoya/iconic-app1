@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import { Events } from 'ionic-angular';
 import { Api } from '../../providers/api/api';
+import { AppVersion } from '@ionic-native/app-version';
 
 /**
  * The Welcome Page is a splash page that quickly describes the app,
@@ -18,7 +19,7 @@ import { Api } from '../../providers/api/api';
 })
 export class WelcomePage {
 
-  constructor(
+  constructor(private appVersion: AppVersion,
     public events: Events,
             private translate: TranslateService,
             public navCtrl: NavController,
@@ -27,8 +28,11 @@ export class WelcomePage {
           ) {
            }
     setLanguage(lang) {
+    
     this.events.publish('user:created', "000000000000", lang);
     if(lang =='hi'){
+      this.appVersion.getAppName("----hi",(version)=>{ 
+      });
       dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Onboarding',
@@ -38,6 +42,9 @@ export class WelcomePage {
      dataLayer.push({'event': 'appEvent'});
    }
    if(lang =='en'){
+    this.appVersion.getAppName("----en",(version)=>{
+        
+    });
     dataLayer : [];
       dataLayer.push({
        'appEventCategory': 'Onboarding',
