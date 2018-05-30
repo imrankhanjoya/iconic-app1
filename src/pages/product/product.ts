@@ -9,6 +9,8 @@ import { LoadingController } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array<Object>;
+
 
 @IonicPage()
 @Component({
@@ -37,6 +39,11 @@ export class ProductPage {
   }
 
   ionViewDidLoad() { 
+    dataLayer : [];
+    dataLayer.push({
+      'screenName': 'ProductPage'
+    });
+    dataLayer.push({'event': 'appScreenView'});
     this.activetabs = 'home';   
     console.log('ionViewDidLoad ProductPage');
     this.loading = this.loadingCtrl.create({
@@ -76,6 +83,13 @@ export class ProductPage {
   }
   
   PromoClick(type,type_value){ 
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Promo Click ' + type
+     });
+     dataLayer.push({'event': 'appEvent'});
     if (type=='product') {
       this.navCtrl.push('ProductlistviwePage',{id:type_value}); 
     }
@@ -105,6 +119,13 @@ export class ProductPage {
   }
 
   GetParentCatProduct(cat_id,type,category_id){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Tab Click ' + type
+     });
+     dataLayer.push({'event': 'appEvent'});
       this.Crop = cat_id;  
       this.activetabs = type;
       if (type!='home') { this.Crop = cat_id;  

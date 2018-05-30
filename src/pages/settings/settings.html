@@ -85,7 +85,7 @@
 
         <ion-item class="separator paddingBottom8px">
           <ion-label>{{'IRRIGATION_SOURCE' | translate}}</ion-label>
-          <ion-select  formControlName="user_irrigation_source"  ng-required>
+          <ion-select  formControlName="user_irrigation_source" >
             <ion-option value="Canal">{{'CANAL' | translate}}</ion-option>
             <ion-option value="Well">{{'WELL' | translate}}</ion-option>
             <ion-option value="Pond">{{'POND' | translate}}</ion-option>
@@ -97,7 +97,7 @@
 
         <ion-item class="separator paddingBottom8px">
           <ion-label>{{'LANDHOLDING_SIZE_UNIT' | translate}}</ion-label>
-          <ion-select  formControlName="user_landholding_size_unit"  ng-required>
+          <ion-select  formControlName="user_landholding_size_unit" >
             <ion-option value="Acre">{{'ACRE' | translate}}</ion-option>
             <ion-option value="Bigha">{{'BIGHA' | translate}}</ion-option>
             <ion-option value="Marba">{{'MARBA' | translate}}</ion-option>
@@ -105,10 +105,9 @@
             <ion-option value="Killa">{{'KILLA' | translate}}</ion-option>
           </ion-select>
         </ion-item>
-
          <ion-item class="paddingBottom8px separator colorGrey">
             <ion-label  class="inpu" stacked>{{'LANDHOLDING_SIZE' | translate}}</ion-label>
-            <ion-input  formControlName="user_landholding_size"  placeholder="Landholding Size" ng-required></ion-input>
+            <ion-input  formControlName="user_landholding_size"  placeholder="Landholding Size" ></ion-input>
           </ion-item>
       </div>
 

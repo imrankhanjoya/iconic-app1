@@ -97,6 +97,7 @@ export class SettingsPage {
                 user_landholding_size_unit: [this.userData.user_landholding_size_unit, Validators.required],
                 user_landholding_size: [this.userData._user_landholding_size, Validators.required]
               });
+              this.changeprofile.get('user_landholding_size_unit').setValue(this.userData.user_landholding_size_unit);
               //Change Profile Details
               this.changelocation = this.formBuilder.group({
                 user_state_id: [this.userData._user_state, Validators.required],

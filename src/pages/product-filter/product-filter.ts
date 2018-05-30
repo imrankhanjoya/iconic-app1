@@ -44,7 +44,7 @@ export class ProductFilterPage {
         }, 4000);
       dataLayer : [];
       dataLayer.push({
-        'screenName': 'MarketFilterPage'
+        'screenName': 'ProductFilterPage'
       });
       dataLayer.push({'event': 'appScreenView'});
     	this.getParentCat();
