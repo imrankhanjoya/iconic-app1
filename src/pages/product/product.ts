@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the ProductPage page.
@@ -32,7 +33,9 @@ export class ProductPage {
   public ChartCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public OrderCount: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   
-  constructor(public modalCtrl:ModalController,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {
+  constructor(public modalCtrl:ModalController,public loadingCtrl: LoadingController,
+    public navCtrl: NavController, public navParams: NavParams, 
+    public productpro: ProductproProvider, public event:Events) {
     this.catshowmore='hide';
     this.catshowmorebtn='show';
     this.catshowmorepbtn='hide';
@@ -58,7 +61,14 @@ export class ProductPage {
     this.getOrderCount();
   }
   
-  gotoProductViewPage(id){
+  gotoProductViewPage(id, name){
+      dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'product detail - '+name
+        });
+       dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ProductlistviwePage',{id:id});
   }
 
@@ -118,14 +128,25 @@ export class ProductPage {
     });
   }
 
-  GetParentCatProduct(cat_id,type,category_id){
-    dataLayer : [];
-      dataLayer.push({
-       'appEventCategory': 'Product',
-       'appEventAction': 'Clicked',
-       'appEventLabel': 'Tab Click ' + type
-     });
-     dataLayer.push({'event': 'appEvent'});
+  GetParentCatProduct(cat_id,type,category_id,name){
+    if (category_id=='') {
+      dataLayer : [];
+        dataLayer.push({
+         'appEventCategory': 'Product',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Tab Click - '+name
+       });
+       dataLayer.push({'event': 'appEvent'});
+    }else{
+      dataLayer : [];
+        dataLayer.push({
+         'appEventCategory': 'Product',
+         'appEventAction': 'Clicked',
+         'appEventLabel': 'Subcategory Click - '+name
+       });
+      dataLayer.push({'event': 'appEvent'});
+    }
+
       this.Crop = cat_id;  
       this.activetabs = type;
       if (type!='home') { this.Crop = cat_id;  
@@ -144,6 +165,14 @@ export class ProductPage {
   }
 
   openFilter(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Click to Filter'
+     });
+    dataLayer.push({'event': 'appEvent'});
+
     let modal = this.modalCtrl.create('ProductFilterPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
@@ -178,11 +207,27 @@ export class ProductPage {
   }
 
   gotoOderList(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Click to OrderList'
+     });
+    dataLayer.push({'event': 'appEvent'});
+
     this.navCtrl.push('ProducattypePage');
   }
 
   gotoCartList(){
-      this.navCtrl.push('ProductlistPage');
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Product',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Click to CartList'
+     });
+    dataLayer.push({'event': 'appEvent'});
+
+    this.navCtrl.push('ProductlistPage');
   }
 
   showallcat(){

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController, ViewController } 
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the ProductlistPage page.
@@ -10,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var dataLayer: Array<Object>;
 
 @IonicPage()
 @Component({
@@ -21,7 +23,10 @@ export class ProductlistPage {
   public loading:any;
 
   public ChartLists: { status:boolean, msg: string,data: any } = {status:true,msg: 'test',data:''};
-  constructor(private alertCtrl: AlertController,public loadingCtrl: LoadingController,public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams, public productpro: ProductproProvider,public translateService: TranslateService) {    
+  constructor(private alertCtrl: AlertController,public loadingCtrl: LoadingController,
+    public navCtrl: NavController, public viewCtrl: ViewController,
+    public navParams: NavParams, public productpro: ProductproProvider,
+    public translateService: TranslateService, public event:Events) {    
     this.user_id=navParams.get('user_id'); 
     this.translateService.get('CANCEL_BUTTON').subscribe((value) => {
       this.CANCEL_BUTTON= value;
@@ -48,6 +53,14 @@ export class ProductlistPage {
   }
 
   gotoproductlist(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Cart List',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Click on See More'
+     });
+    dataLayer.push({'event': 'appEvent'});
+
     this.navCtrl.push('ProductPage');
   }
 
@@ -61,6 +74,14 @@ export class ProductlistPage {
   }
 
   RemoveProduct(id){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Cart List',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Remove Add to Cart'
+     });
+    dataLayer.push({'event': 'appEvent'});
+
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
@@ -71,6 +92,14 @@ export class ProductlistPage {
   }
 
   OrderpProduct(){
+    dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'Cart List',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Click Place Order'
+     });
+    dataLayer.push({'event': 'appEvent'});
+
     this.BuyConfirm();
   }
 
@@ -82,6 +111,14 @@ export class ProductlistPage {
         {
           text: this.ORDER_ALERT,
           handler: () => {
+            dataLayer : [];
+              dataLayer.push({
+               'appEventCategory': 'Cart List',
+               'appEventAction': 'Clicked',
+               'appEventLabel': 'Confirm Place Order'
+             });
+            dataLayer.push({'event': 'appEvent'});
+
             this.loading = this.loadingCtrl.create({
                 content: 'Please wait...'
             });
@@ -104,6 +141,14 @@ export class ProductlistPage {
           text: this.CANCEL_BUTTON,
           role: 'cancel',
           handler: () => {
+            dataLayer : [];
+              dataLayer.push({
+               'appEventCategory': 'Cart List',
+               'appEventAction': 'Clicked',
+               'appEventLabel': 'Cancel Place Order'
+             });
+            dataLayer.push({'event': 'appEvent'});
+
             console.log('Cancel clicked');
           }
         }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the ProducattypePage page.
@@ -9,6 +10,7 @@ import { LoadingController } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array<Object>;
 
 @IonicPage()
 @Component({
@@ -20,7 +22,8 @@ export class ProducattypePage {
 
   public OrderLists: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
 
-  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) {    
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController,
+   public navParams: NavParams, public productpro: ProductproProvider, public event:Events) {    
   }
 
   ionViewDidLoad() {
@@ -37,6 +40,14 @@ export class ProducattypePage {
   }
 
   gotoproductlist(){
+    dataLayer : [];
+    dataLayer.push({
+     'appEventCategory': 'Order List',
+     'appEventAction': 'Clicked',
+     'appEventLabel': 'Click to See More'
+      });
+     dataLayer.push({'event': 'appEvent'});
+
     this.navCtrl.push('ProductPage');
   }
 

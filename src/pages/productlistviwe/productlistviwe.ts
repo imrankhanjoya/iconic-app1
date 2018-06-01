@@ -4,6 +4,7 @@ import { ProductproProvider } from '../../providers/productpro/productpro';
 import { LoadingController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 
 /**
  * Generated class for the ProductlistviwePage page.
@@ -11,6 +12,7 @@ import { Storage } from '@ionic/storage';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+ declare var dataLayer: Array<Object>;
 
 @IonicPage()
 @Component({
@@ -27,7 +29,10 @@ export class ProductlistviwePage {
   public ProductViewDatas: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ChildCatProducts: { status:boolean, msg: string,data: any } = {status:false,msg: 'test',data:''};
   public ContactSendData:{user_id:number,name:string,email:string,state:string,district:string,tehsil:string,mobile:string,message:string,subject:string,contact_type:string} = {user_id:'',name:'',email:'',state:'',district:'',tehsil:'',mobile:'',message:'',subject:'',contact_type:''};
-  constructor(public modalCtrl:ModalController,public storage:Storage,private alertCtrl: AlertController,public translateService: TranslateService,public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public productpro: ProductproProvider) { 
+  constructor(public modalCtrl:ModalController,public storage:Storage, 
+    private alertCtrl: AlertController,public translateService: TranslateService, 
+    public loadingCtrl: LoadingController,public navCtrl: NavController, 
+    public navParams: NavParams, public productpro: ProductproProvider, public event:Events) { 
       this.textSlide='';
       this.buttonOnCloseCSS='';
 
@@ -71,11 +76,27 @@ export class ProductlistviwePage {
 
   changesku(selectsku){ console.log(selectsku); this.selectsku = selectsku; }
   
-  gotoProductViewPage(id){
+  gotoProductViewPage(id,name){
+    dataLayer : [];
+    dataLayer.push({
+     'appEventCategory': 'product Detail',
+     'appEventAction': 'Clicked',
+     'appEventLabel': 'Related Product - '+name
+      });
+    dataLayer.push({'event': 'appEvent'});
+
     this.navCtrl.push('ProductlistviwePage',{id:id});
   }
 
   AddtoChart(){
+    dataLayer : [];
+    dataLayer.push({
+     'appEventCategory': 'product Detail',
+     'appEventAction': 'Clicked',
+     'appEventLabel': 'Add to Cart'
+      });
+     dataLayer.push({'event': 'appEvent'});
+
     this.loading = this.loadingCtrl.create({
         content: 'Please wait...'
     });
@@ -155,6 +176,13 @@ export class ProductlistviwePage {
   }
 
   OrderBuyConfirm(sku){
+      dataLayer : [];
+      dataLayer.push({
+       'appEventCategory': 'product Detail',
+       'appEventAction': 'Clicked',
+       'appEventLabel': 'Buy Button'
+        });
+       dataLayer.push({'event': 'appEvent'});
       this.BuyConfirm(sku);
   }
 
@@ -167,12 +195,26 @@ export class ProductlistviwePage {
           text: this.CANCEL_BUTTON,
           role: 'cancel',
           handler: () => {
+            dataLayer : [];
+            dataLayer.push({
+             'appEventCategory': 'product Detail',
+             'appEventAction': 'Clicked',
+             'appEventLabel': 'Order Cancel'
+              });
+            dataLayer.push({'event': 'appEvent'});
             console.log('Cancel clicked');
           }
         },
         {
           text: this.ORDER_ALERT,
           handler: () => {
+            dataLayer : [];
+            dataLayer.push({
+             'appEventCategory': 'product Detail',
+             'appEventAction': 'Clicked',
+             'appEventLabel': 'Place Order'
+              });
+            dataLayer.push({'event': 'appEvent'});
             this.Order(sku)
           }
         }
@@ -191,12 +233,28 @@ export class ProductlistviwePage {
           text: this.CANCEL_BUTTON,
           role: 'cancel',
           handler: () => {
+            dataLayer : [];
+            dataLayer.push({
+             'appEventCategory': 'product Detail',
+             'appEventAction': 'Clicked',
+             'appEventLabel': 'call Cancel'
+              });
+            dataLayer.push({'event': 'appEvent'});
+
             console.log('Cancel clicked');
           }
         },
         {
           text: this.CALL,
           handler: () => {
+            dataLayer : [];
+            dataLayer.push({
+             'appEventCategory': 'product Detail',
+             'appEventAction': 'Clicked',
+             'appEventLabel': 'call Confirm'
+              });
+            dataLayer.push({'event': 'appEvent'});
+
             window.location.href = "tel:18001200800";
             this.contactus.Send(this.ContactSendData);
             this.callProvider.makeCall();
@@ -208,6 +266,14 @@ export class ProductlistviwePage {
   }
 
   mackCall(){
+    dataLayer : [];
+    dataLayer.push({
+     'appEventCategory': 'product Detail',
+     'appEventAction': 'Clicked',
+     'appEventLabel': 'Click call Button'
+      });
+    dataLayer.push({'event': 'appEvent'});
+
     this.presentConfirm();
   }
 

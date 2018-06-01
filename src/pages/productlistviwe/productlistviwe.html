@@ -148,7 +148,7 @@
 </ion-grid>
 <ion-slides  *ngIf="ChildCatProducts.data.length > 0" [slidesPerView]="'auto'">
    <ion-slide class="slideItem" *ngFor="let productData of ChildCatProducts.data;" >
-      <ion-card (click)="gotoProductViewPage(productData.id)">
+      <ion-card (click)="gotoProductViewPage(productData.id,productData.name)">
          <img class="produtimage" src="{{productData.feature_image}}"/>
          <div class="title colorGrey Headline">{{productData.name}}</div>
          <div class="detailSar colorGreen smallTitle" > 
