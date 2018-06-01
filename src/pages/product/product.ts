@@ -172,7 +172,6 @@ export class ProductPage {
        'appEventLabel': 'Click to Filter'
      });
     dataLayer.push({'event': 'appEvent'});
-
     let modal = this.modalCtrl.create('ProductFilterPage');
     modal.present();
     modal.onDidDismiss((popoverData) => {
@@ -211,10 +210,9 @@ export class ProductPage {
       dataLayer.push({
        'appEventCategory': 'Product',
        'appEventAction': 'Clicked',
-       'appEventLabel': 'Click to OrderList'
+       'appEventLabel': 'Order List'
      });
-    dataLayer.push({'event': 'appEvent'});
-
+     dataLayer.push({'event': 'appEvent'});
     this.navCtrl.push('ProducattypePage');
   }
 
@@ -223,11 +221,10 @@ export class ProductPage {
       dataLayer.push({
        'appEventCategory': 'Product',
        'appEventAction': 'Clicked',
-       'appEventLabel': 'Click to CartList'
+       'appEventLabel': 'Cart List'
      });
-    dataLayer.push({'event': 'appEvent'});
-
-    this.navCtrl.push('ProductlistPage');
+     dataLayer.push({'event': 'appEvent'});
+      this.navCtrl.push('ProductlistPage');
   }
 
   showallcat(){
