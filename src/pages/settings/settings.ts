@@ -54,6 +54,9 @@ export class SettingsPage {
   public changepassformdata = {oldpass:'',newpass:'',confirmpass:''};
   public changelocationformdata = {user_state_id:'',user_district_id:'',user_tahsil_id:''};
   public loc:{state:string,district:string} = {state:'',district:''};
+  public CPD:any;
+  public IRRIGATION_SOURCECPD_Data:any;
+  public LANDHOLDING_SIZE_UNIT_Data:any;
 
     constructor(
           public event: Events,
@@ -72,10 +75,19 @@ export class SettingsPage {
           public popoverCtrl: PopoverController
           ) {
           this.translateService.get('LOCATION_UPDATA_SUCCESSFULLY').subscribe((value) => {
-          this.LOCATION_UPDATA_SUCCESSFULLY = value;
-           });
+            this.LOCATION_UPDATA_SUCCESSFULLY = value;
+          });
           
-
+          this.translateService.get('CPD').subscribe((value) => {            
+            this.CPD = value;
+          });
+          this.translateService.get('IRRIGATION_SOURCECPD_Data').subscribe((value) => {            
+            this.IRRIGATION_SOURCECPD_Data = value;
+          });
+          this.translateService.get('LANDHOLDING_SIZE_UNIT_Data').subscribe((value) => {            
+            this.LANDHOLDING_SIZE_UNIT_Data = value;
+          });
+          
             this.profile_picture = 'assets/img/appicon.png';
             this.storage.get('userData').then((val) => {
               this.phoneNumber = val.user_login; 
@@ -91,6 +103,7 @@ export class SettingsPage {
                 newpass: ['', Validators.required],
                 confirmpass: ['', Validators.required],
               });
+
               this.changeprofile = this.formBuilder.group({
                 display_name: [this.userData.display_name, Validators.required],
                 user_irrigation_type: [this.userData._user_irrigation_type, Validators.required],
@@ -98,6 +111,7 @@ export class SettingsPage {
                 user_landholding_size_unit: [this.userData.user_landholding_size_unit, Validators.required],
                 user_landholding_size: [this.userData._user_landholding_size, Validators.required]
               });
+
               this.changeprofile.get('user_landholding_size_unit').setValue(this.userData.user_landholding_size_unit);
               //Change Profile Details
               this.changelocation = this.formBuilder.group({

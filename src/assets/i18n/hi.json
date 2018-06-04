@@ -377,5 +377,8 @@
   "UPDATE_NOW":"अपडेट",
   "TOTAL_ORDER_AMOUNT":"कुल रकम",
   "ORDER_AMOUNT":"रकम",
-  "ORDER_DATE":"दिनांक"
+  "ORDER_DATE":"दिनांक",
+  "CPD":[{"value":"Flood irrigation","text":"बाढ़ सिंचाई"},{"value":"Surface irrigation","text":"भूतल सिंचाई"},{"value":"Sprinkler irrigation","text":"छिड़काव सिंचाई"},{"value":"Drip irrigation","text":"ड्रिप सिंचाई"},{"value":"Furrow irrigation","text":"कुंड सिंचाई"}],
+  "IRRIGATION_SOURCECPD_Data":[{"value":"Canal","text":"नहर"},{"value":"Pond","text":"तालाब"},{"value":"River","text":"नदी"},{"value":"Stream","text":"धारा"},{"value":"Tube Well","text":"ट्यूबवेल"}],
+  "LANDHOLDING_SIZE_UNIT_Data":[{"value":"Acre","text":"एकड़"},{"value":"Bigha","text":"बीघा"},{"value":"Marba","text":"मरबा"},{"value":"Hectare","text":"हैक्टर"},{"value":"Killa","text":"किल्ला"}]
 }

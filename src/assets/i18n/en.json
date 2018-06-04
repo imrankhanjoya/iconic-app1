@@ -377,6 +377,9 @@
   "UPDATE_NOW":"Update",
   "TOTAL_ORDER_AMOUNT":"Total Amount",
   "ORDER_AMOUNT":"Amount",
-  "ORDER_DATE":"Date"
+  "ORDER_DATE":"Date",
+  "CPD":[{"value":"Flood irrigation","text":"Flood irrigation"},{"value":"Surface irrigation","text":"Surface irrigation"},{"value":"Sprinkler irrigation","text":"Sprinkler irrigation"},{"value":"Drip irrigation","text":"Drip irrigation"},{"value":"Furrow irrigation","text":"Furrow irrigation"}],
+  "IRRIGATION_SOURCECPD_Data":[{"value":"Canal","text":"Canal"},{"value":"Pond","text":"Pond"},{"value":"River","text":"River"},{"value":"Stream","text":"Stream"},{"value":"Tube Well","text":"Tube Well"}],
+  "LANDHOLDING_SIZE_UNIT_Data":[{"value":"Acre","text":"Acre"},{"value":"Bigha","text":"Bigha"},{"value":"Marba","text":"Marba"},{"value":"Hectare","text":"Hectare"},{"value":"Killa","text":"Killa"}]
   
 }

@@ -72,37 +72,25 @@
           <ion-label  class="inpu" stacked>{{'DISPLAY_NAME' | translate}}</ion-label>
           <ion-input  formControlName="display_name"  placeholder="Display Name" class="colorGrey" ng-required></ion-input>
         </ion-item>
+
         <ion-item class="separator paddingBottom8px">
           <ion-label>{{'IRRIGATION_TYPE' | translate}}</ion-label>
           <ion-select  formControlName="user_irrigation_type"  ng-required>
-            <ion-option value="Flood irrigation">{{'FLOOD_IRRIGATION' | translate}}</ion-option>
-            <ion-option value="Surface irrigation">{{'SURFACE_IRRIGATION' | translate}}</ion-option>
-            <ion-option value="Sprinkler irrigation"  selected="true" >{{'SPRINKLER_IRRIGATION' | translate}}</ion-option>
-            <ion-option value="Drip irrigation">{{'DRIP_IRRIGATION' | translate}}</ion-option>
-            <ion-option value="Furrow irrigation" >{{'FURROW_IRRIGATION' | translate}}</ion-option>
+          <ion-option *ngFor="let state of CPD" value={{state.value}}>{{state.text}}</ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item class="separator paddingBottom8px">
           <ion-label>{{'IRRIGATION_SOURCE' | translate}}</ion-label>
           <ion-select  formControlName="user_irrigation_source" >
-            <ion-option value="Canal">{{'CANAL' | translate}}</ion-option>
-            <ion-option value="Well">{{'WELL' | translate}}</ion-option>
-            <ion-option value="Pond">{{'POND' | translate}}</ion-option>
-            <ion-option value="River">{{'RIVER' | translate}}</ion-option>
-            <ion-option value="Stream">{{'STREAM' | translate}}</ion-option>
-            <ion-option value="Tube Well">{{'TUBE_WELL' | translate}}</ion-option>
+            <ion-option *ngFor="let state of IRRIGATION_SOURCECPD_Data" value={{state.value}}>{{state.text}}</ion-option>
           </ion-select>
         </ion-item>
 
         <ion-item class="separator paddingBottom8px">
           <ion-label>{{'LANDHOLDING_SIZE_UNIT' | translate}}</ion-label>
           <ion-select  formControlName="user_landholding_size_unit" >
-            <ion-option value="Acre">{{'ACRE' | translate}}</ion-option>
-            <ion-option value="Bigha">{{'BIGHA' | translate}}</ion-option>
-            <ion-option value="Marba">{{'MARBA' | translate}}</ion-option>
-            <ion-option value="Hectare">{{'HECTARE' | translate}}</ion-option>
-            <ion-option value="Killa">{{'KILLA' | translate}}</ion-option>
+            <ion-option *ngFor="let state of LANDHOLDING_SIZE_UNIT_Data" value={{state.value}}>{{state.text}}</ion-option>
           </ion-select>
         </ion-item>
          <ion-item class="paddingBottom8px separator colorGrey">
